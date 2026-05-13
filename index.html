@@ -1,0 +1,590 @@
+<!--
+  reThought Real Estate — Presentation Hub
+  ==========================================
+  Serve with: npx serve . or python3 -m http.server
+  (fetch requires HTTP, not file://)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Presentation Hub | reThought Real Estate</title>
+
+<!-- Fonts: Poppins (display), Instrument Sans (body), Geist Mono (labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Instrument+Sans:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================
+   RESET & BASE
+   ========================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper:   #fbfbfb;
+  --ink:     #1B252F;
+  --brand:   #034c76;
+  --sprout:  #8cc94e;
+  --muted:   #1B252F99;
+  --card-bg: #ffffff;
+  --shadow:  0 2px 12px rgba(0,0,0,0.06);
+  --radius:  14px;
+}
+
+html {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   LAYOUT
+   ========================================= */
+.hub-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 40px;
+  flex: 1;
+  width: 100%;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+.hub-header {
+  margin-bottom: 56px;
+}
+
+.hub-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.hub-header__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.hub-header__subtitle {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* =========================================
+   SERIES SECTIONS
+   ========================================= */
+.series-section {
+  margin-bottom: 56px;
+}
+
+.series-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #1B252F10;
+}
+
+.series-header__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.series-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.series-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.series-sublabel {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 400;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.series-badge {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 500;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border-radius: 999px;
+  padding: 5px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Progress dots for series */
+.series-progress {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 6px;
+}
+.series-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1B252F15;
+}
+.series-dot.filled {
+  background: var(--brand);
+}
+
+/* Series color themes */
+.series-section[data-color="brand"] .series-icon { background: var(--brand); }
+.series-section[data-color="brand"] .series-badge { background: #034c7612; color: var(--brand); border: 1px solid #034c7630; }
+.series-section[data-color="brand"] .card { border-top-color: var(--brand); }
+.series-section[data-color="brand"] .card__session { color: var(--brand); }
+.series-section[data-color="brand"] .series-dot.filled { background: var(--brand); }
+
+.series-section[data-color="sprout"] .series-icon { background: var(--sprout); color: var(--ink); }
+.series-section[data-color="sprout"] .series-badge { background: #8cc94e12; color: #2c5e15; border: 1px solid #8cc94e40; }
+.series-section[data-color="sprout"] .card { border-top-color: var(--sprout); }
+.series-section[data-color="sprout"] .card__session { color: #2c5e15; }
+.series-section[data-color="sprout"] .series-dot.filled { background: var(--sprout); }
+
+.series-section[data-color="clay"] .series-icon { background: var(--clay); }
+.series-section[data-color="clay"] .series-badge { background: #c0544512; color: var(--clay); border: 1px solid #c0544530; }
+.series-section[data-color="clay"] .card { border-top-color: var(--clay); }
+.series-section[data-color="clay"] .card__session { color: var(--clay); }
+.series-section[data-color="clay"] .series-dot.filled { background: var(--clay); }
+
+.series-section[data-color="ink"] .series-icon { background: var(--ink); }
+.series-section[data-color="ink"] .series-badge { background: #1B252F0a; color: var(--ink); border: 1px solid #1B252F20; }
+.series-section[data-color="ink"] .card { border-top-color: var(--ink); }
+.series-section[data-color="ink"] .card__session { color: var(--ink); }
+.series-section[data-color="ink"] .series-dot.filled { background: var(--ink); }
+
+/* =========================================
+   CARD ROW
+   ========================================= */
+.card-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* hide scrollbar but keep scrollability */
+.card-row::-webkit-scrollbar { height: 6px; }
+.card-row::-webkit-scrollbar-track { background: transparent; }
+.card-row::-webkit-scrollbar-thumb { background: #1B252F20; border-radius: 3px; }
+
+/* =========================================
+   CARD
+   ========================================= */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--brand);
+  padding: 28px 24px 24px;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card__session {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 500;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: var(--brand);
+}
+
+.card__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.card__meta {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* =========================================
+   BADGES (unused placeholder, kept for DS)
+   ========================================= */
+.badge {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 500;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 999px;
+  padding: 3px 10px;
+  display: inline-block;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+.btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.15s;
+  line-height: 1;
+}
+.btn:hover { opacity: 0.85; }
+
+.btn--primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn--secondary {
+  background: var(--sprout);
+  color: var(--ink);
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid #1B252F20;
+  color: var(--ink);
+}
+
+.btn[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* =========================================
+   LOADING / ERROR STATE
+   ========================================= */
+.hub-status {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 32px 0;
+  text-align: center;
+}
+.hub-status--error { color: #c0392b; }
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.hub-footer {
+  border-top: 1px solid #1B252F10;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hub-footer__left,
+.hub-footer__right {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 640px) {
+  .hub-container { padding: 40px 20px; }
+  .hub-header__title { font-size: 1.5rem; }
+  .hub-footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
+  .card { flex: 0 0 260px; min-width: 240px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================
+     HEADER
+     ======================================== -->
+<div class="hub-container">
+  <header class="hub-header">
+    <div class="hub-header__brand">
+      <!-- reThought wordmark SVG (dark / light-mode version) -->
+      <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" style="height: 44px; width: auto; color: #1B252F;">
+        <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/></g><g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08"/><circle cx="64.17" cy="39.49" r="5.08"/></g>
+      </svg>
+    </div>
+    <h1 class="hub-header__title">Presentation Hub</h1>
+    <p class="hub-header__subtitle">reThought Real Estate</p>
+  </header>
+
+  <!-- Presentations render here -->
+  <main id="hub-main">
+    <p class="hub-status" id="hub-status">Loading presentations&hellip;</p>
+  </main>
+</div>
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+<footer class="hub-footer">
+  <span class="hub-footer__left">reThought Real Estate&reg; &middot; Presentation Hub</span>
+  <span class="hub-footer__right">Real Simple. Real Skills. Real Results.</span>
+</footer>
+
+<!-- ========================================
+     LOGIC
+     ======================================== -->
+<script>
+(async function () {
+  const main   = document.getElementById('hub-main');
+  const status = document.getElementById('hub-status');
+
+  /* ---- 1. Fetch manifest ---- */
+  let manifest;
+  try {
+    const res = await fetch('manifest.json');
+    if (!res.ok) throw new Error(`manifest.json returned ${res.status}`);
+    manifest = await res.json();
+  } catch (err) {
+    status.textContent = `Could not load manifest.json — ${err.message}`;
+    status.classList.add('hub-status--error');
+    return;
+  }
+
+  if (!Array.isArray(manifest) || manifest.length === 0) {
+    status.textContent = 'No presentations listed in manifest.json.';
+    return;
+  }
+
+  /* ---- 2. Fetch each presentation and parse meta tags ---- */
+  const presentations = [];
+
+  await Promise.all(manifest.map(async (filename) => {
+    try {
+      const res  = await fetch(`presentations/${filename}`);
+      if (!res.ok) return;                       // skip missing files silently
+      const html = await res.text();
+
+      // Parse into a DOM to read <meta> tags
+      const parser = new DOMParser();
+      const doc    = parser.parseFromString(html, 'text/html');
+
+      const meta = (name) => {
+        const el = doc.querySelector(`meta[name="${name}"]`);
+        return el ? el.getAttribute('content') : null;
+      };
+
+      presentations.push({
+        filename,
+        title:   meta('presentation-title')   || filename.replace('.html', ''),
+        series:  meta('presentation-series')   || null,
+        session: parseInt(meta('presentation-session'), 10) || 0,
+        date:    meta('presentation-date')     || '',
+        slides:  meta('presentation-slides')   || '—',
+        pdf:     meta('presentation-pdf')      || null,
+      });
+    } catch (_) {
+      // network error — skip
+    }
+  }));
+
+  if (presentations.length === 0) {
+    status.textContent = 'No valid presentations found.';
+    return;
+  }
+
+  /* ---- 3. Group by series ---- */
+  const groups = {};
+  const STANDALONE = 'Standalone Presentations';
+
+  presentations.forEach((p) => {
+    const key = p.series || STANDALONE;
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(p);
+  });
+
+  // Sort sessions within each group
+  Object.values(groups).forEach((arr) => arr.sort((a, b) => a.session - b.session));
+
+  // Render named series first, standalone last
+  const seriesOrder = Object.keys(groups).sort((a, b) => {
+    if (a === STANDALONE) return 1;
+    if (b === STANDALONE) return -1;
+    return a.localeCompare(b);
+  });
+
+  /* ---- 4. Series color & icon mapping ---- */
+  const SERIES_COLORS = ['brand', 'sprout', 'clay', 'ink'];
+  const SERIES_ICONS = {
+    'Marketing Machine': 'MM',
+    'Quarterly Reviews': 'QR',
+    'Agent Onboarding': 'AO',
+    'Lofty Mastery': 'LM',
+  };
+  let colorIndex = 0;
+
+  /* ---- 5. Render ---- */
+  main.innerHTML = '';
+
+  seriesOrder.forEach((seriesName) => {
+    const items = groups[seriesName];
+    const section = document.createElement('section');
+    section.className = 'series-section';
+
+    // Assign a color theme
+    const color = SERIES_COLORS[colorIndex % SERIES_COLORS.length];
+    section.setAttribute('data-color', color);
+    colorIndex++;
+
+    // Series icon text (first letters or mapped)
+    const iconText = SERIES_ICONS[seriesName] ||
+      seriesName.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+
+    // Count total sessions (highest session number in the group)
+    const maxSession = Math.max(...items.map(p => p.session || 0), items.length);
+    const completedCount = items.length;
+
+    // Build progress dots
+    let progressDots = '';
+    if (seriesName !== STANDALONE && maxSession > 0) {
+      for (let i = 1; i <= Math.max(maxSession, 4); i++) {
+        const filled = items.some(p => p.session === i) ? 'filled' : '';
+        progressDots += `<span class="series-dot ${filled}"></span>`;
+      }
+    }
+
+    // Series header
+    const header = document.createElement('div');
+    header.className = 'series-header';
+    header.innerHTML = `
+      <div class="series-header__left">
+        <div class="series-icon">${iconText}</div>
+        <div>
+          <h2 class="series-label">${escapeHTML(seriesName)}</h2>
+          <div class="series-sublabel">${completedCount} presentation${completedCount !== 1 ? 's' : ''}</div>
+          ${progressDots ? `<div class="series-progress">${progressDots}</div>` : ''}
+        </div>
+      </div>
+      <div class="series-badge">${completedCount} of ${Math.max(maxSession, completedCount)}</div>
+    `;
+    section.appendChild(header);
+
+    // Card row
+    const row = document.createElement('div');
+    row.className = 'card-row';
+
+    items.forEach((p) => {
+      const card = document.createElement('article');
+      card.className = 'card';
+
+      // Format date nicely
+      let dateStr = p.date;
+      if (dateStr) {
+        try {
+          const d = new Date(dateStr + 'T00:00:00');
+          dateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        } catch (_) { /* keep raw */ }
+      }
+
+      card.innerHTML = `
+        ${p.session ? `<span class="card__session">Session ${p.session}</span>` : ''}
+        <h3 class="card__title">${escapeHTML(p.title)}</h3>
+        <div class="card__meta">
+          ${dateStr ? `${escapeHTML(dateStr)}<br>` : ''}
+          ${p.slides} slides
+        </div>
+        <div class="card__actions">
+          <a class="btn btn--primary" href="presenter.html?file=presentations/${encodeURIComponent(p.filename)}" target="_blank">&#9654; Present</a>
+          <a class="btn btn--ghost" href="presentations/${encodeURIComponent(p.filename)}" target="_blank">&#128065; View</a>
+          ${p.pdf
+            ? `<a class="btn btn--ghost" href="presentations/${encodeURIComponent(p.pdf)}" download>&#8595; PDF</a>`
+            : `<button class="btn btn--ghost" disabled title="Not exported yet">&#8595; PDF</button>`
+          }
+        </div>
+      `;
+
+      row.appendChild(card);
+    });
+
+    section.appendChild(row);
+    main.appendChild(section);
+  });
+
+  /* ---- helpers ---- */
+  function escapeHTML(str) {
+    const el = document.createElement('span');
+    el.textContent = str;
+    return el.innerHTML;
+  }
+})();
+</script>
+
+</body>
+</html>

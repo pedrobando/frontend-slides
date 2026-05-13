@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Capture the Lead: ManyChat DM Automation | reThought Real Estate</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="Capture the Lead: ManyChat DM Automation">
+<meta name="presentation-series" content="Marketing Machine">
+<meta name="presentation-session" content="3">
+<meta name="presentation-date" content="2026-05-12">
+<meta name="presentation-slides" content="23">
+<meta name="presentation-pdf" content="marketing-machine-session-3.pdf">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   VIEWPORT BASE — MANDATORY
+   =========================================== */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+    width: 100vw; height: 100vh; height: 100dvh;
+    overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    max-height: 100%; overflow: hidden; padding: var(--slide-padding);
+}
+:root {
+    --title-size: clamp(2rem, 5.5vw, 4.5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.2rem, 3vw, 2.2rem);
+    --body-size: clamp(0.9rem, 1.8vw, 1.35rem);
+    --small-size: clamp(0.7rem, 1.2vw, 1rem);
+    --slide-padding: clamp(1.5rem, 5vw, 5rem);
+    --content-gap: clamp(0.6rem, 2.5vw, 2.5rem);
+    --element-gap: clamp(0.3rem, 1.2vw, 1.2rem);
+}
+@media (max-height: 700px) {
+    :root { --slide-padding: clamp(1rem, 3vw, 2.5rem); --title-size: clamp(1.5rem, 4.5vw, 3rem); --h2-size: clamp(1.2rem, 3.5vw, 2.2rem); }
+}
+@media (max-height: 600px) {
+    :root { --slide-padding: clamp(0.75rem, 2.5vw, 1.5rem); --title-size: clamp(1.2rem, 4vw, 2.5rem); --body-size: clamp(0.8rem, 1.4vw, 1.1rem); }
+    .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root { --slide-padding: clamp(0.5rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.5rem, 8vw, 3rem); } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   RETHOUGHT TOKENS — UPDATED INK
+   =========================================== */
+:root {
+    --ink: #1B252F;
+    --ink-soft: #222E3A;
+    --ink-deep: #151D26;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --brand-light: #6ba8d6;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --muted: #6e7a88;
+    --muted-2: #95a0ae;
+    --border-d: #ffffff18;
+    --border-l: #1B252F14;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--sprout); color: var(--ink); }
+
+/* ===========================================
+   GLOBAL COMPONENTS
+   =========================================== */
+.slide { background: var(--ink); padding: var(--slide-padding); }
+.slide.light { background: var(--paper); color: var(--ink); }
+.slide.light .section-label { color: var(--brand); }
+.slide.light .section-label::before { background: var(--brand); }
+.slide.light .slide-body { color: var(--muted); }
+.slide.light .slide-footer { color: var(--muted); }
+.slide.light .slide-number { color: var(--muted); }
+.slide.paper { background: var(--paper); color: var(--ink); }
+.slide.paper .section-label { color: var(--brand); }
+.slide.paper .section-label::before { background: var(--brand); }
+.slide.paper .slide-body { color: var(--muted); }
+.slide.paper .slide-footer { color: var(--muted); }
+.slide.paper .slide-number { color: var(--muted); }
+
+.section-label {
+    font-family: var(--font-mono); font-size: clamp(0.65rem, 1vw, 0.85rem);
+    letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
+}
+.section-label::before { content: ""; width: clamp(14px, 2.5vw, 24px); height: 2px; background: var(--sprout); }
+
+.slide-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--h2-size); letter-spacing: -0.025em; line-height: 1.1;
+    margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+}
+.slide-body {
+    font-family: var(--font-sans); font-size: var(--body-size);
+    line-height: 1.6; color: var(--muted-2); max-width: 60ch;
+}
+
+/* Strokes */
+.stroke { position: relative; display: inline-block; padding: 0 3px; }
+.stroke svg.ul {
+    position: absolute; left: -4px; right: -4px; bottom: clamp(-6px, -0.8vh, -10px);
+    width: calc(100% + 8px); height: clamp(10px, 1.5vw, 16px); pointer-events: none;
+}
+.stroke svg.ul path { fill: none; stroke-width: 3; stroke-linecap: round; }
+.stroke--sprout svg.ul path { stroke: var(--sprout); }
+.stroke--clay svg.ul path { stroke: var(--clay); }
+.stroke--brand svg.ul path { stroke: var(--brand-deep); }
+
+.highlight { background: linear-gradient(180deg, transparent 50%, #8cc94e44 50% 88%, transparent 88%); padding: 0 4px; }
+
+/* Cards */
+.rt-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(1rem, 2vw, 1.8rem);
+}
+.light .rt-card, .paper .rt-card {
+    background: white; border-color: var(--border-l);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Badges */
+.badge {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(8px, 1.2vw, 14px);
+    border-radius: 999px; text-transform: uppercase; display: inline-block;
+}
+.badge-sprout { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-brand { background: #034c7630; color: var(--brand-light); border: 1px solid #034c7650; }
+.badge-clay { background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550; }
+.badge-done { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-today { background: #034c7650; color: #8bc7f0; border: 1px solid #034c7680; }
+.badge-next { background: #ffffff10; color: var(--muted-2); border: 1px solid var(--border-d); }
+.light .badge-sprout, .paper .badge-sprout { background: #8cc94e18; color: var(--sprout-deep); border-color: #8cc94e40; }
+.light .badge-brand, .paper .badge-brand { background: #034c7618; color: var(--brand); border-color: #034c7640; }
+
+/* Stats strip */
+.stats-strip {
+    display: grid; gap: 2px; background: var(--border-d);
+    border: 1px solid var(--border-d); border-radius: 14px; overflow: hidden;
+}
+.stat-cell { background: var(--ink-soft); padding: clamp(0.8rem, 1.8vw, 1.5rem); text-align: center; }
+.stat-num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(1.4rem, 3.5vw, 2.8rem); letter-spacing: -0.02em; line-height: 1;
+}
+.stat-label {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.85vw, 0.72rem);
+    letter-spacing: 1.4px; color: var(--muted-2); text-transform: uppercase;
+    margin-top: clamp(4px, 0.6vh, 10px);
+}
+
+/* Tables */
+.rt-table { width: 100%; border-collapse: collapse; font-size: clamp(0.75rem, 1.2vw, 1rem); }
+.rt-table th {
+    font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout);
+    text-align: left; padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1.2vw, 14px);
+    border-bottom: 2px solid var(--border-d);
+}
+.rt-table td {
+    font-family: var(--font-sans); padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1.2vw, 14px);
+    border-bottom: 1px solid #ffffff0a; color: var(--muted-2);
+}
+.rt-table td:first-child { color: var(--paper); font-weight: 500; }
+.light .rt-table th { color: var(--brand); border-color: var(--border-l); }
+.light .rt-table td { border-color: #0000000a; color: var(--muted); }
+.light .rt-table td:first-child { color: var(--ink); }
+
+/* DM Cards — chat bubble style */
+.dm-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 16px 16px 16px 4px; padding: clamp(0.6rem, 1.4vw, 1.2rem);
+    border-left: 4px solid var(--brand-deep); position: relative;
+}
+.dm-card.outgoing { border-radius: 16px 16px 4px 16px; border-left: none; border-right: 4px solid var(--sprout); }
+.dm-label {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.8vw, 0.65rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout);
+    margin-bottom: clamp(3px, 0.4vh, 6px);
+}
+.dm-text {
+    font-family: var(--font-sans); font-size: clamp(0.7rem, 1.1vw, 0.95rem);
+    color: var(--paper); line-height: 1.5; font-style: italic;
+}
+
+/* Layouts */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2.5vw, 2rem); }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: clamp(0.5rem, 1.5vw, 1.2rem); }
+.four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+@media (max-width: 700px) { .two-col, .three-col, .four-col { grid-template-columns: 1fr; } }
+
+/* Metric cards */
+.metric-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(0.8rem, 1.8vw, 1.5rem);
+}
+.metric-title {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2);
+}
+.metric-value {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(1.5rem, 3.5vw, 2.8rem); letter-spacing: -0.02em; line-height: 1;
+    margin-top: clamp(2px, 0.3vh, 6px);
+}
+.metric-bar {
+    height: clamp(4px, 0.5vh, 6px); border-radius: 3px;
+    margin-top: clamp(6px, 0.6vh, 10px); overflow: hidden; background: var(--ink-deep);
+}
+.metric-bar-fill {
+    height: 100%; border-radius: 3px; width: 0;
+    transition: width 1.2s var(--ease-out-expo);
+}
+.visible .metric-bar-fill { width: var(--fill); }
+
+/* Workflow */
+.wf-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(4px, 0.8vw, 10px); }
+.wf-step {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 12px; padding: clamp(0.6rem, 1.2vw, 1rem); text-align: center;
+}
+.wf-step.active { border-color: var(--sprout); background: #8cc94e12; }
+.wf-num { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--sprout); letter-spacing: 1px; }
+.wf-name { font-family: var(--font-display); font-weight: 600; font-size: clamp(0.65rem, 1vw, 0.85rem); margin-top: 4px; }
+
+/* Checklist */
+.check-item { display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); font-size: var(--body-size); padding: clamp(4px, 0.5vh, 8px) 0; }
+.check-box {
+    width: clamp(16px, 1.5vw, 22px); height: clamp(16px, 1.5vw, 22px);
+    border: 2px solid var(--muted); border-radius: 4px; flex-shrink: 0;
+}
+
+/* Progress bar */
+.progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--sprout); z-index: 9999; transition: width 0.3s ease; }
+
+/* Nav dots */
+.nav-dots {
+    position: fixed; right: clamp(12px, 2vw, 24px); top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 8px; z-index: 9998;
+}
+.nav-dot {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--muted); opacity: 0.3;
+    cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
+}
+.nav-dot.active { background: var(--sprout); opacity: 1; transform: scale(1.4); }
+
+/* Slide footer / number */
+.slide-footer {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.slide-number {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); right: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1px;
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(1) { transition-delay: 0.05s; }
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.25s; }
+.reveal:nth-child(4) { transition-delay: 0.35s; }
+.reveal:nth-child(5) { transition-delay: 0.45s; }
+
+/* Stagger children inside a container */
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.visible .stagger > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.visible .stagger > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.visible .stagger > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.visible .stagger > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.visible .stagger > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+.visible .stagger > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+
+/* Scale-in */
+.reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.6s, transform 0.6s var(--ease-spring); }
+.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+/* Slide-in from left */
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.6s, transform 0.6s var(--ease-out-expo); }
+.visible .reveal-left { opacity: 1; transform: translateX(0); }
+
+/* Animated counter */
+.counter { font-variant-numeric: tabular-nums; }
+
+/* Pulse dot */
+@keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.4); opacity: 1; } }
+.pulse-dot {
+    width: clamp(8px, 1vw, 12px); height: clamp(8px, 1vw, 12px);
+    background: var(--sprout); border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Typing indicator */
+@keyframes typing { 0%, 60%, 100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+.typing-dots { display: flex; gap: 4px; padding: 8px 0; }
+.typing-dots span {
+    width: 8px; height: 8px; background: var(--sprout); border-radius: 50%;
+    animation: typing 1.4s ease-in-out infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* Chat message slide-in */
+.chat-msg {
+    opacity: 0; transform: translateX(-30px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .chat-msg:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0.2s; }
+.visible .chat-msg:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.5s; }
+.visible .chat-msg:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.8s; }
+.visible .chat-msg:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 1.1s; }
+
+/* Flowing gradient bg */
+@keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.gradient-bg {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 30%, var(--ink) 70%, var(--ink-soft) 100%);
+    background-size: 300% 300%;
+    animation: gradient-flow 8s ease infinite;
+}
+
+/* Bar grow */
+@keyframes bar-grow { from { width: 0; } }
+.bar-animated { animation: bar-grow 1s var(--ease-out-expo) forwards; }
+.visible .bar-animated { animation: bar-grow 1s var(--ease-out-expo) forwards; }
+
+/* Float */
+@keyframes float-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.float { animation: float-gentle 4s ease-in-out infinite; }
+
+/* Glow ring */
+@keyframes glow-ring { 0%, 100% { box-shadow: 0 0 0 0 #8cc94e40; } 50% { box-shadow: 0 0 0 12px #8cc94e00; } }
+.glow { animation: glow-ring 2s ease-in-out infinite; }
+
+/* Keyword flash */
+@keyframes keyword-flash { 0%, 70%, 100% { color: var(--sprout); } 85% { color: var(--paper); } }
+
+/* ===========================================
+   IG DM PHONE MOCKUP — Chat bubbles
+   =========================================== */
+.ig-bubble {
+    max-width: 82%;
+    padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.2vw, 14px);
+    font-family: var(--font-sans);
+    font-size: clamp(0.72rem, 1.1vw, 0.92rem);
+    line-height: 1.45;
+    color: white;
+    /* animation */
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+    transition: opacity 0.4s var(--ease-out-expo), transform 0.4s var(--ease-spring);
+}
+.ig-bubble p { margin: 0; }
+.ig-us {
+    background: #3797f0;
+    border-radius: 18px 18px 4px 18px;
+}
+.ig-them {
+    background: #262626;
+    border-radius: 18px 18px 18px 4px;
+}
+/* Staggered reveal — each bubble appears in sequence */
+.visible .ig-bubble:nth-child(1) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.15s; }
+.visible .ig-bubble:nth-child(2) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.45s; }
+.visible .ig-bubble:nth-child(3) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.8s; }
+.visible .ig-bubble:nth-child(4) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.1s; }
+.visible .ig-bubble:nth-child(5) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.45s; }
+.visible .ig-bubble:nth-child(6) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.75s; }
+.visible .ig-bubble:nth-child(7) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 2.1s; }
+.visible .ig-bubble:nth-child(8) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 2.4s; }
+.visible .ig-bubble:nth-child(9) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 2.75s; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar"></div>
+<nav class="nav-dots"></nav>
+
+<!-- ============================================
+     SLIDE 1: COVER — animated gradient + pulsing dots
+     ============================================ -->
+<section class="slide gradient-bg" data-notes="Welcome everyone. Marketing Machine Session 3. Today we build the capture mechanism — the machine that turns interested people into leads in your system." style="justify-content: center; align-items: center;">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(1.5rem, 3.5vh, 3rem); text-align: center;">
+    <div class="reveal-scale" style="position: relative;">
+      <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate" style="height: clamp(2.5rem, 6vw, 4.5rem); width: auto; color: var(--paper);">
+        <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+        <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay: 0.5s;"/></g>
+      </svg>
+    </div>
+    <div>
+      <h1 class="reveal" style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.03em; line-height: 1.05;">
+        <span class="stroke stroke--sprout">Capture<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> the Lead
+      </h1>
+      <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--muted-2); margin-top: clamp(0.5rem, 1vh, 1rem);">ManyChat DM Automation for Real Estate Agents</p>
+    </div>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--muted-2);">Pedro Bando Rivera, Broker/Owner</p>
+    <div class="reveal" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+      <span class="badge badge-sprout" style="font-size: clamp(0.6rem, 0.9vw, 0.75rem);">Marketing Machine</span>
+      <span class="badge badge-brand" style="font-size: clamp(0.6rem, 0.9vw, 0.75rem);">Session 3 of 4</span>
+    </div>
+    <p class="reveal" style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.75vw, 0.65rem); letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted);">
+      Week of May 12, 2026 &middot; Milwaukee, WI &middot; Kissimmee / Orlando, FL
+    </p>
+  </div>
+  <div class="slide-footer" style="color: var(--muted-2);">Real Simple. Real Skills. Real Results.</div>
+  <div class="slide-number" style="color: var(--muted-2);">01</div>
+</section>
+
+<!-- ============================================
+     SLIDE 2: YEAR STATEMENT — big bold centered
+     ============================================ -->
+<section class="slide" data-notes="Quick reminder: 2026 is about building systems. Every system you build runs while you sleep. The agents who win long-term aren&apos;t the ones who work the hardest — they&apos;re the ones who build the smartest systems. Push the edge. That&apos;s where we grow." style="justify-content: center; align-items: center;">
+  <div style="text-align: center; max-width: min(85vw, 900px);">
+    <div class="section-label reveal" style="justify-content: center;">The Year Of</div>
+    <h2 class="reveal" style="font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 7vw, 5.5rem); letter-spacing: -0.04em; line-height: 1.05;">
+      2026 Is THE Year of<br>
+      <span class="stroke stroke--sprout">SYSTEMS<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>
+      and
+      <span class="stroke stroke--brand">NEW<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 7 C 70 14, 140 2, 198 8"/></svg></span>
+      Skill Developments.
+    </h2>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(0.9rem, 1.5vw, 1.2rem); color: var(--muted-2); margin-top: clamp(1rem, 2.5vh, 2rem); max-width: 50ch; margin-left: auto; margin-right: auto;">
+      Stop improvising. Start building. Every system you build runs while you sleep.
+    </p>
+  </div>
+  <div class="slide-footer">reThought Real Estate &middot; 2026</div>
+  <div class="slide-number">02</div>
+</section>
+
+<!-- ============================================
+     SLIDE 3: MISIÓN Y VISIÓN — LIGHT / BIG / BOLD
+     ============================================ -->
+<section class="slide light" data-notes="Our mission and vision in Spanish. Read these aloud if the audience is primarily Spanish-speaking. Pause and let the team absorb." style="justify-content: center;">
+  <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+    <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Misi&oacute;n</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">
+        Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque <span style="color: var(--brand); font-weight: 700;">personalizado</span>, impulsado por la <span style="color: var(--brand); font-weight: 700;">tecnolog&iacute;a</span> y centrado en el <span style="color: var(--brand); font-weight: 700;">cliente</span> para la compra y venta de propiedades.
+      </p>
+    </div>
+    <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout-deep); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Visi&oacute;n</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">
+        Triunfar en convertirnos en el <span style="color: var(--sprout-deep); font-weight: 700;">l&iacute;der local</span> de la industria enfocado en <span style="color: var(--sprout-deep); font-weight: 700;">humanizar</span> el sector inmobiliario, aprovechando la innovaci&oacute;n, la inversi&oacute;n y el crecimiento, mientras seguimos siendo un <span style="color: var(--sprout-deep); font-weight: 700;">recurso para la comunidad</span>.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Human First &middot; Tech Driven &middot; Community Focused</div>
+  <div class="slide-number">03</div>
+</section>
+
+<!-- ============================================
+     SLIDE 4: MISSION & VISION — DARK / BIG / BOLD
+     ============================================ -->
+<section class="slide" data-notes="Same mission and vision in English. Human First. Tech Driven. Community Focused. These aren&apos;t just words — they guide every decision we make." style="justify-content: center;">
+  <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+    <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand-light); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Mission</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">
+        To redefine traditional real estate expectations delivering a <span style="color: var(--sprout); font-weight: 700;">personalized</span>, <span style="color: var(--sprout); font-weight: 700;">tech-driven</span>, and <span style="color: var(--sprout); font-weight: 700;">client-centric</span> approach to buying and selling real estate.
+      </p>
+    </div>
+    <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Vision</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">
+        To succeed at becoming the <span style="color: var(--sprout-soft); font-weight: 700;">local industry leader</span> that focuses on <span style="color: var(--sprout-soft); font-weight: 700;">humanizing</span> Real Estate by leveraging innovation, investments and growth while remaining a <span style="color: var(--sprout-soft); font-weight: 700;">resource to the Community</span>.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Human First &middot; Tech Driven &middot; Community Focused</div>
+  <div class="slide-number">04</div>
+</section>
+
+<!-- ============================================
+     SLIDE 5: MILWAUKEE MARKET — SVG map + comparison bars
+     ============================================ -->
+<section class="slide" data-notes="Milwaukee County April numbers. Key takeaway: inventory is rising fast — 26% more new listings. But prices are holding steady, only down 0.4%. Sellers are still getting close to asking price. Days on market went up to 24 — buyers have slightly more time but it&apos;s still competitive. More options for buyers, but deals still move.">
+  <div class="slide-content" style="gap: clamp(0.5rem, 1vh, 0.8rem);">
+    <div class="section-label reveal">Milwaukee County &middot; April 2026</div>
+    <h2 class="reveal slide-title">Monthly Local Market Report</h2>
+
+    <div style="display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(1rem, 3vw, 2.5rem); align-items: center;">
+
+      <!-- Left: SVG Milwaukee County map with data callouts -->
+      <div class="reveal-scale" style="position: relative; aspect-ratio: 0.85; max-height: min(60vh, 460px);">
+        <svg viewBox="0 0 400 470" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+          <!-- Milwaukee County simplified outline -->
+          <defs>
+            <linearGradient id="mke-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color: var(--brand-deep); stop-opacity: 0.35;"/>
+              <stop offset="100%" style="stop-color: var(--brand); stop-opacity: 0.15;"/>
+            </linearGradient>
+            <filter id="glow-map"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- County shape (simplified Milwaukee County) -->
+          <path d="M80,30 L310,30 Q340,30 340,60 L340,120 L360,140 L360,200 L340,220 L340,340
+                   Q340,370 320,385 L280,410 Q260,425 240,430 L200,440 L160,440 Q130,435 110,420
+                   L80,395 Q60,375 60,350 L60,200 L50,160 L60,120 L60,60 Q60,30 80,30 Z"
+                fill="url(#mke-fill)" stroke="var(--brand-deep)" stroke-width="1.5" opacity="0.9"/>
+          <!-- Lake Michigan edge -->
+          <path d="M340,60 L340,120 L360,140 L360,200 L340,220 L340,340" fill="none" stroke="var(--brand-light)" stroke-width="2.5" opacity="0.5" stroke-dasharray="6 4"/>
+          <text x="365" y="180" fill="var(--brand-light)" font-family="var(--font-mono)" font-size="9" letter-spacing="1.5" opacity="0.4" transform="rotate(90,365,180)">LAKE MICHIGAN</text>
+
+          <!-- City of Milwaukee highlight -->
+          <ellipse cx="210" cy="210" rx="95" ry="110" fill="var(--brand)" opacity="0.12" filter="url(#glow-map)"/>
+
+          <!-- Downtown pin -->
+          <circle cx="220" cy="175" r="6" fill="var(--sprout)" opacity="0.9">
+            <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="238" y="179" fill="var(--paper)" font-family="var(--font-mono)" font-size="10" letter-spacing="0.5" opacity="0.7">DOWNTOWN</text>
+
+          <!-- Neighborhood labels -->
+          <text x="150" y="130" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="8.5" letter-spacing="1" opacity="0.5">NORTH SHORE</text>
+          <text x="130" y="260" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="8.5" letter-spacing="1" opacity="0.5">WEST SIDE</text>
+          <text x="220" y="320" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="8.5" letter-spacing="1" opacity="0.5">SOUTH SIDE</text>
+          <text x="260" y="100" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="8.5" letter-spacing="1" opacity="0.5">NORTH</text>
+
+          <!-- Pulsing data pins on map -->
+          <circle cx="170" cy="145" r="4" fill="var(--sprout-soft)" opacity="0.7"><animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="145" cy="240" r="4" fill="var(--clay-soft)" opacity="0.7"><animate attributeName="opacity" values="0.7;1;0.7" dur="3s" begin="0.5s" repeatCount="indefinite"/></circle>
+          <circle cx="250" cy="300" r="4" fill="var(--sprout)" opacity="0.7"><animate attributeName="opacity" values="0.7;1;0.7" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
+          <circle cx="280" cy="160" r="4" fill="var(--brand-light)" opacity="0.7"><animate attributeName="opacity" values="0.7;1;0.7" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
+        </svg>
+
+        <!-- Floating callout card on map -->
+        <div style="
+          position: absolute; bottom: clamp(8px, 2vh, 20px); left: clamp(4px, 1vw, 12px);
+          background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 10px;
+          padding: clamp(6px, 0.8vw, 10px) clamp(8px, 1vw, 12px);
+          font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem);
+          color: var(--muted-2); letter-spacing: 0.5px; backdrop-filter: blur(8px);
+        ">
+          <span style="color: var(--sprout);">&#9679;</span> SFR: 1,115 &nbsp;
+          <span style="color: var(--brand-light);">&#9679;</span> Condo: 422
+        </div>
+      </div>
+
+      <!-- Right: Comparison bars — 2025 vs 2026 side-by-side -->
+      <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.6rem, 1.2vh, 1rem);">
+
+        <!-- New Listings -->
+        <div class="rt-card" style="padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <div class="metric-title">New Listings</div>
+            <span class="badge badge-sprout" style="font-size: clamp(0.55rem, 0.8vw, 0.68rem);">&uarr; 26.1%</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: clamp(8px, 1vw, 14px); margin-top: clamp(6px, 0.8vh, 10px);">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); margin-bottom: 3px;">
+                <span>2025</span><span>900</span>
+              </div>
+              <div style="height: clamp(10px, 1.2vh, 14px); background: var(--ink-deep); border-radius: 4px; overflow: hidden;">
+                <div class="metric-bar-fill" style="--fill: 62%; background: var(--muted); height: 100%; border-radius: 4px;"></div>
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--sprout); margin-bottom: 3px;">
+                <span>2026</span><span style="font-weight: 600;">1,135</span>
+              </div>
+              <div style="height: clamp(10px, 1.2vh, 14px); background: var(--ink-deep); border-radius: 4px; overflow: hidden;">
+                <div class="metric-bar-fill" style="--fill: 80%; background: var(--sprout); height: 100%; border-radius: 4px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Closed Sales -->
+        <div class="rt-card" style="padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <div class="metric-title">Closed Sales</div>
+            <span class="badge badge-sprout" style="font-size: clamp(0.55rem, 0.8vw, 0.68rem);">&uarr; 5.5%</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: clamp(8px, 1vw, 14px); margin-top: clamp(6px, 0.8vh, 10px);">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); margin-bottom: 3px;">
+                <span>2025</span><span>671</span>
+              </div>
+              <div style="height: clamp(10px, 1.2vh, 14px); background: var(--ink-deep); border-radius: 4px; overflow: hidden;">
+                <div class="metric-bar-fill" style="--fill: 66%; background: var(--muted); height: 100%; border-radius: 4px;"></div>
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--sprout); margin-bottom: 3px;">
+                <span>2026</span><span style="font-weight: 600;">708</span>
+              </div>
+              <div style="height: clamp(10px, 1.2vh, 14px); background: var(--ink-deep); border-radius: 4px; overflow: hidden;">
+                <div class="metric-bar-fill" style="--fill: 70%; background: var(--sprout); height: 100%; border-radius: 4px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Median Price -->
+        <div class="rt-card" style="padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <div class="metric-title">Median Sales Price</div>
+            <span class="badge badge-clay" style="font-size: clamp(0.55rem, 0.8vw, 0.68rem);">&darr; 0.4%</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: clamp(8px, 1vw, 14px); margin-top: clamp(6px, 0.8vh, 10px);">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); margin-bottom: 3px;">
+                <span>2025</span><span>$290,000</span>
+              </div>
+              <div style="height: clamp(10px, 1.2vh, 14px); background: var(--ink-deep); border-radius: 4px; overflow: hidden;">
+                <div class="metric-bar-fill" style="--fill: 72%; background: var(--muted); height: 100%; border-radius: 4px;"></div>
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--clay-soft); margin-bottom: 3px;">
+                <span>2026</span><span style="font-weight: 600;">$288,750</span>
+              </div>
+              <div style="height: clamp(10px, 1.2vh, 14px); background: var(--ink-deep); border-radius: 4px; overflow: hidden;">
+                <div class="metric-bar-fill" style="--fill: 71%; background: var(--clay-soft); height: 100%; border-radius: 4px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Days on Market -->
+        <div class="rt-card" style="padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <div class="metric-title">Days on Market</div>
+            <span class="badge badge-clay" style="font-size: clamp(0.55rem, 0.8vw, 0.68rem);">&uarr; 26.3%</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: clamp(8px, 1vw, 14px); margin-top: clamp(6px, 0.8vh, 10px);">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); margin-bottom: 3px;">
+                <span>2025</span><span>19 days</span>
+              </div>
+              <div style="height: clamp(10px, 1.2vh, 14px); background: var(--ink-deep); border-radius: 4px; overflow: hidden;">
+                <div class="metric-bar-fill" style="--fill: 32%; background: var(--muted); height: 100%; border-radius: 4px;"></div>
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--clay-soft); margin-bottom: 3px;">
+                <span>2026</span><span style="font-weight: 600;">24 days</span>
+              </div>
+              <div style="height: clamp(10px, 1.2vh, 14px); background: var(--ink-deep); border-radius: 4px; overflow: hidden;">
+                <div class="metric-bar-fill" style="--fill: 40%; background: var(--clay-soft); height: 100%; border-radius: 4px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Metro MLS &middot; Data as of May 9, 2026</div>
+  <div class="slide-number">05</div>
+</section>
+
+<!-- ============================================
+     SLIDE 6: INVENTORY & YTD — LIGHT SLIDE
+     ============================================ -->
+<section class="slide light" data-notes="Year to date picture confirms the trend. New listings up 16.6%, closed sales up 2.5%, median price actually UP 4.6% year to date. The monthly dip is a blip — the yearly trend is still appreciating. Inventory is rising in both single family and condo/townhouse. This means more opportunity for our agents.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Milwaukee County &middot; Year to Date</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">Inventory Rising, Prices Holding</h2>
+
+    <div class="reveal two-col">
+      <div class="rt-card">
+        <div style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 10px;">Year to Date Comparison</div>
+        <table class="rt-table">
+          <thead><tr><th>Metric</th><th>2025</th><th>2026</th><th>+/-</th></tr></thead>
+          <tbody>
+            <tr><td>New Listings</td><td>2,981</td><td>3,477</td><td style="color: var(--sprout-deep); font-weight: 600;">+16.6%</td></tr>
+            <tr><td>Closed Sales</td><td>2,115</td><td>2,167</td><td style="color: var(--sprout-deep); font-weight: 600;">+2.5%</td></tr>
+            <tr><td>Median Price</td><td>$269K</td><td>$281K</td><td style="color: var(--sprout-deep); font-weight: 600;">+4.6%</td></tr>
+            <tr><td>% List Price</td><td>99.2%</td><td>99.2%</td><td style="color: var(--muted);">0.0%</td></tr>
+            <tr><td>Days on Mkt</td><td>27</td><td>29</td><td style="color: var(--clay); font-weight: 600;">+7.4%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vh, 1rem);">
+        <div class="rt-card">
+          <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 6px;">Single Family Inventory</div>
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--ink);">1,115</span>
+            <span class="badge badge-sprout">&uarr; 26.0%</span>
+          </div>
+        </div>
+        <div class="rt-card">
+          <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 6px;">Townhouse / Condo Inventory</div>
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--ink);">422</span>
+            <span class="badge badge-sprout">&uarr; 34.8%</span>
+          </div>
+        </div>
+        <div class="rt-card" style="background: var(--brand); color: white; border: none;">
+          <p style="font-size: clamp(0.75rem, 1.1vw, 0.95rem); line-height: 1.5; color: white;">More homes hitting the market. Prices stable. Sellers still getting ~100% of list. Buyers have more options.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Metro MLS &middot; Data as of May 9, 2026</div>
+  <div class="slide-number">06</div>
+</section>
+
+<!-- ============================================
+     SLIDE 7: OSCEOLA COUNTY — SVG map + data
+     ============================================ -->
+<section class="slide" data-notes="Osceola County — this is our home market in Florida. Key number: 56 days to sell. That&apos;s a buyer&apos;s market with 9 months of inventory. 70% of homes are selling below asking price. Median sale is $391K. This is the market where our bilingual advantage matters most — 54% Hispanic/Latino population. Most agents are running English-only campaigns.">
+  <div class="slide-content" style="gap: clamp(0.5rem, 1vh, 0.8rem);">
+    <div class="section-label reveal">Osceola County &middot; Last 30 Days</div>
+    <h2 class="reveal slide-title">Osceola County <span style="font-size: 0.5em; color: var(--clay-soft); font-weight: 500;">Buyer's Market &middot; ~9 Months Inventory</span></h2>
+
+    <div style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(1rem, 3vw, 2.5rem); align-items: center;">
+      <!-- SVG Map -->
+      <div class="reveal-scale" style="position: relative; aspect-ratio: 1; max-height: min(55vh, 420px);">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+          <defs>
+            <linearGradient id="osc-fill" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color: var(--sprout); stop-opacity: 0.25;"/><stop offset="100%" style="stop-color: var(--sprout-deep); stop-opacity: 0.1;"/></linearGradient>
+            <filter id="glow-osc"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- Osceola County shape -->
+          <path d="M60,40 L340,40 Q360,40 360,60 L360,160 L340,180 L340,280 Q340,320 310,340 L260,360 Q220,375 180,370 L120,355 Q80,340 65,310 L50,260 L50,140 Q50,80 60,40 Z"
+                fill="url(#osc-fill)" stroke="var(--sprout)" stroke-width="1.5" opacity="0.85"/>
+          <!-- Kissimmee -->
+          <circle cx="200" cy="180" r="7" fill="var(--sprout)" opacity="0.9"><animate attributeName="r" values="7;9;7" dur="2s" repeatCount="indefinite"/></circle>
+          <text x="218" y="184" fill="var(--paper)" font-family="var(--font-mono)" font-size="11" letter-spacing="0.8" opacity="0.8">KISSIMMEE</text>
+          <!-- St Cloud -->
+          <circle cx="280" cy="220" r="4" fill="var(--sprout-soft)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
+          <text x="246" y="245" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">ST. CLOUD</text>
+          <!-- Poinciana -->
+          <circle cx="150" cy="300" r="4" fill="var(--sprout-soft)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="0.8s" repeatCount="indefinite"/></circle>
+          <text x="130" y="325" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">POINCIANA</text>
+          <!-- Celebration -->
+          <circle cx="130" cy="180" r="4" fill="var(--brand-light)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
+          <text x="82" y="168" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">CELEBRATION</text>
+          <!-- County label -->
+          <text x="200" y="105" fill="var(--sprout)" font-family="var(--font-display)" font-size="14" font-weight="600" text-anchor="middle" opacity="0.4" letter-spacing="4">OSCEOLA</text>
+          <!-- 54%+ Hispanic callout -->
+          <rect x="110" y="355" width="180" height="28" rx="6" fill="var(--ink-soft)" stroke="var(--sprout)" stroke-width="1" opacity="0.9"/>
+          <text x="200" y="373" fill="var(--sprout)" font-family="var(--font-mono)" font-size="10" text-anchor="middle" letter-spacing="0.8">54%+ HISPANIC/LATINO</text>
+        </svg>
+      </div>
+
+      <!-- Data -->
+      <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1vh, 0.8rem);">
+        <div class="stats-strip" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="stat-cell"><div class="stat-num" style="color: var(--paper);">3,944</div><div class="stat-label">Homes for Sale</div></div>
+          <div class="stat-cell"><div class="stat-num" style="color: var(--paper);">1,049</div><div class="stat-label">New Listed</div></div>
+          <div class="stat-cell"><div class="stat-num" style="color: var(--sprout);">471</div><div class="stat-label">Homes Sold</div></div>
+          <div class="stat-cell"><div class="stat-num" style="color: var(--clay-soft);">56</div><div class="stat-label">Days to Sell</div></div>
+        </div>
+        <div class="two-col" style="gap: clamp(0.4rem, 1vw, 0.8rem);">
+          <div class="rt-card" style="text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2);">Median Sale Price</div>
+            <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3.5vw, 2.5rem); color: var(--paper); margin-top: 4px;">$391K</div>
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); margin-top: 2px;">$200.8 / sqft</div>
+          </div>
+          <div class="rt-card" style="text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2);">Sale vs Ask</div>
+            <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3.5vw, 2.5rem); color: var(--clay-soft); margin-top: 4px;">-2.67%</div>
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); margin-top: 2px;">~$10K under ask</div>
+          </div>
+        </div>
+        <div class="rt-card" style="display: flex; justify-content: space-around; text-align: center; padding: clamp(0.5rem, 1vw, 0.8rem);">
+          <div><div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--clay-soft);">70%</div><div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); letter-spacing: 1px; text-transform: uppercase;">Below Ask</div></div>
+          <div style="width: 1px; background: var(--border-d);"></div>
+          <div><div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--muted-2);">22%</div><div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); letter-spacing: 1px; text-transform: uppercase;">At Ask</div></div>
+          <div style="width: 1px; background: var(--border-d);"></div>
+          <div><div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--sprout);">8%</div><div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); letter-spacing: 1px; text-transform: uppercase;">Above Ask</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Local Logic / Stellar MLS &middot; May 11, 2026</div>
+  <div class="slide-number">07</div>
+</section>
+
+<!-- ============================================
+     SLIDE 8: ORANGE COUNTY — SVG map + data
+     ============================================ -->
+<section class="slide light" data-notes="Orange County — Orlando metro. Healthier market than Osceola. Only 32 days to sell, about 5 months of inventory — that&apos;s neutral territory. Median $439K, highest of the three FL counties. 1,172 homes sold last month — strong volume. 66% still selling below ask but 9% going above.">
+  <div class="slide-content" style="gap: clamp(0.5rem, 1vh, 0.8rem);">
+    <div class="section-label reveal">Orange County &middot; Last 30 Days</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">Orange County <span style="font-size: 0.5em; color: var(--muted); font-weight: 500;">Neutral Market &middot; ~5 Months Inventory</span></h2>
+
+    <div style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(1rem, 3vw, 2.5rem); align-items: center;">
+      <!-- SVG Map -->
+      <div class="reveal-scale" style="position: relative; aspect-ratio: 1; max-height: min(55vh, 420px);">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+          <defs>
+            <linearGradient id="org-fill" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color: var(--brand); stop-opacity: 0.2;"/><stop offset="100%" style="stop-color: var(--brand-deep); stop-opacity: 0.08;"/></linearGradient>
+          </defs>
+          <!-- Orange County shape (wider, more square) -->
+          <path d="M50,50 L350,50 Q370,50 370,70 L370,180 L355,200 L370,220 L370,330 Q370,355 345,355 L240,360 Q200,362 160,358 L80,345 Q55,340 50,315 L45,220 L55,180 L45,140 L50,70 Q50,50 50,50 Z"
+                fill="url(#org-fill)" stroke="var(--brand)" stroke-width="1.5" opacity="0.85"/>
+          <!-- Orlando -->
+          <circle cx="210" cy="190" r="8" fill="var(--brand)" opacity="0.9"><animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/></circle>
+          <text x="230" y="194" fill="var(--ink)" font-family="var(--font-mono)" font-size="12" letter-spacing="1" opacity="0.8" font-weight="600">ORLANDO</text>
+          <!-- Winter Park -->
+          <circle cx="260" cy="155" r="4" fill="var(--brand-deep)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
+          <text x="275" y="158" fill="var(--muted)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">WINTER PARK</text>
+          <!-- Apopka -->
+          <circle cx="175" cy="110" r="4" fill="var(--brand-deep)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="0.6s" repeatCount="indefinite"/></circle>
+          <text x="140" y="100" fill="var(--muted)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">APOPKA</text>
+          <!-- Dr. Phillips -->
+          <circle cx="155" cy="225" r="4" fill="var(--brand-deep)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="1.2s" repeatCount="indefinite"/></circle>
+          <text x="100" y="248" fill="var(--muted)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">DR. PHILLIPS</text>
+          <!-- Lake Nona -->
+          <circle cx="280" cy="280" r="4" fill="var(--brand-deep)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="1.8s" repeatCount="indefinite"/></circle>
+          <text x="250" y="303" fill="var(--muted)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">LAKE NONA</text>
+          <!-- County label -->
+          <text x="200" y="75" fill="var(--brand)" font-family="var(--font-display)" font-size="14" font-weight="600" text-anchor="middle" opacity="0.3" letter-spacing="4">ORANGE</text>
+        </svg>
+      </div>
+
+      <!-- Data -->
+      <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1vh, 0.8rem);">
+        <div class="stats-strip" style="grid-template-columns: repeat(2, 1fr); background: var(--border-l); border-color: var(--border-l);">
+          <div class="stat-cell" style="background: white;"><div class="stat-num" style="color: var(--ink);">5,053</div><div class="stat-label" style="color: var(--muted);">Homes for Sale</div></div>
+          <div class="stat-cell" style="background: white;"><div class="stat-num" style="color: var(--ink);">1,948</div><div class="stat-label" style="color: var(--muted);">New Listed</div></div>
+          <div class="stat-cell" style="background: white;"><div class="stat-num" style="color: var(--brand);">1,172</div><div class="stat-label" style="color: var(--muted);">Homes Sold</div></div>
+          <div class="stat-cell" style="background: white;"><div class="stat-num" style="color: var(--ink);">32</div><div class="stat-label" style="color: var(--muted);">Days to Sell</div></div>
+        </div>
+        <div class="two-col" style="gap: clamp(0.4rem, 1vw, 0.8rem);">
+          <div class="rt-card" style="text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted);">Median Sale Price</div>
+            <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3.5vw, 2.5rem); color: var(--ink); margin-top: 4px;">$439K</div>
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted); margin-top: 2px;">$242 / sqft</div>
+          </div>
+          <div class="rt-card" style="text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted);">Sale vs Ask</div>
+            <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3.5vw, 2.5rem); color: var(--clay); margin-top: 4px;">-2.22%</div>
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted); margin-top: 2px;">~$9.9K under ask</div>
+          </div>
+        </div>
+        <div class="rt-card" style="display: flex; justify-content: space-around; text-align: center; padding: clamp(0.5rem, 1vw, 0.8rem);">
+          <div><div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--clay);">66%</div><div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted); letter-spacing: 1px; text-transform: uppercase;">Below Ask</div></div>
+          <div style="width: 1px; background: var(--border-l);"></div>
+          <div><div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--muted);">25%</div><div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted); letter-spacing: 1px; text-transform: uppercase;">At Ask</div></div>
+          <div style="width: 1px; background: var(--border-l);"></div>
+          <div><div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--sprout-deep);">9%</div><div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted); letter-spacing: 1px; text-transform: uppercase;">Above Ask</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Local Logic / Stellar MLS &middot; May 11, 2026</div>
+  <div class="slide-number">08</div>
+</section>
+
+<!-- ============================================
+     SLIDE 9: POLK COUNTY — SVG map + data
+     ============================================ -->
+<section class="slide" data-notes="Polk County — Lakeland, Winter Haven area. 48 days to sell, 6 months inventory — right on the neutral line. Most affordable of the three at $315K median. Interesting: 13% selling above asking — highest of our FL markets. Good entry point for first-time buyers and investors.">
+  <div class="slide-content" style="gap: clamp(0.5rem, 1vh, 0.8rem);">
+    <div class="section-label reveal">Polk County &middot; Last 30 Days</div>
+    <h2 class="reveal slide-title">Polk County <span style="font-size: 0.5em; color: var(--muted-2); font-weight: 500;">Neutral Market &middot; ~6 Months Inventory</span></h2>
+
+    <div style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(1rem, 3vw, 2.5rem); align-items: center;">
+      <!-- SVG Map -->
+      <div class="reveal-scale" style="position: relative; aspect-ratio: 1.1; max-height: min(55vh, 420px);">
+        <svg viewBox="0 0 440 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+          <defs>
+            <linearGradient id="polk-fill" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color: var(--clay); stop-opacity: 0.2;"/><stop offset="100%" style="stop-color: var(--clay-soft); stop-opacity: 0.08;"/></linearGradient>
+          </defs>
+          <!-- Polk County shape (large, wide — biggest FL county by area) -->
+          <path d="M40,60 L400,50 Q420,50 420,75 L415,160 L400,200 L415,250 L410,330 Q405,355 380,360 L300,370 Q240,378 180,375 L100,365 Q60,358 45,330 L35,250 L45,200 L35,140 L40,80 Q40,60 40,60 Z"
+                fill="url(#polk-fill)" stroke="var(--clay-soft)" stroke-width="1.5" opacity="0.85"/>
+          <!-- Lakeland -->
+          <circle cx="200" cy="170" r="7" fill="var(--clay)" opacity="0.9"><animate attributeName="r" values="7;9;7" dur="2s" repeatCount="indefinite"/></circle>
+          <text x="220" y="174" fill="var(--paper)" font-family="var(--font-mono)" font-size="11" letter-spacing="0.8" opacity="0.8">LAKELAND</text>
+          <!-- Winter Haven -->
+          <circle cx="290" cy="220" r="5" fill="var(--clay-soft)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
+          <text x="310" y="224" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">WINTER HAVEN</text>
+          <!-- Haines City -->
+          <circle cx="330" cy="150" r="4" fill="var(--clay-soft)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="0.7s" repeatCount="indefinite"/></circle>
+          <text x="346" y="153" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">HAINES CITY</text>
+          <!-- Bartow -->
+          <circle cx="230" cy="280" r="4" fill="var(--clay-soft)" opacity="0.7"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="1.4s" repeatCount="indefinite"/></circle>
+          <text x="245" y="283" fill="var(--muted-2)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.8" opacity="0.6">BARTOW</text>
+          <!-- County label -->
+          <text x="220" y="100" fill="var(--clay-soft)" font-family="var(--font-display)" font-size="14" font-weight="600" text-anchor="middle" opacity="0.3" letter-spacing="4">POLK</text>
+        </svg>
+      </div>
+
+      <!-- Data -->
+      <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1vh, 0.8rem);">
+        <div class="stats-strip" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="stat-cell"><div class="stat-num" style="color: var(--paper);">4,496</div><div class="stat-label">Homes for Sale</div></div>
+          <div class="stat-cell"><div class="stat-num" style="color: var(--paper);">1,223</div><div class="stat-label">New Listed</div></div>
+          <div class="stat-cell"><div class="stat-num" style="color: var(--sprout);">873</div><div class="stat-label">Homes Sold</div></div>
+          <div class="stat-cell"><div class="stat-num" style="color: var(--clay-soft);">48</div><div class="stat-label">Days to Sell</div></div>
+        </div>
+        <div class="two-col" style="gap: clamp(0.4rem, 1vw, 0.8rem);">
+          <div class="rt-card" style="text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2);">Median Sale Price</div>
+            <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3.5vw, 2.5rem); color: var(--paper); margin-top: 4px;">$315K</div>
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); margin-top: 2px;">$177.3 / sqft</div>
+          </div>
+          <div class="rt-card" style="text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2);">Sale vs Ask</div>
+            <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3.5vw, 2.5rem); color: var(--clay-soft); margin-top: 4px;">-2.19%</div>
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); margin-top: 2px;">~$7K under ask</div>
+          </div>
+        </div>
+        <div class="rt-card" style="display: flex; justify-content: space-around; text-align: center; padding: clamp(0.5rem, 1vw, 0.8rem);">
+          <div><div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--clay-soft);">65%</div><div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); letter-spacing: 1px; text-transform: uppercase;">Below Ask</div></div>
+          <div style="width: 1px; background: var(--border-d);"></div>
+          <div><div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--muted-2);">22%</div><div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); letter-spacing: 1px; text-transform: uppercase;">At Ask</div></div>
+          <div style="width: 1px; background: var(--border-d);"></div>
+          <div><div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--sprout);">13%</div><div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); letter-spacing: 1px; text-transform: uppercase;">Above Ask</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Local Logic / Stellar MLS &middot; May 11, 2026</div>
+  <div class="slide-number">09</div>
+</section>
+
+<!-- ============================================
+     SLIDE 8: SESSION ARC — staggered card reveal
+     ============================================ -->
+<section class="slide paper" data-notes="Here&apos;s where we are in the Marketing Machine series. Sessions 1 and 2 are done — you have your avatar, your hook, your offer, your bridge sequence. Today is Session 3: Capture the Lead. Next week is Launch — ad goes live. Everything today builds the bridge between &apos;interested&apos; and &apos;in your system.&apos;">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Marketing Machine &middot; 4-Session Series</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">Where We Are in the Series</h2>
+
+    <div class="four-col stagger">
+      <div class="rt-card" style="opacity: 0.5; border-top: 3px solid var(--sprout-deep);">
+        <span class="badge badge-sprout" style="color: var(--sprout-deep);">Complete</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">Session 1</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px; line-height: 1.4;">6 Frameworks That Stop the Scroll</p>
+      </div>
+      <div class="rt-card" style="opacity: 0.5; border-top: 3px solid var(--sprout-deep);">
+        <span class="badge badge-sprout" style="color: var(--sprout-deep);">Complete</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">Session 2</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px; line-height: 1.4;">Build Your Offer: The Missing Middle</p>
+      </div>
+      <div class="rt-card" style="border: 2px solid var(--brand); border-top: 4px solid var(--brand); box-shadow: 0 4px 20px rgba(3,76,118,0.15);">
+        <span class="badge badge-brand" style="color: var(--brand);">Today</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--brand);">Session 3</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--ink); margin-top: 6px; line-height: 1.4; font-weight: 500;">Capture the Lead: ManyChat DM Automation</p>
+        <div class="pulse-dot" style="position: absolute; top: 12px; right: 12px; background: var(--brand);"></div>
+      </div>
+      <div class="rt-card" style="opacity: 0.35;">
+        <span class="badge badge-next" style="color: var(--muted); border-color: var(--border-l);">Next Week</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">Session 4</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px; line-height: 1.4;">Launch: Ad Goes Live + Lofty KTS</p>
+      </div>
+    </div>
+
+    <p class="reveal" style="font-size: var(--body-size); color: var(--muted); max-width: 65ch;">Your ad stops the scroll. Your offer delivers value. Now we build the machine that captures the lead before they forget you exist.</p>
+  </div>
+  <div class="slide-footer">Real Simple. Real Skills. Real Results.</div>
+  <div class="slide-number">07</div>
+</section>
+
+<!-- ============================================
+     SLIDE 8: ACCOUNTABILITY — workflow with pulse
+     ============================================ -->
+<section class="slide" data-notes="Before we go into today&apos;s session, we need 10 minutes of truth.\n\nI know some of you are ahead. You have your avatar locked, your lead magnet decided, your hook written. If that&apos;s you, today is rocket fuel.\n\nBut some of you are still working through earlier steps. That&apos;s OK — but it&apos;s not OK to stay there. The whole system is designed so each step unlocks the next.\n\nLook at the checklist. Identify exactly which step you&apos;re on. Not where you wish you were. Where you actually are.\n\nIf you&apos;re stuck on avatar: finish it. DM me after this session, 15 minutes.\n\nIf you&apos;re stuck on the video: record it. Phone. Natural light. No excuses.\n\n---\n\nAntes de entrar en la sesión de hoy, necesitamos 10 minutos de verdad.\n\nSé que algunos están adelantados. Si ese eres tú, hoy va a sentirse como gasolina pura.\n\nPero también sé que algunos todavía están en pasos anteriores. Está bien, pero no está bien quedarse ahí.\n\nMiren la lista. Identifiquen exactamente en cuál paso están. No donde quisieran estar. Donde realmente están.\n\nSi están pegados en el avatar: vénganse a mí después de la sesión. 15 minutos.\n\nSi están pegados en el video: grábenlo. Teléfono. Luz natural. Sin excusas.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Accountability Check-In</div>
+    <h2 class="reveal slide-title">Where Are You <span class="stroke stroke--clay">Right Now<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 8 C 60 2, 130 12, 198 5"/></svg></span>?</h2>
+    <p class="reveal slide-body">This is not a call-out. This is a check-in. Every step builds on the one before it.</p>
+
+    <div class="reveal wf-grid stagger">
+      <div class="wf-step"><div class="wf-num">01</div><div class="wf-name">Avatar</div><span class="badge badge-done" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Locked</span></div>
+      <div class="wf-step"><div class="wf-num">02</div><div class="wf-name">Offer</div><span class="badge badge-done" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Decided</span></div>
+      <div class="wf-step"><div class="wf-num">03</div><div class="wf-name">Hook</div><span class="badge badge-done" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Written</span></div>
+      <div class="wf-step active" style="position: relative;"><div class="wf-num">04</div><div class="wf-name" style="color: var(--sprout);">Capture</div><span class="badge badge-today" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Today</span><div class="pulse-dot" style="position: absolute; top: 8px; right: 8px;"></div></div>
+      <div class="wf-step"><div class="wf-num">05</div><div class="wf-name">Bridge</div><span class="badge badge-done" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Written</span></div>
+      <div class="wf-step"><div class="wf-num">06</div><div class="wf-name">Launch</div><span class="badge badge-next" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Next Wk</span></div>
+    </div>
+
+    <div class="reveal rt-card" style="background: linear-gradient(135deg, var(--clay) 0%, #8b3a2e 100%); border: none;">
+      <p style="font-size: var(--body-size); color: var(--paper); line-height: 1.5;">
+        <strong>If you're stuck:</strong> Identify your first unchecked box. That's your only job. DM Pedro after this session — we'll get it done in 15 minutes.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">08</div>
+</section>
+
+<!-- ============================================
+     SLIDE 9: WHY CAPTURE MATTERS — 3 paths
+     ============================================ -->
+<section class="slide light" data-notes="Here&apos;s the reality. You can have the best ad in the world. But if the person who sees it can&apos;t get your offer in under 10 seconds, they scroll past and forget you existed.\n\nThree capture paths: ManyChat (DM automation), Native Lead Forms (built into Meta), and Landing Pages (standalone web pages). All three work. But ManyChat is where most of you should start — the lead never leaves the app. ~50% conversion rate vs 10-20% for landing pages.\n\n---\n\nEsta es la realidad. Puedes tener el mejor ad del mundo. Pero si la persona no puede obtener tu oferta en menos de 10 segundos, sigue scrolleando.\n\nTres caminos: ManyChat, Native Lead Forms, y Landing Pages. Las tres funcionan. Pero ManyChat es donde deben empezar.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">The Problem</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">The Gap Between "Interested" and "In Your CRM"</h2>
+    <p class="reveal" style="font-size: var(--body-size); color: var(--muted); margin-bottom: clamp(0.3rem, 0.6vh, 0.5rem);">If they can't get your offer in under 10 seconds, they're gone.</p>
+
+    <div class="three-col stagger">
+      <div class="rt-card" style="border-left: 5px solid var(--sprout-deep); border-top: none; box-shadow: 0 4px 20px rgba(140,201,78,0.1);">
+        <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout-deep); margin-bottom: 8px;">Path A &middot; ManyChat</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.4vw, 1.15rem); color: var(--ink);">DM Automation</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); line-height: 1.4; margin-top: 6px;">IG/FB cold traffic. Lead never leaves the app.</p>
+        <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+          <span class="badge badge-sprout" style="font-weight: 600;">~50% conv.</span>
+          <span class="badge badge-sprout">Lowest friction</span>
+        </div>
+      </div>
+      <div class="rt-card" style="border-left: 5px solid var(--brand); opacity: 0.7;">
+        <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--brand); margin-bottom: 8px;">Path B &middot; Native Form</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.4vw, 1.15rem); color: var(--ink);">Meta Lead Form</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); line-height: 1.4; margin-top: 6px;">Meta Ads campaigns. Auto-fill from profile.</p>
+        <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+          <span class="badge badge-brand">20-35% conv.</span>
+          <span class="badge badge-brand">Low friction</span>
+        </div>
+      </div>
+      <div class="rt-card" style="border-left: 5px solid var(--muted); opacity: 0.5;">
+        <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;">Path C &middot; Landing Page</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.4vw, 1.15rem); color: var(--ink);">Standalone Page</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); line-height: 1.4; margin-top: 6px;">SEO, Google Ads, warm traffic.</p>
+        <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+          <span class="badge" style="background: #00000008; color: var(--muted); border: 1px solid var(--border-l);">10-20% conv.</span>
+          <span class="badge" style="background: #00000008; color: var(--muted); border: 1px solid var(--border-l);">Medium</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal" style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.4vw, 1.1rem); color: var(--brand); text-align: center;">
+      Today: Path A &mdash; ManyChat. The fastest path to leads.
+    </p>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">09</div>
+</section>
+
+<!-- ============================================
+     SLIDE 10: WHAT IS MANYCHAT — 4 step animated
+     ============================================ -->
+<section class="slide" data-notes="ManyChat in the simplest way possible. Someone comments a keyword, ManyChat DMs them instantly. That&apos;s it.\n\nThey see your Reel. Your hook grabs them. Caption says &apos;Comment GUIDE.&apos; They type GUIDE. ManyChat sends a DM. They reply with their email. You have a lead. 15 seconds. No landing page. No form. Just a conversation.\n\nYou set it up once, it runs 24/7 on every post, every ad.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">ManyChat in 60 Seconds</div>
+    <h2 class="reveal slide-title">DM Automation for Instagram &amp; Facebook</h2>
+
+    <div class="four-col stagger">
+      <div class="rt-card" style="text-align: center;">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout);">1</div>
+        <p style="font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--paper); margin-top: 6px; line-height: 1.4;">They see your <strong>ad or post</strong></p>
+      </div>
+      <div class="rt-card" style="text-align: center;">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout);">2</div>
+        <p style="font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--paper); margin-top: 6px; line-height: 1.4;">Comment a <strong style="color: var(--sprout);">keyword</strong></p>
+      </div>
+      <div class="rt-card" style="text-align: center;">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout);">3</div>
+        <p style="font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--paper); margin-top: 6px; line-height: 1.4;">ManyChat <strong>DMs them</strong> instantly</p>
+      </div>
+      <div class="rt-card" style="text-align: center; border-color: var(--sprout);">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout);">4</div>
+        <p style="font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--sprout); margin-top: 6px; line-height: 1.4; font-weight: 600;">Name + Email + Phone <strong>captured</strong></p>
+      </div>
+    </div>
+
+    <div class="reveal stats-strip" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="stat-cell"><div class="stat-num" style="color: var(--sprout); font-size: clamp(1.1rem, 2.5vw, 2rem);">&lt;3s</div><div class="stat-label">Response</div></div>
+      <div class="stat-cell"><div class="stat-num" style="color: var(--sprout); font-size: clamp(1.1rem, 2.5vw, 2rem);">~50%</div><div class="stat-label">Conversion</div></div>
+      <div class="stat-cell"><div class="stat-num" style="font-size: clamp(1.1rem, 2.5vw, 2rem);">24/7</div><div class="stat-label">Always On</div></div>
+      <div class="stat-cell"><div class="stat-num" style="font-size: clamp(1.1rem, 2.5vw, 2rem);">Free</div><div class="stat-label">To Start</div></div>
+      <div class="stat-cell"><div class="stat-num" style="font-size: clamp(1.1rem, 2.5vw, 2rem);">1K</div><div class="stat-label">Free Contacts</div></div>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">10</div>
+</section>
+
+<!-- ============================================
+     SLIDE 11: MANYCHAT FLOW — IG DM mockup (generic)
+     ============================================ -->
+<section class="slide" data-notes="This is exactly what the flow looks like in Instagram DMs. Watch the sequence.\n\nStep 1: Ask for email first — &apos;What&apos;s the best email to send the guide?&apos; Most people give it because they want the resource.\n\nStep 2: Deliver the guide and ask a qualifying question. &apos;Are you renting or do you own?&apos;\n\nStep 3: Ask for phone. About 60-70% will give it.\n\nStep 4: Confirmation + calendar link.\n\nFour messages. 30 seconds. You now have name, email, phone, and a qualifying answer." style="background: var(--ink);">
+  <div class="slide-content" style="gap: clamp(0.5rem, 1vh, 0.8rem);">
+    <div class="section-label reveal">Your ManyChat Flow</div>
+    <h2 class="reveal slide-title">From Comment to CRM</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(1rem, 3vw, 2.5rem); align-items: start;">
+      <!-- Left: Flow steps explained -->
+      <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.4rem, 0.8vh, 0.7rem);">
+        <div class="rt-card" style="border-left: 4px solid var(--sprout); padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout);">Step 1 &middot; Instant</div>
+          <p style="font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--paper); margin-top: 4px; font-weight: 500;">Ask for email to send the guide</p>
+        </div>
+        <div class="rt-card" style="border-left: 4px solid var(--brand-deep); padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--brand-light);">Step 2 &middot; After Email</div>
+          <p style="font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--paper); margin-top: 4px; font-weight: 500;">Deliver guide + qualifying question</p>
+        </div>
+        <div class="rt-card" style="border-left: 4px solid var(--muted-2); padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2);">Step 3 &middot; Phone</div>
+          <p style="font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--paper); margin-top: 4px; font-weight: 500;">Capture phone (60-70% give it)</p>
+        </div>
+        <div class="rt-card" style="border-left: 4px solid var(--sprout); padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout);">Step 4 &middot; Close</div>
+          <p style="font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--paper); margin-top: 4px; font-weight: 500;">Confirm + calendar link</p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
+          <span class="badge badge-sprout">Max 4 messages</span>
+          <span class="badge badge-clay">Never trap in loop</span>
+        </div>
+      </div>
+
+      <!-- Right: IG DM Phone Mockup -->
+      <div class="reveal-scale" style="
+        background: #000; border-radius: clamp(20px, 3vw, 36px);
+        border: 2px solid #333; padding: clamp(6px, 0.8vw, 10px);
+        max-height: min(78vh, 600px); overflow: hidden;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px #222;
+      ">
+        <!-- Phone notch -->
+        <div style="width: clamp(60px, 8vw, 100px); height: clamp(16px, 2vh, 24px); background: #000; border-radius: 0 0 14px 14px; margin: 0 auto clamp(4px, 0.5vh, 8px);"></div>
+        <!-- IG DM header -->
+        <div style="display: flex; align-items: center; gap: clamp(6px, 0.8vw, 10px); padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1vw, 14px); border-bottom: 1px solid #222;">
+          <div style="width: clamp(24px, 3vw, 36px); height: clamp(24px, 3vw, 36px); border-radius: 50%; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);"></div>
+          <div>
+            <div style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(0.7rem, 1vw, 0.88rem); color: white;">pedrobandorivera</div>
+            <div style="font-family: var(--font-sans); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: #8e8e8e;">Active now</div>
+          </div>
+          <div style="margin-left: auto; display: flex; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M15 10l5 5-5 5"/><path d="M4 4v7a4 4 0 004 4h12"/></svg>
+          </div>
+        </div>
+        <!-- Chat area -->
+        <div style="padding: clamp(8px, 1vh, 14px) clamp(8px, 1vw, 12px); display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 10px); background: #000;">
+
+          <!-- Lead comments keyword -->
+          <div class="ig-bubble ig-them" style="align-self: flex-start;">
+            <p>GUIDE</p>
+          </div>
+
+          <!-- DM 1: Ask for email first -->
+          <div class="ig-bubble ig-us" style="align-self: flex-end;">
+            <p>Hey Sarah! 👋 I've got your free guide ready. What's the best email to send it to?</p>
+          </div>
+
+          <!-- Lead gives email -->
+          <div class="ig-bubble ig-them" style="align-self: flex-start;">
+            <p>sarah.buyer@gmail.com</p>
+          </div>
+
+          <!-- DM 2: Deliver guide + qualifying question -->
+          <div class="ig-bubble ig-us" style="align-self: flex-end;">
+            <p>Sent! 📩 Check your inbox for the full guide.</p>
+            <p style="margin-top: 4px;">Quick question — are you currently renting, or do you already own a home?</p>
+          </div>
+
+          <!-- Lead replies -->
+          <div class="ig-bubble ig-them" style="align-self: flex-start;">
+            <p>Renting right now, lease is up in 4 months</p>
+          </div>
+
+          <!-- DM 3: Ask for phone -->
+          <div class="ig-bubble ig-us" style="align-self: flex-end;">
+            <p>Perfect timing! What's a good number? I'll text you when homes hit the market in your price range. No spam 🙏</p>
+          </div>
+
+          <!-- Lead gives phone -->
+          <div class="ig-bubble ig-them" style="align-self: flex-start;">
+            <p>407-555-0234</p>
+          </div>
+
+          <!-- DM 4: Confirmation -->
+          <div class="ig-bubble ig-us" style="align-self: flex-end;">
+            <p>You're all set, Sarah! And if you want to chat about your situation, grab 15 min here: <span style="color: #4fa7ff; text-decoration: underline;">calendar-link</span> — zero pressure, just answers.</p>
+          </div>
+
+          <!-- Result indicator -->
+          <div style="text-align: center; padding: clamp(4px, 0.5vh, 8px) 0;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout);">
+              ✓ Name + Email + Phone + Qualifying Answer
+            </div>
+            <div style="font-family: var(--font-mono); font-size: clamp(0.45rem, 0.65vw, 0.55rem); letter-spacing: 1px; text-transform: uppercase; color: #555; margin-top: 2px;">
+              &rarr; Bridge sequence fires &rarr; Lofty CRM
+            </div>
+          </div>
+        </div>
+        <!-- Input bar -->
+        <div style="display: flex; align-items: center; gap: 8px; padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1vw, 12px); border-top: 1px solid #222;">
+          <div style="flex: 1; background: #1a1a1a; border: 1px solid #333; border-radius: 20px; padding: clamp(5px, 0.6vh, 8px) clamp(10px, 1vw, 14px); font-family: var(--font-sans); font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: #555;">Message...</div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0095f6" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">11</div>
+</section>
+
+<!-- ============================================
+     SLIDE 12: PEDRO'S CASE STUDY — IG DM Phone Mockup
+     ============================================ -->
+<section class="slide" data-notes="This is my actual ManyChat flow for agent recruiting. Avatar: licensed agent producing $1-3M with no real broker support. Hook: &apos;You closed 8 deals and still don&apos;t know where deal 9 is coming from.&apos; Lead magnet: The Producing Agent&apos;s Playbook. Keyword: PLAYBOOK.\n\nNotice the flow — I give the playbook link immediately, then ask where they are in their career. That qualifying answer tells me if they&apos;re a real prospect or just browsing." style="background: var(--ink);">
+  <div class="slide-content" style="gap: clamp(0.5rem, 1vh, 0.8rem);">
+    <div class="section-label reveal">Live Case Study &middot; Agent Recruiting</div>
+    <h2 class="reveal slide-title">Pedro's ManyChat Flow</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(1rem, 3vw, 2.5rem); align-items: start;">
+      <!-- Left: Setup context -->
+      <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.4rem, 0.8vh, 0.7rem);">
+        <div class="rt-card" style="padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout);">Avatar</div>
+          <p style="font-size: clamp(0.85rem, 1.3vw, 1.05rem); color: var(--paper); margin-top: 4px; font-weight: 500;">Licensed agent, 26-32, producing $1M-$3M, no real broker support</p>
+        </div>
+        <div class="rt-card" style="padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout);">Hook</div>
+          <p style="font-size: clamp(0.85rem, 1.3vw, 1.05rem); color: var(--paper); margin-top: 4px; font-style: italic;">"You closed 8 deals and you still don't know where deal 9 is coming from."</p>
+        </div>
+        <div class="rt-card" style="background: var(--sprout); border: none; padding: clamp(0.6rem, 1.2vw, 1rem);">
+          <div style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink);">Keyword</div>
+          <p style="font-size: clamp(1.4rem, 3vw, 2.2rem); font-family: var(--font-display); font-weight: 800; color: var(--ink); margin-top: 2px;">PLAYBOOK</p>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted); letter-spacing: 1px; text-transform: uppercase; text-align: center; margin-top: 4px;">
+          &rarr; Zapier &rarr; Lofty &rarr; Bridge &rarr; KTS
+        </div>
+      </div>
+
+      <!-- Right: IG DM Phone Mockup -->
+      <div class="reveal-scale" style="
+        background: #000; border-radius: clamp(20px, 3vw, 36px);
+        border: 2px solid #333; padding: clamp(6px, 0.8vw, 10px);
+        max-height: min(75vh, 580px); overflow: hidden;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px #222;
+      ">
+        <!-- Phone notch -->
+        <div style="
+          width: clamp(60px, 8vw, 100px); height: clamp(16px, 2vh, 24px);
+          background: #000; border-radius: 0 0 14px 14px;
+          margin: 0 auto clamp(4px, 0.5vh, 8px);
+        "></div>
+        <!-- IG DM header -->
+        <div style="
+          display: flex; align-items: center; gap: clamp(6px, 0.8vw, 10px);
+          padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1vw, 14px);
+          border-bottom: 1px solid #222;
+        ">
+          <div style="width: clamp(24px, 3vw, 36px); height: clamp(24px, 3vw, 36px); border-radius: 50%; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);"></div>
+          <div>
+            <div style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(0.7rem, 1vw, 0.88rem); color: white;">pedrobandorivera</div>
+            <div style="font-family: var(--font-sans); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: #8e8e8e;">Active now</div>
+          </div>
+          <div style="margin-left: auto; display: flex; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M15 10l5 5-5 5"/><path d="M4 4v7a4 4 0 004 4h12"/></svg>
+          </div>
+        </div>
+        <!-- Chat area -->
+        <div style="
+          padding: clamp(8px, 1vh, 14px) clamp(8px, 1vw, 12px);
+          display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 10px);
+          background: #000; min-height: 0;
+        ">
+          <!-- Agent comments trigger -->
+          <div class="ig-bubble ig-them" style="align-self: flex-start;">
+            <p>PLAYBOOK</p>
+          </div>
+
+          <!-- ManyChat DM 1 — auto-reply -->
+          <div class="ig-bubble ig-us" style="align-self: flex-end;">
+            <p>Hey Marcus! 👋 Here's the Producing Agent's Playbook: <span style="color: #4fa7ff; text-decoration: underline;">playbook-link.pdf</span></p>
+            <p style="margin-top: 4px;">Quick question: are you at a brokerage, between brokerages, or exploring your options?</p>
+          </div>
+
+          <!-- Agent replies -->
+          <div class="ig-bubble ig-them" style="align-self: flex-start;">
+            <p>At a brokerage but looking around tbh</p>
+          </div>
+
+          <!-- DM 2 -->
+          <div class="ig-bubble ig-us" style="align-self: flex-end;">
+            <p>Got it. What's the best email for the extended version + a bonus training clip?</p>
+          </div>
+
+          <!-- Agent gives email -->
+          <div class="ig-bubble ig-them" style="align-self: flex-start;">
+            <p>marcus.agent@gmail.com</p>
+          </div>
+
+          <!-- DM 3 -->
+          <div class="ig-bubble ig-us" style="align-self: flex-end;">
+            <p>Good number? I text when new training drops. No spam, promise.</p>
+          </div>
+
+          <!-- Agent gives phone -->
+          <div class="ig-bubble ig-them" style="align-self: flex-start;">
+            <p>414-555-0192</p>
+          </div>
+
+          <!-- DM 4 — close -->
+          <div class="ig-bubble ig-us" style="align-self: flex-end;">
+            <p>You're set, Marcus. Check email in 5. And if you want a real talk about where you're headed — 20 min, no pitch: <span style="color: #4fa7ff; text-decoration: underline;">calendar-link</span></p>
+          </div>
+        </div>
+        <!-- Input bar -->
+        <div style="
+          display: flex; align-items: center; gap: 8px;
+          padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1vw, 12px);
+          border-top: 1px solid #222;
+        ">
+          <div style="flex: 1; background: #1a1a1a; border: 1px solid #333; border-radius: 20px; padding: clamp(5px, 0.6vh, 8px) clamp(10px, 1vw, 14px); font-family: var(--font-sans); font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: #555;">Message...</div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0095f6" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">12</div>
+</section>
+
+<!-- ============================================
+     SLIDE 13: BUYER EN + ES — side by side
+     ============================================ -->
+<section class="slide" data-notes="Here&apos;s the buyer version side by side — English and Spanish. Same structure, different keywords. STEPS triggers the English flow, PASOS triggers Spanish. Two separate flows in ManyChat. This is how you serve a bilingual market properly.">
+  <div class="slide-content" style="gap: clamp(0.5rem, 1.2vh, 1rem);">
+    <div class="section-label reveal">Your Turn &middot; First-Time Buyer</div>
+    <h2 class="reveal slide-title">Two Languages, One System</h2>
+    <div class="reveal two-col">
+      <div style="display: flex; flex-direction: column; gap: clamp(0.3rem, 0.6vh, 0.5rem);">
+        <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 4px;"><span class="badge badge-sprout">English</span><span style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.65rem); color: var(--muted-2);">Keyword: STEPS</span></div>
+        <div class="dm-card outgoing" style="border-right-color: var(--sprout);"><div class="dm-label">DM 1</div><div class="dm-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">"Here's your guide: 7 Steps From Renting to Owning [Link]. Renting or living with family?"</div></div>
+        <div class="dm-card"><div class="dm-label">DM 2</div><div class="dm-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">"Best email for the full guide + FL first-time buyer programs?"</div></div>
+        <div class="dm-card outgoing" style="border-right-color: var(--sprout);"><div class="dm-label">DM 3</div><div class="dm-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">"Good number? I'll text when homes hit your range. No spam."</div></div>
+        <div class="dm-card"><div class="dm-label">DM 4</div><div class="dm-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">"All set! Check email. Grab 15 min: [Calendar]. Zero pressure."</div></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: clamp(0.3rem, 0.6vh, 0.5rem);">
+        <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 4px;"><span class="badge badge-brand">Espa&ntilde;ol</span><span style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.65rem); color: var(--muted-2);">Keyword: PASOS</span></div>
+        <div class="dm-card" style="border-left-color: var(--brand-deep);"><div class="dm-label">DM 1</div><div class="dm-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">"Aqu&iacute; tu gu&iacute;a: 7 Pasos de Rentar a Due&ntilde;o [Link]. &iquest;Rentando o con familia?"</div></div>
+        <div class="dm-card" style="border-left-color: var(--brand-deep);"><div class="dm-label">DM 2</div><div class="dm-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">"&iquest;Mejor email para la gu&iacute;a completa + programas para primerizos en FL?"</div></div>
+        <div class="dm-card" style="border-left-color: var(--brand-deep);"><div class="dm-label">DM 3</div><div class="dm-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">"&iquest;Buen n&uacute;mero? Te escribo cuando salgan casas en tu rango. Sin spam."</div></div>
+        <div class="dm-card" style="border-left-color: var(--brand-deep);"><div class="dm-label">DM 4</div><div class="dm-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">"&iexcl;Listo! Revisa email. 15 min: [Calendar]. Cero presi&oacute;n."</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">13</div>
+</section>
+
+<!-- ============================================
+     SLIDE 14: SETUP — 5 steps
+     ============================================ -->
+<section class="slide paper" data-notes="Five steps, 20 minutes. Create account, set up automation, build the DM flow, test it, connect to Lofty. The build step takes the longest at 10 minutes. Free plan gives you 1,000 contacts — that&apos;s enough to start. Upgrade to Pro at $15/month when you have volume.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Setup Guide</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">ManyChat Setup: 5 Steps, 20 Minutes</h2>
+    <div class="stagger" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.4rem, 1vw, 0.8rem);">
+      <div class="rt-card" style="text-align: center;">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--brand);">1</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.7rem, 1.1vw, 0.9rem); margin-top: 6px; color: var(--ink);">Create Account</h4>
+        <p style="font-size: clamp(0.6rem, 0.9vw, 0.75rem); color: var(--muted); margin-top: 4px; line-height: 1.4;">manychat.com &rarr; Connect IG + FB</p>
+        <span class="badge" style="background: #00000008; color: var(--muted); border: 1px solid var(--border-l); margin-top: 8px;">2 min</span>
+      </div>
+      <div class="rt-card" style="text-align: center;">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--brand);">2</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.7rem, 1.1vw, 0.9rem); margin-top: 6px; color: var(--ink);">New Automation</h4>
+        <p style="font-size: clamp(0.6rem, 0.9vw, 0.75rem); color: var(--muted); margin-top: 4px; line-height: 1.4;">IG Comment trigger + keyword</p>
+        <span class="badge" style="background: #00000008; color: var(--muted); border: 1px solid var(--border-l); margin-top: 8px;">3 min</span>
+      </div>
+      <div class="rt-card" style="text-align: center; border: 2px solid var(--brand);">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--brand);">3</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.7rem, 1.1vw, 0.9rem); margin-top: 6px; color: var(--ink);">Build DM Flow</h4>
+        <p style="font-size: clamp(0.6rem, 0.9vw, 0.75rem); color: var(--muted); margin-top: 4px; line-height: 1.4;">4 messages + User Input blocks</p>
+        <span class="badge badge-brand" style="margin-top: 8px; color: var(--brand);">10 min</span>
+      </div>
+      <div class="rt-card" style="text-align: center;">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--brand);">4</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.7rem, 1.1vw, 0.9rem); margin-top: 6px; color: var(--ink);">Test It</h4>
+        <p style="font-size: clamp(0.6rem, 0.9vw, 0.75rem); color: var(--muted); margin-top: 4px; line-height: 1.4;">Comment keyword on test post</p>
+        <span class="badge" style="background: #00000008; color: var(--muted); border: 1px solid var(--border-l); margin-top: 8px;">3 min</span>
+      </div>
+      <div class="rt-card" style="text-align: center;">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--brand);">5</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.7rem, 1.1vw, 0.9rem); margin-top: 6px; color: var(--ink);">Connect Lofty</h4>
+        <p style="font-size: clamp(0.6rem, 0.9vw, 0.75rem); color: var(--muted); margin-top: 4px; line-height: 1.4;">Zapier, manual, or CSV</p>
+        <span class="badge" style="background: #00000008; color: var(--muted); border: 1px solid var(--border-l); margin-top: 8px;">2 min</span>
+      </div>
+    </div>
+    <div class="reveal rt-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <div><span style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.8vw, 0.7rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--brand);">Pricing</span><p style="font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--ink); margin-top: 3px;">Free: up to 1,000 contacts &middot; Pro: $15/mo unlimited</p></div>
+      <span class="badge badge-sprout" style="font-size: clamp(0.6rem, 0.85vw, 0.72rem);">Start free. Upgrade when you have volume.</span>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">14</div>
+</section>
+
+<!-- ============================================
+     SLIDE 15: KEYWORD STRATEGY
+     ============================================ -->
+<section class="slide" data-notes="Your keyword matters more than you think. One word. Easy to spell. Easy to remember. Related to the offer. ALL CAPS in your caption — makes it stand out. Repeat it in the first line AND the last line. Never use common words like YES or HOME that people might type accidentally.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">Keyword Strategy</div>
+    <h2 class="reveal slide-title">Choosing Your Keyword</h2>
+    <p class="reveal slide-body">One word. Easy to spell. Easy to remember. Related to the offer. Different for EN &amp; ES.</p>
+    <div class="reveal" style="overflow: hidden; border-radius: 14px; border: 1px solid var(--border-d); background: var(--ink-soft);">
+      <table style="width: 100%; border-collapse: collapse; font-size: clamp(0.75rem, 1.2vw, 1rem);">
+        <thead><tr>
+          <th style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout); text-align: left; padding: clamp(8px, 1vh, 12px) clamp(10px, 1.5vw, 16px); border-bottom: 2px solid var(--border-d);">Avatar</th>
+          <th style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout); text-align: left; padding: clamp(8px, 1vh, 12px) clamp(10px, 1.5vw, 16px); border-bottom: 2px solid var(--border-d);">EN</th>
+          <th style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout); text-align: left; padding: clamp(8px, 1vh, 12px) clamp(10px, 1.5vw, 16px); border-bottom: 2px solid var(--border-d);">ES</th>
+          <th style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout); text-align: left; padding: clamp(8px, 1vh, 12px) clamp(10px, 1.5vw, 16px); border-bottom: 2px solid var(--border-d);">Lead Magnet</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--paper); font-weight: 500;">First-Time Buyer</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--sprout); font-weight: 700; font-family: var(--font-display);">STEPS</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--brand-light); font-weight: 700; font-family: var(--font-display);">PASOS</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--muted-2);">7 Steps From Renting to Owning</td></tr>
+          <tr><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--paper); font-weight: 500;">Move-Up Seller</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--sprout); font-weight: 700; font-family: var(--font-display);">VALUE</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--brand-light); font-weight: 700; font-family: var(--font-display);">VALOR</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--muted-2);">Your Home's Current Market Value</td></tr>
+          <tr><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--paper); font-weight: 500;">Relocating Buyer</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--sprout); font-weight: 700; font-family: var(--font-display);">GUIDE</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--brand-light); font-weight: 700; font-family: var(--font-display);">GUIA</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--muted-2);">Kissimmee Relocation Guide</td></tr>
+          <tr><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--paper); font-weight: 500;">Agent Recruiting</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--sprout); font-weight: 700; font-family: var(--font-display);">PLAYBOOK</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--brand-light); font-weight: 700; font-family: var(--font-display);">SISTEMA</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); border-bottom: 1px solid #ffffff0a; color: var(--muted-2);">Producing Agent's Playbook</td></tr>
+          <tr><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); color: var(--paper); font-weight: 500;">Investor</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); color: var(--sprout); font-weight: 700; font-family: var(--font-display);">NUMBERS</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); color: var(--brand-light); font-weight: 700; font-family: var(--font-display);">NUMEROS</td><td style="padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.5vw, 16px); color: var(--muted-2);">ROI Calculator Central FL</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">15</div>
+</section>
+
+<!-- ============================================
+     SLIDE 16: BILINGUAL — competitive advantage
+     ============================================ -->
+<section class="slide" data-notes="Osceola County is 54%+ Hispanic/Latino. 33.7% Puerto Rican. Most agents in this market run English-only campaigns. When you run bilingual ManyChat flows, you&apos;re capturing leads your competitors are literally ignoring. Two flows, two keywords — GUIDE and GUIA. Same system, double the reach." style="background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 50%, var(--ink) 100%);">
+  <div class="slide-content" style="gap: clamp(1rem, 2.5vh, 2rem); align-items: center; text-align: center;">
+    <div class="section-label reveal" style="justify-content: center; color: var(--sprout-soft);">Competitive Advantage</div>
+    <h2 class="reveal" style="font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -0.03em; line-height: 1.1; color: var(--paper);">
+      Osceola County is<br><span style="color: var(--sprout);">54%+ Hispanic/Latino</span>
+    </h2>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(1rem, 1.8vw, 1.4rem); color: #cfe6f5; max-width: 50ch; line-height: 1.5;">
+      33.7% Puerto Rican. Most agents run English-only campaigns. <strong style="color: white;">Bilingual ManyChat flows capture leads your competitors are literally ignoring.</strong>
+    </p>
+    <div class="reveal" style="display: flex; gap: clamp(0.8rem, 2vw, 1.5rem); flex-wrap: wrap; justify-content: center;">
+      <div class="rt-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px); text-align: center;">
+        <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); color: var(--sprout);">GUIDE</div>
+        <div style="font-size: clamp(0.6rem, 0.9vw, 0.75rem); color: #cfe6f5; margin-top: 4px;">&rarr; English flow</div>
+      </div>
+      <div class="rt-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px); text-align: center;">
+        <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); color: var(--brand-light);">GUIA</div>
+        <div style="font-size: clamp(0.6rem, 0.9vw, 0.75rem); color: #cfe6f5; margin-top: 4px;">&rarr; Spanish flow</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer" style="color: #cfe6f5;">reThought Real Estate</div>
+  <div class="slide-number" style="color: #cfe6f5;">16</div>
+</section>
+
+<!-- ============================================
+     SLIDE 17: LIVE EXERCISE
+     ============================================ -->
+<section class="slide" data-notes="8 minutes. Open your avatar document. Write all 4 DM messages right now. Don&apos;t overthink it — write it like you&apos;re texting someone who just asked for help. If you finish early, write the Spanish version too. Go.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Live Exercise &middot; 8 Minutes</div>
+    <h2 class="reveal slide-title">Build Your Flow <span style="background: var(--sprout); color: var(--ink); padding: 0 clamp(6px, 0.8vw, 10px); border-radius: 6px;">Right Now</span></h2>
+    <div class="stagger" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.4rem, 1vw, 0.8rem);">
+      <div class="rt-card" style="text-align: center;"><div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.2vw, 1.8rem); color: var(--sprout);">1</div><p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--paper); margin-top: 6px; font-weight: 600;">Your keyword?</p><p style="font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); margin-top: 3px;">EN + ES</p></div>
+      <div class="rt-card" style="text-align: center;"><div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.2vw, 1.8rem); color: var(--sprout);">2</div><p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--paper); margin-top: 6px; font-weight: 600;">DM 1?</p><p style="font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); margin-top: 3px;">Value + question</p></div>
+      <div class="rt-card" style="text-align: center;"><div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.2vw, 1.8rem); color: var(--sprout);">3</div><p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--paper); margin-top: 6px; font-weight: 600;">DM 2?</p><p style="font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); margin-top: 3px;">Ask for email</p></div>
+      <div class="rt-card" style="text-align: center;"><div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.2vw, 1.8rem); color: var(--sprout);">4</div><p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--paper); margin-top: 6px; font-weight: 600;">DM 3?</p><p style="font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); margin-top: 3px;">Ask for phone</p></div>
+      <div class="rt-card" style="text-align: center;"><div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.2vw, 1.8rem); color: var(--sprout);">5</div><p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--paper); margin-top: 6px; font-weight: 600;">DM 4?</p><p style="font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); margin-top: 3px;">Confirm + calendar</p></div>
+    </div>
+    <div class="reveal rt-card" style="background: linear-gradient(135deg, var(--clay) 0%, #8b3a2e 100%); border: none; text-align: center;">
+      <p style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.85rem, 1.4vw, 1.1rem); color: var(--paper);">Write it like you're texting someone who asked for help.</p>
+      <p style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: #eab1ac; letter-spacing: 1.4px; text-transform: uppercase; margin-top: 8px;">8 minutes &middot; Go.</p>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">17</div>
+</section>
+
+<!-- ============================================
+     SLIDE 18: BEFORE YOU LEAVE — 4 commitments
+     ============================================ -->
+<section class="slide light" data-notes="Each agent states 4 things out loud to the room. The commitment is public. That&apos;s the accountability. My keyword is... My 4 DMs are... I will have ManyChat set up by [real date, not &apos;this week&apos;]... My first unchecked box is...">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Before You Leave</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">Say It Out Loud</h2>
+    <p class="reveal" style="font-size: var(--body-size); color: var(--muted);">Each agent states 4 things to the room. The commitment is public.</p>
+    <div class="four-col stagger">
+      <div class="rt-card" style="border-top: 4px solid var(--sprout-deep);">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--sprout-deep);">1</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 8px; color: var(--ink);">"My keyword is..."</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px;">EN + ES if bilingual.</p>
+      </div>
+      <div class="rt-card" style="border-top: 4px solid var(--brand);">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--brand);">2</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 8px; color: var(--ink);">"My 4 DMs are..."</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px;">Read DM 1 aloud. Natural?</p>
+      </div>
+      <div class="rt-card" style="border-top: 4px solid var(--clay);">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--clay);">3</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 8px; color: var(--ink);">"ManyChat set up by..."</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px;">A real date. Not "this week."</p>
+      </div>
+      <div class="rt-card" style="border-top: 4px solid var(--ink);">
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--ink);">4</div>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 8px; color: var(--ink);">"My first unchecked box..."</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px;">Your only job until next session.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">18</div>
+</section>
+
+<!-- ============================================
+     SLIDE 19: YOUR MISSION — 48 hours
+     ============================================ -->
+<section class="slide" data-notes="48 hours. Set up ManyChat. Build your flow. Test it. Choose your keyword. If your ManyChat isn&apos;t set up by next session, you can&apos;t launch. No exceptions. Next week is Session 4: Launch. Ad goes live. Bridge sequence live in Lofty. Bring everything built and tested.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Your Mission</div>
+    <h2 class="reveal slide-title">Deadline: <span style="color: var(--clay);">48 Hours</span> From Right Now</h2>
+    <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(0.3rem, 0.7vh, 0.6rem);">
+      <div class="check-item"><div class="check-box"></div><span style="color: var(--paper); font-weight: 500;">Set up ManyChat account (connected to IG + FB)</span></div>
+      <div class="check-item"><div class="check-box"></div><span style="color: var(--paper); font-weight: 500;">Build your 4-message DM flow</span></div>
+      <div class="check-item"><div class="check-box"></div><span style="color: var(--paper); font-weight: 500;">Test it with a friend or personal account</span></div>
+      <div class="check-item"><div class="check-box"></div><span style="color: var(--paper); font-weight: 500;">Choose your keyword (EN + ES)</span></div>
+      <div class="check-item"><div class="check-box"></div><span style="color: var(--muted-2); font-style: italic;">If behind: finish avatar, record video, finalize lead magnet</span></div>
+    </div>
+    <div class="reveal rt-card" style="background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%); border: none;">
+      <div style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: #cfe6f5; margin-bottom: 6px;">Next Session &middot; Session 4</div>
+      <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.5vw, 1.15rem); color: var(--paper);">Launch. Ad goes live. Bridge sequence live in Lofty.</p>
+      <p style="font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: #cfe6f5; margin-top: 6px; line-height: 1.5;"><strong style="color: var(--paper);">If your ManyChat isn't set up, you can't launch. No exceptions.</strong></p>
+    </div>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">19</div>
+</section>
+
+<!-- ============================================
+     SLIDE 20: CLOSING QUOTE
+     ============================================ -->
+<section class="slide" data-notes="Let this one land. &apos;The best marketing doesn&apos;t feel like marketing.&apos; That&apos;s exactly what ManyChat does — it feels like a conversation, not a form. Have a great week. Go build your flow." style="justify-content: center; align-items: center; background: var(--ink-deep);">
+  <div style="text-align: center; max-width: min(80vw, 750px);">
+    <div class="reveal-scale" style="font-family: var(--font-display); font-weight: 300; font-size: clamp(4rem, 10vw, 8rem); color: var(--sprout); line-height: 0.7; margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem); opacity: 0.6;">&ldquo;</div>
+    <blockquote class="reveal" style="font-family: var(--font-display); font-weight: 300; font-size: clamp(1.3rem, 3.5vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.3; color: var(--paper); font-style: italic;">
+      The best marketing doesn't feel like marketing.
+    </blockquote>
+    <div class="reveal" style="margin-top: clamp(1.2rem, 3vh, 2rem);">
+      <p style="font-family: var(--font-mono); font-size: clamp(0.65rem, 1vw, 0.82rem); letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);">Tom Fishburne</p>
+      <p style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2); margin-top: 6px;">Founder, Marketoonist</p>
+    </div>
+    <div class="reveal" style="margin-top: clamp(2rem, 4vh, 3.5rem);">
+      <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" style="height: clamp(1.5rem, 3vw, 2.2rem); width: auto; color: var(--paper); opacity: 0.5;">
+        <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/></g>
+        <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08"/><circle cx="64.17" cy="39.49" r="5.08"/></g>
+      </svg>
+      <p style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted); margin-top: clamp(0.6rem, 1.2vh, 1rem);">
+        Human First &middot; Tech Driven &middot; Community Focused<br>
+        Real Simple. Real Skills. Real Results.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer" style="color: var(--muted);">Milwaukee, WI &middot; Kissimmee / Orlando, FL</div>
+  <div class="slide-number" style="color: var(--muted);">20</div>
+</section>
+
+<script>
+/* ===========================================
+   SLIDE CONTROLLER
+   =========================================== */
+class SlidePresentation {
+  constructor() {
+    this.slides = document.querySelectorAll('.slide');
+    this.currentSlide = 0;
+    this.navDotsContainer = document.querySelector('.nav-dots');
+    this.progressBar = document.querySelector('.progress-bar');
+    this.setupIntersectionObserver();
+    this.setupKeyboardNav();
+    this.setupTouchNav();
+    this.setupNavDots();
+    this.setupCounters();
+    this.setupBroadcastChannel();
+    this.updateProgress();
+  }
+
+  setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const index = Array.from(this.slides).indexOf(entry.target);
+          if (index !== -1) {
+            this.currentSlide = index;
+            this.updateNavDots();
+            this.updateProgress();
+            this.animateCounters(entry.target);
+          }
+        }
+      });
+    }, { threshold: 0.4 });
+    this.slides.forEach(slide => observer.observe(slide));
+  }
+
+  setupKeyboardNav() {
+    document.addEventListener('keydown', (e) => {
+      if (['ArrowDown','ArrowRight','Space','PageDown'].includes(e.code)) { e.preventDefault(); this.goToSlide(this.currentSlide + 1, true); }
+      else if (['ArrowUp','ArrowLeft','PageUp'].includes(e.code)) { e.preventDefault(); this.goToSlide(this.currentSlide - 1, true); }
+      else if (e.code === 'Home') { e.preventDefault(); this.goToSlide(0, true); }
+      else if (e.code === 'End') { e.preventDefault(); this.goToSlide(this.slides.length - 1, true); }
+    });
+  }
+
+  setupTouchNav() {
+    let startY = 0;
+    document.addEventListener('touchstart', (e) => { startY = e.touches[0].clientY; });
+    document.addEventListener('touchend', (e) => {
+      const diff = startY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) > 50) { diff > 0 ? this.goToSlide(this.currentSlide + 1) : this.goToSlide(this.currentSlide - 1); }
+    });
+  }
+
+  setupNavDots() {
+    this.navDotsContainer.innerHTML = '';
+    this.slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.classList.add('nav-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.setAttribute('aria-label', `Slide ${i + 1}`);
+      dot.addEventListener('click', () => this.goToSlide(i));
+      this.navDotsContainer.appendChild(dot);
+    });
+  }
+
+  updateNavDots() {
+    this.navDotsContainer.querySelectorAll('.nav-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === this.currentSlide);
+    });
+  }
+
+  updateProgress() {
+    this.progressBar.style.width = ((this.currentSlide + 1) / this.slides.length * 100) + '%';
+  }
+
+  /* BroadcastChannel — sync with presenter/audience windows */
+  setupBroadcastChannel() {
+    try {
+      this.channel = new BroadcastChannel('rethought-slides');
+      this.channel.onmessage = (e) => {
+        if (e.data.type === 'navigate' && e.data.slide !== this.currentSlide) {
+          this.goToSlide(e.data.slide, false);
+        } else if (e.data.type === 'sync-request') {
+          this.channel.postMessage({ type: 'sync-response', slide: this.currentSlide });
+        }
+      };
+    } catch(e) { /* BroadcastChannel not supported — silent fallback */ }
+  }
+
+  goToSlide(index, broadcast = true) {
+    if (index < 0 || index >= this.slides.length) return;
+    this.currentSlide = index;
+    this.slides[index].scrollIntoView({ behavior: 'smooth' });
+    this.updateNavDots();
+    this.updateProgress();
+    if (broadcast && this.channel) {
+      this.channel.postMessage({ type: 'navigate', slide: index });
+    }
+  }
+
+  /* Animated counters */
+  setupCounters() { this.animatedCounters = new Set(); }
+  animateCounters(slide) {
+    slide.querySelectorAll('.counter').forEach(el => {
+      if (this.animatedCounters.has(el)) return;
+      this.animatedCounters.add(el);
+      const target = parseFloat(el.dataset.target);
+      const isDecimal = target % 1 !== 0;
+      const duration = 1200;
+      const start = performance.now();
+      const animate = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        el.textContent = isDecimal ? current.toFixed(1) : Math.round(current).toLocaleString();
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    });
+  }
+}
+
+new SlidePresentation();
+</script>
+
+</body>
+</html>
