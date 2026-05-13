@@ -34,6 +34,38 @@ Avoid generic AI-generated aesthetics:
 
 Interpret creatively and make unexpected choices that feel genuinely designed for the context. Vary between light and dark themes, different fonts, different aesthetics. You still tend to converge on common choices (Space Grotesk, for example) across generations. Avoid this: it is critical that you think outside the box!
 
+## Animated HTML Components — Slide-by-Slide Review
+
+**After generating any presentation, review EVERY slide and add animated HTML components where they make the content more engaging and understandable.** This is NOT optional — it's what separates a professional presentation from a glorified bullet list.
+
+### What to look for on each slide:
+
+1. **Diagrams that could be animated** — If a slide shows a pipeline, workflow, or process (e.g., Avatar → Offer → Hook), draw it as an animated SVG with path drawing (`stroke-dasharray` + `stroke-dashoffset` animation), sequential step highlights, or flowing connection lines.
+
+2. **Concepts that could be visualized** — If a slide talks about "what your avatar thinks at 11pm", don't just write text in a card. Draw an SVG scene (moon, window, person at laptop, clock showing 11:00) or use atmospheric CSS (dark gradient, subtle stars, a glowing screen). Make the audience FEEL the concept.
+
+3. **Numbers and comparisons** — Always use animated counters, progress bars that fill on scroll, or side-by-side comparison bars. Never present numbers as plain text.
+
+4. **Framework diagrams** — Circles should orbit, connect, or pulse. Arrows should draw themselves. Steps should highlight sequentially. Venn diagrams should overlap with animation. Funnels should narrow. Pinwheels should subtly rotate.
+
+5. **Interactive mockups** — Phone screens (IG DM mockups), email templates, social media posts — render these as realistic HTML components, not descriptions.
+
+6. **Conference room legibility** — Every element must be readable from 3-6 feet. If text is smaller than `clamp(0.8rem, 1.2vw, 1rem)`, it's too small. Cards need adequate padding. Contrast must be high.
+
+### Examples of good animated components:
+- SVG map with pulsing city pins (Milwaukee market slide)
+- IG DM phone mockup with staggered chat bubble animations
+- 6-step workflow with animated connecting lines that draw on scroll
+- Animated counters that count up when slide enters view
+- Framework SVG diagrams (AIDA circles, PAS arrows) that animate their shapes
+- Progress bars that fill to show percentages
+- Floating/pulsing accent dots on key elements
+
+### What NOT to do:
+- Don't add animation just to add animation — it must serve the content
+- Don't use generic clip art or stock illustrations — use CSS/SVG-generated visuals
+- Don't make text smaller to fit more visual elements — split into two slides instead
+
 ## Viewport Fitting Rules
 
 These invariants apply to EVERY slide in EVERY presentation:
@@ -104,6 +136,30 @@ Slides 5 through N-1 contain the week's content — agenda, updates, metrics, tr
 - Display the quote in large Poppins italic/light, with the author name in Geist Mono uppercase below
 - Vary the quote each presentation — never repeat the same quote in consecutive weeks
 - Ink background, Paper text, sprout accent on quotation marks or author attribution
+
+---
+
+## Presenter Scripts
+
+**Every presentation MUST include word-for-word presenter scripts** embedded as `data-notes` on each slide. These are NOT bullet-point notes — they are full scripts the presenter reads/recites verbatim.
+
+### Script Requirements:
+1. **Two languages per slide** — English first, then Puerto Rican Spanish (con sazón). Separate with `---` divider.
+2. **Puerto Rican Spanish** — Not formal Castilian. Use natural PR expressions, contractions, and flow. Examples: "pa'lante", "dale", "vamos", "mira", "esto es lo que hay". The tone is direct, warm, confident — like Pedro actually talks.
+3. **Word-for-word recitation** — The presenter should be able to read the script exactly as written and sound natural. No "talking points" — full sentences, full paragraphs.
+4. **Match the slide content** — The script explains, expands, and contextualizes what's on the slide. It adds the story and emotion the slide can't show.
+5. **Conversational tone** — Write as if speaking to a room of 8-15 agents. Direct, personal, no corporate language.
+
+### Script Format in `data-notes`:
+```
+English script paragraphs here...
+
+---
+
+Spanish script paragraphs here...
+```
+
+The presenter view renders `---` as a language divider with EN/ES labels.
 
 ---
 

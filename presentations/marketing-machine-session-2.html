@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build Your Offer: The Missing Middle | reThought Real Estate</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="Build Your Offer: The Missing Middle">
+<meta name="presentation-series" content="Marketing Machine">
+<meta name="presentation-session" content="2">
+<meta name="presentation-date" content="2026-04-13">
+<meta name="presentation-slides" content="18">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   VIEWPORT BASE — MANDATORY
+   =========================================== */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+    width: 100vw; height: 100vh; height: 100dvh;
+    overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    max-height: 100%; overflow: hidden; padding: var(--slide-padding);
+}
+:root {
+    --title-size: clamp(2rem, 5.5vw, 4.5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.2rem, 3vw, 2.2rem);
+    --body-size: clamp(0.9rem, 1.8vw, 1.35rem);
+    --small-size: clamp(0.7rem, 1.2vw, 1rem);
+    --slide-padding: clamp(1.5rem, 5vw, 5rem);
+    --content-gap: clamp(0.6rem, 2.5vw, 2.5rem);
+    --element-gap: clamp(0.3rem, 1.2vw, 1.2rem);
+}
+@media (max-height: 700px) {
+    :root { --slide-padding: clamp(1rem, 3vw, 2.5rem); --title-size: clamp(1.5rem, 4.5vw, 3rem); --h2-size: clamp(1.2rem, 3.5vw, 2.2rem); }
+}
+@media (max-height: 600px) {
+    :root { --slide-padding: clamp(0.75rem, 2.5vw, 1.5rem); --title-size: clamp(1.2rem, 4vw, 2.5rem); --body-size: clamp(0.8rem, 1.4vw, 1.1rem); }
+    .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root { --slide-padding: clamp(0.5rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.5rem, 8vw, 3rem); } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   RETHOUGHT TOKENS — UPDATED INK
+   =========================================== */
+:root {
+    --ink: #1B252F;
+    --ink-soft: #222E3A;
+    --ink-deep: #151D26;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --brand-light: #6ba8d6;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --muted: #6e7a88;
+    --muted-2: #95a0ae;
+    --border-d: #ffffff18;
+    --border-l: #1B252F14;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--sprout); color: var(--ink); }
+
+/* ===========================================
+   GLOBAL COMPONENTS
+   =========================================== */
+.slide { background: var(--ink); padding: var(--slide-padding); }
+.slide.light { background: var(--paper); color: var(--ink); }
+.slide.light .section-label { color: var(--brand); }
+.slide.light .section-label::before { background: var(--brand); }
+.slide.light .slide-body { color: var(--muted); }
+.slide.light .slide-footer { color: var(--muted); }
+.slide.light .slide-number { color: var(--muted); }
+.slide.paper { background: var(--paper); color: var(--ink); }
+.slide.paper .section-label { color: var(--brand); }
+.slide.paper .section-label::before { background: var(--brand); }
+.slide.paper .slide-body { color: var(--muted); }
+.slide.paper .slide-footer { color: var(--muted); }
+.slide.paper .slide-number { color: var(--muted); }
+
+.section-label {
+    font-family: var(--font-mono); font-size: clamp(0.65rem, 1vw, 0.85rem);
+    letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
+}
+.section-label::before { content: ""; width: clamp(14px, 2.5vw, 24px); height: 2px; background: var(--sprout); }
+
+.slide-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--h2-size); letter-spacing: -0.025em; line-height: 1.1;
+    margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+}
+.slide-body {
+    font-family: var(--font-sans); font-size: var(--body-size);
+    line-height: 1.6; color: var(--muted-2); max-width: 60ch;
+}
+
+/* Strokes */
+.stroke { position: relative; display: inline-block; padding: 0 3px; }
+.stroke svg.ul {
+    position: absolute; left: -4px; right: -4px; bottom: clamp(-6px, -0.8vh, -10px);
+    width: calc(100% + 8px); height: clamp(10px, 1.5vw, 16px); pointer-events: none;
+}
+.stroke svg.ul path { fill: none; stroke-width: 3; stroke-linecap: round; }
+.stroke--sprout svg.ul path { stroke: var(--sprout); }
+.stroke--clay svg.ul path { stroke: var(--clay); }
+.stroke--brand svg.ul path { stroke: var(--brand-deep); }
+
+.highlight { background: linear-gradient(180deg, transparent 50%, #8cc94e44 50% 88%, transparent 88%); padding: 0 4px; }
+
+/* Cards */
+.rt-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(1rem, 2vw, 1.8rem);
+}
+.light .rt-card, .paper .rt-card {
+    background: white; border-color: var(--border-l);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Badges */
+.badge {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(8px, 1.2vw, 14px);
+    border-radius: 999px; text-transform: uppercase; display: inline-block;
+}
+.badge-sprout { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-brand { background: #034c7630; color: var(--brand-light); border: 1px solid #034c7650; }
+.badge-clay { background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550; }
+.badge-done { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-today { background: #034c7650; color: #8bc7f0; border: 1px solid #034c7680; }
+.badge-next { background: #ffffff10; color: var(--muted-2); border: 1px solid var(--border-d); }
+.badge-yellow { background: #f5c84220; color: #f5c842; border: 1px solid #f5c84240; }
+.light .badge-sprout, .paper .badge-sprout { background: #8cc94e18; color: var(--sprout-deep); border-color: #8cc94e40; }
+.light .badge-brand, .paper .badge-brand { background: #034c7618; color: var(--brand); border-color: #034c7640; }
+
+/* Stats strip */
+.stats-strip {
+    display: grid; gap: 2px; background: var(--border-d);
+    border: 1px solid var(--border-d); border-radius: 14px; overflow: hidden;
+}
+.stat-cell { background: var(--ink-soft); padding: clamp(0.8rem, 1.8vw, 1.5rem); text-align: center; }
+.stat-num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(1.4rem, 3.5vw, 2.8rem); letter-spacing: -0.02em; line-height: 1;
+}
+.stat-label {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.85vw, 0.72rem);
+    letter-spacing: 1.4px; color: var(--muted-2); text-transform: uppercase;
+    margin-top: clamp(4px, 0.6vh, 10px);
+}
+
+/* Tables */
+.rt-table { width: 100%; border-collapse: collapse; font-size: clamp(0.75rem, 1.2vw, 1rem); }
+.rt-table th {
+    font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout);
+    text-align: left; padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1.2vw, 14px);
+    border-bottom: 2px solid var(--border-d);
+}
+.rt-table td {
+    font-family: var(--font-sans); padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1.2vw, 14px);
+    border-bottom: 1px solid #ffffff0a; color: var(--muted-2);
+}
+.rt-table td:first-child { color: var(--paper); font-weight: 500; }
+.light .rt-table th { color: var(--brand); border-color: var(--border-l); }
+.light .rt-table td { border-color: #0000000a; color: var(--muted); }
+.light .rt-table td:first-child { color: var(--ink); }
+
+/* Layouts */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2.5vw, 2rem); }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: clamp(0.5rem, 1.5vw, 1.2rem); }
+.four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+@media (max-width: 700px) { .two-col, .three-col, .four-col { grid-template-columns: 1fr; } }
+
+/* Metric cards */
+.metric-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(0.8rem, 1.8vw, 1.5rem);
+}
+.metric-title {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2);
+}
+.metric-value {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(1.5rem, 3.5vw, 2.8rem); letter-spacing: -0.02em; line-height: 1;
+    margin-top: clamp(2px, 0.3vh, 6px);
+}
+.metric-bar {
+    height: clamp(4px, 0.5vh, 6px); border-radius: 3px;
+    margin-top: clamp(6px, 0.6vh, 10px); overflow: hidden; background: var(--ink-deep);
+}
+.metric-bar-fill {
+    height: 100%; border-radius: 3px; width: 0;
+    transition: width 1.2s var(--ease-out-expo);
+}
+.visible .metric-bar-fill { width: var(--fill); }
+
+/* Workflow */
+.wf-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(4px, 0.8vw, 10px); }
+.wf-step {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 12px; padding: clamp(0.6rem, 1.2vw, 1rem); text-align: center;
+}
+.wf-step.active { border-color: var(--sprout); background: #8cc94e12; }
+.wf-num { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--sprout); letter-spacing: 1px; }
+.wf-name { font-family: var(--font-display); font-weight: 600; font-size: clamp(0.65rem, 1vw, 0.85rem); margin-top: 4px; }
+
+/* Checklist */
+.check-item { display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); font-size: var(--body-size); padding: clamp(4px, 0.5vh, 8px) 0; }
+.check-box {
+    width: clamp(16px, 1.5vw, 22px); height: clamp(16px, 1.5vw, 22px);
+    border: 2px solid var(--muted); border-radius: 4px; flex-shrink: 0;
+}
+
+/* Progress bar */
+.progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--sprout); z-index: 9999; transition: width 0.3s ease; }
+
+/* Nav dots */
+.nav-dots {
+    position: fixed; right: clamp(12px, 2vw, 24px); top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 8px; z-index: 9998;
+}
+.nav-dot {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--muted); opacity: 0.3;
+    cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
+}
+.nav-dot.active { background: var(--sprout); opacity: 1; transform: scale(1.4); }
+
+/* Slide footer / number */
+.slide-footer {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.slide-number {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); right: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1px;
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(1) { transition-delay: 0.05s; }
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.25s; }
+.reveal:nth-child(4) { transition-delay: 0.35s; }
+.reveal:nth-child(5) { transition-delay: 0.45s; }
+
+/* Stagger children inside a container */
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.visible .stagger > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.visible .stagger > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.visible .stagger > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.visible .stagger > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.visible .stagger > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+.visible .stagger > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+
+/* Scale-in */
+.reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.6s, transform 0.6s var(--ease-spring); }
+.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+/* Slide-in from left */
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.6s, transform 0.6s var(--ease-out-expo); }
+.visible .reveal-left { opacity: 1; transform: translateX(0); }
+
+/* Animated counter */
+.counter { font-variant-numeric: tabular-nums; }
+
+/* Pulse dot */
+@keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.4); opacity: 1; } }
+.pulse-dot {
+    width: clamp(8px, 1vw, 12px); height: clamp(8px, 1vw, 12px);
+    background: var(--sprout); border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Flowing gradient bg */
+@keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.gradient-bg {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 30%, var(--ink) 70%, var(--ink-soft) 100%);
+    background-size: 300% 300%;
+    animation: gradient-flow 8s ease infinite;
+}
+
+/* Bar grow */
+@keyframes bar-grow { from { width: 0; } }
+.bar-animated { animation: bar-grow 1s var(--ease-out-expo) forwards; }
+.visible .bar-animated { animation: bar-grow 1s var(--ease-out-expo) forwards; }
+
+/* Float */
+@keyframes float-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.float { animation: float-gentle 4s ease-in-out infinite; }
+
+/* Glow ring */
+@keyframes glow-ring { 0%, 100% { box-shadow: 0 0 0 0 #8cc94e40; } 50% { box-shadow: 0 0 0 12px #8cc94e00; } }
+.glow { animation: glow-ring 2s ease-in-out infinite; }
+
+/* ===========================================
+   SESSION 2 — BRIDGE MESSAGE CARDS
+   =========================================== */
+.msg-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(0.8rem, 1.5vw, 1.4rem);
+    border-left: 4px solid var(--sprout);
+}
+.msg-card.msg-brand { border-left-color: var(--brand-deep); }
+.msg-card.msg-yellow { border-left-color: #f5c842; }
+.light .msg-card {
+    background: white; border-color: var(--border-l);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Email template styling */
+.email-block {
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 10px; padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    font-size: clamp(0.7rem, 1vw, 0.88rem); line-height: 1.6;
+}
+.light .email-block {
+    background: #f8f8f8; border-color: var(--border-l);
+}
+.email-subject {
+    font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+    letter-spacing: 0.5px; color: var(--sprout); margin-bottom: clamp(6px, 0.8vh, 10px);
+    padding-bottom: clamp(6px, 0.8vh, 10px); border-bottom: 1px solid var(--border-d);
+}
+.light .email-subject { border-color: var(--border-l); color: var(--brand); }
+
+.text-msg-block {
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 16px 16px 16px 4px; padding: clamp(0.6rem, 1.2vw, 1rem);
+    font-size: clamp(0.7rem, 1vw, 0.88rem); line-height: 1.5;
+    font-style: italic; color: var(--muted-2);
+}
+.light .text-msg-block {
+    background: #f0f4f8; border-color: var(--border-l); color: var(--muted);
+}
+
+/* Response routing cards */
+.response-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 10px; padding: clamp(0.5rem, 1vw, 0.8rem);
+    font-size: clamp(0.65rem, 0.95vw, 0.82rem);
+}
+.light .response-card {
+    background: white; border-color: var(--border-l);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar"></div>
+<nav class="nav-dots"></nav>
+
+<!-- ============================================
+     SLIDE 1: COVER — animated gradient
+     ============================================ -->
+<section class="slide gradient-bg" data-notes="Welcome to Session 2. Last session you built the framework. You have your avatar, your hook, your script — some of you even have the video recorded. But here's the honest truth: if someone raises their hand right now and says 'I want your guide' — what do they get? Nothing. Because the offer doesn't exist yet. Today we fix that.
+
+---
+
+Bienvenidos a la Sesión 2. La sesión pasada construyeron el framework. Tienen su avatar, su hook, su script — algunos hasta tienen el video grabado. Pero aquí está la verdad honesta: si alguien levanta la mano ahora mismo y dice 'quiero tu guía' — ¿qué reciben? Nada. Porque la oferta no existe todavía. Hoy arreglamos eso." style="justify-content: center; align-items: center;">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(1.5rem, 3.5vh, 3rem); text-align: center;">
+    <div class="reveal-scale" style="position: relative;">
+      <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate" style="height: clamp(2.5rem, 6vw, 4.5rem); width: auto; color: var(--paper);">
+        <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+        <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay: 0.5s;"/></g>
+      </svg>
+    </div>
+    <div>
+      <h1 class="reveal" style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.03em; line-height: 1.05;">
+        Build Your <span class="stroke stroke--sprout">Offer<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>
+      </h1>
+      <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--muted-2); margin-top: clamp(0.5rem, 1vh, 1rem);">The Missing Middle</p>
+    </div>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--muted-2); max-width: 55ch; text-align: center;">You have the avatar. You have the hook. You have the video. Now we build what the lead actually receives.</p>
+    <div class="reveal" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+      <span class="badge badge-sprout" style="font-size: clamp(0.6rem, 0.9vw, 0.75rem);">Marketing Machine</span>
+      <span class="badge badge-brand" style="font-size: clamp(0.6rem, 0.9vw, 0.75rem);">Session 2 of 4</span>
+    </div>
+    <p class="reveal" style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.75vw, 0.65rem); letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted);">
+      Week of April 13, 2026 &middot; Milwaukee, WI &middot; Kissimmee / Orlando, FL
+    </p>
+  </div>
+  <div class="slide-footer" style="color: var(--muted-2);">Real Simple. Real Skills. Real Results.</div>
+  <div class="slide-number" style="color: var(--muted-2);">01</div>
+</section>
+
+<!-- ============================================
+     SLIDE 2: YEAR STATEMENT
+     ============================================ -->
+<section class="slide" data-notes="Quick reminder: 2026 is about building systems. Every system you build runs while you sleep. The agents who win long-term aren&apos;t the ones who work the hardest — they&apos;re the ones who build the smartest systems. Push the edge. That&apos;s where we grow.
+
+---
+
+Recordatorio r&aacute;pido: 2026 se trata de construir sistemas. Cada sistema que construyas trabaja mientras t&uacute; duermes. Los agentes que ganan a largo plazo no son los que m&aacute;s trabajan — son los que construyen los sistemas m&aacute;s inteligentes." style="justify-content: center; align-items: center;">
+  <div style="text-align: center; max-width: min(85vw, 900px);">
+    <div class="section-label reveal" style="justify-content: center;">The Year Of</div>
+    <h2 class="reveal" style="font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 7vw, 5.5rem); letter-spacing: -0.04em; line-height: 1.05;">
+      2026 Is THE Year of<br>
+      <span class="stroke stroke--sprout">SYSTEMS<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>
+      and
+      <span class="stroke stroke--brand">NEW<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 7 C 70 14, 140 2, 198 8"/></svg></span>
+      Skill Developments.
+    </h2>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(0.9rem, 1.5vw, 1.2rem); color: var(--muted-2); margin-top: clamp(1rem, 2.5vh, 2rem); max-width: 50ch; margin-left: auto; margin-right: auto;">
+      Stop improvising. Start building. Every system you build runs while you sleep.
+    </p>
+  </div>
+  <div class="slide-footer">reThought Real Estate &middot; 2026</div>
+  <div class="slide-number">02</div>
+</section>
+
+<!-- ============================================
+     SLIDE 3: MISSION & VISION — ENGLISH (DARK)
+     ============================================ -->
+<section class="slide" data-notes="Our mission and vision. Human First. Tech Driven. Community Focused. These aren&apos;t just words — they guide every decision we make.
+
+---
+
+Nuestra misi&oacute;n y visi&oacute;n. Humanos Primero. Impulsados por Tecnolog&iacute;a. Enfocados en la Comunidad. Estas no son solo palabras — gu&iacute;an cada decisi&oacute;n que tomamos." style="justify-content: center;">
+  <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+    <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand-light); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Mission</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">
+        To redefine traditional real estate expectations delivering a <span style="color: var(--sprout); font-weight: 700;">personalized</span>, <span style="color: var(--sprout); font-weight: 700;">tech-driven</span>, and <span style="color: var(--sprout); font-weight: 700;">client-centric</span> approach to buying and selling real estate.
+      </p>
+    </div>
+    <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Vision</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">
+        To succeed at becoming the <span style="color: var(--sprout-soft); font-weight: 700;">local industry leader</span> that focuses on <span style="color: var(--sprout-soft); font-weight: 700;">humanizing</span> Real Estate by leveraging innovation, investments and growth while remaining a <span style="color: var(--sprout-soft); font-weight: 700;">resource to the Community</span>.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Human First &middot; Tech Driven &middot; Community Focused</div>
+  <div class="slide-number">03</div>
+</section>
+
+<!-- ============================================
+     SLIDE 4: MISIÓN Y VISIÓN — SPANISH (LIGHT)
+     ============================================ -->
+<section class="slide light" data-notes="Nuestra misi&oacute;n y visi&oacute;n en espa&ntilde;ol. Lean estas en voz alta si la audiencia habla espa&ntilde;ol. Hagan una pausa y dejen que el equipo absorba.
+
+---
+
+Our mission and vision in Spanish. Read these aloud if the audience is primarily Spanish-speaking. Pause and let the team absorb." style="justify-content: center;">
+  <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+    <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Misi&oacute;n</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">
+        Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque <span style="color: var(--brand); font-weight: 700;">personalizado</span>, impulsado por la <span style="color: var(--brand); font-weight: 700;">tecnolog&iacute;a</span> y centrado en el <span style="color: var(--brand); font-weight: 700;">cliente</span> para la compra y venta de propiedades.
+      </p>
+    </div>
+    <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout-deep); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Visi&oacute;n</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">
+        Triunfar en convertirnos en el <span style="color: var(--sprout-deep); font-weight: 700;">l&iacute;der local</span> de la industria enfocado en <span style="color: var(--sprout-deep); font-weight: 700;">humanizar</span> el sector inmobiliario, aprovechando la innovaci&oacute;n, la inversi&oacute;n y el crecimiento, mientras seguimos siendo un <span style="color: var(--sprout-deep); font-weight: 700;">recurso para la comunidad</span>.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Human First &middot; Tech Driven &middot; Community Focused</div>
+  <div class="slide-number">04</div>
+</section>
+
+<!-- ============================================
+     SLIDE 5: SESSION ARC — 4 session cards
+     ============================================ -->
+<section class="slide light" data-notes="Here's where we are in the Marketing Machine series. Session 1 is done — you have your avatar, your hook, your script. Today is Session 2: Build Your Offer. Sessions 3 and 4 come after. Everything today fills the gap between 'someone raised their hand' and 'they actually received something.'
+
+---
+
+Aquí es donde estamos en la serie Marketing Machine. La Sesión 1 está hecha — tienen su avatar, su hook, su script. Hoy es la Sesión 2: Construir tu Oferta. Las sesiones 3 y 4 vienen después. Todo lo de hoy llena el vacío entre 'alguien levantó la mano' y 'realmente recibieron algo.'">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Marketing Machine &middot; 4-Session Series</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">Where We Are in the Series</h2>
+
+    <div class="four-col stagger">
+      <div class="rt-card" style="opacity: 0.5; border-top: 3px solid var(--sprout-deep);">
+        <span class="badge badge-sprout" style="color: var(--sprout-deep);">Complete</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">Session 1</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px; line-height: 1.4;">6 Frameworks That Stop the Scroll</p>
+      </div>
+      <div class="rt-card" style="border: 2px solid var(--brand); border-top: 4px solid var(--brand); box-shadow: 0 4px 20px rgba(3,76,118,0.15); position: relative;">
+        <span class="badge badge-brand" style="color: var(--brand);">Today</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--brand);">Session 2</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--ink); margin-top: 6px; line-height: 1.4; font-weight: 500;">Build Your Offer: The Missing Middle</p>
+        <div class="pulse-dot" style="position: absolute; top: 12px; right: 12px; background: var(--brand);"></div>
+      </div>
+      <div class="rt-card" style="opacity: 0.35;">
+        <span class="badge badge-next" style="color: var(--muted); border-color: var(--border-l);">Coming Soon</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">Session 3</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px; line-height: 1.4;">Capture the Lead: ManyChat DM Automation</p>
+      </div>
+      <div class="rt-card" style="opacity: 0.35;">
+        <span class="badge badge-next" style="color: var(--muted); border-color: var(--border-l);">Coming Soon</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">Session 4</h4>
+        <p style="font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted); margin-top: 6px; line-height: 1.4;">Launch: Ad Goes Live + Lofty KTS</p>
+      </div>
+    </div>
+
+    <p class="reveal" style="font-size: var(--body-size); color: var(--muted); max-width: 65ch;">Your ad stops the scroll. But what does the lead actually receive? Today we build the offer, the bridge, and the handoff.</p>
+  </div>
+  <div class="slide-footer">Real Simple. Real Skills. Real Results.</div>
+  <div class="slide-number">05</div>
+</section>
+
+<!-- ============================================
+     SLIDE 6: THE HONEST TRUTH — split layout
+     ============================================ -->
+<section class="slide" data-notes="Here's the honest truth about where you are right now. On the left — what you have. You have a locked client avatar. You have a hook that stops the scroll. You have a script, and some of you have the video.
+
+On the right — what you're missing. You don't have what the lead actually receives when they raise their hand. You don't have the collateral that delivers on your promise. And you don't have the bridge — those first 3 messages between 'form submitted' and 'Lofty takes over.'
+
+Here's the rule: An ad that promises something and delivers nothing is worse than no ad at all. It builds distrust before the relationship even starts. Today we fix all three.
+
+---
+
+Aquí está la verdad honesta sobre dónde están ahora mismo. A la izquierda — lo que tienen. Tienen un avatar locked. Tienen un hook que para el scroll. Tienen un script, y algunos tienen el video.
+
+A la derecha — lo que les falta. No tienen lo que el lead realmente recibe cuando levanta la mano. No tienen el material que entrega lo que prometieron. Y no tienen el bridge — esos primeros 3 mensajes entre 'formulario enviado' y 'Lofty toma el control.'
+
+La regla: Un ad que promete algo y no entrega nada es peor que no tener ad. Construye desconfianza antes de que la relación empiece. Hoy arreglamos las tres cosas.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">The Honest Truth</div>
+    <h2 class="reveal slide-title">What You Have vs. What You&rsquo;re <span class="stroke stroke--clay">Missing<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 8 C 60 2, 130 12, 198 5"/></svg></span></h2>
+
+    <div class="two-col" style="align-items: stretch;">
+      <!-- Left: What You Have -->
+      <div class="reveal rt-card" style="border-top: 3px solid var(--sprout);">
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--sprout); margin-bottom: clamp(8px, 1vh, 14px);">What You Have</h4>
+        <div style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 12px);">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--paper);">
+            <span style="color: var(--sprout); font-size: 1.1em;">&#10003;</span> Locked client avatar
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--paper);">
+            <span style="color: var(--sprout); font-size: 1.1em;">&#10003;</span> A hook that stops the scroll
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--paper);">
+            <span style="color: var(--sprout); font-size: 1.1em;">&#10003;</span> A script (some have the video)
+          </div>
+        </div>
+      </div>
+      <!-- Right: What You're Missing -->
+      <div class="reveal rt-card" style="border-top: 3px solid var(--clay);">
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--clay-soft); margin-bottom: clamp(8px, 1vh, 14px);">What You&rsquo;re Missing</h4>
+        <div style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 12px);">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--muted-2);">
+            <span style="color: var(--clay); font-size: 1.1em;">&#10007;</span> What the lead receives when they raise their hand
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--muted-2);">
+            <span style="color: var(--clay); font-size: 1.1em;">&#10007;</span> The collateral that delivers on your promise
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: clamp(0.75rem, 1.1vw, 0.95rem); color: var(--muted-2);">
+            <span style="color: var(--clay); font-size: 1.1em;">&#10007;</span> The bridge between form submitted and Lofty
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom callout -->
+    <div class="reveal rt-card" style="background: linear-gradient(135deg, var(--clay) 0%, #8b3a2e 100%); border: none;">
+      <p style="font-size: var(--body-size); color: var(--paper); line-height: 1.5; text-align: center;">
+        <strong>An ad that promises something and delivers nothing builds distrust before the relationship starts.</strong>
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Build Your Offer &middot; Session 2</div>
+  <div class="slide-number">06</div>
+</section>
+
+<!-- ============================================
+     SLIDE 7: 6-STEP DUPLICABLE AD WORKFLOW
+     ============================================ -->
+<section class="slide" data-notes="Here's the 6-step duplicable ad workflow. Steps 1 and 3 are done — you have your avatar and your hook plus script. Steps 4, 5, and 6 depend on Step 2 being built first. Today we build Step 2: the offer.
+
+The bottom line is simple: you cannot automate delivery of something that doesn't exist. The lead magnet, the bridge, the Lofty handoff — all of that needs the offer to exist first.
+
+---
+
+Aquí está el workflow duplicable de 6 pasos. Los pasos 1 y 3 están hechos — tienen su avatar y su hook más script. Los pasos 4, 5 y 6 dependen de que el paso 2 esté construido primero. Hoy construimos el paso 2: la oferta.
+
+La conclusión es simple: no puedes automatizar la entrega de algo que no existe. El lead magnet, el bridge, el handoff a Lofty — todo eso necesita que la oferta exista primero.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">The Duplicable Ad Workflow</div>
+    <h2 class="reveal slide-title">6 Steps to a <span class="stroke stroke--sprout">Working Ad<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+    <p class="reveal slide-body">Steps 1 and 3 are done. Steps 4, 5, and 6 depend on Step 2 being built first. Today we build Step 2.</p>
+
+    <div class="reveal wf-grid stagger">
+      <div class="wf-step" style="border-color: var(--sprout); background: #8cc94e12;">
+        <div class="wf-num">01</div><div class="wf-name" style="color: var(--sprout);">Avatar</div>
+        <span class="badge badge-done" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Done</span>
+      </div>
+      <div class="wf-step active" style="border-color: #f5c842; background: #f5c84215; position: relative;">
+        <div class="wf-num" style="color: #f5c842;">02</div><div class="wf-name" style="color: #f5c842;">Offer</div>
+        <span class="badge badge-today" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Today</span>
+        <div class="pulse-dot" style="position: absolute; top: 8px; right: 8px; background: #f5c842;"></div>
+      </div>
+      <div class="wf-step" style="border-color: var(--sprout); background: #8cc94e12;">
+        <div class="wf-num">03</div><div class="wf-name" style="color: var(--sprout);">Hook + Script</div>
+        <span class="badge badge-done" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Done</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">04</div><div class="wf-name">Capture</div>
+        <span class="badge badge-next" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Upcoming</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">05</div><div class="wf-name">Bridge</div>
+        <span class="badge badge-next" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Upcoming</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">06</div><div class="wf-name">Lofty</div>
+        <span class="badge badge-next" style="margin-top: 6px; font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Upcoming</span>
+      </div>
+    </div>
+
+    <div class="reveal rt-card" style="background: var(--ink-deep); border: 1px solid var(--border-d); text-align: center;">
+      <p style="font-size: var(--body-size); color: var(--paper); line-height: 1.5; font-weight: 600;">
+        You cannot automate delivery of something that doesn&rsquo;t exist.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Build Your Offer &middot; Session 2</div>
+  <div class="slide-number">07</div>
+</section>
+
+<!-- ============================================
+     SLIDE 8: WHAT IS A LEAD MAGNET? — definition + 4 options
+     ============================================ -->
+<section class="slide light" data-notes="Let's define what a lead magnet actually is. A lead magnet is a specific, valuable piece of content your avatar receives in exchange for their information — that delivers immediately on the promise your hook made.
+
+The rule is simple: the lead magnet must solve the EXACT pain your hook promised to solve. Nothing more. Nothing less. If your hook says '7 steps from renting to owning' — the lead magnet better be about 7 steps from renting to owning.
+
+You have four options. Option A: The Guide — a how-to that walks them through a process. Option B: The List — a curated set of specific resources. Option C: The Checklist — a quick-win action list they can use immediately. Option D: The Report — personalized data or analysis.
+
+Most of you will use Option A or B. Checklists work great for buyer readiness. Reports work if you have data to personalize.
+
+---
+
+Definamos qué es un lead magnet. Un lead magnet es un contenido específico y valioso que tu avatar recibe a cambio de su información — que entrega inmediatamente lo que tu hook prometió.
+
+La regla es simple: el lead magnet debe resolver el dolor EXACTO que tu hook prometió resolver. Nada más. Nada menos.
+
+Tienen cuatro opciones. Opción A: La Guía. Opción B: La Lista. Opción C: El Checklist. Opción D: El Reporte. La mayoría usará la Opción A o B.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">Lead Magnet</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">What Is a <span class="stroke stroke--brand">Lead Magnet<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>?</h2>
+    <p class="reveal" style="font-size: var(--body-size); color: var(--muted); max-width: 65ch; line-height: 1.6;">
+      A specific, valuable piece of content your avatar receives in exchange for their information &mdash; that delivers immediately on the promise your hook made.
+    </p>
+
+    <div class="reveal rt-card" style="background: #034c7612; border: 1px solid #034c7630; border-left: 4px solid var(--brand);">
+      <p style="font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--ink); line-height: 1.5;">
+        <strong style="color: var(--brand);">THE RULE:</strong> The lead magnet must solve the <strong>EXACT</strong> pain your hook promised to solve. Nothing more. Nothing less.
+      </p>
+    </div>
+
+    <div class="four-col stagger" style="margin-top: clamp(4px, 0.5vh, 8px);">
+      <div class="rt-card" style="border-top: 3px solid var(--sprout-deep);">
+        <span class="badge badge-sprout" style="color: var(--sprout-deep);">Option A</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">The Guide</h4>
+        <p style="font-size: clamp(0.65rem, 0.9vw, 0.8rem); color: var(--muted); margin-top: 6px; line-height: 1.4; font-style: italic;">&ldquo;7 Steps From Renting to Owning in Kissimmee&rdquo;</p>
+      </div>
+      <div class="rt-card" style="border-top: 3px solid var(--brand);">
+        <span class="badge badge-brand" style="color: var(--brand);">Option B</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">The List</h4>
+        <p style="font-size: clamp(0.65rem, 0.9vw, 0.8rem); color: var(--muted); margin-top: 6px; line-height: 1.4; font-style: italic;">&ldquo;12 Homes Under $350K Available Right Now&rdquo;</p>
+      </div>
+      <div class="rt-card" style="border-top: 3px solid #c9a13e;">
+        <span class="badge" style="background: #c9a13e20; color: #8a6d1b; border: 1px solid #c9a13e40;">Option C</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">The Checklist</h4>
+        <p style="font-size: clamp(0.65rem, 0.9vw, 0.8rem); color: var(--muted); margin-top: 6px; line-height: 1.4; font-style: italic;">&ldquo;What You Need to Get Approved (Even with Imperfect Credit)&rdquo;</p>
+      </div>
+      <div class="rt-card" style="border-top: 3px solid var(--muted);">
+        <span class="badge badge-next" style="color: var(--muted); border-color: var(--border-l);">Option D</span>
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 10px; color: var(--ink);">The Report</h4>
+        <p style="font-size: clamp(0.65rem, 0.9vw, 0.8rem); color: var(--muted); margin-top: 6px; line-height: 1.4; font-style: italic;">&ldquo;Your Personal Payment Breakdown: How Much Can You Afford?&rdquo;</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Real Simple. Real Skills. Real Results.</div>
+  <div class="slide-number">08</div>
+</section>
+
+<!-- ============================================
+     SLIDE 9: PEDRO'S CASE STUDY — lead magnet
+     ============================================ -->
+<section class="slide" data-notes="Let me show you mine so you can see how it works in practice. My avatar is an agent, 26-32, producing $1M-$3M. My hook is 'You closed 8 deals last year but still feel broke.' My option is A — The Guide. The title is 'The Producing Agent's Playbook: 5 Systems That Turn $1M-$3M Producers Into $5M+ Closers.' Delivery is PDF via email within 5 minutes of opting in.
+
+What does it contain? Five pages. Page 1: The Pipeline Problem — why most agents plateau at $2M. Page 2: The CRM Workflow — the exact Lofty setup. Page 3: The Weekly Training System — 30 minutes a day. Page 4: The Marketing Machine — the ad system we're building right now. Page 5: The Next Step — a call to action.
+
+Notice: every page maps directly to the pain my hook promised to solve. That's the rule.
+
+---
+
+Déjenme mostrarles el mío para que vean cómo funciona en práctica. Mi avatar es un agente, 26-32, produciendo $1M-$3M. Mi hook es 'Cerraste 8 deals el año pasado pero todavía te sientes quebrado.' Mi opción es A — La Guía. El título es 'The Producing Agent's Playbook: 5 Systems That Turn $1M-$3M Producers Into $5M+ Closers.' Entrega es PDF por email en 5 minutos.
+
+¿Qué contiene? Cinco páginas. Página 1: El Problema del Pipeline. Página 2: El Workflow del CRM. Página 3: El Sistema de Entrenamiento Semanal. Página 4: La Marketing Machine. Página 5: El Siguiente Paso.
+
+Noten: cada página mapea directamente al dolor que mi hook prometió resolver. Esa es la regla.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">Case Study &middot; Pedro Bando Rivera</div>
+    <h2 class="reveal slide-title">My Lead Magnet <span class="stroke stroke--sprout">Breakdown<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+
+    <div class="two-col">
+      <!-- Left: The Setup -->
+      <div class="reveal rt-card" style="border-top: 3px solid var(--brand-deep);">
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--brand-light); margin-bottom: clamp(10px, 1.2vh, 16px);">The Setup</h4>
+        <div style="display: flex; flex-direction: column; gap: clamp(8px, 1vh, 14px); font-size: clamp(0.72rem, 1.05vw, 0.9rem);">
+          <div><span style="color: var(--muted-2); font-family: var(--font-mono); font-size: 0.8em; letter-spacing: 1px;">AVATAR</span><br><span style="color: var(--paper);">Agent, 26-32, $1M-$3M producer</span></div>
+          <div><span style="color: var(--muted-2); font-family: var(--font-mono); font-size: 0.8em; letter-spacing: 1px;">HOOK</span><br><span style="color: var(--paper); font-style: italic;">&ldquo;You closed 8 deals last year but still feel broke.&rdquo;</span></div>
+          <div><span style="color: var(--muted-2); font-family: var(--font-mono); font-size: 0.8em; letter-spacing: 1px;">OPTION</span><br><span style="color: var(--sprout);">A &mdash; The Guide</span></div>
+          <div><span style="color: var(--muted-2); font-family: var(--font-mono); font-size: 0.8em; letter-spacing: 1px;">TITLE</span><br><span style="color: var(--paper); font-weight: 600;">&ldquo;The Producing Agent&rsquo;s Playbook: 5 Systems That Turn $1M-$3M Producers Into $5M+ Closers&rdquo;</span></div>
+          <div><span style="color: var(--muted-2); font-family: var(--font-mono); font-size: 0.8em; letter-spacing: 1px;">DELIVERY</span><br><span style="color: var(--paper);">PDF via email within 5 min</span></div>
+        </div>
+      </div>
+      <!-- Right: What It Contains -->
+      <div class="reveal rt-card" style="border-top: 3px solid var(--sprout);">
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--sprout); margin-bottom: clamp(10px, 1.2vh, 16px);">What It Contains (5 Pages)</h4>
+        <div style="display: flex; flex-direction: column; gap: clamp(8px, 1vh, 14px); font-size: clamp(0.72rem, 1.05vw, 0.9rem);">
+          <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <span style="color: var(--sprout); font-family: var(--font-mono); font-size: 0.85em; font-weight: 600; min-width: 1.5em;">1.</span>
+            <span style="color: var(--paper);">The Pipeline Problem &mdash; why most agents plateau at $2M</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <span style="color: var(--sprout); font-family: var(--font-mono); font-size: 0.85em; font-weight: 600; min-width: 1.5em;">2.</span>
+            <span style="color: var(--paper);">The CRM Workflow &mdash; the exact Lofty setup</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <span style="color: var(--sprout); font-family: var(--font-mono); font-size: 0.85em; font-weight: 600; min-width: 1.5em;">3.</span>
+            <span style="color: var(--paper);">The Weekly Training System &mdash; 30 minutes a day</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <span style="color: var(--sprout); font-family: var(--font-mono); font-size: 0.85em; font-weight: 600; min-width: 1.5em;">4.</span>
+            <span style="color: var(--paper);">The Marketing Machine &mdash; the ad system we&rsquo;re building now</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <span style="color: var(--sprout); font-family: var(--font-mono); font-size: 0.85em; font-weight: 600; min-width: 1.5em;">5.</span>
+            <span style="color: var(--paper);">The Next Step &mdash; a call to action</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Build Your Offer &middot; Session 2</div>
+  <div class="slide-number">09</div>
+</section>
+
+<!-- ============================================
+     SLIDE 10: LIVE EXERCISE — build your lead magnet
+     ============================================ -->
+<section class="slide light" data-notes="OK, now it's your turn. You have 10 minutes. Answer these four questions. Number 1: What did my hook promise? Go back to Session 1. What exact pain did your hook address? Number 2: Which option matches that promise? A, B, C, or D. Number 3: What is the specific title? Write it out. Make it specific to your avatar. Number 4: What are the 3-5 things it contains? Bullet points only.
+
+Don't overthink this. The lead magnet doesn't have to be perfect — it has to exist. You can refine it later. Right now, we need the decision made and the outline written.
+
+---
+
+OK, ahora les toca a ustedes. Tienen 10 minutos. Respondan estas cuatro preguntas. Número 1: ¿Qué prometió mi hook? Regresen a la Sesión 1. ¿Qué dolor exacto abordó su hook? Número 2: ¿Cuál opción coincide con esa promesa? A, B, C, o D. Número 3: ¿Cuál es el título específico? Escríbanlo. Háganlo específico a su avatar. Número 4: ¿Cuáles son las 3-5 cosas que contiene? Solo bullet points.
+
+No piensen de más. El lead magnet no tiene que ser perfecto — tiene que existir. Pueden refinarlo después. Ahora mismo, necesitamos la decisión tomada y el outline escrito.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Live Exercise</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">Build Your Lead Magnet <span class="stroke stroke--brand">Decision<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+
+    <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(6px, 1vh, 12px);">
+      <div class="rt-card" style="border-left: 4px solid var(--brand); display: flex; align-items: center; gap: clamp(10px, 1.5vw, 18px);">
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--brand); min-width: 2em; text-align: center;">1</span>
+        <div>
+          <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); color: var(--ink);">What did my hook promise?</h4>
+          <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--muted); margin-top: 4px;">Go back to Session 1. What exact pain did your hook address?</p>
+        </div>
+      </div>
+      <div class="rt-card" style="border-left: 4px solid var(--brand); display: flex; align-items: center; gap: clamp(10px, 1.5vw, 18px);">
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--brand); min-width: 2em; text-align: center;">2</span>
+        <div>
+          <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); color: var(--ink);">Which option matches that promise?</h4>
+          <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--muted); margin-top: 4px;">A (Guide), B (List), C (Checklist), or D (Report)?</p>
+        </div>
+      </div>
+      <div class="rt-card" style="border-left: 4px solid var(--brand); display: flex; align-items: center; gap: clamp(10px, 1.5vw, 18px);">
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--brand); min-width: 2em; text-align: center;">3</span>
+        <div>
+          <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); color: var(--ink);">What is the specific title?</h4>
+          <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--muted); margin-top: 4px;">Write it out. Make it specific to your avatar.</p>
+        </div>
+      </div>
+      <div class="rt-card" style="border-left: 4px solid var(--brand); display: flex; align-items: center; gap: clamp(10px, 1.5vw, 18px);">
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--brand); min-width: 2em; text-align: center;">4</span>
+        <div>
+          <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.3vw, 1.1rem); color: var(--ink);">What are the 3-5 things it contains?</h4>
+          <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--muted); margin-top: 4px;">Bullet points only. Don&rsquo;t write the content &mdash; write the outline.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); justify-content: center;">
+      <div class="pulse-dot" style="background: var(--brand);"></div>
+      <span style="font-family: var(--font-mono); font-size: clamp(0.7rem, 1vw, 0.85rem); letter-spacing: 2px; text-transform: uppercase; color: var(--brand); font-weight: 600;">10 MIN</span>
+    </div>
+  </div>
+  <div class="slide-footer">Real Simple. Real Skills. Real Results.</div>
+  <div class="slide-number">10</div>
+</section>
+
+<!-- ============================================
+     SLIDE 11: BRIDGE SEQUENCE OVERVIEW
+     ============================================ -->
+<section class="slide" data-notes="Now we build the bridge. The 3-message bridge sequence. This is what happens between 'form submitted' and 'Lofty taking over with the right Smart Plan.'
+
+Here's why this matters: ad leads are cold. They don't know you. They clicked a button. KTS Smart Plans are designed for leads that already have some relationship with you. The bridge warms them up — it takes them from 'I clicked a thing' to 'this person actually delivered what they promised.'
+
+Message 1: Instant delivery. 0-5 minutes. Email plus text. They get the lead magnet immediately. Message 2: Value reinforcement. 24 hours later. Email only. You add context around the lead magnet. Message 3: The qualifying question. 48-72 hours. Text only. You ask one question that tells you their situation.
+
+After message 3, Lofty takes over with the right Smart Plan based on their response.
+
+---
+
+Ahora construimos el bridge. La secuencia de 3 mensajes. Esto es lo que pasa entre 'formulario enviado' y 'Lofty toma el control con el Smart Plan correcto.'
+
+Aquí es por qué importa: los leads de ads son fríos. No te conocen. Hicieron clic en un botón. Los Smart Plans de KTS están diseñados para leads que ya tienen alguna relación contigo. El bridge los calienta.
+
+Mensaje 1: Entrega instantánea. 0-5 minutos. Email más texto. Mensaje 2: Refuerzo de valor. 24 horas después. Solo email. Mensaje 3: La pregunta calificadora. 48-72 horas. Solo texto.
+
+Después del mensaje 3, Lofty toma el control con el Smart Plan correcto.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">The Bridge Sequence</div>
+    <h2 class="reveal slide-title">The 3-Message <span class="stroke stroke--sprout">Bridge<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+    <p class="reveal slide-body">Between <em>form submitted</em> and <em>Lofty taking over</em>. Ad leads are cold &mdash; KTS Smart Plans are for leads with existing relationship. The bridge warms them up.</p>
+
+    <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 12px);">
+      <div class="msg-card" style="display: flex; align-items: center; gap: clamp(12px, 2vw, 20px);">
+        <div style="text-align: center; min-width: clamp(50px, 5vw, 70px);">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--sprout);">1</div>
+          <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); letter-spacing: 1px;">0-5 MIN</div>
+        </div>
+        <div style="flex: 1;">
+          <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--paper);">Instant Delivery</h4>
+          <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--muted-2); margin-top: 4px;">Email + Text &mdash; Deliver the lead magnet immediately</p>
+        </div>
+        <span class="badge badge-sprout" style="font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Email + Text</span>
+      </div>
+      <div class="msg-card msg-brand" style="display: flex; align-items: center; gap: clamp(12px, 2vw, 20px);">
+        <div style="text-align: center; min-width: clamp(50px, 5vw, 70px);">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--brand-light);">2</div>
+          <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); letter-spacing: 1px;">24 HRS</div>
+        </div>
+        <div style="flex: 1;">
+          <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--paper);">Value Reinforcement</h4>
+          <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--muted-2); margin-top: 4px;">Email only &mdash; Add context and build trust around the lead magnet</p>
+        </div>
+        <span class="badge badge-brand" style="font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Email Only</span>
+      </div>
+      <div class="msg-card msg-yellow" style="display: flex; align-items: center; gap: clamp(12px, 2vw, 20px);">
+        <div style="text-align: center; min-width: clamp(50px, 5vw, 70px);">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.5vw, 2rem); color: #f5c842;">3</div>
+          <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted-2); letter-spacing: 1px;">48-72 HRS</div>
+        </div>
+        <div style="flex: 1;">
+          <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--paper);">Qualifying Question</h4>
+          <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--muted-2); margin-top: 4px;">Text only &mdash; One question that reveals their situation</p>
+        </div>
+        <span class="badge badge-yellow" style="font-size: clamp(0.5rem, 0.7vw, 0.6rem);">Text Only</span>
+      </div>
+    </div>
+
+    <div class="reveal rt-card" style="background: var(--ink-deep); border: 1px solid var(--border-d); text-align: center;">
+      <p style="font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--sprout); line-height: 1.5;">
+        After message 3 &mdash; <strong>Lofty takes over</strong> with the right Smart Plan.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Build Your Offer &middot; Session 2</div>
+  <div class="slide-number">11</div>
+</section>
+
+<!-- ============================================
+     SLIDE 12: BRIDGE MSG 1 — INSTANT DELIVERY
+     ============================================ -->
+<section class="slide light" data-notes="Let's write the actual messages. Message 1: Instant Delivery. This goes out within 5 minutes of the lead opting in. Two channels: email and text.
+
+The email subject is simple: 'Here's your [Lead Magnet Name], [First Name].' The body is short. Thank them. Deliver the PDF. One sentence of context. Sign off with your name.
+
+The text message is even shorter. 'Hey [First Name] — it's [Your Name] from reThought. Your [Lead Magnet Name] just hit your inbox. Let me know if you have any questions.' That's it. No selling. No pitch. Just deliver what you promised.
+
+---
+
+Escribamos los mensajes. Mensaje 1: Entrega Instantánea. Sale dentro de 5 minutos del opt-in. Dos canales: email y texto.
+
+El asunto del email es simple: 'Aquí está tu [Nombre del Lead Magnet], [Nombre].' El cuerpo es corto. Agradéceles. Entrega el PDF. Una oración de contexto. Firma con tu nombre.
+
+El texto es aún más corto. 'Hey [Nombre] — soy [Tu Nombre] de reThought. Tu [Lead Magnet] acaba de llegar a tu inbox. Avísame si tienes preguntas.' Eso es todo. Sin vender. Sin pitch. Solo entrega lo que prometiste.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">Bridge Message 1</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">Instant <span class="stroke stroke--sprout">Delivery<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+    <p class="reveal" style="font-size: clamp(0.75rem, 1vw, 0.88rem); color: var(--muted);">0-5 minutes after opt-in &middot; Email + Text</p>
+
+    <div class="two-col">
+      <!-- Email -->
+      <div class="reveal">
+        <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 8px;">Email</h4>
+        <div class="email-block">
+          <div class="email-subject">Subject: Here&rsquo;s your [Lead Magnet Name], [First Name]</div>
+          <p style="color: var(--ink); font-size: clamp(0.7rem, 1vw, 0.88rem); line-height: 1.7;">
+            Hey [First Name],<br><br>
+            Thanks for grabbing the [Lead Magnet Name]. Here it is &mdash; no strings attached.<br><br>
+            <strong>[PDF LINK]</strong><br><br>
+            I put this together because [one sentence of context about the pain]. If any of it resonates, feel free to reply &mdash; I read every message.<br><br>
+            Talk soon,<br>
+            [Your Name]<br>
+            <span style="color: var(--muted); font-size: 0.9em;">reThought Real Estate</span>
+          </p>
+        </div>
+      </div>
+      <!-- Text -->
+      <div class="reveal">
+        <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 8px;">Text Message</h4>
+        <div class="text-msg-block" style="color: var(--ink);">
+          Hey [First Name] &mdash; it&rsquo;s [Your Name] from reThought. Your [Lead Magnet Name] just hit your inbox. Let me know if you have any questions!
+        </div>
+        <div style="margin-top: clamp(12px, 1.5vh, 20px);">
+          <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout-deep); margin-bottom: 8px;">Versi&oacute;n en Espa&ntilde;ol</h4>
+          <div class="text-msg-block" style="color: var(--ink);">
+            Hey [Nombre] &mdash; soy [Tu Nombre] de reThought. Tu [Lead Magnet] acab&oacute; de llegar a tu inbox. &iexcl;Av&iacute;same si tienes alguna pregunta!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Real Simple. Real Skills. Real Results.</div>
+  <div class="slide-number">12</div>
+</section>
+
+<!-- ============================================
+     SLIDE 13: BRIDGE MSG 2 — VALUE REINFORCEMENT
+     ============================================ -->
+<section class="slide" data-notes="Message 2 goes out 24 hours after the opt-in. Email only. No text. The subject line is: 'The part most agents skip (and why it costs them).' — or whatever version matches your avatar's pain.
+
+The body adds value AROUND the lead magnet. Don't repeat the content — expand on it. Share one insight, one stat, or one story that makes the lead magnet more valuable.
+
+End with a soft question: 'Which part resonated most?' This isn't a sales pitch. It's a conversation starter. If they reply, you now have a two-way conversation. That's the warmth we need before Lofty takes over.
+
+---
+
+El mensaje 2 sale 24 horas después del opt-in. Solo email. Sin texto. El asunto es: 'La parte que la mayoría de los agentes se saltan (y por qué les cuesta)' — o la versión que coincida con el dolor de tu avatar.
+
+El cuerpo agrega valor ALREDEDOR del lead magnet. No repitan el contenido — expándanlo. Compartan un insight, una estadística, o una historia que haga el lead magnet más valioso.
+
+Terminen con una pregunta suave: '¿Qué parte te resonó más?' No es un pitch de ventas. Es un inicio de conversación. Si responden, ahora tienen una conversación de dos vías. Eso es la calidez que necesitamos antes de que Lofty tome el control.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">Bridge Message 2</div>
+    <h2 class="reveal slide-title">Value <span class="stroke stroke--brand">Reinforcement<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 7 C 70 14, 140 2, 198 8"/></svg></span></h2>
+    <p class="reveal slide-body">24 hours after opt-in &middot; Email only &middot; Don&rsquo;t repeat the lead magnet &mdash; expand around it.</p>
+
+    <div class="two-col">
+      <!-- English -->
+      <div class="reveal">
+        <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-bottom: 8px;">English</h4>
+        <div class="email-block">
+          <div class="email-subject" style="color: var(--sprout);">Subject: The part most [avatars] skip (and why it costs them)</div>
+          <p style="color: var(--paper); font-size: clamp(0.7rem, 1vw, 0.88rem); line-height: 1.7;">
+            Hey [First Name],<br><br>
+            Yesterday I sent you [Lead Magnet Name]. Hopefully you&rsquo;ve had a chance to look through it.<br><br>
+            Here&rsquo;s the part most people skip: [one specific insight or stat that expands on the lead magnet].<br><br>
+            I see this all the time &mdash; [brief story or example that reinforces the value].<br><br>
+            Quick question: which part resonated most with you?<br><br>
+            [Your Name]
+          </p>
+        </div>
+      </div>
+      <!-- Spanish -->
+      <div class="reveal">
+        <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-bottom: 8px;">Espa&ntilde;ol</h4>
+        <div class="email-block">
+          <div class="email-subject" style="color: var(--sprout);">Asunto: La parte que la mayor&iacute;a de [avatares] se saltan (y por qu&eacute; les cuesta)</div>
+          <p style="color: var(--paper); font-size: clamp(0.7rem, 1vw, 0.88rem); line-height: 1.7;">
+            Hey [Nombre],<br><br>
+            Ayer te envi&eacute; [Nombre del Lead Magnet]. Espero que hayas tenido chance de verlo.<br><br>
+            Aqu&iacute; est&aacute; la parte que la mayor&iacute;a se salta: [un insight espec&iacute;fico que expanda el lead magnet].<br><br>
+            Veo esto todo el tiempo &mdash; [historia breve o ejemplo que refuerce el valor].<br><br>
+            Pregunta r&aacute;pida: &iquest;qu&eacute; parte te reson&oacute; m&aacute;s?<br><br>
+            [Tu Nombre]
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Build Your Offer &middot; Session 2</div>
+  <div class="slide-number">13</div>
+</section>
+
+<!-- ============================================
+     SLIDE 14: BRIDGE MSG 3 — QUALIFYING QUESTION + LOFTY HANDOFF
+     ============================================ -->
+<section class="slide light" data-notes="Message 3 is the qualifying question. This goes out 48-72 hours after the opt-in. Text only. One question. The purpose is to find out where they are in their journey so you can tag them correctly in Lofty.
+
+For recruiting: 'Quick question — are you currently at a brokerage, or are you between brokerages right now?' For buyer leads: 'Quick question — are you actively looking right now, or just getting a feel for what's out there?'
+
+Based on their response, you tag them in Lofty. 'At a brokerage, unhappy' goes to Hot, recruiting tag, KTS Recruiting plan. 'Between brokerages' — same, Hot. 'Just exploring' — Warm, recruiting. No response after 72 hours — Cold, recruiting.
+
+After they're tagged, Lofty takes over with the right Smart Plan. The bridge is done.
+
+---
+
+El mensaje 3 es la pregunta calificadora. Sale 48-72 horas después del opt-in. Solo texto. Una pregunta. El propósito es descubrir dónde están en su journey para que puedas etiquetarlos correctamente en Lofty.
+
+Para reclutamiento: 'Pregunta rápida — ¿estás actualmente en un brokerage, o estás entre brokerages ahora mismo?' Para buyer leads: 'Pregunta rápida — ¿estás buscando activamente ahora, o solo estás viendo qué hay disponible?'
+
+Basado en su respuesta, los etiquetas en Lofty. 'En un brokerage, infeliz' va a Hot, tag recruiting, plan KTS Recruiting. 'Entre brokerages' — igual, Hot. 'Solo explorando' — Warm, recruiting. Sin respuesta después de 72 horas — Cold, recruiting.
+
+Después de etiquetarlos, Lofty toma el control con el Smart Plan correcto. El bridge está hecho.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">Bridge Message 3</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">The Qualifying <span class="stroke stroke--clay">Question<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 8 C 60 2, 130 12, 198 5"/></svg></span> + Lofty Handoff</h2>
+    <p class="reveal" style="font-size: clamp(0.75rem, 1vw, 0.88rem); color: var(--muted);">48-72 hours after opt-in &middot; Text only &middot; One question that reveals their situation</p>
+
+    <div class="two-col">
+      <!-- Left: Text Messages -->
+      <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(8px, 1vh, 14px);">
+        <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 4px;">Text Message (EN)</h4>
+        <div class="text-msg-block">
+          Hey [First Name] &mdash; quick question. Are you currently at a brokerage, or are you between brokerages right now?
+        </div>
+        <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout-deep); margin-bottom: 4px;">Texto (ES)</h4>
+        <div class="text-msg-block">
+          Hey [Nombre] &mdash; pregunta r&aacute;pida. &iquest;Est&aacute;s actualmente en un brokerage, o est&aacute;s entre brokerages ahora mismo?
+        </div>
+      </div>
+      <!-- Right: Response Routing -->
+      <div class="reveal">
+        <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 8px;">After They Respond &mdash; Lofty Takes Over</h4>
+        <div style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 10px);">
+          <div class="response-card" style="border-left: 3px solid var(--clay);">
+            <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--ink); font-weight: 600;">&ldquo;At a brokerage, unhappy&rdquo;</p>
+            <p style="font-size: clamp(0.6rem, 0.8vw, 0.7rem); color: var(--muted); margin-top: 3px;">Tag: <span style="color: var(--brand); font-weight: 600;">recruiting</span> &middot; Stage: <span style="color: var(--clay); font-weight: 600;">Hot</span> &middot; Plan: KTS Recruiting</p>
+          </div>
+          <div class="response-card" style="border-left: 3px solid #f5c842;">
+            <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--ink); font-weight: 600;">&ldquo;Between brokerages&rdquo;</p>
+            <p style="font-size: clamp(0.6rem, 0.8vw, 0.7rem); color: var(--muted); margin-top: 3px;">Tag: <span style="color: var(--brand); font-weight: 600;">recruiting</span> &middot; Stage: <span style="color: var(--clay); font-weight: 600;">Hot</span> &middot; Plan: KTS Recruiting</p>
+          </div>
+          <div class="response-card" style="border-left: 3px solid var(--sprout-deep);">
+            <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--ink); font-weight: 600;">&ldquo;Just exploring&rdquo;</p>
+            <p style="font-size: clamp(0.6rem, 0.8vw, 0.7rem); color: var(--muted); margin-top: 3px;">Tag: <span style="color: var(--brand); font-weight: 600;">recruiting</span> &middot; Stage: <span style="color: #f5c842; font-weight: 600;">Warm</span> &middot; Plan: KTS Recruiting</p>
+          </div>
+          <div class="response-card" style="border-left: 3px solid var(--muted);">
+            <p style="font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--ink); font-weight: 600;">&ldquo;No response 72 hrs&rdquo;</p>
+            <p style="font-size: clamp(0.6rem, 0.8vw, 0.7rem); color: var(--muted); margin-top: 3px;">Tag: <span style="color: var(--brand); font-weight: 600;">recruiting</span> &middot; Stage: <span style="color: var(--muted); font-weight: 600;">Cold</span> &middot; Plan: KTS Recruiting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Real Simple. Real Skills. Real Results.</div>
+  <div class="slide-number">14</div>
+</section>
+
+<!-- ============================================
+     SLIDE 15: THE LOFTY HANDOFF — routing table
+     ============================================ -->
+<section class="slide" data-notes="This is the Lofty handoff. Right tag, right plan, right nurture. The rule is simple: bridge sequence first, then tag, then stage. In that order. Never skip the bridge.
+
+On the left — recruiting leads. Hot leads go to KTS Recruiting Aggressive. Warm leads go to KTS Recruiting Standard. Cold leads go to KTS Recruiting Long-term.
+
+On the right — if you're running buyer or seller ads instead. First-time buyers get tagged buyer-ftb, stage based on response, KTS Buyer First Time plan. Move-up buyers get buyer-moveup. Spanish-speaking leads get the Spanish version of the plan. New construction gets buyer-newcon. Renters exploring get renter-explore, and they go to a nurture plan that converts over time.
+
+The point is: you decide the tag and plan BEFORE the ad goes live. Not after. Today you make that decision.
+
+---
+
+Este es el handoff a Lofty. Tag correcto, plan correcto, nurture correcto. La regla es simple: secuencia bridge primero, luego tag, luego stage. En ese orden. Nunca se salten el bridge.
+
+A la izquierda — leads de reclutamiento. Hot van a KTS Recruiting Aggressive. Warm van a KTS Recruiting Standard. Cold van a KTS Recruiting Long-term.
+
+A la derecha — si están corriendo ads de compradores o vendedores. First-time buyers se etiquetan buyer-ftb. Move-up buyers se etiquetan buyer-moveup. Leads en español van a la versión en español del plan. New construction va a buyer-newcon. Renters explorando van a renter-explore.
+
+El punto es: deciden el tag y el plan ANTES de que el ad salga al aire. No después. Hoy toman esa decisión.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">Lofty Integration</div>
+    <h2 class="reveal slide-title">Right Tag &rarr; Right Plan &rarr; Right <span class="stroke stroke--sprout">Nurture<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+
+    <div class="two-col">
+      <!-- Left: Recruiting routing -->
+      <div class="reveal rt-card" style="border-top: 3px solid var(--brand-deep);">
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--brand-light); margin-bottom: clamp(10px, 1.2vh, 16px);">Recruiting Leads</h4>
+        <table class="rt-table">
+          <thead><tr><th>Response</th><th>Stage</th><th>Smart Plan</th></tr></thead>
+          <tbody>
+            <tr><td style="color: var(--clay-soft);">Hot</td><td>Active interest</td><td>KTS Recruiting Aggressive</td></tr>
+            <tr><td style="color: #f5c842;">Warm</td><td>Exploring</td><td>KTS Recruiting Standard</td></tr>
+            <tr><td style="color: var(--muted-2);">Cold</td><td>No response</td><td>KTS Recruiting Long-term</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Right: Buyer/Seller routing -->
+      <div class="reveal rt-card" style="border-top: 3px solid var(--sprout);">
+        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--sprout); margin-bottom: clamp(10px, 1.2vh, 16px);">Buyer / Seller Leads</h4>
+        <table class="rt-table">
+          <thead><tr><th>Lead Type</th><th>Tag</th><th>Smart Plan</th></tr></thead>
+          <tbody>
+            <tr><td>First-time buyer</td><td>buyer-ftb</td><td>KTS Buyer First Time</td></tr>
+            <tr><td>Move-up buyer</td><td>buyer-moveup</td><td>KTS Buyer Move-up</td></tr>
+            <tr><td>Spanish-speaking</td><td>buyer-es</td><td>KTS Buyer (ES)</td></tr>
+            <tr><td>New construction</td><td>buyer-newcon</td><td>KTS New Construction</td></tr>
+            <tr><td>Renter exploring</td><td>renter-explore</td><td>KTS Renter Nurture</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="reveal rt-card" style="background: var(--ink-deep); border: 1px solid var(--border-d); text-align: center;">
+      <p style="font-size: var(--body-size); color: var(--sprout); line-height: 1.5; font-weight: 600;">
+        Bridge sequence first. Then tag. Then stage. In that order.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Build Your Offer &middot; Session 2</div>
+  <div class="slide-number">15</div>
+</section>
+
+<!-- ============================================
+     SLIDE 16: WHERE ARE YOU RIGHT NOW? CHECKLIST
+     ============================================ -->
+<section class="slide light" data-notes="Let's take inventory. Where are you right now? Look at this checklist. Foundation section: avatar locked, authority statement written, hook extracted, video script written, video recorded. Lead magnet section: type decided, title written, content outlined, lead magnet built. Capture and bridge section: capture path chosen, bridge messages 1-2-3 written. Automation section: Lofty tag and stage identified, ad live.
+
+Count your checks. That number is your current step. Your next action is the first unchecked box. Not the second. Not the third. The first unchecked box.
+
+---
+
+Hagamos inventario. ¿Dónde están ahora mismo? Miren este checklist. Sección de fundamentos: avatar locked, authority statement escrito, hook extraído, script del video escrito, video grabado. Sección lead magnet: tipo decidido, título escrito, contenido delineado, lead magnet construido. Sección captura y bridge: camino de captura elegido, mensajes bridge 1-2-3 escritos. Sección automatización: tag y stage de Lofty identificados, ad en vivo.
+
+Cuenten sus checks. Ese número es su paso actual. Su siguiente acción es la primera caja sin marcar. No la segunda. No la tercera. La primera caja sin marcar.">
+  <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+    <div class="section-label reveal">Progress Check</div>
+    <h2 class="reveal slide-title" style="color: var(--ink);">Where Are You <span class="stroke stroke--brand">Right Now<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 8 C 60 2, 130 12, 198 5"/></svg></span>?</h2>
+
+    <div class="two-col">
+      <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(10px, 1.5vh, 18px);">
+        <!-- Foundation -->
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 8px;">Foundation</h4>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Avatar locked</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Authority statement written</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Hook extracted</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Video script written</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Video recorded</span></div>
+          </div>
+        </div>
+        <!-- Lead Magnet -->
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout-deep); margin-bottom: 8px;">Lead Magnet</h4>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Type decided (A / B / C / D)</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Title written</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Content outlined (3-5 sections)</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Lead magnet built</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(10px, 1.5vh, 18px);">
+        <!-- Capture & Bridge -->
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 8px;">Capture &amp; Bridge</h4>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Capture path chosen</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Bridge message 1 written</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Bridge message 2 written</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Bridge message 3 written</span></div>
+          </div>
+        </div>
+        <!-- Automation -->
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--clay); margin-bottom: 8px;">Automation</h4>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Lofty tag / stage identified</span></div>
+            <div class="check-item"><div class="check-box"></div><span style="color: var(--ink);">Ad live</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal rt-card" style="background: #034c7612; border: 1px solid #034c7630; text-align: center;">
+      <p style="font-size: var(--body-size); color: var(--ink); line-height: 1.5;">
+        Count your checks. That is your current step number. <strong style="color: var(--brand);">Your next action is the first unchecked box.</strong>
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Real Simple. Real Skills. Real Results.</div>
+  <div class="slide-number">16</div>
+</section>
+
+<!-- ============================================
+     SLIDE 17: SAY IT OUT LOUD — commitments
+     ============================================ -->
+<section class="slide" data-notes="Before you leave this room, I need you to say four things out loud. Not in your head. Out loud. To the person next to you. Number 1: My lead magnet is... — tell them the type and the title. Number 2: What it contains is... — tell them the 3-5 sections. Number 3: I will have it built by... — give them a date. 48 hours max. Number 4: My first unchecked box is... — that's your homework.
+
+If you can't say all four, you're not done with today's session. Stay after. I'll help you finish.
+
+---
+
+Antes de salir de este salón, necesito que digan cuatro cosas en voz alta. No en su cabeza. En voz alta. A la persona a su lado. Número 1: Mi lead magnet es... — díganles el tipo y el título. Número 2: Lo que contiene es... — díganles las 3-5 secciones. Número 3: Lo tendré construido para... — denles una fecha. 48 horas máximo. Número 4: Mi primera caja sin marcar es... — esa es su tarea.
+
+Si no pueden decir las cuatro, no terminaron la sesión de hoy. Quédense después. Les ayudo a terminar.">
+  <div class="slide-content" style="gap: clamp(0.8rem, 2vh, 1.5rem);">
+    <div class="section-label reveal">Before You Leave</div>
+    <h2 class="reveal slide-title">Say It <span class="stroke stroke--sprout">Out Loud<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+    <p class="reveal slide-body">Not in your head. Out loud. To the person next to you.</p>
+
+    <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(6px, 1vh, 12px);">
+      <div class="rt-card" style="display: flex; align-items: center; gap: clamp(12px, 2vw, 20px);">
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout); min-width: 2em; text-align: center;">1</span>
+        <div>
+          <p style="font-size: clamp(0.85rem, 1.2vw, 1.05rem); color: var(--paper); font-weight: 600;">My lead magnet is...</p>
+          <p style="font-size: clamp(0.65rem, 0.85vw, 0.75rem); color: var(--muted-2); margin-top: 3px;">Type + Title</p>
+        </div>
+      </div>
+      <div class="rt-card" style="display: flex; align-items: center; gap: clamp(12px, 2vw, 20px);">
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout); min-width: 2em; text-align: center;">2</span>
+        <div>
+          <p style="font-size: clamp(0.85rem, 1.2vw, 1.05rem); color: var(--paper); font-weight: 600;">What it contains is...</p>
+          <p style="font-size: clamp(0.65rem, 0.85vw, 0.75rem); color: var(--muted-2); margin-top: 3px;">3-5 sections</p>
+        </div>
+      </div>
+      <div class="rt-card" style="display: flex; align-items: center; gap: clamp(12px, 2vw, 20px);">
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout); min-width: 2em; text-align: center;">3</span>
+        <div>
+          <p style="font-size: clamp(0.85rem, 1.2vw, 1.05rem); color: var(--paper); font-weight: 600;">I will have it built by...</p>
+          <p style="font-size: clamp(0.65rem, 0.85vw, 0.75rem); color: var(--muted-2); margin-top: 3px;">48 hours max</p>
+        </div>
+      </div>
+      <div class="rt-card" style="display: flex; align-items: center; gap: clamp(12px, 2vw, 20px);">
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout); min-width: 2em; text-align: center;">4</span>
+        <div>
+          <p style="font-size: clamp(0.85rem, 1.2vw, 1.05rem); color: var(--paper); font-weight: 600;">My first unchecked box is...</p>
+          <p style="font-size: clamp(0.65rem, 0.85vw, 0.75rem); color: var(--muted-2); margin-top: 3px;">That&rsquo;s your homework</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">Build Your Offer &middot; Session 2</div>
+  <div class="slide-number">17</div>
+</section>
+
+<!-- ============================================
+     SLIDE 18: CLOSING QUOTE
+     ============================================ -->
+<section class="slide" style="background: var(--ink-deep); justify-content: center; align-items: center;" data-notes="Let this one sit. You cannot automate delivery of something that doesn't exist. Build the offer first. Everything else follows. Your deadline is 48 hours. One unchecked box at a time. Have a great week.
+
+---
+
+Dejen que esto les quede. No puedes automatizar la entrega de algo que no existe. Construye la oferta primero. Todo lo demás sigue después. Su deadline es 48 horas. Una caja sin marcar a la vez. Que tengan una gran semana.">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(2rem, 4vh, 3.5rem); text-align: center; max-width: min(85vw, 800px);">
+    <div class="reveal-scale" style="position: relative;">
+      <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate" style="height: clamp(2rem, 5vw, 3.5rem); width: auto; color: var(--muted);">
+        <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+        <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay: 0.5s;"/></g>
+      </svg>
+    </div>
+    <blockquote class="reveal" style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 4vw, 3rem); letter-spacing: -0.03em; line-height: 1.15; color: var(--paper);">
+      &ldquo;You can&rsquo;t automate delivery of something that doesn&rsquo;t exist. <span style="color: var(--sprout);">Build the offer first.</span> Everything else follows.&rdquo;
+    </blockquote>
+    <div class="reveal" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      <p style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 2px; text-transform: uppercase; color: var(--muted);">
+        Human First &middot; Tech Driven &middot; Community Focused<br>
+        Real Simple. Real Skills. Real Results.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer" style="color: var(--muted);">Milwaukee, WI &middot; Kissimmee / Orlando, FL</div>
+  <div class="slide-number" style="color: var(--muted);">18</div>
+</section>
+
+<script>
+/* ===========================================
+   SLIDE CONTROLLER
+   =========================================== */
+class SlidePresentation {
+  constructor() {
+    this.slides = document.querySelectorAll('.slide');
+    this.currentSlide = 0;
+    this.navDotsContainer = document.querySelector('.nav-dots');
+    this.progressBar = document.querySelector('.progress-bar');
+    this.setupIntersectionObserver();
+    this.setupKeyboardNav();
+    this.setupTouchNav();
+    this.setupNavDots();
+    this.setupCounters();
+    this.setupBroadcastChannel();
+    this.updateProgress();
+  }
+
+  setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const index = Array.from(this.slides).indexOf(entry.target);
+          if (index !== -1) {
+            this.currentSlide = index;
+            this.updateNavDots();
+            this.updateProgress();
+            this.animateCounters(entry.target);
+          }
+        }
+      });
+    }, { threshold: 0.4 });
+    this.slides.forEach(slide => observer.observe(slide));
+  }
+
+  setupKeyboardNav() {
+    document.addEventListener('keydown', (e) => {
+      if (['ArrowDown','ArrowRight','Space','PageDown'].includes(e.code)) { e.preventDefault(); this.goToSlide(this.currentSlide + 1, true); }
+      else if (['ArrowUp','ArrowLeft','PageUp'].includes(e.code)) { e.preventDefault(); this.goToSlide(this.currentSlide - 1, true); }
+      else if (e.code === 'Home') { e.preventDefault(); this.goToSlide(0, true); }
+      else if (e.code === 'End') { e.preventDefault(); this.goToSlide(this.slides.length - 1, true); }
+    });
+  }
+
+  setupTouchNav() {
+    let startY = 0;
+    document.addEventListener('touchstart', (e) => { startY = e.touches[0].clientY; });
+    document.addEventListener('touchend', (e) => {
+      const diff = startY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) > 50) { diff > 0 ? this.goToSlide(this.currentSlide + 1) : this.goToSlide(this.currentSlide - 1); }
+    });
+  }
+
+  setupNavDots() {
+    this.navDotsContainer.innerHTML = '';
+    this.slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.classList.add('nav-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.setAttribute('aria-label', `Slide ${i + 1}`);
+      dot.addEventListener('click', () => this.goToSlide(i));
+      this.navDotsContainer.appendChild(dot);
+    });
+  }
+
+  updateNavDots() {
+    this.navDotsContainer.querySelectorAll('.nav-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === this.currentSlide);
+    });
+  }
+
+  updateProgress() {
+    this.progressBar.style.width = ((this.currentSlide + 1) / this.slides.length * 100) + '%';
+  }
+
+  /* BroadcastChannel — sync with presenter/audience windows */
+  setupBroadcastChannel() {
+    try {
+      this.channel = new BroadcastChannel('rethought-slides');
+      this.channel.onmessage = (e) => {
+        if (e.data.type === 'navigate' && e.data.slide !== this.currentSlide) {
+          this.goToSlide(e.data.slide, false);
+        } else if (e.data.type === 'sync-request') {
+          this.channel.postMessage({ type: 'sync-response', slide: this.currentSlide });
+        }
+      };
+    } catch(e) { /* BroadcastChannel not supported — silent fallback */ }
+  }
+
+  goToSlide(index, broadcast = true) {
+    if (index < 0 || index >= this.slides.length) return;
+    this.currentSlide = index;
+    this.slides[index].scrollIntoView({ behavior: 'smooth' });
+    this.updateNavDots();
+    this.updateProgress();
+    if (broadcast && this.channel) {
+      this.channel.postMessage({ type: 'navigate', slide: index });
+    }
+  }
+
+  /* Animated counters */
+  setupCounters() { this.animatedCounters = new Set(); }
+  animateCounters(slide) {
+    slide.querySelectorAll('.counter').forEach(el => {
+      if (this.animatedCounters.has(el)) return;
+      this.animatedCounters.add(el);
+      const target = parseFloat(el.dataset.target);
+      const isDecimal = target % 1 !== 0;
+      const duration = 1200;
+      const start = performance.now();
+      const animate = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        el.textContent = isDecimal ? current.toFixed(1) : Math.round(current).toLocaleString();
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    });
+  }
+}
+
+new SlidePresentation();
+</script>
+
+</body>
+</html>

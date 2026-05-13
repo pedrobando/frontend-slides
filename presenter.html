@@ -348,6 +348,34 @@ body {
     text-align: center;
     padding: 2rem;
 }
+
+.lang-toggle {
+    display: flex;
+    gap: 2px;
+    background: var(--ink-deep);
+    border: 1px solid var(--border-d);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.lang-btn {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    background: transparent;
+    color: var(--muted-2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.lang-btn.active {
+    background: var(--sprout);
+    color: var(--ink);
+    font-weight: 600;
+}
+.lang-btn:hover:not(.active) {
+    color: var(--paper);
+}
 </style>
 </head>
 <body>
@@ -362,6 +390,11 @@ body {
 <div class="top-bar">
     <div class="top-bar__title" id="presTitle">Presenter View</div>
     <div class="top-bar__meta">
+        <div class="lang-toggle" id="langToggle">
+          <button class="lang-btn active" data-lang="all">ALL</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
         <div class="top-bar__timer" id="timer">00:00</div>
         <div class="top-bar__counter" id="counter">— / —</div>
     </div>
@@ -429,6 +462,7 @@ body {
     let timerStart = Date.now();
     let timerInterval = null;
     let audienceWindow = null;
+    let currentLang = 'all';
 
     // DOM references
     const elTitle = document.getElementById('presTitle');
@@ -680,40 +714,39 @@ body {
             return;
         }
 
-        // Split on the --- divider (EN/ES language separator)
-        const sections = rawNotes.split('---');
+        var sections = rawNotes.split('---');
+        var html = '';
 
-        let html = '';
-        sections.forEach(function (section, i) {
-            // Add language label before/after HR
-            if (sections.length > 1) {
-                if (i === 0) {
-                    html += '<span class="lang-label">EN</span>';
-                } else {
-                    html += '<hr>';
-                    html += '<span class="lang-label lang-label--below">ES</span>';
-                }
+        if (sections.length > 1) {
+            if (currentLang === 'all' || currentLang === 'en') {
+                if (currentLang === 'all') html += '<span class="lang-label">EN</span>';
+                html += formatParagraphs(sections[0]);
             }
-
-            // Split into paragraphs on double newline
-            const paragraphs = section.split(/\n\n+/);
-            paragraphs.forEach(function (para) {
-                const trimmed = para.trim();
-                if (!trimmed) return;
-
-                // Convert **bold** to <strong>
-                const formatted = trimmed
-                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                    // Convert single newlines to <br> within a paragraph
-                    .replace(/\n/g, '<br>');
-
-                html += '<p>' + formatted + '</p>';
-            });
-        });
+            if (currentLang === 'all') html += '<hr>';
+            if (currentLang === 'all' || currentLang === 'es') {
+                if (currentLang === 'all') html += '<span class="lang-label lang-label--below">ES</span>';
+                html += formatParagraphs(sections.slice(1).join('---'));
+            }
+        } else {
+            html += formatParagraphs(sections[0]);
+        }
 
         elNotes.innerHTML = html;
-        // Scroll notes to top
         elNotes.scrollTop = 0;
+    }
+
+    function formatParagraphs(text) {
+        var result = '';
+        var paragraphs = text.split(/\\n\\n+|\n\n+/);
+        paragraphs.forEach(function(p) {
+            var trimmed = p.trim();
+            if (!trimmed) return;
+            var formatted = trimmed
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\\n|\n/g, '<br>');
+            result += '<p>' + formatted + '</p>';
+        });
+        return result;
     }
 
     // -----------------------------------------------
@@ -824,6 +857,15 @@ body {
                 'font-family:Poppins,sans-serif;color:#95a0ae;font-size:1.2rem;background:#1B252F;">' +
                 'Presentation ended. You can close this tab.</div>';
         }
+    });
+
+    // Language toggle handler
+    document.getElementById('langToggle').addEventListener('click', function(e) {
+        if (!e.target.classList.contains('lang-btn')) return;
+        currentLang = e.target.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+        e.target.classList.add('active');
+        renderNotes(slideNotes[currentSlide]);
     });
 
     // -----------------------------------------------
