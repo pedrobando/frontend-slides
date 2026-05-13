@@ -61,10 +61,47 @@ Interpret creatively and make unexpected choices that feel genuinely designed fo
 - Progress bars that fill to show percentages
 - Floating/pulsing accent dots on key elements
 
-### What NOT to do:
-- Don't add animation just to add animation — it must serve the content
-- Don't use generic clip art or stock illustrations — use CSS/SVG-generated visuals
-- Don't make text smaller to fit more visual elements — split into two slides instead
+### Common mistakes to NEVER make:
+
+**Layout mistakes:**
+- **NEVER use two-column layouts for diagram + card when the diagram needs horizontal space.** If a diagram has 4+ elements in a row (e.g., AIDA's 4 circles), give it the full width. Stack: title → diagram (full width) → example card (full width). Two-column layouts cramp diagrams and push elements off-screen.
+- **NEVER let SVG diagrams overflow their containers.** Always test that ALL elements of a diagram are visible. If you have 4 circles in a row, all 4 must render on screen. Use `flex-wrap` or reduce element sizes before allowing overflow.
+- **NEVER make SVG diagrams smaller than `clamp(180px, 25vw, 280px)` for the container.** Small diagrams are invisible from 3-6 feet. If the diagram can't be made large enough, simplify it (fewer elements) or split into two slides.
+
+**Text size mistakes:**
+- **Body text MINIMUM: `clamp(0.85rem, 1.3vw, 1.1rem)`** — anything smaller is unreadable at distance.
+- **Card/example text MINIMUM: `clamp(0.8rem, 1.15vw, 0.95rem)`** — italic quotes, example copy, form questions.
+- **Label/mono text MINIMUM: `clamp(0.6rem, 0.85vw, 0.72rem)`** — section labels, metadata, badges.
+- **If text needs to be smaller to fit, SPLIT INTO TWO SLIDES instead.**
+
+**Animation mistakes:**
+- **NEVER leave example/content cards without animation.** Every card, every visual element that appears on a slide should have `class="reveal"`, `class="reveal-scale"`, or be inside a `.stagger` container. Static cards on an otherwise animated slide look broken.
+- **Don't add animation just to add animation** — it must serve the content.
+
+**Diagram style mistakes:**
+- **Venn diagrams with CSS circles rarely render well.** Prefer colored card blocks with connecting arrows (→) — they're clearer and more readable.
+- **Don't use generic clip art or stock illustrations** — use CSS/SVG-generated visuals.
+- **Framework diagrams must be recognizable from across the room.** If the diagram requires squinting or reading tiny labels, it fails. Use large shapes, bold labels, high-contrast colors.
+
+## Live Exercise Slides — AI/Prompt Help
+
+**Every live exercise MUST be followed by a SEPARATE AI prompt slide.** Never cram the prompt into the exercise slide — it overflows and becomes unreadable. Two slides:
+
+1. **Exercise slide** — The task: what to do, how many minutes, numbered steps
+2. **AI Shortcut slide** (separate slide, immediately after) — The copy-paste prompt card
+
+The AI prompt slide should:
+1. Have a clear title: "Use AI to [accomplish the exercise task]"
+2. A brief explanation: "Copy this prompt. Paste into Claude or ChatGPT with your avatar doc."
+3. A large dark code-block card (`background: var(--ink-deep); border: 2px solid var(--sprout)`) with:
+   - "COPY · PASTE INTO YOUR AI PROJECT" label in mono uppercase sprout
+   - Badge showing "Claude / ChatGPT / Gemini"
+   - The actual prompt in mono font, large enough to read (`clamp(0.8rem, 1.15vw, 0.95rem)`)
+4. Reference their avatar document (which they already have)
+5. Include rules/constraints from the training (e.g., "second person, short, numeral-first")
+6. A warning at the bottom: "This only works if your avatar is locked."
+
+This teaches agents to use AI as a tool while building real skills. The prompt IS the shortcut — but only works if the avatar is locked first.
 
 ## Viewport Fitting Rules
 

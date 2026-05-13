@@ -10,7 +10,7 @@
 <meta name="presentation-series" content="Marketing Machine">
 <meta name="presentation-session" content="1">
 <meta name="presentation-date" content="2026-03-17">
-<meta name="presentation-slides" content="16">
+<meta name="presentation-slides" content="17">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -307,7 +307,7 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
     margin-bottom: clamp(3px, 0.4vh, 6px);
 }
 .fw-text {
-    font-family: var(--font-sans); font-size: clamp(0.7rem, 1.1vw, 0.95rem);
+    font-family: var(--font-sans); font-size: clamp(0.8rem, 1.15vw, 0.95rem);
     color: var(--paper); line-height: 1.5; font-style: italic;
 }
 .light .fw-text { color: var(--ink); }
@@ -367,6 +367,216 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
     letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(10px, 1.4vw, 18px);
     border-radius: 999px; text-transform: uppercase;
 }
+
+/* ===========================================
+   VISUAL OVERHAUL — ENHANCED ANIMATIONS
+   =========================================== */
+
+/* Slide 5 — SVG path drawing */
+@keyframes draw-path { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+.connecting-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+.visible .connecting-path { animation: draw-path 2s var(--ease-out-expo) forwards; }
+
+/* Slide 5 — session arc enhanced */
+.arc-card-enhanced {
+    background: white; border: 2px solid var(--border-l);
+    border-radius: 16px; padding: clamp(1rem, 2vw, 1.6rem); text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.4s var(--ease-out-expo);
+    position: relative; z-index: 2;
+}
+.arc-card-enhanced.future { opacity: 0.45; }
+.arc-card-enhanced.active-session { border-color: var(--sprout); background: #8cc94e08; }
+.arc-card-enhanced .arc-number {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem); line-height: 1; letter-spacing: -0.03em;
+}
+.arc-card-enhanced .arc-name {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.85rem, 1.3vw, 1.1rem); margin-top: 4px;
+}
+.arc-card-enhanced .arc-sub {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.65rem);
+    color: var(--muted); letter-spacing: 1.2px; margin-top: 6px; text-transform: uppercase;
+}
+.today-badge {
+    position: absolute; top: -10px; right: -10px;
+    background: var(--sprout); color: var(--ink); font-family: var(--font-mono);
+    font-size: clamp(0.5rem, 0.7vw, 0.6rem); font-weight: 700; letter-spacing: 1.5px;
+    padding: 3px 10px; border-radius: 999px; text-transform: uppercase;
+}
+
+/* Slide 6 — feel cards enhanced */
+.feel-card-enhanced {
+    background: var(--ink-soft); border-radius: 16px;
+    padding: 0; border: 2px solid var(--border-d); overflow: hidden;
+}
+.feel-card-enhanced .feel-header {
+    padding: clamp(0.8rem, 1.4vw, 1.2rem); display: flex; justify-content: center; align-items: center;
+    min-height: clamp(80px, 10vh, 110px);
+}
+.feel-card-enhanced .feel-body {
+    padding: clamp(0.8rem, 1.4vw, 1.2rem);
+}
+.feel-card-enhanced.moon-card { border-color: var(--brand-deep); }
+.feel-card-enhanced.moon-card .feel-header { background: linear-gradient(180deg, #0a1628 0%, #1a2a42 100%); }
+.feel-card-enhanced.broken-card { border-color: var(--clay); }
+.feel-card-enhanced.broken-card .feel-header { background: linear-gradient(180deg, #2a1a18 0%, #3a2420 100%); }
+.feel-card-enhanced.gold-card { border-color: var(--sprout); }
+.feel-card-enhanced.gold-card .feel-header { background: linear-gradient(180deg, #1a2a15 0%, #223020 100%); }
+
+.hook-bar {
+    background: var(--sprout); color: var(--ink); border-radius: 10px;
+    padding: clamp(0.7rem, 1.2vw, 1rem) clamp(1rem, 2vw, 1.5rem);
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+}
+
+/* Slide 7 — AIDA circles animated */
+.aida-circle {
+    opacity: 0; transform: scale(0);
+    transition: opacity 0.5s var(--ease-spring), transform 0.5s var(--ease-spring);
+}
+.visible .aida-circle:nth-child(1) { opacity: 1; transform: scale(1); transition-delay: 0.1s; }
+.visible .aida-circle:nth-child(2) { opacity: 1; transform: scale(1); transition-delay: 0.3s; }
+.visible .aida-circle:nth-child(3) { opacity: 1; transform: scale(1); transition-delay: 0.5s; }
+.visible .aida-circle:nth-child(4) { opacity: 1; transform: scale(1); transition-delay: 0.7s; }
+.aida-row { display: flex; align-items: center; gap: clamp(6px, 1vw, 14px); flex-wrap: wrap; justify-content: center; }
+.aida-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.aida-item .circle-wrap {
+    width: clamp(60px, 8vw, 90px); height: clamp(60px, 8vw, 90px);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    border: 2.5px solid var(--sprout);
+}
+.aida-item .circle-label {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+    letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted);
+}
+.aida-connector {
+    width: clamp(20px, 3vw, 40px); height: 2px; background: var(--sprout); opacity: 0.4;
+}
+
+/* Slide 8 — PAS arrows animated */
+.pas-arrow {
+    opacity: 0; transform: translateX(-30px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .pas-arrow:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0.1s; }
+.visible .pas-arrow:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.4s; }
+.visible .pas-arrow:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.7s; }
+.agitate-note {
+    border-left: 3px solid var(--clay); padding-left: clamp(10px, 1.5vw, 16px);
+    margin-top: clamp(8px, 1vh, 14px);
+}
+
+/* Slide 9 — FAB Venn animated */
+.fab-circle {
+    transition: all 0.8s var(--ease-out-expo);
+}
+.fab-circle.spread-1 { transform: translateX(-30px); }
+.fab-circle.spread-2 { transform: translateY(-20px); }
+.fab-circle.spread-3 { transform: translateX(30px); }
+.visible .fab-circle { transform: translate(0, 0); }
+
+/* Slide 10 — SPIN compass rotation */
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.spin-compass { animation: spin-slow 20s linear infinite; transform-origin: center; }
+
+/* Slide 11 — SCIPAB timeline */
+@keyframes draw-timeline { from { height: 0; } to { height: 100%; } }
+.timeline-line {
+    position: absolute; left: clamp(14px, 1.8vw, 20px); top: 0;
+    width: 2px; background: var(--sprout); height: 0;
+}
+.visible .timeline-line { animation: draw-timeline 1.5s var(--ease-out-expo) 0.3s forwards; }
+.timeline-step {
+    display: flex; align-items: flex-start; gap: clamp(10px, 1.5vw, 16px);
+    position: relative; z-index: 2;
+}
+.timeline-badge {
+    width: clamp(28px, 3.5vw, 40px); height: clamp(28px, 3.5vw, 40px);
+    background: var(--sprout); color: var(--ink); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-family: var(--font-display); font-weight: 700; font-size: clamp(0.7rem, 1vw, 0.85rem);
+}
+.timeline-content .step-title {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--ink);
+}
+.timeline-content .step-desc {
+    font-family: var(--font-sans); font-size: clamp(0.7rem, 1vw, 0.85rem);
+    color: var(--muted); line-height: 1.4; margin-top: 2px;
+}
+
+/* Slide 12 — IDCA diamonds animated */
+.idca-diamond {
+    opacity: 0; transform: rotate(45deg) scale(0.5);
+    transition: opacity 0.6s var(--ease-spring), transform 0.6s var(--ease-spring);
+}
+.visible .idca-diamond:nth-child(1) { opacity: 1; transform: rotate(45deg) scale(1); transition-delay: 0.1s; }
+.visible .idca-diamond:nth-child(2) { opacity: 1; transform: rotate(45deg) scale(1); transition-delay: 0.3s; }
+.visible .idca-diamond:nth-child(3) { opacity: 1; transform: rotate(45deg) scale(1); transition-delay: 0.5s; }
+.visible .idca-diamond:nth-child(4) { opacity: 1; transform: rotate(45deg) scale(1); transition-delay: 0.7s; }
+
+/* Slide 13 — table enhanced */
+.rt-table-enhanced td, .rt-table-enhanced th {
+    padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);
+}
+.rt-table-enhanced tbody tr:nth-child(even) { background: #034c7608; }
+.rt-table-enhanced .fw-dot {
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: middle;
+}
+.rule-callout {
+    border-left: 4px solid var(--sprout); padding-left: clamp(12px, 1.5vw, 20px);
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+}
+
+/* Slide 14 — timer pulsing */
+@keyframes timer-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 #c0544560; }
+    50% { box-shadow: 0 0 0 16px #c0544500; }
+}
+.timer-badge-large {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #c0544540; color: var(--clay-soft); border: 2px solid var(--clay);
+    font-family: var(--font-mono); font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 700; letter-spacing: 2px; padding: clamp(8px, 1.2vh, 14px) clamp(20px, 3vw, 36px);
+    border-radius: 999px; text-transform: uppercase;
+    animation: timer-pulse 2s ease-in-out infinite;
+}
+.exercise-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 16px; padding: clamp(1rem, 2vw, 1.6rem);
+    text-align: left;
+}
+.exercise-card .action-verb { color: var(--sprout); font-weight: 700; }
+
+/* Slide 15 — commitment cards */
+.commit-card {
+    background: white; border: 1px solid var(--border-l); border-radius: 16px;
+    padding: clamp(1rem, 2vw, 1.6rem); box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    display: flex; align-items: flex-start; gap: clamp(10px, 1.5vw, 16px);
+}
+.commit-card .commit-number {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1; flex-shrink: 0;
+}
+.commit-card .commit-text {
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--ink); line-height: 1.3;
+}
+.commit-card .commit-instruction {
+    font-family: var(--font-sans); font-size: clamp(0.75rem, 1vw, 0.9rem);
+    color: var(--muted); line-height: 1.4; margin-top: 4px;
+}
+/* Stagger from bottom for commit cards */
+.stagger-up > * {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .stagger-up > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.visible .stagger-up > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.visible .stagger-up > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.visible .stagger-up > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
 </style>
 </head>
 <body>
@@ -501,33 +711,36 @@ Aquí está la serie completa del Marketing Machine. Cuatro sesiones. Hoy es la 
     <div class="section-label reveal">Marketing Machine Series</div>
     <h2 class="slide-title reveal">Four Sessions. One System.</h2>
     <p class="slide-body reveal">Each session builds on the last. By Session 4, you launch your first campaign.</p>
-    <div class="four-col stagger" style="margin-top: var(--element-gap);">
-      <div class="arc-card active">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: clamp(4px, 0.6vh, 8px);">
-          <div class="pulse-dot"></div>
-          <span class="badge badge-sprout">Today</span>
+    <div style="position: relative; margin-top: var(--element-gap);">
+      <!-- SVG connecting lines behind cards -->
+      <svg viewBox="0 0 800 20" style="position: absolute; top: 50%; left: 0; width: 100%; height: 20px; transform: translateY(-50%); z-index: 1;" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="connecting-path" d="M100,10 L300,10 L500,10 L700,10" fill="none" stroke="var(--sprout)" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="four-col stagger" style="position: relative; z-index: 2;">
+        <div class="arc-card-enhanced active-session">
+          <span class="today-badge">TODAY</span>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 6px;">
+            <div class="pulse-dot"></div>
+          </div>
+          <div class="arc-number" style="color: var(--sprout-deep);">1</div>
+          <div class="arc-name" style="color: var(--sprout-deep);">Frameworks</div>
+          <div class="arc-sub">STOP THE SCROLL</div>
         </div>
-        <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--sprout-deep);">1</div>
-        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 4px;">Frameworks</div>
-        <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem); color: var(--muted); letter-spacing: 1px; margin-top: 4px;">STOP THE SCROLL</div>
-      </div>
-      <div class="arc-card">
-        <span class="badge badge-brand" style="margin-bottom: clamp(4px, 0.6vh, 8px);">Session 2</span>
-        <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--brand);">2</div>
-        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 4px;">Offer</div>
-        <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem); color: var(--muted); letter-spacing: 1px; margin-top: 4px;">BUILD THE MAGNET</div>
-      </div>
-      <div class="arc-card">
-        <span class="badge badge-brand" style="margin-bottom: clamp(4px, 0.6vh, 8px);">Session 3</span>
-        <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--brand);">3</div>
-        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 4px;">Capture</div>
-        <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem); color: var(--muted); letter-spacing: 1px; margin-top: 4px;">AUTOMATE THE DM</div>
-      </div>
-      <div class="arc-card">
-        <span class="badge badge-brand" style="margin-bottom: clamp(4px, 0.6vh, 8px);">Session 4</span>
-        <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--brand);">4</div>
-        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 4px;">Launch</div>
-        <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem); color: var(--muted); letter-spacing: 1px; margin-top: 4px;">GO LIVE</div>
+        <div class="arc-card-enhanced future">
+          <div class="arc-number" style="color: var(--brand);">2</div>
+          <div class="arc-name">Offer</div>
+          <div class="arc-sub">BUILD THE MAGNET</div>
+        </div>
+        <div class="arc-card-enhanced future">
+          <div class="arc-number" style="color: var(--brand);">3</div>
+          <div class="arc-name">Capture</div>
+          <div class="arc-sub">AUTOMATE THE DM</div>
+        </div>
+        <div class="arc-card-enhanced future">
+          <div class="arc-number" style="color: var(--brand);">4</div>
+          <div class="arc-name">Launch</div>
+          <div class="arc-sub">GO LIVE</div>
+        </div>
       </div>
     </div>
   </div>
@@ -563,26 +776,75 @@ Escriban desde la pregunta 3. Eso es el hook. Esa oración que les da miedo deci
     <div class="section-label reveal">Before The Frameworks</div>
     <h2 class="slide-title reveal">Feel It Before You <span class="stroke stroke--sprout">Write It<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
     <div class="three-col stagger" style="margin-top: var(--element-gap);">
-      <div class="feel-card sprout-border">
-        <div class="fw-label" style="color: var(--sprout);">Question 1</div>
-        <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--paper); font-weight: 600; margin-bottom: clamp(6px, 0.8vh, 10px);">What is my avatar doing at 11pm that they shouldn&rsquo;t have to be doing?</p>
-        <p class="fw-text">&ldquo;Refreshing email waiting for a deal that never came.&rdquo;</p>
+      <!-- Card 1: 11pm question — moon + clock -->
+      <div class="feel-card-enhanced moon-card">
+        <div class="feel-header">
+          <svg viewBox="0 0 120 80" width="120" height="80" xmlns="http://www.w3.org/2000/svg">
+            <!-- Moon -->
+            <circle cx="40" cy="40" r="22" fill="#6ba8d6" opacity="0.9"/>
+            <circle cx="50" cy="32" r="18" fill="#0a1628"/>
+            <!-- Glow -->
+            <circle cx="40" cy="40" r="28" fill="none" stroke="#6ba8d6" stroke-width="1" opacity="0.3"/>
+            <circle cx="40" cy="40" r="34" fill="none" stroke="#6ba8d6" stroke-width="0.5" opacity="0.15"/>
+            <!-- Clock -->
+            <circle cx="85" cy="42" r="16" fill="none" stroke="#6ba8d6" stroke-width="1.5" opacity="0.7"/>
+            <line x1="85" y1="42" x2="85" y2="32" stroke="#6ba8d6" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="85" y1="42" x2="78" y2="42" stroke="#6ba8d6" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="85" y="65" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#6ba8d6" opacity="0.6">11:00</text>
+          </svg>
+        </div>
+        <div class="feel-body">
+          <div class="fw-label" style="color: var(--brand-light);">Question 1</div>
+          <p style="font-family: var(--font-sans); font-size: clamp(0.95rem, 1.4vw, 1.15rem); color: var(--paper); font-weight: 600; margin-bottom: clamp(6px, 0.8vh, 10px);">What is my avatar doing at 11pm that they shouldn&rsquo;t have to be doing?</p>
+          <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--muted-2); font-style: italic; line-height: 1.5;">&ldquo;Refreshing email waiting for a deal that never came.&rdquo;</p>
+        </div>
       </div>
-      <div class="feel-card brand-border">
-        <div class="fw-label" style="color: var(--brand-light);">Question 2</div>
-        <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--paper); font-weight: 600; margin-bottom: clamp(6px, 0.8vh, 10px);">What have they tried that didn&rsquo;t work?</p>
-        <p class="fw-text">&ldquo;KW training they stopped attending. eXp Zoom calls nobody showed up for.&rdquo;</p>
+      <!-- Card 2: what didn't work — broken megaphone -->
+      <div class="feel-card-enhanced broken-card">
+        <div class="feel-header">
+          <svg viewBox="0 0 120 80" width="120" height="80" xmlns="http://www.w3.org/2000/svg">
+            <!-- Megaphone -->
+            <path d="M35,30 L55,25 L55,55 L35,50 Z" fill="none" stroke="#eab1ac" stroke-width="1.5" opacity="0.8"/>
+            <rect x="25" y="32" width="12" height="16" rx="2" fill="none" stroke="#eab1ac" stroke-width="1.5" opacity="0.8"/>
+            <path d="M55,28 Q75,20 80,25" fill="none" stroke="#eab1ac" stroke-width="1.2" opacity="0.5"/>
+            <path d="M55,40 Q75,40 82,40" fill="none" stroke="#eab1ac" stroke-width="1.2" opacity="0.5"/>
+            <path d="M55,52 Q75,60 80,55" fill="none" stroke="#eab1ac" stroke-width="1.2" opacity="0.5"/>
+            <!-- X cross-out -->
+            <line x1="20" y1="20" x2="90" y2="65" stroke="var(--clay)" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+            <line x1="90" y1="20" x2="20" y2="65" stroke="var(--clay)" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="feel-body">
+          <div class="fw-label" style="color: var(--clay-soft);">Question 2</div>
+          <p style="font-family: var(--font-sans); font-size: clamp(0.95rem, 1.4vw, 1.15rem); color: var(--paper); font-weight: 600; margin-bottom: clamp(6px, 0.8vh, 10px);">What have they tried that didn&rsquo;t work?</p>
+          <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--muted-2); font-style: italic; line-height: 1.5;">&ldquo;KW training they stopped attending. eXp Zoom calls nobody showed up for.&rdquo;</p>
+        </div>
       </div>
-      <div class="feel-card ink-border">
-        <div class="fw-label" style="color: var(--clay-soft);">Question 3 &mdash; The Gold</div>
-        <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--paper); font-weight: 600; margin-bottom: clamp(6px, 0.8vh, 10px);">What are they afraid to admit out loud?</p>
-        <p class="fw-text">&ldquo;I&rsquo;m almost 30 and I still don&rsquo;t know if real estate is actually going to work for me.&rdquo;</p>
+      <!-- Card 3: afraid to admit — thought bubble -->
+      <div class="feel-card-enhanced gold-card">
+        <div class="feel-header">
+          <svg viewBox="0 0 120 80" width="120" height="80" xmlns="http://www.w3.org/2000/svg">
+            <!-- Thought bubble -->
+            <ellipse cx="60" cy="35" rx="35" ry="22" fill="none" stroke="var(--sprout)" stroke-width="1.5" opacity="0.8"/>
+            <circle cx="42" cy="62" r="5" fill="none" stroke="var(--sprout)" stroke-width="1.2" opacity="0.6"/>
+            <circle cx="34" cy="72" r="3" fill="none" stroke="var(--sprout)" stroke-width="1" opacity="0.4"/>
+            <!-- ... dots inside -->
+            <circle cx="48" cy="35" r="3" fill="var(--sprout)" opacity="0.6"/>
+            <circle cx="60" cy="35" r="3" fill="var(--sprout)" opacity="0.8"/>
+            <circle cx="72" cy="35" r="3" fill="var(--sprout)" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="feel-body">
+          <div class="fw-label" style="color: var(--sprout);">Question 3 &mdash; The Gold</div>
+          <p style="font-family: var(--font-sans); font-size: clamp(0.95rem, 1.4vw, 1.15rem); color: var(--paper); font-weight: 600; margin-bottom: clamp(6px, 0.8vh, 10px);">What are they afraid to admit out loud?</p>
+          <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--muted-2); font-style: italic; line-height: 1.5;">&ldquo;I&rsquo;m almost 30 and I still don&rsquo;t know if real estate is actually going to work for me.&rdquo;</p>
+        </div>
       </div>
     </div>
-    <div class="reveal" style="margin-top: var(--element-gap); background: #8cc94e18; border: 1px solid #8cc94e44; border-radius: 10px; padding: clamp(0.6rem, 1.2vw, 1rem) clamp(1rem, 2vw, 1.5rem);">
-      <p style="font-family: var(--font-sans); font-size: clamp(0.85rem, 1.3vw, 1.1rem); color: var(--sprout); font-weight: 600;">
-        <span style="color: var(--sprout-soft);">&rarr;</span> Write from Question 3. That&rsquo;s the hook.
-      </p>
+    <div class="reveal" style="margin-top: var(--element-gap);">
+      <div class="hook-bar">
+        <span style="opacity: 0.7;">&rarr;</span> Write from Question 3. That&rsquo;s the hook.
+      </div>
     </div>
   </div>
   <div class="slide-footer">reThought Real Estate</div>
@@ -621,44 +883,49 @@ ACCIÓN: 'Agenda 20 minutos con Pedro. Sin pitch. Sin presión. Solo una convers
     <div class="section-label reveal">Framework 1 of 6</div>
     <h2 class="slide-title reveal">AIDA &mdash; <span style="color: var(--brand);">Attention &middot; Interest &middot; Desire &middot; Action</span></h2>
     <p class="slide-body reveal">The classic funnel framework. Best for <strong>cold audiences</strong> who don&rsquo;t know you yet. Top of funnel.</p>
-    <div class="two-col" style="margin-top: var(--element-gap); align-items: start;">
-      <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vw, 1rem);">
-        <!-- SVG circles -->
-        <svg viewBox="0 0 400 80" style="width: 100%; max-width: 400px; height: auto;" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="40" r="30" fill="#034c7618" stroke="var(--brand)" stroke-width="2"/>
-          <text x="50" y="44" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="10" fill="#034c76">A</text>
-          <line x1="80" y1="40" x2="120" y2="40" stroke="var(--brand)" stroke-width="1.5" stroke-dasharray="4"/>
-          <circle cx="150" cy="40" r="30" fill="#034c7618" stroke="var(--brand)" stroke-width="2"/>
-          <text x="150" y="44" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="10" fill="#034c76">I</text>
-          <line x1="180" y1="40" x2="220" y2="40" stroke="var(--brand)" stroke-width="1.5" stroke-dasharray="4"/>
-          <circle cx="250" cy="40" r="30" fill="#8cc94e18" stroke="var(--sprout-deep)" stroke-width="2"/>
-          <text x="250" y="44" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="10" fill="#2c5e15">D</text>
-          <line x1="280" y1="40" x2="320" y2="40" stroke="var(--sprout-deep)" stroke-width="1.5" stroke-dasharray="4"/>
-          <circle cx="350" cy="40" r="30" fill="#8cc94e30" stroke="var(--sprout)" stroke-width="2.5"/>
-          <text x="350" y="44" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="10" fill="#2c5e15">A</text>
-        </svg>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(4px, 0.6vw, 8px); font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted);">
-          <span>Attention</span><span>Interest</span><span>Desire</span><span>Action</span>
+    <div style="margin-top: var(--element-gap); display: flex; flex-direction: column; gap: clamp(0.8rem, 1.5vw, 1.2rem);">
+      <!-- AIDA 4 steps as colored cards — full width -->
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); width: 100%;">
+        <div style="background: var(--sprout); border-radius: 12px; padding: clamp(0.8rem, 1.5vw, 1.2rem); text-align: center;">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--ink);">1</div>
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--ink); margin-top: 4px;">Attention</div>
+          <p style="font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: var(--ink); opacity: 0.7; margin-top: 4px;">Stop the scroll</p>
+        </div>
+        <div style="background: var(--brand); border-radius: 12px; padding: clamp(0.8rem, 1.5vw, 1.2rem); text-align: center;">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); color: white;">2</div>
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 1.2vw, 1rem); color: white; margin-top: 4px;">Interest</div>
+          <p style="font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: white; opacity: 0.7; margin-top: 4px;">Build curiosity</p>
+        </div>
+        <div style="background: var(--clay); border-radius: 12px; padding: clamp(0.8rem, 1.5vw, 1.2rem); text-align: center;">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); color: white;">3</div>
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 1.2vw, 1rem); color: white; margin-top: 4px;">Desire</div>
+          <p style="font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: white; opacity: 0.7; margin-top: 4px;">Create want</p>
+        </div>
+        <div style="background: var(--ink); border-radius: 12px; padding: clamp(0.8rem, 1.5vw, 1.2rem); text-align: center; border: 1px solid var(--border-d);">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--sprout);">4</div>
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 1.2vw, 1rem); color: white; margin-top: 4px;">Action</div>
+          <p style="font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: var(--muted-2); margin-top: 4px;">Drive the step</p>
         </div>
       </div>
-      <div class="example-card reveal-scale">
+      <!-- Example card — full width -->
+      <div class="example-card reveal-left" style="transition-delay: 0.4s;">
         <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-bottom: clamp(6px, 0.8vh, 10px);">Pedro&rsquo;s Avatar &mdash; Full Example</div>
-        <div style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 10px);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(8px, 1vh, 12px);">
           <div>
-            <div class="fw-label">Attention</div>
-            <p class="fw-text">&ldquo;You closed 8 deals this year. Your broker collected their split. And you still don&rsquo;t know where deal 9 is coming from.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Attention</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;You closed 8 deals this year. Your broker collected their split. And you still don&rsquo;t know where deal 9 is coming from.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--brand-light);">Interest</div>
-            <p class="fw-text">&ldquo;Most agents producing $1M&ndash;$3M are one system away from scaling. But nobody ever sits down and builds it with them.&rdquo;</p>
+            <div class="fw-label" style="color: var(--brand-light); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Interest</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;Most agents producing $1M&ndash;$3M are one system away from scaling. But nobody ever sits down and builds it with them.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout-soft);">Desire</div>
-            <p class="fw-text">&ldquo;At reThought, agents train live every Tuesday &mdash; marketing, production, prospecting, analytics. With a broker who picks up the phone. In two markets.&rdquo;</p>
+            <div class="fw-label" style="color: var(--clay-soft); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Desire</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;At reThought, agents train live every Tuesday &mdash; marketing, production, prospecting, analytics. With a broker who picks up the phone. In two markets.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout);">Action</div>
-            <p class="fw-text">&ldquo;Book 20 minutes with Pedro. No pitch. No pressure. Just an honest conversation about where you&rsquo;re going.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Action</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;Book 20 minutes with Pedro. No pitch. No pressure. Just an honest conversation about where you&rsquo;re going.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -701,46 +968,40 @@ La sección de agitar es donde la mayoría de los agentes se detienen porque se 
     <h2 class="slide-title reveal">PAS &mdash; <span style="color: var(--sprout);">Problem &middot; Agitate &middot; Solution</span></h2>
     <p class="slide-body reveal">Best for <strong>warm audiences</strong> &mdash; people who know they have a problem. Pain-aware. Mid funnel.</p>
     <div class="two-col" style="margin-top: var(--element-gap); align-items: start;">
-      <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vw, 1rem);">
-        <!-- SVG arrows -->
-        <svg viewBox="0 0 300 180" style="width: 100%; max-width: 300px; height: auto;" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="pas-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2c5e15"/>
-              <stop offset="100%" stop-color="#8cc94e"/>
-            </linearGradient>
-          </defs>
-          <rect x="50" y="10" width="200" height="44" rx="10" fill="#c0544518" stroke="var(--clay)" stroke-width="1.5"/>
-          <text x="150" y="37" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="14" fill="#eab1ac">PROBLEM</text>
-          <line x1="150" y1="54" x2="150" y2="68" stroke="var(--muted)" stroke-width="1.5"/>
-          <polygon points="145,65 155,65 150,73" fill="var(--muted)"/>
-          <rect x="50" y="76" width="200" height="44" rx="10" fill="#c0544530" stroke="var(--clay)" stroke-width="2"/>
-          <text x="150" y="103" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="14" fill="#eab1ac">AGITATE</text>
-          <line x1="150" y1="120" x2="150" y2="134" stroke="var(--muted)" stroke-width="1.5"/>
-          <polygon points="145,131 155,131 150,139" fill="var(--muted)"/>
-          <rect x="50" y="142" width="200" height="44" rx="10" fill="#8cc94e18" stroke="var(--sprout)" stroke-width="2"/>
-          <text x="150" y="169" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="14" fill="#8cc94e">SOLUTION</text>
+      <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(0.8rem, 1.5vw, 1.2rem); align-items: stretch; max-width: 360px;">
+        <!-- Animated arrow shapes -->
+        <svg viewBox="0 0 360 60" style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg" class="pas-arrow">
+          <polygon points="0,0 310,0 360,30 310,60 0,60" fill="#c0544530" stroke="var(--clay)" stroke-width="1.5"/>
+          <text x="155" y="36" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="16" fill="white" letter-spacing="2">PROBLEM</text>
+        </svg>
+        <svg viewBox="0 0 360 60" style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg" class="pas-arrow">
+          <polygon points="0,0 310,0 360,30 310,60 0,60" fill="#c0544550" stroke="var(--clay)" stroke-width="2"/>
+          <text x="155" y="36" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="16" fill="white" letter-spacing="2">AGITATE</text>
+        </svg>
+        <svg viewBox="0 0 360 60" style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg" class="pas-arrow">
+          <polygon points="0,0 310,0 360,30 310,60 0,60" fill="#8cc94e28" stroke="var(--sprout)" stroke-width="2"/>
+          <text x="155" y="36" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="16" fill="#8cc94e" letter-spacing="2">SOLUTION</text>
         </svg>
       </div>
-      <div class="example-card reveal-scale">
+      <div class="example-card reveal-left" style="transition-delay: 0.4s;">
         <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-bottom: clamp(6px, 0.8vh, 10px);">Pedro&rsquo;s Avatar &mdash; PAS Example</div>
-        <div style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 10px);">
+        <div style="display: flex; flex-direction: column; gap: clamp(8px, 1vh, 12px);">
           <div>
-            <div class="fw-label" style="color: var(--clay-soft);">Problem</div>
-            <p class="fw-text">&ldquo;You&rsquo;re producing $1M&ndash;$3M a year and you&rsquo;re still winging it every single month.&rdquo;</p>
+            <div class="fw-label" style="color: var(--clay-soft); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Problem</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.98rem);">&ldquo;You&rsquo;re producing $1M&ndash;$3M a year and you&rsquo;re still winging it every single month.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--clay-soft);">Agitate</div>
-            <p class="fw-text">&ldquo;No pipeline system. No real training. A broker who collects splits and disappears. You&rsquo;re working harder than ever and you still can&rsquo;t predict where next month&rsquo;s check is coming from.&rdquo;</p>
+            <div class="fw-label" style="color: var(--clay); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Agitate</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.98rem);">&ldquo;No pipeline system. No real training. A broker who collects splits and disappears. You&rsquo;re working harder than ever and you still can&rsquo;t predict where next month&rsquo;s check is coming from.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout);">Solution</div>
-            <p class="fw-text">&ldquo;reThought was built for exactly this. Live weekly training. A 48-week curriculum. A broker who actually picks up the phone. Two markets. One community.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Solution</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.98rem);">&ldquo;reThought was built for exactly this. Live weekly training. A 48-week curriculum. A broker who actually picks up the phone. Two markets. One community.&rdquo;</p>
           </div>
         </div>
-        <div style="margin-top: clamp(8px, 1vh, 14px); padding-top: clamp(6px, 0.8vh, 10px); border-top: 1px solid var(--border-d);">
-          <p style="font-family: var(--font-sans); font-size: clamp(0.65rem, 0.95vw, 0.82rem); color: var(--muted-2); line-height: 1.5;">
-            <span style="color: var(--clay-soft);">&rarr;</span> The agitate section is where most agents pull back because they feel mean. Don&rsquo;t. If you&rsquo;re truly describing your avatar&rsquo;s reality, it&rsquo;s not mean &mdash; it&rsquo;s accurate.
+        <div class="agitate-note" style="margin-top: clamp(8px, 1vh, 14px);">
+          <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.15vw, 0.95rem); color: var(--muted-2); line-height: 1.5;">
+            The agitate section is where most agents pull back because they feel mean. Don&rsquo;t. If you&rsquo;re truly describing your avatar&rsquo;s reality, it&rsquo;s not mean &mdash; it&rsquo;s <strong style="color: var(--paper);">accurate</strong>.
           </p>
         </div>
       </div>
@@ -778,35 +1039,42 @@ BENEFICIO: 'Dejas de adivinar qué hacer después. Llegas el martes, te vas con 
     <div class="section-label reveal">Framework 3 of 6</div>
     <h2 class="slide-title reveal">FAB &mdash; <span style="color: var(--brand);">Feature &middot; Advantage &middot; Benefit</span></h2>
     <p class="slide-body reveal">Best for <strong>product-aware audiences</strong> comparing options. They know they need something &mdash; they&rsquo;re deciding between you and someone else.</p>
-    <div class="two-col" style="margin-top: var(--element-gap); align-items: start;">
-      <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vw, 1rem); align-items: center;">
-        <!-- SVG Venn diagram -->
-        <svg viewBox="0 0 300 200" style="width: 100%; max-width: 300px; height: auto;" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="120" cy="100" r="70" fill="#034c7615" stroke="var(--brand)" stroke-width="1.5" opacity="0.8"/>
-          <circle cx="180" cy="100" r="70" fill="#8cc94e15" stroke="var(--sprout-deep)" stroke-width="1.5" opacity="0.8"/>
-          <circle cx="150" cy="55" r="70" fill="#034c7610" stroke="var(--brand)" stroke-width="1" opacity="0.5"/>
-          <text x="95" y="115" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="11" fill="#034c76">F</text>
-          <text x="150" y="70" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="11" fill="#034c76">A</text>
-          <text x="205" y="115" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="11" fill="#2c5e15">B</text>
-          <text x="95" y="130" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#6e7a88" letter-spacing="0.5">FEATURE</text>
-          <text x="150" y="85" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#6e7a88" letter-spacing="0.5">ADVANTAGE</text>
-          <text x="205" y="130" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#6e7a88" letter-spacing="0.5">BENEFIT</text>
-        </svg>
+    <div style="margin-top: var(--element-gap); display: flex; flex-direction: column; gap: clamp(0.8rem, 1.5vw, 1.2rem);">
+      <!-- FAB cards in a row with connecting arrows -->
+      <div class="reveal" style="display: flex; align-items: stretch; justify-content: center; gap: 0; width: 100%;">
+        <div style="flex: 1; background: var(--sprout-deep); border-radius: 14px; padding: clamp(0.8rem, 1.6vw, 1.4rem); color: white; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(4px, 0.5vh, 8px);">
+          <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1;">F</span>
+          <span style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase;">Feature</span>
+          <span style="font-family: var(--font-sans); font-size: clamp(0.65rem, 0.9vw, 0.78rem); opacity: 0.8;">What it is</span>
+        </div>
+        <div style="display: flex; align-items: center; padding: 0 clamp(6px, 1vw, 12px); font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--brand); font-weight: 700;">&rarr;</div>
+        <div style="flex: 1; background: var(--brand); border-radius: 14px; padding: clamp(0.8rem, 1.6vw, 1.4rem); color: white; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(4px, 0.5vh, 8px);">
+          <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1;">A</span>
+          <span style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase;">Advantage</span>
+          <span style="font-family: var(--font-sans); font-size: clamp(0.65rem, 0.9vw, 0.78rem); opacity: 0.8;">Why it matters</span>
+        </div>
+        <div style="display: flex; align-items: center; padding: 0 clamp(6px, 1vw, 12px); font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--sprout-deep); font-weight: 700;">&rarr;</div>
+        <div style="flex: 1; background: var(--sprout-soft); border-radius: 14px; padding: clamp(0.8rem, 1.6vw, 1.4rem); color: var(--ink); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(4px, 0.5vh, 8px);">
+          <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1;">B</span>
+          <span style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase;">Benefit</span>
+          <span style="font-family: var(--font-sans); font-size: clamp(0.65rem, 0.9vw, 0.78rem); opacity: 0.7;">What they feel</span>
+        </div>
       </div>
-      <div class="example-card reveal-scale">
+      <!-- Example card — full width -->
+      <div class="example-card reveal-left" style="transition-delay: 0.4s;">
         <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-bottom: clamp(6px, 0.8vh, 10px);">Pedro&rsquo;s Avatar &mdash; FAB Example</div>
-        <div style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 10px);">
+        <div style="display: flex; flex-direction: column; gap: clamp(8px, 1vh, 12px);">
           <div>
-            <div class="fw-label" style="color: var(--brand-light);">Feature</div>
-            <p class="fw-text">&ldquo;reThought runs live training every Tuesday &mdash; marketing, production, prospecting, and analytics.&rdquo;</p>
+            <div class="fw-label" style="color: var(--brand); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Feature</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;reThought runs live training every Tuesday &mdash; marketing, production, prospecting, and analytics.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--brand-light);">Advantage</div>
-            <p class="fw-text">&ldquo;Unlike pre-recorded courses or monthly Zoom calls with 200 people, this is a small-group session where you get direct feedback on YOUR business.&rdquo;</p>
+            <div class="fw-label" style="color: var(--brand); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Advantage</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;Unlike pre-recorded courses or monthly Zoom calls with 200 people, this is a small-group session where you get direct feedback on YOUR business.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout);">Benefit</div>
-            <p class="fw-text">&ldquo;You stop guessing what to do next. You show up Tuesday, you leave with a plan, and you execute the rest of the week with clarity.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Benefit</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;You stop guessing what to do next. You show up Tuesday, you leave with a plan, and you execute the rest of the week with clarity.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -848,50 +1116,58 @@ NECESIDAD: '¿Qué tal si tuvieras un sistema que generara 3 a 5 conversaciones 
     <div class="section-label reveal">Framework 4 of 6</div>
     <h2 class="slide-title reveal">SPIN &mdash; <span style="color: var(--sprout);">Situation &middot; Problem &middot; Implication &middot; Need</span></h2>
     <p class="slide-body reveal">Consultative framework. Best for <strong>1-on-1 conversations</strong>, DMs, coffee meetings, and longer-form content.</p>
-    <div class="two-col" style="margin-top: var(--element-gap); align-items: start;">
-      <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vw, 1rem); align-items: center;">
-        <!-- SVG pinwheel -->
-        <svg viewBox="0 0 260 260" style="width: 100%; max-width: 240px; height: auto;" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="130" cy="130" r="120" fill="none" stroke="var(--border-d)" stroke-width="1"/>
-          <circle cx="130" cy="130" r="80" fill="none" stroke="var(--border-d)" stroke-width="1"/>
-          <circle cx="130" cy="130" r="40" fill="none" stroke="var(--border-d)" stroke-width="1"/>
-          <!-- S -->
-          <circle cx="130" cy="30" r="22" fill="#034c7630" stroke="var(--brand-deep)" stroke-width="1.5"/>
-          <text x="130" y="34" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="12" fill="#6ba8d6">S</text>
-          <!-- P -->
-          <circle cx="230" cy="130" r="22" fill="#c0544520" stroke="var(--clay)" stroke-width="1.5"/>
-          <text x="230" y="134" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="12" fill="#eab1ac">P</text>
-          <!-- I -->
-          <circle cx="130" cy="230" r="22" fill="#c0544530" stroke="var(--clay)" stroke-width="1.5"/>
-          <text x="130" y="234" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="12" fill="#eab1ac">I</text>
-          <!-- N -->
-          <circle cx="30" cy="130" r="22" fill="#8cc94e20" stroke="var(--sprout)" stroke-width="2"/>
-          <text x="30" y="134" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="12" fill="#8cc94e">N</text>
-          <!-- Connecting lines -->
-          <line x1="130" y1="52" x2="208" y2="130" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3" opacity="0.4"/>
-          <line x1="208" y1="130" x2="130" y2="208" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3" opacity="0.4"/>
-          <line x1="130" y1="208" x2="52" y2="130" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3" opacity="0.4"/>
-          <line x1="52" y1="130" x2="130" y2="52" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3" opacity="0.4"/>
+    <div class="two-col" style="margin-top: var(--element-gap); align-items: center;">
+      <div class="reveal" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <!-- SVG compass — LARGE -->
+        <svg viewBox="0 0 280 280" style="width: clamp(200px, 30vw, 320px); height: clamp(200px, 30vw, 320px);" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background rings -->
+          <g class="spin-compass">
+            <circle cx="140" cy="140" r="130" fill="none" stroke="var(--border-d)" stroke-width="0.5"/>
+            <circle cx="140" cy="140" r="100" fill="none" stroke="var(--border-d)" stroke-width="0.5"/>
+            <!-- Crosshair lines -->
+            <line x1="140" y1="10" x2="140" y2="270" stroke="var(--border-d)" stroke-width="0.5"/>
+            <line x1="10" y1="140" x2="270" y2="140" stroke="var(--border-d)" stroke-width="0.5"/>
+          </g>
+          <!-- Quadrant fills (static) -->
+          <path d="M140,140 L140,30 A110,110 0 0,1 250,140 Z" fill="#034c7615" opacity="0.6"/>
+          <path d="M140,140 L250,140 A110,110 0 0,1 140,250 Z" fill="#c0544515" opacity="0.6"/>
+          <path d="M140,140 L140,250 A110,110 0 0,1 30,140 Z" fill="#c0544520" opacity="0.5"/>
+          <path d="M140,140 L30,140 A110,110 0 0,1 140,30 Z" fill="#8cc94e15" opacity="0.6"/>
+          <!-- Labels (static, on top) — larger circles r=28 -->
+          <circle cx="140" cy="48" r="28" fill="#034c7640" stroke="var(--brand-deep)" stroke-width="2.5"/>
+          <text x="140" y="44" text-anchor="middle" font-family="Poppins" font-weight="800" font-size="16" fill="#6ba8d6">S</text>
+          <text x="140" y="58" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#6ba8d6" letter-spacing="0.5">SITUATION</text>
+          <circle cx="232" cy="140" r="28" fill="#c0544530" stroke="var(--clay)" stroke-width="2.5"/>
+          <text x="232" y="136" text-anchor="middle" font-family="Poppins" font-weight="800" font-size="16" fill="#eab1ac">P</text>
+          <text x="232" y="150" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#eab1ac" letter-spacing="0.5">PROBLEM</text>
+          <circle cx="140" cy="232" r="28" fill="#c0544538" stroke="var(--clay)" stroke-width="2.5"/>
+          <text x="140" y="228" text-anchor="middle" font-family="Poppins" font-weight="800" font-size="16" fill="#eab1ac">I</text>
+          <text x="140" y="242" text-anchor="middle" font-family="Geist Mono" font-size="6.5" fill="#eab1ac" letter-spacing="0.5">IMPLICATION</text>
+          <circle cx="48" cy="140" r="28" fill="#8cc94e25" stroke="var(--sprout)" stroke-width="2.5"/>
+          <text x="48" y="136" text-anchor="middle" font-family="Poppins" font-weight="800" font-size="16" fill="#8cc94e">N</text>
+          <text x="48" y="150" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#8cc94e" letter-spacing="0.5">NEED</text>
+          <!-- Center dot -->
+          <circle cx="140" cy="140" r="8" fill="var(--sprout)" opacity="0.5"/>
         </svg>
       </div>
-      <div class="example-card reveal-scale">
+      <div class="example-card reveal-left" style="transition-delay: 0.4s;">
         <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-bottom: clamp(6px, 0.8vh, 10px);">Pedro&rsquo;s Avatar &mdash; SPIN Example</div>
-        <div style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 10px);">
+        <div style="display: flex; flex-direction: column; gap: clamp(8px, 1vh, 12px);">
           <div>
-            <div class="fw-label" style="color: var(--brand-light);">Situation</div>
-            <p class="fw-text">&ldquo;You closed 8 deals last year at a $2M volume per deal.&rdquo;</p>
+            <div class="fw-label" style="color: var(--brand-light); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Situation</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;You closed 8 deals last year at a $2M volume per deal.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--clay-soft);">Problem</div>
-            <p class="fw-text">&ldquo;But you don&rsquo;t have a repeatable pipeline. Every deal feels like you&rsquo;re starting from scratch.&rdquo;</p>
+            <div class="fw-label" style="color: var(--clay-soft); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Problem</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;But you don&rsquo;t have a repeatable pipeline. Every deal feels like you&rsquo;re starting from scratch.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--clay-soft);">Implication</div>
-            <p class="fw-text">&ldquo;If nothing changes, you&rsquo;ll close 8 again next year. Maybe 6. And you&rsquo;ll burn out because the hustle doesn&rsquo;t scale.&rdquo;</p>
+            <div class="fw-label" style="color: var(--clay); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Implication</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;If nothing changes, you&rsquo;ll close 8 again next year. Maybe 6. And you&rsquo;ll burn out because the hustle doesn&rsquo;t scale.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout);">Need-Payoff</div>
-            <p class="fw-text">&ldquo;What if you had a system that generated 3&ndash;5 qualified conversations per week &mdash; without cold calling? That&rsquo;s what we build at reThought.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Need-Payoff</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;What if you had a system that generated 3&ndash;5 qualified conversations per week &mdash; without cold calling? That&rsquo;s what we build at reThought.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -942,58 +1218,80 @@ BENEFICIO: 'Sales de la llamada con claridad. Seas que te unas o no, vas a saber
     <h2 class="slide-title reveal">SCIPAB &mdash; <span style="color: var(--brand);">The Complete Framework</span></h2>
     <p class="slide-body reveal">Six steps. Best for <strong>long-form content</strong> &mdash; emails, landing pages, video scripts, pitch decks.</p>
     <div class="two-col" style="margin-top: var(--element-gap); align-items: start;">
-      <div class="reveal stagger" style="display: flex; flex-direction: column; gap: clamp(4px, 0.6vw, 8px);">
-        <div style="display: flex; align-items: center; gap: clamp(6px, 1vw, 10px);">
-          <span style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: var(--brand); font-weight: 600; min-width: 18px;">01</span>
-          <span style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--ink);">Situation</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: clamp(6px, 1vw, 10px);">
-          <span style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: var(--brand); font-weight: 600; min-width: 18px;">02</span>
-          <span style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--ink);">Complication</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: clamp(6px, 1vw, 10px);">
-          <span style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: var(--clay); font-weight: 600; min-width: 18px;">03</span>
-          <span style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--ink);">Implication</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: clamp(6px, 1vw, 10px);">
-          <span style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: var(--sprout-deep); font-weight: 600; min-width: 18px;">04</span>
-          <span style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--ink);">Position</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: clamp(6px, 1vw, 10px);">
-          <span style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: var(--sprout-deep); font-weight: 600; min-width: 18px;">05</span>
-          <span style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--ink);">Action</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: clamp(6px, 1vw, 10px);">
-          <span style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: var(--sprout); font-weight: 600; min-width: 18px;">06</span>
-          <span style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--ink);">Benefit</span>
+      <!-- Animated vertical timeline -->
+      <div class="reveal" style="position: relative; padding-left: clamp(40px, 5vw, 56px);">
+        <div class="timeline-line"></div>
+        <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(6px, 1vh, 12px);">
+          <div class="timeline-step">
+            <div class="timeline-badge">1</div>
+            <div class="timeline-content">
+              <div class="step-title">Situation</div>
+              <div class="step-desc">Set the context &mdash; where they are now</div>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-badge" style="background: var(--brand); color: white;">2</div>
+            <div class="timeline-content">
+              <div class="step-title">Complication</div>
+              <div class="step-desc">Name the friction they face</div>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-badge" style="background: var(--clay); color: white;">3</div>
+            <div class="timeline-content">
+              <div class="step-title">Implication</div>
+              <div class="step-desc">Show the cost of inaction</div>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-badge" style="background: var(--sprout-deep); color: white;">4</div>
+            <div class="timeline-content">
+              <div class="step-title">Position</div>
+              <div class="step-desc">State your unique stance</div>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-badge">5</div>
+            <div class="timeline-content">
+              <div class="step-title">Action</div>
+              <div class="step-desc">Clear next step</div>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-badge">6</div>
+            <div class="timeline-content">
+              <div class="step-title">Benefit</div>
+              <div class="step-desc">The emotional payoff</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="example-card reveal-scale">
+      <div class="example-card reveal-left" style="transition-delay: 0.4s;">
         <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-bottom: clamp(6px, 0.8vh, 10px);">Pedro&rsquo;s Avatar &mdash; SCIPAB Example</div>
-        <div style="display: flex; flex-direction: column; gap: clamp(5px, 0.6vh, 8px);">
+        <div style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 10px);">
           <div>
-            <div class="fw-label" style="color: var(--brand-light);">Situation</div>
-            <p class="fw-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">&ldquo;You&rsquo;re a producing agent. $1M&ndash;$3M in annual volume. You&rsquo;re not new &mdash; you&rsquo;ve got skills.&rdquo;</p>
+            <div class="fw-label" style="color: var(--brand-light); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Situation</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;You&rsquo;re a producing agent. $1M&ndash;$3M in annual volume. You&rsquo;re not new &mdash; you&rsquo;ve got skills.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--brand-light);">Complication</div>
-            <p class="fw-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">&ldquo;But your brokerage treats you like a number. No real training. No marketing help. No accountability.&rdquo;</p>
+            <div class="fw-label" style="color: var(--brand-light); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Complication</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;But your brokerage treats you like a number. No real training. No marketing help. No accountability.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--clay-soft);">Implication</div>
-            <p class="fw-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">&ldquo;Without a system, you&rsquo;ll keep grinding at the same level. In 2 years, you&rsquo;re either out or back at a desk job.&rdquo;</p>
+            <div class="fw-label" style="color: var(--clay-soft); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Implication</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;Without a system, you&rsquo;ll keep grinding at the same level. In 2 years, you&rsquo;re either out or back at a desk job.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout);">Position</div>
-            <p class="fw-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">&ldquo;reThought is a production-centric boutique firm. We don&rsquo;t recruit 200 agents. We develop 20 &mdash; deeply.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Position</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;reThought is a production-centric boutique firm. We don&rsquo;t recruit 200 agents. We develop 20 &mdash; deeply.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout);">Action</div>
-            <p class="fw-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">&ldquo;Book a 20-minute call. See the training calendar. Meet the community.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Action</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;Book a 20-minute call. See the training calendar. Meet the community.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout);">Benefit</div>
-            <p class="fw-text" style="font-size: clamp(0.65rem, 1vw, 0.85rem);">&ldquo;You leave the call with clarity &mdash; whether you join or not.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Benefit</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.95rem);">&ldquo;You leave the call with clarity &mdash; whether you join or not.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -1037,48 +1335,43 @@ ACCIÓN: 'Deja de mirar desde la banca. Agenda 20 minutos. Veamos si esto es el 
     <p class="slide-body reveal">Skips attention &mdash; your audience already knows you. Best for <strong>retargeting</strong> and warm audiences who haven&rsquo;t acted yet.</p>
     <div class="two-col" style="margin-top: var(--element-gap); align-items: start;">
       <div class="reveal" style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vw, 1rem); align-items: center;">
-        <!-- SVG overlapping diamonds -->
-        <svg viewBox="0 0 300 220" style="width: 100%; max-width: 280px; height: auto;" xmlns="http://www.w3.org/2000/svg">
-          <g transform="translate(75,30) rotate(45)">
-            <rect x="0" y="0" width="50" height="50" rx="6" fill="#034c7620" stroke="var(--brand-deep)" stroke-width="1.5"/>
-          </g>
-          <g transform="translate(125,30) rotate(45)">
-            <rect x="0" y="0" width="50" height="50" rx="6" fill="#034c7630" stroke="var(--brand-deep)" stroke-width="1.5"/>
-          </g>
-          <g transform="translate(175,30) rotate(45)">
-            <rect x="0" y="0" width="50" height="50" rx="6" fill="#8cc94e20" stroke="var(--sprout)" stroke-width="1.5"/>
-          </g>
-          <g transform="translate(225,30) rotate(45)">
-            <rect x="0" y="0" width="50" height="50" rx="6" fill="#8cc94e30" stroke="var(--sprout)" stroke-width="2"/>
-          </g>
-          <text x="75" y="105" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="12" fill="#6ba8d6">I</text>
-          <text x="125" y="85" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="12" fill="#6ba8d6">D</text>
-          <text x="175" y="105" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="12" fill="#8cc94e">C</text>
-          <text x="225" y="85" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="12" fill="#8cc94e">A</text>
-          <text x="75" y="120" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#6e7a88" letter-spacing="0.5">INTEREST</text>
-          <text x="125" y="145" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#6e7a88" letter-spacing="0.5">DESIRE</text>
-          <text x="175" y="120" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#6e7a88" letter-spacing="0.5">CONVICTION</text>
-          <text x="225" y="145" text-anchor="middle" font-family="Geist Mono" font-size="7" fill="#6e7a88" letter-spacing="0.5">ACTION</text>
-        </svg>
+        <!-- Animated overlapping diamonds -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: clamp(-10px, -1vw, -5px); padding: clamp(1rem, 2vw, 2rem) 0;">
+          <div class="idca-diamond" style="width: clamp(70px, 9vw, 100px); height: clamp(70px, 9vw, 100px); background: #034c7625; border: 2px solid var(--brand-deep); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: -8px; z-index: 4;">
+            <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--brand-light); transform: rotate(-45deg);">I</span>
+          </div>
+          <div class="idca-diamond" style="width: clamp(70px, 9vw, 100px); height: clamp(70px, 9vw, 100px); background: #2c5e1520; border: 2px solid var(--sprout-deep); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: -8px; z-index: 3;">
+            <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--sprout-deep); transform: rotate(-45deg);">D</span>
+          </div>
+          <div class="idca-diamond" style="width: clamp(70px, 9vw, 100px); height: clamp(70px, 9vw, 100px); background: #8cc94e20; border: 2px solid var(--sprout); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: -8px; z-index: 2;">
+            <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--sprout); transform: rotate(-45deg);">C</span>
+          </div>
+          <div class="idca-diamond" style="width: clamp(70px, 9vw, 100px); height: clamp(70px, 9vw, 100px); background: #8cc94e30; border: 2.5px solid var(--sprout); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1;">
+            <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--sprout-soft); transform: rotate(-45deg);">A</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: clamp(12px, 2vw, 24px); font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.65rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2);">
+          <span>Interest</span><span>Desire</span><span>Conviction</span><span>Action</span>
+        </div>
       </div>
-      <div class="example-card reveal-scale">
+      <div class="example-card reveal-left" style="transition-delay: 0.4s;">
         <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-bottom: clamp(6px, 0.8vh, 10px);">Pedro&rsquo;s Avatar &mdash; IDCA Example</div>
-        <div style="display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 10px);">
+        <div style="display: flex; flex-direction: column; gap: clamp(8px, 1vh, 12px);">
           <div>
-            <div class="fw-label" style="color: var(--brand-light);">Interest</div>
-            <p class="fw-text">&ldquo;You&rsquo;ve been watching our training clips. You&rsquo;ve seen our agents post their wins. Something about it keeps pulling you back.&rdquo;</p>
+            <div class="fw-label" style="color: var(--brand-light); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Interest</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.98rem);">&ldquo;You&rsquo;ve been watching our training clips. You&rsquo;ve seen our agents post their wins. Something about it keeps pulling you back.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--brand-light);">Desire</div>
-            <p class="fw-text">&ldquo;You want what they have &mdash; a team that actually trains together, a broker who builds alongside you, and a system that doesn&rsquo;t depend on luck.&rdquo;</p>
+            <div class="fw-label" style="color: var(--brand-light); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Desire</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.98rem);">&ldquo;You want what they have &mdash; a team that actually trains together, a broker who builds alongside you, and a system that doesn&rsquo;t depend on luck.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout);">Conviction</div>
-            <p class="fw-text">&ldquo;Last quarter, our agents averaged 3 closings each. Not because they&rsquo;re superhuman &mdash; because they follow a system. The same system you&rsquo;d get on day one.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Conviction</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.98rem);">&ldquo;Last quarter, our agents averaged 3 closings each. Not because they&rsquo;re superhuman &mdash; because they follow a system. The same system you&rsquo;d get on day one.&rdquo;</p>
           </div>
           <div>
-            <div class="fw-label" style="color: var(--sprout);">Action</div>
-            <p class="fw-text">&ldquo;Stop watching from the sideline. Book 20 minutes. Let&rsquo;s see if this is the right fit.&rdquo;</p>
+            <div class="fw-label" style="color: var(--sprout); font-size: clamp(0.55rem, 0.85vw, 0.7rem);">Action</div>
+            <p class="fw-text" style="font-size: clamp(0.8rem, 1.15vw, 0.98rem);">&ldquo;Stop watching from the sideline. Book 20 minutes. Let&rsquo;s see if this is the right fit.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -1108,59 +1401,61 @@ Escojan el framework que empareje con dónde está su audiencia. No donde TÚ qu
     <div class="section-label reveal">Quick Reference</div>
     <h2 class="slide-title reveal">All 6 Frameworks at a Glance</h2>
     <div class="reveal" style="overflow-x: auto;">
-      <table class="rt-table">
+      <table class="rt-table rt-table-enhanced" style="font-size: clamp(0.85rem, 1.3vw, 1.1rem);">
         <thead>
           <tr>
-            <th>Framework</th>
-            <th>Best For</th>
-            <th>Tone</th>
-            <th>Funnel Stage</th>
+            <th style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Framework</th>
+            <th style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Best For</th>
+            <th style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Tone</th>
+            <th style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Funnel Stage</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>AIDA</strong></td>
-            <td>Cold audiences, first impressions</td>
-            <td>Bold, attention-grabbing</td>
-            <td>Top</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);"><span class="fw-dot" style="background: var(--sprout);"></span><strong>AIDA</strong></td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Cold audiences, first impressions</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Bold, attention-grabbing</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Top</td>
           </tr>
           <tr>
-            <td><strong>PAS</strong></td>
-            <td>Pain-aware audiences</td>
-            <td>Empathetic, confrontational</td>
-            <td>Mid</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);"><span class="fw-dot" style="background: var(--clay);"></span><strong>PAS</strong></td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Pain-aware audiences</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Empathetic, confrontational</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Mid</td>
           </tr>
           <tr>
-            <td><strong>FAB</strong></td>
-            <td>Product-aware, comparing options</td>
-            <td>Clear, logical</td>
-            <td>Mid&ndash;Bottom</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);"><span class="fw-dot" style="background: var(--brand);"></span><strong>FAB</strong></td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Product-aware, comparing options</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Clear, logical</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Mid&ndash;Bottom</td>
           </tr>
           <tr>
-            <td><strong>SPIN</strong></td>
-            <td>1-on-1 conversations, DMs</td>
-            <td>Consultative, conversational</td>
-            <td>Mid</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);"><span class="fw-dot" style="background: var(--brand-deep);"></span><strong>SPIN</strong></td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">1-on-1 conversations, DMs</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Consultative, conversational</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Mid</td>
           </tr>
           <tr>
-            <td><strong>SCIPAB</strong></td>
-            <td>Long-form: emails, scripts, decks</td>
-            <td>Thorough, persuasive</td>
-            <td>Full funnel</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);"><span class="fw-dot" style="background: var(--sprout-deep);"></span><strong>SCIPAB</strong></td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Long-form: emails, scripts, decks</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Thorough, persuasive</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Full funnel</td>
           </tr>
           <tr>
-            <td><strong>IDCA</strong></td>
-            <td>Retargeting, warm followers</td>
-            <td>Familiar, proof-driven</td>
-            <td>Bottom</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);"><span class="fw-dot" style="background: var(--sprout-soft);"></span><strong>IDCA</strong></td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Retargeting, warm followers</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Familiar, proof-driven</td>
+            <td style="padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1.8vw, 20px);">Bottom</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="reveal" style="margin-top: var(--element-gap); background: #034c7612; border: 1px solid #034c7630; border-radius: 10px; padding: clamp(0.6rem, 1.2vw, 1rem) clamp(1rem, 2vw, 1.5rem);">
-      <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--brand); font-weight: 600;">
-        Same avatar. Same pain. Different angle. Pick the framework that matches where your audience is in the journey.
-      </p>
+    <div class="reveal" style="margin-top: var(--element-gap);">
+      <div class="rule-callout">
+        <p style="font-family: var(--font-sans); font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--brand); font-weight: 600; line-height: 1.5;">
+          Same avatar. Same pain. Different angle. Pick the framework that matches where your <strong>audience</strong> is in the journey &mdash; not where you want them to be.
+        </p>
+      </div>
     </div>
   </div>
   <div class="slide-footer">reThought Real Estate</div>
@@ -1180,6 +1475,8 @@ Step 3: Write 3 to 5 sentences using that framework. This is your hook. Your ope
 
 You're not writing an ad. You're writing a feeling. Get messy. Get honest. You can polish later. Go.
 
+And if you want an AI shortcut — there's a prompt on screen. Copy it, paste it into Claude or ChatGPT along with your avatar doc, and it'll generate 5 hook candidates for you. Use it as a starting point, not a final answer.
+
 ---
 
 Bien, hora del ejercicio. Aquí es donde dejan de escuchar y empiezan a hacer. Tienen 8 minutos. Esto es lo que necesito de ustedes.
@@ -1190,31 +1487,39 @@ Paso 2: Escojan UN framework de los seis que acabamos de cubrir. No piensen de m
 
 Paso 3: Escriban 3 a 5 oraciones usando ese framework. Este es su hook. Su apertura. La cosa que haría que su avatar pare de scrollear y diga 'ese soy yo.'
 
-No están escribiendo un ad. Están escribiendo un sentimiento. Ensúciense. Sean honestos. Pueden pulir después. Vamos." style="justify-content: center; align-items: center;">
+No están escribiendo un ad. Están escribiendo un sentimiento. Ensúciense. Sean honestos. Pueden pulir después. Vamos.
+
+Y si quieren un atajo con AI — hay un prompt en la pantalla. Cópienlo, péguenlo en Claude o ChatGPT junto con su documento de avatar, y les generará 5 candidatos de hook. Úsenlo como punto de partida, no como respuesta final." style="justify-content: center; align-items: center;">
   <div style="text-align: center; max-width: min(85vw, 800px);">
     <div class="section-label reveal" style="justify-content: center;">Live Exercise</div>
-    <h2 class="reveal" style="font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 5.5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);">
-      Pick Your Framework.<br><span class="stroke stroke--sprout">Write Your Hook.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>
-    </h2>
-    <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.8rem, 1.5vh, 1.5rem); text-align: left; margin: clamp(1rem, 2.5vh, 2rem) auto 0; max-width: 520px;">
-      <div style="display: flex; align-items: start; gap: clamp(10px, 1.5vw, 16px);">
-        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout); line-height: 1;">1</span>
-        <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2); line-height: 1.5;">Look at your <strong style="color: var(--paper);">avatar document</strong>. Who are they? What are they struggling with?</p>
-      </div>
-      <div style="display: flex; align-items: start; gap: clamp(10px, 1.5vw, 16px);">
-        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout); line-height: 1;">2</span>
-        <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2); line-height: 1.5;"><strong style="color: var(--paper);">Pick the framework</strong> that matches where your audience is in the journey.</p>
-      </div>
-      <div style="display: flex; align-items: start; gap: clamp(10px, 1.5vw, 16px);">
-        <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--sprout); line-height: 1;">3</span>
-        <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2); line-height: 1.5;">Write <strong style="color: var(--paper);">3&ndash;5 sentences</strong> using that framework. This is your hook.</p>
-      </div>
-    </div>
-    <div class="reveal" style="margin-top: clamp(1.5rem, 3vh, 2.5rem);">
-      <span class="timer-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    <div class="reveal" style="margin-bottom: clamp(1rem, 2.5vh, 2rem);">
+      <span class="timer-badge-large">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         8 MIN
       </span>
+    </div>
+    <h2 class="reveal" style="font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 5.5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: clamp(0.8rem, 2vh, 1.5rem);">
+      Pick Your Framework.<br><span class="stroke stroke--sprout">Write Your Hook.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>
+    </h2>
+    <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.8rem, 1.5vh, 1.5rem); text-align: left; margin: clamp(1rem, 2.5vh, 2rem) auto 0; max-width: 600px;">
+      <div class="exercise-card">
+        <div style="display: flex; align-items: start; gap: clamp(12px, 2vw, 20px);">
+          <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--sprout); line-height: 1;">1</span>
+          <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2); line-height: 1.5;"><span class="action-verb">Pull up</span> your <strong style="color: var(--paper);">avatar document</strong>. Who are they? What are they struggling with?</p>
+        </div>
+      </div>
+      <div class="exercise-card">
+        <div style="display: flex; align-items: start; gap: clamp(12px, 2vw, 20px);">
+          <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--sprout); line-height: 1;">2</span>
+          <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2); line-height: 1.5;"><span class="action-verb">Pick</span> <strong style="color: var(--paper);">one framework</strong> that matches where your audience is in the journey.</p>
+        </div>
+      </div>
+      <div class="exercise-card">
+        <div style="display: flex; align-items: start; gap: clamp(12px, 2vw, 20px);">
+          <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--sprout); line-height: 1;">3</span>
+          <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2); line-height: 1.5;"><span class="action-verb">Write</span> <strong style="color: var(--paper);">3&ndash;5 sentences</strong> using that framework. This is your hook.</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="slide-footer">reThought Real Estate</div>
@@ -1222,7 +1527,36 @@ No están escribiendo un ad. Están escribiendo un sentimiento. Ensúciense. Sea
 </section>
 
 <!-- ============================================
-     SLIDE 15: BEFORE YOU LEAVE (light)
+     SLIDE 15: AI SHORTCUT — Hook Extraction Prompt
+     ============================================ -->
+<section class="slide" data-notes="Here's the shortcut. If you have your avatar doc uploaded to Claude or ChatGPT, you can copy-paste this prompt and it will extract 5 hook candidates for you in 30 seconds.\n\nBut here's the thing — this only works if your avatar is locked. If your avatar says 'anyone who wants to buy a home,' the AI will give you garbage hooks. Garbage in, garbage out.\n\nThe prompt has rules baked in: second person, short, numeral-first, names the pain in their words. No corporate fluff. The AI follows your rules, not the other way around.\n\nCopy this. Paste it. Pick the hook that hurts the most. That's your ad.\n\n---\n\nAquí está el atajo. Si tienen su avatar doc subido a Claude o ChatGPT, pueden copiar y pegar este prompt y les extrae 5 hooks candidatos en 30 segundos.\n\nPero aquí está la cosa — esto solo funciona si su avatar está locked. Si su avatar dice 'cualquiera que quiera comprar una casa,' el AI les va a dar hooks basura. Basura entra, basura sale.\n\nEl prompt tiene reglas integradas: segunda persona, corto, números primero, nombra el dolor en sus palabras. Sin corporate fluff. El AI sigue tus reglas, no al revés.\n\nCopien esto. Péguenlo. Escojan el hook que más duele. Ese es su ad." style="justify-content: center; align-items: center;">
+  <div class="slide-content" style="gap: var(--content-gap); max-width: min(85vw, 900px); margin: 0 auto;">
+    <div class="section-label reveal" style="justify-content: center;">AI Shortcut</div>
+    <h2 class="slide-title reveal" style="text-align: center;">Use AI to Extract Your Hook</h2>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2); text-align: center; max-width: 50ch; margin: 0 auto;">Copy this prompt. Paste into Claude or ChatGPT with your avatar doc. Get 5 hook candidates in 30 seconds.</p>
+
+    <div class="reveal-scale rt-card" style="background: var(--ink-deep); border: 2px solid var(--sprout); border-radius: 14px; padding: clamp(1.2rem, 2.5vw, 2rem);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(10px, 1.5vh, 16px);">
+        <span style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout);">COPY &middot; PASTE INTO YOUR AI PROJECT</span>
+        <span class="badge badge-sprout" style="font-size: clamp(0.55rem, 0.8vw, 0.68rem);">Claude / ChatGPT / Gemini</span>
+      </div>
+      <p style="font-family: var(--font-mono); font-size: clamp(0.8rem, 1.15vw, 0.95rem); color: var(--paper); line-height: 1.7; white-space: pre-wrap;">Using my Avatar doc in this project, extract 5 candidate hook sentences that could stop the scroll in a Meta ad.
+
+Rules: second person. Short. Numeral-first when possible. Names the pain in their words. No "revolutionary / game-changing / disruptive."
+
+Return them as a list of 5. Then pick the one that hurts the most and explain why in one sentence.</p>
+    </div>
+
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(0.75rem, 1.1vw, 0.9rem); color: var(--clay-soft); text-align: center; margin-top: clamp(0.3rem, 0.5vh, 0.5rem);">
+      This only works if your avatar is locked. Garbage avatar = garbage hooks.
+    </p>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">15</div>
+</section>
+
+<!-- ============================================
+     SLIDE 16: BEFORE YOU LEAVE (light)
      ============================================ -->
 <section class="slide light" data-notes="Before you leave today, I need four things from you. These are commitments — not suggestions.
 
@@ -1249,39 +1583,51 @@ Número 3: Mi video será grabado para... Dense un deadline. Esta semana. No 'pr
 Número 4: Mi primera cajita sin marcar es... ¿Cuál es la cosa que saben que necesitan hacer pero siguen posponiendo? Escríbanla. Esa es su action item para la semana.
 
 No se vayan de este salón sin llenar estos. Esta es la diferencia entre asistir a un training y construir un sistema." style="justify-content: center;">
-  <div class="slide-content" style="gap: var(--content-gap); max-width: min(85vw, 800px); margin: 0 auto;">
+  <div class="slide-content" style="gap: var(--content-gap); max-width: min(90vw, 900px); margin: 0 auto;">
     <div class="section-label reveal">Before You Leave</div>
     <h2 class="slide-title reveal">4 Commitments</h2>
-    <div class="stagger" style="display: flex; flex-direction: column; gap: clamp(0.3rem, 0.8vh, 0.8rem);">
-      <div class="commit-line">
-        <span class="commit-num">01</span>
-        <p style="font-family: var(--font-sans); color: var(--ink);">&ldquo;My framework is...&rdquo;</p>
+    <div class="stagger-up" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.6rem, 1.5vw, 1.2rem);">
+      <div class="commit-card">
+        <div class="commit-number" style="color: var(--sprout);">1</div>
+        <div>
+          <div class="commit-text">&ldquo;My framework is...&rdquo;</div>
+          <div class="commit-instruction">Write down which framework you will use for your first piece of content.</div>
+        </div>
       </div>
-      <div class="commit-line">
-        <span class="commit-num">02</span>
-        <p style="font-family: var(--font-sans); color: var(--ink);">&ldquo;My hook sentence is...&rdquo;</p>
+      <div class="commit-card">
+        <div class="commit-number" style="color: var(--brand);">2</div>
+        <div>
+          <div class="commit-text">&ldquo;My hook sentence is...&rdquo;</div>
+          <div class="commit-instruction">The one sentence from your exercise that would stop your avatar.</div>
+        </div>
       </div>
-      <div class="commit-line">
-        <span class="commit-num">03</span>
-        <p style="font-family: var(--font-sans); color: var(--ink);">&ldquo;My video will be recorded by...&rdquo;</p>
+      <div class="commit-card">
+        <div class="commit-number" style="color: var(--clay);">3</div>
+        <div>
+          <div class="commit-text">&ldquo;My video will be recorded by...&rdquo;</div>
+          <div class="commit-instruction">Pick a day this week. Not &ldquo;soon.&rdquo; A specific day.</div>
+        </div>
       </div>
-      <div class="commit-line" style="border-bottom: none;">
-        <span class="commit-num">04</span>
-        <p style="font-family: var(--font-sans); color: var(--ink);">&ldquo;My first unchecked box is...&rdquo;</p>
+      <div class="commit-card">
+        <div class="commit-number" style="color: var(--ink);">4</div>
+        <div>
+          <div class="commit-text">&ldquo;My first unchecked box is...&rdquo;</div>
+          <div class="commit-instruction">The one thing you keep putting off. Write it down. That is your action item.</div>
+        </div>
       </div>
     </div>
-    <div class="reveal" style="margin-top: var(--element-gap); background: #8cc94e12; border: 1px solid #8cc94e30; border-radius: 10px; padding: clamp(0.6rem, 1.2vw, 1rem) clamp(1rem, 2vw, 1.5rem);">
-      <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--sprout-deep); font-weight: 500;">
+    <div class="reveal" style="margin-top: var(--element-gap); background: #8cc94e12; border: 1px solid #8cc94e30; border-radius: 10px; padding: clamp(0.7rem, 1.4vw, 1.2rem) clamp(1rem, 2vw, 1.5rem);">
+      <p style="font-family: var(--font-sans); font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--sprout-deep); font-weight: 600;">
         Don&rsquo;t leave this room without filling these in. This is the difference between attending a training and building a system.
       </p>
     </div>
   </div>
   <div class="slide-footer">reThought Real Estate</div>
-  <div class="slide-number">15</div>
+  <div class="slide-number">16</div>
 </section>
 
 <!-- ============================================
-     SLIDE 16: CLOSING QUOTE (dark, ink-deep bg)
+     SLIDE 17: CLOSING QUOTE (dark, ink-deep bg)
      ============================================ -->
 <section class="slide" style="background: var(--ink-deep); justify-content: center; align-items: center;" data-notes="Let this one land. Your avatar told you WHAT to say. The framework told you HOW to say it. Now go make them stop scrolling. Have a great week. Go write your hook.
 
@@ -1306,7 +1652,7 @@ Dejen que esto les llegue. Su avatar les dijo QUÉ decir. El framework les dijo 
     </div>
   </div>
   <div class="slide-footer" style="color: var(--muted);">Milwaukee, WI &middot; Kissimmee / Orlando, FL</div>
-  <div class="slide-number" style="color: var(--muted);">16</div>
+  <div class="slide-number" style="color: var(--muted);">17</div>
 </section>
 
 <script>
