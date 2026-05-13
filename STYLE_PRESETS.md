@@ -248,6 +248,67 @@ Curated visual styles for Frontend Slides. Each preset is inspired by real desig
 
 ---
 
+## Brand Themes
+
+### 13. reThought Real Estate
+
+**Vibe:** Boutique, trustworthy, bilingual, warm-professional — a real estate brand that feels hand-crafted, not corporate
+
+**Layout:** Dark Ink background with Ink Soft card surfaces. Mono-uppercase labels with sprout-green dash prefix. Content centered or left-aligned with generous breathing room.
+
+**Typography:**
+- Display: `Poppins` (600/700) — confident, geometric headlines
+- Body: `Instrument Sans` (400/500) — clean, modern body copy
+- System/Labels: `Geist Mono` (400/500) — uppercase, letter-spaced labels and metadata
+
+**Colors:**
+```css
+:root {
+    --ink: #0c1014;
+    --ink-soft: #131b24;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --muted: #5a6674;
+    --muted-2: #8a94a3;
+    --border-d: #ffffff14;
+    --border-l: #0c101414;
+}
+```
+
+**Google Fonts import:**
+```
+Poppins:wght@300;400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600
+```
+
+**Signature Elements:**
+- **Mono-uppercase section labels** with a sprout-green dash prefix: `font-family: var(--font-mono); font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);` with a `::before` pseudo-element (22px sprout-colored line)
+- **Hand-drawn SVG underline strokes** on key words — wavy `<path>` strokes in sprout, clay, or brand colors. Use on up to 3 words per slide. Example: `<svg class="underline" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6" fill="none" stroke="var(--sprout)" stroke-width="2.5" stroke-linecap="round"/></svg>`
+- **Highlight marker** on recruiting/agent-facing text: `background: linear-gradient(180deg, transparent 55%, #8cc94e55 55% 92%, transparent 92%);`
+- **Soft radii** (8-12px border-radius), 1px borders using `var(--border-d)`
+- **Sprout-green focus/accent**: selection highlights, focus rings (`box-shadow: 0 0 0 4px #8cc94e30`), accent dots, badges
+- **Stats strip**: even-spaced grid with mono labels and sprout accent on units (e.g., `976+`, `4.8★`)
+- **Card surfaces** use `background: var(--ink-soft)` with `border: 1px solid var(--border-d); border-radius: 12px`
+- **Badges**: pill-shaped (`border-radius: 999px`), mono-uppercase, translucent bg — sprout/brand/clay/paper variants
+- **Buttons**: `font-family: var(--font-display); font-weight: 600; border-radius: 8px;` — Primary (brand bg), Secondary (sprout bg, ink text), Ghost (transparent, border), Bone (bone bg, ink text)
+- **::selection** uses sprout green: `::selection { background: var(--sprout); color: var(--ink); }`
+
+**Layout Principles (from reThought Design System):**
+1. Real people focused on your experience — boutique, not corporate
+2. Rooted in discipline, consistency, and service — same care, same paso a paso
+3. Community-rooted, tech-forward — local enough to know the block, modern enough for crypto closings
+4. Obsessed with clarity — show the plan, explain the math, no surprises
+5. One agent, one plan, bilingual — EN · ES from first call to closing
+6. Paso a paso — step by step, the pace stays human
+
+---
+
 ## Specialty Themes
 
 ### 9. Neon Cyber
@@ -312,6 +373,7 @@ Curated visual styles for Frontend Slides. Each preset is inspired by real desig
 | Vintage Editorial | Fraunces | Work Sans | Google |
 | Neon Cyber | Clash Display | Satoshi | Fontshare |
 | Terminal Green | JetBrains Mono | JetBrains Mono | JetBrains |
+| reThought RE | Poppins | Instrument Sans + Geist Mono | Google |
 
 ---
 

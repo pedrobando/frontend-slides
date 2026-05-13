@@ -63,6 +63,50 @@ These invariants apply to EVERY slide in EVERY presentation:
 
 ---
 
+## reThought Weekly Presentation Structure
+
+**Every reThought presentation MUST follow this mandatory slide structure.** These slides are non-negotiable — always include them in the specified order. User-provided content fills the middle slides between the opening sequence and the closing quote.
+
+### Opening Sequence (Always First)
+
+**Slide 1 — Cover:**
+- reThought Real Estate logo (use the SVG wordmark from the design system with the two sprout-green accent dots)
+- Clean, centered on Ink background
+- No other text besides the logo and optional date/week indicator
+
+**Slide 2 — Year Statement:**
+- Text: **"2026 Is THE Year of SYSTEMS and NEW Skill Developments."**
+- Use Poppins display font, large and bold
+- Apply hand-drawn SVG underline strokes on key words (e.g., "SYSTEMS" with sprout stroke, "NEW" with brand stroke)
+- Ink background with Paper text
+
+**Slide 3 — Misión y Visión (Spanish):**
+- Header label at top: **"Production Centric Boutique Firm"** (mono-uppercase, sprout-green)
+- Two sections on the slide:
+  - **MISIÓN** — "Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque personalizado, impulsado por la tecnología y centrado en el cliente para la compra y venta de propiedades."
+  - **VISIÓN** — "Triunfar en convertirnos en el líder local de la industria enfocado en humanizar el sector inmobiliario, aprovechando la innovación, la inversión y el crecimiento, mientras seguimos siendo un recurso para la comunidad."
+
+**Slide 4 — Mission & Vision (English):**
+- Header label at top: **"Production Centric Boutique Firm"** (mono-uppercase, sprout-green)
+- Two sections on the slide:
+  - **MISSION** — "To redefine traditional real estate expectations delivering a personalized, tech-driven, and client-centric approach to buying and selling real estate."
+  - **VISION** — "To succeed at becoming the local industry leader that focuses on humanizing Real Estate by leveraging innovation, investments and growth while remaining a resource to the Community."
+
+### Middle Slides (User Content)
+
+Slides 5 through N-1 contain the week's content — agenda, updates, metrics, training topics, etc. These are provided by the user each session.
+
+### Closing (Always Last)
+
+**Final Slide — Motivational Quote:**
+- A powerful quote from a famous, successful third-party individual (e.g., Steve Jobs, Oprah Winfrey, Simon Sinek, Jeff Bezos, Maya Angelou, etc.)
+- Choose a quote that is relevant to the week's theme or to real estate, growth, discipline, or teamwork
+- Display the quote in large Poppins italic/light, with the author name in Geist Mono uppercase below
+- Vary the quote each presentation — never repeat the same quote in consecutive weeks
+- Ink background, Paper text, sprout accent on quotation marks or author attribution
+
+---
+
 ## Phase 0: Detect Mode
 
 Determine what the user wants:
@@ -151,12 +195,12 @@ What feeling should the audience have? Options:
 
 Based on mood, generate 3 distinct single-slide HTML previews showing typography, colors, animation, and overall aesthetic. Read [STYLE_PRESETS.md](STYLE_PRESETS.md) for available presets and their specifications.
 
-| Mood                | Suggested Presets                                  |
-| ------------------- | -------------------------------------------------- |
-| Impressed/Confident | Bold Signal, Electric Studio, Dark Botanical       |
-| Excited/Energized   | Creative Voltage, Neon Cyber, Split Pastel         |
-| Calm/Focused        | Notebook Tabs, Paper & Ink, Swiss Modern           |
-| Inspired/Moved      | Dark Botanical, Vintage Editorial, Pastel Geometry |
+| Mood                | Suggested Presets                                           |
+| ------------------- | ----------------------------------------------------------- |
+| Impressed/Confident | Bold Signal, Electric Studio, Dark Botanical, reThought RE  |
+| Excited/Energized   | Creative Voltage, Neon Cyber, Split Pastel                  |
+| Calm/Focused        | Notebook Tabs, Paper & Ink, Swiss Modern, reThought RE      |
+| Inspired/Moved      | Dark Botanical, Vintage Editorial, Pastel Geometry          |
 
 Save previews to `.claude-design/slide-previews/` (style-a.html, style-b.html, style-c.html). Each should be self-contained, ~50-100 lines, showing one animated title slide.
 
@@ -313,7 +357,7 @@ This captures each slide as a screenshot and combines them into a PDF. Perfect f
 
 | File                                               | Purpose                                                              | When to Read              |
 | -------------------------------------------------- | -------------------------------------------------------------------- | ------------------------- |
-| [STYLE_PRESETS.md](STYLE_PRESETS.md)               | 12 curated visual presets with colors, fonts, and signature elements | Phase 2 (style selection) |
+| [STYLE_PRESETS.md](STYLE_PRESETS.md)               | 13 curated visual presets with colors, fonts, and signature elements (includes reThought RE brand theme) | Phase 2 (style selection) |
 | [viewport-base.css](viewport-base.css)             | Mandatory responsive CSS — copy into every presentation              | Phase 3 (generation)      |
 | [html-template.md](html-template.md)               | HTML structure, JS features, code quality standards                  | Phase 3 (generation)      |
 | [animation-patterns.md](animation-patterns.md)     | CSS/JS animation snippets and effect-to-feeling guide                | Phase 3 (generation)      |
