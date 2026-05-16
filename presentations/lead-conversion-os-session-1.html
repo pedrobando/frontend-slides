@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Psychology Shift + 5-Pillar Frame | Lead Conversion OS</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="The Psychology Shift + 5-Pillar Frame">
+<meta name="presentation-series" content="Lead Conversion OS">
+<meta name="presentation-session" content="1">
+<meta name="presentation-date" content="2026-05-21">
+<meta name="presentation-slides" content="20">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   VIEWPORT BASE
+   =========================================== */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+    width: 100vw; height: 100vh; height: 100dvh;
+    overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    max-height: 100%; overflow: hidden; padding: var(--slide-padding);
+}
+:root {
+    --title-size: clamp(2rem, 5.5vw, 4.5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.3rem, 3.2vw, 2.4rem);
+    --body-size: clamp(1rem, 2.2vw, 1.6rem);
+    --small-size: clamp(0.8rem, 1.4vw, 1.15rem);
+    --slide-padding: clamp(1.5rem, 5vw, 5rem);
+    --content-gap: clamp(0.8rem, 3vw, 3rem);
+    --element-gap: clamp(0.4rem, 1.5vw, 1.5rem);
+}
+@media (max-height: 700px) {
+    :root { --slide-padding: clamp(1rem, 3vw, 2.5rem); --title-size: clamp(1.5rem, 4.5vw, 3rem); --h2-size: clamp(1.2rem, 3.5vw, 2.2rem); }
+}
+@media (max-height: 600px) {
+    :root { --slide-padding: clamp(0.75rem, 2.5vw, 1.5rem); --title-size: clamp(1.2rem, 4vw, 2.5rem); --body-size: clamp(0.8rem, 1.4vw, 1.1rem); }
+    .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root { --slide-padding: clamp(0.5rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.5rem, 8vw, 3rem); } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   RETHOUGHT TOKENS
+   =========================================== */
+:root {
+    --ink: #1B252F;
+    --ink-soft: #222E3A;
+    --ink-deep: #151D26;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --brand-light: #6ba8d6;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --amber: #e0a63a;
+    --amber-soft: #f5d08a;
+    --muted: #6e7a88;
+    --muted-2: #95a0ae;
+    --border-d: #ffffff18;
+    --border-l: #1B252F14;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--sprout); color: var(--ink); }
+
+/* ===========================================
+   GLOBAL COMPONENTS
+   =========================================== */
+.slide { background: var(--ink); padding: var(--slide-padding); }
+.slide.light { background: var(--paper); color: var(--ink); }
+.slide.light .section-label { color: var(--brand); }
+.slide.light .section-label::before { background: var(--brand); }
+.slide.light .slide-body { color: var(--muted); }
+.slide.light .slide-footer { color: var(--muted); }
+.slide.light .slide-number { color: var(--muted); }
+.slide.bone { background: var(--bone); color: var(--ink); }
+.slide.bone .section-label { color: var(--brand); }
+.slide.bone .section-label::before { background: var(--brand); }
+.slide.bone .slide-body { color: var(--muted); }
+
+.section-label {
+    font-family: var(--font-mono); font-size: clamp(0.75rem, 1.15vw, 0.95rem);
+    letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
+}
+.section-label::before { content: ""; width: clamp(14px, 2.5vw, 24px); height: 2px; background: var(--sprout); }
+
+.slide-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--h2-size); letter-spacing: -0.025em; line-height: 1.1;
+    margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+}
+.slide-body {
+    font-family: var(--font-sans); font-size: var(--body-size);
+    line-height: 1.6; color: var(--muted-2); max-width: 60ch;
+}
+
+/* Strokes */
+.stroke { position: relative; display: inline-block; padding: 0 3px; }
+.stroke svg.ul {
+    position: absolute; left: -4px; right: -4px; bottom: clamp(-6px, -0.8vh, -10px);
+    width: calc(100% + 8px); height: clamp(10px, 1.5vw, 16px); pointer-events: none;
+}
+.stroke svg.ul path { fill: none; stroke-width: 3; stroke-linecap: round; }
+.stroke--sprout svg.ul path { stroke: var(--sprout); }
+.stroke--clay svg.ul path { stroke: var(--clay); }
+.stroke--brand svg.ul path { stroke: var(--brand-deep); }
+
+.highlight { background: linear-gradient(180deg, transparent 50%, #8cc94e44 50% 88%, transparent 88%); padding: 0 4px; }
+
+/* Cards */
+.rt-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(1rem, 2vw, 1.8rem);
+}
+.light .rt-card, .bone .rt-card {
+    background: white; border-color: var(--border-l);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Badges */
+.badge {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(8px, 1.2vw, 14px);
+    border-radius: 999px; text-transform: uppercase; display: inline-block;
+}
+.badge-sprout { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-brand { background: #034c7630; color: var(--brand-light); border: 1px solid #034c7650; }
+.badge-clay { background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550; }
+.badge-amber { background: #e0a63a30; color: var(--amber-soft); border: 1px solid #e0a63a50; }
+
+/* Tables */
+.rt-table { width: 100%; border-collapse: collapse; font-size: clamp(0.75rem, 1.2vw, 1rem); }
+.rt-table th {
+    font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout);
+    text-align: left; padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1.2vw, 14px);
+    border-bottom: 2px solid var(--border-d);
+}
+.rt-table td {
+    font-family: var(--font-sans); padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1.2vw, 14px);
+    border-bottom: 1px solid #ffffff0a; color: var(--muted-2);
+}
+.rt-table td:first-child { color: var(--paper); font-weight: 500; }
+.light .rt-table th { color: var(--brand); border-color: var(--border-l); }
+.light .rt-table td { border-color: #0000000a; color: var(--muted); }
+.light .rt-table td:first-child { color: var(--ink); }
+
+/* Layouts */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2.5vw, 2rem); }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: clamp(0.5rem, 1.5vw, 1.2rem); }
+.four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+.five-col { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.4rem, 1vw, 0.9rem); }
+.six-col { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(0.4rem, 0.8vw, 0.8rem); }
+@media (max-width: 700px) { .two-col, .three-col, .four-col, .five-col, .six-col { grid-template-columns: 1fr; } }
+
+/* Slide footer / number */
+.slide-footer {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.slide-number {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); right: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1px;
+}
+
+/* Progress bar */
+.progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--sprout); z-index: 9999; transition: width 0.3s ease; }
+
+/* Nav dots */
+.nav-dots {
+    position: fixed; right: clamp(12px, 2vw, 24px); top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 8px; z-index: 9998;
+}
+.nav-dot {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--muted); opacity: 0.3;
+    cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
+}
+.nav-dot.active { background: var(--sprout); opacity: 1; transform: scale(1.4); }
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(1) { transition-delay: 0.05s; }
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.25s; }
+.reveal:nth-child(4) { transition-delay: 0.35s; }
+.reveal:nth-child(5) { transition-delay: 0.45s; }
+
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.visible .stagger > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.visible .stagger > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.visible .stagger > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.visible .stagger > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.visible .stagger > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+.visible .stagger > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+.visible .stagger > *:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+.visible .stagger > *:nth-child(8) { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+
+.reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.6s, transform 0.6s var(--ease-spring); }
+.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.6s, transform 0.6s var(--ease-out-expo); }
+.visible .reveal-left { opacity: 1; transform: translateX(0); }
+
+@keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.4); opacity: 1; } }
+.pulse-dot {
+    width: clamp(8px, 1vw, 12px); height: clamp(8px, 1vw, 12px);
+    background: var(--sprout); border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.gradient-bg {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 30%, var(--ink) 70%, var(--ink-soft) 100%);
+    background-size: 300% 300%; animation: gradient-flow 8s ease infinite;
+}
+
+@keyframes float-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.float { animation: float-gentle 4s ease-in-out infinite; }
+
+@keyframes glow-ring { 0%, 100% { box-shadow: 0 0 0 0 #8cc94e40; } 50% { box-shadow: 0 0 0 12px #8cc94e00; } }
+.glow { animation: glow-ring 2s ease-in-out infinite; }
+
+
+/* ===========================================
+   ENHANCED SLIDE ANIMATIONS
+   =========================================== */
+
+/* Slide 2 — SVG stroke draw-on for underlines */
+@keyframes stroke-draw {
+    from { stroke-dashoffset: 200; }
+    to { stroke-dashoffset: 0; }
+}
+@keyframes stroke-glow-sprout {
+    0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+    50% { filter: drop-shadow(0 0 8px var(--sprout)); }
+}
+@keyframes stroke-glow-brand {
+    0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+    50% { filter: drop-shadow(0 0 8px var(--brand-light)); }
+}
+.stroke-animate svg.ul path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+}
+.visible .stroke-animate svg.ul path {
+    animation: stroke-draw 1.2s var(--ease-out-expo) forwards;
+}
+.visible .stroke-animate.stroke--sprout svg.ul {
+    animation: stroke-glow-sprout 3s ease-in-out 1.5s infinite;
+}
+.visible .stroke-animate.stroke--brand svg.ul {
+    animation: stroke-glow-brand 3s ease-in-out 2s infinite;
+}
+
+/* Slide 3-4 — Divider line grows from center */
+@keyframes grow-center {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+.divider-grow {
+    transform: scaleX(0);
+    transform-origin: center;
+}
+.visible .divider-grow {
+    animation: grow-center 0.8s var(--ease-out-expo) 0.4s forwards;
+}
+
+/* Slide 5 — Active card pulse glow */
+@keyframes card-glow-sprout {
+    0%, 100% { box-shadow: 0 0 0 0 #8cc94e00; }
+    50% { box-shadow: 0 0 20px 4px #8cc94e30; }
+}
+.arc-card-lcos.active {
+    animation: card-glow-sprout 3s ease-in-out infinite;
+}
+
+/* Slide 6 — Converge from sides */
+.reveal-from-left {
+    opacity: 0; transform: translateX(-50px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.visible .reveal-from-left { opacity: 1; transform: translateX(0); }
+.reveal-from-right {
+    opacity: 0; transform: translateX(50px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.visible .reveal-from-right { opacity: 1; transform: translateX(0); }
+
+/* Slide 7 — Script block shake on entry */
+@keyframes shake-in {
+    0% { opacity: 0; transform: translateX(-30px); }
+    40% { opacity: 1; transform: translateX(6px); }
+    60% { opacity: 1; transform: translateX(-4px); }
+    80% { opacity: 1; transform: translateX(2px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+.shake-reveal {
+    opacity: 0;
+}
+.visible .shake-reveal {
+    animation: shake-in 0.7s ease-out 0.2s both;
+}
+
+/* Slide 8 — Pressure gauge animated */
+@keyframes pulse-bad {
+    0%, 100% { box-shadow: inset 0 0 0 0 #c0544500; }
+    50% { box-shadow: inset 0 0 30px 0 #c0544520; }
+}
+@keyframes pulse-good {
+    0%, 100% { box-shadow: inset 0 0 0 0 #8cc94e00; }
+    50% { box-shadow: inset 0 0 30px 0 #8cc94e15; }
+}
+.visible .pressure-side.bad {
+    animation: pulse-bad 3s ease-in-out 0.5s infinite;
+}
+.visible .pressure-side.good {
+    animation: pulse-good 3s ease-in-out 0.8s infinite;
+}
+@keyframes arrow-bounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+}
+.visible .pressure-arrow svg {
+    animation: arrow-bounce 1.5s ease-in-out infinite;
+}
+
+/* Slide 10 — Complexity cards pop with border flash */
+@keyframes border-flash-sprout {
+    0% { border-left-color: var(--border-d); }
+    30% { border-left-color: var(--sprout); }
+    100% { border-left-color: var(--sprout); }
+}
+.complexity-card {
+    opacity: 0; transform: scale(0.9);
+    transition: opacity 0.5s var(--ease-spring), transform 0.5s var(--ease-spring);
+}
+.visible .complexity-card { opacity: 1; transform: scale(1); }
+.visible .complexity-card:nth-child(1) { transition-delay: 0.15s; }
+.visible .complexity-card:nth-child(2) { transition-delay: 0.3s; }
+.visible .complexity-card:nth-child(3) { transition-delay: 0.45s; }
+.visible .complexity-card:nth-child(4) { transition-delay: 0.6s; }
+.visible .complexity-card:nth-child(5) { transition-delay: 0.75s; }
+.visible .complexity-card {
+    animation: border-flash-sprout 0.8s ease forwards;
+}
+
+/* Slide 11 — Pillar top-bar color sweep */
+@keyframes color-sweep {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+.pillar-card::before {
+    width: 0;
+}
+.visible .pillar-card::before {
+    animation: color-sweep 0.6s var(--ease-out-expo) forwards;
+}
+.visible .pillar-card:nth-child(1)::before { animation-delay: 0.3s; }
+.visible .pillar-card:nth-child(2)::before { animation-delay: 0.5s; }
+.visible .pillar-card:nth-child(3)::before { animation-delay: 0.7s; }
+.visible .pillar-card:nth-child(4)::before { animation-delay: 0.9s; }
+.visible .pillar-card:nth-child(5)::before { animation-delay: 1.1s; }
+
+/* Slide 16 — Voicemail steps drop-in with line draw */
+@keyframes drop-badge {
+    0% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+    60% { transform: translateY(4px) scale(1.1); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.vm-step {
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-out-expo);
+}
+.visible .vm-step { opacity: 1; }
+.visible .vm-step:nth-child(1) { transition-delay: 0.1s; }
+.visible .vm-step:nth-child(2) { transition-delay: 0.25s; }
+.visible .vm-step:nth-child(3) { transition-delay: 0.4s; }
+.visible .vm-step:nth-child(4) { transition-delay: 0.55s; }
+.visible .vm-step:nth-child(5) { transition-delay: 0.7s; }
+.visible .vm-step .vm-badge {
+    opacity: 0; transform: translateY(-20px) scale(0.5);
+}
+.visible .vm-step:nth-child(1) .vm-badge { animation: drop-badge 0.5s var(--ease-spring) 0.15s forwards; }
+.visible .vm-step:nth-child(2) .vm-badge { animation: drop-badge 0.5s var(--ease-spring) 0.3s forwards; }
+.visible .vm-step:nth-child(3) .vm-badge { animation: drop-badge 0.5s var(--ease-spring) 0.45s forwards; }
+.visible .vm-step:nth-child(4) .vm-badge { animation: drop-badge 0.5s var(--ease-spring) 0.6s forwards; }
+.visible .vm-step:nth-child(5) .vm-badge { animation: drop-badge 0.5s var(--ease-spring) 0.75s forwards; }
+
+/* Slide 18 — Banned table: red text flicker + strikethrough */
+@keyframes flicker-red {
+    0% { opacity: 0; }
+    10% { opacity: 0.6; }
+    20% { opacity: 0.2; }
+    40% { opacity: 0.8; }
+    60% { opacity: 0.4; }
+    80% { opacity: 0.9; }
+    100% { opacity: 1; text-decoration: line-through; }
+}
+.rt-table tbody tr td:first-child {
+    opacity: 0;
+}
+.visible .rt-table tbody tr td:first-child {
+    animation: flicker-red 0.8s ease forwards;
+    text-decoration: line-through;
+    text-decoration-color: var(--clay);
+    text-decoration-thickness: 2px;
+}
+.visible .rt-table tbody tr:nth-child(1) td:first-child { animation-delay: 0.2s; }
+.visible .rt-table tbody tr:nth-child(2) td:first-child { animation-delay: 0.4s; }
+.visible .rt-table tbody tr:nth-child(3) td:first-child { animation-delay: 0.6s; }
+.visible .rt-table tbody tr:nth-child(4) td:first-child { animation-delay: 0.8s; }
+.visible .rt-table tbody tr:nth-child(5) td:first-child { animation-delay: 1.0s; }
+/* Green replacement fades in after */
+.rt-table tbody tr td:nth-child(2) {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.visible .rt-table tbody tr:nth-child(1) td:nth-child(2) { opacity: 1; transition-delay: 0.6s; }
+.visible .rt-table tbody tr:nth-child(2) td:nth-child(2) { opacity: 1; transition-delay: 0.8s; }
+.visible .rt-table tbody tr:nth-child(3) td:nth-child(2) { opacity: 1; transition-delay: 1.0s; }
+.visible .rt-table tbody tr:nth-child(4) td:nth-child(2) { opacity: 1; transition-delay: 1.2s; }
+.visible .rt-table tbody tr:nth-child(5) td:nth-child(2) { opacity: 1; transition-delay: 1.4s; }
+
+/* Slide 20 — Quote word-by-word reveal */
+@keyframes word-reveal {
+    from { opacity: 0; transform: translateY(10px); filter: blur(4px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* ===========================================
+   SESSION 1 — SPECIFIC STYLES
+   =========================================== */
+
+/* Pressure gauge */
+.pressure-gauge {
+    display: flex; align-items: stretch; gap: 0; width: 100%;
+    border-radius: 14px; overflow: hidden; min-height: clamp(120px, 18vh, 200px);
+}
+.pressure-side {
+    flex: 1; padding: clamp(1rem, 2vw, 1.5rem);
+    display: flex; flex-direction: column; justify-content: center;
+}
+.pressure-side.bad { background: linear-gradient(135deg, #3a1a18 0%, #2a1210 100%); border-right: 3px solid var(--clay); }
+.pressure-side.good { background: linear-gradient(135deg, #1a2a15 0%, #152210 100%); border-left: 3px solid var(--sprout); }
+.pressure-label {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 6px;
+}
+.pressure-side.bad .pressure-label { color: var(--clay); }
+.pressure-side.good .pressure-label { color: var(--sprout); }
+.pressure-text {
+    font-family: var(--font-sans); font-size: clamp(1rem, 1.6vw, 1.3rem);
+    color: var(--paper); line-height: 1.5;
+}
+.pressure-arrow {
+    width: clamp(40px, 5vw, 60px); display: flex; align-items: center; justify-content: center;
+    background: var(--ink-deep); position: relative;
+}
+.pressure-arrow svg { width: clamp(24px, 3vw, 36px); }
+
+/* Brain reaction cards */
+.brain-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(0.8rem, 1.5vw, 1.3rem);
+    display: flex; align-items: flex-start; gap: clamp(8px, 1.2vw, 14px);
+}
+.brain-icon {
+    font-size: clamp(1.2rem, 2vw, 1.8rem); flex-shrink: 0; line-height: 1;
+}
+.brain-text {
+    font-family: var(--font-sans); font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    color: var(--muted-2); line-height: 1.5;
+}
+
+/* Pillar cards */
+.pillar-card {
+    background: var(--ink-soft); border: 2px solid var(--border-d);
+    border-radius: 16px; padding: clamp(1rem, 2vw, 1.6rem);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: clamp(4px, 0.6vh, 8px);
+}
+.pillar-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.pillar-card.p1::before { background: var(--brand); }
+.pillar-card.p2::before { background: var(--sprout); }
+.pillar-card.p3::before { background: var(--amber); }
+.pillar-card.p4::before { background: var(--brand-light); }
+.pillar-card.p5::before { background: var(--clay); }
+.pillar-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; letter-spacing: -0.03em;
+}
+.pillar-card.p1 .pillar-num { color: var(--brand-light); }
+.pillar-card.p2 .pillar-num { color: var(--sprout); }
+.pillar-card.p3 .pillar-num { color: var(--amber); }
+.pillar-card.p4 .pillar-num { color: var(--brand-light); }
+.pillar-card.p5 .pillar-num { color: var(--clay-soft); }
+.pillar-name {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.9rem, 1.4vw, 1.15rem); line-height: 1.2;
+}
+.pillar-desc {
+    font-family: var(--font-sans); font-size: clamp(0.8rem, 1.15vw, 0.95rem);
+    color: var(--muted-2); line-height: 1.4;
+}
+
+/* Complexity cards */
+.complexity-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 12px; padding: clamp(0.7rem, 1.3vw, 1.1rem);
+    border-left: 3px solid var(--sprout);
+}
+.complexity-market {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout);
+    margin-bottom: 4px;
+}
+.complexity-text {
+    font-family: var(--font-sans); font-size: clamp(0.9rem, 1.35vw, 1.1rem);
+    color: var(--paper); line-height: 1.4;
+}
+
+/* Script comparison */
+.script-block {
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(0.8rem, 1.5vw, 1.3rem);
+    font-family: var(--font-sans); font-size: clamp(0.8rem, 1.15vw, 0.95rem);
+    line-height: 1.6; color: var(--muted-2);
+}
+.script-block.bad { border-color: var(--clay); border-width: 2px; }
+.script-block.good { border-color: var(--sprout); border-width: 2px; }
+.script-block .script-tag {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+}
+.script-block.bad .script-tag { color: var(--clay); }
+.script-block.good .script-tag { color: var(--sprout); }
+.script-highlight { color: var(--paper); font-weight: 600; }
+
+/* Session arc */
+.arc-card-lcos {
+    background: var(--ink-soft); border: 2px solid var(--border-d);
+    border-radius: 16px; padding: clamp(0.8rem, 1.6vw, 1.3rem); text-align: center;
+    transition: all 0.4s var(--ease-out-expo);
+}
+.arc-card-lcos.active { border-color: var(--sprout); background: #8cc94e12; }
+.arc-card-lcos.future { opacity: 0.4; }
+.arc-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; letter-spacing: -0.03em;
+}
+.arc-card-lcos.active .arc-num { color: var(--sprout); }
+.arc-name {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 4px;
+}
+.arc-sub {
+    font-family: var(--font-mono); font-size: clamp(0.45rem, 0.65vw, 0.55rem);
+    color: var(--muted); letter-spacing: 1px; margin-top: 4px; text-transform: uppercase;
+}
+.today-badge {
+    display: inline-block;
+    background: var(--sprout); color: var(--ink); font-family: var(--font-mono);
+    font-size: clamp(0.45rem, 0.65vw, 0.55rem); font-weight: 700; letter-spacing: 1.5px;
+    padding: 2px 8px; border-radius: 999px; text-transform: uppercase; margin-top: 6px;
+}
+
+/* Wall bricks */
+.wall-container {
+    display: flex; flex-direction: column; gap: clamp(6px, 1vh, 12px);
+    max-width: 900px;
+}
+.wall-brick {
+    background: linear-gradient(135deg, #3a2a20 0%, #2a1a14 100%);
+    border: 2px solid #c0544560; border-radius: 12px;
+    border-left: 4px solid var(--clay);
+    padding: clamp(1rem, 1.8vw, 1.5rem) clamp(1.2rem, 2.2vw, 1.8rem);
+    font-family: var(--font-sans); font-size: clamp(1rem, 1.6vw, 1.3rem);
+    color: var(--clay-soft); display: flex; align-items: center; gap: 14px;
+    font-weight: 500;
+    /* Slide in from left */
+    opacity: 0; transform: translateX(-60px);
+    transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo), box-shadow 0.6s ease;
+}
+.visible .wall-brick:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0.3s; }
+.visible .wall-brick:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.6s; }
+.visible .wall-brick:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.9s; }
+/* Pulsing red glow on bricks once visible */
+@keyframes brick-pulse {
+    0%, 100% { box-shadow: inset 4px 0 0 var(--clay), 0 0 0 0 #c0544500; border-left-color: var(--clay); }
+    50% { box-shadow: inset 4px 0 0 var(--clay), 0 0 18px 2px #c0544540; border-left-color: #e06050; }
+}
+.visible .wall-brick {
+    animation: brick-pulse 2.5s ease-in-out infinite;
+}
+.visible .wall-brick:nth-child(1) { animation-delay: 1s; }
+.visible .wall-brick:nth-child(2) { animation-delay: 1.3s; }
+.visible .wall-brick:nth-child(3) { animation-delay: 1.6s; }
+.wall-brick .brick-num {
+    font-family: var(--font-mono); font-size: clamp(0.7rem, 1vw, 0.85rem);
+    color: var(--clay); letter-spacing: 1.2px; font-weight: 700;
+}
+/* Solution card — smash in from below */
+.wall-solution {
+    opacity: 0; transform: translateY(40px) scale(0.95);
+    transition: opacity 0.5s var(--ease-spring), transform 0.5s var(--ease-spring);
+}
+.visible .wall-solution { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.4s; }
+
+/* Voicemail formula */
+.vm-step {
+    display: flex; align-items: flex-start; gap: clamp(10px, 1.5vw, 16px);
+}
+.vm-badge {
+    width: clamp(28px, 3.5vw, 40px); height: clamp(28px, 3.5vw, 40px);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+}
+.vm-badge.b1 { background: var(--brand); color: white; }
+.vm-badge.b2 { background: var(--sprout); color: var(--ink); }
+.vm-badge.b3 { background: var(--amber); color: var(--ink); }
+.vm-badge.b4 { background: var(--brand-light); color: var(--ink); }
+.vm-badge.b5 { background: var(--clay); color: white; }
+.vm-content {
+    flex: 1;
+}
+.vm-label {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.85rem, 1.2vw, 1rem); margin-bottom: 2px;
+}
+.vm-desc {
+    font-family: var(--font-sans); font-size: clamp(0.75rem, 1vw, 0.85rem);
+    color: var(--muted-2); line-height: 1.4;
+}
+
+/* Keyword cards */
+.keyword-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 12px; padding: clamp(0.6rem, 1.2vw, 1rem);
+}
+.keyword-search {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 1.2px; color: var(--sprout); margin-bottom: 4px;
+}
+.keyword-desire {
+    font-family: var(--font-sans); font-size: clamp(0.9rem, 1.35vw, 1.1rem);
+    color: var(--paper); line-height: 1.4;
+}
+
+/* Hard rule bar */
+.hard-rule {
+    background: linear-gradient(135deg, #3a1a18 0%, #2a1210 100%);
+    border: 2px solid var(--clay); border-radius: 12px;
+    padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    display: flex; align-items: center; gap: clamp(10px, 1.5vw, 16px);
+}
+.hard-rule-tag {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 1.6px; text-transform: uppercase; color: var(--clay);
+    white-space: nowrap;
+}
+.hard-rule-text {
+    font-family: var(--font-sans); font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+    color: var(--paper); line-height: 1.4;
+}
+
+/* Commitment items */
+.commit-item {
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    padding: clamp(6px, 1vh, 12px) 0; border-bottom: 1px solid var(--border-d);
+    font-size: var(--body-size);
+}
+.commit-check {
+    width: clamp(18px, 1.8vw, 24px); height: clamp(18px, 1.8vw, 24px);
+    border: 2px solid var(--sprout); border-radius: 6px; flex-shrink: 0;
+}
+
+/* Language toggle */
+.lang-toggle {
+    display: flex; gap: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-d);
+    width: fit-content;
+}
+.lang-btn {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+    letter-spacing: 1.2px; text-transform: uppercase; padding: 4px 12px;
+    background: var(--ink-soft); color: var(--muted); border: none; cursor: pointer;
+    transition: all 0.3s ease;
+}
+.lang-btn.active { background: var(--sprout); color: var(--ink); font-weight: 700; }
+
+/* Bilingual script pair */
+.script-pair { position: relative; }
+.script-en, .script-es { transition: opacity 0.4s ease, max-height 0.4s ease; }
+.script-es { display: none; }
+.script-pair.show-es .script-en { display: none; }
+.script-pair.show-es .script-es { display: block; }
+
+/* Timer badge */
+.timer-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550;
+    font-family: var(--font-mono); font-size: clamp(0.65rem, 1vw, 0.85rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(10px, 1.4vw, 18px);
+    border-radius: 999px; text-transform: uppercase;
+}
+
+/* AI prompt card */
+.ai-prompt {
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 12px; padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    font-family: var(--font-mono); font-size: clamp(0.7rem, 1vw, 0.85rem);
+    color: var(--sprout-soft); line-height: 1.6;
+}
+.ai-prompt-label {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 6px;
+}
+
+/* Animated flow arrows */
+@keyframes flow-right {
+    0% { transform: translateX(-6px); opacity: 0.3; }
+    50% { transform: translateX(6px); opacity: 1; }
+    100% { transform: translateX(-6px); opacity: 0.3; }
+}
+.flow-arrow {
+    color: var(--sprout); font-size: clamp(1rem, 1.5vw, 1.3rem);
+    animation: flow-right 2s ease-in-out infinite;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* What-they-owe grid */
+.owe-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 12px; padding: clamp(0.9rem, 1.8vw, 1.4rem);
+    display: flex; flex-direction: column; gap: 4px;
+}
+.owe-card .owe-title {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+.owe-card .owe-desc {
+    font-family: var(--font-sans); font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+    color: var(--muted-2); line-height: 1.4;
+}
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ========== SLIDE 01 — COVER ========== -->
+<section class="slide gradient-bg" id="slide-1" data-notes="Welcome to Session 1 of the Lead Conversion OS. Today we change the way we talk to leads. This is not theory — this is the baseline. The system every agent at reThought will run from today forward. We cover three modules: how to use the playbook, the psychology shift, and the 5-pillar frame. By the end of today, each of you will have a script ready to use tomorrow.---Bienvenidos a la Sesion 1 del Lead Conversion OS. Hoy es el dia que cambiamos la forma en que hablamos con los leads. Esto no es teoria — esto es el baseline. El sistema que todo agente en reThought va a correr desde hoy. Vamos a cubrir tres modulos: como usar el playbook, el cambio de mentalidad, y el marco de los 5 pilares. Al final de hoy, cada uno de ustedes va a tener un script listo pa&rsquo; usar manana." style="justify-content: center; align-items: center;">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(1.5rem, 3.5vh, 3rem); text-align: center;">
+    <div class="reveal-scale" style="position: relative;">
+      <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate" style="height: clamp(2.5rem, 6vw, 4.5rem); width: auto; color: var(--paper);">
+        <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+        <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay: 0.5s;"/></g>
+      </svg>
+    </div>
+    <div>
+      <h1 class="reveal" style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.03em; line-height: 1.05;">
+        The <span class="stroke stroke--sprout">Psychology Shift<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span><br>+ The 5-Pillar Frame
+      </h1>
+      <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--muted-2); margin-top: clamp(0.5rem, 1vh, 1rem);">Modules 00 &middot; 01 &middot; 02</p>
+    </div>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--muted-2);">Pedro Bando Rivera, Broker/Owner</p>
+    <div class="reveal" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+      <span class="badge badge-sprout" style="font-size: clamp(0.6rem, 0.9vw, 0.75rem);">Lead Conversion OS</span>
+      <span class="badge badge-brand" style="font-size: clamp(0.6rem, 0.9vw, 0.75rem);">Session 1 of 6</span>
+    </div>
+  </div>
+  <div class="slide-footer" style="color: var(--muted-2);">reThought Real Estate</div>
+  <div class="slide-number" style="color: var(--muted-2);">01</div>
+</section>
+
+<!-- ========== SLIDE 02 — YEAR STATEMENT ========== -->
+<section class="slide" id="slide-2" data-notes="Quick reminder — 2026 is the year of systems. No more improvising. No more &rsquo;I do it my way.&rsquo; Your way does not scale. Systems do. Every system you build runs while you sleep. That is what we are building here.---Recordatorio rapido — 2026 es el ano de sistemas. No mas improvisar. No mas &rsquo;yo lo hago a mi manera.&rsquo; Tu manera no escala. Los sistemas si. Cada sistema que tu construyes trabaja mientras tu duermes. Eso es lo que estamos armando aqui." style="justify-content: center; align-items: center;">
+  <div style="text-align: center; max-width: min(85vw, 900px);">
+    <div class="section-label reveal" style="justify-content: center;">The Year Of</div>
+    <h2 class="reveal" style="font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 7vw, 5.5rem); letter-spacing: -0.04em; line-height: 1.05;">
+      2026 Is THE Year of<br>
+      <span class="stroke stroke--sprout stroke-animate">SYSTEMS<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>
+      and
+      <span class="stroke stroke--brand stroke-animate">NEW<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 7 C 70 14, 140 2, 198 8"/></svg></span>
+      Skill Developments.
+    </h2>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(0.9rem, 1.5vw, 1.2rem); color: var(--muted-2); margin-top: clamp(1rem, 2.5vh, 2rem); max-width: 50ch; margin-left: auto; margin-right: auto;">
+      Stop improvising. Start building. Every system you build runs while you sleep.
+    </p>
+  </div>
+  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-number">02</div>
+</section>
+
+<!-- ========== SLIDE 03 — MISSION & VISION (EN, dark) ========== -->
+<section class="slide" id="slide-3" data-notes="Our mission and vision. Read these. Live these. Human First. Tech Driven. Community Focused. MISSION: To redefine traditional real estate expectations delivering a personalized, tech-driven, and client-centric approach to buying and selling real estate. VISION: To succeed in becoming the local industry leader focused on humanizing the real estate industry, leveraging innovation, investment and growth, while remaining a community resource. This is not decoration — this is what guides every decision we make as a team.---Nuestra mision y vision en ingles. Leanlas. Vivanlas. MISSION: To redefine traditional real estate expectations delivering a personalized, tech-driven, and client-centric approach to buying and selling real estate. VISION: To succeed in becoming the local industry leader focused on humanizing the real estate industry, leveraging innovation, investment and growth, while remaining a community resource. Esto no es decoracion — esto es lo que nos guia cada decision que tomamos como equipo." style="justify-content: center;">
+  <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+    <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand-light); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Mission</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">
+        To redefine traditional real estate expectations delivering a <span style="color: var(--sprout); font-weight: 700;">personalized</span>, <span style="color: var(--sprout); font-weight: 700;">tech-driven</span>, and <span style="color: var(--sprout); font-weight: 700;">client-centric</span> approach to buying and selling real estate.
+      </p>
+    </div>
+    <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="divider-grow"></div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Vision</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">
+        To succeed in becoming the local industry <span style="color: var(--brand-light); font-weight: 700;">leader</span> focused on <span style="color: var(--brand-light); font-weight: 700;">humanizing</span> the real estate industry, leveraging innovation, investment and growth, while remaining a <span style="color: var(--brand-light); font-weight: 700;">community resource</span>.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Human First &middot; Tech Driven &middot; Community Focused</div>
+  <div class="slide-number">03</div>
+</section>
+
+<!-- ========== SLIDE 04 — MISION Y VISION (ES, light) ========== -->
+<section class="slide light" id="slide-4" data-notes="Now in Spanish. Read or let the team absorb. MISION: Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque personalizado, impulsado por la tecnologia y centrado en el cliente para la compra y venta de propiedades. VISION: Triunfar en convertirnos en el lider local de la industria enfocado en humanizar el sector inmobiliario, aprovechando la innovacion, la inversion y el crecimiento, mientras seguimos siendo un recurso para la comunidad.---Ahora en espanol. Lean o dejen que el equipo las absorba. MISION: Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque personalizado, impulsado por la tecnologia y centrado en el cliente para la compra y venta de propiedades. VISION: Triunfar en convertirnos en el lider local de la industria enfocado en humanizar el sector inmobiliario, aprovechando la innovacion, la inversion y el crecimiento, mientras seguimos siendo un recurso para la comunidad. Esto es lo que somos. Si no humaniza la experiencia, no lo hacemos. Si no ayuda al agente a crecer, no lo hacemos." style="justify-content: center;">
+  <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+    <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Misi&oacute;n</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">
+        Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque <span style="color: var(--brand); font-weight: 700;">personalizado</span>, impulsado por la <span style="color: var(--brand); font-weight: 700;">tecnolog&iacute;a</span> y centrado en el <span style="color: var(--brand); font-weight: 700;">cliente</span> para la compra y venta de propiedades.
+      </p>
+    </div>
+    <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="divider-grow"></div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout-deep); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Visi&oacute;n</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">
+        Triunfar en convertirnos en el <span style="color: var(--sprout-deep); font-weight: 700;">l&iacute;der local</span> de la industria enfocado en <span style="color: var(--sprout-deep); font-weight: 700;">humanizar</span> el sector inmobiliario, aprovechando la innovaci&oacute;n, la inversi&oacute;n y el crecimiento, mientras seguimos siendo un <span style="color: var(--sprout-deep); font-weight: 700;">recurso para la comunidad</span>.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">Human First &middot; Tech Driven &middot; Community Focused</div>
+  <div class="slide-number">04</div>
+</section>
+
+<!-- ========== SLIDE 05 — SERIES ARC ========== -->
+<section class="slide" id="slide-5" data-notes="Here is the full system — 6 sessions. Today is session 1. Do not run ahead. The playbook says 20 percent implemented ruthlessly beats 100 percent skimmed. Implement what we cover today before Friday. Everything else comes in the following weeks. Each session builds on the last.---Aqui esta el sistema completo — 6 sesiones. Hoy es la primera. No corran adelante. El playbook dice 20% implementado con disciplina le gana a 100% leido por encima. Implementen lo de hoy antes del viernes. Lo demas viene en las proximas semanas. Cada sesion construye sobre la anterior.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Lead Conversion OS &middot; 6 Sessions</div>
+            <h2 class="slide-title">The Full Operating System</h2>
+            <p class="slide-body">Every session builds on the last. Today we anchor the foundation.</p>
+        </div>
+        <div class="six-col reveal stagger" style="transition-delay: 0.2s;">
+            <div class="arc-card-lcos active">
+                <div class="arc-num">01</div>
+                <div class="arc-name">Psychology + Frame</div>
+                <div class="arc-sub">Modules 00-02</div>
+                <div class="today-badge">Today</div>
+            </div>
+            <div class="arc-card-lcos future">
+                <div class="arc-num">02</div>
+                <div class="arc-name">Lofty Install + Hidden DM</div>
+                <div class="arc-sub">Modules 03-04</div>
+            </div>
+            <div class="arc-card-lcos future">
+                <div class="arc-num">03</div>
+                <div class="arc-name">Callbacks + Triggers</div>
+                <div class="arc-sub">Modules 05-06</div>
+            </div>
+            <div class="arc-card-lcos future">
+                <div class="arc-num">04</div>
+                <div class="arc-name">Post-Close + Marketing</div>
+                <div class="arc-sub">Modules 07-08</div>
+            </div>
+            <div class="arc-card-lcos future">
+                <div class="arc-num">05</div>
+                <div class="arc-name">Memory + Cadence</div>
+                <div class="arc-sub">Modules 09-10</div>
+            </div>
+            <div class="arc-card-lcos future">
+                <div class="arc-num">06</div>
+                <div class="arc-name">Pipeline + Tags</div>
+                <div class="arc-sub">Appendix C</div>
+            </div>
+        </div>
+        <div class="reveal hard-rule" style="transition-delay: 0.4s;">
+            <div class="hard-rule-tag">La Regla</div>
+            <div class="hard-rule-text">Implement 20% ruthlessly each week before adding the next layer. Do not run ahead.</div>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">05 / 20</div>
+</section>
+
+<!-- ========== SLIDE 06 — WHAT YOU OWE / WHAT THE TEAM OWES ========== -->
+<section class="slide light" id="slide-6" data-notes="This is a contract. Not optional. You owe the team: show up prepared every Wednesday, implement by Friday, bring one win and one stuck point. Real data, not feelings. The team owes you: real systems, real scripts, a bilingual playbook, and a broker who is still in production. I am not teaching theory — I am doing this every day alongside you.---Esto es un contrato. No es opcional. Ustedes le deben al equipo llegar preparados, implementar pal viernes, y traer un win y un stuck point. Datos reales, no feelings. El equipo les debe sistemas reales, un playbook bilingue, y un broker que todavia esta en produccion. Yo no les estoy ensenando teoria — yo estoy haciendo esto todos los dias al lado de ustedes.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 00 &middot; How to Use This Playbook</div>
+            <h2 class="slide-title">The Contract</h2>
+        </div>
+        <div class="two-col" style="transition-delay: 0.15s;">
+            <div class="reveal-from-left">
+                <h3 style="font-family: var(--font-display); font-weight: 700; font-size: var(--h3-size); margin-bottom: clamp(0.5rem, 1vh, 1rem); color: var(--brand);">What You Owe the Team</h3>
+                <div class="stagger" style="display: flex; flex-direction: column; gap: var(--element-gap);">
+                    <div class="owe-card" style="background: #034c7610; border-color: #034c7630;">
+                        <div class="owe-title" style="color: var(--brand);">Show up prepared</div>
+                        <div class="owe-desc">Every Wednesday, on time, with last week's implementation done.</div>
+                    </div>
+                    <div class="owe-card" style="background: #034c7610; border-color: #034c7630;">
+                        <div class="owe-title" style="color: var(--brand);">Implement by Friday</div>
+                        <div class="owe-desc">This week's training applied in your Lofty account before the weekend.</div>
+                    </div>
+                    <div class="owe-card" style="background: #034c7610; border-color: #034c7630;">
+                        <div class="owe-title" style="color: var(--brand);">Bring 1 win + 1 stuck point</div>
+                        <div class="owe-desc">Real data, not feelings. The scoreboard is the truth.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-from-right">
+                <h3 style="font-family: var(--font-display); font-weight: 700; font-size: var(--h3-size); margin-bottom: clamp(0.5rem, 1vh, 1rem); color: var(--sprout-deep);">What the Team Owes You</h3>
+                <div class="stagger" style="display: flex; flex-direction: column; gap: var(--element-gap);">
+                    <div class="owe-card" style="background: #8cc94e10; border-color: #8cc94e30;">
+                        <div class="owe-title" style="color: var(--sprout-deep);">Real systems, real scripts</div>
+                        <div class="owe-desc">Not theory. Proven frameworks you can use the same day.</div>
+                    </div>
+                    <div class="owe-card" style="background: #8cc94e10; border-color: #8cc94e30;">
+                        <div class="owe-title" style="color: var(--sprout-deep);">Bilingual playbook</div>
+                        <div class="owe-desc">Material that reflects who we serve. EN + ES always.</div>
+                    </div>
+                    <div class="owe-card" style="background: #8cc94e10; border-color: #8cc94e30;">
+                        <div class="owe-title" style="color: var(--sprout-deep);">A broker in production</div>
+                        <div class="owe-desc">Coaching grounded in current reality, not old playbooks.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">06 / 20</div>
+</section>
+
+<!-- ========== SLIDE 07 — THE DEFAULT MOVE (BAD SCRIPT) ========== -->
+<section class="slide" id="slide-7" data-notes="Read this script out loud to the group: &rsquo;Hi Maria, this is Agent at Brokerage. You submitted your info on my website, so I thought I would give you a quick call and see if you have any questions.&rsquo; Pause. Ask them: What happened in Maria&rsquo;s brain? THREE things: ONE, she knows you are in sales. TWO, she knows the only beneficiary of this call is you. THREE, she defaults to her cheapest defense: &rsquo;I am just looking.&rsquo; That is not a Maria problem. That is a SCRIPT problem. The pressure is on Maria — she has to commit or escape. She will ALWAYS pick escape.---Lean este script en voz alta al grupo: &rsquo;Hi Maria, this is Agent at Brokerage. You submitted your info on my website, so I thought I would give you a quick call and see if you have any questions.&rsquo; Pausa. Preguntenles: Que paso en el cerebro de Maria? TRES cosas: UNO, sabe que estas en ventas. DOS, sabe que el unico que se beneficia de esta llamada eres tu. TRES, va a la defensa mas barata que tiene: &rsquo;I am just looking.&rsquo; Eso no es un problema de Maria. Eso es un problema de SCRIPT. La presion esta en Maria — tiene que comprometerse o escapar. SIEMPRE va a escoger escapar.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 01 &middot; The Psychology Shift</div>
+            <h2 class="slide-title">The Default Move <span style="color: var(--clay);">(Why It Fails)</span></h2>
+        </div>
+        <div class="shake-reveal script-block bad" style="transition-delay: 0.15s; max-width: 65ch;">
+            <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--clay)" stroke-width="2"/><path d="M4.5 4.5L9.5 9.5M9.5 4.5L4.5 9.5" stroke="var(--clay)" stroke-width="1.5" stroke-linecap="round"/></svg> What every agent says</div>
+            <em>"Hi Maria, this is [Agent] at [Brokerage]. You submitted your info on my website, so I thought I'd give you a <span class="script-highlight" style="color: var(--clay);">quick call</span> and see if you have any <span class="script-highlight" style="color: var(--clay);">questions</span>."</em>
+        </div>
+        <div class="reveal" style="transition-delay: 0.3s;">
+            <p style="font-family: var(--font-display); font-weight: 600; font-size: var(--h3-size); margin-bottom: clamp(0.4rem, 1vh, 0.8rem);">What happens in Maria's brain:</p>
+        </div>
+        <div class="three-col reveal stagger" style="transition-delay: 0.35s;">
+            <div class="brain-card">
+                <div class="brain-icon" style="color: var(--clay);">1</div>
+                <div class="brain-text">She knows you are <strong style="color: var(--paper);">in sales</strong></div>
+            </div>
+            <div class="brain-card">
+                <div class="brain-icon" style="color: var(--clay);">2</div>
+                <div class="brain-text">She knows the only beneficiary of this call is <strong style="color: var(--paper);">you</strong></div>
+            </div>
+            <div class="brain-card">
+                <div class="brain-icon" style="color: var(--clay);">3</div>
+                <div class="brain-text">She defaults to her cheapest defense: <strong style="color: var(--paper);">"I'm just looking"</strong></div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.6s;">
+            <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2);">
+                That is not a Maria problem. That is a <span style="color: var(--clay); font-weight: 600;">script problem</span>.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">07 / 20</div>
+</section>
+
+<!-- ========== SLIDE 08 — PRESSURE FLIP ========== -->
+<section class="slide" id="slide-8" data-notes="Point at the red side of the screen: PRESSURE ON THE LEAD — the lead has to commit or escape. They will always pick escape. Now point at the green side: PRESSURE ON YOURSELF — you go first, you provide, you offer something specific and valuable. The lead no longer has to decide whether to commit. They just have to decide whether to RECEIVE what you are giving them. FRAME TEST — read this out loud: If a stranger listened to the voicemail you just left, would they say it sounds like SALES or like SERVICE? If sales, rewrite it. Every time. No exception.---Senalen el lado rojo de la pantalla: PRESION EN EL LEAD — el lead tiene que comprometerse o escapar. Siempre va a escoger escapar. Ahora senalen el lado verde: PRESION EN TI MISMO — tu vas primero, tu provees, tu ofreces algo especifico y valioso. El lead ya no tiene que decidir si se compromete. Solo tiene que decidir si RECIBE lo que le estas dando. FRAME TEST — lean esto en voz alta: Si un extrano escucha el voicemail que acabas de dejar, diria que suena a VENTAS o a SERVICIO? Si suena a ventas, reescribelo. Cada vez. Sin excepcion.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 01 &middot; The Move That Wins</div>
+            <h2 class="slide-title">Flip the <span class="stroke stroke--sprout">Pressure<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span></h2>
+        </div>
+        <div class="reveal pressure-gauge" style="transition-delay: 0.15s;">
+            <div class="pressure-side bad">
+                <div class="pressure-label">Pressure on the lead</div>
+                <div class="pressure-text">Lead must commit or escape.<br>They will always pick escape.</div>
+            </div>
+            <div class="pressure-arrow">
+                <svg viewBox="0 0 30 30" fill="none"><path d="M8 15H22M18 10L23 15L18 20" stroke="var(--sprout)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="pressure-side good">
+                <div class="pressure-label">Pressure on yourself</div>
+                <div class="pressure-text">You go first. You provide.<br>The lead is asked to <strong>receive</strong>.</div>
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.35s; border-left: 3px solid var(--sprout);">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout); margin-bottom: 6px;">Frame Test</div>
+            <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.5;">
+                If a stranger handed you the voicemail you just left, would they say it sounds like <span style="color: var(--clay); font-weight: 600;">sales</span> or like <span style="color: var(--sprout); font-weight: 600;">service</span>? If sales, rewrite it. Every time.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">08 / 20</div>
+</section>
+
+<!-- ========== SLIDE 09 — THE WALL ========== -->
+<section class="slide" id="slide-9" data-notes="Real estate is different from any other profession. An emergency plumber, a LASIK surgeon — they start every conversation with built-in authority. The customer knows they need a professional. We do not have that gift. The customer believes: ONE, agents are overpaid. TWO, I can see the photos and price online, I have all the information. THREE, if I ignore this agent, nothing bad happens to me. That is the wall in their head BEFORE you ever call. Our job is to dismantle that wall with authority and with specific information they cannot get on their own.---Real estate es diferente a cualquier otra profesion. Un plomero de emergencia, un cirujano LASIK — empiezan cada conversacion con autoridad. El cliente sabe que necesita un profesional. Nosotros no tenemos ese regalo. El cliente cree que: UNO, los agentes cobran demasiado. DOS, ya tiene toda la info en Zillow. TRES, si te ignora, no le pasa nada malo. Esa es la pared en su cabeza ANTES de que tu llames. Nuestro trabajo es tumbar esa pared con autoridad y con informacion especifica que no pueden conseguir solos.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 01 &middot; Why Real Estate Is Different</div>
+            <h2 class="slide-title">The Wall in Their Head</h2>
+            <p class="slide-body">Tow trucks, LASIK surgeons, and emergency plumbers start every conversation with built-in authority. Real estate does not have that gift.</p>
+        </div>
+        <div class="wall-container">
+            <div class="wall-brick">
+                <div class="brick-num">01</div>
+                "Agents are overpaid."
+            </div>
+            <div class="wall-brick">
+                <div class="brick-num">02</div>
+                "I can see the photos and price online. I have all the information."
+            </div>
+            <div class="wall-brick">
+                <div class="brick-num">03</div>
+                "If I ignore this agent, nothing bad happens to me."
+            </div>
+        </div>
+        <div class="wall-solution rt-card" style="border-left: 3px solid var(--sprout);">
+            <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.5;">
+                Our job: <span class="highlight">dismantle the wall</span> by establishing authority in the opening seconds and loading the conversation with specific, useful information they <strong>cannot get on Zillow</strong>.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">09 / 20</div>
+</section>
+
+<!-- ========== SLIDE 10 — COMPLEXITY = VALUE (FULL WIDTH) ========== -->
+<section class="slide" id="slide-10" data-notes="Complexity equals value. Strip complexity and you become a door-opener. Add complexity and you become a guide. Point at each card on screen: CENTRAL FLORIDA — HOA rules, CDD fees, and STR restrictions in Reunion, Champions Gate, Solara, and Storey Lake. KISSIMMEE and TAMPA — flood zones, insurance shifts, and roof-age underwriting changes. MILWAUKEE — lake-effect property differences and waterfront tax implications. MIAMI — investor-friendly markets in Brickell, Coral Gables, Coconut Grove versus owner-occupied corridors. CROSS-BORDER — bilingual closing process between Florida, Wisconsin, and Puerto Rico. All of this is complexity you ALREADY know but are NOT using in your follow-up. HARD RULE — read out loud: Never run a sales-pressure callback again. If you catch yourself saying just checking in — hang up and rewrite the script.---Complejidad es igual a valor. Si le quitas la complejidad, eres un abre-puertas. Si anades complejidad, eres un guia. Senalen cada tarjeta: CENTRAL FLORIDA — reglas de HOA, CDD fees, y restricciones de STR en Reunion, Champions Gate, Solara, y Storey Lake. KISSIMMEE y TAMPA — zonas de inundacion, cambios de seguro, y underwriting de edad de techo. MILWAUKEE — diferencias de propiedades por efecto de lago e impuestos de waterfront. MIAMI — mercados investor-friendly en Brickell, Coral Gables, Coconut Grove versus corredores de owner-occupied. CROSS-BORDER — proceso bilingue de cierre entre Florida, Wisconsin, y Puerto Rico. Todo esto es complejidad que USTEDES ya saben pero que NO estan usando en su follow-up. HARD RULE: Nunca mas hagas un callback de presion de ventas. Si te agarras diciendo just checking in — cuelga y reescribe el script.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 01 &middot; Add Complexity to the Sale</div>
+            <h2 class="slide-title"><span class="stroke stroke--sprout">Complexity<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span> = Value</h2>
+            <p class="slide-body">Strip complexity and you become a door-opener. Add complexity and you become a guide.</p>
+        </div>
+        <div class="reveal stagger" style="transition-delay: 0.2s; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: clamp(0.4rem, 1vw, 0.8rem);">
+            <div class="complexity-card">
+                <div class="complexity-market">Central Florida</div>
+                <div class="complexity-text">HOA rules, CDD fees, and STR restrictions in Reunion, Champions Gate, Solara, and Storey Lake.</div>
+            </div>
+            <div class="complexity-card">
+                <div class="complexity-market">Kissimmee &middot; Tampa</div>
+                <div class="complexity-text">Flood zones, insurance shifts, and roof-age underwriting changes.</div>
+            </div>
+            <div class="complexity-card">
+                <div class="complexity-market">Milwaukee</div>
+                <div class="complexity-text">Lake-effect property differences and waterfront tax implications.</div>
+            </div>
+            <div class="complexity-card">
+                <div class="complexity-market">Miami</div>
+                <div class="complexity-text">Investor-friendly markets in Brickell, Coral Gables, and Coconut Grove vs. owner-occupied corridors.</div>
+            </div>
+            <div class="complexity-card">
+                <div class="complexity-market">Cross-Border</div>
+                <div class="complexity-text">Bilingual closing process for buyers between Florida, Wisconsin, and Puerto Rico.</div>
+            </div>
+        </div>
+        <div class="reveal hard-rule" style="transition-delay: 0.5s;">
+            <div class="hard-rule-tag">Hard Rule</div>
+            <div class="hard-rule-text">Never run a sales-pressure callback again. If you catch yourself saying "just checking in" &mdash; rewrite the script.</div>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">10 / 20</div>
+</section>
+
+<!-- ========== SLIDE 11 — THE 5 PILLARS (FULL WIDTH) ========== -->
+<section class="slide" id="slide-11" data-notes="Point at the screen. These are the 5 pillars. EVERY contact — callback, voicemail, text, email, open house — must cover all 5 in order. No exceptions. PILLAR 1: Here is who I am — name, brokerage, and the fact you already met through their site. PILLAR 2: Here is why I am calling — a specific, benefit-led reason. Never just checking in. PILLAR 3: I know what you want — mention the keyword, neighborhood, price range, or feature they searched. PILLAR 4: I can help you get it — reference our process, a current client, or a reThought service. PILLAR 5: Here is something only I can give — a market report, a brief, a relocation package. Something Zillow cannot provide. Pillar 5 is NON-NEGOTIABLE. If your script does not have a specific offer, it is a sales pressure script. Period.---Senalen la pantalla. Estos son los 5 pilares. CADA contacto — callback, voicemail, texto, email, open house — tiene que cubrir los 5 en orden. Sin excepciones. PILAR 1: Quien soy — nombre, brokerage, y el hecho de que ya nos conocimos por el website. PILAR 2: Por que llamo — una razon especifica con beneficio. Nunca just checking in. PILAR 3: Se lo que estas buscando — menciona el keyword, el vecindario, el rango de precio. PILAR 4: Puedo ayudarte a conseguirlo — referencia nuestro proceso, un cliente actual, o un servicio de reThought. PILAR 5: Aqui hay algo especifico que solo puedes conseguir a traves de mi — un market report, un brief, un paquete de relocation. Algo que Zillow no puede dar. El Pilar 5 es NON-NEGOTIABLE. Si tu script no tiene una oferta especifica, es un script de presion de ventas. Punto.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 02 &middot; The 5-Pillar Frame</div>
+            <h2 class="slide-title">Your Opening for <span class="stroke stroke--sprout">Every<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span> Contact</h2>
+            <p class="slide-body">Callback, voicemail, text, email, open house. No exceptions.</p>
+        </div>
+        <div class="five-col reveal stagger" style="transition-delay: 0.2s;">
+            <div class="pillar-card p1 reveal-scale">
+                <div class="pillar-num">1</div>
+                <div class="pillar-name">Here's Who I Am</div>
+                <div class="pillar-desc">Name, brokerage, and the fact you already met through their site.</div>
+            </div>
+            <div class="pillar-card p2 reveal-scale">
+                <div class="pillar-num">2</div>
+                <div class="pillar-name">Here's Why I'm Calling</div>
+                <div class="pillar-desc">A specific, benefit-led reason. Never "just checking in."</div>
+            </div>
+            <div class="pillar-card p3 reveal-scale">
+                <div class="pillar-num">3</div>
+                <div class="pillar-name">I Know What You Want</div>
+                <div class="pillar-desc">Mention the keyword, neighborhood, price range, or feature they searched.</div>
+            </div>
+            <div class="pillar-card p4 reveal-scale">
+                <div class="pillar-num">4</div>
+                <div class="pillar-name">I Can Help You Get It</div>
+                <div class="pillar-desc">Reference our process, a current client, or a reThought service.</div>
+            </div>
+            <div class="pillar-card p5 reveal-scale">
+                <div class="pillar-num">5</div>
+                <div class="pillar-name">Here's Something Only I Can Give</div>
+                <div class="pillar-desc">A market report. A brief. A relocation package. Something Zillow can't provide.</div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.6s; text-align: center;">
+            <span class="badge badge-clay">Pillar 5 is non-negotiable &mdash; No specific offer = sales pressure script</span>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">11 / 20</div>
+</section>
+
+<!-- ========== SLIDE 12 — THE KEYWORD IS THE DESIRE ========== -->
+<section class="slide light" id="slide-12" data-notes="Point at the screen. The keyword is the desire. Every lead that enters Lofty came through a specific search. Read each pair: &rsquo;Lake Nona homes for sale&rsquo; equals master-planned community with schools and medical campus. &rsquo;Champions Gate pool homes&rsquo; equals short-term rental investment property. &rsquo;Casas en venta Kissimmee&rsquo; equals Spanish-speaking buyer in our core market. &rsquo;Brickell condos city view&rsquo; equals luxury urban Miami buyer. &rsquo;Brookfield homes for sale&rsquo; equals suburban Milwaukee family buyer. &rsquo;Doctor Phillips schools&rsquo; equals family relocating for school zoning. If the keyword is generic you still have data, just not as much. If the keyword is specific you have a near-perfect read on what the lead wants. The keyword is GOLD. Use it in every contact.---Senalen la pantalla. El keyword es el deseo. Cada lead que entra a Lofty entro por una busqueda especifica. Lean cada par: &rsquo;Lake Nona homes for sale&rsquo; = comunidad master-planned con escuelas y medical campus. &rsquo;Champions Gate pool homes&rsquo; = inversion de renta corta. &rsquo;Casas en venta Kissimmee&rsquo; = comprador hispano en nuestro core market. &rsquo;Brickell condos city view&rsquo; = comprador de lujo urbano Miami. &rsquo;Brookfield homes for sale&rsquo; = familia suburbana Milwaukee. &rsquo;Doctor Phillips schools&rsquo; = familia relocandose por zonificacion escolar. Si el keyword es generico todavia tienes data, solo no tanta. Si es especifico tienes un read casi perfecto de lo que el lead quiere. El keyword es ORO. Usenlo en cada contacto.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 02 &middot; The Keyword Is the Desire</div>
+            <h2 class="slide-title" style="color: var(--ink);">Every lead came in through a search.<br>That search is the <span class="stroke stroke--sprout">desire<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span>.</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: clamp(0.4rem, 1vw, 0.8rem);" class="reveal stagger" style="transition-delay: 0.2s;">
+            <div class="keyword-card" style="background: #034c7610; border-color: #034c7630;">
+                <div class="keyword-search" style="color: var(--brand);">Lake Nona homes for sale</div>
+                <div class="keyword-desire" style="color: var(--ink);">Master-planned community with schools and medical campus</div>
+            </div>
+            <div class="keyword-card" style="background: #034c7610; border-color: #034c7630;">
+                <div class="keyword-search" style="color: var(--brand);">Champions Gate pool homes</div>
+                <div class="keyword-desire" style="color: var(--ink);">Short-term rental investment property</div>
+            </div>
+            <div class="keyword-card" style="background: #034c7610; border-color: #034c7630;">
+                <div class="keyword-search" style="color: var(--brand);">Casas en venta Kissimmee</div>
+                <div class="keyword-desire" style="color: var(--ink);">Spanish-speaking buyer in our core market</div>
+            </div>
+            <div class="keyword-card" style="background: #034c7610; border-color: #034c7630;">
+                <div class="keyword-search" style="color: var(--brand);">Brickell condos city view</div>
+                <div class="keyword-desire" style="color: var(--ink);">Luxury urban Miami buyer</div>
+            </div>
+            <div class="keyword-card" style="background: #034c7610; border-color: #034c7630;">
+                <div class="keyword-search" style="color: var(--brand);">Brookfield homes for sale</div>
+                <div class="keyword-desire" style="color: var(--ink);">Suburban Milwaukee family buyer</div>
+            </div>
+            <div class="keyword-card" style="background: #034c7610; border-color: #034c7630;">
+                <div class="keyword-search" style="color: var(--brand);">Doctor Phillips schools</div>
+                <div class="keyword-desire" style="color: var(--ink);">Family relocating for school zoning</div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">12 / 20</div>
+</section>
+
+<!-- ========== SLIDE 13 — SCRIPT A: STR BUYER (EN/ES toggle) ========== -->
+<section class="slide" id="slide-13" data-notes="Read Script A out loud. ENGLISH: &rsquo;Marco, this is Agent at reThought Real Estate. We met through my website, you were checking out some pool homes in Champions Gate. Heads up before you go too deep on listings — the HOA rules around short-term rental have shifted in a few of those communities and the CDD fees are not what most sites show. I just put together a one-page brief for another client running the exact same play. Want me to email you a copy today? No pressure, just useful.&rsquo; Notice the colors on screen: blue is who I am, green is the keyword, amber is the complexity, red is the offer. Marco does not have to commit to anything. He just has to decide if he wants to receive a one-page brief. That is service, not sales. Toggle to Spanish to see the ES version.---Lean el Script A en voz alta. ESPANOL: &rsquo;Marco, soy Agent de reThought Real Estate. Nos conectamos por mi sitio web, andas buscando casas con piscina en Champions Gate. Antes de que sigas viendo listings, te aviso — las reglas de HOA para renta corta cambiaron en algunas de esas comunidades y los CDD fees no son los que aparecen en los sitios. Ya arme un brief de una pagina para otro cliente que anda en lo mismo. Te lo mando hoy por email? Sin presion, solo informacion.&rsquo; Fijense en los colores: azul es quien soy, verde es el keyword, amarillo es la complejidad, rojo es la oferta. Marco no tiene que comprometerse a nada. Solo tiene que decidir si quiere recibir algo. Eso es servicio, no ventas.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <div class="section-label">Module 02 &middot; Script A</div>
+                <h2 class="slide-title">Champions Gate &middot; STR Buyer</h2>
+            </div>
+            <div class="lang-toggle" data-target="script-a">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </div>
+        <div class="reveal script-pair" id="script-a" style="transition-delay: 0.15s;">
+            <div class="script-en">
+                <div class="script-block good" style="font-size: clamp(1rem, 1.55vw, 1.25rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> The 5-Pillar Script</div>
+                    <span style="color: var(--brand-light);">Marco,</span> this is [Agent] at reThought Real Estate. We met through my website, <span style="color: var(--sprout);">you were checking out some pool homes in Champions Gate.</span> Heads up before you go too deep on listings &mdash; <span style="color: var(--amber);">the HOA rules around short-term rental have shifted in a few of those communities and the CDD fees are not what most sites show.</span> I just put together a one-page brief for another client running the exact same play. <span style="color: var(--clay-soft);">Want me to email you a copy today? No pressure, just useful.</span>
+                </div>
+            </div>
+            <div class="script-es">
+                <div class="script-block good" style="font-size: clamp(1rem, 1.55vw, 1.25rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> El Script de 5 Pilares</div>
+                    <span style="color: var(--brand-light);">Marco,</span> soy [Agent] de reThought Real Estate. Nos conectamos por mi sitio web, <span style="color: var(--sprout);">andas buscando casas con piscina en Champions Gate.</span> Antes de que sigas viendo listings, te aviso &mdash; <span style="color: var(--amber);">las reglas de HOA para renta corta cambiaron en algunas de esas comunidades y los CDD fees no son los que aparecen en los sitios.</span> Ya arm&eacute; un brief de una p&aacute;gina para otro cliente que anda en lo mismo. <span style="color: var(--clay-soft);">&iquest;Te lo mando hoy por email? Sin presi&oacute;n, solo informaci&oacute;n.</span>
+                </div>
+            </div>
+        </div>
+        <div class="reveal stagger" style="transition-delay: 0.3s; display: flex; gap: clamp(0.4rem, 1vw, 0.8rem); flex-wrap: wrap;">
+            <span class="badge badge-brand">Pillar 1 &middot; Who I am</span>
+            <span class="badge badge-sprout">Pillar 3 &middot; Keyword</span>
+            <span class="badge badge-amber">Pillar 2+4 &middot; Complexity</span>
+            <span class="badge badge-clay">Pillar 5 &middot; The offer</span>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">13 / 20</div>
+</section>
+
+<!-- ========== SLIDE 14 — SCRIPT B: RELOCATION FAMILY (EN/ES) ========== -->
+<section class="slide" id="slide-14" data-notes="Read Script B out loud. ENGLISH: &rsquo;Jennifer, this is Agent at reThought. We met through my site, you were checking out homes near the Lake Nona and Doctor Phillips area. My team specializes in families relocating into Central Florida, and I keep a running file of school zoning changes, commute times, and the medical campus expansion. I am going to email you that file now. Take a look. If anything jumps out, just text me back and we can set up a virtual tour through our relocation concierge process.&rsquo; Same 5-pillar frame, different content. The complexity here is school zoning and the medical campus. The offer is the file. Jennifer does not have to do anything except review what we send.---Lean el Script B en voz alta. ESPANOL: &rsquo;Jennifer, soy Agent de reThought. Nos conectamos por el sitio, estabas viendo casas en el area de Lake Nona y Doctor Phillips. Mi equipo se especializa en familias que se mudan al area de Central Florida, y mantengo un archivo con los cambios de zonificacion escolar, los tiempos de manejo, y la expansion del medical campus. Te lo mando ahora por email. Echale un ojo. Si algo te llama la atencion, me escribes y armamos un tour virtual con nuestro proceso de relocation concierge.&rsquo; Mismo frame, diferente contenido. La complejidad aqui es zonificacion escolar y el medical campus. La oferta es el archivo.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <div class="section-label">Module 02 &middot; Script B</div>
+                <h2 class="slide-title">Lake Nona &middot; Relocating Family</h2>
+            </div>
+            <div class="lang-toggle" data-target="script-b">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </div>
+        <div class="reveal script-pair" id="script-b" style="transition-delay: 0.15s;">
+            <div class="script-en">
+                <div class="script-block good" style="font-size: clamp(1rem, 1.55vw, 1.25rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> The 5-Pillar Script</div>
+                    <span style="color: var(--brand-light);">Jennifer,</span> this is [Agent] at reThought. We met through my site, <span style="color: var(--sprout);">you were checking out homes near the Lake Nona and Doctor Phillips area.</span> My team specializes in families relocating into Central Florida, and <span style="color: var(--amber);">I keep a running file of school zoning changes, commute times, and the medical campus expansion.</span> I'm going to email you that file now. Take a look. <span style="color: var(--clay-soft);">If anything jumps out, just text me back and we can set up a virtual tour through our relocation concierge process.</span>
+                </div>
+            </div>
+            <div class="script-es">
+                <div class="script-block good" style="font-size: clamp(1rem, 1.55vw, 1.25rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> El Script de 5 Pilares</div>
+                    <span style="color: var(--brand-light);">Jennifer,</span> soy [Agent] de reThought. Nos conectamos por el sitio, <span style="color: var(--sprout);">estabas viendo casas en el &aacute;rea de Lake Nona y Doctor Phillips.</span> Mi equipo se especializa en familias que se mudan al &aacute;rea de Central Florida, y <span style="color: var(--amber);">mantengo un archivo con los cambios de zonificaci&oacute;n escolar, los tiempos de manejo, y la expansi&oacute;n del medical campus.</span> Te lo mando ahora por email. &Eacute;chale un ojo. <span style="color: var(--clay-soft);">Si algo te llama la atenci&oacute;n, me escribes y armamos un tour virtual con nuestro proceso de relocation concierge.</span>
+                </div>
+            </div>
+        </div>
+        <div class="reveal stagger" style="transition-delay: 0.3s; display: flex; gap: clamp(0.4rem, 1vw, 0.8rem); flex-wrap: wrap;">
+            <span class="badge badge-brand">Pillar 1 &middot; Who I am</span>
+            <span class="badge badge-sprout">Pillar 3 &middot; Keyword</span>
+            <span class="badge badge-amber">Pillar 2+4 &middot; Complexity</span>
+            <span class="badge badge-clay">Pillar 5 &middot; The offer</span>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">14 / 20</div>
+</section>
+
+<!-- ========== SLIDE 15 — SCRIPT C+D SIDE-BY-SIDE ========== -->
+<section class="slide" id="slide-15" data-notes="Two more scripts side by side. Read Script C: &rsquo;Hi Tom, this is Agent at reThought. We met through the website, you were looking at homes in Brookfield. The reason I am calling — I just walked through three properties in that corridor last week and the price-to-condition spread is wider than the search results show. Some homes are listed strong but need work, others are priced just below the comps but in great shape. I put a quick breakdown together for the buyer side of our team. Want me to send it over so you have it before you keep searching?&rsquo; Read Script D: &rsquo;Hola Carlos, this is Agent from reThought. You were looking at homes around Kissimmee. We work with a lot of clients moving from Puerto Rico to Central Florida, so we have a process for everything — from finding the right neighborhood for your family to coordinating with your closing attorney on the island. I am emailing you our bilingual relocation brief now. Take a look and let me know if you want to set up a Zoom this week.&rsquo; The pattern: same 5-pillar frame. Different keyword, different complexity, different offer. The frame stays. The content adapts.---Dos scripts mas lado a lado. Lean Script C: &rsquo;Hi Tom, this is Agent at reThought. We met through the website, you were looking at homes in Brookfield. The reason I am calling — I just walked through three properties in that corridor last week and the price-to-condition spread is wider than the search results show. I put a quick breakdown together for the buyer side of our team. Want me to send it over?&rsquo; Lean Script D: &rsquo;Hola Carlos, this is Agent from reThought. You were looking at homes around Kissimmee. We work with a lot of clients moving from Puerto Rico to Central Florida, so we have a process for everything — from finding the right neighborhood to coordinating with your closing attorney on the island. I am emailing you our bilingual relocation brief now.&rsquo; El patron: mismo frame de 5 pilares. Diferente keyword, diferente complejidad, diferente oferta. El frame se queda. El contenido se adapta.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 02 &middot; Scripts C + D</div>
+            <h2 class="slide-title">Milwaukee Buyer &middot; Cross-Border Buyer</h2>
+        </div>
+        <div class="two-col reveal" style="transition-delay: 0.15s;">
+            <div class="script-block good" style="font-size: clamp(0.92rem, 1.35vw, 1.1rem); line-height: 1.6;">
+                <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Script C &middot; Milwaukee</div>
+                "Hi Tom, this is [Agent] at reThought. We met through the website, you were looking at homes in Brookfield. The reason I'm calling &mdash; <span style="color: var(--amber);">I just walked through three properties in that corridor last week and the price-to-condition spread is wider than the search results show.</span> I put a quick breakdown together for the buyer side of our team. <span style="color: var(--clay-soft);">Want me to send it over?</span>"
+            </div>
+            <div class="script-block good" style="font-size: clamp(0.92rem, 1.35vw, 1.1rem); line-height: 1.6;">
+                <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Script D &middot; PR Cross-Border</div>
+                "Hola Carlos, this is [Agent] from reThought. You were looking at homes around Kissimmee. <span style="color: var(--amber);">We work with a lot of clients moving from Puerto Rico to Central Florida, so we have a process for everything &mdash; from finding the right neighborhood to coordinating with your closing attorney on the island.</span> <span style="color: var(--clay-soft);">I'm emailing you our bilingual relocation brief now.</span>"
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.35s; border-left: 3px solid var(--amber); display: flex; align-items: center; gap: 12px;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--amber); white-space: nowrap;">Pattern</div>
+            <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.15vw, 0.95rem); color: var(--paper); line-height: 1.5;">
+                Same 5-pillar structure. Different keyword, different complexity, different offer. The frame stays. The content adapts.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">15 / 20</div>
+</section>
+
+<!-- ========== SLIDE 16 — VOICEMAIL FORMULA ========== -->
+<section class="slide light" id="slide-16" data-notes="Point at the screen. The voicemail formula — under 45 seconds, every time. Read each step: STEP 1 — Name + Brokerage + Already Met: &rsquo;Hi Marco, this is Agent at reThought Real Estate. We met through my website...&rsquo; STEP 2 — Acknowledge the Keyword: &rsquo;...you were checking out some pool homes in Champions Gate...&rsquo; STEP 3 — Plant the Complexity: &rsquo;...heads up, the short-term-rental rules changed in a few of those communities and the CDD fees are not what most sites show.&rsquo; STEP 4 — Reference the Email: &rsquo;I just emailed you a one-page brief I put together for another client doing the same play.&rsquo; STEP 5 — Soft Close: &rsquo;Take a look. If anything jumps out, text me back. Either way I will keep sending the good ones your way.&rsquo; The voicemail is the hook. The email is the proof. Together they create a coherent first impression: this person is organized, specific, and sent me something useful.---Senalen la pantalla. La formula del voicemail — menos de 45 segundos, siempre. Lean cada paso: PASO 1 — Nombre + Brokerage + Ya nos conocimos: &rsquo;Hi Marco, this is Agent at reThought Real Estate. We met through my website...&rsquo; PASO 2 — Reconoce el Keyword: &rsquo;...you were checking out some pool homes in Champions Gate...&rsquo; PASO 3 — Planta la Complejidad: &rsquo;...heads up, the short-term-rental rules changed and CDD fees are not what most sites show.&rsquo; PASO 4 — Referencia el Email: &rsquo;I just emailed you a one-page brief I put together for another client doing the same play.&rsquo; PASO 5 — Cierre Suave: &rsquo;Take a look. If anything jumps out, text me back. Either way I will keep sending the good ones.&rsquo; El voicemail es el hook. El email es la prueba. Juntos crean una primera impresion coherente.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 02 &middot; The Voicemail Formula</div>
+            <h2 class="slide-title" style="color: var(--ink);">Under 45 Seconds &middot; Every Time</h2>
+        </div>
+        <div class="reveal stagger" style="transition-delay: 0.15s; display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vh, 1rem);">
+            <div class="vm-step">
+                <div class="vm-badge b1">1</div>
+                <div class="vm-content">
+                    <div class="vm-label" style="color: var(--ink);">Name + Brokerage + Already Met</div>
+                    <div class="vm-desc">"Hi Marco, this is [Agent] at reThought Real Estate. We met through my website..."</div>
+                </div>
+            </div>
+            <div class="vm-step">
+                <div class="vm-badge b2">2</div>
+                <div class="vm-content">
+                    <div class="vm-label" style="color: var(--ink);">Acknowledge the Keyword</div>
+                    <div class="vm-desc">"...you were checking out some pool homes in Champions Gate..."</div>
+                </div>
+            </div>
+            <div class="vm-step">
+                <div class="vm-badge b3">3</div>
+                <div class="vm-content">
+                    <div class="vm-label" style="color: var(--ink);">Plant the Complexity</div>
+                    <div class="vm-desc">"...heads up, the short-term-rental rules changed and CDD fees are not what most sites show."</div>
+                </div>
+            </div>
+            <div class="vm-step">
+                <div class="vm-badge b4">4</div>
+                <div class="vm-content">
+                    <div class="vm-label" style="color: var(--ink);">Reference the Email</div>
+                    <div class="vm-desc">"I just emailed you a one-page brief I put together for another client doing the same play."</div>
+                </div>
+            </div>
+            <div class="vm-step">
+                <div class="vm-badge b5">5</div>
+                <div class="vm-content">
+                    <div class="vm-label" style="color: var(--ink);">Soft Close, No Pressure</div>
+                    <div class="vm-desc">"Take a look. If anything jumps out, text me back. Either way I'll keep sending the good ones."</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">16 / 20</div>
+</section>
+
+<!-- ========== SLIDE 17 — EMAIL FOLLOW-UP TEMPLATE (EN/ES) ========== -->
+<section class="slide" id="slide-17" data-notes="The email that follows the voicemail. Send it within 5 minutes. The voicemail alone is too thin to act on. The email alone is too easy to ignore. Together they say: this person is organized, specific, and sent me something useful. Read the template: Subject: Champions Gate pool homes, short-term-rental brief inside. &rsquo;Marco, Quick note from the voicemail. Attached is the one-page brief on short-term-rental rules and CDD fees for the Champions Gate area. The numbers in there are what we use to underwrite a property before we make an offer for a client. If you want me to run a quick analysis on a specific property, just send me the address and I will turn it around the same day.&rsquo; And always the P.S.: &rsquo;If your spouse or partner is also in the search, send me their email and I will keep them in the loop too.&rsquo; That P.S. is Module 04 — the hidden decision maker — but we plant the seed from the first contact.---El email que sigue al voicemail. Mandenlo dentro de 5 minutos. El voicemail solo es muy thin para actuar. El email solo es muy facil de ignorar. Juntos crean una primera impresion coherente. Lean la plantilla: Subject: Casas con piscina en Champions Gate, brief de renta corta adentro. &rsquo;Marco, Como te dije en el voicemail, adjunto el brief de una pagina sobre las reglas de renta corta y los CDD fees en Champions Gate. Estos son los numeros que usamos para evaluar una propiedad antes de hacer una oferta para un cliente. Si quieres que te corra un analisis rapido de una propiedad especifica, me mandas la direccion y te lo devuelvo el mismo dia.&rsquo; Y siempre el P.D.: &rsquo;Si tu pareja tambien anda en la busqueda, mandame su email y la mantengo al tanto tambien.&rsquo; Ese P.D. es Module 04 — el decisor oculto — pero ya lo sembramos desde el primer contacto.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <div class="section-label">Module 02 &middot; The Email That Follows</div>
+                <h2 class="slide-title">Send Within <span style="color: var(--clay);">5 Minutes</span> of the Voicemail</h2>
+            </div>
+            <div class="lang-toggle" data-target="script-email">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </div>
+        <div class="reveal script-pair" id="script-email" style="transition-delay: 0.15s;">
+            <div class="script-en">
+                <div class="script-block good" style="font-size: clamp(0.82rem, 1.2vw, 1rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Email Template</div>
+                    <p style="color: var(--sprout); margin-bottom: 6px;"><strong>Subject:</strong> Champions Gate pool homes &middot; short-term-rental brief inside</p>
+                    Marco,<br><br>
+                    Quick note from the voicemail. Attached is the <span style="color: var(--amber);">one-page brief on short-term-rental rules and CDD fees</span> for the Champions Gate area. The numbers in there are what we use to underwrite a property before we make an offer for a client.<br><br>
+                    If you want me to <span style="color: var(--clay-soft);">run a quick analysis on a specific property, just send me the address</span> and I will turn it around the same day.<br><br>
+                    <span style="color: var(--muted-2);">[Agent] | reThought Real Estate | [phone] | bilingual buyer support</span><br><br>
+                    <span style="color: var(--brand-light);">P.S. If your spouse or partner is also in the search, send me their email and I will keep them in the loop too.</span>
+                </div>
+            </div>
+            <div class="script-es">
+                <div class="script-block good" style="font-size: clamp(0.82rem, 1.2vw, 1rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Plantilla de Email</div>
+                    <p style="color: var(--sprout); margin-bottom: 6px;"><strong>Subject:</strong> Casas con piscina en Champions Gate &middot; brief de renta corta adentro</p>
+                    Marco,<br><br>
+                    Como te dije en el voicemail, adjunto el <span style="color: var(--amber);">brief de una p&aacute;gina sobre las reglas de renta corta y los CDD fees</span> en Champions Gate. Estos son los n&uacute;meros que usamos para evaluar una propiedad antes de hacer una oferta para un cliente.<br><br>
+                    Si quieres que te <span style="color: var(--clay-soft);">corra un an&aacute;lisis r&aacute;pido de una propiedad espec&iacute;fica, me mandas la direcci&oacute;n</span> y te lo devuelvo el mismo d&iacute;a.<br><br>
+                    <span style="color: var(--muted-2);">[Agent] | reThought Real Estate | [phone] | soporte biling&uuml;e para compradores</span><br><br>
+                    <span style="color: var(--brand-light);">P.D. Si tu pareja tambi&eacute;n anda en la b&uacute;squeda, m&aacute;ndame su email y la mantengo al tanto tambi&eacute;n.</span>
+                </div>
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.3s; border-left: 3px solid var(--sprout); display: flex; align-items: center; gap: 12px;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout); white-space: nowrap;">Why the combo</div>
+            <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.15vw, 0.95rem); color: var(--paper); line-height: 1.5;">
+                Voicemail alone is too thin to act on. Email alone is too easy to ignore. Together they say: <strong>this person is organized, specific, and sent me something useful.</strong>
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">17 / 20</div>
+</section>
+
+<!-- ========== SLIDE 18 — WHAT IS FORBIDDEN ========== -->
+<section class="slide" id="slide-18" data-notes="This is what is BANNED. These phrases are removed from our vocabulary starting today. Point at each row: &rsquo;Just checking in&rsquo; — says nothing. Replace with: &rsquo;I just walked three properties in your area and the spread is wider than search results show.&rsquo; &rsquo;See if you have any questions&rsquo; — puts pressure on the lead. Replace with: &rsquo;I put together a one-page brief on the complexity. Want me to send it over?&rsquo; &rsquo;Wanted to follow up&rsquo; — sounds like you are chasing. Replace with: &rsquo;The HOA rules shifted in that community — heads up before you go deeper on listings.&rsquo; &rsquo;Touching base&rsquo; — corporate speak nobody respects. Replace with: &rsquo;I keep a running file of school zoning and flood zones. Emailing it now.&rsquo; &rsquo;Circling back&rsquo; — same. Replace with: &rsquo;Another client in your market just closed — the numbers might change your timeline.&rsquo; HARD RULE: If your script does not contain a specific thing the lead can only get through you, it is a sales-pressure script. Rewrite it before you press dial.---Esto es lo que esta PROHIBIDO. Estas frases estan banned de nuestro vocabulario desde hoy. Senalen cada fila: &rsquo;Just checking in&rsquo; — no dice nada. Reemplazo: &rsquo;I just walked three properties in your area and the spread is wider than search results show.&rsquo; &rsquo;See if you have any questions&rsquo; — pone la presion en el lead. Reemplazo: &rsquo;I put together a one-page brief on the complexity. Want me to send it over?&rsquo; &rsquo;Wanted to follow up&rsquo; — suena a que estas persiguiendo. Reemplazo: &rsquo;The HOA rules shifted — heads up before you go deeper on listings.&rsquo; &rsquo;Touching base&rsquo; — corporate speak. Reemplazo: &rsquo;I keep a running file of school zoning and flood zones. Emailing it now.&rsquo; &rsquo;Circling back&rsquo; — igual. Reemplazo: &rsquo;Another client in your market just closed — the numbers might change your timeline.&rsquo; HARD RULE: Si tu script no tiene una oferta especifica, es un script de presion de ventas. Reescribelo antes de marcar.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 02 &middot; What Is Forbidden</div>
+            <h2 class="slide-title">Banned Phrases &mdash; <span style="color: var(--clay);">Effective Today</span></h2>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s;">
+            <table class="rt-table" style="max-width: 100%;">
+                <thead>
+                    <tr><th style="width: 40%;">Never Say This</th><th>Replace With</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color: var(--clay) !important;">"Just checking in"</td>
+                        <td>"I just walked three properties in your area and the spread is wider than search results show."</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--clay) !important;">"See if you have any questions"</td>
+                        <td>"I put together a one-page brief on [complexity]. Want me to send it over?"</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--clay) !important;">"Wanted to follow up"</td>
+                        <td>"The HOA rules shifted in [community] &mdash; heads up before you go deeper on listings."</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--clay) !important;">"Touching base"</td>
+                        <td>"I keep a running file of [school zoning / flood zones / STR rules]. Emailing it now."</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--clay) !important;">"Circling back"</td>
+                        <td>"Another client in [market] just closed &mdash; the numbers might change your timeline."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="reveal hard-rule" style="transition-delay: 0.35s;">
+            <div class="hard-rule-tag">Hard Rule</div>
+            <div class="hard-rule-text">If your script does not contain a specific thing the lead can only get through you, it is a sales-pressure script. Rewrite it before you press dial.</div>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">18 / 20</div>
+</section>
+
+<!-- ========== SLIDE 19 — LIVE EXERCISE + AI PROMPT ========== -->
+<section class="slide" id="slide-19" data-notes="Live exercise. 10 minutes in pairs. Each person picks their top neighborhood, identifies 3 complexity points they know cold, and writes ONE script using the 5-pillar frame. Then read it out loud to the group. The key question: does it sound like sales or service? If sales, rewrite it right there. They also have the AI prompt — copy and paste it into Claude or ChatGPT to generate additional scripts for their other markets. HOMEWORK FOR FRIDAY: three customized scripts with the names of the communities they serve, three real complexity points, and one current client story. Bring them to next Wednesday.---Ejercicio en vivo. 10 minutos en parejas. Cada uno escoge su vecindario principal, identifica 3 puntos de complejidad que conoce de memoria, y escribe UN script usando el marco de 5 pilares. Despues lo leen en voz alta al grupo. La pregunta clave: suena a ventas o a servicio? Si suena a ventas, lo reescriben ahi mismo. Tambien tienen el AI prompt — copienlo y peguenlo en Claude o ChatGPT para generar scripts adicionales para sus otros mercados. TAREA PAL VIERNES: tres scripts customizados con los nombres de las comunidades que sirven, tres complexity points reales, y una historia de un cliente actual. Traiganlos al proximo miercoles.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Live Exercise</div>
+            <h2 class="slide-title">Write Your 5-Pillar Script</h2>
+            <p class="slide-body">Pick your top neighborhood. Write the script. Read it out loud. Does it sound like sales or service?</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: clamp(0.4rem, 1vh, 0.8rem);">
+                <span class="timer-badge"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="var(--clay-soft)" stroke-width="1.5"/><path d="M7 4V7.5L9 9" stroke="var(--clay-soft)" stroke-width="1.5" stroke-linecap="round"/></svg> 10 min</span>
+                <span style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2);">Pairs &mdash; then read to the room</span>
+            </div>
+        </div>
+        <div class="two-col reveal" style="transition-delay: 0.25s;">
+            <div style="display: flex; flex-direction: column; gap: var(--element-gap);">
+                <div class="commit-item">
+                    <div class="commit-check"></div>
+                    <span>Pick your top 3 communities you serve</span>
+                </div>
+                <div class="commit-item">
+                    <div class="commit-check"></div>
+                    <span>Identify 3 real complexity points you know cold</span>
+                </div>
+                <div class="commit-item">
+                    <div class="commit-check"></div>
+                    <span>Write 1 script using the 5-Pillar Frame</span>
+                </div>
+                <div class="commit-item">
+                    <div class="commit-check"></div>
+                    <span>Read it aloud &mdash; does it pass the Frame Test?</span>
+                </div>
+            </div>
+            <div>
+                <div class="ai-prompt-label">AI Prompt &middot; Copy + Paste into Claude or ChatGPT</div>
+                <div class="ai-prompt">You are a real estate script coach. I serve [YOUR MARKET]. My lead searched for "[KEYWORD]". Write me a 5-Pillar voicemail script under 45 seconds that: (1) names me and reThought, (2) references their keyword, (3) adds a complexity point they can't find on Zillow, (4) references a document I'll email, (5) ends with a no-pressure offer. Make it sound like service, not sales. Then write the Spanish version.</div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
+    <div class="slide-number">19 / 20</div>
+</section>
+
+<!-- ========== SLIDE 20 — CLOSING QUOTE ========== -->
+<section class="slide gradient-bg" id="slide-20" data-notes="I close with this. &rsquo;People do not buy what you do — they buy why you do it.&rsquo; Simon Sinek. We do not sell houses. We guide families. Systems over effort. Discipline over motivation. See you next Wednesday with your scripts ready. Let us go.---Cierro con esto. &rsquo;La gente no compra lo que haces — compra por que lo haces.&rsquo; Simon Sinek. Nosotros no vendemos casas. Nosotros guiamos familias. Sistemas sobre el esfuerzo. Disciplina sobre la motivacion. Nos vemos el proximo miercoles con sus scripts listos. Vamos.">
+    <div class="slide-content" style="align-items: center; text-align: center; gap: var(--content-gap); justify-content: center;">
+        <div class="reveal">
+            <span class="badge badge-sprout">Closing Thought</span>
+        </div>
+        <blockquote class="reveal" style="font-family: var(--font-display); font-weight: 600; font-size: var(--h2-size); letter-spacing: -0.02em; line-height: 1.25; max-width: 22ch; transition-delay: 0.15s;">
+            "People don't buy what you do &mdash; they buy <span class="stroke stroke--sprout">why<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span> you do it."
+        </blockquote>
+        <p class="reveal" style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2); transition-delay: 0.3s;">
+            &mdash; Simon Sinek
+        </p>
+        <div class="reveal" style="transition-delay: 0.45s; margin-top: clamp(1rem, 3vh, 2rem);">
+            <p style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted-2);">
+                Sistemas sobre el esfuerzo. Disciplina sobre la motivaci&oacute;n.
+            </p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.55s;">
+            <p style="font-family: var(--font-sans); font-size: clamp(0.75rem, 1.1vw, 0.9rem); color: var(--sprout-soft);">
+                We do not work for reThought. We grow with reThought.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &reg;</div>
+    <div class="slide-number">20 / 20</div>
+</section>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+// Intersection Observer for slide visibility
+const slides = document.querySelectorAll('.slide');
+const navDotsContainer = document.getElementById('navDots');
+const progressBar = document.getElementById('progressBar');
+const totalSlides = slides.length;
+
+// Create nav dots
+slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('nav-dot');
+    dot.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' }));
+    navDotsContainer.appendChild(dot);
+});
+const dots = navDotsContainer.querySelectorAll('.nav-dot');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            const idx = [...slides].indexOf(entry.target);
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            progressBar.style.width = ((idx + 1) / totalSlides * 100) + '%';
+        }
+    });
+}, { threshold: 0.5 });
+slides.forEach(s => observer.observe(s));
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+    const current = [...slides].findIndex(s => s.classList.contains('visible'));
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') && current < totalSlides - 1) {
+        e.preventDefault(); slides[current + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && current > 0) {
+        e.preventDefault(); slides[current - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+// Language toggles for bilingual scripts
+document.querySelectorAll('.lang-toggle').forEach(toggle => {
+    const target = document.getElementById(toggle.dataset.target);
+    toggle.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            toggle.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            if (btn.dataset.lang === 'es') {
+                target.classList.add('show-es');
+            } else {
+                target.classList.remove('show-es');
+            }
+        });
+    });
+});
+
+// BroadcastChannel for presenter sync
+try {
+    const bc = new BroadcastChannel('presentation-sync');
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = [...slides].indexOf(entry.target);
+                bc.postMessage({ type: 'slide-change', slide: idx, series: 'lead-conversion-os', session: 1 });
+            }
+        });
+    }, { threshold: 0.5 });
+    slides.forEach(s => observer2.observe(s));
+    bc.onmessage = e => {
+        if (e.data.type === 'slide-change' && e.data.series === 'lead-conversion-os' && e.data.session === 1) {
+            slides[e.data.slide]?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+} catch(e) {}
+</script>
+
+</body>
+</html>
