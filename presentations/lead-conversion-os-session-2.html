@@ -1110,6 +1110,13 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
     font-size: clamp(0.7rem, 1vw, 0.9rem); flex-shrink: 0;
 }
 
+/* HDM Scene Cards — stagger in */
+.visible .hdm-scene { opacity: 1; transform: translateY(0); }
+.visible .hdm-scene:nth-child(1) { transition-delay: 0.35s; }
+.visible .hdm-scene:nth-child(2) { transition-delay: 0.5s; }
+.visible .hdm-scene:nth-child(3) { transition-delay: 0.65s; }
+.visible .hdm-scene:nth-child(4) { transition-delay: 0.8s; }
+
 /* Countdown Timer Animation */
 @keyframes countdown-fill {
     0% { stroke-dashoffset: 0; }
@@ -1829,83 +1836,58 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             <div class="section-label">Module 04 &middot; The Hidden Decision Maker</div>
             <h2 class="slide-title">The Invisible Person Who <span style="color: var(--clay);">Kills Your Deal</span></h2>
         </div>
-        <!-- Visual story flow -->
-        <div class="reveal" style="transition-delay: 0.15s;">
-            <div class="hdm-story-flow">
-                <!-- Top: Person pair -->
-                <div class="hdm-top-row">
-                    <div class="hdm-person hdm-person--you">
-                        <div class="hdm-avatar" style="background: linear-gradient(135deg, var(--brand), var(--brand-deep));">JR</div>
-                        <div class="hdm-name">Jennifer</div>
-                        <div class="hdm-tag hdm-tag--safe">In your CRM</div>
-                    </div>
-                    <div class="hdm-link">
-                        <svg width="100%" height="2" style="overflow: visible;"><line x1="0" y1="1" x2="100%" y2="1" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4"/></svg>
-                        <span class="hdm-link-label">married</span>
-                    </div>
-                    <div class="hdm-person hdm-person--ghost">
-                        <div class="hdm-avatar hdm-avatar--ghost">?</div>
-                        <div class="hdm-name" style="color: var(--muted);">Carlos <span style="color: var(--clay); font-size: 0.8em;">(invisible)</span></div>
-                        <div class="hdm-tag hdm-tag--danger">Not in Lofty</div>
-                    </div>
-                    <div class="hdm-stat">
-                        <div class="hdm-stat-num">80%</div>
-                        <div class="hdm-stat-label">have a<br>co-decision-maker</div>
-                    </div>
+        <!-- Two people: your lead vs the ghost -->
+        <div class="reveal-scale" style="transition-delay: 0.15s;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 4vw, 3rem);">
+                <!-- Jennifer — visible -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(4px, 0.6vh, 8px);">
+                    <div style="width: clamp(70px, 9vw, 100px); height: clamp(70px, 9vw, 100px); border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-deep)); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.3rem, 2vw, 1.8rem); color: white; box-shadow: 0 4px 20px rgba(3,76,118,0.35);">JR</div>
+                    <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.4vw, 1.2rem);">Jennifer</div>
+                    <span class="badge badge-brand" style="font-size: clamp(0.55rem, 0.75vw, 0.65rem);">Your lead &middot; In Lofty</span>
                 </div>
-                <!-- Bottom: Flow story — what happens to Carlos -->
-                <div class="hdm-flow-row">
-                    <div class="hdm-flow-arrow-down">
-                        <svg width="2" height="100%"><line x1="1" y1="0" x2="1" y2="100%" stroke="var(--clay)" stroke-width="2" stroke-dasharray="4 3" opacity="0.5"/></svg>
-                    </div>
-                    <div class="hdm-flow-steps">
-                        <div class="hdm-flow-step">
-                            <div class="hdm-flow-icon" style="background: #e0a63a20; border-color: var(--amber);">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5.2 2 3 4.2 3 7s5 7 5 7 5-4.2 5-7-2.2-5-5-5z" fill="var(--amber)" opacity="0.6"/><circle cx="8" cy="7" r="2" fill="var(--amber)"/></svg>
-                            </div>
-                            <div class="hdm-flow-text">
-                                <div class="hdm-flow-title">Friend refers another agent</div>
-                                <div class="hdm-flow-desc">"You should call my guy"</div>
-                            </div>
-                        </div>
-                        <div class="flow-arrow">&rarr;</div>
-                        <div class="hdm-flow-step">
-                            <div class="hdm-flow-icon" style="background: #c0544520; border-color: var(--clay);">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="2" fill="var(--clay)" opacity="0.5"/><rect x="5" y="5" width="6" height="3" rx="1" fill="var(--clay)"/></svg>
-                            </div>
-                            <div class="hdm-flow-text">
-                                <div class="hdm-flow-title">Zillow ad &rarr; signs up</div>
-                                <div class="hdm-flow-desc">Competing site captures him</div>
-                            </div>
-                        </div>
-                        <div class="flow-arrow">&rarr;</div>
-                        <div class="hdm-flow-step">
-                            <div class="hdm-flow-icon" style="background: #c0544530; border-color: var(--clay);">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" fill="var(--clay)" opacity="0.6"/><path d="M3 14c0-2.8 2.2-5 5-5s5 2.2 5 5" fill="var(--clay)" opacity="0.4"/></svg>
-                            </div>
-                            <div class="hdm-flow-text">
-                                <div class="hdm-flow-title">Competitor calls Carlos</div>
-                                <div class="hdm-flow-desc">Now Carlos has "his" agent</div>
-                            </div>
-                        </div>
-                        <div class="flow-arrow">&rarr;</div>
-                        <div class="hdm-flow-step hdm-flow-step--fatal">
-                            <div class="hdm-flow-icon" style="background: #c0544540; border-color: var(--clay);">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="var(--clay)" stroke-width="2.5" stroke-linecap="round"/></svg>
-                            </div>
-                            <div class="hdm-flow-text">
-                                <div class="hdm-flow-title" style="color: var(--clay);">Tells Jennifer to stop</div>
-                                <div class="hdm-flow-desc">"Don't respond to that agent"</div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Connection -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                    <div style="width: clamp(60px, 8vw, 100px); border-top: 3px dashed var(--muted); opacity: 0.35;"></div>
+                    <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--clay);">80%</div>
+                    <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); color: var(--muted); letter-spacing: 1px; text-transform: uppercase; text-align: center;">have a partner<br>you don't capture</div>
+                </div>
+                <!-- Carlos — ghost -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(4px, 0.6vh, 8px);">
+                    <div style="width: clamp(70px, 9vw, 100px); height: clamp(70px, 9vw, 100px); border-radius: 50%; background: var(--ink-soft); border: 3px dashed var(--muted); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 2.8vw, 2.5rem); color: var(--muted); opacity: 0.5;">?</div>
+                    <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.4vw, 1.2rem); color: var(--muted);">Carlos</div>
+                    <span class="badge badge-clay" style="font-size: clamp(0.55rem, 0.75vw, 0.65rem);">Invisible &middot; Not in Lofty</span>
                 </div>
             </div>
         </div>
-        <div class="reveal rt-card" style="transition-delay: 0.4s; border-left: 3px solid var(--clay);">
-            <p style="font-family: var(--font-sans); font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--paper); line-height: 1.4;">
-                Your lead didn't go cold. Their <strong style="color: var(--clay);">partner</strong> made a decision — and you weren't in the room.
-            </p>
+        <!-- What happens to Carlos — big readable cards in 2x2 -->
+        <div class="reveal" style="transition-delay: 0.3s;">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--clay); margin-bottom: clamp(4px, 0.6vh, 8px);">Meanwhile, Carlos...</div>
+            <div class="two-col" style="gap: clamp(0.5rem, 1.2vw, 1rem);">
+                <div style="background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px; padding: clamp(0.7rem, 1.3vw, 1.1rem); border-left: 4px solid var(--amber); display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); opacity: 0; transform: translateY(15px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);" class="hdm-scene">
+                    <div style="font-size: clamp(1.5rem, 2.5vw, 2rem); flex-shrink: 0;">🗣️</div>
+                    <div>
+                        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.9rem, 1.3vw, 1.1rem);">A friend says: <span style="color: var(--amber);">"Call my agent"</span></div>
+                    </div>
+                </div>
+                <div style="background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px; padding: clamp(0.7rem, 1.3vw, 1.1rem); border-left: 4px solid var(--clay); display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); opacity: 0; transform: translateY(15px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);" class="hdm-scene">
+                    <div style="font-size: clamp(1.5rem, 2.5vw, 2rem); flex-shrink: 0;">📱</div>
+                    <div>
+                        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.9rem, 1.3vw, 1.1rem);">Sees a Zillow ad &rarr; <span style="color: var(--clay);">signs up elsewhere</span></div>
+                    </div>
+                </div>
+                <div style="background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px; padding: clamp(0.7rem, 1.3vw, 1.1rem); border-left: 4px solid var(--clay); display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); opacity: 0; transform: translateY(15px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);" class="hdm-scene">
+                    <div style="font-size: clamp(1.5rem, 2.5vw, 2rem); flex-shrink: 0;">🏠</div>
+                    <div>
+                        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.9rem, 1.3vw, 1.1rem);">Picks the school district, <span style="color: var(--clay);">the commute, the loan</span></div>
+                    </div>
+                </div>
+                <div style="background: #c0544518; border: 2px solid var(--clay); border-radius: 12px; padding: clamp(0.7rem, 1.3vw, 1.1rem); display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); opacity: 0; transform: translateY(15px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);" class="hdm-scene">
+                    <div style="font-size: clamp(1.5rem, 2.5vw, 2rem); flex-shrink: 0;">🚫</div>
+                    <div>
+                        <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--clay);">Tells Jennifer: <span style="color: var(--clay-soft);">"Stop responding to that agent."</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
