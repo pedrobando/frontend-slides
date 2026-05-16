@@ -10,7 +10,7 @@
 <meta name="presentation-series" content="Lead Conversion OS">
 <meta name="presentation-session" content="1">
 <meta name="presentation-date" content="2026-05-21">
-<meta name="presentation-slides" content="20">
+<meta name="presentation-slides" content="21">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -464,6 +464,94 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
     to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
+
+/* reLearn logo */
+.relearn-logo {
+    height: clamp(1.2rem, 2.5vw, 2rem);
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    margin-top: -8px;
+}
+.relearn-logo:hover { opacity: 1; }
+.relearn-logo-cover {
+    height: clamp(2.5rem, 6vw, 4.5rem);
+    width: auto;
+}
+/* Footer with logo */
+.slide-footer-logo {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    display: flex; flex-direction: column; align-items: flex-start; gap: clamp(3px, 0.5vh, 6px);
+}
+.slide-footer-logo .footer-text {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.light .slide-footer-logo .footer-text,
+.bone .slide-footer-logo .footer-text { color: var(--muted); }
+/* Cover logo row animation */
+@keyframes relearn-fade-in {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.relearn-cover-animate {
+    opacity: 0;
+    animation: relearn-fade-in 0.8s var(--ease-out-expo) 0.6s forwards;
+}
+
+/* Slide 5 — Social media punchline bg animation */
+@keyframes punchline-bg {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 50% 100%; }
+    75% { background-position: 0% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.punchline-bg {
+    background: linear-gradient(135deg,
+        var(--ink-deep) 0%,
+        var(--brand-deep) 20%,
+        var(--ink) 40%,
+        #1a3a25 60%,
+        var(--ink-deep) 80%,
+        var(--brand) 100%
+    );
+    background-size: 400% 400%;
+    animation: punchline-bg 12s ease infinite;
+}
+/* Radial glow behind the text */
+@keyframes glow-pulse-center {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.1); }
+}
+.punchline-glow {
+    position: absolute;
+    width: clamp(400px, 50vw, 700px);
+    height: clamp(400px, 50vw, 700px);
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sprout) 0%, transparent 70%);
+    opacity: 0.15;
+    animation: glow-pulse-center 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+/* Floating particles */
+@keyframes particle-float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+.punchline-particles {
+    position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+}
+.punchline-particles span {
+    position: absolute; bottom: -20px;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--sprout); opacity: 0;
+    animation: particle-float linear infinite;
+}
+
 /* ===========================================
    SESSION 1 — SPECIFIC STYLES
    =========================================== */
@@ -794,11 +882,13 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
 <!-- ========== SLIDE 01 — COVER ========== -->
 <section class="slide gradient-bg" id="slide-1" data-notes="Welcome to Session 1 of the Lead Conversion OS. Today we change the way we talk to leads. This is not theory — this is the baseline. The system every agent at reThought will run from today forward. We cover three modules: how to use the playbook, the psychology shift, and the 5-pillar frame. By the end of today, each of you will have a script ready to use tomorrow.---Bienvenidos a la Sesion 1 del Lead Conversion OS. Hoy es el dia que cambiamos la forma en que hablamos con los leads. Esto no es teoria — esto es el baseline. El sistema que todo agente en reThought va a correr desde hoy. Vamos a cubrir tres modulos: como usar el playbook, el cambio de mentalidad, y el marco de los 5 pilares. Al final de hoy, cada uno de ustedes va a tener un script listo pa&rsquo; usar manana." style="justify-content: center; align-items: center;">
   <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(1.5rem, 3.5vh, 3rem); text-align: center;">
-    <div class="reveal-scale" style="position: relative;">
+    <div class="reveal-scale" style="position: relative; display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2rem);">
       <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate" style="height: clamp(2.5rem, 6vw, 4.5rem); width: auto; color: var(--paper);">
         <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
         <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay: 0.5s;"/></g>
       </svg>
+      <span style="color: var(--muted); font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 200; opacity: 0.3;">&times;</span>
+      <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo-cover relearn-cover-animate" style="height: 55px; width: auto; margin-top: -15px;">
     </div>
     <div>
       <h1 class="reveal" style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.03em; line-height: 1.05;">
@@ -812,7 +902,7 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
       <span class="badge badge-brand" style="font-size: clamp(0.6rem, 0.9vw, 0.75rem);">Session 1 of 6</span>
     </div>
   </div>
-  <div class="slide-footer" style="color: var(--muted-2);">reThought Real Estate</div>
+  <div class="slide-footer" style="color: var(--muted-2);">reThought Real Estate &middot; reLearn</div>
   <div class="slide-number" style="color: var(--muted-2);">01</div>
 </section>
 
@@ -831,7 +921,7 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
       Stop improvising. Start building. Every system you build runs while you sleep.
     </p>
   </div>
-  <div class="slide-footer">reThought Real Estate</div>
+  <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">reThought Real Estate</span></div>
   <div class="slide-number">02</div>
 </section>
 
@@ -853,7 +943,7 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
       </p>
     </div>
   </div>
-  <div class="slide-footer">Human First &middot; Tech Driven &middot; Community Focused</div>
+  <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
   <div class="slide-number">03</div>
 </section>
 
@@ -875,12 +965,56 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
       </p>
     </div>
   </div>
-  <div class="slide-footer">Human First &middot; Tech Driven &middot; Community Focused</div>
+  <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
   <div class="slide-number">04</div>
 </section>
 
-<!-- ========== SLIDE 05 — SERIES ARC ========== -->
-<section class="slide" id="slide-5" data-notes="Here is the full system — 6 sessions. Today is session 1. Do not run ahead. The playbook says 20 percent implemented ruthlessly beats 100 percent skimmed. Implement what we cover today before Friday. Everything else comes in the following weeks. Each session builds on the last.---Aqui esta el sistema completo — 6 sesiones. Hoy es la primera. No corran adelante. El playbook dice 20% implementado con disciplina le gana a 100% leido por encima. Implementen lo de hoy antes del viernes. Lo demas viene en las proximas semanas. Cada sesion construye sobre la anterior.">
+<!-- ========== SLIDE 05 — SOCIAL MEDIA PUNCHLINE ========== -->
+<section class="slide punchline-bg" id="slide-6" data-notes="Take out your phones. This is your social media moment. Record this slide as a story and post it. This is how we recruit — we show other agents in the market that reThought trains differently. You are not just learning scripts today. You are building a system that runs while you sleep. That is the message. Record it. Post it. Tag reThought.---Saquen sus telefonos. Este es su momento de social media. Graben este slide como un story y postenlo. Asi es como reclutamos — le mostramos a los otros agentes en el mercado que reThought entrena diferente. Ustedes no estan solo aprendiendo scripts hoy. Estan construyendo un sistema que trabaja mientras duermen. Ese es el mensaje. Grabenlo. Postenlo. Tagueen a reThought." style="justify-content: center; align-items: center;">
+    <!-- Radial glow -->
+    <div class="punchline-glow"></div>
+    <!-- Floating particles -->
+    <div class="punchline-particles">
+        <span style="left: 10%; animation-duration: 8s; animation-delay: 0s; width: 3px; height: 3px;"></span>
+        <span style="left: 25%; animation-duration: 12s; animation-delay: 1s; width: 5px; height: 5px;"></span>
+        <span style="left: 40%; animation-duration: 10s; animation-delay: 2.5s; width: 3px; height: 3px;"></span>
+        <span style="left: 55%; animation-duration: 9s; animation-delay: 0.5s; width: 4px; height: 4px; background: var(--brand-light);"></span>
+        <span style="left: 70%; animation-duration: 11s; animation-delay: 3s; width: 3px; height: 3px;"></span>
+        <span style="left: 85%; animation-duration: 7s; animation-delay: 1.5s; width: 5px; height: 5px;"></span>
+        <span style="left: 15%; animation-duration: 13s; animation-delay: 4s; width: 2px; height: 2px; background: var(--brand-light);"></span>
+        <span style="left: 60%; animation-duration: 8.5s; animation-delay: 2s; width: 4px; height: 4px;"></span>
+        <span style="left: 90%; animation-duration: 10s; animation-delay: 0.8s; width: 3px; height: 3px;"></span>
+        <span style="left: 35%; animation-duration: 14s; animation-delay: 5s; width: 2px; height: 2px;"></span>
+    </div>
+    <!-- GIF indicator -->
+    <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/social-media-story-time-indicator.gif" alt="Story time" style="position: absolute; bottom: clamp(30px, 5vh, 50px); right: var(--slide-padding); opacity: 0.8; height: clamp(50px, 7vh, 80px); width: auto; z-index: 2;">
+    <!-- Content -->
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(0.8rem, 2vh, 1.5rem); max-width: min(90vw, 800px); position: relative; z-index: 1;">
+        <!-- reThought full logo, no transparency -->
+        <div class="reveal-scale" style="margin-bottom: clamp(0.3rem, 1vh, 0.8rem);">
+            <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" style="height: clamp(2.2rem, 5vw, 3.5rem); width: auto; color: var(--paper);">
+                <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+                <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay: 0.5s;"/></g>
+            </svg>
+        </div>
+        <div class="reveal">
+            <h1 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 6vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.15; color: var(--paper); text-shadow: 0 2px 30px rgba(0,0,0,0.3);">
+                Most agents lose the lead<br>in <span style="color: var(--clay);">10 seconds</span>.<br>
+                We built a system to<br><span class="stroke stroke--sprout">win it in 5<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>.
+            </h1>
+        </div>
+        <div class="reveal" style="transition-delay: 0.3s;">
+            <p style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.9vw, 0.78rem); letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2);">
+                reThought Real Estate &middot; reLearn &middot; Lead Conversion OS
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo" style="z-index: 2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Highlight</span></div>
+    <div class="slide-number" style="z-index: 2;">05 / 21</div>
+</section>
+
+<!-- ========== SLIDE 06 — SERIES ARC ========== -->
+<section class="slide" id="slide-6" data-notes="Here is the full system — 6 sessions. Today is session 1. Do not run ahead. The playbook says 20 percent implemented ruthlessly beats 100 percent skimmed. Implement what we cover today before Friday. Everything else comes in the following weeks. Each session builds on the last.---Aqui esta el sistema completo — 6 sesiones. Hoy es la primera. No corran adelante. El playbook dice 20% implementado con disciplina le gana a 100% leido por encima. Implementen lo de hoy antes del viernes. Lo demas viene en las proximas semanas. Cada sesion construye sobre la anterior.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Lead Conversion OS &middot; 6 Sessions</div>
@@ -925,12 +1059,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             <div class="hard-rule-text">Implement 20% ruthlessly each week before adding the next layer. Do not run ahead.</div>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">05 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">06 / 21</div>
 </section>
 
-<!-- ========== SLIDE 06 — WHAT YOU OWE / WHAT THE TEAM OWES ========== -->
-<section class="slide light" id="slide-6" data-notes="This is a contract. Not optional. You owe the team: show up prepared every Wednesday, implement by Friday, bring one win and one stuck point. Real data, not feelings. The team owes you: real systems, real scripts, a bilingual playbook, and a broker who is still in production. I am not teaching theory — I am doing this every day alongside you.---Esto es un contrato. No es opcional. Ustedes le deben al equipo llegar preparados, implementar pal viernes, y traer un win y un stuck point. Datos reales, no feelings. El equipo les debe sistemas reales, un playbook bilingue, y un broker que todavia esta en produccion. Yo no les estoy ensenando teoria — yo estoy haciendo esto todos los dias al lado de ustedes.">
+<!-- ========== SLIDE 07 — WHAT YOU OWE / WHAT THE TEAM OWES ========== -->
+<section class="slide light" id="slide-7" data-notes="This is a contract. Not optional. You owe the team: show up prepared every Wednesday, implement by Friday, bring one win and one stuck point. Real data, not feelings. The team owes you: real systems, real scripts, a bilingual playbook, and a broker who is still in production. I am not teaching theory — I am doing this every day alongside you.---Esto es un contrato. No es opcional. Ustedes le deben al equipo llegar preparados, implementar pal viernes, y traer un win y un stuck point. Datos reales, no feelings. El equipo les debe sistemas reales, un playbook bilingue, y un broker que todavia esta en produccion. Yo no les estoy ensenando teoria — yo estoy haciendo esto todos los dias al lado de ustedes.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 00 &middot; How to Use This Playbook</div>
@@ -973,12 +1107,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             </div>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">06 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">07 / 21</div>
 </section>
 
-<!-- ========== SLIDE 07 — THE DEFAULT MOVE (BAD SCRIPT) ========== -->
-<section class="slide" id="slide-7" data-notes="Read this script out loud to the group: &rsquo;Hi Maria, this is Agent at Brokerage. You submitted your info on my website, so I thought I would give you a quick call and see if you have any questions.&rsquo; Pause. Ask them: What happened in Maria&rsquo;s brain? THREE things: ONE, she knows you are in sales. TWO, she knows the only beneficiary of this call is you. THREE, she defaults to her cheapest defense: &rsquo;I am just looking.&rsquo; That is not a Maria problem. That is a SCRIPT problem. The pressure is on Maria — she has to commit or escape. She will ALWAYS pick escape.---Lean este script en voz alta al grupo: &rsquo;Hi Maria, this is Agent at Brokerage. You submitted your info on my website, so I thought I would give you a quick call and see if you have any questions.&rsquo; Pausa. Preguntenles: Que paso en el cerebro de Maria? TRES cosas: UNO, sabe que estas en ventas. DOS, sabe que el unico que se beneficia de esta llamada eres tu. TRES, va a la defensa mas barata que tiene: &rsquo;I am just looking.&rsquo; Eso no es un problema de Maria. Eso es un problema de SCRIPT. La presion esta en Maria — tiene que comprometerse o escapar. SIEMPRE va a escoger escapar.">
+<!-- ========== SLIDE 08 — THE DEFAULT MOVE (BAD SCRIPT) ========== -->
+<section class="slide" id="slide-8" data-notes="Read this script out loud to the group: &rsquo;Hi Maria, this is Agent at Brokerage. You submitted your info on my website, so I thought I would give you a quick call and see if you have any questions.&rsquo; Pause. Ask them: What happened in Maria&rsquo;s brain? THREE things: ONE, she knows you are in sales. TWO, she knows the only beneficiary of this call is you. THREE, she defaults to her cheapest defense: &rsquo;I am just looking.&rsquo; That is not a Maria problem. That is a SCRIPT problem. The pressure is on Maria — she has to commit or escape. She will ALWAYS pick escape.---Lean este script en voz alta al grupo: &rsquo;Hi Maria, this is Agent at Brokerage. You submitted your info on my website, so I thought I would give you a quick call and see if you have any questions.&rsquo; Pausa. Preguntenles: Que paso en el cerebro de Maria? TRES cosas: UNO, sabe que estas en ventas. DOS, sabe que el unico que se beneficia de esta llamada eres tu. TRES, va a la defensa mas barata que tiene: &rsquo;I am just looking.&rsquo; Eso no es un problema de Maria. Eso es un problema de SCRIPT. La presion esta en Maria — tiene que comprometerse o escapar. SIEMPRE va a escoger escapar.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 01 &middot; The Psychology Shift</div>
@@ -1011,12 +1145,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             </p>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">07 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">08 / 21</div>
 </section>
 
-<!-- ========== SLIDE 08 — PRESSURE FLIP ========== -->
-<section class="slide" id="slide-8" data-notes="Point at the red side of the screen: PRESSURE ON THE LEAD — the lead has to commit or escape. They will always pick escape. Now point at the green side: PRESSURE ON YOURSELF — you go first, you provide, you offer something specific and valuable. The lead no longer has to decide whether to commit. They just have to decide whether to RECEIVE what you are giving them. FRAME TEST — read this out loud: If a stranger listened to the voicemail you just left, would they say it sounds like SALES or like SERVICE? If sales, rewrite it. Every time. No exception.---Senalen el lado rojo de la pantalla: PRESION EN EL LEAD — el lead tiene que comprometerse o escapar. Siempre va a escoger escapar. Ahora senalen el lado verde: PRESION EN TI MISMO — tu vas primero, tu provees, tu ofreces algo especifico y valioso. El lead ya no tiene que decidir si se compromete. Solo tiene que decidir si RECIBE lo que le estas dando. FRAME TEST — lean esto en voz alta: Si un extrano escucha el voicemail que acabas de dejar, diria que suena a VENTAS o a SERVICIO? Si suena a ventas, reescribelo. Cada vez. Sin excepcion.">
+<!-- ========== SLIDE 09 — PRESSURE FLIP ========== -->
+<section class="slide" id="slide-9" data-notes="Point at the red side of the screen: PRESSURE ON THE LEAD — the lead has to commit or escape. They will always pick escape. Now point at the green side: PRESSURE ON YOURSELF — you go first, you provide, you offer something specific and valuable. The lead no longer has to decide whether to commit. They just have to decide whether to RECEIVE what you are giving them. FRAME TEST — read this out loud: If a stranger listened to the voicemail you just left, would they say it sounds like SALES or like SERVICE? If sales, rewrite it. Every time. No exception.---Senalen el lado rojo de la pantalla: PRESION EN EL LEAD — el lead tiene que comprometerse o escapar. Siempre va a escoger escapar. Ahora senalen el lado verde: PRESION EN TI MISMO — tu vas primero, tu provees, tu ofreces algo especifico y valioso. El lead ya no tiene que decidir si se compromete. Solo tiene que decidir si RECIBE lo que le estas dando. FRAME TEST — lean esto en voz alta: Si un extrano escucha el voicemail que acabas de dejar, diria que suena a VENTAS o a SERVICIO? Si suena a ventas, reescribelo. Cada vez. Sin excepcion.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 01 &middot; The Move That Wins</div>
@@ -1042,12 +1176,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             </p>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">08 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">09 / 21</div>
 </section>
 
-<!-- ========== SLIDE 09 — THE WALL ========== -->
-<section class="slide" id="slide-9" data-notes="Real estate is different from any other profession. An emergency plumber, a LASIK surgeon — they start every conversation with built-in authority. The customer knows they need a professional. We do not have that gift. The customer believes: ONE, agents are overpaid. TWO, I can see the photos and price online, I have all the information. THREE, if I ignore this agent, nothing bad happens to me. That is the wall in their head BEFORE you ever call. Our job is to dismantle that wall with authority and with specific information they cannot get on their own.---Real estate es diferente a cualquier otra profesion. Un plomero de emergencia, un cirujano LASIK — empiezan cada conversacion con autoridad. El cliente sabe que necesita un profesional. Nosotros no tenemos ese regalo. El cliente cree que: UNO, los agentes cobran demasiado. DOS, ya tiene toda la info en Zillow. TRES, si te ignora, no le pasa nada malo. Esa es la pared en su cabeza ANTES de que tu llames. Nuestro trabajo es tumbar esa pared con autoridad y con informacion especifica que no pueden conseguir solos.">
+<!-- ========== SLIDE 10 — THE WALL ========== -->
+<section class="slide" id="slide-10" data-notes="Real estate is different from any other profession. An emergency plumber, a LASIK surgeon — they start every conversation with built-in authority. The customer knows they need a professional. We do not have that gift. The customer believes: ONE, agents are overpaid. TWO, I can see the photos and price online, I have all the information. THREE, if I ignore this agent, nothing bad happens to me. That is the wall in their head BEFORE you ever call. Our job is to dismantle that wall with authority and with specific information they cannot get on their own.---Real estate es diferente a cualquier otra profesion. Un plomero de emergencia, un cirujano LASIK — empiezan cada conversacion con autoridad. El cliente sabe que necesita un profesional. Nosotros no tenemos ese regalo. El cliente cree que: UNO, los agentes cobran demasiado. DOS, ya tiene toda la info en Zillow. TRES, si te ignora, no le pasa nada malo. Esa es la pared en su cabeza ANTES de que tu llames. Nuestro trabajo es tumbar esa pared con autoridad y con informacion especifica que no pueden conseguir solos.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 01 &middot; Why Real Estate Is Different</div>
@@ -1074,12 +1208,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             </p>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">09 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">10 / 21</div>
 </section>
 
-<!-- ========== SLIDE 10 — COMPLEXITY = VALUE (FULL WIDTH) ========== -->
-<section class="slide" id="slide-10" data-notes="Complexity equals value. Strip complexity and you become a door-opener. Add complexity and you become a guide. Point at each card on screen: CENTRAL FLORIDA — HOA rules, CDD fees, and STR restrictions in Reunion, Champions Gate, Solara, and Storey Lake. KISSIMMEE and TAMPA — flood zones, insurance shifts, and roof-age underwriting changes. MILWAUKEE — lake-effect property differences and waterfront tax implications. MIAMI — investor-friendly markets in Brickell, Coral Gables, Coconut Grove versus owner-occupied corridors. CROSS-BORDER — bilingual closing process between Florida, Wisconsin, and Puerto Rico. All of this is complexity you ALREADY know but are NOT using in your follow-up. HARD RULE — read out loud: Never run a sales-pressure callback again. If you catch yourself saying just checking in — hang up and rewrite the script.---Complejidad es igual a valor. Si le quitas la complejidad, eres un abre-puertas. Si anades complejidad, eres un guia. Senalen cada tarjeta: CENTRAL FLORIDA — reglas de HOA, CDD fees, y restricciones de STR en Reunion, Champions Gate, Solara, y Storey Lake. KISSIMMEE y TAMPA — zonas de inundacion, cambios de seguro, y underwriting de edad de techo. MILWAUKEE — diferencias de propiedades por efecto de lago e impuestos de waterfront. MIAMI — mercados investor-friendly en Brickell, Coral Gables, Coconut Grove versus corredores de owner-occupied. CROSS-BORDER — proceso bilingue de cierre entre Florida, Wisconsin, y Puerto Rico. Todo esto es complejidad que USTEDES ya saben pero que NO estan usando en su follow-up. HARD RULE: Nunca mas hagas un callback de presion de ventas. Si te agarras diciendo just checking in — cuelga y reescribe el script.">
+<!-- ========== SLIDE 11 — COMPLEXITY = VALUE (FULL WIDTH) ========== -->
+<section class="slide" id="slide-11" data-notes="Complexity equals value. Strip complexity and you become a door-opener. Add complexity and you become a guide. Point at each card on screen: CENTRAL FLORIDA — HOA rules, CDD fees, and STR restrictions in Reunion, Champions Gate, Solara, and Storey Lake. KISSIMMEE and TAMPA — flood zones, insurance shifts, and roof-age underwriting changes. MILWAUKEE — lake-effect property differences and waterfront tax implications. MIAMI — investor-friendly markets in Brickell, Coral Gables, Coconut Grove versus owner-occupied corridors. CROSS-BORDER — bilingual closing process between Florida, Wisconsin, and Puerto Rico. All of this is complexity you ALREADY know but are NOT using in your follow-up. HARD RULE — read out loud: Never run a sales-pressure callback again. If you catch yourself saying just checking in — hang up and rewrite the script.---Complejidad es igual a valor. Si le quitas la complejidad, eres un abre-puertas. Si anades complejidad, eres un guia. Senalen cada tarjeta: CENTRAL FLORIDA — reglas de HOA, CDD fees, y restricciones de STR en Reunion, Champions Gate, Solara, y Storey Lake. KISSIMMEE y TAMPA — zonas de inundacion, cambios de seguro, y underwriting de edad de techo. MILWAUKEE — diferencias de propiedades por efecto de lago e impuestos de waterfront. MIAMI — mercados investor-friendly en Brickell, Coral Gables, Coconut Grove versus corredores de owner-occupied. CROSS-BORDER — proceso bilingue de cierre entre Florida, Wisconsin, y Puerto Rico. Todo esto es complejidad que USTEDES ya saben pero que NO estan usando en su follow-up. HARD RULE: Nunca mas hagas un callback de presion de ventas. Si te agarras diciendo just checking in — cuelga y reescribe el script.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 01 &middot; Add Complexity to the Sale</div>
@@ -1113,12 +1247,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             <div class="hard-rule-text">Never run a sales-pressure callback again. If you catch yourself saying "just checking in" &mdash; rewrite the script.</div>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">10 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">11 / 21</div>
 </section>
 
-<!-- ========== SLIDE 11 — THE 5 PILLARS (FULL WIDTH) ========== -->
-<section class="slide" id="slide-11" data-notes="Point at the screen. These are the 5 pillars. EVERY contact — callback, voicemail, text, email, open house — must cover all 5 in order. No exceptions. PILLAR 1: Here is who I am — name, brokerage, and the fact you already met through their site. PILLAR 2: Here is why I am calling — a specific, benefit-led reason. Never just checking in. PILLAR 3: I know what you want — mention the keyword, neighborhood, price range, or feature they searched. PILLAR 4: I can help you get it — reference our process, a current client, or a reThought service. PILLAR 5: Here is something only I can give — a market report, a brief, a relocation package. Something Zillow cannot provide. Pillar 5 is NON-NEGOTIABLE. If your script does not have a specific offer, it is a sales pressure script. Period.---Senalen la pantalla. Estos son los 5 pilares. CADA contacto — callback, voicemail, texto, email, open house — tiene que cubrir los 5 en orden. Sin excepciones. PILAR 1: Quien soy — nombre, brokerage, y el hecho de que ya nos conocimos por el website. PILAR 2: Por que llamo — una razon especifica con beneficio. Nunca just checking in. PILAR 3: Se lo que estas buscando — menciona el keyword, el vecindario, el rango de precio. PILAR 4: Puedo ayudarte a conseguirlo — referencia nuestro proceso, un cliente actual, o un servicio de reThought. PILAR 5: Aqui hay algo especifico que solo puedes conseguir a traves de mi — un market report, un brief, un paquete de relocation. Algo que Zillow no puede dar. El Pilar 5 es NON-NEGOTIABLE. Si tu script no tiene una oferta especifica, es un script de presion de ventas. Punto.">
+<!-- ========== SLIDE 12 — THE 5 PILLARS (FULL WIDTH) ========== -->
+<section class="slide" id="slide-12" data-notes="Point at the screen. These are the 5 pillars. EVERY contact — callback, voicemail, text, email, open house — must cover all 5 in order. No exceptions. PILLAR 1: Here is who I am — name, brokerage, and the fact you already met through their site. PILLAR 2: Here is why I am calling — a specific, benefit-led reason. Never just checking in. PILLAR 3: I know what you want — mention the keyword, neighborhood, price range, or feature they searched. PILLAR 4: I can help you get it — reference our process, a current client, or a reThought service. PILLAR 5: Here is something only I can give — a market report, a brief, a relocation package. Something Zillow cannot provide. Pillar 5 is NON-NEGOTIABLE. If your script does not have a specific offer, it is a sales pressure script. Period.---Senalen la pantalla. Estos son los 5 pilares. CADA contacto — callback, voicemail, texto, email, open house — tiene que cubrir los 5 en orden. Sin excepciones. PILAR 1: Quien soy — nombre, brokerage, y el hecho de que ya nos conocimos por el website. PILAR 2: Por que llamo — una razon especifica con beneficio. Nunca just checking in. PILAR 3: Se lo que estas buscando — menciona el keyword, el vecindario, el rango de precio. PILAR 4: Puedo ayudarte a conseguirlo — referencia nuestro proceso, un cliente actual, o un servicio de reThought. PILAR 5: Aqui hay algo especifico que solo puedes conseguir a traves de mi — un market report, un brief, un paquete de relocation. Algo que Zillow no puede dar. El Pilar 5 es NON-NEGOTIABLE. Si tu script no tiene una oferta especifica, es un script de presion de ventas. Punto.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 02 &middot; The 5-Pillar Frame</div>
@@ -1156,12 +1290,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             <span class="badge badge-clay">Pillar 5 is non-negotiable &mdash; No specific offer = sales pressure script</span>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">11 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">12 / 21</div>
 </section>
 
-<!-- ========== SLIDE 12 — THE KEYWORD IS THE DESIRE ========== -->
-<section class="slide light" id="slide-12" data-notes="Point at the screen. The keyword is the desire. Every lead that enters Lofty came through a specific search. Read each pair: &rsquo;Lake Nona homes for sale&rsquo; equals master-planned community with schools and medical campus. &rsquo;Champions Gate pool homes&rsquo; equals short-term rental investment property. &rsquo;Casas en venta Kissimmee&rsquo; equals Spanish-speaking buyer in our core market. &rsquo;Brickell condos city view&rsquo; equals luxury urban Miami buyer. &rsquo;Brookfield homes for sale&rsquo; equals suburban Milwaukee family buyer. &rsquo;Doctor Phillips schools&rsquo; equals family relocating for school zoning. If the keyword is generic you still have data, just not as much. If the keyword is specific you have a near-perfect read on what the lead wants. The keyword is GOLD. Use it in every contact.---Senalen la pantalla. El keyword es el deseo. Cada lead que entra a Lofty entro por una busqueda especifica. Lean cada par: &rsquo;Lake Nona homes for sale&rsquo; = comunidad master-planned con escuelas y medical campus. &rsquo;Champions Gate pool homes&rsquo; = inversion de renta corta. &rsquo;Casas en venta Kissimmee&rsquo; = comprador hispano en nuestro core market. &rsquo;Brickell condos city view&rsquo; = comprador de lujo urbano Miami. &rsquo;Brookfield homes for sale&rsquo; = familia suburbana Milwaukee. &rsquo;Doctor Phillips schools&rsquo; = familia relocandose por zonificacion escolar. Si el keyword es generico todavia tienes data, solo no tanta. Si es especifico tienes un read casi perfecto de lo que el lead quiere. El keyword es ORO. Usenlo en cada contacto.">
+<!-- ========== SLIDE 13 — THE KEYWORD IS THE DESIRE ========== -->
+<section class="slide light" id="slide-13" data-notes="Point at the screen. The keyword is the desire. Every lead that enters Lofty came through a specific search. Read each pair: &rsquo;Lake Nona homes for sale&rsquo; equals master-planned community with schools and medical campus. &rsquo;Champions Gate pool homes&rsquo; equals short-term rental investment property. &rsquo;Casas en venta Kissimmee&rsquo; equals Spanish-speaking buyer in our core market. &rsquo;Brickell condos city view&rsquo; equals luxury urban Miami buyer. &rsquo;Brookfield homes for sale&rsquo; equals suburban Milwaukee family buyer. &rsquo;Doctor Phillips schools&rsquo; equals family relocating for school zoning. If the keyword is generic you still have data, just not as much. If the keyword is specific you have a near-perfect read on what the lead wants. The keyword is GOLD. Use it in every contact.---Senalen la pantalla. El keyword es el deseo. Cada lead que entra a Lofty entro por una busqueda especifica. Lean cada par: &rsquo;Lake Nona homes for sale&rsquo; = comunidad master-planned con escuelas y medical campus. &rsquo;Champions Gate pool homes&rsquo; = inversion de renta corta. &rsquo;Casas en venta Kissimmee&rsquo; = comprador hispano en nuestro core market. &rsquo;Brickell condos city view&rsquo; = comprador de lujo urbano Miami. &rsquo;Brookfield homes for sale&rsquo; = familia suburbana Milwaukee. &rsquo;Doctor Phillips schools&rsquo; = familia relocandose por zonificacion escolar. Si el keyword es generico todavia tienes data, solo no tanta. Si es especifico tienes un read casi perfecto de lo que el lead quiere. El keyword es ORO. Usenlo en cada contacto.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 02 &middot; The Keyword Is the Desire</div>
@@ -1194,12 +1328,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             </div>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">12 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">13 / 21</div>
 </section>
 
-<!-- ========== SLIDE 13 — SCRIPT A: STR BUYER (EN/ES toggle) ========== -->
-<section class="slide" id="slide-13" data-notes="Read Script A out loud. ENGLISH: &rsquo;Marco, this is Agent at reThought Real Estate. We met through my website, you were checking out some pool homes in Champions Gate. Heads up before you go too deep on listings — the HOA rules around short-term rental have shifted in a few of those communities and the CDD fees are not what most sites show. I just put together a one-page brief for another client running the exact same play. Want me to email you a copy today? No pressure, just useful.&rsquo; Notice the colors on screen: blue is who I am, green is the keyword, amber is the complexity, red is the offer. Marco does not have to commit to anything. He just has to decide if he wants to receive a one-page brief. That is service, not sales. Toggle to Spanish to see the ES version.---Lean el Script A en voz alta. ESPANOL: &rsquo;Marco, soy Agent de reThought Real Estate. Nos conectamos por mi sitio web, andas buscando casas con piscina en Champions Gate. Antes de que sigas viendo listings, te aviso — las reglas de HOA para renta corta cambiaron en algunas de esas comunidades y los CDD fees no son los que aparecen en los sitios. Ya arme un brief de una pagina para otro cliente que anda en lo mismo. Te lo mando hoy por email? Sin presion, solo informacion.&rsquo; Fijense en los colores: azul es quien soy, verde es el keyword, amarillo es la complejidad, rojo es la oferta. Marco no tiene que comprometerse a nada. Solo tiene que decidir si quiere recibir algo. Eso es servicio, no ventas.">
+<!-- ========== SLIDE 14 — SCRIPT A: STR BUYER (EN/ES toggle) ========== -->
+<section class="slide" id="slide-14" data-notes="Read Script A out loud. ENGLISH: &rsquo;Marco, this is Agent at reThought Real Estate. We met through my website, you were checking out some pool homes in Champions Gate. Heads up before you go too deep on listings — the HOA rules around short-term rental have shifted in a few of those communities and the CDD fees are not what most sites show. I just put together a one-page brief for another client running the exact same play. Want me to email you a copy today? No pressure, just useful.&rsquo; Notice the colors on screen: blue is who I am, green is the keyword, amber is the complexity, red is the offer. Marco does not have to commit to anything. He just has to decide if he wants to receive a one-page brief. That is service, not sales. Toggle to Spanish to see the ES version.---Lean el Script A en voz alta. ESPANOL: &rsquo;Marco, soy Agent de reThought Real Estate. Nos conectamos por mi sitio web, andas buscando casas con piscina en Champions Gate. Antes de que sigas viendo listings, te aviso — las reglas de HOA para renta corta cambiaron en algunas de esas comunidades y los CDD fees no son los que aparecen en los sitios. Ya arme un brief de una pagina para otro cliente que anda en lo mismo. Te lo mando hoy por email? Sin presion, solo informacion.&rsquo; Fijense en los colores: azul es quien soy, verde es el keyword, amarillo es la complejidad, rojo es la oferta. Marco no tiene que comprometerse a nada. Solo tiene que decidir si quiere recibir algo. Eso es servicio, no ventas.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
             <div>
@@ -1232,12 +1366,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             <span class="badge badge-clay">Pillar 5 &middot; The offer</span>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">13 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">14 / 21</div>
 </section>
 
-<!-- ========== SLIDE 14 — SCRIPT B: RELOCATION FAMILY (EN/ES) ========== -->
-<section class="slide" id="slide-14" data-notes="Read Script B out loud. ENGLISH: &rsquo;Jennifer, this is Agent at reThought. We met through my site, you were checking out homes near the Lake Nona and Doctor Phillips area. My team specializes in families relocating into Central Florida, and I keep a running file of school zoning changes, commute times, and the medical campus expansion. I am going to email you that file now. Take a look. If anything jumps out, just text me back and we can set up a virtual tour through our relocation concierge process.&rsquo; Same 5-pillar frame, different content. The complexity here is school zoning and the medical campus. The offer is the file. Jennifer does not have to do anything except review what we send.---Lean el Script B en voz alta. ESPANOL: &rsquo;Jennifer, soy Agent de reThought. Nos conectamos por el sitio, estabas viendo casas en el area de Lake Nona y Doctor Phillips. Mi equipo se especializa en familias que se mudan al area de Central Florida, y mantengo un archivo con los cambios de zonificacion escolar, los tiempos de manejo, y la expansion del medical campus. Te lo mando ahora por email. Echale un ojo. Si algo te llama la atencion, me escribes y armamos un tour virtual con nuestro proceso de relocation concierge.&rsquo; Mismo frame, diferente contenido. La complejidad aqui es zonificacion escolar y el medical campus. La oferta es el archivo.">
+<!-- ========== SLIDE 15 — SCRIPT B: RELOCATION FAMILY (EN/ES) ========== -->
+<section class="slide" id="slide-15" data-notes="Read Script B out loud. ENGLISH: &rsquo;Jennifer, this is Agent at reThought. We met through my site, you were checking out homes near the Lake Nona and Doctor Phillips area. My team specializes in families relocating into Central Florida, and I keep a running file of school zoning changes, commute times, and the medical campus expansion. I am going to email you that file now. Take a look. If anything jumps out, just text me back and we can set up a virtual tour through our relocation concierge process.&rsquo; Same 5-pillar frame, different content. The complexity here is school zoning and the medical campus. The offer is the file. Jennifer does not have to do anything except review what we send.---Lean el Script B en voz alta. ESPANOL: &rsquo;Jennifer, soy Agent de reThought. Nos conectamos por el sitio, estabas viendo casas en el area de Lake Nona y Doctor Phillips. Mi equipo se especializa en familias que se mudan al area de Central Florida, y mantengo un archivo con los cambios de zonificacion escolar, los tiempos de manejo, y la expansion del medical campus. Te lo mando ahora por email. Echale un ojo. Si algo te llama la atencion, me escribes y armamos un tour virtual con nuestro proceso de relocation concierge.&rsquo; Mismo frame, diferente contenido. La complejidad aqui es zonificacion escolar y el medical campus. La oferta es el archivo.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
             <div>
@@ -1270,12 +1404,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             <span class="badge badge-clay">Pillar 5 &middot; The offer</span>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">14 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">15 / 21</div>
 </section>
 
-<!-- ========== SLIDE 15 — SCRIPT C+D SIDE-BY-SIDE ========== -->
-<section class="slide" id="slide-15" data-notes="Two more scripts side by side. Read Script C: &rsquo;Hi Tom, this is Agent at reThought. We met through the website, you were looking at homes in Brookfield. The reason I am calling — I just walked through three properties in that corridor last week and the price-to-condition spread is wider than the search results show. Some homes are listed strong but need work, others are priced just below the comps but in great shape. I put a quick breakdown together for the buyer side of our team. Want me to send it over so you have it before you keep searching?&rsquo; Read Script D: &rsquo;Hola Carlos, this is Agent from reThought. You were looking at homes around Kissimmee. We work with a lot of clients moving from Puerto Rico to Central Florida, so we have a process for everything — from finding the right neighborhood for your family to coordinating with your closing attorney on the island. I am emailing you our bilingual relocation brief now. Take a look and let me know if you want to set up a Zoom this week.&rsquo; The pattern: same 5-pillar frame. Different keyword, different complexity, different offer. The frame stays. The content adapts.---Dos scripts mas lado a lado. Lean Script C: &rsquo;Hi Tom, this is Agent at reThought. We met through the website, you were looking at homes in Brookfield. The reason I am calling — I just walked through three properties in that corridor last week and the price-to-condition spread is wider than the search results show. I put a quick breakdown together for the buyer side of our team. Want me to send it over?&rsquo; Lean Script D: &rsquo;Hola Carlos, this is Agent from reThought. You were looking at homes around Kissimmee. We work with a lot of clients moving from Puerto Rico to Central Florida, so we have a process for everything — from finding the right neighborhood to coordinating with your closing attorney on the island. I am emailing you our bilingual relocation brief now.&rsquo; El patron: mismo frame de 5 pilares. Diferente keyword, diferente complejidad, diferente oferta. El frame se queda. El contenido se adapta.">
+<!-- ========== SLIDE 16 — SCRIPT C+D SIDE-BY-SIDE ========== -->
+<section class="slide" id="slide-16" data-notes="Two more scripts side by side. Read Script C: &rsquo;Hi Tom, this is Agent at reThought. We met through the website, you were looking at homes in Brookfield. The reason I am calling — I just walked through three properties in that corridor last week and the price-to-condition spread is wider than the search results show. Some homes are listed strong but need work, others are priced just below the comps but in great shape. I put a quick breakdown together for the buyer side of our team. Want me to send it over so you have it before you keep searching?&rsquo; Read Script D: &rsquo;Hola Carlos, this is Agent from reThought. You were looking at homes around Kissimmee. We work with a lot of clients moving from Puerto Rico to Central Florida, so we have a process for everything — from finding the right neighborhood for your family to coordinating with your closing attorney on the island. I am emailing you our bilingual relocation brief now. Take a look and let me know if you want to set up a Zoom this week.&rsquo; The pattern: same 5-pillar frame. Different keyword, different complexity, different offer. The frame stays. The content adapts.---Dos scripts mas lado a lado. Lean Script C: &rsquo;Hi Tom, this is Agent at reThought. We met through the website, you were looking at homes in Brookfield. The reason I am calling — I just walked through three properties in that corridor last week and the price-to-condition spread is wider than the search results show. I put a quick breakdown together for the buyer side of our team. Want me to send it over?&rsquo; Lean Script D: &rsquo;Hola Carlos, this is Agent from reThought. You were looking at homes around Kissimmee. We work with a lot of clients moving from Puerto Rico to Central Florida, so we have a process for everything — from finding the right neighborhood to coordinating with your closing attorney on the island. I am emailing you our bilingual relocation brief now.&rsquo; El patron: mismo frame de 5 pilares. Diferente keyword, diferente complejidad, diferente oferta. El frame se queda. El contenido se adapta.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 02 &middot; Scripts C + D</div>
@@ -1298,12 +1432,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             </p>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">15 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">16 / 21</div>
 </section>
 
-<!-- ========== SLIDE 16 — VOICEMAIL FORMULA ========== -->
-<section class="slide light" id="slide-16" data-notes="Point at the screen. The voicemail formula — under 45 seconds, every time. Read each step: STEP 1 — Name + Brokerage + Already Met: &rsquo;Hi Marco, this is Agent at reThought Real Estate. We met through my website...&rsquo; STEP 2 — Acknowledge the Keyword: &rsquo;...you were checking out some pool homes in Champions Gate...&rsquo; STEP 3 — Plant the Complexity: &rsquo;...heads up, the short-term-rental rules changed in a few of those communities and the CDD fees are not what most sites show.&rsquo; STEP 4 — Reference the Email: &rsquo;I just emailed you a one-page brief I put together for another client doing the same play.&rsquo; STEP 5 — Soft Close: &rsquo;Take a look. If anything jumps out, text me back. Either way I will keep sending the good ones your way.&rsquo; The voicemail is the hook. The email is the proof. Together they create a coherent first impression: this person is organized, specific, and sent me something useful.---Senalen la pantalla. La formula del voicemail — menos de 45 segundos, siempre. Lean cada paso: PASO 1 — Nombre + Brokerage + Ya nos conocimos: &rsquo;Hi Marco, this is Agent at reThought Real Estate. We met through my website...&rsquo; PASO 2 — Reconoce el Keyword: &rsquo;...you were checking out some pool homes in Champions Gate...&rsquo; PASO 3 — Planta la Complejidad: &rsquo;...heads up, the short-term-rental rules changed and CDD fees are not what most sites show.&rsquo; PASO 4 — Referencia el Email: &rsquo;I just emailed you a one-page brief I put together for another client doing the same play.&rsquo; PASO 5 — Cierre Suave: &rsquo;Take a look. If anything jumps out, text me back. Either way I will keep sending the good ones.&rsquo; El voicemail es el hook. El email es la prueba. Juntos crean una primera impresion coherente.">
+<!-- ========== SLIDE 17 — VOICEMAIL FORMULA ========== -->
+<section class="slide light" id="slide-17" data-notes="Point at the screen. The voicemail formula — under 45 seconds, every time. Read each step: STEP 1 — Name + Brokerage + Already Met: &rsquo;Hi Marco, this is Agent at reThought Real Estate. We met through my website...&rsquo; STEP 2 — Acknowledge the Keyword: &rsquo;...you were checking out some pool homes in Champions Gate...&rsquo; STEP 3 — Plant the Complexity: &rsquo;...heads up, the short-term-rental rules changed in a few of those communities and the CDD fees are not what most sites show.&rsquo; STEP 4 — Reference the Email: &rsquo;I just emailed you a one-page brief I put together for another client doing the same play.&rsquo; STEP 5 — Soft Close: &rsquo;Take a look. If anything jumps out, text me back. Either way I will keep sending the good ones your way.&rsquo; The voicemail is the hook. The email is the proof. Together they create a coherent first impression: this person is organized, specific, and sent me something useful.---Senalen la pantalla. La formula del voicemail — menos de 45 segundos, siempre. Lean cada paso: PASO 1 — Nombre + Brokerage + Ya nos conocimos: &rsquo;Hi Marco, this is Agent at reThought Real Estate. We met through my website...&rsquo; PASO 2 — Reconoce el Keyword: &rsquo;...you were checking out some pool homes in Champions Gate...&rsquo; PASO 3 — Planta la Complejidad: &rsquo;...heads up, the short-term-rental rules changed and CDD fees are not what most sites show.&rsquo; PASO 4 — Referencia el Email: &rsquo;I just emailed you a one-page brief I put together for another client doing the same play.&rsquo; PASO 5 — Cierre Suave: &rsquo;Take a look. If anything jumps out, text me back. Either way I will keep sending the good ones.&rsquo; El voicemail es el hook. El email es la prueba. Juntos crean una primera impresion coherente.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 02 &middot; The Voicemail Formula</div>
@@ -1347,12 +1481,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             </div>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">16 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">17 / 21</div>
 </section>
 
-<!-- ========== SLIDE 17 — EMAIL FOLLOW-UP TEMPLATE (EN/ES) ========== -->
-<section class="slide" id="slide-17" data-notes="The email that follows the voicemail. Send it within 5 minutes. The voicemail alone is too thin to act on. The email alone is too easy to ignore. Together they say: this person is organized, specific, and sent me something useful. Read the template: Subject: Champions Gate pool homes, short-term-rental brief inside. &rsquo;Marco, Quick note from the voicemail. Attached is the one-page brief on short-term-rental rules and CDD fees for the Champions Gate area. The numbers in there are what we use to underwrite a property before we make an offer for a client. If you want me to run a quick analysis on a specific property, just send me the address and I will turn it around the same day.&rsquo; And always the P.S.: &rsquo;If your spouse or partner is also in the search, send me their email and I will keep them in the loop too.&rsquo; That P.S. is Module 04 — the hidden decision maker — but we plant the seed from the first contact.---El email que sigue al voicemail. Mandenlo dentro de 5 minutos. El voicemail solo es muy thin para actuar. El email solo es muy facil de ignorar. Juntos crean una primera impresion coherente. Lean la plantilla: Subject: Casas con piscina en Champions Gate, brief de renta corta adentro. &rsquo;Marco, Como te dije en el voicemail, adjunto el brief de una pagina sobre las reglas de renta corta y los CDD fees en Champions Gate. Estos son los numeros que usamos para evaluar una propiedad antes de hacer una oferta para un cliente. Si quieres que te corra un analisis rapido de una propiedad especifica, me mandas la direccion y te lo devuelvo el mismo dia.&rsquo; Y siempre el P.D.: &rsquo;Si tu pareja tambien anda en la busqueda, mandame su email y la mantengo al tanto tambien.&rsquo; Ese P.D. es Module 04 — el decisor oculto — pero ya lo sembramos desde el primer contacto.">
+<!-- ========== SLIDE 18 — EMAIL FOLLOW-UP TEMPLATE (EN/ES) ========== -->
+<section class="slide" id="slide-18" data-notes="The email that follows the voicemail. Send it within 5 minutes. The voicemail alone is too thin to act on. The email alone is too easy to ignore. Together they say: this person is organized, specific, and sent me something useful. Read the template: Subject: Champions Gate pool homes, short-term-rental brief inside. &rsquo;Marco, Quick note from the voicemail. Attached is the one-page brief on short-term-rental rules and CDD fees for the Champions Gate area. The numbers in there are what we use to underwrite a property before we make an offer for a client. If you want me to run a quick analysis on a specific property, just send me the address and I will turn it around the same day.&rsquo; And always the P.S.: &rsquo;If your spouse or partner is also in the search, send me their email and I will keep them in the loop too.&rsquo; That P.S. is Module 04 — the hidden decision maker — but we plant the seed from the first contact.---El email que sigue al voicemail. Mandenlo dentro de 5 minutos. El voicemail solo es muy thin para actuar. El email solo es muy facil de ignorar. Juntos crean una primera impresion coherente. Lean la plantilla: Subject: Casas con piscina en Champions Gate, brief de renta corta adentro. &rsquo;Marco, Como te dije en el voicemail, adjunto el brief de una pagina sobre las reglas de renta corta y los CDD fees en Champions Gate. Estos son los numeros que usamos para evaluar una propiedad antes de hacer una oferta para un cliente. Si quieres que te corra un analisis rapido de una propiedad especifica, me mandas la direccion y te lo devuelvo el mismo dia.&rsquo; Y siempre el P.D.: &rsquo;Si tu pareja tambien anda en la busqueda, mandame su email y la mantengo al tanto tambien.&rsquo; Ese P.D. es Module 04 — el decisor oculto — pero ya lo sembramos desde el primer contacto.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
             <div>
@@ -1395,12 +1529,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             </p>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">17 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">18 / 21</div>
 </section>
 
-<!-- ========== SLIDE 18 — WHAT IS FORBIDDEN ========== -->
-<section class="slide" id="slide-18" data-notes="This is what is BANNED. These phrases are removed from our vocabulary starting today. Point at each row: &rsquo;Just checking in&rsquo; — says nothing. Replace with: &rsquo;I just walked three properties in your area and the spread is wider than search results show.&rsquo; &rsquo;See if you have any questions&rsquo; — puts pressure on the lead. Replace with: &rsquo;I put together a one-page brief on the complexity. Want me to send it over?&rsquo; &rsquo;Wanted to follow up&rsquo; — sounds like you are chasing. Replace with: &rsquo;The HOA rules shifted in that community — heads up before you go deeper on listings.&rsquo; &rsquo;Touching base&rsquo; — corporate speak nobody respects. Replace with: &rsquo;I keep a running file of school zoning and flood zones. Emailing it now.&rsquo; &rsquo;Circling back&rsquo; — same. Replace with: &rsquo;Another client in your market just closed — the numbers might change your timeline.&rsquo; HARD RULE: If your script does not contain a specific thing the lead can only get through you, it is a sales-pressure script. Rewrite it before you press dial.---Esto es lo que esta PROHIBIDO. Estas frases estan banned de nuestro vocabulario desde hoy. Senalen cada fila: &rsquo;Just checking in&rsquo; — no dice nada. Reemplazo: &rsquo;I just walked three properties in your area and the spread is wider than search results show.&rsquo; &rsquo;See if you have any questions&rsquo; — pone la presion en el lead. Reemplazo: &rsquo;I put together a one-page brief on the complexity. Want me to send it over?&rsquo; &rsquo;Wanted to follow up&rsquo; — suena a que estas persiguiendo. Reemplazo: &rsquo;The HOA rules shifted — heads up before you go deeper on listings.&rsquo; &rsquo;Touching base&rsquo; — corporate speak. Reemplazo: &rsquo;I keep a running file of school zoning and flood zones. Emailing it now.&rsquo; &rsquo;Circling back&rsquo; — igual. Reemplazo: &rsquo;Another client in your market just closed — the numbers might change your timeline.&rsquo; HARD RULE: Si tu script no tiene una oferta especifica, es un script de presion de ventas. Reescribelo antes de marcar.">
+<!-- ========== SLIDE 19 — WHAT IS FORBIDDEN ========== -->
+<section class="slide" id="slide-19" data-notes="This is what is BANNED. These phrases are removed from our vocabulary starting today. Point at each row: &rsquo;Just checking in&rsquo; — says nothing. Replace with: &rsquo;I just walked three properties in your area and the spread is wider than search results show.&rsquo; &rsquo;See if you have any questions&rsquo; — puts pressure on the lead. Replace with: &rsquo;I put together a one-page brief on the complexity. Want me to send it over?&rsquo; &rsquo;Wanted to follow up&rsquo; — sounds like you are chasing. Replace with: &rsquo;The HOA rules shifted in that community — heads up before you go deeper on listings.&rsquo; &rsquo;Touching base&rsquo; — corporate speak nobody respects. Replace with: &rsquo;I keep a running file of school zoning and flood zones. Emailing it now.&rsquo; &rsquo;Circling back&rsquo; — same. Replace with: &rsquo;Another client in your market just closed — the numbers might change your timeline.&rsquo; HARD RULE: If your script does not contain a specific thing the lead can only get through you, it is a sales-pressure script. Rewrite it before you press dial.---Esto es lo que esta PROHIBIDO. Estas frases estan banned de nuestro vocabulario desde hoy. Senalen cada fila: &rsquo;Just checking in&rsquo; — no dice nada. Reemplazo: &rsquo;I just walked three properties in your area and the spread is wider than search results show.&rsquo; &rsquo;See if you have any questions&rsquo; — pone la presion en el lead. Reemplazo: &rsquo;I put together a one-page brief on the complexity. Want me to send it over?&rsquo; &rsquo;Wanted to follow up&rsquo; — suena a que estas persiguiendo. Reemplazo: &rsquo;The HOA rules shifted — heads up before you go deeper on listings.&rsquo; &rsquo;Touching base&rsquo; — corporate speak. Reemplazo: &rsquo;I keep a running file of school zoning and flood zones. Emailing it now.&rsquo; &rsquo;Circling back&rsquo; — igual. Reemplazo: &rsquo;Another client in your market just closed — the numbers might change your timeline.&rsquo; HARD RULE: Si tu script no tiene una oferta especifica, es un script de presion de ventas. Reescribelo antes de marcar.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Module 02 &middot; What Is Forbidden</div>
@@ -1440,12 +1574,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             <div class="hard-rule-text">If your script does not contain a specific thing the lead can only get through you, it is a sales-pressure script. Rewrite it before you press dial.</div>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">18 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">19 / 21</div>
 </section>
 
-<!-- ========== SLIDE 19 — LIVE EXERCISE + AI PROMPT ========== -->
-<section class="slide" id="slide-19" data-notes="Live exercise. 10 minutes in pairs. Each person picks their top neighborhood, identifies 3 complexity points they know cold, and writes ONE script using the 5-pillar frame. Then read it out loud to the group. The key question: does it sound like sales or service? If sales, rewrite it right there. They also have the AI prompt — copy and paste it into Claude or ChatGPT to generate additional scripts for their other markets. HOMEWORK FOR FRIDAY: three customized scripts with the names of the communities they serve, three real complexity points, and one current client story. Bring them to next Wednesday.---Ejercicio en vivo. 10 minutos en parejas. Cada uno escoge su vecindario principal, identifica 3 puntos de complejidad que conoce de memoria, y escribe UN script usando el marco de 5 pilares. Despues lo leen en voz alta al grupo. La pregunta clave: suena a ventas o a servicio? Si suena a ventas, lo reescriben ahi mismo. Tambien tienen el AI prompt — copienlo y peguenlo en Claude o ChatGPT para generar scripts adicionales para sus otros mercados. TAREA PAL VIERNES: tres scripts customizados con los nombres de las comunidades que sirven, tres complexity points reales, y una historia de un cliente actual. Traiganlos al proximo miercoles.">
+<!-- ========== SLIDE 20 — LIVE EXERCISE + AI PROMPT ========== -->
+<section class="slide" id="slide-20" data-notes="Live exercise. 10 minutes in pairs. Each person picks their top neighborhood, identifies 3 complexity points they know cold, and writes ONE script using the 5-pillar frame. Then read it out loud to the group. The key question: does it sound like sales or service? If sales, rewrite it right there. They also have the AI prompt — copy and paste it into Claude or ChatGPT to generate additional scripts for their other markets. HOMEWORK FOR FRIDAY: three customized scripts with the names of the communities they serve, three real complexity points, and one current client story. Bring them to next Wednesday.---Ejercicio en vivo. 10 minutos en parejas. Cada uno escoge su vecindario principal, identifica 3 puntos de complejidad que conoce de memoria, y escribe UN script usando el marco de 5 pilares. Despues lo leen en voz alta al grupo. La pregunta clave: suena a ventas o a servicio? Si suena a ventas, lo reescriben ahi mismo. Tambien tienen el AI prompt — copienlo y peguenlo en Claude o ChatGPT para generar scripts adicionales para sus otros mercados. TAREA PAL VIERNES: tres scripts customizados con los nombres de las comunidades que sirven, tres complexity points reales, y una historia de un cliente actual. Traiganlos al proximo miercoles.">
     <div class="slide-content" style="gap: var(--content-gap);">
         <div class="reveal">
             <div class="section-label">Live Exercise</div>
@@ -1483,12 +1617,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
             </div>
         </div>
     </div>
-    <div class="slide-footer">Lead Conversion OS &middot; Session 1</div>
-    <div class="slide-number">19 / 20</div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 1</span></div>
+    <div class="slide-number">20 / 21</div>
 </section>
 
-<!-- ========== SLIDE 20 — CLOSING QUOTE ========== -->
-<section class="slide gradient-bg" id="slide-20" data-notes="I close with this. &rsquo;People do not buy what you do — they buy why you do it.&rsquo; Simon Sinek. We do not sell houses. We guide families. Systems over effort. Discipline over motivation. See you next Wednesday with your scripts ready. Let us go.---Cierro con esto. &rsquo;La gente no compra lo que haces — compra por que lo haces.&rsquo; Simon Sinek. Nosotros no vendemos casas. Nosotros guiamos familias. Sistemas sobre el esfuerzo. Disciplina sobre la motivacion. Nos vemos el proximo miercoles con sus scripts listos. Vamos.">
+<!-- ========== SLIDE 21 — CLOSING QUOTE ========== -->
+<section class="slide gradient-bg" id="slide-21" data-notes="I close with this. &rsquo;People do not buy what you do — they buy why you do it.&rsquo; Simon Sinek. We do not sell houses. We guide families. Systems over effort. Discipline over motivation. See you next Wednesday with your scripts ready. Let us go.---Cierro con esto. &rsquo;La gente no compra lo que haces — compra por que lo haces.&rsquo; Simon Sinek. Nosotros no vendemos casas. Nosotros guiamos familias. Sistemas sobre el esfuerzo. Disciplina sobre la motivacion. Nos vemos el proximo miercoles con sus scripts listos. Vamos.">
     <div class="slide-content" style="align-items: center; text-align: center; gap: var(--content-gap); justify-content: center;">
         <div class="reveal">
             <span class="badge badge-sprout">Closing Thought</span>
@@ -1511,7 +1645,7 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         </div>
     </div>
     <div class="slide-footer">reThought Real Estate &reg;</div>
-    <div class="slide-number">20 / 20</div>
+    <div class="slide-number">21 / 21</div>
 </section>
 
 <!-- ========== SCRIPTS ========== -->
