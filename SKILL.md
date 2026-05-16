@@ -77,6 +77,7 @@ Interpret creatively and make unexpected choices that feel genuinely designed fo
 **Animation mistakes:**
 - **NEVER leave example/content cards without animation.** Every card, every visual element that appears on a slide should have `class="reveal"`, `class="reveal-scale"`, or be inside a `.stagger` container. Static cards on an otherwise animated slide look broken.
 - **Don't add animation just to add animation** — it must serve the content.
+- **NEVER put `opacity`, `transform`, or `transition` in inline `style=""` attributes for animated elements.** Inline styles have higher specificity than ANY class-based CSS rule, so `.visible .my-card { opacity: 1 }` will NEVER override `style="opacity: 0"`. Always define initial hidden state and transitions in a CSS class (e.g., `.hdm-scene { opacity: 0; transform: translateY(15px); transition: ... }`) and toggle visibility via the `.visible` parent. This is a silent, hard-to-debug failure — the element simply never appears and there is no error.
 
 **Diagram style mistakes:**
 - **Venn diagrams with CSS circles rarely render well.** Prefer colored card blocks with connecting arrows (→) — they're clearer and more readable.
