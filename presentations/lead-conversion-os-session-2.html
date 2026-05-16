@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Lofty Install + Hidden Decision Maker | Lead Conversion OS</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="The Lofty Install + Hidden Decision Maker">
+<meta name="presentation-series" content="Lead Conversion OS">
+<meta name="presentation-session" content="2">
+<meta name="presentation-date" content="2026-05-28">
+<meta name="presentation-slides" content="20">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   VIEWPORT BASE
+   =========================================== */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+    width: 100vw; height: 100vh; height: 100dvh;
+    overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    max-height: 100%; overflow: hidden; padding: var(--slide-padding);
+}
+:root {
+    --title-size: clamp(2rem, 5.5vw, 4.5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.3rem, 3.2vw, 2.4rem);
+    --body-size: clamp(1rem, 2.2vw, 1.6rem);
+    --small-size: clamp(0.8rem, 1.4vw, 1.15rem);
+    --slide-padding: clamp(1.5rem, 5vw, 5rem);
+    --content-gap: clamp(0.8rem, 3vw, 3rem);
+    --element-gap: clamp(0.4rem, 1.5vw, 1.5rem);
+}
+@media (max-height: 700px) {
+    :root { --slide-padding: clamp(1rem, 3vw, 2.5rem); --title-size: clamp(1.5rem, 4.5vw, 3rem); --h2-size: clamp(1.2rem, 3.5vw, 2.2rem); }
+}
+@media (max-height: 600px) {
+    :root { --slide-padding: clamp(0.75rem, 2.5vw, 1.5rem); --title-size: clamp(1.2rem, 4vw, 2.5rem); --body-size: clamp(0.8rem, 1.4vw, 1.1rem); }
+    .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root { --slide-padding: clamp(0.5rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.5rem, 8vw, 3rem); } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   RETHOUGHT TOKENS
+   =========================================== */
+:root {
+    --ink: #1B252F;
+    --ink-soft: #222E3A;
+    --ink-deep: #151D26;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --brand-light: #6ba8d6;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --amber: #e0a63a;
+    --amber-soft: #f5d08a;
+    --muted: #6e7a88;
+    --muted-2: #95a0ae;
+    --border-d: #ffffff18;
+    --border-l: #1B252F14;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--sprout); color: var(--ink); }
+
+/* ===========================================
+   GLOBAL COMPONENTS
+   =========================================== */
+.slide { background: var(--ink); padding: var(--slide-padding); }
+.slide.light { background: var(--paper); color: var(--ink); }
+.slide.light .section-label { color: var(--brand); }
+.slide.light .section-label::before { background: var(--brand); }
+.slide.light .slide-body { color: var(--muted); }
+.slide.light .slide-footer { color: var(--muted); }
+.slide.light .slide-number { color: var(--muted); }
+.slide.bone { background: var(--bone); color: var(--ink); }
+.slide.bone .section-label { color: var(--brand); }
+.slide.bone .section-label::before { background: var(--brand); }
+.slide.bone .slide-body { color: var(--muted); }
+
+.section-label {
+    font-family: var(--font-mono); font-size: clamp(0.75rem, 1.15vw, 0.95rem);
+    letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
+}
+.section-label::before { content: ""; width: clamp(14px, 2.5vw, 24px); height: 2px; background: var(--sprout); }
+
+.slide-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--h2-size); letter-spacing: -0.025em; line-height: 1.1;
+    margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+}
+.slide-body {
+    font-family: var(--font-sans); font-size: var(--body-size);
+    line-height: 1.6; color: var(--muted-2); max-width: 60ch;
+}
+
+/* Strokes */
+.stroke { position: relative; display: inline-block; padding: 0 3px; }
+.stroke svg.ul {
+    position: absolute; left: -4px; right: -4px; bottom: clamp(-6px, -0.8vh, -10px);
+    width: calc(100% + 8px); height: clamp(10px, 1.5vw, 16px); pointer-events: none;
+}
+.stroke svg.ul path { fill: none; stroke-width: 3; stroke-linecap: round; }
+.stroke--sprout svg.ul path { stroke: var(--sprout); }
+.stroke--clay svg.ul path { stroke: var(--clay); }
+.stroke--brand svg.ul path { stroke: var(--brand-deep); }
+
+.highlight { background: linear-gradient(180deg, transparent 50%, #8cc94e44 50% 88%, transparent 88%); padding: 0 4px; }
+
+/* Cards */
+.rt-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(1rem, 2vw, 1.8rem);
+}
+.light .rt-card, .bone .rt-card {
+    background: white; border-color: var(--border-l);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Badges */
+.badge {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(8px, 1.2vw, 14px);
+    border-radius: 999px; text-transform: uppercase; display: inline-block;
+}
+.badge-sprout { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-brand { background: #034c7630; color: var(--brand-light); border: 1px solid #034c7650; }
+.badge-clay { background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550; }
+.badge-amber { background: #e0a63a30; color: var(--amber-soft); border: 1px solid #e0a63a50; }
+
+/* Tables */
+.rt-table { width: 100%; border-collapse: collapse; font-size: clamp(0.75rem, 1.2vw, 1rem); }
+.rt-table th {
+    font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout);
+    text-align: left; padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1.2vw, 14px);
+    border-bottom: 2px solid var(--border-d);
+}
+.rt-table td {
+    font-family: var(--font-sans); padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1.2vw, 14px);
+    border-bottom: 1px solid #ffffff0a; color: var(--muted-2);
+}
+.rt-table td:first-child { color: var(--paper); font-weight: 500; }
+.light .rt-table th { color: var(--brand); border-color: var(--border-l); }
+.light .rt-table td { border-color: #0000000a; color: var(--muted); }
+.light .rt-table td:first-child { color: var(--ink); }
+
+/* Layouts */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2.5vw, 2rem); }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: clamp(0.5rem, 1.5vw, 1.2rem); }
+.four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+.five-col { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.4rem, 1vw, 0.9rem); }
+.six-col { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(0.4rem, 0.8vw, 0.8rem); }
+@media (max-width: 700px) { .two-col, .three-col, .four-col, .five-col, .six-col { grid-template-columns: 1fr; } }
+
+/* Slide footer / number */
+.slide-footer {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.slide-number {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); right: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1px;
+}
+
+/* Progress bar */
+.progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--sprout); z-index: 9999; transition: width 0.3s ease; }
+
+/* Nav dots */
+.nav-dots {
+    position: fixed; right: clamp(12px, 2vw, 24px); top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 8px; z-index: 9998;
+}
+.nav-dot {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--muted); opacity: 0.3;
+    cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
+}
+.nav-dot.active { background: var(--sprout); opacity: 1; transform: scale(1.4); }
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(1) { transition-delay: 0.05s; }
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.25s; }
+.reveal:nth-child(4) { transition-delay: 0.35s; }
+.reveal:nth-child(5) { transition-delay: 0.45s; }
+
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.visible .stagger > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.visible .stagger > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.visible .stagger > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.visible .stagger > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.visible .stagger > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+.visible .stagger > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+.visible .stagger > *:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+.visible .stagger > *:nth-child(8) { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+
+.reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.6s, transform 0.6s var(--ease-spring); }
+.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.6s, transform 0.6s var(--ease-out-expo); }
+.visible .reveal-left { opacity: 1; transform: translateX(0); }
+
+@keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.4); opacity: 1; } }
+.pulse-dot {
+    width: clamp(8px, 1vw, 12px); height: clamp(8px, 1vw, 12px);
+    background: var(--sprout); border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.gradient-bg {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 30%, var(--ink) 70%, var(--ink-soft) 100%);
+    background-size: 300% 300%; animation: gradient-flow 8s ease infinite;
+}
+
+@keyframes float-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.float { animation: float-gentle 4s ease-in-out infinite; }
+
+@keyframes glow-ring { 0%, 100% { box-shadow: 0 0 0 0 #8cc94e40; } 50% { box-shadow: 0 0 0 12px #8cc94e00; } }
+.glow { animation: glow-ring 2s ease-in-out infinite; }
+
+
+/* ===========================================
+   ENHANCED SLIDE ANIMATIONS
+   =========================================== */
+
+/* Stroke draw-on for underlines */
+@keyframes stroke-draw {
+    from { stroke-dashoffset: 200; }
+    to { stroke-dashoffset: 0; }
+}
+@keyframes stroke-glow-sprout {
+    0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+    50% { filter: drop-shadow(0 0 8px var(--sprout)); }
+}
+@keyframes stroke-glow-brand {
+    0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+    50% { filter: drop-shadow(0 0 8px var(--brand-light)); }
+}
+.stroke-animate svg.ul path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+}
+.visible .stroke-animate svg.ul path {
+    animation: stroke-draw 1.2s var(--ease-out-expo) forwards;
+}
+.visible .stroke-animate.stroke--sprout svg.ul {
+    animation: stroke-glow-sprout 3s ease-in-out 1.5s infinite;
+}
+.visible .stroke-animate.stroke--brand svg.ul {
+    animation: stroke-glow-brand 3s ease-in-out 2s infinite;
+}
+
+/* Divider line grows from center */
+@keyframes grow-center {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+.divider-grow {
+    transform: scaleX(0);
+    transform-origin: center;
+}
+.visible .divider-grow {
+    animation: grow-center 0.8s var(--ease-out-expo) 0.4s forwards;
+}
+
+/* Active card pulse glow */
+@keyframes card-glow-sprout {
+    0%, 100% { box-shadow: 0 0 0 0 #8cc94e00; }
+    50% { box-shadow: 0 0 20px 4px #8cc94e30; }
+}
+.arc-card-lcos.active {
+    animation: card-glow-sprout 3s ease-in-out infinite;
+}
+
+/* Converge from sides */
+.reveal-from-left {
+    opacity: 0; transform: translateX(-50px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.visible .reveal-from-left { opacity: 1; transform: translateX(0); }
+.reveal-from-right {
+    opacity: 0; transform: translateX(50px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.visible .reveal-from-right { opacity: 1; transform: translateX(0); }
+
+/* Pillar top-bar color sweep */
+@keyframes color-sweep {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+.pillar-card::before {
+    width: 0;
+}
+.visible .pillar-card::before {
+    animation: color-sweep 0.6s var(--ease-out-expo) forwards;
+}
+.visible .pillar-card:nth-child(1)::before { animation-delay: 0.3s; }
+.visible .pillar-card:nth-child(2)::before { animation-delay: 0.5s; }
+.visible .pillar-card:nth-child(3)::before { animation-delay: 0.7s; }
+.visible .pillar-card:nth-child(4)::before { animation-delay: 0.9s; }
+.visible .pillar-card:nth-child(5)::before { animation-delay: 1.1s; }
+
+/* Step cards drop-in */
+@keyframes drop-badge {
+    0% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+    60% { transform: translateY(4px) scale(1.1); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Timer pulse animation */
+@keyframes timer-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+/* Big metric count-up feel */
+@keyframes metric-pop {
+    0% { opacity: 0; transform: scale(0.5); }
+    60% { transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+.metric-pop {
+    opacity: 0;
+}
+.visible .metric-pop {
+    animation: metric-pop 0.8s var(--ease-spring) 0.3s forwards;
+}
+
+/* Flow steps animation */
+@keyframes flow-step-in {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+.flow-step {
+    opacity: 0;
+}
+.visible .flow-step { animation: flow-step-in 0.6s var(--ease-out-expo) forwards; }
+.visible .flow-step:nth-child(1) { animation-delay: 0.1s; }
+.visible .flow-step:nth-child(2) { animation-delay: 0.25s; }
+.visible .flow-step:nth-child(3) { animation-delay: 0.4s; }
+.visible .flow-step:nth-child(4) { animation-delay: 0.55s; }
+
+/* Animated flow arrows */
+@keyframes flow-right {
+    0% { transform: translateX(-6px); opacity: 0.3; }
+    50% { transform: translateX(6px); opacity: 1; }
+    100% { transform: translateX(-6px); opacity: 0.3; }
+}
+.flow-arrow {
+    color: var(--sprout); font-size: clamp(1rem, 1.5vw, 1.3rem);
+    animation: flow-right 2s ease-in-out infinite;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* Quote word-by-word reveal */
+@keyframes word-reveal {
+    from { opacity: 0; transform: translateY(10px); filter: blur(4px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* Punchline bg animation */
+@keyframes punchline-bg {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 50% 100%; }
+    75% { background-position: 0% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.punchline-bg {
+    background: linear-gradient(135deg,
+        var(--ink-deep) 0%,
+        var(--brand-deep) 20%,
+        var(--ink) 40%,
+        #1a3a25 60%,
+        var(--ink-deep) 80%,
+        var(--brand) 100%
+    );
+    background-size: 400% 400%;
+    animation: punchline-bg 12s ease infinite;
+}
+/* Radial glow behind the text */
+@keyframes glow-pulse-center {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.1); }
+}
+.punchline-glow {
+    position: absolute;
+    width: clamp(400px, 50vw, 700px);
+    height: clamp(400px, 50vw, 700px);
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sprout) 0%, transparent 70%);
+    opacity: 0.15;
+    animation: glow-pulse-center 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+/* Floating particles */
+@keyframes particle-float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+.punchline-particles {
+    position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+}
+.punchline-particles span {
+    position: absolute; bottom: -20px;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--sprout); opacity: 0;
+    animation: particle-float linear infinite;
+}
+
+/* ===========================================
+   SESSION 2 — SPECIFIC STYLES
+   =========================================== */
+
+/* reLearn logo */
+.relearn-logo {
+    height: clamp(1.2rem, 2.5vw, 2rem);
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    margin-top: -8px;
+}
+.relearn-logo:hover { opacity: 1; }
+.relearn-logo-cover {
+    height: clamp(2.5rem, 6vw, 4.5rem);
+    width: auto;
+}
+/* Footer with logo */
+.slide-footer-logo {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    display: flex; flex-direction: column; align-items: flex-start; gap: clamp(3px, 0.5vh, 6px);
+}
+.slide-footer-logo .footer-text {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.light .slide-footer-logo .footer-text,
+.bone .slide-footer-logo .footer-text { color: var(--muted); }
+/* Cover logo row animation */
+@keyframes relearn-fade-in {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.relearn-cover-animate {
+    opacity: 0;
+    animation: relearn-fade-in 0.8s var(--ease-out-expo) 0.6s forwards;
+}
+
+/* Session arc */
+.arc-card-lcos {
+    background: var(--ink-soft); border: 2px solid var(--border-d);
+    border-radius: 16px; padding: clamp(0.8rem, 1.6vw, 1.3rem); text-align: center;
+    transition: all 0.4s var(--ease-out-expo);
+}
+.arc-card-lcos.active { border-color: var(--sprout); background: #8cc94e12; }
+.arc-card-lcos.done { border-color: var(--brand-light); opacity: 0.7; }
+.arc-card-lcos.future { opacity: 0.4; }
+.arc-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; letter-spacing: -0.03em;
+}
+.arc-card-lcos.active .arc-num { color: var(--sprout); }
+.arc-card-lcos.done .arc-num { color: var(--brand-light); }
+.arc-name {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.8rem, 1.2vw, 1rem); margin-top: 4px;
+}
+.arc-sub {
+    font-family: var(--font-mono); font-size: clamp(0.45rem, 0.65vw, 0.55rem);
+    color: var(--muted); letter-spacing: 1px; margin-top: 4px; text-transform: uppercase;
+}
+.today-badge {
+    display: inline-block;
+    background: var(--sprout); color: var(--ink); font-family: var(--font-mono);
+    font-size: clamp(0.45rem, 0.65vw, 0.55rem); font-weight: 700; letter-spacing: 1.5px;
+    padding: 2px 8px; border-radius: 999px; text-transform: uppercase; margin-top: 6px;
+}
+.done-badge {
+    display: inline-block;
+    background: var(--brand); color: var(--paper); font-family: var(--font-mono);
+    font-size: clamp(0.45rem, 0.65vw, 0.55rem); font-weight: 700; letter-spacing: 1.5px;
+    padding: 2px 8px; border-radius: 999px; text-transform: uppercase; margin-top: 6px;
+}
+
+/* Pillar cards (recap) */
+.pillar-card {
+    background: var(--ink-soft); border: 2px solid var(--border-d);
+    border-radius: 16px; padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: clamp(2px, 0.4vh, 4px);
+}
+.pillar-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.pillar-card.p1::before { background: var(--brand); }
+.pillar-card.p2::before { background: var(--sprout); }
+.pillar-card.p3::before { background: var(--amber); }
+.pillar-card.p4::before { background: var(--brand-light); }
+.pillar-card.p5::before { background: var(--clay); }
+.pillar-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem); line-height: 1; letter-spacing: -0.03em;
+}
+.pillar-card.p1 .pillar-num { color: var(--brand-light); }
+.pillar-card.p2 .pillar-num { color: var(--sprout); }
+.pillar-card.p3 .pillar-num { color: var(--amber); }
+.pillar-card.p4 .pillar-num { color: var(--brand-light); }
+.pillar-card.p5 .pillar-num { color: var(--clay-soft); }
+.pillar-name {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.75rem, 1.1vw, 0.95rem); line-height: 1.2;
+}
+.pillar-desc {
+    font-family: var(--font-sans); font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+    color: var(--muted-2); line-height: 1.3;
+}
+
+/* SOP step cards */
+.sop-step-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(1rem, 2vw, 1.6rem);
+    border-top: 3px solid var(--sprout);
+    display: flex; flex-direction: column; gap: clamp(4px, 0.6vh, 8px);
+}
+.sop-step-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1; color: var(--sprout);
+}
+.sop-step-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+.sop-step-desc {
+    font-family: var(--font-sans); font-size: clamp(0.85rem, 1.2vw, 1rem);
+    color: var(--muted-2); line-height: 1.4;
+}
+
+/* Script block */
+.script-block {
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(0.8rem, 1.5vw, 1.3rem);
+    font-family: var(--font-sans); font-size: clamp(0.8rem, 1.15vw, 0.95rem);
+    line-height: 1.6; color: var(--muted-2);
+}
+.script-block.bad { border-color: var(--clay); border-width: 2px; }
+.script-block.good { border-color: var(--sprout); border-width: 2px; }
+.script-block .script-tag {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+}
+.script-block.bad .script-tag { color: var(--clay); }
+.script-block.good .script-tag { color: var(--sprout); }
+.script-highlight { color: var(--paper); font-weight: 600; }
+
+/* Language toggle */
+.lang-toggle {
+    display: flex; gap: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-d);
+    width: fit-content;
+}
+.lang-btn {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+    letter-spacing: 1.2px; text-transform: uppercase; padding: 4px 12px;
+    background: var(--ink-soft); color: var(--muted); border: none; cursor: pointer;
+    transition: all 0.3s ease;
+}
+.lang-btn.active { background: var(--sprout); color: var(--ink); font-weight: 700; }
+
+/* Bilingual script pair */
+.script-pair { position: relative; }
+.script-en, .script-es { transition: opacity 0.4s ease, max-height 0.4s ease; }
+.script-es { display: none; }
+.script-pair.show-es .script-en { display: none; }
+.script-pair.show-es .script-es { display: block; }
+
+/* Hard rule bar */
+.hard-rule {
+    background: linear-gradient(135deg, #3a1a18 0%, #2a1210 100%);
+    border: 2px solid var(--clay); border-radius: 12px;
+    padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    display: flex; align-items: center; gap: clamp(10px, 1.5vw, 16px);
+}
+.hard-rule-tag {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 1.6px; text-transform: uppercase; color: var(--clay);
+    white-space: nowrap;
+}
+.hard-rule-text {
+    font-family: var(--font-sans); font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+    color: var(--paper); line-height: 1.4;
+}
+
+/* Timer badge */
+.timer-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550;
+    font-family: var(--font-mono); font-size: clamp(0.65rem, 1vw, 0.85rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(10px, 1.4vw, 18px);
+    border-radius: 999px; text-transform: uppercase;
+}
+
+/* Commitment items */
+.commit-item {
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    padding: clamp(6px, 1vh, 12px) 0; border-bottom: 1px solid var(--border-d);
+    font-size: var(--body-size);
+}
+.commit-check {
+    width: clamp(18px, 1.8vw, 24px); height: clamp(18px, 1.8vw, 24px);
+    border: 2px solid var(--sprout); border-radius: 6px; flex-shrink: 0;
+}
+
+/* AI prompt card */
+.ai-prompt {
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 12px; padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    font-family: var(--font-mono); font-size: clamp(0.7rem, 1vw, 0.85rem);
+    color: var(--sprout-soft); line-height: 1.6;
+}
+.ai-prompt-label {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 6px;
+}
+
+/* 24-hour timer visual */
+@keyframes timer-ring {
+    0% { stroke-dashoffset: 283; }
+    100% { stroke-dashoffset: 0; }
+}
+.timer-circle-bg { stroke: var(--border-d); }
+.timer-circle-fill { stroke: var(--clay); stroke-dasharray: 283; stroke-dashoffset: 283; }
+.visible .timer-circle-fill { animation: timer-ring 2s var(--ease-out-expo) 0.5s forwards; }
+
+/* Big stat metric */
+.big-metric {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(4rem, 12vw, 10rem); letter-spacing: -0.04em; line-height: 1;
+    color: var(--clay);
+}
+
+/* Power cards */
+.power-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    border-left: 3px solid var(--amber);
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .power-card { opacity: 1; transform: translateY(0); }
+.visible .power-card:nth-child(1) { transition-delay: 0.2s; }
+.visible .power-card:nth-child(2) { transition-delay: 0.35s; }
+.visible .power-card:nth-child(3) { transition-delay: 0.5s; }
+.visible .power-card:nth-child(4) { transition-delay: 0.65s; }
+.power-card-title {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem); margin-bottom: 2px;
+}
+.power-card-desc {
+    font-family: var(--font-sans); font-size: clamp(0.8rem, 1.15vw, 0.95rem);
+    color: var(--muted-2); line-height: 1.4;
+}
+
+/* Expansion cards */
+.expansion-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 12px; padding: clamp(0.7rem, 1.3vw, 1.1rem);
+    border-left: 3px solid var(--sprout);
+    opacity: 0; transform: scale(0.9);
+    transition: opacity 0.5s var(--ease-spring), transform 0.5s var(--ease-spring);
+}
+.visible .expansion-card { opacity: 1; transform: scale(1); }
+.visible .expansion-card:nth-child(1) { transition-delay: 0.15s; }
+.visible .expansion-card:nth-child(2) { transition-delay: 0.3s; }
+.visible .expansion-card:nth-child(3) { transition-delay: 0.45s; }
+.visible .expansion-card:nth-child(4) { transition-delay: 0.6s; }
+.expansion-from {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+    letter-spacing: 1.2px; text-transform: uppercase; color: var(--clay); margin-bottom: 2px;
+}
+.expansion-to {
+    font-family: var(--font-sans); font-size: clamp(0.9rem, 1.35vw, 1.1rem);
+    color: var(--paper); line-height: 1.4;
+}
+
+/* Lofty workflow steps */
+.lofty-step {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    display: flex; align-items: flex-start; gap: clamp(8px, 1.2vw, 14px);
+    opacity: 0; transform: translateX(-30px);
+    transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+.visible .lofty-step { opacity: 1; transform: translateX(0); }
+.visible .lofty-step:nth-child(1) { transition-delay: 0.1s; }
+.visible .lofty-step:nth-child(2) { transition-delay: 0.25s; }
+.visible .lofty-step:nth-child(3) { transition-delay: 0.4s; }
+.visible .lofty-step:nth-child(4) { transition-delay: 0.55s; }
+.lofty-step-badge {
+    width: clamp(28px, 3.5vw, 40px); height: clamp(28px, 3.5vw, 40px);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.7rem, 1vw, 0.85rem); background: var(--brand); color: white;
+}
+.lofty-step-content { flex: 1; }
+.lofty-step-title {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.9rem, 1.3vw, 1.05rem); margin-bottom: 2px;
+}
+.lofty-step-desc {
+    font-family: var(--font-sans); font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+    color: var(--muted-2); line-height: 1.4;
+}
+.lofty-step-tag {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.58rem);
+    letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout);
+    margin-top: 4px;
+}
+
+/* Lofty UI Mockup */
+.lofty-ui-mockup, .lofty-profile-mockup {
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);
+}
+.light .lofty-profile-mockup {
+    background: white; border-color: var(--border-l);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+}
+.lofty-ui-chrome {
+    display: flex; align-items: center; gap: clamp(8px, 1vw, 12px);
+    padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.2vw, 16px);
+    background: #0d1117; border-bottom: 1px solid var(--border-d);
+}
+.lofty-ui-chrome--light {
+    background: #f6f8fa; border-bottom-color: var(--border-l);
+}
+.lofty-ui-dots { display: flex; gap: 5px; }
+.lofty-ui-dots span {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--muted);
+    opacity: 0.4;
+}
+.lofty-ui-dots span:first-child { background: #ff5f57; opacity: 0.8; }
+.lofty-ui-dots span:nth-child(2) { background: #febc2e; opacity: 0.8; }
+.lofty-ui-dots span:nth-child(3) { background: #28c840; opacity: 0.8; }
+.lofty-ui-title {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem);
+    color: var(--muted); letter-spacing: 0.5px;
+}
+.lofty-ui-body {
+    padding: clamp(0.8rem, 1.4vw, 1.2rem);
+    display: flex; flex-direction: column; gap: clamp(0.5rem, 1vh, 0.8rem);
+}
+.lofty-ui-field { display: flex; flex-direction: column; gap: 3px; }
+.lofty-ui-label {
+    font-family: var(--font-mono); font-size: clamp(0.45rem, 0.65vw, 0.55rem);
+    letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted);
+}
+.lofty-ui-input {
+    font-family: var(--font-sans); font-size: clamp(0.7rem, 1vw, 0.85rem);
+    color: var(--paper); padding: clamp(5px, 0.7vh, 8px) clamp(8px, 1vw, 12px);
+    background: #1a2332; border: 1px solid var(--border-d); border-radius: 6px;
+    line-height: 1.4;
+}
+.lofty-ui-input--highlight {
+    border-color: var(--sprout); background: #8cc94e08;
+    box-shadow: 0 0 0 2px #8cc94e20;
+}
+.lofty-ui-keyword-tag {
+    background: var(--sprout); color: var(--ink); font-weight: 600;
+    padding: 1px 6px; border-radius: 3px; font-size: clamp(0.65rem, 0.9vw, 0.78rem);
+}
+.lofty-ui-select { color: var(--brand-light); }
+.lofty-ui-status-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--sprout);
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Lofty Profile Mockup */
+.lofty-profile-body {
+    padding: clamp(0.8rem, 1.4vw, 1.2rem);
+    display: flex; flex-direction: column; gap: clamp(0.6rem, 1.2vh, 1rem);
+}
+.lofty-profile-header {
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    padding-bottom: clamp(0.5rem, 1vh, 0.8rem);
+    border-bottom: 1px solid var(--border-l);
+}
+.lofty-avatar {
+    width: clamp(36px, 4vw, 48px); height: clamp(36px, 4vw, 48px);
+    border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+    color: white; font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.lofty-profile-name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--ink);
+}
+.lofty-profile-meta {
+    font-family: var(--font-sans); font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+    color: var(--muted);
+}
+.lofty-timeline-section { display: flex; flex-direction: column; gap: clamp(4px, 0.6vh, 8px); }
+.lofty-timeline-eyebrow {
+    display: flex; align-items: center; gap: 6px;
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.72vw, 0.6rem);
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout);
+    font-weight: 600;
+}
+.lofty-timeline { display: flex; flex-direction: column; gap: 0; padding-left: clamp(4px, 0.6vw, 8px); }
+.lofty-timeline-item {
+    display: flex; align-items: flex-start; gap: clamp(8px, 1vw, 12px);
+    padding: clamp(6px, 0.8vh, 10px) 0; position: relative;
+}
+.lofty-timeline-item:not(:last-child)::after {
+    content: ""; position: absolute; left: clamp(4px, 0.5vw, 6px);
+    top: clamp(18px, 2vh, 24px); bottom: 0; width: 1px; background: var(--border-l);
+}
+.lofty-timeline-dot {
+    width: clamp(8px, 1vw, 12px); height: clamp(8px, 1vw, 12px);
+    border-radius: 50%; background: var(--muted-2); flex-shrink: 0;
+    margin-top: 3px; opacity: 0.5;
+}
+.lofty-timeline-dot--keyword {
+    background: var(--sprout); opacity: 1;
+    box-shadow: 0 0 0 3px #8cc94e30;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+.lofty-timeline-content { flex: 1; min-width: 0; }
+.lofty-timeline-date {
+    font-family: var(--font-mono); font-size: clamp(0.45rem, 0.62vw, 0.52rem);
+    color: var(--muted); letter-spacing: 0.5px;
+}
+.lofty-timeline-action {
+    font-family: var(--font-sans); font-size: clamp(0.7rem, 1vw, 0.85rem);
+    font-weight: 500; color: var(--ink);
+}
+.lofty-timeline-detail {
+    display: flex; align-items: center; gap: 4px; margin-top: 2px;
+}
+.lofty-utm-label {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.68vw, 0.58rem);
+    color: var(--muted); letter-spacing: 0.5px;
+}
+.lofty-utm-value {
+    font-family: var(--font-sans); font-size: clamp(0.65rem, 0.9vw, 0.78rem);
+    font-weight: 700; color: var(--sprout);
+    background: #8cc94e15; padding: 1px 6px; border-radius: 3px;
+    border: 1px solid #8cc94e40;
+}
+.lofty-timeline-item--keyword {
+    background: #8cc94e08; border-radius: 8px;
+    padding: clamp(6px, 0.8vh, 10px) clamp(6px, 0.8vw, 10px);
+    border: 1px solid #8cc94e25;
+}
+
+/* IDX Map Mockup */
+.idx-map-mockup {
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.idx-map-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.2vw, 14px);
+    border-bottom: 1px solid var(--border-d);
+}
+.idx-map-label {
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.72vw, 0.62rem);
+    letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700;
+}
+.idx-map-label--bad { color: var(--clay); }
+.idx-map-label--good { color: var(--sprout); }
+.idx-map-count {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 0.5px;
+}
+.idx-map-count--bad { color: var(--clay-soft); }
+.idx-map-count--good { color: var(--sprout-soft); }
+.idx-map-canvas {
+    position: relative; width: 100%; padding-bottom: clamp(30%, 25vh, 40%);
+    background: #0f1923;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 20% 20%;
+}
+.idx-map-canvas--bad { border: 2px solid var(--clay); border-top: none; border-radius: 0 0 12px 12px; }
+.idx-map-canvas--good { border: 2px solid var(--sprout); border-top: none; border-radius: 0 0 12px 12px; }
+.idx-map-zone {
+    position: absolute; border-radius: 8px; opacity: 0.15;
+}
+.idx-map-zone--bad {
+    top: 30%; left: 35%; width: 30%; height: 35%;
+    background: var(--clay); border: 2px dashed var(--clay);
+}
+.idx-map-zone--good {
+    top: 10%; left: 10%; width: 80%; height: 80%;
+    background: var(--sprout); border: 2px dashed var(--sprout);
+}
+.idx-marker {
+    position: absolute; font-weight: 700; display: flex;
+    align-items: center; justify-content: center;
+}
+.idx-marker--dead {
+    width: clamp(14px, 1.5vw, 20px); height: clamp(14px, 1.5vw, 20px);
+    color: var(--clay); font-size: clamp(0.7rem, 1vw, 0.9rem);
+    background: #c0544530; border-radius: 50%; border: 1px solid var(--clay);
+}
+.idx-marker--active {
+    width: clamp(10px, 1.2vw, 14px); height: clamp(10px, 1.2vw, 14px);
+    background: var(--sprout); border-radius: 50%;
+    box-shadow: 0 0 6px #8cc94e60;
+    animation: pulse-dot 2.5s ease-in-out infinite;
+}
+.idx-marker--active:nth-child(odd) { animation-delay: 0.3s; }
+.idx-marker--active:nth-child(3n) { animation-delay: 0.7s; }
+.idx-map-empty-msg {
+    position: absolute; bottom: 12%; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.72vw, 0.62rem);
+    color: var(--clay-soft); letter-spacing: 1px; text-transform: uppercase;
+    background: #c0544520; padding: 3px 10px; border-radius: 4px;
+    border: 1px solid #c0544540;
+}
+
+/* Person Pair Visualization */
+.person-pair {
+    display: flex; align-items: center; gap: clamp(1.5rem, 4vw, 3.5rem);
+    justify-content: center;
+}
+.person-icon {
+    display: flex; flex-direction: column; align-items: center; gap: clamp(6px, 1vh, 10px);
+    transition: all 0.6s var(--ease-out-expo);
+}
+.person-icon--active .person-avatar-lg {
+    background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+    box-shadow: 0 4px 20px rgba(3,76,118,0.3);
+}
+.person-icon--hidden .person-avatar-lg {
+    background: var(--ink-soft); border: 2px dashed var(--muted);
+    opacity: 0.4;
+}
+.person-avatar-lg {
+    width: clamp(60px, 8vw, 90px); height: clamp(60px, 8vw, 90px);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(1.2rem, 2vw, 1.8rem); color: white;
+}
+.person-icon--hidden .person-avatar-lg {
+    color: var(--muted); font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+}
+.person-label {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.8rem, 1.2vw, 1rem); text-align: center;
+}
+.person-icon--hidden .person-label { color: var(--muted); opacity: 0.6; }
+.person-sublabel {
+    font-family: var(--font-mono); font-size: clamp(0.45rem, 0.65vw, 0.55rem);
+    letter-spacing: 1px; text-transform: uppercase; color: var(--muted);
+}
+.person-connector {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.person-connector-line {
+    width: clamp(40px, 6vw, 80px); height: 2px;
+    border-top: 2px dashed var(--muted); opacity: 0.4;
+}
+.person-connector-label {
+    font-family: var(--font-mono); font-size: clamp(0.45rem, 0.62vw, 0.52rem);
+    color: var(--clay); letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* Hidden DM Story Flow */
+.hdm-story-flow {
+    display: flex; flex-direction: column; gap: clamp(0.4rem, 1vh, 0.8rem);
+}
+.hdm-top-row {
+    display: flex; align-items: center; gap: clamp(0.5rem, 1.5vw, 1.2rem);
+}
+.hdm-person {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    flex-shrink: 0;
+}
+.hdm-avatar {
+    width: clamp(44px, 5.5vw, 64px); height: clamp(44px, 5.5vw, 64px);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.9rem, 1.4vw, 1.2rem); color: white;
+}
+.hdm-avatar--ghost {
+    background: var(--ink-soft) !important; border: 2px dashed var(--muted);
+    color: var(--muted); opacity: 0.5; font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+}
+.hdm-name {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.75rem, 1.05vw, 0.9rem); text-align: center;
+}
+.hdm-tag {
+    font-family: var(--font-mono); font-size: clamp(0.4rem, 0.55vw, 0.48rem);
+    letter-spacing: 1px; text-transform: uppercase; padding: 1px 6px;
+    border-radius: 999px;
+}
+.hdm-tag--safe { background: #034c7630; color: var(--brand-light); }
+.hdm-tag--danger { background: #c0544530; color: var(--clay-soft); }
+.hdm-link {
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px;
+    min-width: clamp(40px, 5vw, 80px);
+}
+.hdm-link-label {
+    font-family: var(--font-mono); font-size: clamp(0.4rem, 0.55vw, 0.48rem);
+    color: var(--muted); letter-spacing: 1px; text-transform: uppercase; opacity: 0.6;
+}
+.hdm-stat {
+    display: flex; align-items: center; gap: clamp(4px, 0.6vw, 8px);
+    margin-left: clamp(0.5rem, 1.5vw, 1.2rem); flex-shrink: 0;
+}
+.hdm-stat-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 3rem); color: var(--clay); line-height: 1;
+}
+.hdm-stat-label {
+    font-family: var(--font-sans); font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+    color: var(--muted-2); line-height: 1.3;
+}
+.hdm-flow-row {
+    display: flex; gap: clamp(6px, 1vw, 12px); padding-left: clamp(20px, 3vw, 40px);
+}
+.hdm-flow-arrow-down {
+    width: 2px; flex-shrink: 0; padding-top: 2px;
+}
+.hdm-flow-steps {
+    display: flex; align-items: center; gap: clamp(0.3rem, 0.8vw, 0.6rem);
+    flex: 1;
+}
+.hdm-flow-step {
+    display: flex; align-items: center; gap: clamp(4px, 0.6vw, 8px);
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 10px; padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1vw, 12px);
+    flex: 1; min-width: 0;
+    opacity: 0; transform: translateX(-15px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .hdm-flow-step { opacity: 1; transform: translateX(0); }
+.visible .hdm-flow-step:nth-of-type(1) { transition-delay: 0.4s; }
+.visible .hdm-flow-step:nth-of-type(2) { transition-delay: 0.6s; }
+.visible .hdm-flow-step:nth-of-type(3) { transition-delay: 0.8s; }
+.visible .hdm-flow-step:nth-of-type(4) { transition-delay: 1s; }
+.hdm-flow-step--fatal {
+    border-color: var(--clay); background: #c0544512;
+}
+.hdm-flow-icon {
+    width: clamp(28px, 3vw, 36px); height: clamp(28px, 3vw, 36px);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; border: 1px solid;
+}
+.hdm-flow-text { min-width: 0; }
+.hdm-flow-title {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.65rem, 0.9vw, 0.78rem); line-height: 1.2;
+}
+.hdm-flow-desc {
+    font-family: var(--font-sans); font-size: clamp(0.55rem, 0.75vw, 0.65rem);
+    color: var(--muted); line-height: 1.3; font-style: italic;
+}
+.hdm-flow-steps .flow-arrow {
+    font-size: clamp(0.7rem, 1vw, 0.9rem); flex-shrink: 0;
+}
+
+/* Countdown Timer Animation */
+@keyframes countdown-fill {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 283; }
+}
+@keyframes timer-urgency-pulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px transparent); }
+    50% { transform: scale(1.03); filter: drop-shadow(0 0 12px var(--clay)); }
+}
+.timer-countdown {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+}
+.timer-countdown-ring { stroke: var(--clay); stroke-dasharray: 283; stroke-dashoffset: 0; }
+.visible .timer-countdown-ring {
+    animation: countdown-fill 4s var(--ease-out-expo) 0.5s forwards;
+}
+.visible .timer-countdown {
+    animation: timer-urgency-pulse 2s ease-in-out 4.5s infinite;
+}
+.timer-steps-checklist {
+    display: flex; flex-direction: column; gap: clamp(0.4rem, 0.8vh, 0.7rem);
+}
+.timer-step-item {
+    display: flex; align-items: center; gap: clamp(8px, 1vw, 12px);
+    font-family: var(--font-sans); font-size: clamp(0.85rem, 1.2vw, 1rem);
+    color: var(--muted-2);
+    opacity: 0; transform: translateX(-20px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .timer-step-item { opacity: 1; transform: translateX(0); }
+.visible .timer-step-item:nth-child(1) { transition-delay: 0.3s; }
+.visible .timer-step-item:nth-child(2) { transition-delay: 0.6s; }
+.visible .timer-step-item:nth-child(3) { transition-delay: 0.9s; }
+.timer-step-check {
+    width: clamp(20px, 2.5vw, 28px); height: clamp(20px, 2.5vw, 28px);
+    border: 2px solid var(--sprout); border-radius: 6px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+}
+.timer-step-check svg { opacity: 0; transition: opacity 0.3s ease; }
+.visible .timer-step-item:nth-child(1) .timer-step-check svg { opacity: 1; transition-delay: 1.2s; }
+.visible .timer-step-item:nth-child(2) .timer-step-check svg { opacity: 1; transition-delay: 1.8s; }
+.visible .timer-step-item:nth-child(3) .timer-step-check svg { opacity: 1; transition-delay: 2.4s; }
+
+/* Pitch cards */
+.pitch-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    border-top: 3px solid var(--brand-light);
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .pitch-card { opacity: 1; transform: translateY(0); }
+.visible .pitch-card:nth-child(1) { transition-delay: 0.15s; }
+.visible .pitch-card:nth-child(2) { transition-delay: 0.3s; }
+.visible .pitch-card:nth-child(3) { transition-delay: 0.45s; }
+.visible .pitch-card:nth-child(4) { transition-delay: 0.6s; }
+.pitch-card-title {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem); color: var(--brand-light); margin-bottom: 4px;
+}
+.pitch-card-desc {
+    font-family: var(--font-sans); font-size: clamp(0.8rem, 1.15vw, 0.95rem);
+    color: var(--muted-2); line-height: 1.4;
+}
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ========== SLIDE 01 — COVER ========== -->
+<section class="slide gradient-bg" id="slide-1" data-notes="Welcome to Session 2 of the Lead Conversion OS. Last week we anchored the foundation — the psychology shift, the 5-pillar frame. Today we go operational. We cover the 3-Step Lofty Setup SOP and the Hidden Decision Maker. By the end of today, every agent will have their Lofty account configured correctly and know how to surface the second person in every deal. This is Module 03 and Module 04. Let us get into it.---Bienvenidos a la Sesion 2 del Lead Conversion OS. La semana pasada anclamos el foundation — el cambio de mentalidad, el marco de 5 pilares. Hoy nos vamos a lo operacional. Cubrimos el SOP de 3 pasos en Lofty y el Decisor Oculto. Al final de hoy, cada agente va a tener su cuenta de Lofty configurada correctamente y va a saber como sacar a la segunda persona en cada deal. Esto es Modulo 03 y Modulo 04. Vamos a entrarle." style="justify-content: center; align-items: center;">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(1.5rem, 3.5vh, 3rem); text-align: center;">
+    <div class="reveal-scale" style="position: relative; display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2rem);">
+      <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate" style="height: clamp(2.5rem, 6vw, 4.5rem); width: auto; color: var(--paper);">
+        <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+        <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay: 0.5s;"/></g>
+      </svg>
+      <span style="color: var(--muted); font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 200; opacity: 0.3;">&times;</span>
+      <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo-cover relearn-cover-animate" style="height: 55px; width: auto; margin-top: -15px;">
+    </div>
+    <div>
+      <h1 class="reveal" style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.03em; line-height: 1.05;">
+        The <span class="stroke stroke--sprout">Lofty Install<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span><br>+ Hidden Decision Maker
+      </h1>
+      <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--muted-2); margin-top: clamp(0.5rem, 1vh, 1rem);">Modules 03 &middot; 04</p>
+    </div>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--muted-2);">Pedro Bando Rivera, Broker/Owner</p>
+    <div class="reveal" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+      <span class="badge badge-sprout" style="font-size: clamp(0.6rem, 0.9vw, 0.75rem);">Lead Conversion OS</span>
+      <span class="badge badge-brand" style="font-size: clamp(0.6rem, 0.9vw, 0.75rem);">Session 2 of 6</span>
+    </div>
+  </div>
+  <div class="slide-footer" style="color: var(--muted-2);">reThought Real Estate &middot; reLearn</div>
+  <div class="slide-number" style="color: var(--muted-2);">01</div>
+</section>
+
+<!-- ========== SLIDE 02 — YEAR STATEMENT ========== -->
+<section class="slide" id="slide-2" data-notes="Quick reminder — 2026 is the year of systems. No more improvising. No more I do it my way. Your way does not scale. Systems do. Every system you build runs while you sleep. That is what we are building here.---Recordatorio rapido — 2026 es el ano de sistemas. No mas improvisar. No mas yo lo hago a mi manera. Tu manera no escala. Los sistemas si. Cada sistema que tu construyes trabaja mientras tu duermes. Eso es lo que estamos armando aqui." style="justify-content: center; align-items: center;">
+  <div style="text-align: center; max-width: min(85vw, 900px);">
+    <div class="section-label reveal" style="justify-content: center;">The Year Of</div>
+    <h2 class="reveal" style="font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 7vw, 5.5rem); letter-spacing: -0.04em; line-height: 1.05;">
+      2026 Is THE Year of<br>
+      <span class="stroke stroke--sprout stroke-animate">SYSTEMS<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>
+      and
+      <span class="stroke stroke--brand stroke-animate">NEW<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 7 C 70 14, 140 2, 198 8"/></svg></span>
+      Skill Developments.
+    </h2>
+    <p class="reveal" style="font-family: var(--font-sans); font-size: clamp(0.9rem, 1.5vw, 1.2rem); color: var(--muted-2); margin-top: clamp(1rem, 2.5vh, 2rem); max-width: 50ch; margin-left: auto; margin-right: auto;">
+      Stop improvising. Start building. Every system you build runs while you sleep.
+    </p>
+  </div>
+  <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">reThought Real Estate</span></div>
+  <div class="slide-number">02 / 20</div>
+</section>
+
+<!-- ========== SLIDE 03 — MISSION & VISION (EN, dark) ========== -->
+<section class="slide" id="slide-3" data-notes="Our mission and vision. Read these. Live these. Human First. Tech Driven. Community Focused. MISSION: To redefine traditional real estate expectations delivering a personalized, tech-driven, and client-centric approach to buying and selling real estate. VISION: To succeed in becoming the local industry leader focused on humanizing the real estate industry, leveraging innovation, investment and growth, while remaining a community resource. This is not decoration — this is what guides every decision we make as a team.---Nuestra mision y vision en ingles. Leanlas. Vivanlas. MISSION: To redefine traditional real estate expectations delivering a personalized, tech-driven, and client-centric approach to buying and selling real estate. VISION: To succeed in becoming the local industry leader focused on humanizing the real estate industry, leveraging innovation, investment and growth, while remaining a community resource. Esto no es decoracion — esto es lo que nos guia cada decision que tomamos como equipo." style="justify-content: center;">
+  <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+    <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand-light); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Mission</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">
+        To redefine traditional real estate expectations delivering a <span style="color: var(--sprout); font-weight: 700;">personalized</span>, <span style="color: var(--sprout); font-weight: 700;">tech-driven</span>, and <span style="color: var(--sprout); font-weight: 700;">client-centric</span> approach to buying and selling real estate.
+      </p>
+    </div>
+    <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="divider-grow"></div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Vision</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">
+        To succeed in becoming the local industry <span style="color: var(--brand-light); font-weight: 700;">leader</span> focused on <span style="color: var(--brand-light); font-weight: 700;">humanizing</span> the real estate industry, leveraging innovation, investment and growth, while remaining a <span style="color: var(--brand-light); font-weight: 700;">community resource</span>.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
+  <div class="slide-number">03 / 20</div>
+</section>
+
+<!-- ========== SLIDE 04 — MISION Y VISION (ES, light) ========== -->
+<section class="slide light" id="slide-4" data-notes="Now in Spanish. Read or let the team absorb. MISION: Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque personalizado, impulsado por la tecnologia y centrado en el cliente para la compra y venta de propiedades. VISION: Triunfar en convertirnos en el lider local de la industria enfocado en humanizar el sector inmobiliario, aprovechando la innovacion, la inversion y el crecimiento, mientras seguimos siendo un recurso para la comunidad.---Ahora en espanol. Lean o dejen que el equipo las absorba. MISION: Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque personalizado, impulsado por la tecnologia y centrado en el cliente para la compra y venta de propiedades. VISION: Triunfar en convertirnos en el lider local de la industria enfocado en humanizar el sector inmobiliario, aprovechando la innovacion, la inversion y el crecimiento, mientras seguimos siendo un recurso para la comunidad. Esto es lo que somos. Si no humaniza la experiencia, no lo hacemos." style="justify-content: center;">
+  <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+    <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Misi&oacute;n</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">
+        Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque <span style="color: var(--brand); font-weight: 700;">personalizado</span>, impulsado por la <span style="color: var(--brand); font-weight: 700;">tecnolog&iacute;a</span> y centrado en el <span style="color: var(--brand); font-weight: 700;">cliente</span> para la compra y venta de propiedades.
+      </p>
+    </div>
+    <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="divider-grow"></div>
+    <div class="reveal" style="max-width: min(85vw, 900px);">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout-deep); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Visi&oacute;n</h2>
+      <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">
+        Triunfar en convertirnos en el <span style="color: var(--sprout-deep); font-weight: 700;">l&iacute;der local</span> de la industria enfocado en <span style="color: var(--sprout-deep); font-weight: 700;">humanizar</span> el sector inmobiliario, aprovechando la innovaci&oacute;n, la inversi&oacute;n y el crecimiento, mientras seguimos siendo un <span style="color: var(--sprout-deep); font-weight: 700;">recurso para la comunidad</span>.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
+  <div class="slide-number">04 / 20</div>
+</section>
+
+<!-- ========== SLIDE 05 — SOCIAL MEDIA PUNCHLINE ========== -->
+<section class="slide punchline-bg" id="slide-5" data-notes="Take out your phones. This is your social media moment. Record this slide as a story and post it. Every agent has a CRM. We have an operating system. There is a difference. The CRM stores contacts. The operating system converts them. That is what separates reThought from every other team. Record it. Post it. Tag reThought.---Saquen sus telefonos. Este es su momento de social media. Graben este slide como un story y postenlo. Cada agente tiene un CRM. Nosotros tenemos un operating system. Hay una diferencia. El CRM guarda contactos. El operating system los convierte. Eso es lo que separa a reThought de todo otro equipo. Grabenlo. Postenlo. Tagueen a reThought." style="justify-content: center; align-items: center;">
+    <!-- Radial glow -->
+    <div class="punchline-glow"></div>
+    <!-- Floating particles -->
+    <div class="punchline-particles">
+        <span style="left: 10%; animation-duration: 8s; animation-delay: 0s; width: 3px; height: 3px;"></span>
+        <span style="left: 25%; animation-duration: 12s; animation-delay: 1s; width: 5px; height: 5px;"></span>
+        <span style="left: 40%; animation-duration: 10s; animation-delay: 2.5s; width: 3px; height: 3px;"></span>
+        <span style="left: 55%; animation-duration: 9s; animation-delay: 0.5s; width: 4px; height: 4px; background: var(--brand-light);"></span>
+        <span style="left: 70%; animation-duration: 11s; animation-delay: 3s; width: 3px; height: 3px;"></span>
+        <span style="left: 85%; animation-duration: 7s; animation-delay: 1.5s; width: 5px; height: 5px;"></span>
+        <span style="left: 15%; animation-duration: 13s; animation-delay: 4s; width: 2px; height: 2px; background: var(--brand-light);"></span>
+        <span style="left: 60%; animation-duration: 8.5s; animation-delay: 2s; width: 4px; height: 4px;"></span>
+        <span style="left: 90%; animation-duration: 10s; animation-delay: 0.8s; width: 3px; height: 3px;"></span>
+        <span style="left: 35%; animation-duration: 14s; animation-delay: 5s; width: 2px; height: 2px;"></span>
+    </div>
+    <!-- GIF indicator -->
+    <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/social-media-story-time-indicator.gif" alt="Story time" style="position: absolute; bottom: clamp(30px, 5vh, 50px); right: var(--slide-padding); opacity: 0.8; height: clamp(50px, 7vh, 80px); width: auto; z-index: 2;">
+    <!-- Content -->
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(0.8rem, 2vh, 1.5rem); max-width: min(90vw, 800px); position: relative; z-index: 1;">
+        <!-- reThought full logo -->
+        <div class="reveal-scale" style="margin-bottom: clamp(0.3rem, 1vh, 0.8rem);">
+            <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" style="height: clamp(2.2rem, 5vw, 3.5rem); width: auto; color: var(--paper);">
+                <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+                <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay: 0.5s;"/></g>
+            </svg>
+        </div>
+        <div class="reveal">
+            <h1 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 6vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.15; color: var(--paper); text-shadow: 0 2px 30px rgba(0,0,0,0.3);">
+                Every agent has a CRM.<br>We have an <span class="stroke stroke--sprout">operating system<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>.<br>
+                <span style="color: var(--muted-2); font-size: 0.6em; font-weight: 500;">There's a difference.</span>
+            </h1>
+        </div>
+        <div class="reveal" style="transition-delay: 0.3s;">
+            <p style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.9vw, 0.78rem); letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2);">
+                reThought Real Estate &middot; reLearn &middot; Lead Conversion OS
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo" style="z-index: 2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Highlight</span></div>
+    <div class="slide-number" style="z-index: 2;">05 / 20</div>
+</section>
+
+<!-- ========== SLIDE 06 — SERIES ARC ========== -->
+<section class="slide" id="slide-6" data-notes="Here is the full system — 6 sessions. Session 1 is done. You anchored the psychology shift and the 5-pillar frame. Today is Session 2 — we go operational with the Lofty install and the hidden decision maker. Do not run ahead. Implement today's training by Friday. Each session builds on the last.---Aqui esta el sistema completo — 6 sesiones. La Sesion 1 ya se completo. Anclaron el cambio de mentalidad y el marco de 5 pilares. Hoy es la Sesion 2 — nos vamos a lo operacional con el Lofty install y el decisor oculto. No corran adelante. Implementen el training de hoy antes del viernes. Cada sesion construye sobre la anterior.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Lead Conversion OS &middot; 6 Sessions</div>
+            <h2 class="slide-title">The Full Operating System</h2>
+            <p class="slide-body">Session 1 complete. Today we go operational.</p>
+        </div>
+        <div class="six-col reveal stagger" style="transition-delay: 0.2s;">
+            <div class="arc-card-lcos done">
+                <div class="arc-num">01</div>
+                <div class="arc-name">Psychology + Frame</div>
+                <div class="arc-sub">Modules 00-02</div>
+                <div class="done-badge">Done</div>
+            </div>
+            <div class="arc-card-lcos active">
+                <div class="arc-num">02</div>
+                <div class="arc-name">Lofty Install + Hidden DM</div>
+                <div class="arc-sub">Modules 03-04</div>
+                <div class="today-badge">Today</div>
+            </div>
+            <div class="arc-card-lcos future">
+                <div class="arc-num">03</div>
+                <div class="arc-name">Callbacks + Triggers</div>
+                <div class="arc-sub">Modules 05-06</div>
+            </div>
+            <div class="arc-card-lcos future">
+                <div class="arc-num">04</div>
+                <div class="arc-name">Post-Close + Marketing</div>
+                <div class="arc-sub">Modules 07-08</div>
+            </div>
+            <div class="arc-card-lcos future">
+                <div class="arc-num">05</div>
+                <div class="arc-name">Memory + Cadence</div>
+                <div class="arc-sub">Modules 09-10</div>
+            </div>
+            <div class="arc-card-lcos future">
+                <div class="arc-num">06</div>
+                <div class="arc-name">Pipeline + Tags</div>
+                <div class="arc-sub">Appendix C</div>
+            </div>
+        </div>
+        <div class="reveal hard-rule" style="transition-delay: 0.4s;">
+            <div class="hard-rule-tag">La Regla</div>
+            <div class="hard-rule-text">Implement 20% ruthlessly each week before adding the next layer. Do not run ahead.</div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">06 / 20</div>
+</section>
+
+<!-- ========== SLIDE 07 — QUICK RECAP SESSION 1 ========== -->
+<section class="slide" id="slide-7" data-notes="Quick recap from last week. The 5-Pillar Frame — every contact must cover all 5 in order. Pillar 1: Who I am. Pillar 2: Why I am calling — benefit-led, never just checking in. Pillar 3: I know what you want — the keyword. Pillar 4: I can help you get it. Pillar 5: Here is something only I can give. If your scripts from last week do not pass the frame test, rewrite them today. Now we build the Lofty configuration that makes the 5-pillar system automatic.---Recap rapido de la semana pasada. El Marco de 5 Pilares — cada contacto tiene que cubrir los 5 en orden. Pilar 1: Quien soy. Pilar 2: Por que llamo — con beneficio, nunca just checking in. Pilar 3: Se lo que buscas — el keyword. Pilar 4: Puedo ayudarte. Pilar 5: Aqui hay algo que solo puedes conseguir a traves de mi. Si sus scripts de la semana pasada no pasan el frame test, reescribanlos hoy. Ahora vamos a construir la configuracion de Lofty que hace el sistema de 5 pilares automatico.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Recap &middot; Session 1</div>
+            <h2 class="slide-title">The 5-Pillar Frame <span style="color: var(--muted-2); font-weight: 400; font-size: 0.6em;">(Quick Reminder)</span></h2>
+            <p class="slide-body">Every outbound contact covers these 5 pillars in order. No exceptions.</p>
+        </div>
+        <div class="five-col reveal stagger" style="transition-delay: 0.2s;">
+            <div class="pillar-card p1 reveal-scale">
+                <div class="pillar-num">1</div>
+                <div class="pillar-name">Who I Am</div>
+                <div class="pillar-desc">Name + brokerage + already met</div>
+            </div>
+            <div class="pillar-card p2 reveal-scale">
+                <div class="pillar-num">2</div>
+                <div class="pillar-name">Why I Call</div>
+                <div class="pillar-desc">Benefit-led reason</div>
+            </div>
+            <div class="pillar-card p3 reveal-scale">
+                <div class="pillar-num">3</div>
+                <div class="pillar-name">Your Keyword</div>
+                <div class="pillar-desc">The search = the desire</div>
+            </div>
+            <div class="pillar-card p4 reveal-scale">
+                <div class="pillar-num">4</div>
+                <div class="pillar-name">I Can Help</div>
+                <div class="pillar-desc">Process, client, or service</div>
+            </div>
+            <div class="pillar-card p5 reveal-scale">
+                <div class="pillar-num">5</div>
+                <div class="pillar-name">Only Through Me</div>
+                <div class="pillar-desc">The specific offer</div>
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.5s; border-left: 3px solid var(--sprout);">
+            <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.5;">
+                Now we build the <span class="highlight">Lofty configuration</span> that makes this system automatic.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">07 / 20</div>
+</section>
+
+<!-- ========== SLIDE 08 — THE 3-STEP SOP OVERVIEW ========== -->
+<section class="slide" id="slide-8" data-notes="Module 03. The 3-Step Lofty Setup SOP. Required for EVERY new lead, EVERY time, within 20 minutes of intake. 1 hour absolute max. STEP 1: Rename the search. Every email the lead receives will have the keyword, your name, and your phone in the subject line. STEP 2: Expand if narrow. The lead gets fresh inventory on theme and never goes silent for more than a week. STEP 3: Schedule the market report. Monthly inbound presence tied to their geography. Long-tail nurture happens automatically. This is the floor. This is not optional. Let us walk through each step. Look at the UI on the right — that is what the rename looks like inside Lofty. The search name field is where you put your keyword plus your branding. That is the field that becomes the subject line of every email.---Modulo 03. El SOP de 3 Pasos en Lofty. Requerido para CADA lead nuevo, CADA vez, dentro de 20 minutos de intake. 1 hora maximo absoluto. PASO 1: Renombra la busqueda. Cada email que el lead reciba va a tener el keyword, tu nombre, y tu telefono en el subject line. PASO 2: Expande si es narrow. El lead recibe inventario fresco y nunca se queda en silencio por mas de una semana. PASO 3: Programa el market report. Presencia mensual inbound atada a su geografia. El nurture de largo plazo pasa automaticamente. Este es el piso. No es opcional. Vamos a caminar cada paso. Miren el UI a la derecha — asi se ve el rename dentro de Lofty. El campo search name es donde pones tu keyword mas tu branding. Ese campo se convierte en el subject line de cada email.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 03 &middot; The 3-Step Lofty Setup SOP</div>
+            <h2 class="slide-title">Every New Lead. Every Time. <span style="color: var(--clay);">Within 20 Minutes.</span></h2>
+        </div>
+        <div class="three-col reveal" style="transition-delay: 0.15s; align-items: start;">
+            <!-- Left: The 3 steps condensed -->
+            <div style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vh, 1rem);">
+                <div class="sop-step-card" style="padding: clamp(0.6rem, 1.2vw, 1rem); flex-direction: row; align-items: center; gap: clamp(8px, 1vw, 14px);">
+                    <div class="sop-step-num" style="font-size: clamp(1.2rem, 2.2vw, 1.8rem);">01</div>
+                    <div>
+                        <div class="sop-step-title" style="font-size: clamp(0.85rem, 1.2vw, 1rem);">Rename the Search</div>
+                        <div class="sop-step-desc" style="font-size: clamp(0.7rem, 0.95vw, 0.82rem);">Keyword + name + phone in subject line</div>
+                    </div>
+                </div>
+                <div class="sop-step-card" style="padding: clamp(0.6rem, 1.2vw, 1rem); flex-direction: row; align-items: center; gap: clamp(8px, 1vw, 14px);">
+                    <div class="sop-step-num" style="font-size: clamp(1.2rem, 2.2vw, 1.8rem);">02</div>
+                    <div>
+                        <div class="sop-step-title" style="font-size: clamp(0.85rem, 1.2vw, 1rem);">Expand If Narrow</div>
+                        <div class="sop-step-desc" style="font-size: clamp(0.7rem, 0.95vw, 0.82rem);">Never silent more than a week</div>
+                    </div>
+                </div>
+                <div class="sop-step-card" style="padding: clamp(0.6rem, 1.2vw, 1rem); flex-direction: row; align-items: center; gap: clamp(8px, 1vw, 14px);">
+                    <div class="sop-step-num" style="font-size: clamp(1.2rem, 2.2vw, 1.8rem);">03</div>
+                    <div>
+                        <div class="sop-step-title" style="font-size: clamp(0.85rem, 1.2vw, 1rem);">Schedule Market Report</div>
+                        <div class="sop-step-desc" style="font-size: clamp(0.7rem, 0.95vw, 0.82rem);">Monthly inbound, geography-based</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Center: Mock Lofty UI — Named Search -->
+            <div class="lofty-ui-mockup reveal-scale" style="transition-delay: 0.3s;">
+                <div class="lofty-ui-chrome">
+                    <div class="lofty-ui-dots"><span></span><span></span><span></span></div>
+                    <div class="lofty-ui-title">Saved Searches</div>
+                </div>
+                <div class="lofty-ui-body" style="gap: clamp(0.4rem, 0.8vh, 0.6rem);">
+                    <div class="lofty-ui-field">
+                        <label class="lofty-ui-label">Search Name</label>
+                        <div class="lofty-ui-input lofty-ui-input--highlight" style="font-size: clamp(0.6rem, 0.85vw, 0.75rem);">
+                            <span class="lofty-ui-keyword-tag">Champions Gate Pool Homes</span> by Maria Lopez at reThought
+                        </div>
+                    </div>
+                    <div class="lofty-ui-field">
+                        <label class="lofty-ui-label">Frequency</label>
+                        <div class="lofty-ui-input" style="font-size: clamp(0.6rem, 0.85vw, 0.75rem);">
+                            <span class="lofty-ui-select">Daily &mdash; Instant</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span class="lofty-ui-status-dot"></span>
+                        <span style="font-size: clamp(0.55rem, 0.75vw, 0.65rem); color: var(--sprout);">Active</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Right: Mock Lofty UI — Market Report -->
+            <div class="lofty-ui-mockup reveal-scale" style="transition-delay: 0.45s;">
+                <div class="lofty-ui-chrome">
+                    <div class="lofty-ui-dots"><span></span><span></span><span></span></div>
+                    <div class="lofty-ui-title">Market Report</div>
+                </div>
+                <div class="lofty-ui-body" style="gap: clamp(0.4rem, 0.8vh, 0.6rem);">
+                    <div class="lofty-ui-field">
+                        <label class="lofty-ui-label">Report Title</label>
+                        <div class="lofty-ui-input lofty-ui-input--highlight" style="font-size: clamp(0.6rem, 0.85vw, 0.75rem);">
+                            Champions Gate Market Update &mdash; Maria Lopez, reThought
+                        </div>
+                    </div>
+                    <div class="lofty-ui-field">
+                        <label class="lofty-ui-label">Geography</label>
+                        <div class="lofty-ui-input" style="font-size: clamp(0.6rem, 0.85vw, 0.75rem);">Champions Gate, FL 33896</div>
+                    </div>
+                    <div class="lofty-ui-field">
+                        <label class="lofty-ui-label">Frequency</label>
+                        <div class="lofty-ui-input" style="font-size: clamp(0.6rem, 0.85vw, 0.75rem);">
+                            <span class="lofty-ui-select">Monthly</span>
+                            <span style="font-size: 0.85em; color: var(--muted); margin-left: 4px;">&rarr; weekly if urgent</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span class="lofty-ui-status-dot"></span>
+                        <span style="font-size: clamp(0.55rem, 0.75vw, 0.65rem); color: var(--sprout);">Scheduled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reveal hard-rule" style="transition-delay: 0.5s;">
+            <div class="hard-rule-tag">The Floor</div>
+            <div class="hard-rule-text">Steps 1, 2, and 3 within 20 minutes — 1 hour max — or the lead is in arrears. The broker sees it on the scoreboard.</div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">08 / 20</div>
+</section>
+
+<!-- ========== SLIDE 09 — STEP 1: SPOT THE KEYWORD (LOFTY PROFILE UI) ========== -->
+<section class="slide light" id="slide-9" data-notes="Step 1 — Spot the Keyword. Where does the keyword live in Lofty? Look at the screen — this is a mock of a real Lofty lead profile. The activity timeline shows you the first inbound action. The eyebrow at the top says First Inbound Action and it highlights the UTM content field — that is where the keyword lives. Champions Gate Pool Homes. That is what they searched. That is their desire. Once you have it, you rename the search so every automated email is branded with that keyword. If the source is organic and the keyword is missing, use the landing page URL as the proxy. The keyword tells you what they want — it is the foundation of every conversation you will have with this lead.---Paso 1 — Encuentra el Keyword. Donde vive el keyword en Lofty? Miren la pantalla — esto es un mock de un perfil real de Lofty. El activity timeline te muestra la primera accion inbound. El eyebrow arriba dice First Inbound Action y resalta el campo UTM content — ahi es donde vive el keyword. Champions Gate Pool Homes. Eso es lo que buscaron. Ese es su deseo. Una vez que lo tienes, renombras la busqueda para que cada email automatizado tenga ese keyword. Si la fuente es organica y el keyword no aparece, usa el URL de la landing page como proxy. El keyword te dice que quieren — es la base de cada conversacion que vas a tener con ese lead.">
+    <div class="slide-content" style="gap: clamp(0.6rem, 1.8vh, 1.5rem);">
+        <div class="reveal">
+            <div class="section-label">Module 03 &middot; Step 1</div>
+            <h2 class="slide-title" style="color: var(--ink);">Spot the <span class="stroke stroke--sprout">Keyword<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span> in the Lead Profile</h2>
+        </div>
+        <!-- Lofty Lead Profile Mockup -->
+        <div class="lofty-profile-mockup reveal-scale" style="transition-delay: 0.15s;">
+            <div class="lofty-ui-chrome lofty-ui-chrome--light">
+                <div class="lofty-ui-dots"><span></span><span></span><span></span></div>
+                <div class="lofty-ui-title" style="color: var(--ink);">Lofty CRM &mdash; Lead Profile</div>
+            </div>
+            <div class="lofty-profile-body">
+                <!-- Profile header -->
+                <div class="lofty-profile-header">
+                    <div class="lofty-avatar">JR</div>
+                    <div class="lofty-profile-info">
+                        <div class="lofty-profile-name">Jennifer Rodriguez</div>
+                        <div class="lofty-profile-meta">jennifer.r@gmail.com &middot; (321) 555-0187</div>
+                        <div style="display: flex; gap: 6px; margin-top: 4px;">
+                            <span class="badge badge-sprout" style="font-size: clamp(0.45rem, 0.65vw, 0.55rem); padding: 2px 8px;">Active</span>
+                            <span class="badge badge-brand" style="font-size: clamp(0.45rem, 0.65vw, 0.55rem); padding: 2px 8px;">Buyer</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Activity Timeline with keyword eyebrow -->
+                <div class="lofty-timeline-section">
+                    <div class="lofty-timeline-eyebrow">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="var(--sprout)" stroke-width="2"/><path d="M6 3v3l2 1.5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        First Inbound Action
+                    </div>
+                    <div class="lofty-timeline">
+                        <div class="lofty-timeline-item lofty-timeline-item--keyword">
+                            <div class="lofty-timeline-dot lofty-timeline-dot--keyword"></div>
+                            <div class="lofty-timeline-content">
+                                <div class="lofty-timeline-date">May 12, 2026 &middot; 9:14 AM</div>
+                                <div class="lofty-timeline-action">Website Visit &mdash; Property Search</div>
+                                <div class="lofty-timeline-detail">
+                                    <span class="lofty-utm-label">UTM Content:</span>
+                                    <span class="lofty-utm-value">Champions Gate Pool Homes</span>
+                                </div>
+                                <div class="lofty-timeline-detail">
+                                    <span class="lofty-utm-label">Landing Page:</span>
+                                    <span style="font-size: clamp(0.6rem, 0.8vw, 0.7rem); color: var(--muted);">rethought.com/champions-gate-pool-homes</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lofty-timeline-item">
+                            <div class="lofty-timeline-dot"></div>
+                            <div class="lofty-timeline-content">
+                                <div class="lofty-timeline-date">May 12, 2026 &middot; 9:16 AM</div>
+                                <div class="lofty-timeline-action">Saved 3 properties</div>
+                            </div>
+                        </div>
+                        <div class="lofty-timeline-item">
+                            <div class="lofty-timeline-dot"></div>
+                            <div class="lofty-timeline-content">
+                                <div class="lofty-timeline-date">May 12, 2026 &middot; 9:22 AM</div>
+                                <div class="lofty-timeline-action">Form Submit &mdash; Request Info</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Callout -->
+        <div class="reveal" style="transition-delay: 0.4s; display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);">
+            <div style="width: 3px; height: clamp(30px, 4vh, 45px); background: var(--sprout); border-radius: 2px; flex-shrink: 0;"></div>
+            <p style="font-family: var(--font-sans); font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--ink); line-height: 1.4;">
+                The <strong>keyword</strong> is the desire. If UTM is empty, use the <strong>landing page URL</strong> as proxy.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">09 / 20</div>
+</section>
+
+<!-- ========== SLIDE 10 — RENAME FORMAT ========== -->
+<section class="slide" id="slide-10" data-notes="Here is the rename format. Look at the screen — the BAD version is a generic Save Search Update. That tells the lead nothing. It has no branding, no authority, no keyword. Now look at the GOOD version: Champions Gate Pool Homes by Maria Lopez at reThought, 407-555-0142. Every email that lead receives now has your keyword, your name, and your phone number in the subject line. That subject line does the marketing for you. The lead sees your name every week without you lifting a finger. This is branding on autopilot.---Aqui esta el formato de rename. Miren la pantalla — la version MALA es un Save Search Update generico. Eso no le dice nada al lead. No tiene branding, no tiene autoridad, no tiene keyword. Ahora miren la version BUENA: Champions Gate Pool Homes by Maria Lopez at reThought, 407-555-0142. Cada email que ese lead reciba ahora tiene tu keyword, tu nombre, y tu telefono en el subject line. Ese subject line hace el marketing por ti. El lead ve tu nombre cada semana sin que tu levantes un dedo. Esto es branding en autopiloto.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 03 &middot; Step 1 — The Rename</div>
+            <h2 class="slide-title">Before &amp; After</h2>
+            <p class="slide-body">Every automated email becomes a branded touchpoint.</p>
+        </div>
+        <div class="two-col reveal" style="transition-delay: 0.15s;">
+            <div class="script-block bad" style="font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.7;">
+                <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--clay)" stroke-width="2"/><path d="M4.5 4.5L9.5 9.5M9.5 4.5L4.5 9.5" stroke="var(--clay)" stroke-width="1.5" stroke-linecap="round"/></svg> Generic &mdash; No branding</div>
+                <p style="color: var(--clay-soft); font-weight: 500;">"Save Search Update"</p>
+                <p style="color: var(--muted); font-size: 0.85em; margin-top: 8px;">No keyword. No name. No phone. The lead has no idea who sent it.</p>
+            </div>
+            <div class="script-block good" style="font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.7;">
+                <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Branded &mdash; Authority</div>
+                <p style="color: var(--sprout-soft); font-weight: 500;">"Champions Gate Pool Homes by Maria Lopez at reThought &middot; 407-555-0142"</p>
+                <p style="color: var(--muted); font-size: 0.85em; margin-top: 8px;">Keyword + name + phone = branding on autopilot.</p>
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.35s; border-left: 3px solid var(--sprout);">
+            <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout); margin-bottom: 6px;">The Format</div>
+            <p style="font-family: var(--font-mono); font-size: clamp(0.9rem, 1.3vw, 1.05rem); color: var(--paper); line-height: 1.5;">
+                [KEYWORD] by [Your Name] at reThought &middot; [Your Phone]
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">10 / 20</div>
+</section>
+
+<!-- ========== SLIDE 11 — STEP 2: EXPAND IF NARROW (IDX MAP — EMPTY) ========== -->
+<section class="slide" id="slide-11" data-notes="Step 2 — Expand the Search If the Niche Is Too Narrow. How do you know it is too narrow? THREE triggers: ONE, single subdivision with fewer than 10 active listings. TWO, single zip code with a very specific feature. THREE, brand-new construction community where inventory is builder-controlled. If any of those are true, expand. Look at the screen — on the left is what your lead sees when the search is too narrow: a tiny area with almost no results. That red zone with the X markers means the lead gets zero emails. Zero engagement. They forget you exist. On the right we expand — same theme, wider geography. Green markers everywhere. Fresh inventory flowing. The lead never goes silent.---Paso 2 — Expande la Busqueda Si el Nicho Es Muy Narrow. Como sabes que es muy narrow? TRES triggers: UNO, subdivision unica con menos de 10 listings activos. DOS, un solo zip code con una feature muy especifica. TRES, comunidad de new construction donde el inventario lo controla el builder. Si cualquiera de esos aplica, expande. Miren la pantalla — a la izquierda es lo que tu lead ve cuando la busqueda es muy narrow: una area chiquita casi sin resultados. Esa zona roja con los X markers significa que el lead recibe cero emails. Cero engagement. Se olvidan de ti. A la derecha expandimos — mismo tema, geografia mas amplia. Markers verdes por todos lados. Inventario fresco fluyendo. El lead nunca se queda en silencio.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 03 &middot; Step 2 — Expand If Narrow</div>
+            <h2 class="slide-title">When to <span class="stroke stroke--sprout">Expand<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span></h2>
+        </div>
+        <div class="reveal stagger" style="transition-delay: 0.1s; display: flex; gap: clamp(0.4rem, 1vw, 0.8rem); flex-wrap: wrap; margin-bottom: clamp(0.3rem, 0.8vh, 0.6rem);">
+            <span class="badge badge-clay">Fewer than 10 active listings</span>
+            <span class="badge badge-clay">Single zip + very specific feature</span>
+            <span class="badge badge-clay">Builder-controlled inventory</span>
+        </div>
+        <!-- IDX Map comparison: narrow vs expanded -->
+        <div class="two-col reveal" style="transition-delay: 0.2s; align-items: stretch;">
+            <!-- Left: Narrow search — empty map -->
+            <div class="idx-map-mockup idx-map--empty">
+                <div class="idx-map-header">
+                    <span class="idx-map-label idx-map-label--bad">Too Narrow</span>
+                    <span class="idx-map-count idx-map-count--bad">2 results</span>
+                </div>
+                <div class="idx-map-canvas idx-map-canvas--bad">
+                    <!-- Small search area -->
+                    <div class="idx-map-zone idx-map-zone--bad"></div>
+                    <!-- Sparse X markers -->
+                    <div class="idx-marker idx-marker--dead" style="top: 40%; left: 45%;">&times;</div>
+                    <div class="idx-marker idx-marker--dead" style="top: 55%; left: 52%;">&times;</div>
+                    <!-- Empty state text -->
+                    <div class="idx-map-empty-msg">Lead receives 0 emails this week</div>
+                </div>
+            </div>
+            <!-- Right: Expanded search — full map -->
+            <div class="idx-map-mockup idx-map--full">
+                <div class="idx-map-header">
+                    <span class="idx-map-label idx-map-label--good">Expanded</span>
+                    <span class="idx-map-count idx-map-count--good">24 results</span>
+                </div>
+                <div class="idx-map-canvas idx-map-canvas--good">
+                    <!-- Large search area -->
+                    <div class="idx-map-zone idx-map-zone--good"></div>
+                    <!-- Many green markers -->
+                    <div class="idx-marker idx-marker--active" style="top: 25%; left: 30%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 35%; left: 55%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 20%; left: 65%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 45%; left: 40%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 50%; left: 70%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 60%; left: 35%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 55%; left: 58%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 70%; left: 45%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 30%; left: 48%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 65%; left: 62%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 40%; left: 25%;"></div>
+                    <div class="idx-marker idx-marker--active" style="top: 75%; left: 55%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.45s; border-left: 3px solid var(--sprout);">
+            <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.5;">
+                Same theme, wider geography. The lead <strong>never goes silent</strong> for more than a week.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">11 / 20</div>
+</section>
+
+<!-- ========== SLIDE 12 — STEP 3: SCHEDULE MARKET REPORT (WITH UI) ========== -->
+<section class="slide" id="slide-12" data-notes="Step 3 — Schedule the Market Report. Two key rules. RULE 1: Set geography to match the renamed search keyword. Do NOT default to the whole MLS. If their keyword is Champions Gate Pool Homes, the market report goes to Champions Gate, not all of Central Florida. RULE 2: Set frequency to monthly. Upgrade to weekly ONLY if the lead has shown urgency — meaning they responded, scheduled a showing, or asked a direct question. Monthly keeps you in their inbox without becoming noise. The market report is your long-tail nurture engine. It runs automatically, keeps your name in front of the lead, and gives them actual data they cannot get on Zillow. Look at the UI mockup — that is exactly what your market report configuration should look like inside Lofty. Geography matches keyword. Frequency monthly. Your branding in the title.---Paso 3 — Programa el Market Report. Dos reglas clave. REGLA 1: Pon la geografia que haga match con el keyword del rename. NO pongas todo el MLS. Si su keyword es Champions Gate Pool Homes, el market report va a Champions Gate, no a todo Central Florida. REGLA 2: Pon la frecuencia en mensual. Upgrade a semanal SOLO si el lead ha mostrado urgencia — o sea que respondio, programo un showing, o hizo una pregunta directa. Mensual te mantiene en su inbox sin convertirte en ruido. El market report es tu motor de nurture de largo plazo. Corre automaticamente, mantiene tu nombre frente al lead, y les da data real que no consiguen en Zillow. Miren el UI mockup — asi exactamente se ve la configuracion de tu market report en Lofty. Geografia que haga match con keyword. Frecuencia mensual. Tu branding en el titulo.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 03 &middot; Step 3 — Market Report</div>
+            <h2 class="slide-title">Long-Tail Nurture on <span class="stroke stroke--sprout">Autopilot<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span></h2>
+        </div>
+        <div class="two-col reveal" style="transition-delay: 0.15s; align-items: start;">
+            <!-- Left: Rules -->
+            <div style="display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vh, 1rem);">
+                <div class="rt-card" style="border-top: 3px solid var(--brand); padding: clamp(0.7rem, 1.3vw, 1.1rem);">
+                    <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--brand-light); margin-bottom: 6px;">Rule 1 &mdash; Geography</div>
+                    <p style="font-family: var(--font-sans); font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--paper); line-height: 1.5;">
+                        Match the <strong>renamed search keyword</strong>. Never default to the whole MLS.
+                    </p>
+                </div>
+                <div class="rt-card" style="border-top: 3px solid var(--sprout); padding: clamp(0.7rem, 1.3vw, 1.1rem);">
+                    <div style="font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout); margin-bottom: 6px;">Rule 2 &mdash; Frequency</div>
+                    <p style="font-family: var(--font-sans); font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--paper); line-height: 1.5;">
+                        Monthly default. Weekly <strong>only</strong> if lead shows urgency.
+                    </p>
+                </div>
+            </div>
+            <!-- Right: Market Report UI Mockup -->
+            <div class="lofty-ui-mockup reveal-scale" style="transition-delay: 0.3s;">
+                <div class="lofty-ui-chrome">
+                    <div class="lofty-ui-dots"><span></span><span></span><span></span></div>
+                    <div class="lofty-ui-title">Lofty CRM &mdash; Market Report Setup</div>
+                </div>
+                <div class="lofty-ui-body">
+                    <div class="lofty-ui-field">
+                        <label class="lofty-ui-label">Report Title</label>
+                        <div class="lofty-ui-input lofty-ui-input--highlight">
+                            Champions Gate Market Update &mdash; Maria Lopez, reThought
+                        </div>
+                    </div>
+                    <div class="lofty-ui-field">
+                        <label class="lofty-ui-label">Geography</label>
+                        <div class="lofty-ui-input" style="display: flex; align-items: center; gap: 6px;">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1C3.8 1 2 2.8 2 5c0 3 4 6 4 6s4-3 4-6c0-2.2-1.8-4-4-4z" fill="var(--brand-light)"/><circle cx="6" cy="5" r="1.5" fill="var(--ink)"/></svg>
+                            Champions Gate, FL 33896
+                        </div>
+                    </div>
+                    <div class="lofty-ui-field">
+                        <label class="lofty-ui-label">Frequency</label>
+                        <div class="lofty-ui-input">
+                            <span class="lofty-ui-select">Monthly</span>
+                        </div>
+                    </div>
+                    <div class="lofty-ui-field">
+                        <label class="lofty-ui-label">Includes</label>
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                            <span class="badge badge-sprout" style="font-size: clamp(0.45rem, 0.65vw, 0.55rem); padding: 2px 6px;">Avg Price</span>
+                            <span class="badge badge-sprout" style="font-size: clamp(0.45rem, 0.65vw, 0.55rem); padding: 2px 6px;">Days on Market</span>
+                            <span class="badge badge-sprout" style="font-size: clamp(0.45rem, 0.65vw, 0.55rem); padding: 2px 6px;">New Listings</span>
+                            <span class="badge badge-brand" style="font-size: clamp(0.45rem, 0.65vw, 0.55rem); padding: 2px 6px;">Sold Comps</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px; padding-top: 4px; border-top: 1px solid var(--border-d);">
+                        <span class="lofty-ui-status-dot"></span>
+                        <span style="font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: var(--sprout);">Active &mdash; next send: June 1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.4s; border-left: 3px solid var(--amber);">
+            <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.5;">
+                Your <span class="highlight">long-tail nurture engine</span>. Runs automatically. Data they cannot get on Zillow.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">12 / 20</div>
+</section>
+
+<!-- ========== SLIDE 13 — THE 20-MINUTE RULE (ANIMATED COUNTDOWN) ========== -->
+<section class="slide" id="slide-13" data-notes="The 20-Minute Rule. Every new Lofty lead gets Steps 1, 2, and 3 completed within 20 minutes of intake. 1 hour is the absolute maximum. Not tomorrow. Not when I get to it. 20 minutes. If you do not complete all three steps within the hour, that lead is in arrears. The broker WILL see it on the scoreboard. This is non-negotiable. The whole system falls apart if the setup does not happen fast. The lead is hottest in the first 20 minutes. That is when they are still on your site. That is when they remember their search. After an hour they are already on three other agent sites. Set it up NOW. Look at the timer on the left — watch it count down. 20 minutes is the target, 60 minutes is the hard stop. On the right, the three steps check off one by one. All three must be green before that timer hits zero.---La Regla de 20 Minutos. Cada lead nuevo en Lofty recibe los Pasos 1, 2, y 3 completados dentro de 20 minutos de intake. 1 hora es el maximo absoluto. No manana. No cuando me toque. 20 minutos. Si no completas los tres pasos dentro de la hora, ese lead esta en arrears. El broker LO VA A VER en el scoreboard. Esto no es negociable. Todo el sistema se cae si el setup no pasa rapido. El lead esta mas caliente en los primeros 20 minutos. Es cuando todavia estan en tu sitio. Es cuando recuerdan su busqueda. Despues de una hora ya estan en tres sitios de otros agentes. Configuralo AHORA. Miren el timer a la izquierda — veanlo contar. 20 minutos es el target, 60 minutos es el hard stop. A la derecha, los tres pasos se marcan uno por uno. Los tres tienen que estar verdes antes de que ese timer llegue a cero.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label" style="justify-content: center;">Module 03 &middot; The Floor</div>
+            <h2 class="slide-title" style="text-align: center;">The <span style="color: var(--clay);">20-Minute</span> Rule</h2>
+        </div>
+        <!-- Timer + Checklist -->
+        <div class="two-col reveal" style="transition-delay: 0.15s; align-items: center;">
+            <!-- Left: Animated countdown timer -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(0.5rem, 1.5vh, 1rem);">
+                <div class="timer-countdown">
+                    <svg width="200" height="200" viewBox="0 0 100 100" style="width: clamp(140px, 18vw, 220px); height: auto;">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke-width="5" class="timer-circle-bg"/>
+                        <circle cx="50" cy="50" r="45" fill="none" stroke-width="5" stroke-linecap="round" class="timer-countdown-ring" transform="rotate(-90 50 50)"/>
+                        <text x="50" y="44" text-anchor="middle" fill="var(--clay)" font-family="var(--font-display)" font-weight="800" font-size="22">20:00</text>
+                        <text x="50" y="57" text-anchor="middle" fill="var(--muted)" font-family="var(--font-mono)" font-size="5.5" letter-spacing="1">MINUTES &middot; TARGET</text>
+                        <text x="50" y="67" text-anchor="middle" fill="var(--clay-soft)" font-family="var(--font-mono)" font-size="5" letter-spacing="0.8">60 MIN HARD STOP</text>
+                    </svg>
+                </div>
+                <p style="font-family: var(--font-sans); font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--muted-2); text-align: center; max-width: 28ch;">
+                    The lead is hottest now. After 1 hour they're on 3 other agent sites.
+                </p>
+            </div>
+            <!-- Right: Steps checklist that checks off -->
+            <div class="timer-steps-checklist">
+                <div class="timer-step-item">
+                    <div class="timer-step-check">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L5.5 10L11 4" stroke="var(--sprout)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div>
+                        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.9rem, 1.3vw, 1.1rem);">Step 1: Rename the Search</div>
+                        <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.58rem); color: var(--sprout); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px;">Keyword + name + phone</div>
+                    </div>
+                </div>
+                <div class="timer-step-item">
+                    <div class="timer-step-check">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L5.5 10L11 4" stroke="var(--sprout)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div>
+                        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.9rem, 1.3vw, 1.1rem);">Step 2: Expand If Narrow</div>
+                        <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.58rem); color: var(--sprout); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px;">Fresh inventory flowing</div>
+                    </div>
+                </div>
+                <div class="timer-step-item">
+                    <div class="timer-step-check">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L5.5 10L11 4" stroke="var(--sprout)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div>
+                        <div style="font-family: var(--font-display); font-weight: 600; font-size: clamp(0.9rem, 1.3vw, 1.1rem);">Step 3: Schedule Market Report</div>
+                        <div style="font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.58rem); color: var(--sprout); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px;">Monthly nurture active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reveal hard-rule" style="transition-delay: 0.4s;">
+            <div class="hard-rule-tag">Hard Rule</div>
+            <div class="hard-rule-text">All three green within 20 minutes — 1 hour absolute max — or the lead is in arrears. The broker sees it on the scoreboard.</div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">13 / 20</div>
+</section>
+
+<!-- ========== SLIDE 14 — THE HIDDEN DECISION MAKER (STORY FLOW) ========== -->
+<section class="slide" id="slide-14" data-notes="Module 04 — The Hidden Decision Maker. This is the single biggest gap in most agents follow-up. More than 80 percent of buyers and sellers have a spouse, partner, or co-decision-maker. But Lofty captures ONE name, ONE phone, ONE email. The other person is invisible. Look at the screen — follow the story. On the left is Jennifer, your lead, safe in your CRM. Connected to her by a dashed line is a ghost — the question mark — her partner Carlos. You do not have Carlos. He is invisible. Now follow the flow from Carlos down and to the right. What happens to Carlos while you are only talking to Jennifer? Step 1 — a friend at the office tells Carlos about their agent. Step 2 — Carlos sees a Zillow ad on his phone and signs up on a competing site. Step 3 — a competitor agent calls Carlos directly. Step 4 — Carlos tells Jennifer to stop responding to you. Deal dead. And you never saw it coming because Carlos was never in your system. That is the hidden decision maker. That is why 80 percent of deals that go silent are not cold leads — they are leads where someone you never captured made the decision for them.---Modulo 04 — El Decisor Oculto. Este es el gap mas grande en el follow-up de la mayoria de agentes. Mas del 80 por ciento de compradores y vendedores tienen un esposo, pareja, o co-decisor. Pero Lofty captura UN nombre, UN telefono, UN email. La otra persona es invisible. Miren la pantalla — sigan la historia. A la izquierda esta Jennifer, tu lead, segura en tu CRM. Conectado a ella por una linea punteada esta un fantasma — el signo de interrogacion — su pareja Carlos. Tu no tienes a Carlos. Es invisible. Ahora sigan el flujo desde Carlos hacia abajo y a la derecha. Que le pasa a Carlos mientras tu solo hablas con Jennifer? Paso 1 — un amigo en la oficina le dice a Carlos de su agente. Paso 2 — Carlos ve un ad de Zillow en su telefono y se registra en un sitio competidor. Paso 3 — un agente competidor le llama a Carlos directamente. Paso 4 — Carlos le dice a Jennifer que deje de responderte. Deal muerto. Y tu nunca lo viste venir porque Carlos nunca estuvo en tu sistema. Ese es el decisor oculto. Por eso el 80 por ciento de los deals que se quedan en silencio no son leads frios — son leads donde alguien que nunca capturaste tomo la decision por ellos.">
+    <div class="slide-content" style="gap: clamp(0.6rem, 1.5vh, 1.2rem);">
+        <div class="reveal">
+            <div class="section-label">Module 04 &middot; The Hidden Decision Maker</div>
+            <h2 class="slide-title">The Invisible Person Who <span style="color: var(--clay);">Kills Your Deal</span></h2>
+        </div>
+        <!-- Visual story flow -->
+        <div class="reveal" style="transition-delay: 0.15s;">
+            <div class="hdm-story-flow">
+                <!-- Top: Person pair -->
+                <div class="hdm-top-row">
+                    <div class="hdm-person hdm-person--you">
+                        <div class="hdm-avatar" style="background: linear-gradient(135deg, var(--brand), var(--brand-deep));">JR</div>
+                        <div class="hdm-name">Jennifer</div>
+                        <div class="hdm-tag hdm-tag--safe">In your CRM</div>
+                    </div>
+                    <div class="hdm-link">
+                        <svg width="100%" height="2" style="overflow: visible;"><line x1="0" y1="1" x2="100%" y2="1" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4"/></svg>
+                        <span class="hdm-link-label">married</span>
+                    </div>
+                    <div class="hdm-person hdm-person--ghost">
+                        <div class="hdm-avatar hdm-avatar--ghost">?</div>
+                        <div class="hdm-name" style="color: var(--muted);">Carlos <span style="color: var(--clay); font-size: 0.8em;">(invisible)</span></div>
+                        <div class="hdm-tag hdm-tag--danger">Not in Lofty</div>
+                    </div>
+                    <div class="hdm-stat">
+                        <div class="hdm-stat-num">80%</div>
+                        <div class="hdm-stat-label">have a<br>co-decision-maker</div>
+                    </div>
+                </div>
+                <!-- Bottom: Flow story — what happens to Carlos -->
+                <div class="hdm-flow-row">
+                    <div class="hdm-flow-arrow-down">
+                        <svg width="2" height="100%"><line x1="1" y1="0" x2="1" y2="100%" stroke="var(--clay)" stroke-width="2" stroke-dasharray="4 3" opacity="0.5"/></svg>
+                    </div>
+                    <div class="hdm-flow-steps">
+                        <div class="hdm-flow-step">
+                            <div class="hdm-flow-icon" style="background: #e0a63a20; border-color: var(--amber);">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5.2 2 3 4.2 3 7s5 7 5 7 5-4.2 5-7-2.2-5-5-5z" fill="var(--amber)" opacity="0.6"/><circle cx="8" cy="7" r="2" fill="var(--amber)"/></svg>
+                            </div>
+                            <div class="hdm-flow-text">
+                                <div class="hdm-flow-title">Friend refers another agent</div>
+                                <div class="hdm-flow-desc">"You should call my guy"</div>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div class="hdm-flow-step">
+                            <div class="hdm-flow-icon" style="background: #c0544520; border-color: var(--clay);">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="2" fill="var(--clay)" opacity="0.5"/><rect x="5" y="5" width="6" height="3" rx="1" fill="var(--clay)"/></svg>
+                            </div>
+                            <div class="hdm-flow-text">
+                                <div class="hdm-flow-title">Zillow ad &rarr; signs up</div>
+                                <div class="hdm-flow-desc">Competing site captures him</div>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div class="hdm-flow-step">
+                            <div class="hdm-flow-icon" style="background: #c0544530; border-color: var(--clay);">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" fill="var(--clay)" opacity="0.6"/><path d="M3 14c0-2.8 2.2-5 5-5s5 2.2 5 5" fill="var(--clay)" opacity="0.4"/></svg>
+                            </div>
+                            <div class="hdm-flow-text">
+                                <div class="hdm-flow-title">Competitor calls Carlos</div>
+                                <div class="hdm-flow-desc">Now Carlos has "his" agent</div>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div class="hdm-flow-step hdm-flow-step--fatal">
+                            <div class="hdm-flow-icon" style="background: #c0544540; border-color: var(--clay);">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="var(--clay)" stroke-width="2.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="hdm-flow-text">
+                                <div class="hdm-flow-title" style="color: var(--clay);">Tells Jennifer to stop</div>
+                                <div class="hdm-flow-desc">"Don't respond to that agent"</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.4s; border-left: 3px solid var(--clay);">
+            <p style="font-family: var(--font-sans); font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--paper); line-height: 1.4;">
+                Your lead didn't go cold. Their <strong style="color: var(--clay);">partner</strong> made a decision — and you weren't in the room.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">14 / 20</div>
+</section>
+
+<!-- ========== SLIDE 15 — THE ASK SCRIPT EN/ES ========== -->
+<section class="slide" id="slide-15" data-notes="The Ask — How to Surface the Second Person. Read the English version: Jennifer, one thing that makes a home search smoother is having both decision-makers on the same email and alert system. That way you do not have to forward listings back and forth or worry about missing a showing because one of you saw it first. Want me to add your spouse or partner so you both see what is coming through? Notice — no pressure. It is framed as a convenience for THEM, not a data grab for you. The benefit is clear: no more forwarding, no more missed showings. Toggle to Spanish to see the ES version.---El Ask — Como Sacar a la Segunda Persona. Lean la version en espanol: Jennifer, una cosa que hace mas facil la busqueda de casa es tener a las dos personas que deciden en el mismo sistema de alertas. Asi no tienes que andar reenviando listings o preocuparte por perderte una visita porque uno lo vio primero. Quieres que anada a tu esposo o pareja para que ambos vean lo que sale? Fijense — sin presion. Esta framed como una conveniencia para ELLOS, no como un data grab para ti. El beneficio es claro: no mas reenviar, no mas showings perdidos.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <div class="section-label">Module 04 &middot; The Ask</div>
+                <h2 class="slide-title">Surface the Second Person</h2>
+            </div>
+            <div class="lang-toggle" data-target="script-ask">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </div>
+        <div class="reveal script-pair" id="script-ask" style="transition-delay: 0.15s;">
+            <div class="script-en">
+                <div class="script-block good" style="font-size: clamp(1rem, 1.55vw, 1.25rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> The Ask Script</div>
+                    <span style="color: var(--brand-light);">Jennifer,</span> one thing that makes a home search smoother is having <span style="color: var(--sprout);">both decision-makers</span> on the same email and alert system. That way you do not have to forward listings back and forth or worry about missing a showing because one of you saw it first. <span style="color: var(--amber);">Want me to add your spouse or partner so you both see what's coming through?</span>
+                </div>
+            </div>
+            <div class="script-es">
+                <div class="script-block good" style="font-size: clamp(1rem, 1.55vw, 1.25rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> El Script del Ask</div>
+                    <span style="color: var(--brand-light);">Jennifer,</span> una cosa que hace m&aacute;s f&aacute;cil la b&uacute;squeda de casa es tener a las <span style="color: var(--sprout);">dos personas que deciden</span> en el mismo sistema de alertas. As&iacute; no tienes que andar reenviando listings o preocuparte por perderte una visita porque uno lo vio primero. <span style="color: var(--amber);">&iquest;Quieres que a&ntilde;ada a tu esposo o pareja para que ambos vean lo que sale?</span>
+                </div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.3s;">
+            <span class="badge badge-sprout">Framed as convenience for them &mdash; not a data grab for you</span>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">15 / 20</div>
+</section>
+
+<!-- ========== SLIDE 16 — THE SOFT RE-ASK ========== -->
+<section class="slide" id="slide-16" data-notes="If they resist — the Soft Re-Ask. Read the English version: Totally up to you. Just so you know, our team also offers a financing audit and a market analysis that some clients like to share with their spouse before they commit. If that becomes useful, just send their email when you are ready. No pressure. Notice — you NEVER push. You plant a seed and move on. The financing audit and the market analysis are your Pillar 5 offers. The lead now knows that there are documents they might want to share with their partner. When the moment is right, they will send the email. The soft re-ask has a 30 to 40 percent conversion rate over 90 days. You just have to be patient.---Si se resisten — El Soft Re-Ask. Lean la version en espanol: Sin problema, tu decides. Solo para que sepas, nuestro equipo tambien ofrece un analisis de financiamiento y un analisis de mercado que algunos clientes les gusta compartir con su pareja antes de comprometerse. Si en algun momento te sirve, me mandas su email cuando estes listo. Sin presion. Fijense — NUNCA empujas. Plantas una semilla y sigues. El analisis de financiamiento y el market analysis son tus ofertas de Pilar 5. El lead ahora sabe que hay documentos que puede querer compartir con su pareja. Cuando el momento sea correcto, van a mandar el email. El soft re-ask tiene un conversion rate de 30 a 40 por ciento en 90 dias. Solo tienes que ser paciente.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <div class="section-label">Module 04 &middot; If They Resist</div>
+                <h2 class="slide-title">The Soft <span class="stroke stroke--sprout">Re-Ask<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span></h2>
+            </div>
+            <div class="lang-toggle" data-target="script-reask">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </div>
+        <div class="reveal script-pair" id="script-reask" style="transition-delay: 0.15s;">
+            <div class="script-en">
+                <div class="script-block good" style="font-size: clamp(1rem, 1.55vw, 1.25rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Soft Re-Ask</div>
+                    Totally up to you. Just so you know, our team also offers a <span style="color: var(--amber);">financing audit</span> and a <span style="color: var(--amber);">market analysis</span> that some clients like to share with their spouse before they commit. If that becomes useful, <span style="color: var(--sprout);">just send their email when you're ready. No pressure.</span>
+                </div>
+            </div>
+            <div class="script-es">
+                <div class="script-block good" style="font-size: clamp(1rem, 1.55vw, 1.25rem); line-height: 1.7;">
+                    <div class="script-tag"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--sprout)" stroke-width="2"/><path d="M4 7.5L6 9.5L10 5" stroke="var(--sprout)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> El Soft Re-Ask</div>
+                    Sin problema, t&uacute; decides. Solo para que sepas, nuestro equipo tambi&eacute;n ofrece un <span style="color: var(--amber);">an&aacute;lisis de financiamiento</span> y un <span style="color: var(--amber);">an&aacute;lisis de mercado</span> que algunos clientes les gusta compartir con su pareja antes de comprometerse. <span style="color: var(--sprout);">Si en alg&uacute;n momento te sirve, me mandas su email cuando est&eacute;s listo. Sin presi&oacute;n.</span>
+                </div>
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.3s; border-left: 3px solid var(--amber);">
+            <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.5;">
+                Never push. Plant a seed and move on. The soft re-ask converts <strong>30-40%</strong> over 90 days.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">16 / 20</div>
+</section>
+
+<!-- ========== SLIDE 17 — PITCH BOTH NOT JUST ONE ========== -->
+<section class="slide" id="slide-17" data-notes="Once you capture the hidden decision maker, EVERYTHING changes. You are no longer pitching one person — you are pitching both. Point at each card: EMAIL SUBJECTS — include both names. Instead of Hi Jennifer, it is Hi Jennifer and Carlos. TEXT MESSAGES — send to both numbers. If only one replies, the other still sees the thread. SHOWINGS — invite both. The one who shows up without their partner is the one who cannot close. LENDER INTROS — connect both to the lender. Pre-approval needs both incomes, both credit profiles. If you only pitch one person, you are leaving the deal vulnerable to the invisible veto. Pitch both. Always.---Una vez que capturas al decisor oculto, TODO cambia. Ya no estas pitching a una persona — estas pitching a las dos. Senalen cada tarjeta: EMAIL SUBJECTS — incluye ambos nombres. En vez de Hi Jennifer, es Hi Jennifer and Carlos. TEXT MESSAGES — manda a ambos numeros. Si solo uno responde, el otro igual ve el thread. SHOWINGS — invita a ambos. El que va sin su pareja es el que no puede cerrar. LENDER INTROS — conecta a ambos con el lender. Pre-approval necesita ambos ingresos, ambos perfiles de credito. Si solo le haces pitch a una persona, estas dejando el deal vulnerable al veto invisible. Pitch a ambos. Siempre.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 04 &middot; What Changes</div>
+            <h2 class="slide-title">Pitch <span class="stroke stroke--sprout">Both<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span>, Not Just One</h2>
+            <p class="slide-body">Once you capture the hidden DM, everything changes.</p>
+        </div>
+        <div class="four-col" style="transition-delay: 0.2s;">
+            <div class="pitch-card">
+                <div class="pitch-card-title">Email Subjects</div>
+                <div class="pitch-card-desc">Include both names. "Hi Jennifer and Carlos" &mdash; never just one.</div>
+            </div>
+            <div class="pitch-card">
+                <div class="pitch-card-title">Text Messages</div>
+                <div class="pitch-card-desc">Send to both numbers. One replies, the other still sees the thread.</div>
+            </div>
+            <div class="pitch-card">
+                <div class="pitch-card-title">Showings</div>
+                <div class="pitch-card-desc">Invite both. The one who shows up alone cannot close.</div>
+            </div>
+            <div class="pitch-card">
+                <div class="pitch-card-title">Lender Intros</div>
+                <div class="pitch-card-desc">Connect both. Pre-approval needs both incomes and credit profiles.</div>
+            </div>
+        </div>
+        <div class="reveal rt-card" style="transition-delay: 0.45s; border-left: 3px solid var(--clay);">
+            <p style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.5;">
+                If you only pitch one person, you leave the deal vulnerable to the <span style="color: var(--clay);">invisible veto</span>.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">17 / 20</div>
+</section>
+
+<!-- ========== SLIDE 18 — LOFTY WORKFLOW: CAPTURE THE HIDDEN DM ========== -->
+<section class="slide light" id="slide-18" data-notes="Lofty Workflow — 4 steps to capture the hidden decision maker in your CRM. STEP 1: Open Relationships or Co-buyer/Spouse in the lead record. STEP 2: Add the second person with name, email, and phone. STEP 3: Enable automated emails and alerts for the secondary contact. STEP 4: Tag the record with HiddenDM-Captured. That tag is how we track the metric on the scoreboard. Industry average for hidden DM capture rate: below 20 percent. Our target: 60 percent of active leads inside 90 days. If you are not tagging, you are not tracking. If you are not tracking, you are guessing.---Lofty Workflow — 4 pasos para capturar al decisor oculto en tu CRM. PASO 1: Abre Relationships o Co-buyer/Spouse en el record del lead. PASO 2: Anade a la segunda persona con nombre, email, y telefono. PASO 3: Activa emails automatizados y alertas para el contacto secundario. PASO 4: Tagea el record con HiddenDM-Captured. Ese tag es como trackeamos la metrica en el scoreboard. El promedio de la industria para capture rate del hidden DM: menos de 20 por ciento. Nuestro target: 60 por ciento de leads activos dentro de 90 dias. Si no estas tagueando, no estas trackeando. Si no estas trackeando, estas adivinando.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Module 04 &middot; Lofty Workflow</div>
+            <h2 class="slide-title" style="color: var(--ink);">4 Steps to Capture the Hidden DM</h2>
+        </div>
+        <div class="reveal stagger" style="transition-delay: 0.15s; display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vh, 1rem);">
+            <div class="lofty-step" style="background: #034c7608; border-color: #034c7625;">
+                <div class="lofty-step-badge">1</div>
+                <div class="lofty-step-content">
+                    <div class="lofty-step-title" style="color: var(--ink);">Open Relationships / Co-buyer</div>
+                    <div class="lofty-step-desc">In the lead record, find the Relationships or Co-buyer/Spouse section.</div>
+                </div>
+            </div>
+            <div class="lofty-step" style="background: #034c7608; border-color: #034c7625;">
+                <div class="lofty-step-badge" style="background: var(--sprout); color: var(--ink);">2</div>
+                <div class="lofty-step-content">
+                    <div class="lofty-step-title" style="color: var(--ink);">Add Name + Email + Phone</div>
+                    <div class="lofty-step-desc">Enter the second person's contact details. All three fields required.</div>
+                </div>
+            </div>
+            <div class="lofty-step" style="background: #034c7608; border-color: #034c7625;">
+                <div class="lofty-step-badge" style="background: var(--amber); color: var(--ink);">3</div>
+                <div class="lofty-step-content">
+                    <div class="lofty-step-title" style="color: var(--ink);">Enable Automated Emails + Alerts</div>
+                    <div class="lofty-step-desc">Turn on listing alerts and drip sequences for the secondary contact.</div>
+                </div>
+            </div>
+            <div class="lofty-step" style="background: #034c7608; border-color: #034c7625;">
+                <div class="lofty-step-badge" style="background: var(--brand-light); color: var(--ink);">4</div>
+                <div class="lofty-step-content">
+                    <div class="lofty-step-title" style="color: var(--ink);">Tag: HiddenDM-Captured</div>
+                    <div class="lofty-step-desc">Tag the record so we track the metric on the scoreboard.</div>
+                    <div class="lofty-step-tag" style="color: var(--brand);">Target: 60% of active leads in 90 days &middot; Industry avg: &lt;20%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">18 / 20</div>
+</section>
+
+<!-- ========== SLIDE 19 — LIVE EXERCISE + AI PROMPT ========== -->
+<section class="slide" id="slide-19" data-notes="Live exercise. 10 minutes. Each person opens their Lofty account RIGHT NOW and picks their most recent lead. Complete all 3 steps of the SOP live: rename the search with the correct format, expand if narrow, and schedule the market report. Then, for the hidden decision maker: write down the Ask script in your own words and practice saying it to your partner. They also have the AI prompt — copy and paste it into Claude or ChatGPT to generate custom Ask scripts for their specific markets and client types. HOMEWORK FOR FRIDAY: Complete the 3-step SOP on your five most recent leads. Ask for the hidden DM on every active lead this week. Track how many you capture.---Ejercicio en vivo. 10 minutos. Cada uno abre su cuenta de Lofty AHORA MISMO y escoge su lead mas reciente. Completen los 3 pasos del SOP en vivo: renombren la busqueda con el formato correcto, expandan si es narrow, y programen el market report. Despues, para el decisor oculto: escriban el Ask script en sus propias palabras y practiquenlo con su companero. Tambien tienen el AI prompt — copienlo y peguenlo en Claude o ChatGPT para generar Ask scripts custom para sus mercados y tipos de clientes. TAREA PAL VIERNES: Completen el SOP de 3 pasos en sus cinco leads mas recientes. Pidan al hidden DM en cada lead activo esta semana. Trackeen cuantos capturan.">
+    <div class="slide-content" style="gap: var(--content-gap);">
+        <div class="reveal">
+            <div class="section-label">Live Exercise</div>
+            <h2 class="slide-title">Configure Your Lofty + Practice The Ask</h2>
+            <p class="slide-body">Open your Lofty account now. Pick your most recent lead. Complete the SOP live.</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: clamp(0.4rem, 1vh, 0.8rem);">
+                <span class="timer-badge"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="var(--clay-soft)" stroke-width="1.5"/><path d="M7 4V7.5L9 9" stroke="var(--clay-soft)" stroke-width="1.5" stroke-linecap="round"/></svg> 10 min</span>
+                <span style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2);">Live in Lofty &mdash; then practice the Ask with a partner</span>
+            </div>
+        </div>
+        <div class="two-col reveal" style="transition-delay: 0.25s;">
+            <div style="display: flex; flex-direction: column; gap: var(--element-gap);">
+                <div class="commit-item">
+                    <div class="commit-check"></div>
+                    <span>Rename the search with [KEYWORD] by [Name] at reThought &middot; [Phone]</span>
+                </div>
+                <div class="commit-item">
+                    <div class="commit-check"></div>
+                    <span>Expand the search if fewer than 10 active listings</span>
+                </div>
+                <div class="commit-item">
+                    <div class="commit-check"></div>
+                    <span>Schedule the monthly market report (geo = keyword)</span>
+                </div>
+                <div class="commit-item">
+                    <div class="commit-check"></div>
+                    <span>Write the Hidden DM Ask in your own words</span>
+                </div>
+                <div class="commit-item">
+                    <div class="commit-check"></div>
+                    <span>Practice with a partner &mdash; does it sound like service?</span>
+                </div>
+            </div>
+            <div>
+                <div class="ai-prompt-label">AI Prompt &middot; Copy + Paste into Claude or ChatGPT</div>
+                <div class="ai-prompt">You are a real estate script coach. I serve [YOUR MARKET]. I need to ask my lead to add their spouse or partner to the listing alerts. Write me a conversational script that: (1) frames it as a convenience for THEM, not a data grab for me, (2) mentions a specific benefit like avoiding forwarded listings or missed showings, (3) ends with a soft close and zero pressure, (4) includes a resistance-handling follow-up if they decline. Then write the Spanish version. Keep each script under 40 words.</div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Lead Conversion OS &middot; Session 2</span></div>
+    <div class="slide-number">19 / 20</div>
+</section>
+
+<!-- ========== SLIDE 20 — CLOSING QUOTE ========== -->
+<section class="slide gradient-bg" id="slide-20" data-notes="I close with this. The fortune is in the follow-up, but the conversion is in the system. You can follow up all day long. But if you do not have the system — the renamed search, the expanded inventory, the market report, the hidden DM captured — you are just making calls without leverage. Build the system. Let the system do the heavy lifting. See you next Wednesday with your SOP completed on your five most recent leads. Let us go.---Cierro con esto. La fortuna esta en el follow-up, pero la conversion esta en el sistema. Puedes hacer follow-up todo el dia. Pero si no tienes el sistema — la busqueda renombrada, el inventario expandido, el market report, el hidden DM capturado — estas solo haciendo llamadas sin leverage. Construye el sistema. Deja que el sistema haga el trabajo pesado. Nos vemos el proximo miercoles con su SOP completado en sus cinco leads mas recientes. Vamos.">
+    <div class="slide-content" style="align-items: center; text-align: center; gap: var(--content-gap); justify-content: center;">
+        <div class="reveal">
+            <span class="badge badge-sprout">Closing Thought</span>
+        </div>
+        <blockquote class="reveal" style="font-family: var(--font-display); font-weight: 600; font-size: var(--h2-size); letter-spacing: -0.02em; line-height: 1.25; max-width: 26ch; transition-delay: 0.15s;">
+            "The fortune is in the follow-up, but the <span class="stroke stroke--sprout">conversion<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span> is in the system."
+        </blockquote>
+        <p class="reveal" style="font-family: var(--font-sans); font-size: var(--body-size); color: var(--muted-2); transition-delay: 0.3s;">
+            &mdash; reThought Real Estate
+        </p>
+        <div class="reveal" style="transition-delay: 0.45s; margin-top: clamp(1rem, 3vh, 2rem);">
+            <p style="font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted-2);">
+                Sistemas sobre el esfuerzo. Disciplina sobre la motivaci&oacute;n.
+            </p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.55s;">
+            <p style="font-family: var(--font-sans); font-size: clamp(0.75rem, 1.1vw, 0.9rem); color: var(--sprout-soft);">
+                We do not work for reThought. We grow with reThought.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &reg;</div>
+    <div class="slide-number">20 / 20</div>
+</section>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+// Intersection Observer for slide visibility
+const slides = document.querySelectorAll('.slide');
+const navDotsContainer = document.getElementById('navDots');
+const progressBar = document.getElementById('progressBar');
+const totalSlides = slides.length;
+
+// Create nav dots
+slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('nav-dot');
+    dot.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' }));
+    navDotsContainer.appendChild(dot);
+});
+const dots = navDotsContainer.querySelectorAll('.nav-dot');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            const idx = [...slides].indexOf(entry.target);
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            progressBar.style.width = ((idx + 1) / totalSlides * 100) + '%';
+        }
+    });
+}, { threshold: 0.5 });
+slides.forEach(s => observer.observe(s));
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+    const current = [...slides].findIndex(s => s.classList.contains('visible'));
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') && current < totalSlides - 1) {
+        e.preventDefault(); slides[current + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && current > 0) {
+        e.preventDefault(); slides[current - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+// Language toggles for bilingual scripts
+document.querySelectorAll('.lang-toggle').forEach(toggle => {
+    const target = document.getElementById(toggle.dataset.target);
+    toggle.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            toggle.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            if (btn.dataset.lang === 'es') {
+                target.classList.add('show-es');
+            } else {
+                target.classList.remove('show-es');
+            }
+        });
+    });
+});
+
+// BroadcastChannel for presenter sync
+try {
+    const bc = new BroadcastChannel('presentation-sync');
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = [...slides].indexOf(entry.target);
+                bc.postMessage({ type: 'slide-change', slide: idx, series: 'lead-conversion-os', session: 2 });
+            }
+        });
+    }, { threshold: 0.5 });
+    slides.forEach(s => observer2.observe(s));
+    bc.onmessage = e => {
+        if (e.data.type === 'slide-change' && e.data.series === 'lead-conversion-os' && e.data.session === 2) {
+            slides[e.data.slide]?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+} catch(e) {}
+</script>
+
+</body>
+</html>

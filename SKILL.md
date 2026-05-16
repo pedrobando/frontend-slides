@@ -83,6 +83,98 @@ Interpret creatively and make unexpected choices that feel genuinely designed fo
 - **Don't use generic clip art or stock illustrations** — use CSS/SVG-generated visuals.
 - **Framework diagrams must be recognizable from across the room.** If the diagram requires squinting or reading tiny labels, it fails. Use large shapes, bold labels, high-contrast colors.
 
+## Software UI Mockups — Show the Tool, Not the Concept
+
+**When a presentation trains agents on a specific software tool (CRM, IDX, MLS, Lofty, Follow Up Boss, KvCORE, etc.), EVERY instructional slide must include a realistic HTML mockup of that tool's interface.** Text-heavy slides describing what to click are useless — agents need to SEE what they'll see.
+
+### The Principle
+
+Agents learn by recognition. When they open Lofty after the training, they should think "I saw this exact screen in the presentation." If a slide describes a workflow inside software, that slide needs an HTML component that LOOKS like the software UI — not a bullet list describing it.
+
+### Slide-by-Slide Visual Audit (Mandatory)
+
+After drafting content for ANY training presentation, go through EVERY slide and ask:
+
+1. **Does this slide reference a software screen?** → Build an HTML mockup of that screen (chrome bar with dots, field labels, input values, status indicators)
+2. **Does this slide describe a before/after state?** → Show BOTH states side by side as mock UIs (red/bad vs green/good borders, empty vs populated)
+3. **Does this slide mention a search, map, or results view?** → Build a mock IDX/map component with markers, zones, and result counts
+4. **Does this slide talk about a timer, deadline, or rule?** → Make it an animated visual (SVG timer filling, countdown, progress ring) — not a text card
+5. **Does this slide describe two people or roles?** → Use person icons/avatars with visual states (one muted/ghosted, one active/highlighted, connection lines between them)
+6. **Does this slide show a workflow/process?** → Animate it step-by-step rather than listing steps as text
+7. **Does this slide contain a script or template?** → Render it as a realistic UI component (email preview, text message bubble, form field with the value filled in)
+
+### UI Mockup Patterns (Reusable)
+
+Build these as CSS classes that can be reused across slides:
+
+| Pattern | Use When | Key Elements |
+|---------|----------|--------------|
+| **App chrome** (`.lofty-ui-mockup`) | Any software screen | Colored dots, title bar, dark/light body |
+| **Form fields** (`.lofty-ui-field`) | Showing what to type/configure | Label, input with value, highlight border on key field |
+| **Profile card** | Referencing a contact/lead | Avatar initials, name, meta, status badges |
+| **Activity timeline** | Showing history/events | Dots on vertical line, timestamps, action labels, highlighted first item |
+| **IDX map** (`.idx-map-mockup`) | Search results, geographic coverage | Canvas with zone overlay, pin markers (green=active, red=dead), result count |
+| **Email preview** | Subject line, drip content | From/To/Subject fields, body preview |
+| **Metric/Timer** | Rules, deadlines, KPIs | SVG ring with animated fill, large number, status label |
+| **Person pair** | Relationships, hidden DM, roles | Two avatar circles, one muted/ghosted, connection line, labels |
+| **Notification toast** | Alerts, triggers, automations | Small floating card with icon + message + timestamp |
+
+### Visual State Encoding
+
+Use color consistently to encode meaning across mockups:
+
+- **Green (sprout)** = Active, correct, good, new, pulsing status dot
+- **Red (clay)** = Empty, wrong, dead, failed, X markers
+- **Blue (brand)** = Neutral, informational, system elements
+- **Amber** = Warning, upgrade path, conditional
+- **Muted/ghosted (opacity 0.3-0.5)** = Invisible, hidden, not yet captured
+
+### Example: How to Think About a Slide
+
+❌ **Bad (text-only):** "Step 1: Open the lead profile. Step 2: Find the activity timeline. Step 3: Look for the UTM content field."
+
+✅ **Good (UI mockup):** Build an HTML component that looks like a Lofty lead profile with a profile header (avatar + name + badges), an activity timeline section with a highlighted "First Inbound Action" eyebrow, and the UTM content field visually called out in green.
+
+❌ **Bad (text-only):** "If your search is too narrow, you'll get zero results and the lead goes silent."
+
+✅ **Good (IDX map comparison):** Two side-by-side map mockups — left shows a tiny red zone with 2 dead markers and "0 emails this week"; right shows a large green zone with 12+ active markers and "24 results."
+
+❌ **Bad (text-only):** "80% of buyers have a co-decision-maker that Lofty doesn't capture."
+
+✅ **Good (person visualization):** Two person icons — one solid/active (the lead in your CRM), one ghosted/muted with a "?" (the hidden decision maker). A dashed line connects them. The ghosted one has power cards radiating from it.
+
+### Narrative Visual Storytelling (The Highest Level)
+
+**Static mockups are good. Story flows are better.** The best slides don't just show what something looks like — they show what HAPPENS when things go wrong or right. They tell a visual story the agent can follow like a comic strip.
+
+The reasoning process for every slide should be:
+
+1. **What is the concept?** (e.g., "the hidden decision maker kills your deal")
+2. **What is the STORY behind it?** (e.g., "partner gets a referral → signs up on Zillow → competitor calls them → they tell your lead to stop responding")
+3. **Can I show that story as a visual flow?** (almost always yes)
+
+#### Story Flow Patterns
+
+| Concept Type | Story Flow Treatment |
+|---|---|
+| **Something bad happens in steps** | Flow of connected cards with arrows: event 1 → event 2 → event 3 → fatal outcome (red). Each card has an icon + short title + italic quote. Cards stagger-animate left-to-right so the audience follows the story. |
+| **A process the agent should follow** | Numbered step cards that check off sequentially (animated checkmarks appearing with delay). Timer or countdown running alongside to create urgency. |
+| **Before/after transformation** | Two-state visualization — left side shows the problem state (red, empty, broken), right side shows the solved state (green, populated, working). Animated transition or side-by-side comparison. |
+| **Cause and effect** | Person/entity at top connected by dashed lines to consequences below. The consequences fan out or cascade visually. |
+| **Risk that's invisible** | Ghosted/muted elements that represent what the agent CAN'T see. Dashed borders, low opacity, "?" markers. Then show those elements "activating" with color as the story progresses. |
+
+#### Example: Thinking Through a Slide
+
+Content: "The hidden decision maker has 4 powers that kill your deal"
+
+❌ **Level 1 (text):** Four bullet points listing the powers. Boring.
+
+⚠️ **Level 2 (static mockup):** Person pair (active + ghosted) with four power cards below. Better, but the agent doesn't FEEL the danger.
+
+✅ **Level 3 (story flow):** Person pair at top (Jennifer in CRM ← dashed line → Carlos the ghost). Below Carlos, a horizontal flow: "Friend refers agent" → "Zillow ad, signs up" → "Competitor calls Carlos" → "Tells Jennifer to stop" (red/fatal). Each step staggers in with animation so the audience watches the deal die in real time. NOW the agent feels it.
+
+**Always aim for Level 3.** Ask: "What is the JOURNEY this concept takes? Can I animate that journey as a flow the audience follows?"
+
 ## Live Exercise Slides — AI/Prompt Help
 
 **Every live exercise MUST be followed by a SEPARATE AI prompt slide.** Never cram the prompt into the exercise slide — it overflows and becomes unreadable. Two slides:
@@ -112,6 +204,25 @@ These invariants apply to EVERY slide in EVERY presentation:
 - Content containers need `max-height` constraints
 - Images: `max-height: min(50vh, 400px)`
 - Breakpoints required for heights: 700px, 600px, 500px
+
+### UI Mockup Viewport Guardrails (CRITICAL)
+
+**Adding visual components (UI mockups, maps, timers, person pairs) increases the risk of viewport overflow.** These components look great but they eat vertical space fast. Apply these rules EVERY time you add a visual component to a slide:
+
+1. **Never use fixed or percentage-based heights on mockup canvases without vh clamping.** A `padding-bottom: 60%` on a wide monitor creates a massive box that pushes everything else off screen. Always use `clamp()` with a `vh` unit in the middle: `padding-bottom: clamp(30%, 25vh, 40%)`.
+
+2. **Budget vertical space BEFORE building.** A slide has ~100vh. Subtract: header (~15vh), footer (~5vh), gaps (~10vh). That leaves ~70vh for content. If you have a two-col layout with mockup + cards, the mockup cannot exceed ~45vh or the cards get cut.
+
+3. **After adding ANY mockup component, mentally stack the elements:** title + subtitle + mockup + callout card + footer. If the sum exceeds 100vh at 1080p, reduce the mockup or split the slide. When in doubt, make the mockup smaller — a compact mockup that fits is better than a beautiful one that gets cut off.
+
+4. **Mockup-specific height limits:**
+   - App chrome mockups (form fields): max `clamp(200px, 28vh, 320px)` total height
+   - Map/IDX canvases: `padding-bottom: clamp(25%, 20vh, 35%)` — never more than 35vh
+   - SVG timer/metric rings: `width/height: clamp(100px, 14vw, 180px)` — not larger
+   - Person pair visualizations: avatar size `clamp(50px, 7vw, 80px)` — compact enough to leave room for cards below
+   - Profile mockups: constrain with `max-height: clamp(250px, 35vh, 380px); overflow: hidden`
+
+5. **The "bottom card" test:** Every slide should have room for at least one callout/summary card below the main visual. If the visual pushes the bottom card off the viewport, the visual is too tall. Shrink it.
 - Include `prefers-reduced-motion` support
 - Never negate CSS functions directly (`-clamp()`, `-min()`, `-max()` are silently ignored) — use `calc(-1 * clamp(...))` instead
 
