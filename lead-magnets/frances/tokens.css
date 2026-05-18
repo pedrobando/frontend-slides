@@ -1,0 +1,265 @@
+/* =============================================================
+   reThought Real Estate® — Design Tokens
+   Colors, type, spacing, radii, shadows
+   ============================================================= */
+
+/* ---------- Webfonts (Google Fonts) ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&family=Shadows+Into+Light+Two&display=swap');
+
+:root {
+  /* ------------------------------------------------------------
+     PRIMITIVE COLORS
+     Direct from the brand sheet. Use semantic tokens below
+     for application code.
+     ------------------------------------------------------------ */
+  --re-green:       #8CC94C;  /* primary brand accent */
+  --re-blue:        #044C76;  /* secondary brand */
+  --re-dark-gray:   #414142;  /* logo gray, body copy */
+  --re-yellow:      #FFCC00;  /* accent / highlight */
+  --re-navy:        #1B252F;  /* deep background */
+  --re-white:       #FFFFFF;
+  --re-black:       #000000;
+
+  /* Tints & shades, derived in OKLCH so they harmonize. */
+  --re-green-50:    #F1F8E5;
+  --re-green-100:   #DCEEC0;
+  --re-green-200:   #BFE193;
+  --re-green-400:   #8CC94C; /* brand */
+  --re-green-600:   #6FA635;
+  --re-green-700:   #557F25;
+  --re-green-900:   #2F4612;
+
+  --re-blue-50:     #E6EEF4;
+  --re-blue-100:    #C2D5E3;
+  --re-blue-300:    #5C8CAD;
+  --re-blue-500:    #044C76; /* brand */
+  --re-blue-700:    #033757;
+  --re-blue-900:    #02223A;
+
+  --re-gray-50:     #F6F6F6;
+  --re-gray-100:    #ECECEC;
+  --re-gray-200:    #D4D4D5;
+  --re-gray-300:    #B5B5B6;
+  --re-gray-400:    #8A8A8C;
+  --re-gray-500:    #6A6A6B;
+  --re-gray-600:    #545455;
+  --re-gray-700:    #414142; /* brand dark gray */
+  --re-gray-800:    #2A2A2B;
+  --re-gray-900:    #1B252F; /* brand navy */
+
+  --re-yellow-100:  #FFF4B8;
+  --re-yellow-400:  #FFCC00;
+  --re-yellow-600:  #C99E00;
+
+  /* ------------------------------------------------------------
+     SEMANTIC COLOR TOKENS
+     Use these in components — never reference primitives directly.
+     ------------------------------------------------------------ */
+  --bg:               var(--re-white);
+  --bg-subtle:        var(--re-gray-50);
+  --bg-muted:         var(--re-gray-100);
+  --bg-inverse:       var(--re-navy);
+  --bg-brand:         var(--re-green);
+  --bg-brand-deep:    var(--re-blue);
+
+  --fg:               var(--re-dark-gray);   /* primary body */
+  --fg-strong:        var(--re-navy);        /* headlines on light */
+  --fg-muted:         var(--re-gray-500);
+  --fg-subtle:        var(--re-gray-400);
+  --fg-inverse:       var(--re-white);
+  --fg-brand:         var(--re-blue);
+  --fg-accent:        var(--re-green-600);   /* readable green for text */
+
+  --border:           var(--re-gray-200);
+  --border-strong:    var(--re-gray-300);
+  --border-inverse:   rgba(255,255,255,0.12);
+
+  /* Status / semantic */
+  --success:          var(--re-green-600);
+  --success-bg:       var(--re-green-50);
+  --warning:          var(--re-yellow-600);
+  --warning-bg:       var(--re-yellow-100);
+  --info:             var(--re-blue);
+  --info-bg:          var(--re-blue-50);
+  --danger:           #C8372D;
+  --danger-bg:        #FBE9E7;
+
+  /* Focus ring (a11y) */
+  --focus-ring:       0 0 0 3px rgba(140, 201, 76, 0.45);
+
+  /* ------------------------------------------------------------
+     TYPOGRAPHY
+     Poppins = display & UI. Roboto = long-form body.
+     Shadows Into Light Two = accent script (sparingly).
+     ------------------------------------------------------------ */
+  --font-display:  'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:     'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-script:   'Shadows Into Light Two', 'Brush Script MT', cursive;
+  --font-mono:     ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Type scale (1.250 major-third), 16px base */
+  --text-xs:    0.75rem;   /* 12 */
+  --text-sm:    0.875rem;  /* 14 */
+  --text-base:  1rem;      /* 16 */
+  --text-md:    1.125rem;  /* 18 */
+  --text-lg:    1.25rem;   /* 20 */
+  --text-xl:    1.5rem;    /* 24 */
+  --text-2xl:   1.875rem;  /* 30 */
+  --text-3xl:   2.25rem;   /* 36 */
+  --text-4xl:   3rem;      /* 48 */
+  --text-5xl:   3.75rem;   /* 60 */
+  --text-6xl:   4.75rem;   /* 76 */
+  --text-7xl:   6rem;      /* 96 */
+
+  --leading-tight:  1.1;
+  --leading-snug:   1.25;
+  --leading-normal: 1.45;
+  --leading-relaxed:1.65;
+
+  --tracking-tight:  -0.02em;
+  --tracking-snug:   -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.12em; /* used on the "REAL ESTATE" lockup */
+
+  /* Font weights — Poppins runs heavy in marketing copy */
+  --w-light:     300;
+  --w-regular:   400;
+  --w-medium:    500;
+  --w-semibold:  600;
+  --w-bold:      700;
+  --w-extrabold: 800;
+  --w-black:     900;
+
+  /* ------------------------------------------------------------
+     SPACING (4px base)
+     ------------------------------------------------------------ */
+  --space-0:  0;
+  --space-1:  0.25rem;   /* 4  */
+  --space-2:  0.5rem;    /* 8  */
+  --space-3:  0.75rem;   /* 12 */
+  --space-4:  1rem;      /* 16 */
+  --space-5:  1.25rem;   /* 20 */
+  --space-6:  1.5rem;    /* 24 */
+  --space-8:  2rem;      /* 32 */
+  --space-10: 2.5rem;    /* 40 */
+  --space-12: 3rem;      /* 48 */
+  --space-16: 4rem;      /* 64 */
+  --space-20: 5rem;      /* 80 */
+  --space-24: 6rem;      /* 96 */
+  --space-32: 8rem;      /* 128 */
+
+  /* ------------------------------------------------------------
+     RADII — generous on cards, capsule on CTAs
+     ------------------------------------------------------------ */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  /* ------------------------------------------------------------
+     SHADOWS / ELEVATION
+     Cool shadows (slight blue tint) match the navy brand.
+     ------------------------------------------------------------ */
+  --shadow-xs:  0 1px 2px rgba(27,37,47,0.06);
+  --shadow-sm:  0 2px 6px rgba(27,37,47,0.08);
+  --shadow-md:  0 6px 18px rgba(27,37,47,0.10);
+  --shadow-lg:  0 14px 36px rgba(27,37,47,0.14);
+  --shadow-xl:  0 28px 60px rgba(27,37,47,0.20);
+  --shadow-brand: 0 12px 28px rgba(140,201,76,0.32);
+  --shadow-inner-line: inset 0 -1px 0 rgba(27,37,47,0.06);
+
+  /* ------------------------------------------------------------
+     MOTION
+     Snappy, no bouncy nonsense.
+     ------------------------------------------------------------ */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    120ms;
+  --dur-base:    200ms;
+  --dur-slow:    320ms;
+
+  /* ------------------------------------------------------------
+     LAYOUT
+     ------------------------------------------------------------ */
+  --container-sm:  640px;
+  --container-md:  840px;
+  --container-lg:  1120px;
+  --container-xl:  1320px;
+  --container-2xl: 1480px;
+}
+
+/* =============================================================
+   SEMANTIC ELEMENT STYLES
+   Drop in any document and headings/body inherit brand defaults.
+   ============================================================= */
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--fg-strong);
+  font-weight: var(--w-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+  margin: 0 0 var(--space-4);
+}
+
+h1 { font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl)); font-weight: var(--w-black); }
+h2 { font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl)); font-weight: var(--w-extrabold); }
+h3 { font-size: var(--text-2xl); font-weight: var(--w-bold); }
+h4 { font-size: var(--text-xl); font-weight: var(--w-semibold); }
+h5 { font-size: var(--text-lg); font-weight: var(--w-semibold); }
+h6 { font-size: var(--text-base); font-weight: var(--w-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+
+p { margin: 0 0 var(--space-4); text-wrap: pretty; }
+
+/* The "REAL ESTATE" lockup style — wide-tracked all-caps */
+.eyebrow,
+.lockup {
+  font-family: var(--font-display);
+  font-weight: var(--w-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  font-size: var(--text-sm);
+  color: var(--fg-brand);
+}
+
+/* Script accent — for hand-written hooks like "Real Results." */
+.script {
+  font-family: var(--font-script);
+  font-weight: var(--w-regular);
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--re-green);
+}
+
+/* Inline code / numeric callouts */
+code, kbd, samp { font-family: var(--font-mono); font-size: 0.95em; }
+
+/* Links inherit brand blue, underline on hover */
+a {
+  color: var(--fg-brand);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--re-green-600); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Selection */
+::selection { background: var(--re-green); color: var(--re-navy); }
+
+/* Focus */
+:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-sm); }

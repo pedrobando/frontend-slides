@@ -578,6 +578,74 @@ body {
     main.appendChild(section);
   });
 
+  /* ---- 6. Render Lead Magnets group ---- */
+  const LEAD_MAGNETS = {
+    'Frances': {
+      folder: 'lead-magnets/frances',
+      items: [
+        { filename: 'plan-profesionales-salud.html', title: 'Plan · Profesionales de la Salud', keyword: 'PLAN', slides: 13 },
+        { filename: 'orientame-primera-casa.html', title: 'Orientame · Primera Casa', keyword: 'ORIENTAME', slides: 13 },
+        { filename: 'inversion-sin-adivinar.html', title: 'Inversión · Sin Adivinar', keyword: 'INVERSIÓN', slides: 12 },
+      ]
+    }
+  };
+
+  // Lead Magnets parent section
+  const lmParent = document.createElement('section');
+  lmParent.className = 'series-section';
+  lmParent.setAttribute('data-color', 'sprout');
+
+  const totalLM = Object.values(LEAD_MAGNETS).reduce((sum, agent) => sum + agent.items.length, 0);
+  const agentCount = Object.keys(LEAD_MAGNETS).length;
+
+  const lmHeader = document.createElement('div');
+  lmHeader.className = 'series-header';
+  lmHeader.innerHTML = `
+    <div class="series-header__left">
+      <div class="series-icon" style="background: var(--ink);">LM</div>
+      <div>
+        <h2 class="series-label">Lead Magnets</h2>
+        <div class="series-sublabel">Consumer-facing · PDF-ready · ${agentCount} agent${agentCount !== 1 ? 's' : ''}</div>
+      </div>
+    </div>
+    <div class="series-badge" style="background: #1B252F0a; color: var(--ink); border: 1px solid #1B252F20;">${totalLM} lead magnets</div>
+  `;
+  lmParent.appendChild(lmHeader);
+
+  Object.entries(LEAD_MAGNETS).forEach(([agentName, agent]) => {
+    // Agent sub-header
+    const agentHeader = document.createElement('div');
+    agentHeader.style.cssText = 'margin: 12px 0 12px 56px; display: flex; align-items: center; gap: 10px;';
+    agentHeader.innerHTML = `
+      <span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--ink);">${escapeHTML(agentName)}</span>
+      <span style="font-family: 'Geist Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted);">${agent.items.length} lead magnet${agent.items.length !== 1 ? 's' : ''}</span>
+    `;
+    lmParent.appendChild(agentHeader);
+
+    const row = document.createElement('div');
+    row.className = 'card-row';
+
+    agent.items.forEach((lm) => {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.style.borderTopColor = 'var(--ink)';
+      card.innerHTML = `
+        <span class="card__session" style="color: var(--ink);">${escapeHTML(lm.keyword)}</span>
+        <h3 class="card__title">${escapeHTML(lm.title)}</h3>
+        <div class="card__meta">${lm.slides} slides · PDF-ready</div>
+        <div class="card__actions">
+          <a class="btn btn--primary" style="background: var(--ink);" href="${agent.folder}/${encodeURIComponent(lm.filename)}" target="_blank">&#128065; View</a>
+          <button class="btn btn--ghost" onclick="window.open('${agent.folder}/${encodeURIComponent(lm.filename)}','_blank'); setTimeout(() => alert('Use Cmd+P to save as PDF'), 1000);">&#8595; PDF</button>
+        </div>
+      `;
+      row.appendChild(card);
+    });
+
+    lmParent.appendChild(row);
+  });
+
+  main.appendChild(lmParent);
+
   /* ---- helpers ---- */
   function escapeHTML(str) {
     const el = document.createElement('span');
