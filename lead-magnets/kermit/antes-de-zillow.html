@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Antes de comprar en Zillow, lee esto · Kermit Fernandez Rivera · reThought Real Estate</title>
+<link rel="stylesheet" href="tokens.css" />
+<script src="deck-stage.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #0a0e13; }
+  deck-stage { --slide-gap: 36px; }
+
+  :root {
+    --pad-x: 88px;
+    --pad-top: 110px;
+    --pad-bottom: 110px;
+    --gap-title: 56px;
+    --gap-item: 28px;
+    --type-display: 168px;
+    --type-title: 96px;
+    --type-h2: 84px;
+    --type-h3: 52px;
+    --type-subtitle: 40px;
+    --type-body: 30px;
+    --type-small: 26px;
+    --type-eyebrow: 24px;
+  }
+
+  /* ---------- slide base ---------- */
+  .slide {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    background: var(--bg);
+    color: var(--fg);
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+  }
+  .slide.dark { background: var(--re-navy); color: var(--re-white); }
+  .slide.dark h1, .slide.dark h2, .slide.dark h3, .slide.dark h4 { color: var(--re-white); }
+  .slide.green { background: var(--re-green); color: var(--re-navy); }
+  .slide.green h1, .slide.green h2, .slide.green h3 { color: var(--re-navy); }
+  .slide.subtle { background: var(--re-gray-50); }
+
+  /* ---------- typographic primitives ---------- */
+  h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.02; }
+  .title { font-size: var(--type-title); font-weight: 900; line-height: 0.98; letter-spacing: -0.035em; }
+  .h2 { font-size: var(--type-h2); font-weight: 900; line-height: 1.0; letter-spacing: -0.035em; }
+  .h3 { font-size: var(--type-h3); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+  .subtitle { font-size: var(--type-subtitle); font-weight: 500; line-height: 1.18; color: var(--fg-muted); }
+  .slide.dark .subtitle { color: rgba(255,255,255,0.72); }
+  .body { font-size: var(--type-body); line-height: 1.4; }
+  .small { font-size: var(--type-small); line-height: 1.5; }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--type-eyebrow);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--re-green);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* ---------- dots motif ---------- */
+  .dots { display: inline-flex; flex-direction: row; gap: 8px; align-items: center; }
+  .dots span { width: 14px; height: 14px; border-radius: 999px; background: var(--re-green); display: block; }
+  .dots.lg span { width: 22px; height: 22px; }
+
+  /* ---------- chrome ---------- */
+  .chrome-top {
+    position: absolute; top: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    white-space: nowrap;
+    gap: 16px;
+  }
+  .chrome-bottom {
+    position: absolute; bottom: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-display); font-size: 24px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--fg-muted);
+    white-space: nowrap;
+    gap: 16px;
+  }
+  .slide.dark .chrome-bottom { color: rgba(255,255,255,0.55); }
+  .chrome-bottom .lockup-mark { color: var(--re-green); }
+
+  .logo-chip { height: 44px; width: auto; display: block; }
+  .pillar-tag {
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    padding: 0;
+    background: var(--re-navy);
+    color: white;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+  }
+  .cover-top {
+    padding: 72px 88px 0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cover-top .lockup {
+    font-family: var(--font-display); font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 22px; color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+  }
+  .cover-eyebrow {
+    padding: 40px 88px 0;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .cover-eyebrow .dots span { width: 16px; height: 16px; }
+  .cover-eyebrow .label {
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 800;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+  .cover-hero {
+    padding: 28px 88px 0;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .cover-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 132px;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    color: white;
+    margin: 0;
+  }
+  .cover-title .accent { color: var(--re-green); }
+  .cover-sub {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.28;
+    color: rgba(255,255,255,0.78);
+    max-width: 820px;
+    margin: 0;
+  }
+  .cover-photo-wrap {
+    position: relative;
+    margin: 24px 88px 0;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #1B252F;
+    aspect-ratio: 4 / 3;
+    max-height: 720px;
+  }
+  .cover-photo-wrap img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+    display: block;
+  }
+  .cover-photo-wrap .photo-tag {
+    position: absolute; left: 32px; top: 32px;
+    background: var(--re-green); color: var(--re-navy);
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 12px 20px; border-radius: 999px;
+  }
+  .cover-photo-wrap .frame-meta {
+    position: absolute; right: 32px; bottom: 32px;
+    background: rgba(27,37,47,0.78); color: white;
+    backdrop-filter: blur(8px);
+    padding: 12px 20px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .cover-foot {
+    padding: 36px 88px 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .cover-byline {
+    display: flex; align-items: center; gap: 18px;
+    font-family: var(--font-display);
+    font-weight: 800; font-size: 28px;
+    color: white;
+    letter-spacing: -0.005em;
+  }
+  .cover-byline .by {
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase; letter-spacing: 0.2em; font-size: 22px; font-weight: 600;
+  }
+  .cover-foot .markets {
+    font-family: var(--font-display);
+    font-weight: 600; font-size: 22px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    text-align: right;
+  }
+
+  /* ---------- title block ---------- */
+  .title-block { display: flex; flex-direction: column; gap: 22px; margin-bottom: var(--gap-title); }
+  .title-block .kicker {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+
+  /* ---------- letter grid (slide 2) ---------- */
+  .letter-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 56px;
+    flex: 1;
+    min-height: 0;
+  }
+  .letter-prose .pullquote {
+    border-left: 6px solid var(--re-green);
+    padding: 6px 0 6px 28px;
+    margin: 0 0 28px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--fg-strong);
+  }
+  .letter-prose p {
+    font-family: var(--font-body);
+    font-size: 24px;
+    line-height: 1.5;
+    color: var(--fg);
+    margin: 0 0 22px;
+  }
+  .letter-prose p strong { color: var(--fg-strong); font-weight: 700; }
+  .letter-prose .signoff {
+    margin-top: 8px;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 26px; line-height: 1.4;
+    color: var(--re-green-700);
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+  }
+  .agent-sidecar {
+    background: var(--re-navy);
+    color: white;
+    border-radius: 24px;
+    overflow: hidden;
+    align-self: start;
+    border-top: 6px solid var(--re-green);
+  }
+  .agent-sidecar .photo {
+    aspect-ratio: 4 / 5;
+    background: #1B252F;
+    overflow: hidden;
+  }
+  .agent-sidecar .photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+  }
+  .agent-sidecar .body { padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 14px; }
+  .agent-sidecar .stat {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 56px; line-height: 0.95;
+    color: var(--re-green);
+    letter-spacing: -0.045em;
+  }
+  .agent-sidecar .stat-lab {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: -8px;
+  }
+  .agent-sidecar .name {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 28px; line-height: 1.1; color: white;
+    letter-spacing: -0.02em;
+    margin-top: 6px;
+  }
+  .agent-sidecar .role {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+  .agent-sidecar ul {
+    list-style: none; padding: 0; margin: 6px 0 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .agent-sidecar li {
+    display: grid; grid-template-columns: 14px 1fr; gap: 12px;
+    font-size: 18px; line-height: 1.4;
+    color: rgba(255,255,255,0.85);
+  }
+  .agent-sidecar li::before {
+    content: ""; width: 8px; height: 8px; border-radius: 999px;
+    background: var(--re-green); margin-top: 10px;
+  }
+
+  /* ---------- 7-errores list (compact num-list with tag) ---------- */
+  .err-callout {
+    background: var(--re-navy);
+    color: white;
+    border-radius: 18px;
+    padding: 22px 28px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .err-callout .lab {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 16px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+    white-space: nowrap;
+  }
+  .err-callout .txt {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 22px; line-height: 1.35;
+    color: rgba(255,255,255,0.92);
+  }
+  .err-callout .txt .strike {
+    text-decoration: line-through;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .errors {
+    display: flex; flex-direction: column;
+    gap: 0;
+    flex: 1;
+    min-height: 0;
+  }
+  .errors .row {
+    display: grid;
+    grid-template-columns: 88px 1fr 130px;
+    gap: 26px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+    align-items: start;
+  }
+  .errors .row:first-child { border-top: none; padding-top: 6px; }
+  .errors .row .num {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 44px; line-height: 1;
+    color: var(--re-green);
+    letter-spacing: -0.045em;
+  }
+  .errors .row .body .h {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; line-height: 1.2;
+    color: var(--fg-strong);
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+  .errors .row .body .h .accent { color: var(--re-green-700); }
+  .errors .row .body .d {
+    font-family: var(--font-body);
+    font-size: 17px; line-height: 1.42;
+    color: var(--fg-muted);
+  }
+  .errors .row .tag {
+    align-self: center;
+    text-align: right;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green-700);
+    background: rgba(140,201,76,0.14);
+    border: 1px solid rgba(140,201,76,0.4);
+    padding: 6px 12px;
+    border-radius: 999px;
+    line-height: 1.3;
+  }
+
+  /* ---------- CASA quad card-grid ---------- */
+  .casa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 22px;
+    flex: 1;
+    min-height: 0;
+  }
+  .casa-card {
+    background: var(--re-gray-50);
+    border-radius: 20px;
+    padding: 30px 28px;
+    display: flex; flex-direction: column; gap: 8px;
+    position: relative;
+    border-top: 4px solid var(--re-green);
+  }
+  .casa-card .letter {
+    position: absolute; top: -22px; left: 22px;
+    width: 44px; height: 44px;
+    background: var(--re-navy); color: white;
+    border-radius: 10px;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 26px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .casa-card .meta {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green-700);
+    margin-top: 12px;
+  }
+  .casa-card .h {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 30px; line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--fg-strong);
+    margin-bottom: 4px;
+  }
+  .casa-card ul {
+    list-style: none; padding: 0; margin: 8px 0 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .casa-card li {
+    display: grid; grid-template-columns: 18px 1fr; gap: 12px;
+    font-family: var(--font-body);
+    font-size: 16px; line-height: 1.4;
+    color: var(--fg);
+    align-items: start;
+  }
+  .casa-card li::before {
+    content: "";
+    width: 12px; height: 12px;
+    border: 1.5px solid var(--re-gray-400);
+    border-radius: 3px;
+    margin-top: 4px;
+  }
+  .casa-rule {
+    background: var(--re-navy);
+    color: white;
+    border-radius: 16px;
+    padding: 22px 28px;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .casa-rule .lab {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+    white-space: nowrap;
+  }
+  .casa-rule .txt {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 22px; line-height: 1.3;
+    color: white;
+  }
+
+  /* ---------- closing word ---------- */
+  .closing-quote {
+    display: flex; flex-direction: column; gap: 32px; flex: 1; justify-content: center;
+  }
+  .closing-quote .mark {
+    font-family: var(--font-script); color: var(--re-green);
+    font-size: 200px; line-height: 0.6;
+  }
+  .closing-quote .text {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 80px; line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: white;
+  }
+  .closing-quote .text .green { color: var(--re-green); }
+  .closing-quote .author {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--re-green);
+    margin-top: 8px;
+  }
+
+  /* ---------- CTA slide ---------- */
+  .cta-slide {
+    padding: 0;
+    background: var(--re-navy);
+    color: white;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  .cta-photo {
+    position: relative;
+    background: var(--re-green);
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .cta-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+  }
+  .cta-photo .frame-tag {
+    position: absolute; left: 36px; bottom: 36px;
+    background: var(--re-navy); color: white;
+    padding: 16px 24px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .cta-content {
+    padding: 56px 88px 32px;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .cta-content .kicker {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 20px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+    margin-bottom: -8px;
+  }
+  .cta-content h2 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 88px; line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: white;
+  }
+  .cta-content .accent { color: var(--re-green); }
+  .cta-content p {
+    font-family: var(--font-display);
+    font-weight: 500; font-size: 28px; line-height: 1.32;
+    color: rgba(255,255,255,0.78);
+    max-width: 820px;
+    margin: 0;
+  }
+  .cta-list { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 12px; }
+  .cta-list li {
+    display: grid; grid-template-columns: 30px 1fr; gap: 14px;
+    font-family: var(--font-body);
+    font-size: 24px; line-height: 1.32;
+    color: rgba(255,255,255,0.92);
+  }
+  .cta-list li::before {
+    content: "";
+    width: 12px; height: 12px; border-radius: 999px;
+    background: var(--re-green);
+    margin-top: 14px;
+  }
+  .cta-foot {
+    background: var(--re-green);
+    color: var(--re-navy);
+    padding: 36px 88px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .cta-foot .name {
+    font-family: var(--font-display); font-weight: 900; font-size: 38px;
+    line-height: 1; letter-spacing: -0.025em;
+  }
+  .cta-foot .name small {
+    display: block; font-size: 18px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    margin-top: 8px; opacity: 0.75;
+    white-space: nowrap;
+  }
+  .cta-foot .links {
+    text-align: right;
+    font-family: var(--font-display); font-weight: 600; font-size: 22px;
+    line-height: 1.5;
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+  }
+  .cta-foot .links span {
+    display: inline-flex; align-items: center; gap: 10px;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<deck-stage width="1080" height="1920">
+
+  <!-- PAGE 1 — COVER -->
+  <section class="slide cover">
+    <div class="cover-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="lockup">Real Estate® · 2026</div>
+    </div>
+
+    <div class="cover-eyebrow">
+      <span class="dots"><span></span><span></span></span>
+      <span class="label">De Puerto Rico a Florida</span>
+    </div>
+
+    <div class="cover-hero">
+      <h1 class="cover-title">Antes de<br/>comprar en <span class="accent">Zillow</span>,<br/>lee <span class="accent">esto</span>.</h1>
+      <p class="cover-sub">Los 7 errores más costosos al mudarte a Florida — y el checklist que uso con mis clientes para evitarlos.</p>
+    </div>
+
+    <div class="cover-photo-wrap">
+      <img src="assets/kermit.png" alt="Kermit Fernandez Rivera" />
+      <div class="photo-tag">Guía · PR → FL</div>
+      <div class="frame-meta">Kissimmee, FL</div>
+    </div>
+
+    <div class="cover-foot">
+      <div class="cover-byline">
+        <span class="by">con</span>
+        <span>Kermit Fernandez Rivera · reThought Real Estate</span>
+      </div>
+      <div class="markets">14+ años · Bilingual</div>
+    </div>
+  </section>
+
+  <!-- PAGE 2 — Yo también empecé buscando en Zillow (letter) -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Antes del checklist</div>
+      <div class="pillar-tag">02 / 07</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">Carta de Kermit</div>
+      <h2 class="h2">Yo también empecé<br/>buscando en <span style="color: var(--re-green-700);">Zillow</span>.</h2>
+    </div>
+
+    <div class="letter-grid">
+      <div class="letter-prose">
+        <div class="pullquote">Una cosa es ver fotos bonitas en Zillow. Otra muy distinta es vivir el proceso de mudarte con tu familia desde la isla.</div>
+        <p>Yo pasé por lo mismo que estás pasando tú. Abrí Zillow, filtré por precio, me enamoré de una casa, y pensé que eso era "investigar". Spoiler: no lo era. Zillow te enseña fotos. No te enseña los <strong>taxes reales</strong>, el <strong>CDD</strong>, el <strong>flood zone</strong>, la calidad de la escuela, ni el HOA que te amarra.</p>
+        <p>Hoy, con 14+ años de experiencia en bienes raíces ahora operando en Florida bajo <strong>reThought Real Estate®</strong>, acompaño a familias boricuas en este mismo camino. Y te digo con honestidad: <strong>mudarse no es escoger una casa</strong>. Es entender áreas, costos reales, procesos, impuestos y seguros.</p>
+        <p>Este checklist es el mismo que uso internamente con mis clientes. Marca cada casilla antes de firmar nada. Si te faltan respuestas, esa es la conversación que deberías tener conmigo antes de dar el paso.</p>
+        <div class="signoff">No vengo a venderte una casa. Vengo a ayudarte a no comprar la equivocada.</div>
+      </div>
+
+      <div class="agent-sidecar">
+        <div class="photo"><img src="assets/kermit.png" alt="Kermit Fernandez Rivera" /></div>
+        <div class="body">
+          <div class="stat">14+</div>
+          <div class="stat-lab">Años en bienes raíces</div>
+          <div class="name">Kermit Fernandez<br/>Rivera</div>
+          <div class="role">Real Estate Expert</div>
+          <ul>
+            <li>Bilingüe · inglés y español</li>
+            <li>Especialista PR → FL</li>
+            <li>Experiencia en inversión y flipping</li>
+            <li>Kissimmee · Orlando · Central FL</li>
+            <li>reThought Real Estate®</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Antes de Zillow · Intro</span>
+    </div>
+  </section>
+
+  <!-- PAGE 3 — Los 7 errores -->
+  <section class="slide">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Sección 1 · Diagnóstico</div>
+      <div class="pillar-tag">03 / 07</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">La trampa de Zillow</div>
+      <h2 class="h2">Los <span style="color: var(--re-green-700);">7 errores</span> que cometen<br/>casi todos los boricuas.</h2>
+    </div>
+
+    <div class="err-callout">
+      <div class="lab">→ El atajo mental</div>
+      <div class="txt"><span class="strike">Zillow dice $420K</span> · La realidad: $420K + $8,400/año tax + $4,800 seguro + HOA + CDD + 30 días de due diligence.</div>
+    </div>
+
+    <div class="errors">
+      <div class="row">
+        <div class="num">01</div>
+        <div class="body">
+          <div class="h">Confiar en el <span class="accent">"Zestimate"</span> como si fuera tasación.</div>
+          <div class="d">Zillow usa un algoritmo genérico. El valor real viene de comps de los últimos 90 días — no de un estimado automático.</div>
+        </div>
+        <div class="tag">Página 1</div>
+      </div>
+      <div class="row">
+        <div class="num">02</div>
+        <div class="body">
+          <div class="h">Filtrar por <span class="accent">precio y fotos</span>, ignorar el zip code.</div>
+          <div class="d">El zip decide escuela, tax rate e insurance premium. Dos casas a 2 millas pueden costarte $6,000/año de diferencia.</div>
+        </div>
+        <div class="tag">Zip-code</div>
+      </div>
+      <div class="row">
+        <div class="num">03</div>
+        <div class="body">
+          <div class="h">No contar con <span class="accent">flood zone</span> ni wind mitigation.</div>
+          <div class="d">En Florida el seguro son tres: homeowner + wind + flood. En ciertas zonas el flood solo puede costarte $3,000–$6,000/año.</div>
+        </div>
+        <div class="tag">Insurance</div>
+      </div>
+      <div class="row">
+        <div class="num">04</div>
+        <div class="body">
+          <div class="h">Confundir <span class="accent">HOA con CDD</span>, o ignorar que existen.</div>
+          <div class="d">CDD es un bond extra sobre los taxes en comunidades nuevas. Puede sumar $1,500–$3,000/año por 20 años.</div>
+        </div>
+        <div class="tag">CDD/HOA</div>
+      </div>
+      <div class="row">
+        <div class="num">05</div>
+        <div class="body">
+          <div class="h">Llegar a Florida <span class="accent">sin pre-aprobación</span> local.</div>
+          <div class="d">Tu crédito de PR es válido, pero el lender debe entender W-2, 1099, LLC, rental income en PR. Sin esto, tu oferta queda atrás.</div>
+        </div>
+        <div class="tag">Financing</div>
+      </div>
+      <div class="row">
+        <div class="num">06</div>
+        <div class="body">
+          <div class="h">Escoger agente por <span class="accent">cercanía o anuncio</span>.</div>
+          <div class="d">80,000 agentes en Florida. Pocos entienden tu tax return de PR, Acto 22/60, o lo que dejas en la isla.</div>
+        </div>
+        <div class="tag">Agente</div>
+      </div>
+      <div class="row">
+        <div class="num">07</div>
+        <div class="body">
+          <div class="h">Firmar oferta <span class="accent">sin contingencias</span> claras.</div>
+          <div class="d">Financing, inspection, appraisal. Son tus tres salidas legales. Sin ellas pierdes el earnest money.</div>
+        </div>
+        <div class="tag">Contrato</div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Antes de Zillow · §1</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4 — Checklist CASA -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Sección 2 · El método</div>
+      <div class="pillar-tag">04 / 07</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px; margin-bottom: 36px;">
+      <div class="kicker">El método</div>
+      <h2 class="h2">Checklist <span style="color: var(--re-green-700);">CASA</span>.</h2>
+    </div>
+
+    <p class="body" style="font-size: 24px; color: var(--fg-muted); max-width: 820px; margin: -12px 0 32px;">
+      Cuatro bloques. Marca cada casilla antes de hacer una oferta. Si no la puedes marcar, todavía no estás listo.
+    </p>
+
+    <div class="casa-grid">
+      <div class="casa-card">
+        <span class="letter">C</span>
+        <div class="meta">Qué quieres · y por qué</div>
+        <div class="h">Claridad</div>
+        <ul>
+          <li>Definí residencia principal, inversión o flip.</li>
+          <li>Escribí mi plan a 5 años.</li>
+          <li>Acordé con mi familia estilo de vida y zona.</li>
+          <li>Identifiqué mi línea roja.</li>
+          <li>Tengo claro mi timing: 30, 60, 90+ días.</li>
+        </ul>
+      </div>
+      <div class="casa-card">
+        <span class="letter">A</span>
+        <div class="meta">Los números reales</div>
+        <div class="h">Análisis</div>
+        <ul>
+          <li>Pre-aprobación con lender bilingüe.</li>
+          <li>Pago total: mortgage + tax + insurance.</li>
+          <li>Verifiqué HOA, CDD y assessments por zip.</li>
+          <li>Reserva: down + closing + 6 meses.</li>
+          <li>Comps reales (90 días). No Zestimate.</li>
+        </ul>
+      </div>
+      <div class="casa-card">
+        <span class="letter">S</span>
+        <div class="meta">El equipo correcto</div>
+        <div class="h">Sistema</div>
+        <ul>
+          <li>Agente con experiencia con clientes de PR.</li>
+          <li>Lender, title, inspector y CPA confirmados.</li>
+          <li>Documentos en inglés explicados en español.</li>
+          <li>Calendario del proceso definido.</li>
+          <li>Canal claro (WhatsApp o email).</li>
+        </ul>
+      </div>
+      <div class="casa-card">
+        <span class="letter">A</span>
+        <div class="meta">Cómo firmar con cabeza fría</div>
+        <div class="h">Acción</div>
+        <ul>
+          <li>Inspección independiente (no del vendedor).</li>
+          <li>Appraisal y permisos históricos verificados.</li>
+          <li>Seller disclosure y reportes HOA leídos.</li>
+          <li>Oferta con contingencias claras.</li>
+          <li>Firma solo cuando TODAS estén marcadas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="casa-rule">
+      <div class="lab">→ Regla de oro</div>
+      <div class="txt">Si una casilla te incomoda, no la saltes. Esa es exactamente la que te va a costar dinero.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Antes de Zillow · §2</span>
+    </div>
+  </section>
+
+  <!-- PAGE 5 — Closing quote -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow">Para cerrar</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">05 / 07</div>
+    </div>
+
+    <div class="closing-quote">
+      <div class="mark">"</div>
+      <div class="text">
+        No vengo a venderte<br/>
+        una casa. Vengo<br/>
+        a ayudarte a <span class="green">no<br/>comprar la equivocada.</span>
+      </div>
+      <div class="author">— Kermit Fernandez Rivera · reThought Real Estate</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Antes de Zillow · Cierre</span>
+    </div>
+  </section>
+
+  <!-- PAGE 6 — CTA -->
+  <section class="cta-slide slide">
+    <div class="cta-photo">
+      <img src="assets/kermit.png" alt="Kermit Fernandez Rivera" />
+      <div class="frame-tag">Tu próximo paso</div>
+    </div>
+    <div class="cta-content">
+      <div class="kicker">Próximo paso</div>
+      <h2>Hagamos la<br/>llamada <span class="accent">corta</span>.</h2>
+      <p>Quince minutos. Sin presión, sin enseñar casas. Solo revisar tu checklist juntos y decirte con honestidad si estás listo, o qué te falta.</p>
+      <ul class="cta-list">
+        <li>Revisamos tu checklist CASA juntos</li>
+        <li>Identificamos los huecos que tienes que cerrar</li>
+        <li>Conectamos con lender bilingüe que entiende PR</li>
+        <li>Sales con un próximo paso claro — no con una casa</li>
+      </ul>
+    </div>
+    <div class="cta-foot">
+      <div class="name">Kermit Fernandez Rivera<small>Real Estate Expert · reThought Real Estate®</small></div>
+      <div class="links">
+        <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>787.901.2804</span>
+        <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>kf@rethought-realestate.com</span>
+        <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>kermitfernandez.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 7 — Final logo -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">07 / 07</div>
+    </div>
+
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 48px;">
+      <div class="dots lg" style="gap: 22px;"><span></span><span></span></div>
+      <div style="font-family: var(--font-display); font-weight: 900; font-size: 124px; line-height: 0.95; letter-spacing: -0.04em; color: white;">
+        Real Simple.<br/>
+        Real Skills.<br/>
+        <span style="font-family: var(--font-script); font-size: 160px; font-weight: 400; letter-spacing: 0; color: var(--re-green);">Real Results.</span><span style="color: var(--re-green); font-size: 60px; vertical-align: super;">®</span>
+      </div>
+      <p style="font-family: var(--font-display); font-weight: 600; font-size: 30px; color: rgba(255,255,255,0.65); max-width: 800px; line-height: 1.35;">
+        Milwaukee · Central Florida · South Florida<br/>
+        Bilingual boutique brokerage + agent development platform.
+      </p>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Antes de Zillow · 2026</span>
+    </div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>
