@@ -566,7 +566,7 @@ body {
           <a class="btn btn--ghost" href="presentations/${encodeURIComponent(p.filename)}" target="_blank">&#128065; View</a>
           ${p.pdf
             ? `<a class="btn btn--ghost" href="presentations/${encodeURIComponent(p.pdf)}" download>&#8595; PDF</a>`
-            : `<button class="btn btn--ghost" disabled title="Not exported yet">&#8595; PDF</button>`
+            : `<button class="btn btn--ghost" onclick="window.open('presentations/${encodeURIComponent(p.filename)}','_blank'); setTimeout(() => alert('Use Cmd+P (or Ctrl+P) → Save as PDF. deck-stage formats one slide per page automatically.'), 800);" title="Opens presentation — use Cmd+P to save as PDF">&#8595; PDF</button>`
           }
         </div>
       `;

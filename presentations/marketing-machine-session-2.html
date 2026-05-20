@@ -382,6 +382,41 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
     background: white; border-color: var(--border-l);
     box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
+
+/* ---------- PRINT / PDF EXPORT ---------- */
+@page { size: 1920px 1080px; margin: 0; }
+@media print {
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  html { scroll-snap-type: none !important; }
+  .progress-bar, .slide-number { display: none !important; }
+  .slide {
+    width: 1920px !important;
+    height: 1080px !important;
+    min-height: 1080px !important;
+    overflow: hidden !important;
+    scroll-snap-align: none !important;
+    break-after: page;
+    break-inside: avoid;
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+  .slide:last-child { break-after: auto; page-break-after: auto; }
+  /* Force all reveal animations to visible */
+  .reveal, .stagger > *, .stagger-up > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  * { animation: none !important; transition: none !important; }
+}
 </style>
 </head>
 <body>

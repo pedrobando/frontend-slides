@@ -13,6 +13,7 @@ Create zero-dependency, animation-rich HTML presentations that run entirely in t
 2. **Show, Don't Tell** — Generate visual previews, not abstract choices. People discover what they want by seeing it.
 3. **Distinctive Design** — No generic "AI slop." Every presentation must feel custom-crafted.
 4. **Viewport Fitting (NON-NEGOTIABLE)** — Every slide MUST fit exactly within 100vh. No scrolling within slides, ever. Content overflows? Split into multiple slides.
+5. **Print/PDF Export (NON-NEGOTIABLE)** — Every presentation MUST include `@media print` CSS so Cmd+P produces a web-ready PDF with one slide per page. Include `@page { size: 1920px 1080px; margin: 0; }`, force all reveal/stagger animations to visible, hide progress bars and slide numbers, and set each `.slide` to `break-after: page`. The hub PDF button must be active (not disabled) and open the presentation for Cmd+P export.
 
 ## Design Aesthetics
 
