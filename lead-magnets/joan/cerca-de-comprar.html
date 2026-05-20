@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Cerca de Comprar · Checklist en español · Joan Diaz · reThought Real Estate</title>
+<link rel="stylesheet" href="tokens.css" />
+<script src="deck-stage.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #0a0e13; }
+  deck-stage { --slide-gap: 36px; }
+
+  :root {
+    --pad-x: 88px;
+    --pad-top: 110px;
+    --pad-bottom: 110px;
+    --gap-title: 56px;
+    --gap-item: 28px;
+    --type-display: 168px;
+    --type-title: 96px;
+    --type-h2: 88px;
+    --type-h3: 52px;
+    --type-subtitle: 40px;
+    --type-body: 30px;
+    --type-small: 26px;
+    --type-eyebrow: 24px;
+  }
+
+  /* ---------- slide base ---------- */
+  .slide {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    background: var(--bg);
+    color: var(--fg);
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+  }
+  .slide.dark { background: var(--re-navy); color: var(--re-white); }
+  .slide.dark h1, .slide.dark h2, .slide.dark h3, .slide.dark h4 { color: var(--re-white); }
+  .slide.green { background: var(--re-green); color: var(--re-navy); }
+  .slide.green h1, .slide.green h2, .slide.green h3 { color: var(--re-navy); }
+  .slide.subtle { background: var(--re-gray-50); }
+
+  /* ---------- typographic primitives ---------- */
+  h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.02; }
+  .title { font-size: var(--type-title); font-weight: 900; line-height: 0.98; letter-spacing: -0.035em; }
+  .h2 { font-size: var(--type-h2); font-weight: 900; line-height: 1.0; letter-spacing: -0.035em; }
+  .h3 { font-size: var(--type-h3); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+  .subtitle { font-size: var(--type-subtitle); font-weight: 500; line-height: 1.18; color: var(--fg-muted); }
+  .slide.dark .subtitle { color: rgba(255,255,255,0.72); }
+  .body { font-size: var(--type-body); line-height: 1.4; }
+  .small { font-size: var(--type-small); line-height: 1.5; }
+  .display { font-size: var(--type-display); font-weight: 900; line-height: 0.9; letter-spacing: -0.045em; }
+  .script { font-family: var(--font-script); color: var(--re-green); line-height: 1; }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--type-eyebrow);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--re-green);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* ---------- two-dot motif ---------- */
+  .dots {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+  }
+  .dots span {
+    width: 14px; height: 14px; border-radius: 999px;
+    background: var(--re-green);
+    display: block;
+  }
+  .dots.lg span { width: 22px; height: 22px; }
+
+  /* ---------- header / footer chrome ---------- */
+  .chrome-top {
+    position: absolute; top: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    white-space: nowrap;
+    gap: 16px;
+  }
+  .chrome-bottom {
+    position: absolute; bottom: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-display); font-size: 24px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--fg-muted);
+    white-space: nowrap;
+    gap: 16px;
+  }
+  .slide.dark .chrome-bottom { color: rgba(255,255,255,0.55); }
+  .chrome-bottom .lockup-mark { color: var(--re-green); }
+
+  .logo-chip { height: 44px; width: auto; display: block; }
+  .pillar-tag {
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    padding: 0;
+    background: var(--re-navy);
+    color: white;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+  }
+  .cover-top {
+    padding: 72px 88px 0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cover-top .lockup {
+    font-family: var(--font-display); font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 22px; color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+  }
+  .cover-eyebrow {
+    padding: 40px 88px 0;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .cover-eyebrow .dots span { width: 16px; height: 16px; }
+  .cover-eyebrow .label {
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 800;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+  .cover-hero {
+    padding: 28px 88px 0;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .cover-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 132px;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    color: white;
+    margin: 0;
+  }
+  .cover-title .accent { color: var(--re-green); }
+  .cover-sub {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.28;
+    color: rgba(255,255,255,0.78);
+    max-width: 820px;
+    margin: 0;
+  }
+  .cover-photo-wrap {
+    position: relative;
+    margin: 24px 88px 0;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #1B252F;
+    aspect-ratio: 4 / 3;
+    max-height: 720px;
+  }
+  .cover-photo-wrap img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+    display: block;
+  }
+  .cover-photo-wrap .photo-tag {
+    position: absolute; left: 32px; top: 32px;
+    background: var(--re-green); color: var(--re-navy);
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 12px 20px; border-radius: 999px;
+  }
+  .cover-photo-wrap .frame-meta {
+    position: absolute; right: 32px; bottom: 32px;
+    background: rgba(27,37,47,0.78); color: white;
+    backdrop-filter: blur(8px);
+    padding: 12px 20px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .cover-foot {
+    padding: 36px 88px 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .cover-byline {
+    display: flex; align-items: center; gap: 18px;
+    font-family: var(--font-display);
+    font-weight: 800; font-size: 28px;
+    color: white;
+    letter-spacing: -0.005em;
+  }
+  .cover-byline .by {
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase; letter-spacing: 0.2em; font-size: 22px; font-weight: 600;
+  }
+  .cover-foot .markets {
+    font-family: var(--font-display);
+    font-weight: 600; font-size: 22px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    text-align: right;
+  }
+
+  /* ---------- title block ---------- */
+  .title-block { display: flex; flex-direction: column; gap: 22px; margin-bottom: var(--gap-title); }
+  .title-block .kicker {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+
+  /* ---------- check list ---------- */
+  .check-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 22px; }
+  .check-list li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 22px;
+    align-items: start;
+    font-family: var(--font-body);
+    font-size: 30px;
+    line-height: 1.35;
+    color: var(--fg-strong);
+  }
+  .slide.dark .check-list li { color: white; }
+  .check-list .mark {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900; font-size: 28px;
+  }
+  .check-list .yes { background: var(--re-green); color: var(--re-navy); }
+  .check-list .no  { background: rgba(200,55,45,0.12); color: #C8372D; }
+  .slide.dark .check-list .no { background: rgba(255,255,255,0.08); color: #FF6B5C; }
+  .check-list .nt {
+    background: transparent;
+    border: 2.5px solid var(--re-navy);
+    color: transparent;
+  }
+  .slide.dark .check-list .nt { border-color: white; }
+
+  /* ---------- numbered list big ---------- */
+  .num-list { display: flex; flex-direction: column; gap: 28px; }
+  .num-list .item { display: grid; grid-template-columns: 96px 1fr; gap: 28px; align-items: start; }
+  .num-list .item .num {
+    font-family: var(--font-display); font-weight: 900; font-size: 80px;
+    line-height: 0.9; color: var(--re-green); letter-spacing: -0.045em;
+  }
+  .num-list .item .body { display: flex; flex-direction: column; gap: 8px; }
+  .num-list .item .body .head {
+    font-family: var(--font-display); font-weight: 800; font-size: 38px;
+    color: var(--fg-strong); line-height: 1.05; letter-spacing: -0.015em;
+  }
+  .slide.dark .num-list .item .body .head { color: white; }
+  .num-list .item .body .desc {
+    font-family: var(--font-body); font-size: 26px; line-height: 1.4;
+    color: var(--fg-muted);
+  }
+  .slide.dark .num-list .item .body .desc { color: rgba(255,255,255,0.72); }
+
+  /* ---------- mito/realidad two-row ---------- */
+  .mr-pair {
+    display: flex; flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+    background: var(--re-gray-50);
+    border-radius: 24px;
+    padding: 28px 32px;
+  }
+  .slide.dark .mr-pair { background: rgba(255,255,255,0.06); }
+  .mr-pair .line {
+    display: grid;
+    grid-template-columns: 130px 1fr 40px;
+    gap: 18px;
+    align-items: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.35;
+    color: var(--fg-strong);
+  }
+  .slide.dark .mr-pair .line { color: white; }
+  .mr-pair .line .lbl {
+    font-family: var(--font-display);
+    font-weight: 800; font-size: 24px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--re-navy);
+  }
+  .slide.dark .mr-pair .line .lbl { color: white; }
+  .mr-pair .line.realidad .lbl { color: var(--re-green-700); }
+  .slide.dark .mr-pair .line.realidad .lbl { color: var(--re-green); }
+  .mr-pair .icon {
+    width: 36px; height: 36px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900; font-size: 20px;
+  }
+  .mr-pair .icon.x { background: rgba(200,55,45,0.12); color: #C8372D; }
+  .mr-pair .icon.check { background: var(--re-green); color: var(--re-navy); }
+  .slide.dark .mr-pair .icon.x { background: rgba(255,255,255,0.08); color: #FF6B5C; }
+
+  /* ---------- callout box ---------- */
+  .callout {
+    background: var(--re-navy);
+    color: white;
+    border-radius: 24px;
+    padding: 36px 40px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .slide.dark .callout { background: var(--re-green); color: var(--re-navy); }
+  .callout .lab {
+    font-family: var(--font-display); font-weight: 700; font-size: 24px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+  .slide.dark .callout .lab { color: var(--re-navy); }
+  .callout .txt {
+    font-family: var(--font-display); font-weight: 600; font-size: 32px;
+    line-height: 1.22; letter-spacing: -0.01em;
+  }
+  .callout.green {
+    background: var(--re-green);
+    color: var(--re-navy);
+  }
+  .callout.green .lab { color: var(--re-navy); }
+
+  /* ---------- bullets ---------- */
+  .bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+  .bullets li {
+    display: grid; grid-template-columns: 22px 1fr; gap: 20px;
+    align-items: start;
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 30px; line-height: 1.4;
+    color: var(--fg-strong);
+  }
+  .slide.dark .bullets li { color: white; }
+  .bullets li::before {
+    content: "";
+    width: 12px; height: 12px; border-radius: 999px;
+    background: var(--re-green);
+    margin-top: 16px;
+  }
+
+  /* ---------- big punchline ---------- */
+  .punchline {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 68px;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    color: var(--re-navy);
+    margin-top: auto;
+  }
+  .punchline .accent { color: var(--re-green); font-style: italic; }
+  .slide.dark .punchline { color: white; }
+
+  /* ---------- error line (Slide 6) ---------- */
+  .error-line {
+    background: rgba(200,55,45,0.08);
+    border-left: 5px solid #C8372D;
+    padding: 22px 28px;
+    border-radius: 0 12px 12px 0;
+    display: flex; align-items: center; gap: 18px;
+    margin-bottom: 32px;
+  }
+  .error-line .icon {
+    width: 36px; height: 36px; border-radius: 999px;
+    background: #C8372D; color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900; font-size: 20px;
+    flex-shrink: 0;
+  }
+  .error-line .txt {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 28px; color: var(--fg-strong);
+    line-height: 1.3;
+  }
+
+  /* ---------- closing word ---------- */
+  .closing-quote {
+    display: flex; flex-direction: column; gap: 32px; flex: 1; justify-content: center;
+  }
+  .closing-quote .mark {
+    font-family: var(--font-script); color: var(--re-green);
+    font-size: 200px; line-height: 0.6;
+  }
+  .closing-quote .text {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 76px; line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: white;
+  }
+  .closing-quote .text .green { color: var(--re-green); }
+  .closing-quote .author {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 26px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--re-green);
+    margin-top: 8px;
+  }
+
+  /* ---------- CTA slide ---------- */
+  .cta-slide {
+    padding: 0;
+    background: var(--re-navy);
+    color: white;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  .cta-photo {
+    position: relative;
+    background: var(--re-green);
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .cta-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+  }
+  .cta-photo .frame-tag {
+    position: absolute; left: 36px; bottom: 36px;
+    background: var(--re-navy); color: white;
+    padding: 16px 24px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .cta-content {
+    padding: 64px 88px 32px;
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .cta-content h2 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 92px; line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: white;
+  }
+  .cta-content .accent { color: var(--re-green); }
+  .cta-content p {
+    font-family: var(--font-display);
+    font-weight: 500; font-size: 30px; line-height: 1.3;
+    color: rgba(255,255,255,0.78);
+    max-width: 820px;
+    margin: 0;
+  }
+  .cta-list { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 14px; }
+  .cta-list li {
+    display: grid; grid-template-columns: 36px 1fr; gap: 16px;
+    font-size: 28px; line-height: 1.32;
+    color: rgba(255,255,255,0.92);
+  }
+  .cta-list li::before {
+    content: "";
+    width: 14px; height: 14px; border-radius: 999px;
+    background: var(--re-green);
+    margin-top: 16px;
+  }
+  .cta-foot {
+    background: var(--re-green);
+    color: var(--re-navy);
+    padding: 44px 88px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .cta-foot .name {
+    font-family: var(--font-display); font-weight: 900; font-size: 44px;
+    line-height: 1; letter-spacing: -0.025em;
+  }
+  .cta-foot .name small {
+    display: block; font-size: 22px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    margin-top: 8px; opacity: 0.75;
+    white-space: nowrap;
+  }
+  .cta-foot .links {
+    text-align: right;
+    font-family: var(--font-display); font-weight: 600; font-size: 24px;
+    line-height: 1.5;
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+  }
+  .cta-foot .links span {
+    display: inline-flex; align-items: center; gap: 10px;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<deck-stage width="1080" height="1920">
+
+  <!-- PAGE 1 — COVER -->
+  <section class="slide cover">
+    <div class="cover-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="lockup">Real Estate® · 2026</div>
+    </div>
+
+    <div class="cover-eyebrow">
+      <span class="dots"><span></span><span></span></span>
+      <span class="label">Guía gratuita</span>
+    </div>
+
+    <div class="cover-hero">
+      <h1 class="cover-title">¿Cansado<br/>de pagar<br/><span class="accent">renta</span>?</h1>
+      <p class="cover-sub">Si pagas renta ahora mismo, esto es para ti. Porque probablemente estás pagando la hipoteca de otra persona — y ni cuenta te das.</p>
+    </div>
+
+    <div class="cover-photo-wrap">
+      <img src="assets/joan.jpg" alt="Joan Diaz" />
+      <div class="photo-tag">Checklist · 10 min</div>
+      <div class="frame-meta">Central FL</div>
+    </div>
+
+    <div class="cover-foot">
+      <div class="cover-byline">
+        <span class="by">con</span>
+        <span>Joan Diaz · reThought Real Estate</span>
+      </div>
+      <div class="markets">10 min</div>
+    </div>
+  </section>
+
+  <!-- PAGE 2 — Prueba rápida -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Sección 1</div>
+      <div class="pillar-tag">02 / 10</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">Auto-evaluación</div>
+      <h2 class="h2">Prueba rápida:<br/>¿puedes <span style="color: var(--re-green-700);">comprar</span>?</h2>
+    </div>
+
+    <p class="body" style="font-size: 28px; color: var(--fg-muted); max-width: 820px; margin: -12px 0 36px;">
+      Marca lo que aplique para ti.
+    </p>
+
+    <ul class="check-list">
+      <li><span class="mark yes">✓</span>Tengo ingreso estable (aunque no sea perfecto).</li>
+      <li><span class="mark yes">✓</span>He pagado mi renta a tiempo en los últimos meses.</li>
+      <li><span class="mark yes">✓</span>Tengo aunque sea un poco de dinero ahorrado.</li>
+      <li><span class="mark yes">✓</span>Llevo tiempo trabajando — no estoy empezando de cero.</li>
+    </ul>
+
+    <div class="callout" style="margin-top: auto;">
+      <div class="lab">Si marcaste 2 o más</div>
+      <div class="txt">Estás más cerca de comprar de lo que piensas. Esto no es un sueño — es una conversación pendiente.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Cerca de Comprar · §1</span>
+    </div>
+  </section>
+
+  <!-- PAGE 3 — Crédito -->
+  <section class="slide">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Sección 2 · Crédito</div>
+      <div class="pillar-tag">03 / 10</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">Crédito</div>
+      <h2 class="h2">Lo que <span style="color: var(--re-green-700);">realmente</span><br/>necesitas.</h2>
+    </div>
+
+    <div class="mr-pair">
+      <div class="line"><span class="lbl">Mito</span><span>Necesitas crédito perfecto para comprar.</span><span class="icon x">×</span></div>
+      <div class="line realidad"><span class="lbl">Realidad</span><span>Hay opciones con crédito más flexible.</span><span class="icon check">✓</span></div>
+    </div>
+
+    <p class="body" style="font-size: 26px; color: var(--fg-muted); margin: 0 0 24px; font-weight: 600;">Marca tu situación:</p>
+
+    <ul class="check-list">
+      <li><span class="mark nt">·</span>Estoy en 580–620 o más.</li>
+      <li><span class="mark nt">·</span>Estoy por debajo pero quiero mejorarlo.</li>
+      <li><span class="mark nt">·</span>No sé mi crédito todavía.</li>
+    </ul>
+
+    <div class="callout" style="margin-top: auto;">
+      <div class="lab">Acción simple</div>
+      <div class="txt">Revisa tu crédito gratis. No para juzgar — para tener <span style="color: var(--re-green);">claridad</span>.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Cerca de Comprar · §2</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4 — Dinero -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Sección 3 · Down payment</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">04 / 10</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">Dinero</div>
+      <h2 class="h2">Cuánto <span style="color: var(--re-green);">necesitas</span><br/>de verdad.</h2>
+    </div>
+
+    <div class="mr-pair">
+      <div class="line"><span class="lbl">Mito</span><span>Necesitas 20% de pronto.</span><span class="icon x">×</span></div>
+      <div class="line realidad"><span class="lbl">Realidad</span><span>Puedes comprar con mucho menos.</span><span class="icon check">✓</span></div>
+    </div>
+
+    <p class="body" style="font-size: 26px; color: rgba(255,255,255,0.7); margin: 0 0 22px; font-weight: 600;">Opciones comunes:</p>
+
+    <ul class="bullets" style="margin-bottom: 0;">
+      <li><span>3% – 3.5% de pronto.</span></li>
+      <li><span>Programas de ayuda con down payment.</span></li>
+      <li><span>Costos dependen de TU caso, no de lo que escuchaste.</span></li>
+    </ul>
+
+    <div class="callout" style="margin-top: auto; background: var(--re-green); color: var(--re-navy);">
+      <div class="lab" style="color: var(--re-navy);">Pregunta clave</div>
+      <div class="txt">¿Cuánto necesito yo, exactamente, para empezar?</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Cerca de Comprar · §3</span>
+    </div>
+  </section>
+
+  <!-- PAGE 5 — Ingresos -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Sección 4 · Ingresos</div>
+      <div class="pillar-tag">05 / 10</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">Ingresos</div>
+      <h2 class="h2">Tu ingreso.<br/><span style="color: var(--re-green-700);">¿Calificas?</span></h2>
+    </div>
+
+    <p class="body" style="font-size: 28px; color: var(--fg-muted); max-width: 820px; margin: -12px 0 32px;">
+      Marca lo que aplica.
+    </p>
+
+    <ul class="check-list">
+      <li><span class="mark yes">✓</span>Trabajo W2.</li>
+      <li><span class="mark yes">✓</span>Soy self-employed (2 años o más).</li>
+      <li><span class="mark yes">✓</span>Tengo ingresos adicionales comprobables.</li>
+      <li><span class="mark yes">✓</span>Mi ingreso es consistente.</li>
+    </ul>
+
+    <div class="callout" style="margin-top: auto;">
+      <div class="lab">Si tienes estabilidad</div>
+      <div class="txt">Hay opciones. No necesitas ser <em style="color: var(--re-green);">'perfecto'</em>… necesitas ser <span style="color: var(--re-green);">comprobable</span>.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Cerca de Comprar · §4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 6 — El orden correcto -->
+  <section class="slide">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Sección 5 · Estrategia</div>
+      <div class="pillar-tag">06 / 10</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">Lo que cambia todo</div>
+      <h2 class="h2">El <span style="color: var(--re-green-700);">orden</span> correcto<br/>lo cambia todo.</h2>
+    </div>
+
+    <div class="error-line">
+      <span class="icon">×</span>
+      <span class="txt">La mayoría ve casas primero → emoción → ansiedad.</span>
+    </div>
+
+    <p class="body" style="font-size: 28px; color: var(--re-green-700); font-weight: 800; margin: 0 0 24px; letter-spacing: -0.005em;">Haz esto mejor:</p>
+
+    <div class="num-list">
+      <div class="item">
+        <div class="num">01</div>
+        <div class="body">
+          <div class="head">Pre-aprobación.</div>
+          <div class="desc">Antes de cualquier showing. Sin esto, no estás comprando — estás soñando.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">02</div>
+        <div class="body">
+          <div class="head">Saber tu presupuesto real.</div>
+          <div class="desc">Pago total: mortgage + tax + insurance + HOA. No solo el precio de venta.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">03</div>
+        <div class="body">
+          <div class="head">Buscar casa con estrategia.</div>
+          <div class="desc">Zona, escuelas, costos. Decisión, no emoción.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: auto; background: var(--re-green); color: var(--re-navy);">
+      <div class="lab" style="color: var(--re-navy);">El resultado</div>
+      <div class="txt">Esto te ahorra tiempo, estrés y malas decisiones en el camino.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Cerca de Comprar · §5</span>
+    </div>
+  </section>
+
+  <!-- PAGE 7 — Realidad importante -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Sección 6 · Realidad</div>
+      <div class="pillar-tag">07 / 10</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">Realidad importante</div>
+      <h2 class="h2">Seguir <span style="color: var(--re-green-700);">rentando</span><br/>no es neutral.</h2>
+    </div>
+
+    <p class="body" style="font-size: 30px; color: var(--fg-strong); font-weight: 600; margin: 0 0 24px;">Cada mes que pasa:</p>
+
+    <ul class="bullets" style="font-size: 32px;">
+      <li><span>Suben las rentas.</span></li>
+      <li><span>No construyes nada tuyo.</span></li>
+      <li><span>Sigues esperando "el momento perfecto".</span></li>
+    </ul>
+
+    <div class="punchline" style="margin-top: 48px;">
+      Y ese momento <span class="accent">casi nunca</span> llega solo.
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Cerca de Comprar · §6</span>
+    </div>
+  </section>
+
+  <!-- PAGE 8 — Closing quote -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow">Para cerrar</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">08 / 10</div>
+    </div>
+
+    <div class="closing-quote">
+      <div class="mark">"</div>
+      <div class="text">
+        No tienes que tener<br/>
+        todo resuelto hoy.<br/>
+        <span class="green">Solo necesitas saber:</span><br/>
+        ¿estoy listo,<br/>o qué me falta?
+      </div>
+      <div class="author">— Joan Diaz · reThought Real Estate</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Cerca de Comprar · Cierre</span>
+    </div>
+  </section>
+
+  <!-- PAGE 9 — CTA -->
+  <section class="cta-slide slide">
+    <div class="cta-photo">
+      <img src="assets/joan.jpg" alt="Joan Diaz" />
+      <div class="frame-tag">Tu próximo paso</div>
+    </div>
+    <div class="cta-content">
+      <h2>Tu próximo paso<br/><span class="accent">(fácil).</span></h2>
+      <p>No tienes que tener todo resuelto hoy. Solo necesitas saber: <strong style="color: white;">¿estoy listo o qué me falta?</strong></p>
+      <p>Si quieres, te ayudo a revisarlo contigo. Sin presión. Aquí estoy para ayudarte.</p>
+    </div>
+    <div class="cta-foot">
+      <div class="name">Joan Diaz<small>reThought Real Estate</small></div>
+      <div class="links">
+        <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>407-312-8606</span>
+        <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>jd@rethought-realestate.com</span>
+        <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>joandiaz.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 10 — Final logo -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">10 / 10</div>
+    </div>
+
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 48px;">
+      <div class="dots lg" style="gap: 22px;"><span></span><span></span></div>
+      <div style="font-family: var(--font-display); font-weight: 900; font-size: 124px; line-height: 0.95; letter-spacing: -0.04em; color: white;">
+        Real Simple.<br/>
+        Real Skills.<br/>
+        <span style="font-family: var(--font-script); font-size: 160px; font-weight: 400; letter-spacing: 0; color: var(--re-green);">Real Results.</span><span style="color: var(--re-green); font-size: 60px; vertical-align: super;">®</span>
+      </div>
+      <p style="font-family: var(--font-display); font-weight: 600; font-size: 30px; color: rgba(255,255,255,0.65); max-width: 800px; line-height: 1.35;">
+        Milwaukee · Central Florida · South Florida<br/>
+        Bilingual boutique brokerage + agent development platform.
+      </p>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Cerca de Comprar · 2026</span>
+    </div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>
