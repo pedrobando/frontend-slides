@@ -1,0 +1,1461 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>5 Mitos del Crédito VA · Guía para Veteranos · Ivonne Marie Llopiz · reThought Real Estate</title>
+<link rel="stylesheet" href="tokens.css" />
+<script src="deck-stage.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #0a0e13; }
+  deck-stage { --slide-gap: 36px; }
+
+  :root {
+    --pad-x: 88px;
+    --pad-top: 110px;
+    --pad-bottom: 110px;
+    --gap-title: 48px;
+    --type-h2: 84px;
+    --type-h3: 52px;
+    --type-body: 28px;
+    --type-eyebrow: 24px;
+  }
+
+  /* ---------- slide base ---------- */
+  .slide {
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    background: var(--bg);
+    color: var(--fg);
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-body);
+    display: flex; flex-direction: column;
+  }
+  .slide.dark { background: var(--re-navy); color: var(--re-white); }
+  .slide.dark h1, .slide.dark h2, .slide.dark h3 { color: var(--re-white); }
+  .slide.subtle { background: var(--re-gray-50); }
+
+  h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.02; }
+  .h2 { font-size: var(--type-h2); font-weight: 900; line-height: 1.0; letter-spacing: -0.035em; }
+  .body { font-size: var(--type-body); line-height: 1.45; }
+  .small { font-size: 24px; line-height: 1.5; }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--type-eyebrow);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--re-green);
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+
+  /* ---------- dots motif ---------- */
+  .dots { display: inline-flex; flex-direction: row; gap: 8px; align-items: center; }
+  .dots span { width: 14px; height: 14px; border-radius: 999px; background: var(--re-green); display: block; }
+  .dots.lg span { width: 22px; height: 22px; }
+
+  /* ---------- chrome ---------- */
+  .chrome-top {
+    position: absolute; top: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    white-space: nowrap; gap: 16px;
+  }
+  .chrome-bottom {
+    position: absolute; bottom: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-display); font-size: 22px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--fg-muted);
+    white-space: nowrap; gap: 16px;
+  }
+  .slide.dark .chrome-bottom { color: rgba(255,255,255,0.55); }
+  .chrome-bottom .lockup-mark { color: var(--re-green); }
+
+  .logo-chip { height: 44px; width: auto; display: block; }
+  .pillar-tag {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    padding: 0;
+    background: var(--re-navy);
+    color: white;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+  }
+  .cover-top {
+    padding: 72px 88px 0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cover-top .lockup {
+    font-family: var(--font-display); font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 22px; color: rgba(255,255,255,0.7); white-space: nowrap;
+  }
+  .cover-eyebrow {
+    padding: 40px 88px 0;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .cover-eyebrow .dots span { width: 16px; height: 16px; }
+  .cover-eyebrow .label {
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 800;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+  .cover-hero { padding: 28px 88px 0; display: flex; flex-direction: column; gap: 28px; }
+  .cover-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 124px;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    color: white; margin: 0;
+  }
+  .cover-title .accent { color: var(--re-green); }
+  .cover-sub {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 30px; line-height: 1.28;
+    color: rgba(255,255,255,0.78);
+    max-width: 820px; margin: 0;
+  }
+  .cover-photo-wrap {
+    position: relative;
+    margin: 24px 88px 0;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #1B252F;
+    aspect-ratio: 1 / 1;
+    max-height: 760px;
+  }
+  .cover-photo-wrap img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 8%;
+    display: block;
+  }
+  .cover-photo-wrap .photo-tag {
+    position: absolute; left: 32px; top: 32px;
+    background: var(--re-green); color: var(--re-navy);
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 12px 20px; border-radius: 999px;
+  }
+  .cover-photo-wrap .frame-meta {
+    position: absolute; right: 32px; bottom: 32px;
+    background: rgba(27,37,47,0.78); color: white;
+    backdrop-filter: blur(8px);
+    padding: 12px 20px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .cover-foot {
+    padding: 36px 88px 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .cover-byline {
+    display: flex; align-items: center; gap: 18px;
+    font-family: var(--font-display);
+    font-weight: 800; font-size: 26px;
+    color: white; letter-spacing: -0.005em;
+  }
+  .cover-byline .by {
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase; letter-spacing: 0.2em; font-size: 20px; font-weight: 600;
+  }
+  .cover-foot .markets {
+    font-family: var(--font-display);
+    font-weight: 600; font-size: 22px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    text-align: right;
+  }
+
+  /* ---------- title block ---------- */
+  .title-block { display: flex; flex-direction: column; gap: 18px; margin-bottom: var(--gap-title); }
+  .title-block .kicker {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 22px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+
+  /* ---------- letter (slide 2) — improved with stat hero + script signoff ---------- */
+  .letter-stat-hero {
+    background: var(--re-navy);
+    color: white;
+    border-radius: 28px;
+    padding: 36px 40px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 36px;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .letter-stat-hero .big {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 124px; line-height: 0.88;
+    color: var(--re-green);
+    letter-spacing: -0.05em;
+  }
+  .letter-stat-hero .meta {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .letter-stat-hero .meta .h {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 32px; line-height: 1.1; color: white;
+    letter-spacing: -0.015em;
+  }
+  .letter-stat-hero .meta .d {
+    font-family: var(--font-body);
+    font-size: 22px; line-height: 1.4;
+    color: rgba(255,255,255,0.7);
+  }
+  .letter-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 48px;
+    flex: 1;
+    min-height: 0;
+  }
+  .letter-prose p {
+    font-family: var(--font-body);
+    font-size: 23px; line-height: 1.5;
+    color: var(--fg);
+    margin: 0 0 18px;
+  }
+  .letter-prose p strong { color: var(--fg-strong); font-weight: 700; }
+  .agent-sidecar {
+    background: var(--re-gray-50);
+    color: var(--fg);
+    border-radius: 24px;
+    overflow: hidden;
+    align-self: start;
+    border-top: 6px solid var(--re-green);
+  }
+  .agent-sidecar .photo { aspect-ratio: 4 / 5; background: #1B252F; overflow: hidden; }
+  .agent-sidecar .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
+  .agent-sidecar .body { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; }
+  .agent-sidecar .name {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 26px; line-height: 1.1; color: var(--fg-strong);
+    letter-spacing: -0.015em;
+  }
+  .agent-sidecar .role {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green-700);
+  }
+  .agent-sidecar ul {
+    list-style: none; padding: 0; margin: 4px 0 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .agent-sidecar li {
+    display: grid; grid-template-columns: 14px 1fr; gap: 10px;
+    font-family: var(--font-body);
+    font-size: 17px; line-height: 1.4; color: var(--fg);
+  }
+  .agent-sidecar li::before {
+    content: ""; width: 8px; height: 8px; border-radius: 999px;
+    background: var(--re-green); margin-top: 10px;
+  }
+  .signoff-block {
+    margin-top: 28px;
+    background: var(--re-navy);
+    color: white;
+    border-radius: 24px;
+    padding: 32px 40px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .signoff-block .lab {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 18px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+  .signoff-block .txt {
+    font-family: var(--font-script);
+    font-size: 64px; line-height: 1.05;
+    color: white;
+  }
+  .signoff-block .txt .green { color: var(--re-green); }
+
+  /* ---------- Mito slide pattern ---------- */
+  .mito-header {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 32px;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 36px;
+  }
+  .mito-header .circle {
+    width: 120px; height: 120px; border-radius: 999px;
+    background: var(--re-green); color: var(--re-navy);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 58px; letter-spacing: -0.04em; line-height: 1;
+  }
+  .mito-header .meta { display: flex; flex-direction: column; gap: 8px; }
+  .mito-header .meta .kicker {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green-700);
+  }
+  .mito-header .meta h2 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 52px; line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: var(--fg-strong);
+  }
+
+  /* ---------- mito vs realidad pair ---------- */
+  .mr-pair {
+    display: flex; flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .mr-pair .line {
+    display: grid;
+    grid-template-columns: 140px 1fr 56px;
+    gap: 22px;
+    align-items: center;
+    padding: 22px 28px;
+    border-radius: 18px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  .mr-pair .line.mito {
+    background: rgba(200,55,45,0.07);
+    border-left: 4px solid #C8372D;
+    color: var(--fg-strong);
+  }
+  .mr-pair .line.realidad {
+    background: rgba(140,201,76,0.12);
+    border-left: 4px solid var(--re-green);
+    color: var(--fg-strong);
+  }
+  .mr-pair .line .lbl {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 20px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .mr-pair .line.mito .lbl { color: #C8372D; }
+  .mr-pair .line.realidad .lbl { color: var(--re-green-700); }
+  .mr-pair .icon {
+    width: 44px; height: 44px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900; font-size: 22px;
+  }
+  .mr-pair .icon.x { background: #C8372D; color: white; }
+  .mr-pair .icon.check { background: var(--re-green); color: var(--re-navy); }
+
+  /* ---------- stat grid (2-col) ---------- */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: var(--re-gray-50);
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .stat-card.dark { background: var(--re-navy); color: white; }
+  .stat-card .num {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 80px; line-height: 0.92;
+    color: var(--re-green-700);
+    letter-spacing: -0.045em;
+  }
+  .stat-card.dark .num { color: var(--re-green); }
+  .stat-card .lbl {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; letter-spacing: -0.005em;
+    line-height: 1.25;
+    color: var(--fg-strong);
+  }
+  .stat-card.dark .lbl { color: white; }
+  .stat-card .sub {
+    font-family: var(--font-body);
+    font-size: 18px; line-height: 1.4;
+    color: var(--fg-muted);
+  }
+  .stat-card.dark .sub { color: rgba(255,255,255,0.7); }
+
+  /* ---------- card grid (3-col for mito 3) ---------- */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .card-grid .c {
+    background: var(--re-gray-50);
+    border-radius: 20px;
+    padding: 28px 24px;
+    display: flex; flex-direction: column; gap: 12px;
+    border-top: 4px solid var(--re-green);
+  }
+  .card-grid .c .meta {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green-700);
+  }
+  .card-grid .c .h {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 26px; line-height: 1.1;
+    color: var(--fg-strong);
+    letter-spacing: -0.015em;
+  }
+  .card-grid .c .d {
+    font-family: var(--font-body);
+    font-size: 18px; line-height: 1.42;
+    color: var(--fg-muted);
+  }
+
+  /* ---------- bullets ---------- */
+  .bullets {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .bullets li {
+    display: grid; grid-template-columns: 22px 1fr; gap: 18px;
+    align-items: start;
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 26px; line-height: 1.4;
+    color: var(--fg-strong);
+  }
+  .bullets li::before {
+    content: "";
+    width: 12px; height: 12px; border-radius: 999px;
+    background: var(--re-green);
+    margin-top: 12px;
+  }
+  .bullets li strong { color: var(--re-green-700); font-weight: 800; }
+
+  /* ---------- big quote (slide 7 punchline) ---------- */
+  .big-quote {
+    background: var(--re-navy);
+    color: white;
+    border-radius: 24px;
+    padding: 32px 40px;
+    margin: 28px 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 42px;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+  .big-quote .green { color: var(--re-green); }
+
+  /* ---------- short prose ---------- */
+  .short-prose {
+    font-family: var(--font-body);
+    font-size: 22px; line-height: 1.5;
+    color: var(--fg);
+    max-width: 880px;
+    margin-bottom: 24px;
+  }
+  .short-prose strong { color: var(--fg-strong); font-weight: 700; }
+
+  /* ---------- takeaway callout ---------- */
+  .takeaway {
+    background: var(--re-navy);
+    color: white;
+    border-radius: 18px;
+    padding: 26px 32px;
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: auto;
+  }
+  .takeaway .lab {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 18px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+  .takeaway .txt {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 26px; line-height: 1.3;
+    color: white;
+    letter-spacing: -0.005em;
+  }
+
+  /* ---------- proof block — visual evidence panel (slides 3–7) ---------- */
+  .proof-block {
+    background: var(--re-white);
+    border: 1.5px solid var(--border);
+    border-radius: 22px;
+    padding: 34px 40px 38px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 0;
+  }
+  .pb-eyebrow {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 19px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--re-green-700);
+    display: flex; align-items: center; gap: 13px;
+    margin-bottom: 26px;
+  }
+  .pb-eyebrow::before {
+    content: ""; width: 30px; height: 3px; border-radius: 999px;
+    background: var(--re-green); flex: 0 0 auto;
+  }
+
+  /* slide 3 — credit score spectrum */
+  .credit-spectrum .cs-caption {
+    font-family: var(--font-body); font-size: 22px; line-height: 1.45;
+    color: var(--fg); margin: 0 0 28px;
+  }
+  .credit-spectrum .cs-caption strong { color: var(--fg-strong); font-weight: 700; }
+  .cs-nums { display: flex; margin-bottom: 9px; }
+  .cs-nums span {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 33px; line-height: 1; letter-spacing: -0.03em;
+    color: var(--fg-strong);
+  }
+  .cs-bar {
+    display: flex; gap: 4px; height: 34px;
+    border-radius: 999px; overflow: hidden;
+  }
+  .cs-bar .seg { height: 100%; }
+  .cs-bar .seg.s1 { background: var(--re-gray-200); }
+  .cs-bar .seg.s2 { background: var(--re-green-200); }
+  .cs-bar .seg.s3 { background: var(--re-green); }
+  .cs-descs { display: flex; margin-top: 15px; }
+  .cs-descs > div { padding-right: 22px; }
+  .cs-descs strong {
+    display: block;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 18px; line-height: 1.25; color: var(--fg-strong);
+  }
+  .cs-descs span {
+    display: block; margin-top: 5px;
+    font-family: var(--font-body); font-size: 16px; line-height: 1.4;
+    color: var(--fg-muted);
+  }
+  .cs-myth {
+    display: flex; align-items: center; gap: 16px;
+    margin-top: 26px; padding-top: 24px;
+    border-top: 1.5px solid var(--border);
+  }
+  .cs-myth .ghost {
+    flex: 0 0 auto;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 30px; letter-spacing: -0.03em;
+    color: var(--fg-subtle);
+    text-decoration: line-through;
+    text-decoration-color: var(--danger);
+    text-decoration-thickness: 4px;
+  }
+  .cs-myth .cs-myth-txt {
+    font-family: var(--font-body); font-size: 19px; line-height: 1.4;
+    color: var(--fg);
+  }
+  .cs-myth .cs-myth-txt strong { color: var(--fg-strong); font-weight: 700; }
+
+  /* slide 4 — down payment face-off */
+  .dp-faceoff .dp-intro {
+    font-family: var(--font-body); font-size: 21px; line-height: 1.45;
+    color: var(--fg); margin: 0 0 26px;
+  }
+  .dp-faceoff .dp-intro strong { color: var(--fg-strong); font-weight: 700; }
+  .dp-bars {
+    position: relative;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
+    align-items: end;
+  }
+  .dp-col { display: flex; flex-direction: column; align-items: center; }
+  .dp-stack {
+    width: 100%; height: 270px;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; align-items: center;
+    gap: 14px;
+  }
+  .dp-amount {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 56px; line-height: 1; letter-spacing: -0.04em;
+  }
+  .dp-bar { width: 74%; }
+  .dp-col.conv .dp-amount { color: var(--fg-strong); }
+  .dp-col.conv .dp-bar {
+    height: 184px; border-radius: 14px 14px 0 0;
+    background: linear-gradient(180deg, #33424F, var(--re-navy));
+  }
+  .dp-col.va .dp-amount { color: var(--re-green-700); }
+  .dp-col.va .dp-bar {
+    height: 18px; border-radius: 999px;
+    background: var(--re-green);
+  }
+  .dp-foot { text-align: center; margin-top: 18px; }
+  .dp-name {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 25px; color: var(--fg-strong); letter-spacing: -0.01em;
+  }
+  .dp-desc {
+    font-family: var(--font-body); font-size: 17px; line-height: 1.4;
+    color: var(--fg-muted); margin-top: 6px;
+  }
+  .dp-vs {
+    position: absolute; left: 50%; top: 178px;
+    transform: translate(-50%, -50%);
+    width: 66px; height: 66px; border-radius: 999px;
+    background: var(--re-white); border: 2px solid var(--border);
+    box-shadow: var(--shadow-md);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 21px; color: var(--fg-muted);
+    text-transform: uppercase; letter-spacing: 0.03em;
+    z-index: 2;
+  }
+
+  /* slide 5 — reuse journey */
+  .rj-nodes {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 10px; margin-bottom: 26px;
+  }
+  .rj-node {
+    flex: 0 0 auto; width: 168px;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .rj-disc {
+    width: 104px; height: 104px; border-radius: 999px;
+    background: var(--re-green-50);
+    border: 2.5px solid var(--re-green);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .rj-disc svg { width: 50px; height: 50px; stroke: var(--re-green-700); }
+  .rj-cap {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 23px; color: var(--fg-strong); letter-spacing: -0.01em;
+  }
+  .rj-sub {
+    font-family: var(--font-body); font-size: 16px; line-height: 1.3;
+    color: var(--fg-muted); text-align: center; margin-top: -8px;
+  }
+  .rj-arrow {
+    flex: 1 1 auto; display: flex; align-items: center;
+    min-width: 30px; margin-top: 48px;
+  }
+  .rj-arrow::before {
+    content: ""; flex: 1; height: 3px;
+    background: repeating-linear-gradient(90deg, var(--re-green) 0 11px, transparent 11px 20px);
+  }
+  .rj-arrow svg { flex: 0 0 auto; width: 17px; height: 17px; stroke: var(--re-green); margin-left: 1px; }
+  .rj-loop {
+    display: flex; align-items: center; gap: 18px;
+    background: var(--re-navy); color: var(--re-white);
+    border-radius: 16px; padding: 22px 26px;
+  }
+  .rj-loop-icon {
+    flex: 0 0 auto; width: 46px; height: 46px; border-radius: 999px;
+    background: var(--re-green); color: var(--re-navy);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .rj-loop-icon svg { width: 26px; height: 26px; stroke: currentColor; }
+  .rj-loop-txt {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 20px; line-height: 1.35;
+  }
+  .rj-loop-txt strong { color: var(--re-green); font-weight: 800; }
+
+  /* slide 6 — closing-time parity */
+  .parity-bars .pb-row {
+    display: grid; grid-template-columns: 250px 1fr 168px;
+    gap: 22px; align-items: center; margin-bottom: 16px;
+  }
+  .parity-bars .pb-name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; line-height: 1.2; color: var(--fg-strong);
+  }
+  .parity-bars .pb-track {
+    height: 38px; border-radius: 999px;
+    background: var(--re-gray-100); overflow: hidden;
+  }
+  .parity-bars .pb-meter { height: 100%; border-radius: 999px; }
+  .parity-bars .pb-val {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 26px; letter-spacing: -0.02em; white-space: nowrap;
+    text-align: right;
+  }
+  .pb-row.myth .pb-name { color: var(--fg-subtle); }
+  .pb-row.myth .pb-meter {
+    width: 100%;
+    background: repeating-linear-gradient(45deg, var(--re-gray-300) 0 10px, var(--re-gray-200) 10px 20px);
+  }
+  .pb-row.myth .pb-val {
+    color: var(--fg-subtle);
+    text-decoration: line-through; text-decoration-thickness: 3px;
+    text-decoration-color: var(--danger);
+  }
+  .pb-row.va .pb-meter {
+    width: 44%;
+    background: linear-gradient(90deg, var(--re-green-600), var(--re-green));
+  }
+  .pb-row.va .pb-val { color: var(--re-green-700); }
+  .pb-row.conv .pb-meter {
+    width: 44%;
+    background: linear-gradient(90deg, #33424F, var(--re-navy));
+  }
+  .pb-row.conv .pb-val { color: var(--fg-strong); }
+  .pb-note {
+    margin-top: 18px; padding-top: 20px;
+    border-top: 1.5px solid var(--border);
+    font-family: var(--font-body); font-size: 19px; line-height: 1.4;
+    color: var(--fg);
+  }
+  .pb-note strong { color: var(--re-green-700); font-weight: 700; }
+
+  /* slide 7 — cost of waiting */
+  .wait-cost .wc-row {
+    display: grid; grid-template-columns: 240px 1fr 150px;
+    gap: 20px; align-items: center; margin-bottom: 16px;
+  }
+  .wait-cost .wc-name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; color: var(--fg-strong); line-height: 1.2;
+  }
+  .wait-cost .wc-track {
+    height: 34px; border-radius: 999px;
+    background: var(--re-gray-100); overflow: hidden;
+  }
+  .wait-cost .wc-meter { height: 100%; border-radius: 999px; }
+  .wait-cost .wc-val {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 25px; letter-spacing: -0.02em;
+    text-align: right; white-space: nowrap;
+  }
+  .wc-row.act .wc-meter { width: 5%; background: var(--re-green); }
+  .wc-row.act .wc-val { color: var(--re-green-700); }
+  .wc-row.wait .wc-meter {
+    width: 100%;
+    background: linear-gradient(90deg, var(--re-green-200), var(--re-yellow-400), var(--danger));
+  }
+  .wc-row.wait .wc-val { color: var(--danger); }
+  .wc-foot {
+    margin-top: 18px; padding-top: 20px;
+    border-top: 1.5px solid var(--border);
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 20px; line-height: 1.4; color: var(--fg-strong);
+  }
+  .wc-foot strong { color: var(--re-green-700); font-weight: 800; }
+
+  /* ---------- closing word ---------- */
+  .closing-quote {
+    display: flex; flex-direction: column; gap: 32px; flex: 1; justify-content: center;
+  }
+  .closing-quote .mark {
+    font-family: var(--font-script); color: var(--re-green);
+    font-size: 200px; line-height: 0.6;
+  }
+  .closing-quote .text {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 76px; line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: white;
+  }
+  .closing-quote .text .green { color: var(--re-green); }
+  .closing-quote .author {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--re-green);
+    margin-top: 8px;
+  }
+
+  /* ---------- CTA slide ---------- */
+  .cta-slide {
+    padding: 0;
+    background: var(--re-navy);
+    color: white;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  .cta-photo {
+    position: relative;
+    background: var(--re-green);
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .cta-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 8%;
+  }
+  .cta-photo .frame-tag {
+    position: absolute; left: 36px; bottom: 36px;
+    background: var(--re-navy); color: white;
+    padding: 16px 24px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .cta-content {
+    padding: 56px 88px 32px;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .cta-content .kicker {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 20px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--re-green);
+    margin-bottom: -8px;
+  }
+  .cta-content h2 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 88px; line-height: 0.95;
+    letter-spacing: -0.04em; color: white;
+  }
+  .cta-content .accent { color: var(--re-green); }
+  .cta-steps { display: flex; flex-direction: column; gap: 20px; margin-top: 12px; }
+  .cta-steps .step {
+    display: grid; grid-template-columns: auto 1fr; gap: 22px;
+    align-items: start;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .cta-steps .step:first-child { border-top: none; padding-top: 0; }
+  .cta-steps .step .num {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 38px; line-height: 1; color: var(--re-green);
+    letter-spacing: -0.025em; min-width: 64px;
+  }
+  .cta-steps .step .body { display: flex; flex-direction: column; gap: 6px; }
+  .cta-steps .step .body .h {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: white;
+  }
+  .cta-steps .step .body .d {
+    font-family: var(--font-body);
+    font-size: 22px; line-height: 1.42;
+    color: rgba(255,255,255,0.82);
+  }
+  .cta-steps .step .body .d strong { color: var(--re-green); font-weight: 700; }
+  .cta-foot {
+    background: var(--re-green);
+    color: var(--re-navy);
+    padding: 36px 88px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .cta-foot .name {
+    font-family: var(--font-display); font-weight: 900; font-size: 36px;
+    line-height: 1; letter-spacing: -0.025em;
+  }
+  .cta-foot .name small {
+    display: block; font-size: 16px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    margin-top: 8px; opacity: 0.75; white-space: nowrap;
+  }
+  .cta-foot .tag {
+    text-align: right;
+    font-family: var(--font-display); font-style: italic;
+    font-weight: 600; font-size: 22px;
+    color: var(--re-navy); line-height: 1.4;
+  }
+  .cta-foot .tag .hash {
+    display: block; font-style: normal; font-weight: 800;
+    font-size: 16px; letter-spacing: 0.22em; text-transform: uppercase;
+    margin-top: 6px; opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+
+<deck-stage width="1080" height="1920">
+
+  <!-- PAGE 1 — COVER -->
+  <section class="slide cover">
+    <div class="cover-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="lockup">Real Estate® · 2026</div>
+    </div>
+
+    <div class="cover-eyebrow">
+      <span class="dots"><span></span><span></span></span>
+      <span class="label">Guía gratuita · Veteranos</span>
+    </div>
+
+    <div class="cover-hero">
+      <h1 class="cover-title">5 Mitos del<br/>Crédito VA<br/><span class="accent">que te están costando<br/>tu casa.</span></h1>
+      <p class="cover-sub">Lo que nadie le ha explicado a los veteranos sobre su beneficio — y por qué la espera puede estar costándote más que actuar.</p>
+    </div>
+
+    <div class="cover-photo-wrap">
+      <img src="assets/ivonne.jpg" alt="Ivonne Marie Llopiz" />
+      <div class="photo-tag">Veteranos · FL</div>
+      <div class="frame-meta">Central Florida</div>
+    </div>
+
+    <div class="cover-foot">
+      <div class="cover-byline">
+        <span class="by">con</span>
+        <span>Ivonne Marie Llopiz · reThought Real Estate</span>
+      </div>
+      <div class="markets">8 yrs · Bilingual</div>
+    </div>
+  </section>
+
+  <!-- PAGE 2 — Una nota de Ivonne -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Antes de empezar</div>
+      <div class="pillar-tag">02 / 10</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">Carta de Ivonne</div>
+      <h2 class="h2">Una <span style="color: var(--re-green-700);">nota</span> de Ivonne.</h2>
+    </div>
+
+    <div class="letter-stat-hero">
+      <div class="big">8+</div>
+      <div class="meta">
+        <div class="h">años en Central Florida</div>
+        <div class="d">Ayudando a familias y veteranos a entender el proceso — no a venderles algo, sino a traducir lo que nadie les ha explicado bien.</div>
+      </div>
+    </div>
+
+    <div class="letter-grid">
+      <div class="letter-prose">
+        <p>Si eres veterano — o tu pareja lo es — probablemente has escuchado mil veces que tienes un beneficio increíble con tu préstamo VA. Y al mismo tiempo, mil razones por las que <strong>todavía no es el momento</strong> de usarlo.</p>
+        <p>Tu crédito no está perfecto. No tienes ahorrado lo suficiente. Conoces a alguien que lo intentó y le dijeron que no.</p>
+        <p>La realidad: la mayoría de los mitos que te han contado <strong>no son ciertos</strong>. O al menos no de la manera en que te los pintaron.</p>
+        <p>Esta guía no reemplaza una conversación con un VA lender licenciado. Pero antes de esa conversación, mereces llegar <strong>informado</strong>.</p>
+      </div>
+
+      <div class="agent-sidecar">
+        <div class="photo"><img src="assets/ivonne.jpg" alt="Ivonne Marie Llopiz" /></div>
+        <div class="body">
+          <div class="name">Ivonne Marie Llopiz</div>
+          <div class="role">Bilingual Buyer Advocate</div>
+          <ul>
+            <li>Bilingüe · inglés y español</li>
+            <li>Especialista en préstamos VA</li>
+            <li>Polk · Osceola · Orange</li>
+            <li>reThought Real Estate®</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="signoff-block">
+      <div class="lab">Mi promesa</div>
+      <div class="txt">Te <span class="green">educo</span>. Te <span class="green">defiendo</span>. Te llevo a <span class="green">casa</span>.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>5 Mitos VA · Intro</span>
+    </div>
+  </section>
+
+  <!-- PAGE 3 — Mito 1: Crédito perfecto -->
+  <section class="slide">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Mito 1 de 5</div>
+      <div class="pillar-tag">03 / 10</div>
+    </div>
+
+    <div class="mito-header">
+      <div class="circle">01</div>
+      <div class="meta">
+        <div class="kicker">Mito #1</div>
+        <h2>"Necesito crédito<br/>perfecto para usar mi VA."</h2>
+      </div>
+    </div>
+
+    <div class="mr-pair">
+      <div class="line mito">
+        <span class="lbl">Mito</span>
+        <span>La VA exige un puntaje de crédito mínimo.</span>
+        <span class="icon x">×</span>
+      </div>
+      <div class="line realidad">
+        <span class="lbl">Realidad</span>
+        <span>La VA <strong>no impone</strong> mínimo — el lender fija el suyo.</span>
+        <span class="icon check">✓</span>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="num">620</div>
+        <div class="lbl">El mínimo típico de un lender</div>
+        <div class="sub">Algunos lenders piden este puntaje como base.</div>
+      </div>
+      <div class="stat-card dark">
+        <div class="num">580+</div>
+        <div class="lbl">Lo que otros lenders aceptan</div>
+        <div class="sub">Dependiendo del perfil financiero completo.</div>
+      </div>
+    </div>
+
+    <p class="short-prose">La VA respalda una porción del préstamo, dándole seguridad al lender para trabajar con criterios más amplios que un convencional. <strong>Cada lender pone su propio mínimo</strong> — basado en ingresos estables, tiempo en el trabajo, historial de pagos.</p>
+
+    <div class="proof-block">
+      <div class="pb-eyebrow">El rango real</div>
+      <div class="credit-spectrum">
+        <p class="cs-caption">El "crédito perfecto" no existe como requisito. Esto es lo que <strong>de verdad</strong> miran los lenders:</p>
+        <div class="cs-nums">
+          <span style="flex:1">540</span>
+          <span style="flex:1">580</span>
+          <span style="flex:2">620</span>
+        </div>
+        <div class="cs-bar">
+          <div class="seg s1" style="flex:1"></div>
+          <div class="seg s2" style="flex:1"></div>
+          <div class="seg s3" style="flex:2"></div>
+        </div>
+        <div class="cs-descs">
+          <div style="flex:1"><strong>Casi en rango</strong><span>Un poco de trabajo y entras.</span></div>
+          <div style="flex:1"><strong>Algunos lenders ya aprueban</strong></div>
+          <div style="flex:2"><strong>La mayoría de lenders trabaja aquí</strong><span>Con ingresos estables e historial de pagos al día.</span></div>
+        </div>
+        <div class="cs-myth">
+          <span class="ghost">740+</span>
+          <span class="cs-myth-txt">El "crédito perfecto" — eso es <strong>el mito</strong>, no el requisito que crees.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <div class="lab">→ Lo que debes llevarte</div>
+      <div class="txt">El "no" de un lender no es universal. Pide segunda opinión con un VA-approved lender especializado.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>5 Mitos VA · §1</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4 — Mito 2: 20% down -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Mito 2 de 5</div>
+      <div class="pillar-tag">04 / 10</div>
+    </div>
+
+    <div class="mito-header">
+      <div class="circle">02</div>
+      <div class="meta">
+        <div class="kicker">Mito #2</div>
+        <h2>"Necesito 20%<br/>de down payment."</h2>
+      </div>
+    </div>
+
+    <div class="mr-pair">
+      <div class="line mito">
+        <span class="lbl">Mito</span>
+        <span>Necesito ahorrar el 20% del precio.</span>
+        <span class="icon x">×</span>
+      </div>
+      <div class="line realidad">
+        <span class="lbl">Realidad</span>
+        <span><strong>Cero down payment</strong> para veteranos elegibles.</span>
+        <span class="icon check">✓</span>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card dark">
+        <div class="num">100%</div>
+        <div class="lbl">Del precio financiable</div>
+        <div class="sub">Sin PMI — el seguro que exigen los convencionales.</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">$150–300</div>
+        <div class="lbl">Menos al mes</div>
+        <div class="sub">En una casa de $350K, comparado con un convencional.</div>
+      </div>
+    </div>
+
+    <p class="short-prose">Sí hay un <strong>"funding fee"</strong> de la VA que se paga una sola vez — y se puede financiar dentro del préstamo, o <strong>eliminar completamente</strong> si tienes discapacidad relacionada con servicio. Pero no es lo mismo que un down payment.</p>
+
+    <div class="proof-block">
+      <div class="pb-eyebrow">Lo que pones de entrada</div>
+      <div class="dp-faceoff">
+        <p class="dp-intro">El down payment es la barrera más cara del mito. Mira la diferencia <strong>en una casa de $350K</strong>:</p>
+        <div class="dp-bars">
+          <div class="dp-vs">vs</div>
+          <div class="dp-col conv">
+            <div class="dp-stack">
+              <div class="dp-amount">$70,000</div>
+              <div class="dp-bar"></div>
+            </div>
+            <div class="dp-foot">
+              <div class="dp-name">Convencional</div>
+              <div class="dp-desc">20% de entrada — más PMI cada mes.</div>
+            </div>
+          </div>
+          <div class="dp-col va">
+            <div class="dp-stack">
+              <div class="dp-amount">$0</div>
+              <div class="dp-bar"></div>
+            </div>
+            <div class="dp-foot">
+              <div class="dp-name">VA loan</div>
+              <div class="dp-desc">Cero down payment — y sin PMI, nunca.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <div class="lab">→ Lo que debes llevarte</div>
+      <div class="txt">El VA no requiere down payment dentro del límite del condado. Lo que "ahorras" puede ir a fondos de emergencia.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>5 Mitos VA · §2</span>
+    </div>
+  </section>
+
+  <!-- PAGE 5 — Mito 3: Solo una vez -->
+  <section class="slide">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Mito 3 de 5</div>
+      <div class="pillar-tag">05 / 10</div>
+    </div>
+
+    <div class="mito-header">
+      <div class="circle">03</div>
+      <div class="meta">
+        <div class="kicker">Mito #3</div>
+        <h2>"Solo puedo usar<br/>mi VA una vez."</h2>
+      </div>
+    </div>
+
+    <div class="mr-pair">
+      <div class="line mito">
+        <span class="lbl">Mito</span>
+        <span>El beneficio VA es de "una sola vez".</span>
+        <span class="icon x">×</span>
+      </div>
+      <div class="line realidad">
+        <span class="lbl">Realidad</span>
+        <span>El beneficio VA <strong>es reutilizable</strong>.</span>
+        <span class="icon check">✓</span>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="c">
+        <div class="meta">Primera vez</div>
+        <div class="h">Tu entitlement<br/>completo</div>
+        <div class="d">El derecho VA está disponible la primera vez que lo usas, con tu entitlement total.</div>
+      </div>
+      <div class="c">
+        <div class="meta">Después de vender</div>
+        <div class="h">Entitlement<br/>se restaura</div>
+        <div class="d">Cuando vendes la casa y pagas el préstamo, tu derecho se restaura para la próxima.</div>
+      </div>
+      <div class="c">
+        <div class="meta">Tier 2 entitlement</div>
+        <div class="h">Dos préstamos<br/>simultáneos</div>
+        <div class="d">Te mudas por trabajo y quieres comprar sin vender la primera casa — es posible.</div>
+      </div>
+    </div>
+
+    <p class="short-prose">Esto importa especialmente para <strong>familias militares en servicio activo</strong> que se mudan con frecuencia. La idea de "ya usé mi VA, ya está" deja muchísimo beneficio sin aprovechar.</p>
+
+    <div class="proof-block">
+      <div class="pb-eyebrow">Cómo se reusa el beneficio</div>
+      <div class="reuse-journey">
+        <div class="rj-nodes">
+          <div class="rj-node">
+            <div class="rj-disc">
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M4 14.5 L16 4 L28 14.5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 13 V27 H25 V13" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 27 V18 H19 V27" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="rj-cap">Casa 1</div>
+            <div class="rj-sub">Primer uso</div>
+          </div>
+          <div class="rj-arrow">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3 L11 8 L5 13" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="rj-node">
+            <div class="rj-disc">
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M4 14.5 L16 4 L28 14.5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 13 V27 H25 V13" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 27 V18 H19 V27" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="rj-cap">Casa 2</div>
+            <div class="rj-sub">Vendes y reusas</div>
+          </div>
+          <div class="rj-arrow">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3 L11 8 L5 13" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="rj-node">
+            <div class="rj-disc">
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M4 14.5 L16 4 L28 14.5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 13 V27 H25 V13" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 27 V18 H19 V27" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="rj-cap">Casa 3</div>
+            <div class="rj-sub">Y otra vez…</div>
+          </div>
+        </div>
+        <div class="rj-loop">
+          <div class="rj-loop-icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M20 11 A8 8 0 0 0 6.3 5.7 L3 9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 4 V9 H8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 13 A8 8 0 0 0 17.7 18.3 L21 15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 20 V15 H16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="rj-loop-txt">Cada vez que vendes y pagas el préstamo, tu <strong>entitlement se restaura</strong> — listo para la próxima casa.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <div class="lab">→ Lo que debes llevarte</div>
+      <div class="txt">Si ya usaste tu VA antes — incluso si todavía estás pagando esa casa — verifica cuánto entitlement te queda.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>5 Mitos VA · §3</span>
+    </div>
+  </section>
+
+  <!-- PAGE 6 — Mito 4: VA es lento -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Mito 4 de 5</div>
+      <div class="pillar-tag">06 / 10</div>
+    </div>
+
+    <div class="mito-header">
+      <div class="circle">04</div>
+      <div class="meta">
+        <div class="kicker">Mito #4</div>
+        <h2>"VA es lento y los vendedores<br/>no aceptan ofertas con VA."</h2>
+      </div>
+    </div>
+
+    <div class="mr-pair">
+      <div class="line mito">
+        <span class="lbl">Mito</span>
+        <span>Los préstamos VA son lentos y poco competitivos.</span>
+        <span class="icon x">×</span>
+      </div>
+      <div class="line realidad">
+        <span class="lbl">Realidad</span>
+        <span>En 2026, los VA cierran en <strong>tiempos comparables</strong> a los convencionales.</span>
+        <span class="icon check">✓</span>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card dark">
+        <div class="num">30–45</div>
+        <div class="lbl">Días para cerrar (hoy)</div>
+        <div class="sub">Con un lender experimentado en VA. Igual que un convencional.</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">15–20</div>
+        <div class="lbl">Años desde que era lento</div>
+        <div class="sub">El proceso cambió. La reputación se quedó pegada.</div>
+      </div>
+    </div>
+
+    <p class="short-prose">La diferencia está más en <strong>qué lender escoges</strong> que en el tipo de préstamo. Una oferta VA bien presentada, con un lender que el listing agent reconozca como confiable, compite perfectamente bien. <strong>Eso es estrategia, no suerte.</strong></p>
+
+    <div class="proof-block">
+      <div class="pb-eyebrow">El reloj, de verdad</div>
+      <div class="parity-bars">
+        <div class="pb-row myth">
+          <div class="pb-name">VA · la fama vieja</div>
+          <div class="pb-track"><div class="pb-meter"></div></div>
+          <div class="pb-val">lento</div>
+        </div>
+        <div class="pb-row va">
+          <div class="pb-name">VA loan · 2026</div>
+          <div class="pb-track"><div class="pb-meter"></div></div>
+          <div class="pb-val">30–45 días</div>
+        </div>
+        <div class="pb-row conv">
+          <div class="pb-name">Convencional · 2026</div>
+          <div class="pb-track"><div class="pb-meter"></div></div>
+          <div class="pb-val">30–45 días</div>
+        </div>
+        <div class="pb-note">Mismo reloj. La diferencia está en <strong>qué lender escoges</strong> — no en el tipo de préstamo.</div>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <div class="lab">→ Lo que debes llevarte</div>
+      <div class="txt">Un VA loan no te pone en desventaja con el equipo correcto. Pre-aprobación sólida + presentación mueven la aguja.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>5 Mitos VA · §4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 7 — Mito 5: Mejor espero -->
+  <section class="slide">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Mito 5 de 5</div>
+      <div class="pillar-tag">07 / 10</div>
+    </div>
+
+    <div class="mito-header">
+      <div class="circle">05</div>
+      <div class="meta">
+        <div class="kicker">Mito #5</div>
+        <h2>"Mejor espero a que mi<br/>situación esté perfecta."</h2>
+      </div>
+    </div>
+
+    <p class="short-prose" style="font-family: var(--font-display); font-weight: 700; font-size: 30px; line-height: 1.3; color: var(--fg-strong); margin-bottom: 24px;">Este no es un mito sobre el préstamo. Es un mito sobre <span style="color: var(--re-green-700);">el tiempo</span>. Y es el más caro de todos.</p>
+
+    <p class="body" style="font-size: 22px; color: var(--fg-muted); margin-bottom: 20px; font-weight: 600;">Mientras esperas:</p>
+
+    <ul class="bullets">
+      <li><span><strong>Sigues pagando renta</strong> — dinero que no construye patrimonio para ti.</span></li>
+      <li><span>Los precios en <strong>Central Florida</strong> (Polk, Osceola, Orange) siguen su tendencia.</span></li>
+      <li><span>Otra familia veterana en tu misma situación ya está <strong>construyendo equity</strong>.</span></li>
+    </ul>
+
+    <div class="big-quote">
+      "Cuando esté listo" <span class="green">no es una estrategia</span> — es una espera.<br/>
+      20 minutos te dicen <span class="green">dónde estás de verdad</span>.
+    </div>
+
+    <div class="proof-block">
+      <div class="pb-eyebrow">El costo de esperar</div>
+      <div class="wait-cost">
+        <div class="wc-row act">
+          <div class="wc-name">Tener la conversación</div>
+          <div class="wc-track"><div class="wc-meter"></div></div>
+          <div class="wc-val">20 min</div>
+        </div>
+        <div class="wc-row wait">
+          <div class="wc-name">Seguir esperando</div>
+          <div class="wc-track"><div class="wc-meter"></div></div>
+          <div class="wc-val">12+ meses</div>
+        </div>
+        <div class="wc-foot">Averiguar dónde estás cuesta <strong>20 minutos</strong>. Seguir asumiendo cuesta meses de renta — y de precios subiendo.</div>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <div class="lab">→ Lo que debes llevarte</div>
+      <div class="txt">A veces la respuesta es "espera 6 meses". A veces es "estás más cerca de lo que pensabas". No lo sabes sin la conversación.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>5 Mitos VA · §5</span>
+    </div>
+  </section>
+
+  <!-- PAGE 8 — Closing quote -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow">Para cerrar</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">08 / 10</div>
+    </div>
+
+    <div class="closing-quote">
+      <div class="mark">"</div>
+      <div class="text">
+        Te <span class="green">educo</span>.<br/>
+        Te <span class="green">defiendo</span>.<br/>
+        <span class="green">Te llevo a casa.</span>
+      </div>
+      <div class="author">— Ivonne Marie Llopiz · reThought Real Estate</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>5 Mitos VA · Cierre</span>
+    </div>
+  </section>
+
+  <!-- PAGE 9 — CTA -->
+  <section class="cta-slide slide">
+    <div class="cta-photo">
+      <img src="assets/ivonne.jpg" alt="Ivonne Marie Llopiz" />
+      <div class="frame-tag">El siguiente paso</div>
+    </div>
+    <div class="cta-content">
+      <div class="kicker">Ahora que sabes</div>
+      <h2>¿Qué hago<br/><span class="accent">con esto?</span></h2>
+
+      <div class="cta-steps">
+        <div class="step">
+          <div class="num">01</div>
+          <div class="body">
+            <div class="h">Empieza aquí</div>
+            <div class="d">Manda un DM a <strong>@ivonnemarierealtor</strong> con la palabra <strong>"CRÉDITO"</strong>. Te conecto con un VA-approved lender de mi red — gratis y sin compromiso.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <div class="body">
+            <div class="h">Ten la conversación</div>
+            <div class="d">El lender revisa tu situación real (crédito, ingresos, entitlement) en 20–30 minutos. Sales sabiendo dónde estás — no donde asumes.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <div class="body">
+            <div class="h">Armamos la estrategia</div>
+            <div class="d">Una vez sepamos qué es posible, nos sentamos tú y yo. Si es comprar ahora, te llevo a casa. Si es esperar 6 meses, también.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-foot">
+      <div class="name">Ivonne Marie Llopiz<small>Bilingual Buyer Advocate · reThought Real Estate®</small></div>
+      <div class="tag">Estratégico. Personal. Posible.<span class="hash">#reElevated</span></div>
+    </div>
+  </section>
+
+  <!-- PAGE 10 — Final logo -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">10 / 10</div>
+    </div>
+
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 48px;">
+      <div class="dots lg" style="gap: 22px;"><span></span><span></span></div>
+      <div style="font-family: var(--font-display); font-weight: 900; font-size: 124px; line-height: 0.95; letter-spacing: -0.04em; color: white;">
+        Real Simple.<br/>
+        Real Skills.<br/>
+        <span style="font-family: var(--font-script); font-size: 160px; font-weight: 400; letter-spacing: 0; color: var(--re-green);">Real Results.</span><span style="color: var(--re-green); font-size: 60px; vertical-align: super;">®</span>
+      </div>
+      <p style="font-family: var(--font-display); font-weight: 600; font-size: 30px; color: rgba(255,255,255,0.65); max-width: 800px; line-height: 1.35;">
+        Milwaukee · Central Florida · South Florida<br/>
+        Bilingual boutique brokerage + agent development platform.
+      </p>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>5 Mitos VA · 2026</span>
+    </div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>
