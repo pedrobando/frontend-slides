@@ -9,8 +9,8 @@
 <meta name="presentation-title" content="How to Understand Meta Ads for Real Estate">
 <meta name="presentation-series" content="Marketing Machine">
 <meta name="presentation-session" content="5">
-<meta name="presentation-date" content="2026-05-30">
-<meta name="presentation-slides" content="24">
+<meta name="presentation-date" content="2026-06-01">
+<meta name="presentation-slides" content="32">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -569,6 +569,280 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
 .gotcha-card { background: linear-gradient(135deg, #3a1a18 0%, #2a1210 100%); border: 2px solid var(--clay); border-radius: 12px; padding: clamp(0.7rem, 1.3vw, 1rem); display: flex; align-items: center; gap: clamp(10px, 1.5vw, 16px); }
 .gotcha-tag { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--clay); white-space: nowrap; }
 .gotcha-text { font-family: var(--font-sans); font-size: clamp(0.85rem, 1.3vw, 1.05rem); color: var(--paper); line-height: 1.4; }
+
+/* ===========================================
+   SESSION 5 v2 — FRAMEWORKS (AIDA · PAS · FAB · IDCA · SCIPAB)
+   =========================================== */
+
+/* Funnel-to-Framework map (Slide 8) */
+.fnf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.6rem, 1.4vw, 1.2rem); }
+.fnf-col {
+    background: var(--ink-soft); border: 2px solid var(--border-d);
+    border-radius: 16px; padding: clamp(1rem, 1.8vw, 1.4rem);
+    display: flex; flex-direction: column; gap: clamp(8px, 1.2vh, 14px);
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.55s var(--ease-spring), transform 0.55s var(--ease-spring);
+}
+.visible .fnf-col { opacity: 1; transform: translateY(0); }
+.visible .fnf-col:nth-child(1) { transition-delay: 0.15s; border-color: var(--brand-light); }
+.visible .fnf-col:nth-child(2) { transition-delay: 0.3s; border-color: var(--sprout); }
+.visible .fnf-col:nth-child(3) { transition-delay: 0.45s; border-color: var(--amber); }
+.fnf-tag { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.7rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); }
+.fnf-stage { font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.25rem); color: var(--paper); }
+.fnf-fw { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.2vw, 1.9rem); letter-spacing: -0.02em; line-height: 1; }
+.fnf-col:nth-child(1) .fnf-fw { color: var(--brand-light); }
+.fnf-col:nth-child(2) .fnf-fw { color: var(--sprout); }
+.fnf-col:nth-child(3) .fnf-fw { color: var(--amber); }
+.fnf-desc { font-family: var(--font-sans); font-size: clamp(0.72rem, 1.05vw, 0.88rem); color: var(--muted-2); line-height: 1.45; }
+.fnf-aud { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); border-top: 1px dashed var(--border-d); padding-top: 8px; margin-top: auto; }
+
+/* Framework circles (Slides 11, 21) — AIDA / IDCA */
+.fw-circles { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.6rem, 1.4vw, 1.2rem); }
+.fw-circle {
+    background: var(--ink-soft); border: 2px solid var(--border-d);
+    border-radius: 18px; padding: clamp(1rem, 1.8vw, 1.4rem);
+    display: flex; flex-direction: column; align-items: center; gap: clamp(6px, 1vh, 12px);
+    text-align: center;
+    opacity: 0; transform: scale(0.85);
+    transition: opacity 0.6s var(--ease-spring), transform 0.6s var(--ease-spring);
+}
+.visible .fw-circle { opacity: 1; transform: scale(1); }
+.visible .fw-circle:nth-child(1) { transition-delay: 0.15s; border-color: var(--clay); }
+.visible .fw-circle:nth-child(2) { transition-delay: 0.3s; border-color: var(--brand-light); }
+.visible .fw-circle:nth-child(3) { transition-delay: 0.45s; border-color: var(--amber); }
+.visible .fw-circle:nth-child(4) { transition-delay: 0.6s; border-color: var(--sprout); }
+.fw-letter {
+    width: clamp(48px, 6vw, 72px); height: clamp(48px, 6vw, 72px);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+    color: var(--paper); border: 2px solid currentColor;
+}
+.fw-circle:nth-child(1) .fw-letter { color: var(--clay); background: #c0544518; }
+.fw-circle:nth-child(2) .fw-letter { color: var(--brand-light); background: #034c7625; }
+.fw-circle:nth-child(3) .fw-letter { color: var(--amber); background: #e0a63a20; }
+.fw-circle:nth-child(4) .fw-letter { color: var(--sprout); background: #8cc94e22; }
+.fw-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.95rem, 1.35vw, 1.15rem); color: var(--paper); line-height: 1.1; }
+.fw-desc { font-family: var(--font-sans); font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted-2); line-height: 1.4; }
+
+/* Framework applied — row breakdown (Slides 12, 22, 26) */
+.fw-rows { display: flex; flex-direction: column; gap: clamp(8px, 1.4vh, 14px); }
+.fw-row {
+    display: grid; grid-template-columns: clamp(90px, 12vw, 130px) 1fr;
+    gap: clamp(10px, 1.8vw, 18px); align-items: stretch;
+    opacity: 0; transform: translateX(-12px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .fw-row { opacity: 1; transform: translateX(0); }
+.visible .fw-row:nth-child(1) { transition-delay: 0.15s; }
+.visible .fw-row:nth-child(2) { transition-delay: 0.3s; }
+.visible .fw-row:nth-child(3) { transition-delay: 0.45s; }
+.visible .fw-row:nth-child(4) { transition-delay: 0.6s; }
+.visible .fw-row:nth-child(5) { transition-delay: 0.75s; }
+.visible .fw-row:nth-child(6) { transition-delay: 0.9s; }
+.fw-row-tag {
+    background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: clamp(0.4rem, 0.8vw, 0.7rem) clamp(0.4rem, 0.8vw, 0.7rem);
+    text-align: center;
+}
+.fw-row-tag-letter { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.1rem, 1.7vw, 1.5rem); line-height: 1; }
+.fw-row-tag-name { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.fw-row-body {
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-left: 3px solid currentColor;
+    border-radius: 4px 10px 10px 4px; padding: clamp(0.6rem, 1.1vw, 0.95rem) clamp(0.8rem, 1.4vw, 1.2rem);
+    font-family: var(--font-sans); font-size: clamp(0.78rem, 1.15vw, 0.98rem);
+    color: var(--paper); line-height: 1.5;
+}
+.fw-row.clay { color: var(--clay); } .fw-row.clay .fw-row-tag-letter { color: var(--clay); }
+.fw-row.brand { color: var(--brand-light); } .fw-row.brand .fw-row-tag-letter { color: var(--brand-light); }
+.fw-row.amber { color: var(--amber); } .fw-row.amber .fw-row-tag-letter { color: var(--amber); }
+.fw-row.sprout { color: var(--sprout); } .fw-row.sprout .fw-row-tag-letter { color: var(--sprout); }
+.fw-row.muted { color: var(--muted-2); } .fw-row.muted .fw-row-tag-letter { color: var(--muted-2); }
+.fw-row.deep { color: var(--sprout-soft); } .fw-row.deep .fw-row-tag-letter { color: var(--sprout-soft); }
+
+/* Avatar card (Slides 12, 17, 18, 22, 26) */
+.avatar-card {
+    background: linear-gradient(135deg, var(--ink-deep) 0%, var(--ink-soft) 100%);
+    border: 2px solid var(--brand); border-radius: 16px;
+    padding: clamp(0.9rem, 1.5vw, 1.3rem);
+    display: flex; flex-direction: column; gap: clamp(6px, 1vh, 10px);
+}
+.avatar-tag { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.7rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--brand-light); display: flex; align-items: center; gap: 8px; }
+.avatar-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.25rem); color: var(--paper); line-height: 1.15; }
+.avatar-meta { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1px; color: var(--muted-2); }
+.avatar-pain { font-family: var(--font-sans); font-size: clamp(0.78rem, 1.1vw, 0.92rem); color: var(--paper); line-height: 1.4; font-style: italic; border-left: 2px solid var(--sprout); padding-left: 10px; }
+
+/* PAS 5-card carousel mockup (Slide 17) */
+.pas-carousel { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(6px, 1vw, 10px); }
+.pas-card {
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 12px; padding: clamp(0.7rem, 1.2vw, 1rem);
+    display: flex; flex-direction: column; gap: 6px; aspect-ratio: 1 / 1.15;
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .pas-card { opacity: 1; transform: translateY(0); }
+.visible .pas-card:nth-child(1) { transition-delay: 0.1s; border-color: #c0544555; }
+.visible .pas-card:nth-child(2) { transition-delay: 0.2s; border-color: #c0544555; }
+.visible .pas-card:nth-child(3) { transition-delay: 0.3s; border-color: var(--clay); background: linear-gradient(135deg, #2a1412 0%, var(--ink-deep) 100%); }
+.visible .pas-card:nth-child(4) { transition-delay: 0.4s; border-color: var(--sprout); background: linear-gradient(135deg, #1a2c12 0%, var(--ink-deep) 100%); }
+.visible .pas-card:nth-child(5) { transition-delay: 0.5s; border-color: var(--sprout); background: var(--sprout-deep); }
+.pas-card-pill { font-family: var(--font-mono); font-size: clamp(0.45rem, 0.65vw, 0.56rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); }
+.pas-card:nth-child(1) .pas-card-pill, .pas-card:nth-child(2) .pas-card-pill { color: var(--clay-soft); }
+.pas-card:nth-child(3) .pas-card-pill { color: var(--clay); }
+.pas-card:nth-child(4) .pas-card-pill { color: var(--sprout); }
+.pas-card:nth-child(5) .pas-card-pill { color: var(--paper); }
+.pas-card-text { font-family: var(--font-sans); font-size: clamp(0.65rem, 0.95vw, 0.8rem); color: var(--paper); line-height: 1.35; flex: 1; display: flex; align-items: center; }
+.pas-card:nth-child(5) .pas-card-text { color: var(--paper); font-weight: 600; }
+.pas-card-num { font-family: var(--font-mono); font-size: clamp(0.45rem, 0.65vw, 0.56rem); color: var(--muted); align-self: flex-end; }
+
+/* FAB triplet rows (Slide 18) */
+.fab-triplets { display: flex; flex-direction: column; gap: clamp(8px, 1.4vh, 14px); }
+.fab-triplet {
+    display: grid; grid-template-columns: clamp(28px, 3.5vw, 40px) 1fr 1fr 1fr;
+    gap: clamp(6px, 1vw, 10px); align-items: stretch;
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .fab-triplet { opacity: 1; transform: translateY(0); }
+.visible .fab-triplet:nth-child(1) { transition-delay: 0.15s; }
+.visible .fab-triplet:nth-child(2) { transition-delay: 0.3s; }
+.visible .fab-triplet:nth-child(3) { transition-delay: 0.45s; }
+.fab-num {
+    background: var(--ink-deep); border: 1px solid var(--border-d); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 800; font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+    color: var(--sprout);
+}
+.fab-cell {
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 10px;
+    padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.7rem, 1.2vw, 1rem);
+    display: flex; flex-direction: column; gap: 4px;
+}
+.fab-cell.f { border-left: 3px solid var(--brand-light); }
+.fab-cell.a { border-left: 3px solid var(--amber); }
+.fab-cell.b { border-left: 3px solid var(--sprout); }
+.fab-cell-key { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); letter-spacing: 1.4px; text-transform: uppercase; }
+.fab-cell.f .fab-cell-key { color: var(--brand-light); }
+.fab-cell.a .fab-cell-key { color: var(--amber); }
+.fab-cell.b .fab-cell-key { color: var(--sprout); }
+.fab-cell-text { font-family: var(--font-sans); font-size: clamp(0.68rem, 1vw, 0.83rem); color: var(--paper); line-height: 1.4; }
+
+/* Tactics grid (Slides 13, 19, 23) */
+.tactics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.6rem, 1.2vw, 1rem); }
+.tactic-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 14px;
+    padding: clamp(0.8rem, 1.4vw, 1.1rem);
+    display: flex; flex-direction: column; gap: 6px;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .tactic-card { opacity: 1; transform: translateY(0); }
+.visible .tactic-card:nth-child(1) { transition-delay: 0.1s; }
+.visible .tactic-card:nth-child(2) { transition-delay: 0.2s; }
+.visible .tactic-card:nth-child(3) { transition-delay: 0.3s; }
+.visible .tactic-card:nth-child(4) { transition-delay: 0.4s; }
+.tactic-key { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); }
+.tactic-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.25vw, 1.05rem); color: var(--paper); line-height: 1.15; }
+.tactic-detail { font-family: var(--font-sans); font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--muted-2); line-height: 1.4; }
+
+/* Message bubble (Slides 26, 27) */
+.msg-bubble {
+    background: var(--ink-deep); border: 1px solid #8cc94e44; border-radius: 14px 14px 14px 4px;
+    padding: clamp(0.8rem, 1.4vw, 1.2rem);
+    font-family: var(--font-sans); font-size: clamp(0.75rem, 1.1vw, 0.92rem);
+    color: var(--paper); line-height: 1.55;
+}
+.msg-bubble.email { border-radius: 12px; border-color: var(--brand); background: linear-gradient(135deg, #061a26 0%, var(--ink-deep) 100%); }
+.msg-bubble-head { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.72vw, 0.62rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-bottom: 6px; }
+.msg-bubble.email .msg-bubble-head { color: var(--brand-light); }
+.msg-bubble-subject { font-family: var(--font-display); font-weight: 600; font-size: clamp(0.78rem, 1.15vw, 0.95rem); color: var(--paper); margin-bottom: 6px; }
+.msg-bubble p + p { margin-top: 8px; }
+
+/* Pedro one-pager funnel (Slide 29) */
+.onepager-funnel { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1vw, 0.9rem); align-items: stretch; }
+.onepager-cell {
+    background: var(--ink-soft); border: 2px solid var(--border-d); border-radius: 14px;
+    padding: clamp(0.7rem, 1.2vw, 1rem);
+    display: flex; flex-direction: column; gap: 6px;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.5s var(--ease-spring), transform 0.5s var(--ease-spring);
+}
+.visible .onepager-cell { opacity: 1; transform: translateY(0); }
+.visible .onepager-cell:nth-child(1) { transition-delay: 0.15s; border-color: var(--clay); }
+.visible .onepager-cell:nth-child(2) { transition-delay: 0.3s; border-color: var(--brand-light); }
+.visible .onepager-cell:nth-child(3) { transition-delay: 0.45s; border-color: var(--amber); }
+.visible .onepager-cell:nth-child(4) { transition-delay: 0.6s; border-color: var(--sprout); }
+.onepager-stage { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); }
+.onepager-fw { font-family: var(--font-display); font-weight: 800; font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1; }
+.onepager-cell:nth-child(1) .onepager-fw { color: var(--clay); }
+.onepager-cell:nth-child(2) .onepager-fw { color: var(--brand-light); }
+.onepager-cell:nth-child(3) .onepager-fw { color: var(--amber); }
+.onepager-cell:nth-child(4) .onepager-fw { color: var(--sprout); }
+.onepager-hook { font-family: var(--font-sans); font-weight: 600; font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--paper); line-height: 1.3; font-style: italic; }
+.onepager-meta { font-family: var(--font-mono); font-size: clamp(0.48rem, 0.68vw, 0.58rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); border-top: 1px dashed var(--border-d); padding-top: 6px; margin-top: auto; }
+
+/* Objectives by funnel stage (Slide 9 refactor) */
+.obj-by-stage { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.6rem, 1.2vw, 1rem); }
+.obj-stage-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 14px;
+    padding: clamp(0.8rem, 1.4vw, 1.1rem);
+    display: flex; flex-direction: column; gap: clamp(6px, 1vh, 10px);
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.visible .obj-stage-card { opacity: 1; transform: translateY(0); }
+.visible .obj-stage-card:nth-child(1) { transition-delay: 0.15s; border-color: var(--brand-light); }
+.visible .obj-stage-card:nth-child(2) { transition-delay: 0.3s; border-color: var(--sprout); }
+.visible .obj-stage-card:nth-child(3) { transition-delay: 0.45s; border-color: var(--amber); }
+.obj-stage-tag { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); }
+.obj-stage-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: var(--paper); }
+.obj-stage-objs { display: flex; flex-wrap: wrap; gap: 6px; }
+.obj-stage-objs .badge { font-size: clamp(0.5rem, 0.75vw, 0.62rem); padding: 3px 8px; }
+
+/* Two-card "when to use" (Slide 16) */
+.when-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 1.6vw, 1.4rem); }
+.when-card {
+    background: var(--ink-soft); border: 2px solid var(--border-d); border-radius: 16px;
+    padding: clamp(1rem, 1.7vw, 1.4rem);
+    display: flex; flex-direction: column; gap: clamp(8px, 1.2vh, 14px);
+    opacity: 0; transform: scale(0.92);
+    transition: opacity 0.55s var(--ease-spring), transform 0.55s var(--ease-spring);
+}
+.visible .when-card { opacity: 1; transform: scale(1); }
+.visible .when-card:nth-child(1) { transition-delay: 0.15s; border-color: var(--clay); }
+.visible .when-card:nth-child(2) { transition-delay: 0.3s; border-color: var(--brand-light); }
+.when-tag { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.7rem); letter-spacing: 1.6px; text-transform: uppercase; }
+.when-card:nth-child(1) .when-tag { color: var(--clay); }
+.when-card:nth-child(2) .when-tag { color: var(--brand-light); }
+.when-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.2vw, 1.9rem); letter-spacing: -0.02em; line-height: 1; }
+.when-card:nth-child(1) .when-name { color: var(--clay); }
+.when-card:nth-child(2) .when-name { color: var(--brand-light); }
+.when-when { font-family: var(--font-display); font-weight: 600; font-size: clamp(0.95rem, 1.4vw, 1.15rem); color: var(--paper); line-height: 1.3; }
+.when-list { display: flex; flex-direction: column; gap: 6px; }
+.when-list li { list-style: none; font-family: var(--font-sans); font-size: clamp(0.72rem, 1.05vw, 0.88rem); color: var(--muted-2); padding-left: 14px; position: relative; line-height: 1.4; }
+.when-list li::before { content: "▸"; position: absolute; left: 0; color: currentColor; font-size: 0.85em; }
+.when-card:nth-child(1) .when-list li::before { color: var(--clay); }
+.when-card:nth-child(2) .when-list li::before { color: var(--brand-light); }
+
+/* Offer rules (Slide 20) */
+.offer-rules { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.5rem, 1vw, 0.8rem); }
+.offer-rule {
+    background: var(--ink-soft); border: 1px solid #8cc94e44; border-radius: 12px;
+    padding: clamp(0.7rem, 1.2vw, 1rem);
+    display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.45s var(--ease-out-expo), transform 0.45s var(--ease-out-expo);
+}
+.visible .offer-rule { opacity: 1; transform: translateY(0); }
+.visible .offer-rule:nth-child(1) { transition-delay: 0.1s; }
+.visible .offer-rule:nth-child(2) { transition-delay: 0.18s; }
+.visible .offer-rule:nth-child(3) { transition-delay: 0.26s; }
+.visible .offer-rule:nth-child(4) { transition-delay: 0.34s; }
+.visible .offer-rule:nth-child(5) { transition-delay: 0.42s; }
+.offer-rule-glyph { font-size: clamp(1.2rem, 2vw, 1.8rem); }
+.offer-rule-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.78rem, 1.15vw, 0.95rem); color: var(--sprout); line-height: 1.1; }
+.offer-rule-desc { font-family: var(--font-sans); font-size: clamp(0.62rem, 0.9vw, 0.75rem); color: var(--muted-2); line-height: 1.35; }
 </style>
 </head>
 <body>
@@ -640,7 +914,7 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         <div class="reveal stagger" style="transition-delay:0.2s;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(0.5rem,1.2vw,1rem);"><div class="arc-card-mm done"><div class="arc-num">01</div><div class="arc-name">Foundation + Profile</div><div class="arc-sub">Branding &amp; Bio</div><div class="done-badge">Done</div></div><div class="arc-card-mm done"><div class="arc-num">02</div><div class="arc-name">Content + Hooks</div><div class="arc-sub">Reels &amp; Carousels</div><div class="done-badge">Done</div></div><div class="arc-card-mm done"><div class="arc-num">03</div><div class="arc-name">ManyChat Setup</div><div class="arc-sub">DM Automation</div><div class="done-badge">Done</div></div><div class="arc-card-mm done"><div class="arc-num">04</div><div class="arc-name">Analytics + Iterate</div><div class="arc-sub">Measure &amp; Optimize</div><div class="done-badge">Done</div></div><div class="arc-card-mm active"><div class="arc-num">05</div><div class="arc-name">Meta Ads</div><div class="arc-sub">Paid Amplification</div><div class="today-badge">Today</div></div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">05 / 24</div>
+    <div class="slide-number">05 / 32</div>
 </section>
 
 <!-- ========== SLIDE 06 — THE BIG IDEA (4 PIECES) ========== -->
@@ -651,7 +925,7 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         <div class="reveal" style="transition-delay:0.75s;"><div class="callout-line">The ad is just the <strong style="color:var(--sprout);">front door</strong>. The money is made in the follow-up, the offer, and the consistency.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">06 / 24</div>
+    <div class="slide-number">06 / 32</div>
 </section>
 
 <!-- ========== SLIDE 07 — META SELLS ATTENTION ========== -->
@@ -682,243 +956,169 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">07 / 24</div>
+    <div class="slide-number">07 / 32</div>
 </section>
 
-<!-- ========== SLIDE 08 — THE FUNNEL ========== -->
-<section class="slide" id="slide-8" data-notes="Every campaign needs a funnel. A real estate Meta ad campaign usually moves through this path: ad, click or message, lead capture, follow-up, conversation, appointment, client. Most agents only think about the first step. But the money is made after the lead comes in. Simple example: a buyer sees an ad for homes under 400 thousand in Orlando. They click. They submit their info. They receive the list. The agent follows up. The agent asks questions. The agent books a consultation. That is the system. Do not judge a campaign only by how many leads it got. Judge it by how many real conversations and appointments it created.---Cada campana necesita un funnel. Una campana de Meta ad en bienes raices se mueve por este camino: anuncio, click o mensaje, captura de lead, follow-up, conversacion, cita, cliente. La mayoria de agentes solo piensan en el primer paso. Pero el dinero se hace despues que el lead entra. Ejemplo sencillo: un comprador ve un anuncio de casas bajo 400 mil en Orlando. Hace click. Mete su info. Recibe la lista. El agente le da follow-up. El agente le hace preguntas. El agente reserva una cita. Ese es el sistema. No juzguen una campana solo por cuantos leads dio. Juzguenla por cuantas conversaciones reales y citas genero.">
+<!-- ========== SLIDE 08 — FUNNEL → FRAMEWORK MAP ========== -->
+<section class="slide" id="slide-8" data-notes="Here is the map for today. Every Meta ad lives at one of three stages of the funnel — and each stage has the framework that works there. TOP: cold audiences, people who don't know you. The framework is AIDA — Attention, Interest, Desire, Action. MIDDLE: warm audiences, people who have engaged. The framework is PAS or FAB — Problem-Agitate-Solution for pain-aware, Feature-Advantage-Benefit for people comparing options. BOTTOM: retargeting, people who engaged but didn't convert. The framework is IDCA — Identify, Disrupt, Compel, Act. Same funnel, same agent, three different conversations. If you mix them up — cold audience, FAB ad — you get bad results. Match the framework to the stage.---Aqui esta el mapa de hoy. Cada Meta ad vive en una de tres etapas del funnel — y cada etapa tiene el framework que funciona ahi. TOP: audiencia fria, gente que no te conoce. El framework es AIDA. MIDDLE: audiencia tibia, los que ya interactuaron. El framework es PAS o FAB. BOTTOM: retargeting, los que interactuaron pero no convirtieron. El framework es IDCA. Mismo funnel, mismo agente, tres conversaciones diferentes. Si los mezclas — audiencia fria con un FAB ad — sacas malos resultados. Empareja el framework con la etapa.">
     <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">The Real Estate Funnel</div><h2 class="slide-title">Every Campaign Needs a Funnel</h2><p class="slide-body">Most agents only think about step one. The money is made after the lead enters the system.</p></div>
-        <div class="funnel-flow reveal stagger" style="transition-delay:0.2s;">
-            <div class="funnel-step"><div class="funnel-step-num">01</div><div class="funnel-step-label">Ad</div></div>
-            <div class="funnel-arrow">&#x203A;</div>
-            <div class="funnel-step"><div class="funnel-step-num">02</div><div class="funnel-step-label">Click / Message</div></div>
-            <div class="funnel-arrow">&#x203A;</div>
-            <div class="funnel-step"><div class="funnel-step-num">03</div><div class="funnel-step-label">Lead Capture</div></div>
-            <div class="funnel-arrow">&#x203A;</div>
-            <div class="funnel-step"><div class="funnel-step-num">04</div><div class="funnel-step-label">Follow-Up</div></div>
-            <div class="funnel-arrow">&#x203A;</div>
-            <div class="funnel-step"><div class="funnel-step-num">05</div><div class="funnel-step-label">Conversation</div></div>
-            <div class="funnel-arrow">&#x203A;</div>
-            <div class="funnel-step"><div class="funnel-step-num">06</div><div class="funnel-step-label">Appointment</div></div>
-            <div class="funnel-arrow">&#x203A;</div>
-            <div class="funnel-step"><div class="funnel-step-num">07</div><div class="funnel-step-label">Client</div></div>
+        <div class="reveal"><div class="section-label">Funnel &rarr; Framework</div><h2 class="slide-title">Three Stages. Three <span class="stroke stroke--sprout">Frameworks<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>.</h2><p class="slide-body">Same funnel. Same agent. Three different conversations. Match the framework to the stage.</p></div>
+        <div class="fnf-grid">
+            <div class="fnf-col"><div class="fnf-tag">Stage 01 &middot; Cold</div><div class="fnf-stage">Top of Funnel</div><div class="fnf-fw">AIDA</div><div class="fnf-desc">Attention &middot; Interest &middot; Desire &middot; Action. People who don't know you yet &mdash; stop the scroll, earn the click.</div><div class="fnf-aud">Audience &middot; broad metros + lookalikes</div></div>
+            <div class="fnf-col"><div class="fnf-tag">Stage 02 &middot; Warm</div><div class="fnf-stage">Middle of Funnel</div><div class="fnf-fw">PAS / FAB</div><div class="fnf-desc">PAS for pain-aware (Problem &middot; Agitate &middot; Solution). FAB for comparison-stage (Feature &middot; Advantage &middot; Benefit).</div><div class="fnf-aud">Audience &middot; engagers + video viewers</div></div>
+            <div class="fnf-col"><div class="fnf-tag">Stage 03 &middot; Re-engage</div><div class="fnf-stage">Retargeting</div><div class="fnf-fw">IDCA</div><div class="fnf-desc">Identify &middot; Disrupt &middot; Compel &middot; Act. People who engaged but didn't convert &mdash; break the pattern, close the loop.</div><div class="fnf-aud">Audience &middot; custom (engaged, no booking)</div></div>
         </div>
-        <div class="reveal" style="transition-delay:0.6s;background:var(--ink-soft);border:1px solid var(--border-d);border-radius:14px;padding:clamp(0.9rem,1.6vw,1.3rem);">
-            <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.7rem);letter-spacing:1.4px;color:var(--sprout);margin-bottom:6px;text-transform:uppercase;">Example &middot; Orlando Buyer Funnel</p>
-            <p style="font-family:var(--font-sans);font-size:clamp(0.85rem,1.25vw,1.05rem);color:var(--paper);line-height:1.5;">Buyer sees <span class="token-highlight">"Homes under $400K in Orlando"</span> &rarr; clicks &rarr; submits info &rarr; receives the list &rarr; agent follows up &rarr; asks questions &rarr; <strong style="color:var(--sprout);">books consultation</strong>.</p>
-        </div>
-        <div class="reveal" style="transition-delay:0.75s;"><div class="callout-line">Don't judge a campaign by lead count. Judge it by <strong style="color:var(--sprout);">conversations and appointments</strong> created.</div></div>
+        <div class="reveal" style="transition-delay:0.7s;"><div class="callout-line">Mix them up &mdash; cold audience, FAB ad &mdash; and the leads come in <strong style="color:var(--clay-soft);">colder</strong> than the audience you started with.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">08 / 24</div>
+    <div class="slide-number">08 / 32</div>
 </section>
 
-<!-- ========== SLIDE 09 — 3 CAMPAIGN TYPES ========== -->
-<section class="slide" id="slide-9" data-notes="There are three simple campaign types every agent should understand. One: awareness campaigns. Goal — get seen by the right people. Examples: meet your local bilingual advisor, neighborhood education videos, market update clips. Two: lead generation campaigns. Goal — capture contact information. Examples: buyer guide, seller checklist, home valuation offer, list of homes under a price. Three: retargeting campaigns. Goal — stay in front of people who already engaged. Examples: people who watched your videos, visited your website, opened but did not submit a form. Most agents want leads before they have awareness or trust. That can work, but it usually makes the leads colder and harder to convert.---Hay tres tipos de campanas que cada agente debe entender. UNO: awareness. Meta — que te vean. Ejemplos: conoce a tu asesor bilingue, videos educativos del barrio, market updates. DOS: lead generation. Meta — capturar info de contacto. Ejemplos: guia de comprador, checklist de vendedor, home valuation, lista de casas bajo cierto precio. TRES: retargeting. Meta — seguir frente a la gente que ya interactuo. Ejemplos: los que vieron tus videos, visitaron tu pagina, abrieron pero no llenaron el form. La mayoria de agentes quieren leads antes de tener awareness o confianza. Puede funcionar, pero los leads salen mas frios y mas dificiles de convertir.">
+<!-- ========== SLIDE 09 — OBJECTIVES BY STAGE ========== -->
+<section class="slide" id="slide-9" data-notes="When you create a campaign Meta asks for an objective. The objective trains the algorithm. Match the objective to the funnel stage. Top of funnel — cold audience: use Awareness or Engagement to teach the algorithm who responds to your content. Middle of funnel — warm audience: use Leads, Messages, or Traffic to capture contact info from people who already trust you. Retargeting — re-engagement: use Conversions or Leads with a tighter audience to close the loop. Practical rule: do not pick an objective because it sounds good. Pick it based on the action you actually want at the stage you're at.---Cuando creas una campana Meta pregunta por un objetivo. El objetivo entrena el algoritmo. Empareja el objetivo con la etapa del funnel. Top: Awareness o Engagement pa ensenarle al algoritmo quien responde a tu contenido. Middle: Leads, Messages, Traffic pa capturar info de los que ya te conocen. Retargeting: Conversions o Leads con audiencia mas cerrada pa cerrar el loop. No escojan el objetivo porque suena chevere. Escojanlo basado en la accion que quieres en la etapa que estas.">
     <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">Three Campaign Types</div><h2 class="slide-title">Not Every Ad Has the Same Job</h2><p class="slide-body">Pick the right one for the moment. Mixing them up is why most campaigns underperform.</p></div>
-        <div class="three-col">
-            <div class="camp-card"><div class="camp-card-head"><span class="camp-card-num">01</span><span class="camp-card-title">Awareness</span></div><div class="camp-card-goal">Goal &middot; Get seen by the right people</div><ul class="camp-card-list"><li>Meet your local bilingual advisor</li><li>Neighborhood education videos</li><li>Market update clips</li></ul><span class="badge badge-brand" style="align-self:flex-start;">Top of Funnel</span></div>
-            <div class="camp-card"><div class="camp-card-head"><span class="camp-card-num">02</span><span class="camp-card-title">Lead Generation</span></div><div class="camp-card-goal">Goal &middot; Capture contact information</div><ul class="camp-card-list"><li>Buyer guide / seller checklist</li><li>Home valuation offer</li><li>List of homes under a price</li></ul><span class="badge badge-sprout" style="align-self:flex-start;">Middle of Funnel</span></div>
-            <div class="camp-card"><div class="camp-card-head"><span class="camp-card-num">03</span><span class="camp-card-title">Retargeting</span></div><div class="camp-card-goal">Goal &middot; Stay in front of warm engagers</div><ul class="camp-card-list"><li>People who watched your videos</li><li>People who visited your site</li><li>Opened but didn't submit</li></ul><span class="badge badge-amber" style="align-self:flex-start;">Bottom of Funnel</span></div>
+        <div class="reveal"><div class="section-label">Objectives by Stage</div><h2 class="slide-title">Match the Objective to the Stage</h2><p class="slide-body">The objective trains the algorithm. Pick it based on the action you actually want at that funnel stage.</p></div>
+        <div class="obj-by-stage">
+            <div class="obj-stage-card"><div class="obj-stage-tag">Stage 01 &middot; Cold</div><div class="obj-stage-name">For AIDA</div><div class="obj-stage-objs"><span class="badge badge-brand">Awareness</span><span class="badge badge-brand">Engagement</span><span class="badge badge-brand">Video Views</span></div><p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--muted-2);line-height:1.4;">Teach the algorithm which broad-audience people actually watch you.</p></div>
+            <div class="obj-stage-card"><div class="obj-stage-tag">Stage 02 &middot; Warm</div><div class="obj-stage-name">For PAS / FAB</div><div class="obj-stage-objs"><span class="badge badge-sprout">Leads</span><span class="badge badge-sprout">Messages</span><span class="badge badge-sprout">Traffic</span></div><p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--muted-2);line-height:1.4;">Capture contact info or DM conversation from people who already trust you.</p></div>
+            <div class="obj-stage-card"><div class="obj-stage-tag">Stage 03 &middot; Retarget</div><div class="obj-stage-name">For IDCA</div><div class="obj-stage-objs"><span class="badge badge-amber">Conversions</span><span class="badge badge-amber">Leads</span><span class="badge badge-amber">Messages</span></div><p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--muted-2);line-height:1.4;">Lock in the close &mdash; tighter audience, narrower objective, lower friction.</p></div>
         </div>
-        <div class="reveal" style="transition-delay:0.55s;"><div class="callout-line">Most agents skip straight to <strong style="color:var(--clay-soft);">lead gen</strong> with no awareness. The leads come in <strong>colder</strong> and harder to convert.</div></div>
+        <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">Don't pick an objective because it <em>sounds</em> good. Pick it based on the <strong style="color:var(--sprout);">action you actually want</strong>.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">09 / 24</div>
+    <div class="slide-number">09 / 32</div>
 </section>
 
-<!-- ========== SLIDE 10 — CAMPAIGN OBJECTIVES ========== -->
-<section class="slide" id="slide-10" data-notes="When you create a campaign, Meta asks for an objective. That objective tells Meta what kind of person to look for. Common real estate objectives: Leads — use when you want people to submit contact info. Engagement — use when you want comments, messages, interaction. Traffic — use when you want people to visit a landing page. Awareness — use when you want reach and visibility. Practical rule: do not pick an objective just because it sounds good. Pick the objective based on the action you actually want. If you want leads, run a lead campaign. If you want conversations, run a message or engagement campaign. If you want views, run awareness. The objective trains the algorithm.---Cuando creas una campana, Meta te pregunta por un objetivo. Ese objetivo le dice a Meta que tipo de persona buscar. Los comunes en bienes raices: Leads — cuando quieres que la gente meta su info. Engagement — cuando quieres comentarios, mensajes, interaccion. Traffic — cuando quieres que la gente visite una landing page. Awareness — cuando quieres alcance. Regla practica: no escojan un objetivo porque suena bonito. Escojanlo basado en la accion que de verdad quieren. Si quieres leads, corre lead campaign. Si quieres conversaciones, message o engagement. Si quieres views, awareness. El objetivo entrena el algoritmo.">
+<!-- ========== SLIDE 10 — SPECIAL AD CATEGORY (EMPLOYMENT + HOUSING) ========== -->
+<section class="slide" id="slide-10" data-notes="Meta restricts how you can target three categories: Housing, Employment, and Credit. Real estate ads land in two of those buckets. Selling or marketing homes? Housing category. Recruiting agents to your brokerage? Employment category. Both have the same restriction: you cannot target by age, zip code radius under 15 miles, gender, or detailed demographics. The lesson is identical. Your creative has to do the targeting. Today I'm going to walk you through my own recruiting campaign — my Special Ad Category is Employment because I'm recruiting agents. When you build your buyer or seller campaigns, your category will be Housing. Different category. Same rule. Broad audience. Creative filters.---Meta restringe el targeting en tres categorias: Housing, Employment, y Credit. Los real estate ads caen en dos. Vendiendo casas? Housing. Reclutando agentes pa tu brokerage? Employment. La misma restriccion: no puedes targetear por edad, zip code radius menor de 15 millas, genero, o demograficos detallados. La leccion es la misma. Tu creative tiene que hacer el targeting. Hoy les voy a caminar mi campana de reclutamiento — mi Special Ad Category es Employment porque estoy reclutando agentes. Cuando ustedes construyan sus buyer o seller campaigns, su categoria sera Housing. Diferente categoria. Misma regla. Audiencia amplia. El creative filtra.">
     <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">Campaign Objectives</div><h2 class="slide-title">Meta Needs to Know What You Want</h2><p class="slide-body">The objective trains the algorithm to find the type of person most likely to do that action.</p></div>
-        <div class="obj-grid">
-            <div class="obj-tile"><div class="obj-tile-pill">OBJECTIVE 01</div><div class="obj-tile-name">Leads</div><div class="obj-tile-when">When you want people to submit their contact information.</div></div>
-            <div class="obj-tile"><div class="obj-tile-pill">OBJECTIVE 02</div><div class="obj-tile-name">Engagement</div><div class="obj-tile-when">When you want comments, messages, or interaction.</div></div>
-            <div class="obj-tile"><div class="obj-tile-pill">OBJECTIVE 03</div><div class="obj-tile-name">Traffic</div><div class="obj-tile-when">When you want people to visit a landing page.</div></div>
-            <div class="obj-tile"><div class="obj-tile-pill">OBJECTIVE 04</div><div class="obj-tile-name">Awareness</div><div class="obj-tile-when">When you want reach and visibility.</div></div>
-        </div>
-        <div class="reveal" style="transition-delay:0.55s;"><div class="callout-line">Don't pick an objective because it <em>sounds</em> good. Pick it based on the <strong style="color:var(--sprout);">action you actually want</strong>.</div></div>
-    </div>
-    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">10 / 24</div>
-</section>
-
-<!-- ========== SLIDE 11 — SPECIAL AD CATEGORY ========== -->
-<section class="slide" id="slide-11" data-notes="Because housing is a protected category, Meta requires real estate ads to use the Special Ad Category for housing. That means some targeting options are limited. You cannot target housing ads the same way you might target shoes or restaurants or events. What this means for agents: your creative matters more, your offer matters more, your message matters more, your follow-up matters more, and broad targeting is normal. Wisconsin and Florida example: instead of trying to target first-time buyers with good credit — which you can't — you create an ad that speaks clearly to that audience. For example: buying your first home in Milwaukee or Orlando? Here are the steps most buyers wish they understood earlier. Because targeting is limited, the ad itself has to filter people. Your words, video, and offer do more of the targeting than the settings.---Como housing es una categoria protegida, Meta requiere que los anuncios de bienes raices usen Special Ad Category. Eso significa que las opciones de targeting estan limitadas. No pueden targetear housing ads como targetean zapatos o restaurantes. Lo que esto significa pa ustedes: el creative importa mas, la oferta importa mas, el mensaje importa mas, el follow-up importa mas, y broad targeting es normal. Ejemplo Wisconsin y Florida: en vez de tratar de targetear first-time buyers con buen credito — que no se puede — creas un anuncio que le hable claro a esa audiencia. Por ejemplo: comprando tu primera casa en Milwaukee u Orlando? Aqui estan los pasos que la mayoria de compradores hubieran querido entender antes. Como el targeting esta limitado, el anuncio mismo tiene que filtrar a la gente. Tus palabras, video, y oferta hacen mas del targeting que los settings.">
-    <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">Housing Ad Rules</div><h2 class="slide-title">Real Estate Ads Have <span class="stroke stroke--amber">Extra Rules<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Housing is a protected category. Targeting is limited &mdash; so your ad has to do the targeting.</p></div>
+        <div class="reveal"><div class="section-label">Special Ad Category</div><h2 class="slide-title">Real Estate Ads Live in <span class="stroke stroke--amber">SAC<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Selling homes? Housing. Recruiting agents? Employment. Same restriction, same lesson.</p></div>
         <div class="two-col" style="align-items:start;">
             <div class="reveal" style="transition-delay:0.2s;">
                 <div class="shield-card">
-                    <div class="shield-tag">&#x1F6E1; Special Ad Category &middot; Housing</div>
-                    <p style="font-family:var(--font-display);font-weight:700;font-size:clamp(1rem,1.5vw,1.25rem);color:var(--paper);">What this means for agents:</p>
+                    <div class="shield-tag">&#x1F6E1; SAC &middot; Employment (Pedro's Campaign)</div>
+                    <p style="font-family:var(--font-display);font-weight:700;font-size:clamp(1rem,1.5vw,1.25rem);color:var(--paper);">Today's example: recruiting agents to reThought.</p>
                     <ul class="constraint-list">
-                        <li>Your <strong>creative</strong> matters more</li>
-                        <li>Your <strong>offer</strong> matters more</li>
-                        <li>Your <strong>message</strong> matters more</li>
-                        <li>Your <strong>follow-up</strong> matters more</li>
-                        <li>Broad targeting is <strong>normal</strong></li>
+                        <li>Can't target by <strong>age</strong>, <strong>gender</strong>, or detailed demographics</li>
+                        <li>Geographic radius locked at <strong>15+ miles</strong></li>
+                        <li>No occupation interest targeting</li>
+                        <li>Broad metros + lookalikes only</li>
                     </ul>
                 </div>
             </div>
             <div class="reveal" style="transition-delay:0.35s;">
-                <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.7rem);letter-spacing:1.4px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;">Wisconsin &amp; Florida Example</p>
-                <div style="background:var(--ink-deep);border:1px solid #8cc94e44;border-radius:14px;padding:clamp(0.9rem,1.6vw,1.3rem);">
-                    <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.68rem);letter-spacing:1.2px;color:var(--clay-soft);margin-bottom:6px;text-decoration:line-through;">Targeting: first-time buyers + good credit</p>
-                    <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.68rem);letter-spacing:1.2px;color:var(--sprout);margin-bottom:10px;">&#x2713; Let the ad copy filter instead:</p>
-                    <p style="font-family:var(--font-sans);font-size:clamp(0.85rem,1.25vw,1.05rem);color:var(--paper);line-height:1.5;font-style:italic;">"Buying your first home in <strong>Milwaukee or Orlando</strong>? Here are the steps most buyers wish they understood earlier."</p>
-                </div>
-                <p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--muted-2);margin-top:clamp(0.6rem,1.2vh,1rem);line-height:1.5;">Your <strong style="color:var(--paper);">words, video, and offer</strong> do more of the targeting than the settings.</p>
-            </div>
-        </div>
-    </div>
-    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">11 / 24</div>
-</section>
-
-<!-- ========== SLIDE 12 — OFFER IS THE FILTER ========== -->
-<section class="slide" id="slide-12" data-notes="The offer is what someone gets in exchange for their attention or contact info. Weak offer: contact me if you want to buy or sell. Better offer: get a list of homes under 350 thousand in Central Florida. Better offer: download the Wisconsin seller prep checklist before listing your home. Better offer: find out what your home may sell for in today's market. Strong real estate offers are specific, useful, easy to understand, connected to a real client need, and simple to deliver. The more specific the offer, the easier it is for the right person to raise their hand.---La oferta es lo que alguien recibe a cambio de su atencion o info de contacto. Oferta debil: contactame si quieres comprar o vender. Mejor: una lista de casas bajo 350 mil en Central Florida. Mejor: download del Wisconsin seller prep checklist antes de listar tu casa. Mejor: descubre por cuanto se podria vender tu casa en el mercado de hoy. Las ofertas fuertes son especificas, utiles, faciles de entender, conectadas a una necesidad real del cliente, y simples de entregar. Mientras mas especifica la oferta, mas facil es que la persona correcta levante la mano.">
-    <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">The Offer Is the Filter</div><h2 class="slide-title">Better Offers Create <span class="stroke stroke--sprout">Better Leads<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">The more specific the offer, the easier it is for the right person to raise their hand.</p></div>
-        <div class="reveal stagger" style="transition-delay:0.15s;display:flex;flex-direction:column;">
-            <div class="offer-row"><div class="offer-tag">Weak</div><div class="offer-body">"Contact me if you want to buy or sell."</div></div>
-            <div class="offer-row better"><div class="offer-tag">Better</div><div class="offer-body">Get a list of <strong>homes under $350K in Central Florida</strong>.</div></div>
-            <div class="offer-row better"><div class="offer-tag">Better</div><div class="offer-body">Download the <strong>Wisconsin seller prep checklist</strong> before listing your home.</div></div>
-            <div class="offer-row better"><div class="offer-tag">Better</div><div class="offer-body">Find out <strong>what your home may sell for</strong> in today's market.</div></div>
-        </div>
-        <div class="reveal" style="transition-delay:0.6s;">
-            <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.7rem);letter-spacing:1.4px;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Strong offers are:</p>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span class="badge badge-sprout">Specific</span>
-                <span class="badge badge-sprout">Useful</span>
-                <span class="badge badge-sprout">Easy to understand</span>
-                <span class="badge badge-sprout">Tied to real need</span>
-                <span class="badge badge-sprout">Simple to deliver</span>
-            </div>
-        </div>
-    </div>
-    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">12 / 24</div>
-</section>
-
-<!-- ========== SLIDE 13 — WISCONSIN OFFERS ========== -->
-<section class="slide" id="slide-13" data-notes="Wisconsin offers. For buyers: starter homes under 300 thousand in Milwaukee County, first-time buyer guide for Wisconsin buyers, what your monthly payment could look like in today's market, homes near parks schools and commuter routes. For sellers: Milwaukee seller prep checklist, what buyers are noticing before they book a showing, how to price your home without guessing, what your home may sell for this month. The market gives you the angle. Wisconsin buyers have specific motivations — affordability, schools, commutes. Speak to those.---Ofertas de Wisconsin. Compradores: starter homes bajo 300 mil en Milwaukee County, guia de first-time buyer pa compradores de Wisconsin, como se ve tu pago mensual hoy, casas cerca de parques escuelas y rutas de commute. Vendedores: Milwaukee seller prep checklist, que estan notando los compradores antes de bookear un showing, como tasar tu casa sin adivinar, por cuanto puede venderse tu casa este mes. El mercado te da el angulo. Los compradores de Wisconsin tienen motivaciones especificas — affordability, escuelas, commutes. Hablales a eso.">
-    <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">Market Offers &middot; Wisconsin</div><h2 class="slide-title">Use the Market to Shape the Message</h2><p class="slide-body">Wisconsin buyers and sellers respond to different signals. Match the offer to the motivation.</p></div>
-        <div class="two-col">
-            <div class="reveal" style="transition-delay:0.2s;">
-                <div class="market-block buyer">
-                    <div class="market-head"><span style="font-size:clamp(1.1rem,1.7vw,1.4rem);">&#x1F3E0;</span><span class="market-head-name">Wisconsin &middot; Buyer Offers</span></div>
-                    <ul class="market-offers">
-                        <li>Starter homes under <strong style="color:var(--paper);">$300K in Milwaukee County</strong></li>
-                        <li>First-time buyer guide for Wisconsin buyers</li>
-                        <li>What your monthly payment could look like in today's market</li>
-                        <li>Homes near <strong style="color:var(--paper);">parks, schools, and commuter routes</strong></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="reveal" style="transition-delay:0.35s;">
-                <div class="market-block seller">
-                    <div class="market-head"><span style="font-size:clamp(1.1rem,1.7vw,1.4rem);">&#x1F4B0;</span><span class="market-head-name">Wisconsin &middot; Seller Offers</span></div>
-                    <ul class="market-offers">
-                        <li>Milwaukee <strong style="color:var(--paper);">seller prep checklist</strong></li>
-                        <li>What buyers are noticing before they book a showing</li>
-                        <li>How to <strong style="color:var(--paper);">price your home without guessing</strong></li>
-                        <li>What your home may sell for <strong style="color:var(--paper);">this month</strong></li>
+                <div class="shield-card" style="border-color:var(--brand-light);background:linear-gradient(135deg,#0a1a26 0%,#061320 100%);">
+                    <div class="shield-tag" style="color:var(--brand-light);">&#x1F3E0; SAC &middot; Housing (Your Campaign)</div>
+                    <p style="font-family:var(--font-display);font-weight:700;font-size:clamp(1rem,1.5vw,1.25rem);color:var(--paper);">Same rules apply when you sell homes.</p>
+                    <ul class="constraint-list">
+                        <li>Same targeting limits &mdash; age, gender, radius all locked</li>
+                        <li>Your <strong>creative</strong> has to do the targeting</li>
+                        <li>Speak directly to the buyer or seller you want</li>
+                        <li>Broad audience + sharp message = right person raises hand</li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="reveal" style="transition-delay:0.55s;"><div class="callout-line">Same structure, every time: <strong>specific problem &rarr; simple offer &rarr; clear next step</strong>.</div></div>
+        <div class="reveal" style="transition-delay:0.55s;"><div class="callout-line">Different category. <strong style="color:var(--sprout);">Same lesson.</strong> Words, video, and offer do more of the targeting than the settings.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">13 / 24</div>
+    <div class="slide-number">10 / 32</div>
 </section>
 
-<!-- ========== SLIDE 14 — FLORIDA OFFERS ========== -->
-<section class="slide" id="slide-14" data-notes="Florida offers. For buyers: homes under 400 thousand in Central Florida, relocation guide for buyers moving to Orlando, new construction vs resale what buyers should compare, monthly payment estimate before you start touring. For sellers: Orlando area home value check, seller checklist before going live, how to prepare your home for out-of-state buyers, what sellers should know before pricing in today's market. Florida buyers are often relocating, comparing new construction, and dealing with out-of-state logistics. Speak to that reality.---Ofertas de Florida. Compradores: casas bajo 400 mil en Central Florida, relocation guide pa los que se mudan a Orlando, new construction vs resale que deben comparar, estimado de pago mensual antes de empezar a ver casas. Vendedores: home value check de Orlando, seller checklist antes de salir al mercado, como preparar tu casa pa compradores fuera de estado, que deben saber los vendedores antes de tasar hoy. Los compradores de Florida muchas veces se estan relocalizando, comparando new construction, y lidiando con logistica fuera de estado. Hablales a esa realidad.">
+<!-- ========== SLIDE 11 — AIDA EXPLAINED ========== -->
+<section class="slide" id="slide-11" data-notes="The first framework for today: AIDA. Attention, Interest, Desire, Action. This is the framework for cold audiences — the people who don't know you yet. ATTENTION: stop the scroll. INTEREST: reveal something they didn't know. DESIRE: show them what's possible. ACTION: tell them exactly what to do. You used AIDA in Session 1 to build your hook line. Today you're using it to build a paid ad. Same framework, paid amplification.---El primer framework de hoy: AIDA. Atencion, Interes, Deseo, Accion. Este es el framework pa audiencias frias — los que no te conocen. ATENCION: para el scroll. INTERES: revela algo que no sabian. DESEO: muestra que es posible. ACCION: diles exactamente que hacer. Usaron AIDA en la Sesion 1 pa construir su hook line. Hoy lo usan pa construir un ad pago. Mismo framework, paid amplification.">
     <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">Market Offers &middot; Florida</div><h2 class="slide-title">Different Market, Same Structure</h2><p class="slide-body">Florida buyers are often relocating. Sellers often face out-of-state buyers. Lead with what's real.</p></div>
-        <div class="two-col">
-            <div class="reveal" style="transition-delay:0.2s;">
-                <div class="market-block buyer">
-                    <div class="market-head"><span style="font-size:clamp(1.1rem,1.7vw,1.4rem);">&#x1F3D6;&#xFE0F;</span><span class="market-head-name">Florida &middot; Buyer Offers</span></div>
-                    <ul class="market-offers">
-                        <li>Homes under <strong style="color:var(--paper);">$400K in Central Florida</strong></li>
-                        <li>Relocation guide for buyers moving to <strong style="color:var(--paper);">Orlando</strong></li>
-                        <li>New construction vs resale &mdash; what buyers should compare</li>
-                        <li>Monthly payment estimate <strong style="color:var(--paper);">before you start touring</strong></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="reveal" style="transition-delay:0.35s;">
-                <div class="market-block seller">
-                    <div class="market-head"><span style="font-size:clamp(1.1rem,1.7vw,1.4rem);">&#x1F511;</span><span class="market-head-name">Florida &middot; Seller Offers</span></div>
-                    <ul class="market-offers">
-                        <li><strong style="color:var(--paper);">Orlando area home value check</strong></li>
-                        <li>Seller checklist before going live</li>
-                        <li>How to prepare your home for <strong style="color:var(--paper);">out-of-state buyers</strong></li>
-                        <li>What sellers should know before pricing in today's market</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="reveal"><div class="section-label">Top of Funnel &middot; Cold Audience</div><h2 class="slide-title">AIDA &mdash; for People Who <span class="stroke stroke--sprout">Don't Know You<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> Yet</h2><p class="slide-body">The classic. Stop the scroll, earn the curiosity, create the want, ask the action.</p></div>
+        <div class="fw-circles">
+            <div class="fw-circle"><div class="fw-letter">A</div><div class="fw-name">Attention</div><div class="fw-desc">Call out the person + the moment. First 3 seconds decide it all.</div></div>
+            <div class="fw-circle"><div class="fw-letter">I</div><div class="fw-name">Interest</div><div class="fw-desc">Reveal something they didn't know. Earn the next 10 seconds.</div></div>
+            <div class="fw-circle"><div class="fw-letter">D</div><div class="fw-name">Desire</div><div class="fw-desc">Show what's possible. Make them feel the outcome.</div></div>
+            <div class="fw-circle"><div class="fw-letter">A</div><div class="fw-name">Action</div><div class="fw-desc">Tell them exactly what to do next &mdash; one word, one tap.</div></div>
         </div>
-        <div class="reveal" style="transition-delay:0.55s;"><div class="callout-line">The market gives you the angle. The <strong style="color:var(--sprout);">structure</strong> &mdash; problem, offer, next step &mdash; never changes.</div></div>
+        <div class="reveal" style="transition-delay:0.75s;"><div class="callout-line">You used AIDA in Session 1 for your hook line. Today, same framework &mdash; <strong style="color:var(--sprout);">paid amplification</strong>.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">14 / 24</div>
+    <div class="slide-number">11 / 32</div>
 </section>
 
-<!-- ========== SLIDE 15 — CREATIVE FORMULA ========== -->
-<section class="slide" id="slide-15" data-notes="A good real estate ad does not need to be fancy. It needs to be clear. Creative formats that work: short talking-head video, property list graphic, neighborhood guide, carousel of common mistakes, before and after seller prep, client education reel, simple market update. The simple creative formula has four pieces. HOOK: call out the problem or desire. VALUE: teach one useful thing. OFFER: give them the next step. CTA: tell them exactly what to do. Clear beats clever. The best ads feel like useful advice, not a commercial.---Un buen real estate ad no tiene que ser fancy. Tiene que ser claro. Formatos que funcionan: short talking-head video, property list graphic, neighborhood guide, carousel de errores comunes, before y after de seller prep, client education reel, market update sencillo. La formula simple tiene cuatro piezas. HOOK: llama el problema o deseo. VALUE: ensena una cosa util. OFFER: dale el proximo paso. CTA: diles exactamente que hacer. Claro le gana a clever. Los mejores ads se sienten como consejo util, no como un comercial.">
+<!-- ========== SLIDE 12 — AIDA APPLIED TO PEDRO ========== -->
+<section class="slide" id="slide-12" data-notes="Now let me show you AIDA applied to my own avatar. My ideal client — and yes I have one too, just like the buyer or seller avatars you built — is a real estate agent 23 to 35, doing 1 to 3 million in volume, 2 to 4 years licensed, Milwaukee or Central Florida. ATTENTION: I name them and the city. INTEREST: I tell them something true they haven't heard — they're not broken, they're under-trained. DESIRE: I show what's possible — live weekly training, real broker, bilingual community. ACTION: a one-word comment trigger that drops them into ManyChat. Notice how every line is specific. Specific filters. Generic fails.---Ahora les muestro AIDA aplicado a mi propio avatar. Mi cliente ideal — si, yo tambien tengo uno, igual que los avatares de buyer o seller que ustedes construyeron — es un agente 23 a 35, haciendo 1 a 3 millones de volumen, 2 a 4 anos con licencia, Milwaukee o Central Florida. ATENCION: los nombro y la ciudad. INTERES: les digo algo verdadero que no han escuchado — no estan rotos, les falta entrenamiento. DESEO: les muestro lo posible — entrenamiento en vivo, broker real, comunidad bilingue. ACCION: un comment trigger de una palabra que los mete a ManyChat. Cada linea es especifica. Lo especifico filtra. Lo generico falla.">
     <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">Creative That Works</div><h2 class="slide-title">The Ad Must Stop the Scroll &mdash; and Build Trust</h2><p class="slide-body">Clear beats clever. The best ads feel like useful advice, not a commercial.</p></div>
-        <div class="reveal" style="transition-delay:0.15s;">
-            <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.7rem);letter-spacing:1.4px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Formats that work</p>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span class="badge badge-sprout">Talking-head video</span>
-                <span class="badge badge-sprout">Property list graphic</span>
-                <span class="badge badge-sprout">Neighborhood guide</span>
-                <span class="badge badge-sprout">Carousel of mistakes</span>
-                <span class="badge badge-sprout">Before/after prep</span>
-                <span class="badge badge-sprout">Education reel</span>
-                <span class="badge badge-sprout">Market update</span>
+        <div class="reveal"><div class="section-label">AIDA &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">How the Framework Lands on a Real Person</h2></div>
+        <div class="two-col" style="align-items:start;">
+            <div class="reveal" style="transition-delay:0.15s;">
+                <div class="avatar-card">
+                    <div class="avatar-tag">&#x1F464; My Ideal Client (Pedro's Avatar)</div>
+                    <div class="avatar-name">The $1M&ndash;$3M Agent</div>
+                    <div class="avatar-meta">23&ndash;35 &middot; 2&ndash;4 yrs licensed &middot; Bilingual EN+ES &middot; Milwaukee or Central FL</div>
+                    <div class="avatar-pain">"I don't know where my next deal is coming from. My broker collects splits but hasn't trained me in 6 months."</div>
+                    <p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--muted-2);line-height:1.5;">Producing despite their environment, not because of it. One system away from doubling.</p>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay:0.3s;">
+                <div class="fw-rows">
+                    <div class="fw-row clay"><div class="fw-row-tag"><div class="fw-row-tag-letter">A</div><div class="fw-row-tag-name">Attention</div></div><div class="fw-row-body">"If you're a <strong>Milwaukee or Orlando agent</strong> closing 4 to 12 deals a year, this is for you."</div></div>
+                    <div class="fw-row brand"><div class="fw-row-tag"><div class="fw-row-tag-letter">I</div><div class="fw-row-tag-name">Interest</div></div><div class="fw-row-body">"Most agents at your level aren't broken &mdash; they're <strong>building on the wrong foundation</strong>. No weekly training. No real broker."</div></div>
+                    <div class="fw-row amber"><div class="fw-row-tag"><div class="fw-row-tag-letter">D</div><div class="fw-row-tag-name">Desire</div></div><div class="fw-row-body">"At reThought, we train live every Tuesday on the four systems that move production. Bilingual. Two markets. One curriculum."</div></div>
+                    <div class="fw-row sprout"><div class="fw-row-tag"><div class="fw-row-tag-letter">A</div><div class="fw-row-tag-name">Action</div></div><div class="fw-row-body">"If you're producing $1M to $3M and ready to stop winging it, <strong>comment <span class="token-highlight">SYSTEMS</span></strong> and I'll send you the curriculum."</div></div>
+                </div>
             </div>
         </div>
-        <div class="reveal" style="transition-delay:0.25s;margin-top:clamp(0.4rem,1vh,0.8rem);">
-            <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.7rem);letter-spacing:1.4px;color:var(--sprout);text-transform:uppercase;margin-bottom:8px;">The 4-piece formula</p>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">12 / 32</div>
+</section>
+
+<!-- ========== SLIDE 13 — META TACTICS · COLD/AIDA ========== -->
+<section class="slide" id="slide-13" data-notes="The tactics behind an AIDA ad. OBJECTIVE: Engagement is my pick when I'm running this with a ManyChat keyword trigger — Meta optimizes for comments. Awareness or Video Views also work if you want pure reach. AUDIENCE: SAC means broad. I run two metros — Milwaukee and Orlando — both with a 25-mile radius minimum. No interest stacking. I add lookalikes from my engaged audience once I have one. FORMAT: 30-second talking-head video shot vertically. Real face beats produced anything. BUDGET: 20 to 50 dollars a day per ad set is enough to learn. Don't dump 500 before you know what works.---Las tacticas detras de un AIDA ad. OBJETIVO: Engagement cuando lo corres con ManyChat keyword trigger. AUDIENCIA: SAC equals broad. Dos metros: Milwaukee y Orlando, radius minimo de 25 millas. No interest stacking. Lookalikes de mi audiencia engaged una vez la tengo. FORMATO: video talking-head de 30 segundos en vertical. Cara real le gana a cualquier cosa producida. PRESUPUESTO: 20 a 50 al dia por ad set es suficiente pa aprender.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Meta Tactics &middot; AIDA / Cold</div><h2 class="slide-title">How to Set It Up Inside Meta</h2><p class="slide-body">Four decisions before you hit publish. Specific is faster than fancy.</p></div>
+        <div class="tactics-grid">
+            <div class="tactic-card"><div class="tactic-key">Decision 01</div><div class="tactic-name">Objective</div><div class="tactic-detail"><strong style="color:var(--sprout);">Engagement</strong> if pairing with a ManyChat keyword. Awareness or Video Views for pure reach.</div></div>
+            <div class="tactic-card"><div class="tactic-key">Decision 02</div><div class="tactic-name">Audience</div><div class="tactic-detail">Broad metros (Milwaukee + Orlando), 25-mile radius. No interest stacking. Add lookalikes once an engaged base exists.</div></div>
+            <div class="tactic-card"><div class="tactic-key">Decision 03</div><div class="tactic-name">Format</div><div class="tactic-detail">30-sec talking-head video, vertical (9:16). Real face beats produced anything.</div></div>
+            <div class="tactic-card"><div class="tactic-key">Decision 04</div><div class="tactic-name">Budget</div><div class="tactic-detail"><strong style="color:var(--sprout);">$20&ndash;$50/day</strong> per ad set. Enough to learn, small enough to kill.</div></div>
         </div>
+        <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">The settings are <strong>simple</strong>. The work is in the <strong style="color:var(--sprout);">creative</strong>.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">13 / 32</div>
+</section>
+
+<!-- ========== SLIDE 14 — 4-PIECE FORMULA ALIGNED TO AIDA ========== -->
+<section class="slide" id="slide-14" data-notes="The 4-piece creative formula you learned in Session 1 maps perfectly to AIDA. HOOK is Attention. VALUE is Interest. OFFER is Desire. CTA is Action. Same four moves, different names depending on which framework book you read. The key insight: every cold ad has these four pieces, and weak ads are weak because they skip one. Most agents skip Value — they jump from hook straight to offer — and the ad feels like a commercial instead of useful advice.---La formula de 4 piezas de la Sesion 1 mapea perfecto con AIDA. HOOK es Atencion. VALUE es Interes. OFFER es Deseo. CTA es Accion. Los mismos cuatro movimientos. La clave: cada cold ad tiene estas cuatro piezas, y los ads debiles son debiles porque saltan una. La mayoria de agentes salta el Value — van del hook directo a la oferta — y el ad se siente como comercial en vez de consejo util.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Creative Formula &middot; Aligned to AIDA</div><h2 class="slide-title">Four Pieces. <span style="color:var(--sprout);">One Frame.</span></h2><p class="slide-body">The 4-piece formula from Session 1 maps onto AIDA. Same moves, two names.</p></div>
         <div class="formula-flow">
-            <div class="formula-card"><div class="formula-num">01 &middot; STOP THE SCROLL</div><div class="formula-name">Hook</div><div class="formula-desc">Call out the problem or desire in the first sentence.</div></div>
-            <div class="formula-card"><div class="formula-num">02 &middot; EARN TRUST</div><div class="formula-name">Value</div><div class="formula-desc">Teach one useful thing they didn't know.</div></div>
-            <div class="formula-card"><div class="formula-num">03 &middot; OPEN THE DOOR</div><div class="formula-name">Offer</div><div class="formula-desc">Give them a specific next step worth taking.</div></div>
-            <div class="formula-card"><div class="formula-num">04 &middot; ASK THE ACTION</div><div class="formula-name">CTA</div><div class="formula-desc">Tell them exactly what to do &mdash; comment, DM, click.</div></div>
+            <div class="formula-card"><div class="formula-num">01 &middot; = ATTENTION</div><div class="formula-name">Hook</div><div class="formula-desc">Call out the person + moment. Stop the scroll in 3 seconds.</div></div>
+            <div class="formula-card"><div class="formula-num">02 &middot; = INTEREST</div><div class="formula-name">Value</div><div class="formula-desc">Teach one true thing they didn't know. Earn the next 10 seconds.</div></div>
+            <div class="formula-card"><div class="formula-num">03 &middot; = DESIRE</div><div class="formula-name">Offer</div><div class="formula-desc">Name the specific thing. Make the want concrete.</div></div>
+            <div class="formula-card"><div class="formula-num">04 &middot; = ACTION</div><div class="formula-name">CTA</div><div class="formula-desc">One word. One tap. Comment, DM, or click.</div></div>
         </div>
+        <div class="reveal" style="transition-delay:0.65s;"><div class="callout-line">Weak ads skip <strong style="color:var(--clay-soft);">Value</strong>. They jump from hook to offer &mdash; and feel like a commercial instead of <strong style="color:var(--sprout);">useful advice</strong>.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">15 / 24</div>
+    <div class="slide-number">14 / 32</div>
 </section>
 
-<!-- ========== SLIDE 16 — IG AD EXAMPLE ========== -->
-<section class="slide" id="slide-16" data-notes="Here is the formula in action. The example uses Orlando first-time buyers. HOOK: Buying your first home in Orlando? Do not start with Zillow. VALUE: Start by understanding your payment, your financing, and what areas actually match your budget. OFFER: I made a simple first-time buyer checklist. CTA: Comment BUYER and I will send it to you. This ad does four things at once. It filters the audience by calling them out. It gives away knowledge for free so they trust you. It offers a tangible thing they want. And it gives them a one-word action to take. Anyone who comments BUYER becomes a warm lead in your DMs.---Aqui esta la formula en accion. El ejemplo usa first-time buyers de Orlando. HOOK: comprando tu primera casa en Orlando? No empieces con Zillow. VALUE: empieza por entender tu pago, tu financiamiento, y que areas de verdad caben en tu presupuesto. OFFER: hice un first-time buyer checklist sencillo. CTA: comenta BUYER y te lo mando. Este ad hace cuatro cosas al mismo tiempo. Filtra la audiencia llamandolos por nombre. Regala conocimiento pa que confien. Ofrece algo tangible. Y les da una accion de una sola palabra. Cualquiera que comente BUYER se convierte en un warm lead en tus DMs.">
+<!-- ========== SLIDE 15 — PEDRO'S FULL AIDA AD ========== -->
+<section class="slide" id="slide-15" data-notes="Here is the full AIDA ad I run. The Instagram mockup on the left is what an agent sees in the feed. The breakdown on the right shows you which line does which job. Notice: every line is specific. I name the cities. I name the production range. I name the action. The SYSTEMS keyword is what drops them into my ManyChat flow which fulfills the 48-week curriculum. The video is me on camera for 30 seconds — not a polished production. That's deliberate. Trust is built through real face, real voice, and specificity.---Aqui esta el AIDA ad completo que corro. Mockup de Instagram a la izquierda. Breakdown a la derecha. Cada linea es especifica. Nombro las ciudades. Nombro el rango de produccion. Nombro la accion. SYSTEMS es el keyword que los mete a mi flujo de ManyChat que entrega el curriculum de 48 semanas. El video es yo en camara por 30 segundos — no produccion fancy. Es deliberado. La confianza se construye con cara real, voz real, y especificidad.">
     <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">Example &middot; Orlando First-Time Buyer</div><h2 class="slide-title">The Formula in <span style="color:var(--sprout);">Action</span></h2></div>
+        <div class="reveal"><div class="section-label">Pedro's Full AIDA Ad &middot; Live Example</div><h2 class="slide-title">The Cold Ad <span style="color:var(--sprout);">in the Wild</span></h2></div>
         <div class="two-col" style="align-items:center;">
             <div class="reveal-scale" style="transition-delay:0.2s;">
                 <div class="ig-mockup">
                     <div class="ig-mockup-header">
-                        <div class="ig-mockup-avatar">RT</div>
+                        <div class="ig-mockup-avatar">PB</div>
                         <div class="ig-mockup-user">
-                            <div class="ig-mockup-user-name">rethought.realestate</div>
-                            <div class="ig-mockup-user-meta"><span class="ig-mockup-sponsored">Sponsored</span> &middot; Orlando, FL</div>
+                            <div class="ig-mockup-user-name">pedro.rethought</div>
+                            <div class="ig-mockup-user-meta"><span class="ig-mockup-sponsored">Sponsored</span> &middot; Milwaukee + Orlando</div>
                         </div>
                     </div>
                     <div class="ig-mockup-image">
                         <div class="ig-mockup-image-text">
-                            <div class="ig-mockup-image-hook">Buying your first home in Orlando?<br>Don't start with Zillow.</div>
-                            <div class="ig-mockup-image-sub">First-Time Buyer Checklist</div>
+                            <div class="ig-mockup-image-hook">If you're closing 4&ndash;12 deals a year in Milwaukee or Orlando&hellip;</div>
+                            <div class="ig-mockup-image-sub">You're not stuck. You're under-trained.</div>
                         </div>
                     </div>
                     <div class="ig-mockup-actions">
@@ -926,24 +1126,350 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
                         <svg class="ig-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-15.5 4.8L3 21l4.7-2.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
                         <svg class="ig-icon" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                     </div>
-                    <div class="ig-mockup-caption">Start by understanding your <strong>payment</strong>, your <strong>financing</strong>, and what areas actually match your budget.</div>
-                    <div class="ig-mockup-cta"><span>Comment <strong style="color:var(--sprout);">BUYER</strong> and I'll send it.</span><span class="ig-mockup-cta-arrow">&#x203A;</span></div>
+                    <div class="ig-mockup-caption">We train live every Tuesday on the four systems that move production: <strong>marketing, prospecting, transactions, analytics</strong>. Bilingual. Two markets.</div>
+                    <div class="ig-mockup-cta"><span>Comment <strong style="color:var(--sprout);">SYSTEMS</strong> for the curriculum.</span><span class="ig-mockup-cta-arrow">&#x203A;</span></div>
                 </div>
             </div>
-            <div class="reveal" style="transition-delay:0.4s;display:flex;flex-direction:column;gap:clamp(8px,1.4vh,14px);">
-                <div style="display:flex;gap:10px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.68rem);letter-spacing:1.2px;color:var(--clay);background:#c0544522;border:1px solid #c0544555;padding:3px 8px;border-radius:6px;min-width:60px;text-align:center;">HOOK</span><p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--paper);line-height:1.4;">"Buying your first home in Orlando? Don't start with Zillow."</p></div>
-                <div style="display:flex;gap:10px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.68rem);letter-spacing:1.2px;color:var(--brand-light);background:#034c7630;border:1px solid #034c7660;padding:3px 8px;border-radius:6px;min-width:60px;text-align:center;">VALUE</span><p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--paper);line-height:1.4;">"Start by understanding your payment, financing, and what areas actually match your budget."</p></div>
-                <div style="display:flex;gap:10px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.68rem);letter-spacing:1.2px;color:var(--amber);background:#e0a63a30;border:1px solid #e0a63a60;padding:3px 8px;border-radius:6px;min-width:60px;text-align:center;">OFFER</span><p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--paper);line-height:1.4;">"I made a simple first-time buyer checklist."</p></div>
-                <div style="display:flex;gap:10px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.68rem);letter-spacing:1.2px;color:var(--sprout);background:#8cc94e22;border:1px solid #8cc94e55;padding:3px 8px;border-radius:6px;min-width:60px;text-align:center;">CTA</span><p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--paper);line-height:1.4;">"Comment <span class="token-highlight">BUYER</span> and I'll send it to you."</p></div>
+            <div class="reveal" style="transition-delay:0.4s;">
+                <div class="fw-rows">
+                    <div class="fw-row clay"><div class="fw-row-tag"><div class="fw-row-tag-letter">A</div><div class="fw-row-tag-name">Attention</div></div><div class="fw-row-body">"Milwaukee or Orlando agent closing 4 to 12 deals a year &mdash; this is for you." <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75em;">(0&ndash;3s)</span></div></div>
+                    <div class="fw-row brand"><div class="fw-row-tag"><div class="fw-row-tag-letter">I</div><div class="fw-row-tag-name">Interest</div></div><div class="fw-row-body">"You're not broken &mdash; you're building on the wrong foundation." <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75em;">(3&ndash;10s)</span></div></div>
+                    <div class="fw-row amber"><div class="fw-row-tag"><div class="fw-row-tag-letter">D</div><div class="fw-row-tag-name">Desire</div></div><div class="fw-row-body">"Live training every Tuesday. Four systems. Bilingual. Two markets." <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75em;">(10&ndash;20s)</span></div></div>
+                    <div class="fw-row sprout"><div class="fw-row-tag"><div class="fw-row-tag-letter">A</div><div class="fw-row-tag-name">Action</div></div><div class="fw-row-body">"Comment <span class="token-highlight">SYSTEMS</span> and I'll send you the 48-week curriculum." <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75em;">(20&ndash;30s)</span></div></div>
+                </div>
             </div>
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">16 / 24</div>
+    <div class="slide-number">15 / 32</div>
 </section>
 
-<!-- ========== SLIDE 17 — NUMBERS THAT MATTER ========== -->
-<section class="slide" id="slide-17" data-notes="Likes are nice. Comments are useful. Views can help. But the real scoreboard is deeper. Track these numbers: cost per lead, lead quality, speed to lead, response rate, appointment rate, conversion rate. A cheap lead that never responds is not cheap. An expensive lead that becomes a client may be very profitable. Do not celebrate cheap leads too early. Track what happens AFTER the lead enters the system.---Los likes son chevere. Los comentarios sirven. Las views ayudan. Pero el verdadero scoreboard es mas profundo. Trackeen estos numeros: cost per lead, lead quality, speed to lead, response rate, appointment rate, conversion rate. Un lead barato que nunca responde no es barato. Un lead caro que se convierte en cliente puede ser bien rentable. No celebren leads baratos muy temprano. Trackeen que pasa DESPUES que el lead entra al sistema.">
+<!-- ========== SLIDE 16 — WHEN PAS vs FAB ========== -->
+<section class="slide" id="slide-16" data-notes="Once someone is warm — they've watched your videos, engaged with your content, visited your page — you have two choices of framework. PAS for pain-aware audiences. They already know they have the problem. You name it, twist the knife, then offer the solution. This is the carousel format that works really well on Instagram. FAB for comparison-stage audiences. They're shopping. Already see brokers. They want to know what makes you different. You give them feature, advantage compared to alternatives, then the benefit to them personally. This works well as a talking-head video. The choice is about consciousness. PAS: they feel the pain. FAB: they're comparing options. Match the framework to where their head is.---Una vez que alguien es warm tienes dos opciones. PAS pa audiencias conscientes del dolor. Ya saben el problema. Lo nombras, agitas, das solucion. Formato de carousel. FAB pa audiencias en comparacion. Estan comparando brokers. Quieren saber que te hace diferente. Feature, advantage, benefit. Formato de talking-head video. La eleccion es de consciencia. PAS: sienten el dolor. FAB: estan comparando opciones.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Middle of Funnel &middot; Warm Audience</div><h2 class="slide-title">Pick the Framework Based on <span class="stroke stroke--sprout">Their Headspace<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Warm audiences split two ways. PAS for pain-aware. FAB for comparing.</p></div>
+        <div class="when-grid">
+            <div class="when-card">
+                <div class="when-tag">Framework &middot; Pain-Aware</div>
+                <div class="when-name">PAS</div>
+                <div class="when-when">Use when they already feel the problem.</div>
+                <ul class="when-list">
+                    <li>Problem &middot; name it directly</li>
+                    <li>Agitate &middot; twist the knife, show the cost</li>
+                    <li>Solution &middot; present your offer</li>
+                </ul>
+                <div style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.68rem);letter-spacing:1.2px;color:var(--muted);text-transform:uppercase;margin-top:auto;border-top:1px dashed var(--border-d);padding-top:8px;">Format: 5-card carousel &middot; single image</div>
+            </div>
+            <div class="when-card">
+                <div class="when-tag">Framework &middot; Comparing Options</div>
+                <div class="when-name">FAB</div>
+                <div class="when-when">Use when they're shopping and want to compare.</div>
+                <ul class="when-list">
+                    <li>Feature &middot; what it is</li>
+                    <li>Advantage &middot; why it beats the alternative</li>
+                    <li>Benefit &middot; what it means for them</li>
+                </ul>
+                <div style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.68rem);letter-spacing:1.2px;color:var(--muted);text-transform:uppercase;margin-top:auto;border-top:1px dashed var(--border-d);padding-top:8px;">Format: 60-sec talking-head &middot; feature breakdown</div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.55s;"><div class="callout-line">Pedro's avatar feels both. Pain when they think about their last broker. Comparison when they look at other brokerages. <strong style="color:var(--sprout);">Run both.</strong></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">16 / 32</div>
+</section>
+
+<!-- ========== SLIDE 17 — PAS APPLIED TO PEDRO (5-CARD CAROUSEL) ========== -->
+<section class="slide" id="slide-17" data-notes="PAS applied to my recruiting avatar — five-card carousel. Card 1 names the problem. Card 2 names the second problem. Card 3 agitates — twists the knife by naming the comparison to other agents who have a system. Card 4 presents the solution. Card 5 is the CTA. This runs to people who watched at least 75 percent of my AIDA video in the last 30 days, plus Instagram and Facebook page engagers. They already know me. The PAS does the rest.---PAS aplicado a mi avatar — carousel de cinco cards. Card 1 problema. Card 2 segundo problema. Card 3 agita — la comparacion con los que si tienen sistema. Card 4 solucion. Card 5 CTA. Corre a los que vieron 75 porciento de mi AIDA video en los ultimos 30 dias mas engagers de Instagram y Facebook page. Ya me conocen. El PAS hace el resto.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">PAS &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">The Warm Carousel That Closes the Loop</h2><p class="slide-body">Five cards. Pain-aware audience. Audience is 30-day video viewers + page engagers.</p></div>
+        <div class="pas-carousel reveal" style="transition-delay:0.15s;">
+            <div class="pas-card"><div class="pas-card-pill">CARD 01 &middot; PROBLEM</div><div class="pas-card-text">"You don't know where your next deal is coming from."</div><div class="pas-card-num">1 / 5</div></div>
+            <div class="pas-card"><div class="pas-card-pill">CARD 02 &middot; PROBLEM</div><div class="pas-card-text">"Your broker collects your split. But hasn't trained you in 6 months."</div><div class="pas-card-num">2 / 5</div></div>
+            <div class="pas-card"><div class="pas-card-pill">CARD 03 &middot; AGITATE</div><div class="pas-card-text">"Another quarter. You wing it. Meanwhile the agents who DO have a system double their volume."</div><div class="pas-card-num">3 / 5</div></div>
+            <div class="pas-card"><div class="pas-card-pill">CARD 04 &middot; SOLUTION</div><div class="pas-card-text">"reThought trains live every Tuesday. 48 weeks. Marketing. Prospecting. Transactions. Analytics."</div><div class="pas-card-num">4 / 5</div></div>
+            <div class="pas-card"><div class="pas-card-pill">CARD 05 &middot; CTA</div><div class="pas-card-text">"Book 20 minutes with Pedro. No pitch. Just an honest conversation."</div><div class="pas-card-num">5 / 5</div></div>
+        </div>
+        <div class="two-col" style="align-items:start;">
+            <div class="reveal" style="transition-delay:0.55s;">
+                <div class="avatar-card" style="border-color:var(--clay);">
+                    <div class="avatar-tag" style="color:var(--clay-soft);">&#x1F3AF; Target Audience</div>
+                    <div class="avatar-meta">Warm &middot; pain-aware</div>
+                    <div class="avatar-pain">75% video viewers (30 days) + IG/FB page engagers + commenters on the AIDA ad</div>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay:0.7s;">
+                <div class="avatar-card" style="border-color:var(--sprout);">
+                    <div class="avatar-tag" style="color:var(--sprout);">&#x1F4CA; Campaign Setup</div>
+                    <div class="avatar-meta">Objective: Leads &middot; CTA: Book Now &rarr; Calendly</div>
+                    <div class="avatar-pain">Budget: $30/day &middot; Frequency cap: 2/week &middot; Caption: "If you say 'I don't know where my next deal is coming from' at the end of every month &mdash; read this. &#x27A1;&#xFE0F;"</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">17 / 32</div>
+</section>
+
+<!-- ========== SLIDE 18 — FAB APPLIED TO PEDRO ========== -->
+<section class="slide" id="slide-18" data-notes="FAB for my comparison-stage avatar. They're at KW, eXp, Real Broker, looking around. The video is 60 seconds. Three FAB triplets, fast. Feature one: live weekly training. Advantage: most brokerages do this once a quarter if at all. Benefit: every Tuesday they walk out with one thing they can use that week. Feature two: reKo accountability. Advantage: other brokerages track splits, we track behaviors. Benefit: they always know where they stand. Feature three: two markets, one curriculum, bilingual. Advantage: most brokers know one market and one language. Benefit: if their business moves, they can move with us. Notice the structure: every benefit is emotional or practical. Never abstract.---FAB pa mi avatar en comparacion. Estan en KW, eXp, Real Broker, mirando. El video es 60 segundos. Tres FAB triplets rapido. Cada beneficio es emocional o practico. Nunca abstracto.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">FAB &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">Three Triplets. <span style="color:var(--sprout);">60 Seconds.</span> Done.</h2><p class="slide-body">For agents comparing brokerages. Each row earns the next.</p></div>
+        <div class="fab-triplets reveal" style="transition-delay:0.15s;">
+            <div class="fab-triplet">
+                <div class="fab-num">1</div>
+                <div class="fab-cell f"><div class="fab-cell-key">Feature</div><div class="fab-cell-text">Live training every Tuesday. 48 weeks/yr. No recordings.</div></div>
+                <div class="fab-cell a"><div class="fab-cell-key">Advantage</div><div class="fab-cell-text">Most brokerages do this once a quarter &mdash; if at all.</div></div>
+                <div class="fab-cell b"><div class="fab-cell-key">Benefit</div><div class="fab-cell-text">Every Tuesday you walk out with one thing you can use that week.</div></div>
+            </div>
+            <div class="fab-triplet">
+                <div class="fab-num">2</div>
+                <div class="fab-cell f"><div class="fab-cell-key">Feature</div><div class="fab-cell-text">Weekly reKo + reElevated accountability system.</div></div>
+                <div class="fab-cell a"><div class="fab-cell-key">Advantage</div><div class="fab-cell-text">Other brokerages track your splits. We track your behaviors.</div></div>
+                <div class="fab-cell b"><div class="fab-cell-key">Benefit</div><div class="fab-cell-text">You always know where you stand and what to fix.</div></div>
+            </div>
+            <div class="fab-triplet">
+                <div class="fab-num">3</div>
+                <div class="fab-cell f"><div class="fab-cell-key">Feature</div><div class="fab-cell-text">Two markets. One curriculum. Bilingual EN+ES.</div></div>
+                <div class="fab-cell a"><div class="fab-cell-key">Advantage</div><div class="fab-cell-text">Most brokers know one market and one language.</div></div>
+                <div class="fab-cell b"><div class="fab-cell-key">Benefit</div><div class="fab-cell-text">If your business moves, you can move with us &mdash; Spanish-speaking clients included.</div></div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">Close: <em>"Comparing brokerages? DM me <strong style="color:var(--sprout);">COMPARE</strong> &mdash; I'll send the one-page breakdown."</em></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">18 / 32</div>
+</section>
+
+<!-- ========== SLIDE 19 — META TACTICS · WARM/MIDDLE ========== -->
+<section class="slide" id="slide-19" data-notes="The tactics for warm middle-funnel campaigns. OBJECTIVE: Leads for form fills, Messages if you want DMs, Traffic if you want a landing page. I use Leads because I run them through Calendly. AUDIENCE: this is where you get clever. Custom audiences from engagement. People who watched 75 percent of my AIDA video. People who engaged with my Instagram in 30 days. People who visited my Calendly but didn't book. FORMAT: PAS works as carousel. FAB works as talking-head. Both can be static if you have strong copy. BUDGET: warm audiences convert at 3 to 10 times the rate of cold so you can spend more — 50 to 150 a day depending on audience size.---Las tacticas pa warm middle-funnel. OBJETIVO: Leads pa form fills, Messages pa DMs, Traffic pa landing page. Yo uso Leads con Calendly. AUDIENCIA: aqui te pones inteligente. Custom audiences de engagement. PRESUPUESTO: warm convierte 3 a 10 veces mas que cold, asi que puedes gastar mas — 50 a 150 al dia.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Meta Tactics &middot; PAS/FAB / Warm</div><h2 class="slide-title">Custom Audiences Are the Whole Game</h2><p class="slide-body">Warm conversions are 3&ndash;10&times; cold. Spend more, target tighter.</p></div>
+        <div class="tactics-grid">
+            <div class="tactic-card"><div class="tactic-key">Decision 01</div><div class="tactic-name">Objective</div><div class="tactic-detail"><strong style="color:var(--sprout);">Leads</strong> for forms &middot; <strong>Messages</strong> for DMs &middot; <strong>Traffic</strong> for landing pages. Pick by destination.</div></div>
+            <div class="tactic-card"><div class="tactic-key">Decision 02</div><div class="tactic-name">Audience</div><div class="tactic-detail">Custom from engagement: 75% video viewers &middot; 30-day IG/FB engagers &middot; page visitors who didn't convert.</div></div>
+            <div class="tactic-card"><div class="tactic-key">Decision 03</div><div class="tactic-name">Format</div><div class="tactic-detail">PAS &rarr; carousel or single image. FAB &rarr; 60-sec talking-head. Both work static with strong copy.</div></div>
+            <div class="tactic-card"><div class="tactic-key">Decision 04</div><div class="tactic-name">Budget</div><div class="tactic-detail"><strong style="color:var(--sprout);">$50&ndash;$150/day.</strong> Warm converts 3&ndash;10&times; cold &mdash; the spend earns it.</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">If your warm audience is under 1,000 people, build it. Run cold ads. <strong style="color:var(--sprout);">Then return here.</strong></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">19 / 32</div>
+</section>
+
+<!-- ========== SLIDE 20 — MIDDLE-FUNNEL OFFER RULES ========== -->
+<section class="slide" id="slide-20" data-notes="Offers in the middle of the funnel have rules. The five rules of strong offers: specific — not contact me, but the exact thing. Useful — they could use it even if they never become a client. Easy to understand — read in 5 seconds. Tied to real need — match the worry in their head. Simple to deliver — automated through ManyChat or Calendly. My SYSTEMS offer ticks all five. The 48-week curriculum is specific. Useful — they can use the framework even at another broker. Easy to understand. Tied to the real worry of building on broken foundation. And it auto-delivers through ManyChat.---Las ofertas del middle tienen reglas. Cinco reglas: especifica, util, facil de entender, atada a una necesidad real, simple de entregar. Mi SYSTEMS offer cumple las cinco. El curriculum de 48 semanas es especifico, util, facil, atado al dolor real, y auto-delivery por ManyChat.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Middle-Funnel Offer Rules</div><h2 class="slide-title">A Strong Offer Filters <span style="color:var(--sprout);">For You</span></h2><p class="slide-body">Five rules. If the offer fails even one, leads come in colder and lower-quality.</p></div>
+        <div class="offer-rules reveal stagger" style="transition-delay:0.15s;">
+            <div class="offer-rule"><div class="offer-rule-glyph">&#x1F3AF;</div><div class="offer-rule-name">Specific</div><div class="offer-rule-desc">Not "contact me." The exact thing.</div></div>
+            <div class="offer-rule"><div class="offer-rule-glyph">&#x1F6E0;&#xFE0F;</div><div class="offer-rule-name">Useful</div><div class="offer-rule-desc">Valuable even if they never become a client.</div></div>
+            <div class="offer-rule"><div class="offer-rule-glyph">&#x26A1;</div><div class="offer-rule-name">Fast to Get</div><div class="offer-rule-desc">Read &amp; understand in 5 seconds.</div></div>
+            <div class="offer-rule"><div class="offer-rule-glyph">&#x1F4AD;</div><div class="offer-rule-name">Real Need</div><div class="offer-rule-desc">Matches the worry in their head right now.</div></div>
+            <div class="offer-rule"><div class="offer-rule-glyph">&#x1F501;</div><div class="offer-rule-name">Auto-Deliver</div><div class="offer-rule-desc">ManyChat, email, or Calendly &mdash; no manual fulfillment.</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.6s;">
+            <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.7rem);letter-spacing:1.4px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Pedro's Offer &middot; Scored Against the 5 Rules</p>
+            <div style="background:var(--ink-soft);border:1px solid #8cc94e44;border-radius:14px;padding:clamp(0.9rem,1.6vw,1.3rem);">
+                <p style="font-family:var(--font-sans);font-size:clamp(0.85rem,1.25vw,1.05rem);color:var(--paper);line-height:1.5;">"Comment <span class="token-highlight">SYSTEMS</span> and I'll send you the <strong>48-week curriculum</strong> we run live every Tuesday." &rarr; <strong style="color:var(--sprout);">5 / 5</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">20 / 32</div>
+</section>
+
+<!-- ========== SLIDE 21 — IDCA EXPLAINED ========== -->
+<section class="slide" id="slide-21" data-notes="IDCA is the retargeting framework. The audience is people who saw your stuff but didn't convert. They watched the video but didn't book. Visited the Calendly but bounced. Commented but never replied. The whole game is acknowledging that and breaking the pattern. IDENTIFY: name them by behavior. DISRUPT: break their assumption — usually that it's a sales pitch. COMPEL: give them the real reason to act now. ACT: make the next step tiny. Notice — this is very different from AIDA which assumes they don't know you. IDCA assumes they know you and need a different push.---IDCA es el framework de retargeting. La audiencia son los que vieron tu stuff pero no convirtieron. Identifica, Disrumpe, Compele, Actua. Bien diferente de AIDA — IDCA asume que ya te conocen y necesitan un empujon diferente.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Retargeting &middot; Re-engagement</div><h2 class="slide-title">IDCA &mdash; for People Who Already <span class="stroke stroke--sprout">Saw You<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">They watched. They visited. They didn't act. IDCA acknowledges that and breaks the pattern.</p></div>
+        <div class="fw-circles">
+            <div class="fw-circle"><div class="fw-letter">I</div><div class="fw-name">Identify</div><div class="fw-desc">Name them by behavior. "You watched the video and didn't book."</div></div>
+            <div class="fw-circle"><div class="fw-letter">D</div><div class="fw-name">Disrupt</div><div class="fw-desc">Break the assumption. Usually they expect a pitch &mdash; give them the opposite.</div></div>
+            <div class="fw-circle"><div class="fw-letter">C</div><div class="fw-name">Compel</div><div class="fw-desc">Give the real reason to act now. Loss-frame works here.</div></div>
+            <div class="fw-circle"><div class="fw-letter">A</div><div class="fw-name">Act</div><div class="fw-desc">Make the next step tiny. One tap. Lowest possible friction.</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.75s;"><div class="callout-line">AIDA assumes they don't know you. <strong style="color:var(--sprout);">IDCA</strong> assumes they do &mdash; and need a different push.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">21 / 32</div>
+</section>
+
+<!-- ========== SLIDE 22 — IDCA APPLIED TO PEDRO ========== -->
+<section class="slide" id="slide-22" data-notes="IDCA applied to my avatar. The retargeting ad runs to agents who watched 50 to 75 percent of my AIDA or FAB video but didn't comment, plus people who visited my Calendly page and didn't book. IDENTIFY: hey you watched my last video and didn't book the call. DISRUPT: I don't recruit. I don't pitch. The call is 20 minutes. If reThought isn't right for you I'll tell you in the first 10. COMPEL: but if you're already losing weekends figuring this out alone you owe yourself the conversation. ACT: link in bio or comment NOW. Notice the disrupt — I admit they were probably expecting a pitch and reframe the call as a gift. That's what unlocks them.---IDCA aplicado a mi avatar. Identifica por comportamiento, disrumpe la expectativa de pitch, compele con loss-frame, action tiny. El disrupt es la llave — admito que esperaban pitch y reframe el call como un regalo.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">IDCA &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">Breaking the Pattern of "I'll Book Later"</h2></div>
+        <div class="two-col" style="align-items:start;">
+            <div class="reveal" style="transition-delay:0.15s;">
+                <div class="avatar-card" style="border-color:var(--amber);">
+                    <div class="avatar-tag" style="color:var(--amber);">&#x1F3AF; Retargeting Audience</div>
+                    <div class="avatar-meta">Custom &middot; last 30 days</div>
+                    <div class="avatar-pain">50&ndash;75% video viewers (AIDA or FAB) who didn't comment &middot; Calendly page visitors who didn't book &middot; IG/FB engagers who didn't DM</div>
+                    <p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--muted-2);line-height:1.5;">Exclude: people who already booked. Frequency cap: 2/week.</p>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay:0.3s;">
+                <div class="fw-rows">
+                    <div class="fw-row clay"><div class="fw-row-tag"><div class="fw-row-tag-letter">I</div><div class="fw-row-tag-name">Identify</div></div><div class="fw-row-body">"Hey &mdash; you <strong>watched my last video</strong> and didn't book the call."</div></div>
+                    <div class="fw-row brand"><div class="fw-row-tag"><div class="fw-row-tag-letter">D</div><div class="fw-row-tag-name">Disrupt</div></div><div class="fw-row-body">"I don't recruit. I don't pitch. The call is 20 minutes. If reThought isn't right for you, <strong>I'll tell you in the first 10</strong>."</div></div>
+                    <div class="fw-row amber"><div class="fw-row-tag"><div class="fw-row-tag-letter">C</div><div class="fw-row-tag-name">Compel</div></div><div class="fw-row-body">"But if you're already <strong>losing weekends</strong> figuring this out alone&hellip; you owe yourself the conversation."</div></div>
+                    <div class="fw-row sprout"><div class="fw-row-tag"><div class="fw-row-tag-letter">A</div><div class="fw-row-tag-name">Act</div></div><div class="fw-row-body">"Link in bio. Or comment <span class="token-highlight">NOW</span>."</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">The <strong style="color:var(--sprout);">Disrupt</strong> is the key. Admit they expected a pitch &mdash; reframe the call as a gift.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">22 / 32</div>
+</section>
+
+<!-- ========== SLIDE 23 — META TACTICS · RETARGETING ========== -->
+<section class="slide" id="slide-23" data-notes="The tactics for retargeting. OBJECTIVE: Conversions or Leads — same as warm but with a tighter audience. The whole point is closing the loop. AUDIENCE: custom audiences are mandatory. Layer them: video viewers minus people who booked, page visitors minus people who already converted. Exclude is as important as include. FORMAT: shorter than your AIDA ad. 15 seconds. Different angle than what they already saw. Frequency: cap at 2 per week. Hitting them more annoys them.---Tacticas pa retargeting. OBJETIVO: Conversions o Leads con audiencia tighter. AUDIENCIA: custom obligatorias. Layered: video viewers menos booked, page visitors menos converted. El exclude es tan importante como el include. FORMATO: mas corto que el AIDA, 15 segundos, angulo diferente. Frecuencia: cap 2 por semana.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Meta Tactics &middot; IDCA / Retarget</div><h2 class="slide-title">Exclude Is as Important as Include</h2><p class="slide-body">The audience math is the whole campaign. Get it wrong and you spam your warmest people.</p></div>
+        <div class="tactics-grid">
+            <div class="tactic-card"><div class="tactic-key">Decision 01</div><div class="tactic-name">Objective</div><div class="tactic-detail"><strong style="color:var(--sprout);">Conversions</strong> or <strong>Leads</strong>. Match the destination &mdash; Calendly book or form fill.</div></div>
+            <div class="tactic-card"><div class="tactic-key">Decision 02</div><div class="tactic-name">Audience</div><div class="tactic-detail">Custom layered: video viewers + page visitors + DM openers. <strong style="color:var(--clay-soft);">Exclude</strong> people who already converted.</div></div>
+            <div class="tactic-card"><div class="tactic-key">Decision 03</div><div class="tactic-name">Format</div><div class="tactic-detail">15-sec video. <strong>Different angle</strong> than the first ad they saw. Patterns get tuned out.</div></div>
+            <div class="tactic-card"><div class="tactic-key">Decision 04</div><div class="tactic-name">Frequency</div><div class="tactic-detail"><strong style="color:var(--sprout);">Cap at 2/week.</strong> More than that and you annoy your warmest audience.</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">If your retargeting ad looks like your cold ad &mdash; you wasted the warm. <strong style="color:var(--sprout);">Different angle. Different framework.</strong></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">23 / 32</div>
+</section>
+
+<!-- ========== SLIDE 24 — PEDRO'S FULL IDCA AD ========== -->
+<section class="slide" id="slide-24" data-notes="The full IDCA ad I run for retargeting. Fifteen seconds. The visual is just me talking directly to camera — no graphics. Different from the AIDA ad which has on-screen text and motion. Same Pedro, different intimacy. The CTA splits two ways: a calendly link in bio for people who want the easy path, plus a NOW comment trigger for people who like the AIDA-style comment-to-DM flow. Splitting the CTA catches both behaviors.---El IDCA ad completo. 15 segundos, yo directo a la camara, sin graphics. Diferente del AIDA que tiene text on-screen. Misma persona, intimidad diferente. El CTA se divide: link en bio pa los que prefieren ese path, comment NOW pa los que prefieren DM flow. Dividir el CTA captura ambos comportamientos.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Pedro's Full IDCA Ad &middot; Retargeting</div><h2 class="slide-title">The Retarget <span style="color:var(--sprout);">in the Wild</span></h2></div>
+        <div class="two-col" style="align-items:center;">
+            <div class="reveal-scale" style="transition-delay:0.2s;">
+                <div class="ig-mockup">
+                    <div class="ig-mockup-header">
+                        <div class="ig-mockup-avatar">PB</div>
+                        <div class="ig-mockup-user">
+                            <div class="ig-mockup-user-name">pedro.rethought</div>
+                            <div class="ig-mockup-user-meta"><span class="ig-mockup-sponsored">Sponsored</span> &middot; Retargeting</div>
+                        </div>
+                    </div>
+                    <div class="ig-mockup-image" style="background:linear-gradient(135deg,#1a1f28 0%,var(--ink-deep) 100%);">
+                        <div class="ig-mockup-image-text">
+                            <div class="ig-mockup-image-hook" style="font-size:clamp(0.78rem,1.25vw,1rem);">You watched the video. You didn't book.</div>
+                            <div class="ig-mockup-image-sub" style="color:var(--amber);">20 min. No pitch. I'll tell you in 10.</div>
+                        </div>
+                    </div>
+                    <div class="ig-mockup-actions">
+                        <svg class="ig-icon" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+                        <svg class="ig-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-15.5 4.8L3 21l4.7-2.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+                        <svg class="ig-icon" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    </div>
+                    <div class="ig-mockup-caption">20 minutes. No pitch. If it's not a fit, <strong>I'll tell you in the first 10</strong>. &rarr; Link in bio.</div>
+                    <div class="ig-mockup-cta"><span>Or comment <strong style="color:var(--sprout);">NOW</strong>.</span><span class="ig-mockup-cta-arrow">&#x203A;</span></div>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay:0.4s;">
+                <div class="fw-rows">
+                    <div class="fw-row clay"><div class="fw-row-tag"><div class="fw-row-tag-letter">I</div><div class="fw-row-tag-name">Identify</div></div><div class="fw-row-body">"Hey &mdash; <strong>you watched my last video</strong> and didn't book the call." <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75em;">(0&ndash;3s)</span></div></div>
+                    <div class="fw-row brand"><div class="fw-row-tag"><div class="fw-row-tag-letter">D</div><div class="fw-row-tag-name">Disrupt</div></div><div class="fw-row-body">"I don't recruit. I don't pitch. <strong>If reThought isn't right for you, I'll tell you in the first 10</strong>." <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75em;">(3&ndash;8s)</span></div></div>
+                    <div class="fw-row amber"><div class="fw-row-tag"><div class="fw-row-tag-letter">C</div><div class="fw-row-tag-name">Compel</div></div><div class="fw-row-body">"If you're already losing weekends figuring this out alone &mdash; <strong>you owe yourself the conversation</strong>." <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75em;">(8&ndash;12s)</span></div></div>
+                    <div class="fw-row sprout"><div class="fw-row-tag"><div class="fw-row-tag-letter">A</div><div class="fw-row-tag-name">Act</div></div><div class="fw-row-body">"<strong>Link in bio.</strong> Or comment <span class="token-highlight">NOW</span>." <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75em;">(12&ndash;15s)</span></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">24 / 32</div>
+</section>
+
+<!-- ========== SLIDE 25 — SCIPAB EXPLAINED ========== -->
+<section class="slide" id="slide-25" data-notes="SCIPAB. Situation, Complication, Implication, Position, Action, Benefit. This is the framework for follow-up — emails, texts, DMs after the lead enters your system. It works because it never feels like a pitch. You start by naming where they are. You acknowledge the friction. You point at the cost of not fixing it. You position your offer. You ask one small action. You name what they get for it. The whole structure is built on the idea that the conversation is the bridge — not the ad. So the message has to feel human, not transactional. Six pieces. Every follow-up I send has all six.---SCIPAB. Situation, Complication, Implication, Position, Action, Benefit. Framework pa follow-up — emails, texts, DMs. Funciona porque nunca se siente como pitch. Empiezas nombrando donde estan. Reconoces la friccion. Apuntas el costo de no arreglarlo. Posicionas tu oferta. Pides una accion chiquita. Nombras el beneficio. Seis piezas. Cada follow-up lleva las seis.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Follow-Up &middot; The Conversation Layer</div><h2 class="slide-title">SCIPAB &mdash; the Framework for <span class="stroke stroke--sprout">Texts &amp; Emails<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Six pieces. The whole structure assumes the conversation is the bridge &mdash; not the ad.</p></div>
+        <div class="fw-rows reveal" style="transition-delay:0.15s;">
+            <div class="fw-row clay"><div class="fw-row-tag"><div class="fw-row-tag-letter">S</div><div class="fw-row-tag-name">Situation</div></div><div class="fw-row-body">Name where they are right now &mdash; the moment they raised their hand.</div></div>
+            <div class="fw-row brand"><div class="fw-row-tag"><div class="fw-row-tag-letter">C</div><div class="fw-row-tag-name">Complication</div></div><div class="fw-row-body">Acknowledge the friction. The thing in their way.</div></div>
+            <div class="fw-row amber"><div class="fw-row-tag"><div class="fw-row-tag-letter">I</div><div class="fw-row-tag-name">Implication</div></div><div class="fw-row-body">Point at the cost of not fixing it &mdash; usually time, money, or lost momentum.</div></div>
+            <div class="fw-row sprout"><div class="fw-row-tag"><div class="fw-row-tag-letter">P</div><div class="fw-row-tag-name">Position</div></div><div class="fw-row-body">Place yourself as the person who solves exactly that.</div></div>
+            <div class="fw-row muted"><div class="fw-row-tag"><div class="fw-row-tag-letter">A</div><div class="fw-row-tag-name">Action</div></div><div class="fw-row-body">Ask one small thing. Reply with a number. Pick one of four words.</div></div>
+            <div class="fw-row deep"><div class="fw-row-tag"><div class="fw-row-tag-letter">B</div><div class="fw-row-tag-name">Benefit</div></div><div class="fw-row-body">Name what they get for taking the small action.</div></div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">25 / 32</div>
+</section>
+
+<!-- ========== SLIDE 26 — SCIPAB APPLIED TO PEDRO ========== -->
+<section class="slide" id="slide-26" data-notes="Three messages. First text five minutes after they comment SYSTEMS. I name the situation, name the complication that the curriculum looks the same to everyone but the first month doesn't have to, point at the implication of wasting that month, position myself as having the right one, ask them to reply with a number plus market, promise the right material. Twenty four hour email if they don't reply: same SCIPAB structure rebuilt for email. Seven day text if they still don't reply: shorter, lower-pressure, last touch. Notice the same six pieces in every message. The pattern is constant. The content changes.---Tres mensajes. Primer text a los 5 minutos despues que comentan SYSTEMS. Email a las 24 horas si no responden. Text a los 7 dias si todavia no responden. Las mismas seis piezas en cada mensaje. El patron es constante. El contenido cambia.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">SCIPAB &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">Three Messages. <span style="color:var(--sprout);">One Framework.</span></h2><p class="slide-body">5-minute text &rarr; 24-hour email &rarr; 7-day check-in. All six pieces in every message.</p></div>
+        <div class="three-col">
+            <div class="reveal" style="transition-delay:0.15s;">
+                <div class="msg-bubble">
+                    <div class="msg-bubble-head">&#x23F1; 5-min text &middot; after SYSTEMS comment</div>
+                    <p>Hey <span class="token-highlight">[Name]</span> &mdash; Pedro here, broker at reThought. Saw you commented SYSTEMS.</p>
+                    <p>Quick question before I send anything: <strong>where are you producing right now</strong> &mdash; 4 deals, 8, 12+? And are you in Milwaukee or Florida?</p>
+                    <p>The curriculum's the same but the <strong>first 90 days look different</strong> depending on which side of that range you're at.</p>
+                    <p>I'd rather send what's useful than just the PDF.</p>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay:0.3s;">
+                <div class="msg-bubble email">
+                    <div class="msg-bubble-head">&#x1F4E7; 24-hr email &middot; no reply</div>
+                    <div class="msg-bubble-subject">The 48-week curriculum + a question</div>
+                    <p>Quick recap &mdash; you commented SYSTEMS on the Tuesday training video. Attaching the curriculum.</p>
+                    <p>One thing I'd ask before you skim it: <strong>what's the system you'd MOST want to fix in the next 60 days?</strong> Marketing, prospecting, transactions, or analytics?</p>
+                    <p>The curriculum looks the same to everyone &mdash; but the first month doesn't have to. Reply with one word and I'll point you to the exact Tuesday session.</p>
+                    <p>&mdash; Pedro</p>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay:0.45s;">
+                <div class="msg-bubble">
+                    <div class="msg-bubble-head">&#x23F1; 7-day text &middot; last touch</div>
+                    <p><span class="token-highlight">[Name]</span> &mdash; last one from me.</p>
+                    <p>Tuesday's training is on <strong>prospecting in a Q1 market</strong> &mdash; pulling absentee owner lists from county data and converting on the first call.</p>
+                    <p>If you want the recording when it drops, reply <strong style="color:var(--sprout);">REC</strong>.</p>
+                    <p>No pressure either way.</p>
+                </div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.65s;"><div class="callout-line">Three touches. Three frames of the same question. <strong style="color:var(--sprout);">Conversation, not pitch.</strong></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">26 / 32</div>
+</section>
+
+<!-- ========== SLIDE 27 — FOLLOW-UP RHYTHM ========== -->
+<section class="slide" id="slide-27" data-notes="The follow-up rhythm. Five minutes — text, call, email if you have it. Triple touch. Speed is the single biggest lever. Twenty four hours — second touch with the resource and the SCIPAB question. Seven days — the lower-pressure check-in. Thirty days — nurture campaign. Live training reminders. New videos. Education emails. The agents who win at Meta ads aren't the ones with the cheapest leads. They're the ones with the fastest, most human follow-up. Same lesson whether your avatar is an agent or a homebuyer.---El ritmo de follow-up. Cinco minutos: text, call, email. Triple touch. La velocidad es la palanca mas grande. Veinte cuatro horas: el SCIPAB email. Siete dias: el check-in low-pressure. Treinta dias: nurture campaign. Los que ganan no son los del lead mas barato — son los del follow-up mas rapido y mas humano.">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">The Follow-Up Rhythm</div><h2 class="slide-title">Speed Is the <span class="stroke stroke--sprout">Single Biggest Lever<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Same cadence whether your avatar is an agent, a buyer, or a seller.</p></div>
+        <div class="two-col" style="align-items:start;">
+            <div class="reveal" style="transition-delay:0.15s;">
+                <div class="timeline-wrap">
+                    <div class="timeline-step"><span class="timeline-dot"></span><div class="timeline-when">First 5 minutes</div><div class="timeline-action">Text + Call + Email</div><div class="timeline-detail">Triple-touch. Speed is the single biggest lever &mdash; it beats everything else in your stack.</div></div>
+                    <div class="timeline-step"><span class="timeline-dot" style="background:var(--brand-light);box-shadow:0 0 0 4px var(--ink), 0 0 0 5px #6ba8d640;"></span><div class="timeline-when">First 24 hours</div><div class="timeline-action">SCIPAB email + one question</div><div class="timeline-detail">Deliver what they came for. Open the conversation with one easy question.</div></div>
+                    <div class="timeline-step"><span class="timeline-dot" style="background:var(--amber);box-shadow:0 0 0 4px var(--ink), 0 0 0 5px #e0a63a40;"></span><div class="timeline-when">First 7 days</div><div class="timeline-action">SCIPAB check-in &mdash; last touch</div><div class="timeline-detail">Tie to a real moment (Tuesday training, market event). "Reply REC if you want the recording."</div></div>
+                    <div class="timeline-step"><span class="timeline-dot" style="background:var(--clay);box-shadow:0 0 0 4px var(--ink), 0 0 0 5px #c0544540;"></span><div class="timeline-when">First 30 days</div><div class="timeline-action">Nurture campaign</div><div class="timeline-detail">Training reminders, new videos, education emails. Stay top-of-mind without selling.</div></div>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay:0.35s;">
+                <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.7rem);letter-spacing:1.4px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">The compounding rule</p>
+                <div style="background:var(--ink-soft);border:1px solid var(--border-d);border-left:3px solid var(--sprout);border-radius:0 12px 12px 0;padding:clamp(0.9rem,1.6vw,1.3rem);">
+                    <p style="font-family:var(--font-display);font-weight:700;font-size:clamp(0.95rem,1.4vw,1.15rem);color:var(--paper);margin-bottom:8px;line-height:1.25;">A lead is not a client.</p>
+                    <p style="font-family:var(--font-sans);font-size:var(--small-size);color:var(--muted-2);line-height:1.5;">A <strong style="color:var(--sprout);">conversation</strong> is the bridge.</p>
+                </div>
+                <div class="gotcha-card" style="margin-top:clamp(0.7rem,1.4vh,1.1rem);">
+                    <div class="gotcha-tag">&#x26A0; Most agents quit</div>
+                    <div class="gotcha-text">at touch <strong>3</strong>. The avg sale needs <strong>7+</strong>. That's where the money lives.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
+    <div class="slide-number">27 / 32</div>
+</section>
+
+<!-- ========== SLIDE 28 — REAL SCOREBOARD ========== -->
+<section class="slide" id="slide-28" data-notes="The scoreboard. Likes are nice. Comments are useful. Views can help. But the real scoreboard is six numbers. Cost per lead. Lead quality. Speed to lead. Response rate. Appointment rate. Conversion rate. A cheap lead that never responds is not cheap. An expensive lead that becomes a client is very profitable. Track what happens AFTER the lead enters the system.---El scoreboard. Likes son chevere. Pero el scoreboard real son seis numeros. Cost per lead, lead quality, speed to lead, response rate, appointment rate, conversion rate. Trackeen que pasa DESPUES que el lead entra al sistema.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">What Numbers Actually Matter</div><h2 class="slide-title">Don't Get Distracted by Vanity Metrics</h2><p class="slide-body">Likes feel good. The scoreboard below is what tells you whether the campaign is working.</p></div>
         <div class="metric-grid">
@@ -957,145 +1483,121 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">A <strong style="color:var(--clay-soft);">cheap lead</strong> that never responds is not cheap. An <strong style="color:var(--sprout);">expensive lead</strong> that becomes a client is very profitable.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">17 / 24</div>
+    <div class="slide-number">28 / 32</div>
 </section>
 
-<!-- ========== SLIDE 18 — FOLLOW-UP SYSTEM ========== -->
-<section class="slide" id="slide-18" data-notes="Most Meta leads are not ready to sign today. That does not mean they are bad leads. It means they need follow-up. Simple framework. First 5 minutes: text, call, and email. First 24 hours: follow up with the resource they requested and ask one simple question. First 7 days: send helpful information connected to their goal. First 30 days: keep them in a nurture campaign with market education, listings, and invitations to talk. Sample first text: Hey this is [Name]. I saw you requested the buyer guide. I am sending it over now. Are you looking more seriously right now, or just starting to explore? A lead is not a client. A conversation is the bridge. The faster and more human the follow-up, the better the results.---La mayoria de Meta leads no estan listos pa firmar hoy. Eso no quiere decir que sean malos leads. Quiere decir que necesitan follow-up. Framework sencillo. Primeros 5 minutos: text, call, y email. Primeras 24 horas: dale follow up con el recurso que pidieron y haz una pregunta sencilla. Primeros 7 dias: manda info util conectada a su meta. Primeros 30 dias: mantenlos en un nurture con educacion de mercado, listings, e invitaciones a hablar. Sample primer text: hey soy [Nombre], vi que pediste el buyer guide. Te lo mando ahora. Estas mirando en serio ahora mismo, o apenas empezando? Un lead no es un cliente. La conversacion es el puente. Mientras mas rapido y mas humano el follow-up, mejores los resultados.">
+<!-- ========== SLIDE 29 — PEDRO'S FULL CAMPAIGN ONE-PAGER ========== -->
+<section class="slide" id="slide-29" data-notes="Here is my full campaign as one page. Four stages. Four frameworks. One avatar. Top: AIDA video drives engaged comments via SYSTEMS keyword. Middle: PAS carousel plus FAB video to warm engagers. Retargeting: IDCA short video to people who watched but didn't book. Follow-up: SCIPAB messages across 5 minutes, 24 hours, 7 days. Same avatar through every stage. Different conversation at every stage. That's the whole system. You're going to build the same shape — different avatar, different offers.---Aqui esta mi campana completa en una pagina. Cuatro etapas, cuatro frameworks, un avatar. Mismo avatar en todas las etapas. Conversacion diferente en cada una. Ese es el sistema entero. Ustedes van a construir la misma forma — avatar diferente, ofertas diferentes.">
     <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">The Follow-Up System</div><h2 class="slide-title">The Follow-Up <span class="stroke stroke--sprout">Converts<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> the Lead</h2><p class="slide-body">Most Meta leads aren't ready to sign today. They need a real human cadence.</p></div>
-        <div class="two-col" style="align-items:start;">
-            <div class="reveal" style="transition-delay:0.15s;">
-                <div class="timeline-wrap">
-                    <div class="timeline-step"><span class="timeline-dot"></span><div class="timeline-when">First 5 minutes</div><div class="timeline-action">Text + Call + Email</div><div class="timeline-detail">Triple-touch. Speed is the single biggest lever.</div></div>
-                    <div class="timeline-step"><span class="timeline-dot" style="background:var(--brand-light);box-shadow:0 0 0 4px var(--ink), 0 0 0 5px #6ba8d640;"></span><div class="timeline-when">First 24 hours</div><div class="timeline-action">Send resource + ask one question</div><div class="timeline-detail">Deliver what they came for. Then open the conversation with one easy question.</div></div>
-                    <div class="timeline-step"><span class="timeline-dot" style="background:var(--amber);box-shadow:0 0 0 4px var(--ink), 0 0 0 5px #e0a63a40;"></span><div class="timeline-when">First 7 days</div><div class="timeline-action">Helpful info tied to their goal</div><div class="timeline-detail">Market context, related listings, education &mdash; not sales pressure.</div></div>
-                    <div class="timeline-step"><span class="timeline-dot" style="background:var(--clay);box-shadow:0 0 0 4px var(--ink), 0 0 0 5px #c0544540;"></span><div class="timeline-when">First 30 days</div><div class="timeline-action">Nurture campaign</div><div class="timeline-detail">Market education, new listings, invitations to talk. Stay top-of-mind.</div></div>
-                </div>
+        <div class="reveal"><div class="section-label">Pedro's Full Campaign &middot; One Page</div><h2 class="slide-title">The Whole <span style="color:var(--sprout);">System</span> in 4 Boxes</h2><p class="slide-body">One avatar. Four stages. Four frameworks. Different conversation at every stage.</p></div>
+        <div class="onepager-funnel">
+            <div class="onepager-cell">
+                <div class="onepager-stage">Stage 01 &middot; Cold</div>
+                <div class="onepager-fw">AIDA</div>
+                <div class="onepager-hook">"Milwaukee or Orlando agent closing 4&ndash;12 deals? You're not stuck &mdash; you're under-trained. Comment SYSTEMS for the curriculum."</div>
+                <div class="onepager-meta">30s video &middot; Engagement obj &middot; Broad metros &middot; $20&ndash;50/day</div>
             </div>
-            <div class="reveal" style="transition-delay:0.3s;">
-                <p style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.7rem);letter-spacing:1.4px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Sample first text</p>
-                <div style="background:var(--ink-deep);border:1px solid #8cc94e44;border-radius:14px 14px 14px 4px;padding:clamp(0.9rem,1.6vw,1.3rem);font-family:var(--font-sans);font-size:var(--small-size);color:var(--paper);line-height:1.55;">
-                    <p>Hey, this is <span class="token-highlight">[Name]</span>. I saw you requested the <strong>buyer guide</strong>. I'm sending it over now.</p>
-                    <p style="margin-top:10px;">Are you looking more seriously right now, or just starting to explore?</p>
-                </div>
-                <div style="margin-top:clamp(0.6rem,1.2vh,1rem);"><div class="callout-line" style="font-size:var(--small-size);">A lead is not a client. A <strong style="color:var(--sprout);">conversation</strong> is the bridge.</div></div>
+            <div class="onepager-cell">
+                <div class="onepager-stage">Stage 02 &middot; Warm</div>
+                <div class="onepager-fw">PAS + FAB</div>
+                <div class="onepager-hook">PAS: "You don't know where the next deal is coming from." FAB: "Three things make us different &mdash; in 60 seconds."</div>
+                <div class="onepager-meta">5-card carousel + 60s video &middot; Leads obj &middot; Custom audiences &middot; $50&ndash;150/day</div>
+            </div>
+            <div class="onepager-cell">
+                <div class="onepager-stage">Stage 03 &middot; Retarget</div>
+                <div class="onepager-fw">IDCA</div>
+                <div class="onepager-hook">"You watched the video. You didn't book. 20 min. No pitch. I'll tell you in 10."</div>
+                <div class="onepager-meta">15s video &middot; Conversions obj &middot; Layered custom &middot; 2/wk cap</div>
+            </div>
+            <div class="onepager-cell">
+                <div class="onepager-stage">Stage 04 &middot; Follow-Up</div>
+                <div class="onepager-fw">SCIPAB</div>
+                <div class="onepager-hook">"Where are you producing? 4, 8, 12+? Reply with a number &mdash; I'll send what's actually useful."</div>
+                <div class="onepager-meta">5-min text &rarr; 24-hr email &rarr; 7-day check-in &rarr; 30-day nurture</div>
             </div>
         </div>
+        <div class="reveal" style="transition-delay:0.75s;"><div class="callout-line">One avatar. Four frameworks. <strong style="color:var(--sprout);">Different conversation at every stage.</strong> Build the same shape for your buyer or seller avatar.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">18 / 24</div>
+    <div class="slide-number">29 / 32</div>
 </section>
 
-<!-- ========== SLIDE 19 — SIMPLE CAMPAIGN PLAN ========== -->
-<section class="slide" id="slide-19" data-notes="Do not start with five campaigns. Start with one clear campaign. The simple structure is: Market — Wisconsin or Florida. Audience — buyer, seller, investor, relocation, first-time, move-up. Offer — what useful thing are they getting. Creative — video, graphic, carousel, or property list. CTA — comment, message, fill out form, visit page, book call. Follow-up — who contacts them, how fast, with what script. Scoreboard — what will you measure weekly. If you cannot explain the campaign in one sentence, it is too complicated.---No empiecen con cinco campanas. Empiecen con una sola campana clara. La estructura sencilla: Market — Wisconsin o Florida. Audience — buyer, seller, investor, relocation, first-time, move-up. Offer — que cosa util reciben. Creative — video, grafico, carousel, o property list. CTA — comentar, message, llenar form, visitar pagina, bookear call. Follow-up — quien los contacta, que tan rapido, con que script. Scoreboard — que vas a medir semanal. Si no puedes explicar la campana en una sola oracion, esta muy complicada.">
+<!-- ========== SLIDE 30 — WORKSHEET FOR YOUR AVATAR ========== -->
+<section class="slide bone" id="slide-30" data-notes="Worksheet time. Twenty minutes. You just saw my whole campaign. Now build the same shape for your client avatar — buyer, seller, investor, relocation, whoever you serve. Each box has a framework prompt. Top of funnel: write your AIDA hook. Middle: pick PAS or FAB based on your audience consciousness. Retargeting: draft your IDCA disrupt line — the assumption you're going to break. Follow-up: write your SCIPAB first text. When you walk out of here you should have at minimum the four hook lines that could go live this week.---Worksheet time. Veinte minutos. Acabas de ver mi campana completa. Ahora construye la misma forma pa tu avatar. Cada caja tiene un prompt de framework. Cuando salgas de aqui debes tener al menos las cuatro lineas que pueden salir vivas esta semana." style="background:var(--bone);">
     <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">The Simple Campaign Plan</div><h2 class="slide-title">Build <span style="color:var(--sprout);">One</span> Campaign at a Time</h2><p class="slide-body">If you can't explain it in one sentence, it's too complicated.</p></div>
-        <div class="plan-grid">
-            <div class="plan-cell"><div class="plan-key">Market</div><div class="plan-q">Wisconsin or Florida?</div></div>
-            <div class="plan-cell"><div class="plan-key">Audience</div><div class="plan-q">Buyer, seller, investor, relocation, first-time, move-up.</div></div>
-            <div class="plan-cell"><div class="plan-key">Offer</div><div class="plan-q">What useful thing do they get?</div></div>
-            <div class="plan-cell"><div class="plan-key">Creative</div><div class="plan-q">Video, graphic, carousel, or property list.</div></div>
-            <div class="plan-cell"><div class="plan-key">CTA</div><div class="plan-q">Comment, message, form, page, or book a call.</div></div>
-            <div class="plan-cell"><div class="plan-key">Follow-Up</div><div class="plan-q">Who contacts them, how fast, and with what script.</div></div>
-            <div class="plan-cell"><div class="plan-key">Scoreboard</div><div class="plan-q">What you measure weekly.</div></div>
-            <div class="plan-cell summary"><div class="plan-key" style="color:var(--sprout);">One-sentence test</div><div class="plan-q">"I'm running a <span class="token-highlight">[offer]</span> ad for <span class="token-highlight">[audience]</span> in <span class="token-highlight">[market]</span> so I can start more conversations."</div></div>
+        <div class="reveal"><div class="section-label" style="color:var(--brand);"><span style="background:var(--brand);"></span>Your Turn &middot; Worksheet</div><h2 class="slide-title" style="color:var(--ink);">Build It for <span style="color:var(--sprout-deep);">Your Avatar</span></h2><p class="slide-body" style="color:var(--muted);">Same four boxes. Different avatar. Walk out with the four lines that go live this week.</p></div>
+        <div class="four-col" style="gap:clamp(0.5rem,1vw,0.9rem);">
+            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);border-top:3px solid var(--clay);">
+                <div class="form-num" style="color:var(--clay);">01 &middot; COLD &middot; AIDA</div>
+                <div class="form-label" style="color:var(--ink);">Your hook line.</div>
+                <p style="font-family:var(--font-sans);font-size:clamp(0.7rem,1vw,0.85rem);color:var(--muted);font-style:italic;line-height:1.4;">"If you're a [WHO] in [WHERE] facing [WHAT] &mdash; this is for you."</p>
+                <div class="form-line" style="border-color:#0000001a;"></div>
+                <div class="form-line short" style="border-color:#0000001a;"></div>
+            </div>
+            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);border-top:3px solid var(--brand);">
+                <div class="form-num" style="color:var(--brand);">02 &middot; WARM &middot; PAS or FAB</div>
+                <div class="form-label" style="color:var(--ink);">Pick one. Write card 1.</div>
+                <div class="form-options"><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">PAS &mdash; pain-aware</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">FAB &mdash; comparing</span></div>
+                <p style="font-family:var(--font-sans);font-size:clamp(0.7rem,1vw,0.85rem);color:var(--muted);font-style:italic;line-height:1.4;">PAS: "You don't know [PROBLEM]." FAB: "Feature &rarr; Advantage &rarr; Benefit."</p>
+                <div class="form-line" style="border-color:#0000001a;"></div>
+            </div>
+            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);border-top:3px solid var(--amber);">
+                <div class="form-num" style="color:#a87f1f;">03 &middot; RETARGET &middot; IDCA</div>
+                <div class="form-label" style="color:var(--ink);">Your Disrupt line.</div>
+                <p style="font-family:var(--font-sans);font-size:clamp(0.7rem,1vw,0.85rem);color:var(--muted);font-style:italic;line-height:1.4;">What's the assumption you'll break? "I'm not selling &mdash; I'm [X]."</p>
+                <div class="form-line" style="border-color:#0000001a;"></div>
+                <div class="form-line short" style="border-color:#0000001a;"></div>
+            </div>
+            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);border-top:3px solid var(--sprout-deep);">
+                <div class="form-num" style="color:var(--sprout-deep);">04 &middot; FOLLOW-UP &middot; SCIPAB</div>
+                <div class="form-label" style="color:var(--ink);">Your 5-min first text.</div>
+                <p style="font-family:var(--font-sans);font-size:clamp(0.7rem,1vw,0.85rem);color:var(--muted);font-style:italic;line-height:1.4;">Situation &rarr; Complication &rarr; Position &rarr; Action &rarr; Benefit. One question only.</p>
+                <div class="form-line" style="border-color:#0000001a;"></div>
+                <div class="form-line short" style="border-color:#0000001a;"></div>
+            </div>
         </div>
-    </div>
-    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">19 / 24</div>
-</section>
-
-<!-- ========== SLIDE 20 — WORKSHEET PART 1 ========== -->
-<section class="slide bone" id="slide-20" data-notes="Live exercise. Open your worksheet. Twenty minutes. Part one. Fill out the first five: market, client type, client problem, offer, hook. Be specific. If your audience is too broad — like all buyers — your offer cannot be specific. Pick one market, one client type, one real problem, one specific offer, and write your first sentence. Do not move on until these five are concrete enough that someone else could read them and know exactly who the campaign is for.---Ejercicio en vivo. Abran su worksheet. Veinte minutos. Parte uno. Llenen los primeros cinco: market, client type, client problem, offer, hook. Sean especificos. Si tu audiencia es muy amplia — como todos los buyers — tu oferta no puede ser especifica. Escoge un market, un client type, un problema real, una oferta especifica, y escribe tu primera oracion. No pasen al proximo hasta que estos cinco esten concretos suficiente pa que otra persona los lea y sepa exactamente pa quien es la campana." style="background:var(--bone);">
-    <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label" style="color:var(--brand);"><span style="background:var(--brand);"></span>Worksheet &middot; Part 1 of 2</div><h2 class="slide-title" style="color:var(--ink);">Build <span style="color:var(--sprout-deep);">Your</span> Meta Ad Campaign</h2><p class="slide-body" style="color:var(--muted);">Fill these five out first. Be specific enough that a teammate could read them and know who the campaign is for.</p></div>
-        <div class="three-col" style="grid-template-columns:repeat(3,1fr);">
-            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);"><div class="form-num" style="color:var(--brand);">01 &middot; MARKET</div><div class="form-label" style="color:var(--ink);">Which market?</div><div class="form-options"><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Wisconsin</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Florida</span></div><div style="font-family:var(--font-mono);font-size:clamp(0.55rem,0.8vw,0.68rem);color:var(--muted);margin-top:6px;">Specific city or area:</div><div class="form-line" style="border-color:#0000001a;"></div></div>
-            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);"><div class="form-num" style="color:var(--brand);">02 &middot; CLIENT TYPE</div><div class="form-label" style="color:var(--ink);">Who is this for?</div><div class="form-options"><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">First-time</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Move-up</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Seller</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Relocation</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Investor</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">New construction</span></div></div>
-            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);"><div class="form-num" style="color:var(--brand);">03 &middot; CLIENT PROBLEM</div><div class="form-label" style="color:var(--ink);">What problem are they trying to solve?</div><div style="font-family:var(--font-sans);font-size:clamp(0.7rem,1vw,0.85rem);color:var(--muted);font-style:italic;">Example: "They want to buy but don't know what they can afford."</div><div class="form-line" style="border-color:#0000001a;"></div></div>
-            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);"><div class="form-num" style="color:var(--brand);">04 &middot; OFFER</div><div class="form-label" style="color:var(--ink);">What will you give them?</div><div class="form-options"><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Buyer guide</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Seller checklist</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Home list</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Value estimate</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Neighborhood guide</span></div><div class="form-line" style="border-color:#0000001a;"></div></div>
-            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);grid-column:span 2;"><div class="form-num" style="color:var(--brand);">05 &middot; HOOK</div><div class="form-label" style="color:var(--ink);">What is the first sentence of the ad?</div><div style="font-family:var(--font-sans);font-size:clamp(0.7rem,1vw,0.85rem);color:var(--muted);font-style:italic;">Examples: "Thinking about buying your first home in Milwaukee?" &middot; "Before you sell your Orlando home, check these three things."</div><div class="form-line" style="border-color:#0000001a;"></div></div>
-        </div>
-    </div>
-    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">20 / 24</div>
-</section>
-
-<!-- ========== SLIDE 21 — WORKSHEET PART 2 ========== -->
-<section class="slide bone" id="slide-21" data-notes="Worksheet part two. Now the operational pieces. Six: creative format. Seven: call to action. Eight: follow-up plan — who follows up, how fast, what is the first message. Nine: scoreboard — what numbers you will track weekly. Ten: the one-sentence campaign summary. Complete this sentence: I am running a Meta ad for blank in blank that offers blank so I can start more conversations with people who are blank. If you cannot finish that sentence, you do not have a campaign yet. You have an idea. Make it concrete.---Worksheet parte dos. Ahora las piezas operacionales. Seis: creative format. Siete: call to action. Ocho: follow-up plan — quien le da follow up, que tan rapido, cual es el primer mensaje. Nueve: scoreboard — que numeros vas a trackear semanal. Diez: el resumen de una oracion. Completa esta oracion: estoy corriendo un Meta ad pa blank en blank que ofrece blank pa empezar mas conversaciones con gente que esta blank. Si no puedes terminar esa oracion, no tienes una campana todavia. Tienes una idea. Hazla concreta." style="background:var(--bone);">
-    <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label" style="color:var(--brand);"><span style="background:var(--brand);"></span>Worksheet &middot; Part 2 of 2</div><h2 class="slide-title" style="color:var(--ink);">Operations &amp; <span style="color:var(--sprout-deep);">One-Sentence</span> Summary</h2><p class="slide-body" style="color:var(--muted);">These five make your campaign runnable. Number 10 is the test &mdash; if you can't finish it, you don't have a campaign yet.</p></div>
-        <div class="three-col" style="grid-template-columns:repeat(3,1fr);">
-            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);"><div class="form-num" style="color:var(--brand);">06 &middot; CREATIVE FORMAT</div><div class="form-label" style="color:var(--ink);">What will you create?</div><div class="form-options"><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Video</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Reel</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Carousel</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Graphic</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Property list</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Market update</span></div></div>
-            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);"><div class="form-num" style="color:var(--brand);">07 &middot; CTA</div><div class="form-label" style="color:var(--ink);">What should they do next?</div><div class="form-options"><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Comment keyword</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Send DM</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Fill form</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Visit page</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Book a call</span></div><div class="form-line short" style="border-color:#0000001a;"></div></div>
-            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);"><div class="form-num" style="color:var(--brand);">08 &middot; FOLLOW-UP PLAN</div><div class="form-label" style="color:var(--ink);">Who, how fast, first message?</div><div class="form-line" style="border-color:#0000001a;"></div><div class="form-line short" style="border-color:#0000001a;"></div></div>
-            <div class="form-card" style="background:white;border-color:var(--border-l);box-shadow:0 2px 12px rgba(0,0,0,0.05);"><div class="form-num" style="color:var(--brand);">09 &middot; SCOREBOARD</div><div class="form-label" style="color:var(--ink);">What you track weekly</div><div class="form-options"><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Spend</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Leads</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">CPL</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Replies</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Appts</span><span class="form-pill" style="background:#f5f1ea;border-color:#0000001a;color:var(--muted);">Clients</span></div></div>
-            <div class="form-card" style="background:white;border-color:var(--sprout-deep);box-shadow:0 4px 16px rgba(44,94,21,0.12);grid-column:span 2;"><div class="form-num" style="color:var(--sprout-deep);">10 &middot; ONE-SENTENCE SUMMARY</div><div class="form-label" style="color:var(--ink);">Complete the sentence:</div><p style="font-family:var(--font-sans);font-size:clamp(0.78rem,1.15vw,0.95rem);color:var(--ink);line-height:1.6;">"I am running a Meta ad for <span style="background:#8cc94e22;padding:1px 6px;border-radius:4px;color:var(--sprout-deep);">___________________</span> in <span style="background:#8cc94e22;padding:1px 6px;border-radius:4px;color:var(--sprout-deep);">___________________</span> that offers <span style="background:#8cc94e22;padding:1px 6px;border-radius:4px;color:var(--sprout-deep);">___________________</span> so I can start more conversations with people who are <span style="background:#8cc94e22;padding:1px 6px;border-radius:4px;color:var(--sprout-deep);">___________________</span>."</p></div>
-        </div>
+        <div class="reveal" style="transition-delay:0.5s;"><div class="callout-line" style="color:var(--ink);background:white;border-left-color:var(--sprout-deep);">If you can't fill all four <strong style="color:var(--sprout-deep);">today</strong>, your avatar is still too generic. Go back to Session 1.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">21 / 24</div>
+    <div class="slide-number">30 / 32</div>
 </section>
 
-<!-- ========== SLIDE 22 — AI SHORTCUT ========== -->
-<section class="slide" id="slide-22" data-notes="Use AI to speed up the draft. Copy this prompt into Claude or ChatGPT. Paste it. Add your worksheet answers. It will draft your hook, value sentence, offer copy, and CTA in seconds. This only works if your worksheet is filled out. Garbage in, garbage out. The AI is fast — but it cannot decide WHO the campaign is for. That is your job. Use AI as the typist. You are the strategist.---Usa AI pa acelerar el draft. Copia este prompt en Claude o ChatGPT. Pegalo. Agrega tus respuestas del worksheet. Te va a draftear el hook, la value sentence, el offer copy, y el CTA en segundos. Esto solo funciona si el worksheet esta lleno. Basura entra, basura sale. El AI es rapido — pero no puede decidir PA QUIEN es la campana. Eso es tu trabajo. Usa el AI como el typist. Tu eres el estratega.">
+<!-- ========== SLIDE 31 — AI SHORTCUT (FRAMEWORK-BASED) ========== -->
+<section class="slide" id="slide-31" data-notes="Use AI to draft. Copy this prompt. Paste it into Claude or ChatGPT. Add your worksheet answers. It will draft all four ads — AIDA cold, PAS or FAB warm, IDCA retargeting, SCIPAB first text — in one shot. Same garbage-in-garbage-out rule. The AI cannot decide WHO your avatar is. That is your job. You are the strategist. The AI is the typist.---Usa AI pa draftear. Copia este prompt. Pegalo. El AI no puede decidir QUIEN es tu avatar. Eso es tu trabajo. Tu eres el estratega. El AI es el typist.">
     <div class="slide-content" style="gap:var(--content-gap);">
-        <div class="reveal"><div class="section-label">AI Shortcut &middot; Draft Your Ad Copy</div><h2 class="slide-title">Use AI to Draft &mdash; You Stay the <span style="color:var(--sprout);">Strategist</span></h2><p class="slide-body">Copy this prompt. Paste into Claude or ChatGPT. Add your worksheet answers.</p></div>
+        <div class="reveal"><div class="section-label">AI Shortcut &middot; Draft All Four Ads</div><h2 class="slide-title">Use AI to Draft &mdash; You Stay the <span style="color:var(--sprout);">Strategist</span></h2><p class="slide-body">Copy this prompt. Paste into Claude or ChatGPT. Add your worksheet. Get all four ads in one shot.</p></div>
         <div class="reveal-scale" style="transition-delay:0.2s;">
             <div class="ai-prompt">
                 <div class="ai-prompt-head">
                     <span class="ai-prompt-label">COPY &middot; PASTE INTO YOUR AI PROJECT</span>
                     <span class="badge badge-sprout">Claude / ChatGPT / Gemini</span>
                 </div>
-                <div class="ai-prompt-body">You are a real estate Meta ads copywriter. I am an agent at reThought Real Estate in [Wisconsin OR Florida — pick one]. My campaign worksheet:
+                <div class="ai-prompt-body">You are a real estate Meta ads copywriter. I'm an agent at reThought Real Estate. My avatar + worksheet:
 
-Market: [paste from #01]
-Audience: [paste from #02]
-Client problem: [paste from #03]
-Offer: [paste from #04]
-First-sentence hook: [paste from #05]
-CTA: [paste from #07]
+Avatar (who/where/pain): [paste]
+Cold AIDA hook line: [paste from worksheet box 01]
+Warm framework choice + card 1: [paste from box 02]
+Retargeting IDCA Disrupt line: [paste from box 03]
+Follow-up SCIPAB first text: [paste from box 04]
 
-Write the full ad using this exact 4-piece formula:
-1) Hook — call out the problem or desire (1 sentence)
-2) Value — teach one useful thing (1-2 sentences)
-3) Offer — name the specific thing I'm giving them
-4) CTA — tell them exactly what to do
+Write the FULL campaign in this exact structure:
 
-Rules: second person, no jargon, no "DM me for info", under 80 words total. Then write the Puerto Rican Spanish version with sazon (warm, direct, contractions allowed).</div>
+1) AIDA cold ad - 30-sec video script (A.I.D.A. on each beat) + caption + CTA keyword
+2) PAS or FAB warm ad - match my choice in box 02 (5-card carousel for PAS, 60-sec video with 3 triplets for FAB)
+3) IDCA retargeting ad - 15-sec video script (I.D.C.A. on each beat) + caption + dual CTA (link in bio + comment keyword)
+4) SCIPAB first text - under 90 words, all six pieces, one question only
+
+Rules: second person, no jargon, no "DM me for info", every line specific. Then write the Puerto Rican Spanish version of each with sazon (warm, direct, contractions allowed).</div>
             </div>
         </div>
-        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line" style="border-left-color:var(--clay);"><strong style="color:var(--clay-soft);">Warning:</strong> this only works if your worksheet is filled out. Garbage in, garbage out.</div></div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line" style="border-left-color:var(--clay);"><strong style="color:var(--clay-soft);">Warning:</strong> if box 02 says "PAS" but your audience is comparing brokerages, you're using the wrong framework. <strong>Strategist's job.</strong></div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">22 / 24</div>
+    <div class="slide-number">31 / 32</div>
 </section>
 
-<!-- ========== SLIDE 23 — MORE CONVERSATIONS, NOT MORE ADS ========== -->
-<section class="slide punchline-bg" id="slide-23" data-notes="Last slide before we close. Meta ads are a tool. The real system is: clear offer, simple ad, fast follow-up, real conversation, appointment. Do not overcomplicate it. Start with one audience. Make one offer. Launch one campaign. Track the numbers. Improve every week. If the campaign does not create conversations, fix the offer, the message, or the follow-up before blaming the platform. The agents who win are not always the ones with the biggest budget. They are the ones who understand the system and keep improving it.---Ultimo slide antes de cerrar. Los Meta ads son una herramienta. El sistema de verdad es: oferta clara, ad sencillo, follow-up rapido, conversacion real, cita. No lo compliquen. Empiecen con una audiencia. Hagan una oferta. Lancen una campana. Trackeen los numeros. Mejoren cada semana. Si la campana no crea conversaciones, arreglen la oferta, el mensaje, o el follow-up antes de echarle la culpa a la plataforma. Los agentes que ganan no son siempre los del presupuesto mas grande. Son los que entienden el sistema y siguen mejorandolo." style="justify-content:center;align-items:center;">
-    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(0.8rem,2vh,1.5rem);max-width:min(92vw,1000px);position:relative;z-index:1;padding:var(--slide-padding);">
-        <div class="reveal" style="margin-bottom:clamp(0.3rem,1vh,0.8rem);"><span class="badge badge-sprout">The Takeaway</span></div>
-        <div class="reveal"><h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5.5vw,4rem);letter-spacing:-0.03em;line-height:1.15;color:var(--paper);text-shadow:0 2px 30px rgba(0,0,0,0.3);">The goal is not <span style="color:var(--clay);">more ads</span>.<br>The goal is more <span class="stroke stroke--sprout">conversations<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>.</h1></div>
-        <div class="reveal" style="transition-delay:0.3s;display:flex;align-items:center;gap:clamp(8px,1.5vw,16px);flex-wrap:wrap;justify-content:center;font-family:var(--font-mono);font-size:clamp(0.6rem,0.95vw,0.82rem);letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);">
-            <span style="color:var(--sprout);">Clear offer</span>
-            <span>&rarr;</span>
-            <span style="color:var(--brand-light);">Simple ad</span>
-            <span>&rarr;</span>
-            <span style="color:var(--amber);">Fast follow-up</span>
-            <span>&rarr;</span>
-            <span style="color:var(--sprout);">Real conversation</span>
-            <span>&rarr;</span>
-            <span style="color:var(--paper);">Appointment</span>
-        </div>
-        <div class="reveal" style="transition-delay:0.5s;"><p style="font-family:var(--font-sans);font-size:clamp(0.85rem,1.3vw,1.05rem);color:var(--muted-2);max-width:55ch;line-height:1.5;font-style:italic;">If the campaign doesn't create conversations, fix the <strong style="color:var(--paper);">offer</strong>, the <strong style="color:var(--paper);">message</strong>, or the <strong style="color:var(--paper);">follow-up</strong> before blaming the platform.</p></div>
-    </div>
-    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number" style="z-index:2;">23 / 24</div>
-</section>
-
-<!-- ========== SLIDE 24 — CLOSING QUOTE ========== -->
-<section class="slide gradient-bg" id="slide-24" data-notes="I close with this from Seth Godin. Marketing is the act of making change happen. Not selling. Not boosting. Not collecting likes. Making change happen. Every campaign you launch this year — whether it spends fifty dollars or five thousand — is an attempt to make change happen for a buyer in Milwaukee or a seller in Orlando. Build it like that. Go run your one campaign. See you next week.---Cierro con esto de Seth Godin. Marketing es el acto de hacer que el cambio pase. No vender. No boost. No coleccionar likes. Hacer que el cambio pase. Cada campana que lancen este ano — sea de cincuenta dolares o cinco mil — es un intento de hacer cambio pa un comprador en Milwaukee o un vendedor en Orlando. Constryanla asi. Vayan a correr esa campana. Nos vemos la proxima semana.">
+<!-- ========== SLIDE 32 — CLOSING QUOTE ========== -->
+<section class="slide gradient-bg" id="slide-32" data-notes="I close with this from Seth Godin. Marketing is the act of making change happen. Not selling. Not boosting. Not collecting likes. Making change happen. Every campaign you launch this year — whether it spends fifty dollars or five thousand — is an attempt to make change happen for the avatar you're serving. Build it like that. Go run your one campaign. See you next week.---Cierro con esto de Seth Godin. Marketing es el acto de hacer que el cambio pase. No vender. No boost. No coleccionar likes. Hacer que el cambio pase. Cada campana que lancen este ano — sea de cincuenta dolares o cinco mil — es un intento de hacer cambio pa el avatar al que sirves. Constryanla asi. Vayan a correr esa campana. Nos vemos la proxima semana.">
     <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
         <div class="reveal"><span class="badge badge-sprout">Closing Thought</span></div>
         <blockquote class="reveal" style="font-family:var(--font-display);font-weight:600;font-size:var(--h2-size);letter-spacing:-0.02em;line-height:1.25;max-width:28ch;transition-delay:0.15s;">"Marketing is the act of <span class="stroke stroke--sprout">making change happen<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 9 Q50 2 100 7 T198 5" /></svg></span>."</blockquote>
@@ -1104,7 +1606,7 @@ Rules: second person, no jargon, no "DM me for info", under 80 words total. Then
         <div class="reveal" style="transition-delay:0.55s;"><p style="font-family:var(--font-sans);font-size:clamp(0.75rem,1.1vw,0.9rem);color:var(--sprout-soft);">We do not work for reThought. We grow with reThought.</p></div>
     </div>
     <div class="slide-footer">reThought Real Estate &reg;</div>
-    <div class="slide-number">24 / 24</div>
+    <div class="slide-number">32 / 32</div>
 </section>
 
 <!-- ========== SCRIPTS ========== -->
