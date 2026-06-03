@@ -660,24 +660,24 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
 .fw-row.muted { color: var(--muted-2); } .fw-row.muted .fw-row-tag-letter { color: var(--muted-2); }
 .fw-row.deep { color: var(--sprout-soft); } .fw-row.deep .fw-row-tag-letter { color: var(--sprout-soft); }
 
-/* Avatar card (Slides 12, 17, 18, 22, 26) */
+/* Avatar card */
 .avatar-card {
     background: linear-gradient(135deg, var(--ink-deep) 0%, var(--ink-soft) 100%);
-    border: 2px solid var(--brand); border-radius: 16px;
-    padding: clamp(0.9rem, 1.5vw, 1.3rem);
-    display: flex; flex-direction: column; gap: clamp(6px, 1vh, 10px);
+    border: 2px solid var(--brand); border-radius: 14px;
+    padding: clamp(0.7rem, 1.2vw, 1rem);
+    display: flex; flex-direction: column; gap: clamp(4px, 0.7vh, 8px);
 }
-.avatar-tag { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.7rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--brand-light); display: flex; align-items: center; gap: 8px; }
-.avatar-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.25rem); color: var(--paper); line-height: 1.15; }
-.avatar-meta { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1px; color: var(--muted-2); }
-.avatar-pain { font-family: var(--font-sans); font-size: clamp(0.78rem, 1.1vw, 0.92rem); color: var(--paper); line-height: 1.4; font-style: italic; border-left: 2px solid var(--sprout); padding-left: 10px; }
+.avatar-tag { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.72vw, 0.62rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand-light); display: flex; align-items: center; gap: 6px; }
+.avatar-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.35vw, 1.1rem); color: var(--paper); line-height: 1.15; }
+.avatar-meta { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.78vw, 0.66rem); letter-spacing: 1px; color: var(--muted-2); }
+.avatar-pain { font-family: var(--font-sans); font-size: clamp(0.7rem, 1vw, 0.85rem); color: var(--paper); line-height: 1.35; font-style: italic; border-left: 2px solid var(--sprout); padding-left: 8px; }
 
 /* PAS 5-card carousel mockup (Slide 17) */
 .pas-carousel { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(6px, 1vw, 10px); }
 .pas-card {
     background: var(--ink-deep); border: 1px solid var(--border-d);
-    border-radius: 12px; padding: clamp(0.7rem, 1.2vw, 1rem);
-    display: flex; flex-direction: column; gap: 6px; aspect-ratio: 1 / 1.15;
+    border-radius: 12px; padding: clamp(0.55rem, 1vw, 0.85rem);
+    display: flex; flex-direction: column; gap: 4px; aspect-ratio: 1 / 1;
     opacity: 0; transform: translateY(12px);
     transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
 }
@@ -687,12 +687,12 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
 .visible .pas-card:nth-child(3) { transition-delay: 0.3s; border-color: var(--clay); background: linear-gradient(135deg, #2a1412 0%, var(--ink-deep) 100%); }
 .visible .pas-card:nth-child(4) { transition-delay: 0.4s; border-color: var(--sprout); background: linear-gradient(135deg, #1a2c12 0%, var(--ink-deep) 100%); }
 .visible .pas-card:nth-child(5) { transition-delay: 0.5s; border-color: var(--sprout); background: var(--sprout-deep); }
-.pas-card-pill { font-family: var(--font-mono); font-size: clamp(0.45rem, 0.65vw, 0.56rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); }
+.pas-card-pill { font-family: var(--font-mono); font-size: clamp(0.42rem, 0.6vw, 0.52rem); letter-spacing: 1.3px; text-transform: uppercase; color: var(--muted); }
 .pas-card:nth-child(1) .pas-card-pill, .pas-card:nth-child(2) .pas-card-pill { color: var(--clay-soft); }
 .pas-card:nth-child(3) .pas-card-pill { color: var(--clay); }
 .pas-card:nth-child(4) .pas-card-pill { color: var(--sprout); }
 .pas-card:nth-child(5) .pas-card-pill { color: var(--paper); }
-.pas-card-text { font-family: var(--font-sans); font-size: clamp(0.65rem, 0.95vw, 0.8rem); color: var(--paper); line-height: 1.35; flex: 1; display: flex; align-items: center; }
+.pas-card-text { font-family: var(--font-sans); font-size: clamp(0.6rem, 0.88vw, 0.74rem); color: var(--paper); line-height: 1.3; flex: 1; display: flex; align-items: center; }
 .pas-card:nth-child(5) .pas-card-text { color: var(--paper); font-weight: 600; }
 .pas-card-num { font-family: var(--font-mono); font-size: clamp(0.45rem, 0.65vw, 0.56rem); color: var(--muted); align-self: flex-end; }
 
@@ -1127,6 +1127,65 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
 .avatar-required-icon { color: var(--clay); font-size: 1.1em; }
 .avatar-required strong { color: var(--clay-soft); }
 
+/* ===========================================
+   DENSITY OVERRIDES — fit dense workshop slides in 100vh
+   =========================================== */
+
+/* FB mockup tighter padding/gaps */
+.fb-mockup-body { padding: clamp(0.6rem, 1.1vw, 0.9rem); gap: clamp(5px, 0.8vh, 9px); }
+.fb-mockup-section-head { font-size: clamp(0.6rem, 0.85vw, 0.72rem); padding-bottom: 4px; gap: 6px; }
+.fb-mockup-section-head .fb-mockup-step { font-size: clamp(0.45rem, 0.62vw, 0.55rem); padding: 1px 5px; }
+.fb-mockup-field { gap: 3px; }
+.fb-mockup-label { font-size: clamp(0.55rem, 0.78vw, 0.65rem); }
+.fb-mockup-input { padding: clamp(0.3rem, 0.55vw, 0.45rem) clamp(0.5rem, 0.85vw, 0.7rem); font-size: clamp(0.6rem, 0.85vw, 0.72rem); }
+.fb-mockup-help { font-size: clamp(0.48rem, 0.7vw, 0.58rem); line-height: 1.35; }
+.fb-mockup-pill { font-size: clamp(0.46rem, 0.66vw, 0.56rem); padding: 2px 6px; }
+.fb-mockup-cta { padding: clamp(0.4rem, 0.7vw, 0.55rem) clamp(0.8rem, 1.4vw, 1.2rem); font-size: clamp(0.65rem, 0.92vw, 0.78rem); }
+
+/* AI prompt tighter body — bounded height with scroll for long prompts */
+.ai-prompt { padding: clamp(0.45rem, 0.85vw, 0.7rem) clamp(0.6rem, 1.1vw, 0.95rem); display: flex; flex-direction: column; max-height: 48vh; }
+.ai-prompt-head { margin-bottom: clamp(0.2rem, 0.45vh, 0.4rem); flex-shrink: 0; }
+.ai-prompt-label { font-size: clamp(0.5rem, 0.72vw, 0.62rem); }
+.ai-prompt-body { font-size: clamp(0.48rem, 0.68vw, 0.6rem); line-height: 1.3; overflow-y: auto; flex: 1 1 auto; padding-right: 4px; scrollbar-width: thin; scrollbar-color: var(--sprout) transparent; }
+.ai-prompt-body::-webkit-scrollbar { width: 4px; }
+.ai-prompt-body::-webkit-scrollbar-track { background: transparent; }
+.ai-prompt-body::-webkit-scrollbar-thumb { background: var(--sprout); border-radius: 2px; }
+
+/* Avatar-required warning tighter */
+.avatar-required { padding: clamp(0.4rem, 0.75vw, 0.6rem) clamp(0.7rem, 1.2vw, 1rem); font-size: clamp(0.65rem, 0.93vw, 0.78rem); }
+
+/* Coach callouts tighter */
+.coach-callout { padding: clamp(0.5rem, 0.95vw, 0.78rem) clamp(0.75rem, 1.3vw, 1.05rem); gap: 4px; }
+.coach-tag { font-size: clamp(0.5rem, 0.72vw, 0.62rem); }
+.coach-text { font-size: clamp(0.7rem, 0.98vw, 0.83rem); line-height: 1.4; }
+
+/* Phone storyboard — shorter aspect to fit alongside meta row */
+.phone-frame { aspect-ratio: 9 / 11; }
+.phone-frame-screen { padding: clamp(0.5rem, 0.85vw, 0.75rem); }
+.phone-frame-text { font-size: clamp(0.6rem, 0.95vw, 0.8rem); line-height: 1.15; }
+.storyboard-meta { gap: clamp(0.4rem, 0.9vw, 0.75rem); margin-top: clamp(0.4rem, 0.8vh, 0.7rem); }
+.storyboard-meta-cell { padding: clamp(0.35rem, 0.65vw, 0.55rem); gap: 3px; }
+.storyboard-meta-key { font-size: clamp(0.45rem, 0.62vw, 0.53rem); }
+.storyboard-meta-text { font-size: clamp(0.55rem, 0.8vw, 0.68rem); line-height: 1.25; }
+
+/* Framework rows */
+.fw-row-body { padding: clamp(0.5rem, 0.95vw, 0.8rem) clamp(0.7rem, 1.2vw, 1rem); font-size: clamp(0.7rem, 1.05vw, 0.88rem); line-height: 1.4; }
+.fw-row-tag { padding: clamp(0.35rem, 0.7vw, 0.6rem); }
+.fw-row-tag-letter { font-size: clamp(1rem, 1.5vw, 1.3rem); }
+
+/* Message bubbles (SCIPAB) */
+.msg-bubble { padding: clamp(0.55rem, 1vw, 0.85rem); font-size: clamp(0.62rem, 0.9vw, 0.76rem); line-height: 1.4; }
+.msg-bubble p + p { margin-top: 5px; }
+.msg-bubble-head { font-size: clamp(0.46rem, 0.66vw, 0.58rem); margin-bottom: 5px; }
+.msg-bubble-subject { font-size: clamp(0.7rem, 1.02vw, 0.85rem); margin-bottom: 5px; }
+
+/* Tighten title + body + content-gap globally — keeps dense workshop slides fitting in 100vh */
+.slide-content { gap: clamp(0.5rem, 1.4vw, 1.2rem); }
+.slide-title { font-size: clamp(1.2rem, 3vw, 2.2rem); line-height: 1.1; margin-bottom: clamp(0.15rem, 0.5vh, 0.4rem); }
+.slide-body { font-size: clamp(0.85rem, 1.4vw, 1.1rem); line-height: 1.45; }
+.section-label { margin-bottom: clamp(0.25rem, 0.7vh, 0.5rem); }
+.callout-line { padding: clamp(0.4rem, 0.85vw, 0.7rem) clamp(0.7rem, 1.2vw, 1rem); font-size: clamp(0.78rem, 1.15vw, 0.95rem); }
+
 /* Punchline particles for Story Moment slide (Slide 45) */
 @keyframes particle-rise { 0% { transform: translateY(20px); opacity: 0; } 50% { opacity: 0.6; } 100% { transform: translateY(-100vh); opacity: 0; } }
 .punchline-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
@@ -1223,29 +1282,55 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
     <div class="slide-number">04</div>
 </section>
 
-<!-- ========== SLIDE 05 — SERIES ARC ========== -->
-<section class="slide" id="slide-5" data-notes="Here is where today fits. Marketing Machine is a five-session arc. Session 1 was foundation and your profile. Session 2 was content and hooks. Session 3 was ManyChat DM automation. Session 4 was analytics and iteration. Today, Session 5, is paid amplification — Meta ads. The first four sessions taught you to build attention organically. Today you learn how to buy attention on purpose and turn it into conversations.---Aqui es donde encaja hoy. Marketing Machine es un arco de cinco sesiones. La 1 fue foundation y tu perfil. La 2 fue contenido y hooks. La 3 fue ManyChat. La 4 fue analytics. Hoy, Sesion 5, es amplificacion pagada — Meta ads. Las primeras cuatro sesiones les ensenaron a construir atencion organicamente. Hoy aprenden a comprar atencion a proposito y convertirla en conversaciones.">
+<!-- ========== NEW SLIDE 05 — STORY MOMENT (RECORD + POST) ========== -->
+<section class="slide punchline-bg" id="slide-5" data-notes="Take out your phones. Story time. Record this slide as your Instagram story right now and post it. Tag reThought. This is the punchline of everything we just built. Cold has a framework. Warm has a framework. Retargeting has a framework. The follow-up has a framework. And the right Lead Conversion System turns those ads into actual closings. That last line is the difference between an agent who spends money on Meta and an agent who builds a business with it. This is what reThought is built on. Post it. Let other agents see what kind of training we run.---Saquen el teléfono. Story time. Graben este slide como story y posteenlo. Tag reThought. Este es el punchline de todo. Cold: framework. Warm: framework. Retargeting: framework. Follow-up: framework. Y el Lead Conversion System correcto convierte ads en closings. Esa última línea es la diferencia. Posteen. Que los otros agentes vean qué tipo de training corremos." style="justify-content: center; align-items: center;">
+    <div class="punchline-glow"></div>
+    <div class="punchline-particles"><span style="left:10%;animation-duration:8s;animation-delay:0s;width:3px;height:3px;"></span><span style="left:25%;animation-duration:12s;animation-delay:1s;width:5px;height:5px;"></span><span style="left:40%;animation-duration:10s;animation-delay:2.5s;width:3px;height:3px;"></span><span style="left:55%;animation-duration:9s;animation-delay:0.5s;width:4px;height:4px;background:var(--brand-light);"></span><span style="left:70%;animation-duration:11s;animation-delay:3s;width:3px;height:3px;"></span><span style="left:85%;animation-duration:7s;animation-delay:1.5s;width:5px;height:5px;"></span><span style="left:15%;animation-duration:13s;animation-delay:4s;width:2px;height:2px;background:var(--brand-light);"></span><span style="left:60%;animation-duration:8.5s;animation-delay:2s;width:4px;height:4px;"></span><span style="left:90%;animation-duration:10s;animation-delay:0.8s;width:3px;height:3px;"></span><span style="left:35%;animation-duration:14s;animation-delay:5s;width:2px;height:2px;"></span></div>
+    <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/social-media-story-time-indicator.gif" alt="Story time" style="position:absolute;bottom:clamp(30px,5vh,50px);right:var(--slide-padding);opacity:0.8;height:clamp(50px,7vh,80px);width:auto;z-index:2;">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(0.8rem,2vh,1.5rem);max-width:min(94vw,1100px);position:relative;z-index:1;padding:var(--slide-padding);">
+        <div class="reveal-scale" style="margin-bottom:clamp(0.3rem,1vh,0.8rem);">
+            <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" style="height:clamp(2.2rem,5vw,3.5rem);width:auto;color:var(--paper);"><g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g><g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay:0.5s;"/></g></svg>
+        </div>
+        <div class="reveal">
+            <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.5rem,3.6vw,2.9rem);letter-spacing:-0.02em;line-height:1.25;color:var(--paper);text-shadow:0 2px 30px rgba(0,0,0,0.3);">
+                Cold has a <span style="color:var(--brand-light);">framework</span>.<br>
+                Warm has a <span style="color:var(--sprout);">framework</span>.<br>
+                Retargeting has a <span style="color:var(--amber);">framework</span>.<br>
+                The follow-up has a <span style="color:var(--clay-soft);">framework</span>.<br>
+                <span style="display:inline-block;margin-top:clamp(0.8rem,1.8vh,1.4rem);font-size:clamp(1.7rem,4.2vw,3.4rem);">And the right <span class="stroke stroke--sprout">Lead Conversion System<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span><br>turns ads into <span style="color:var(--sprout);">closings</span>.</span>
+            </h1>
+        </div>
+        <div class="reveal" style="transition-delay:0.5s;">
+            <p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.9vw,0.78rem);letter-spacing:2px;text-transform:uppercase;color:var(--muted-2);">reThought Real Estate &middot; reLearn &middot; Marketing Machine</p>
+        </div>
+    </div>
+    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Highlight</span></div>
+    <div class="slide-number" style="z-index:2;">05 / 46</div>
+</section>
+
+<!-- ========== SLIDE 06 — SERIES ARC ========== -->
+<section class="slide" id="slide-6" data-notes="Here is where today fits. Marketing Machine is a five-session arc. Session 1 was foundation and your profile. Session 2 was content and hooks. Session 3 was ManyChat DM automation. Session 4 was analytics and iteration. Today, Session 5, is paid amplification — Meta ads. The first four sessions taught you to build attention organically. Today you learn how to buy attention on purpose and turn it into conversations.---Aqui es donde encaja hoy. Marketing Machine es un arco de cinco sesiones. La 1 fue foundation y tu perfil. La 2 fue contenido y hooks. La 3 fue ManyChat. La 4 fue analytics. Hoy, Sesion 5, es amplificacion pagada — Meta ads. Las primeras cuatro sesiones les ensenaron a construir atencion organicamente. Hoy aprenden a comprar atencion a proposito y convertirla en conversaciones.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Marketing Machine &middot; 5 Sessions</div><h2 class="slide-title">Where Today Fits</h2><p class="slide-body">First four sessions built your organic engine. Today we add paid amplification.</p></div>
         <div class="reveal stagger" style="transition-delay:0.2s;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(0.5rem,1.2vw,1rem);"><div class="arc-card-mm done"><div class="arc-num">01</div><div class="arc-name">Foundation + Profile</div><div class="arc-sub">Branding &amp; Bio</div><div class="done-badge">Done</div></div><div class="arc-card-mm done"><div class="arc-num">02</div><div class="arc-name">Content + Hooks</div><div class="arc-sub">Reels &amp; Carousels</div><div class="done-badge">Done</div></div><div class="arc-card-mm done"><div class="arc-num">03</div><div class="arc-name">ManyChat Setup</div><div class="arc-sub">DM Automation</div><div class="done-badge">Done</div></div><div class="arc-card-mm done"><div class="arc-num">04</div><div class="arc-name">Analytics + Iterate</div><div class="arc-sub">Measure &amp; Optimize</div><div class="done-badge">Done</div></div><div class="arc-card-mm active"><div class="arc-num">05</div><div class="arc-name">Meta Ads</div><div class="arc-sub">Paid Amplification</div><div class="today-badge">Today</div></div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">05 / 46</div>
+    <div class="slide-number">06 / 46</div>
 </section>
 
 <!-- ========== SLIDE 06 — THE BIG IDEA (4 PIECES) ========== -->
-<section class="slide" id="slide-6" data-notes="The big idea. Meta ads are not magic. They are a system. Most agents think Meta ads are about posting something pretty and waiting for leads. That is not the game. Meta ads work when you have four pieces working together: a clear audience, a specific offer, a simple message, and a follow-up system. If any one piece is weak, the campaign feels broken. The ad is only the front door. The real money is made in the follow-up, the offer, and the consistency of the system.---La idea grande. Los Meta ads no son magia. Son un sistema. La mayoria de agentes piensan que los Meta ads son postear algo bonito y esperar leads. Eso no es el juego. Los Meta ads funcionan cuando tienes cuatro piezas trabajando juntas: una audiencia clara, una oferta especifica, un mensaje sencillo, y un sistema de follow-up. Si una pieza esta debil, la campana se siente rota. El anuncio es solo la puerta del frente. El dinero de verdad se hace en el follow-up, la oferta, y la consistencia del sistema.">
+<section class="slide" id="slide-7" data-notes="The big idea. Meta ads are not magic. They are a system. Most agents think Meta ads are about posting something pretty and waiting for leads. That is not the game. Meta ads work when you have four pieces working together: a clear audience, a specific offer, a simple message, and a follow-up system. If any one piece is weak, the campaign feels broken. The ad is only the front door. The real money is made in the follow-up, the offer, and the consistency of the system.---La idea grande. Los Meta ads no son magia. Son un sistema. La mayoria de agentes piensan que los Meta ads son postear algo bonito y esperar leads. Eso no es el juego. Los Meta ads funcionan cuando tienes cuatro piezas trabajando juntas: una audiencia clara, una oferta especifica, un mensaje sencillo, y un sistema de follow-up. Si una pieza esta debil, la campana se siente rota. El anuncio es solo la puerta del frente. El dinero de verdad se hace en el follow-up, la oferta, y la consistencia del sistema.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">The Big Idea</div><h2 class="slide-title">Meta Ads Are Not <span class="stroke stroke--clay">Magic<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>. They Are a <span style="color:var(--sprout);">System</span>.</h2><p class="slide-body">Four pieces working together. One weak piece and the whole campaign feels broken.</p></div>
         <div class="system-orbit"><div class="system-piece"><div class="system-piece-glyph">&#x1F3AF;</div><div class="system-piece-num">PIECE 01</div><div class="system-piece-name">Clear Audience</div><div class="system-piece-desc">Who is this for? Buyer, seller, relocation, first-time, investor.</div></div><div class="system-piece"><div class="system-piece-glyph">&#x1F381;</div><div class="system-piece-num">PIECE 02</div><div class="system-piece-name">Specific Offer</div><div class="system-piece-desc">What useful thing do they get in exchange for raising their hand?</div></div><div class="system-piece"><div class="system-piece-glyph">&#x1F4AC;</div><div class="system-piece-num">PIECE 03</div><div class="system-piece-name">Simple Message</div><div class="system-piece-desc">Hook, value, offer, CTA — clear enough to read in two seconds.</div></div><div class="system-piece"><div class="system-piece-glyph">&#x260E;&#xFE0F;</div><div class="system-piece-num">PIECE 04</div><div class="system-piece-name">Follow-Up System</div><div class="system-piece-desc">Who calls, who texts, who emails — and how fast.</div></div></div>
         <div class="reveal" style="transition-delay:0.75s;"><div class="callout-line">The ad is just the <strong style="color:var(--sprout);">front door</strong>. The money is made in the follow-up, the offer, and the consistency.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">06 / 46</div>
+    <div class="slide-number">07 / 46</div>
 </section>
 
 <!-- ========== SLIDE 07 — META SELLS ATTENTION ========== -->
-<section class="slide" id="slide-7" data-notes="Meta is not selling you leads. Meta is selling you access to attention. Your job is to turn that attention into something useful — a conversation, an appointment, a buyer consultation, a seller consultation, database growth, long-term brand authority. The campaign is not the full business plan. It is one traffic source. The mistake is expecting Meta to do everything. Meta can put your message in front of people. It cannot replace your sales process.---Meta no te esta vendiendo leads. Meta te esta vendiendo acceso a la atencion. Tu trabajo es convertir esa atencion en algo util — una conversacion, una cita, una consulta de comprador, una consulta de vendedor, crecimiento de tu base de datos, autoridad de marca a largo plazo. La campana no es el plan de negocio completo. Es una fuente de trafico. El error es esperar que Meta haga todo. Meta puede poner tu mensaje frente a la gente. No puede reemplazar tu proceso de ventas.">
+<section class="slide" id="slide-8" data-notes="Meta is not selling you leads. Meta is selling you access to attention. Your job is to turn that attention into something useful — a conversation, an appointment, a buyer consultation, a seller consultation, database growth, long-term brand authority. The campaign is not the full business plan. It is one traffic source. The mistake is expecting Meta to do everything. Meta can put your message in front of people. It cannot replace your sales process.---Meta no te esta vendiendo leads. Meta te esta vendiendo acceso a la atencion. Tu trabajo es convertir esa atencion en algo util — una conversacion, una cita, una consulta de comprador, una consulta de vendedor, crecimiento de tu base de datos, autoridad de marca a largo plazo. La campana no es el plan de negocio completo. Es una fuente de trafico. El error es esperar que Meta haga todo. Meta puede poner tu mensaje frente a la gente. No puede reemplazar tu proceso de ventas.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">What Meta Actually Sells</div><h2 class="slide-title">You're Buying <span class="stroke stroke--sprout">Attention<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> &mdash; Not Leads</h2><p class="slide-body">Meta puts your message in front of people. Turning that attention into clients is your job.</p></div>
         <div class="two-col" style="align-items:center;">
@@ -1272,11 +1357,11 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">07 / 46</div>
+    <div class="slide-number">08 / 46</div>
 </section>
 
 <!-- ========== SLIDE 08 — FUNNEL → FRAMEWORK MAP ========== -->
-<section class="slide" id="slide-8" data-notes="Here is the map for today. Every Meta ad lives at one of three stages of the funnel — and each stage has the framework that works there. TOP: cold audiences, people who don't know you. The framework is AIDA — Attention, Interest, Desire, Action. MIDDLE: warm audiences, people who have engaged. The framework is PAS or FAB — Problem-Agitate-Solution for pain-aware, Feature-Advantage-Benefit for people comparing options. BOTTOM: retargeting, people who engaged but didn't convert. The framework is IDCA — Identify, Disrupt, Compel, Act. Same funnel, same agent, three different conversations. If you mix them up — cold audience, FAB ad — you get bad results. Match the framework to the stage.---Aqui esta el mapa de hoy. Cada Meta ad vive en una de tres etapas del funnel — y cada etapa tiene el framework que funciona ahi. TOP: audiencia fria, gente que no te conoce. El framework es AIDA. MIDDLE: audiencia tibia, los que ya interactuaron. El framework es PAS o FAB. BOTTOM: retargeting, los que interactuaron pero no convirtieron. El framework es IDCA. Mismo funnel, mismo agente, tres conversaciones diferentes. Si los mezclas — audiencia fria con un FAB ad — sacas malos resultados. Empareja el framework con la etapa.">
+<section class="slide" id="slide-9" data-notes="Here is the map for today. Every Meta ad lives at one of three stages of the funnel — and each stage has the framework that works there. TOP: cold audiences, people who don't know you. The framework is AIDA — Attention, Interest, Desire, Action. MIDDLE: warm audiences, people who have engaged. The framework is PAS or FAB — Problem-Agitate-Solution for pain-aware, Feature-Advantage-Benefit for people comparing options. BOTTOM: retargeting, people who engaged but didn't convert. The framework is IDCA — Identify, Disrupt, Compel, Act. Same funnel, same agent, three different conversations. If you mix them up — cold audience, FAB ad — you get bad results. Match the framework to the stage.---Aqui esta el mapa de hoy. Cada Meta ad vive en una de tres etapas del funnel — y cada etapa tiene el framework que funciona ahi. TOP: audiencia fria, gente que no te conoce. El framework es AIDA. MIDDLE: audiencia tibia, los que ya interactuaron. El framework es PAS o FAB. BOTTOM: retargeting, los que interactuaron pero no convirtieron. El framework es IDCA. Mismo funnel, mismo agente, tres conversaciones diferentes. Si los mezclas — audiencia fria con un FAB ad — sacas malos resultados. Empareja el framework con la etapa.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Funnel &rarr; Framework</div><h2 class="slide-title">Three Stages. Three <span class="stroke stroke--sprout">Frameworks<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span>.</h2><p class="slide-body">Same funnel. Same agent. Three different conversations. Match the framework to the stage.</p></div>
         <div class="fnf-grid">
@@ -1287,11 +1372,11 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         <div class="reveal" style="transition-delay:0.7s;"><div class="callout-line">Mix them up &mdash; cold audience, FAB ad &mdash; and the leads come in <strong style="color:var(--clay-soft);">colder</strong> than the audience you started with.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">08 / 46</div>
+    <div class="slide-number">09 / 46</div>
 </section>
 
 <!-- ========== SLIDE 09 — RE-TEACH: 3 CAMPAIGNS, NOT 3 AD SETS ========== -->
-<section class="slide" id="slide-9" data-notes="Real talk. When I first explained this to the team, I told you to run one campaign and segregate cold, warm, and retargeting as three ad sets. That was wrong. Today we re-teach. The right way is three separate campaigns. Here's why: with three separate campaigns, each one owns its own audience exclusions — your warm campaign excludes anyone who already converted, your retarget excludes anyone who already booked. With three ad sets inside one campaign, those exclusions get messy and the same person can see all three ads. Three separate campaigns also gives each stage its own learning phase, its own budget reporting, and lets you kill or scale one without touching the others. Today everyone leaves with three separate campaigns.---Real talk. Cuando les expliqué esto a la primera vez, les dije que corrieran una campaña y dividieran cold, warm, y retargeting en tres ad sets. Eso estaba mal. Hoy re-enseñamos. La forma correcta es tres campañas separadas. Por qué: con tres campañas separadas cada una tiene sus propias exclusiones de audiencia. Con tres ad sets dentro de una campaña esas exclusiones se enredan y la misma persona ve los tres anuncios. Tres campañas separadas también le da a cada etapa su propio learning phase, su propio budget, y te deja matar o escalar una sin tocar las otras.">
+<section class="slide" id="slide-10" data-notes="Real talk. When I first explained this to the team, I told you to run one campaign and segregate cold, warm, and retargeting as three ad sets. That was wrong. Today we re-teach. The right way is three separate campaigns. Here's why: with three separate campaigns, each one owns its own audience exclusions — your warm campaign excludes anyone who already converted, your retarget excludes anyone who already booked. With three ad sets inside one campaign, those exclusions get messy and the same person can see all three ads. Three separate campaigns also gives each stage its own learning phase, its own budget reporting, and lets you kill or scale one without touching the others. Today everyone leaves with three separate campaigns.---Real talk. Cuando les expliqué esto a la primera vez, les dije que corrieran una campaña y dividieran cold, warm, y retargeting en tres ad sets. Eso estaba mal. Hoy re-enseñamos. La forma correcta es tres campañas separadas. Por qué: con tres campañas separadas cada una tiene sus propias exclusiones de audiencia. Con tres ad sets dentro de una campaña esas exclusiones se enredan y la misma persona ve los tres anuncios. Tres campañas separadas también le da a cada etapa su propio learning phase, su propio budget, y te deja matar o escalar una sin tocar las otras.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Re-teach &middot; Campaign Architecture</div><h2 class="slide-title">I Taught This Wrong. <span class="stroke stroke--sprout">Here's the Fix.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Three separate campaigns &mdash; not three ad sets inside one. Audience exclusions are why.</p></div>
         <div class="miscompare">
@@ -1333,11 +1418,11 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">09 / 46</div>
+    <div class="slide-number">10 / 46</div>
 </section>
 
 <!-- ========== SLIDE 10 — 3-CAMPAIGN ARCHITECTURE + EXCLUSION FLOW ========== -->
-<section class="slide" id="slide-10" data-notes="Here is what three separate campaigns actually looks like. Three boxes. Each one owns its objective, audience, and exclusions. Read the arrows from left to right — cold pours engagers INTO warm. Warm pours engagers INTO retarget. AND retarget excludes anyone who already converted in warm or booked through cold. The exclusion math is the whole game. Without it, the same person sees three ads and you pay three times. With it, your warm audience is built from your cold spend for free, and your retarget is the tightest, highest-converting audience you have.---Aquí está lo que tres campañas separadas se ve realmente. Tres cajas. Cada una tiene su objetivo, audiencia, y exclusiones. Las flechas: cold mete engagers EN warm. Warm mete engagers EN retarget. Y retarget EXCLUYE a los que ya convirtieron. La matemática de las exclusiones es el juego completo. Sin ella, la misma persona ve tres anuncios y pagas tres veces. Con ella tu audiencia warm se construye del spend de cold gratis.">
+<section class="slide" id="slide-11" data-notes="Here is what three separate campaigns actually looks like. Three boxes. Each one owns its objective, audience, and exclusions. Read the arrows from left to right — cold pours engagers INTO warm. Warm pours engagers INTO retarget. AND retarget excludes anyone who already converted in warm or booked through cold. The exclusion math is the whole game. Without it, the same person sees three ads and you pay three times. With it, your warm audience is built from your cold spend for free, and your retarget is the tightest, highest-converting audience you have.---Aquí está lo que tres campañas separadas se ve realmente. Tres cajas. Cada una tiene su objetivo, audiencia, y exclusiones. Las flechas: cold mete engagers EN warm. Warm mete engagers EN retarget. Y retarget EXCLUYE a los que ya convirtieron. La matemática de las exclusiones es el juego completo. Sin ella, la misma persona ve tres anuncios y pagas tres veces. Con ella tu audiencia warm se construye del spend de cold gratis.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">3-Campaign Architecture</div><h2 class="slide-title">Each Campaign Owns Its <span style="color:var(--sprout);">Audience + Exclusions</span></h2><p class="slide-body">Cold builds warm. Warm feeds retarget. Retarget excludes converters. The math is the whole game.</p></div>
         <div class="tca-row">
@@ -1370,11 +1455,11 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">10 / 46</div>
+    <div class="slide-number">11 / 46</div>
 </section>
 
 <!-- ========== SLIDE 11 — SPECIAL AD CATEGORY (EMPLOYMENT + HOUSING) ========== -->
-<section class="slide" id="slide-11" data-notes="Meta restricts how you can target three categories: Housing, Employment, and Credit. Real estate ads land in two of those buckets. Selling or marketing homes? Housing category. Recruiting agents to your brokerage? Employment category. Both have the same restriction: you cannot target by age, zip code radius under 15 miles, gender, or detailed demographics. The lesson is identical. Your creative has to do the targeting. Today I'm going to walk you through my own recruiting campaign — my Special Ad Category is Employment because I'm recruiting agents. When you build your buyer or seller campaigns, your category will be Housing. Different category. Same rule. Broad audience. Creative filters.---Meta restringe el targeting en tres categorias: Housing, Employment, y Credit. Los real estate ads caen en dos. Vendiendo casas? Housing. Reclutando agentes pa tu brokerage? Employment. La misma restriccion: no puedes targetear por edad, zip code radius menor de 15 millas, genero, o demograficos detallados. La leccion es la misma. Tu creative tiene que hacer el targeting. Hoy les voy a caminar mi campana de reclutamiento — mi Special Ad Category es Employment porque estoy reclutando agentes. Cuando ustedes construyan sus buyer o seller campaigns, su categoria sera Housing. Diferente categoria. Misma regla. Audiencia amplia. El creative filtra.">
+<section class="slide" id="slide-12" data-notes="Meta restricts how you can target three categories: Housing, Employment, and Credit. Real estate ads land in two of those buckets. Selling or marketing homes? Housing category. Recruiting agents to your brokerage? Employment category. Both have the same restriction: you cannot target by age, zip code radius under 15 miles, gender, or detailed demographics. The lesson is identical. Your creative has to do the targeting. Today I'm going to walk you through my own recruiting campaign — my Special Ad Category is Employment because I'm recruiting agents. When you build your buyer or seller campaigns, your category will be Housing. Different category. Same rule. Broad audience. Creative filters.---Meta restringe el targeting en tres categorias: Housing, Employment, y Credit. Los real estate ads caen en dos. Vendiendo casas? Housing. Reclutando agentes pa tu brokerage? Employment. La misma restriccion: no puedes targetear por edad, zip code radius menor de 15 millas, genero, o demograficos detallados. La leccion es la misma. Tu creative tiene que hacer el targeting. Hoy les voy a caminar mi campana de reclutamiento — mi Special Ad Category es Employment porque estoy reclutando agentes. Cuando ustedes construyan sus buyer o seller campaigns, su categoria sera Housing. Diferente categoria. Misma regla. Audiencia amplia. El creative filtra.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Special Ad Category</div><h2 class="slide-title">Real Estate Ads Live in <span class="stroke stroke--amber">SAC<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Selling homes? Housing. Recruiting agents? Employment. Same restriction, same lesson.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -1406,11 +1491,11 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         <div class="reveal" style="transition-delay:0.55s;"><div class="callout-line">Different category. <strong style="color:var(--sprout);">Same lesson.</strong> Words, video, and offer do more of the targeting than the settings.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">11 / 46</div>
+    <div class="slide-number">12 / 46</div>
 </section>
 
 <!-- ========== SLIDE 12 — AIDA EXPLAINED ========== -->
-<section class="slide" id="slide-12" data-notes="The first framework for today: AIDA. Attention, Interest, Desire, Action. This is the framework for cold audiences — the people who don't know you yet. ATTENTION: stop the scroll. INTEREST: reveal something they didn't know. DESIRE: show them what's possible. ACTION: tell them exactly what to do. You used AIDA in Session 1 to build your hook line. Today you're using it to build a paid ad. Same framework, paid amplification.---El primer framework de hoy: AIDA. Atencion, Interes, Deseo, Accion. Este es el framework pa audiencias frias — los que no te conocen. ATENCION: para el scroll. INTERES: revela algo que no sabian. DESEO: muestra que es posible. ACCION: diles exactamente que hacer. Usaron AIDA en la Sesion 1 pa construir su hook line. Hoy lo usan pa construir un ad pago. Mismo framework, paid amplification.">
+<section class="slide" id="slide-13" data-notes="The first framework for today: AIDA. Attention, Interest, Desire, Action. This is the framework for cold audiences — the people who don't know you yet. ATTENTION: stop the scroll. INTEREST: reveal something they didn't know. DESIRE: show them what's possible. ACTION: tell them exactly what to do. You used AIDA in Session 1 to build your hook line. Today you're using it to build a paid ad. Same framework, paid amplification.---El primer framework de hoy: AIDA. Atencion, Interes, Deseo, Accion. Este es el framework pa audiencias frias — los que no te conocen. ATENCION: para el scroll. INTERES: revela algo que no sabian. DESEO: muestra que es posible. ACCION: diles exactamente que hacer. Usaron AIDA en la Sesion 1 pa construir su hook line. Hoy lo usan pa construir un ad pago. Mismo framework, paid amplification.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Top of Funnel &middot; Cold Audience</div><h2 class="slide-title">AIDA &mdash; for People Who <span class="stroke stroke--sprout">Don't Know You<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> Yet</h2><p class="slide-body">The classic. Stop the scroll, earn the curiosity, create the want, ask the action.</p></div>
         <div class="fw-circles">
@@ -1422,11 +1507,11 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         <div class="reveal" style="transition-delay:0.75s;"><div class="callout-line">You used AIDA in Session 1 for your hook line. Today, same framework &mdash; <strong style="color:var(--sprout);">paid amplification</strong>.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">12 / 46</div>
+    <div class="slide-number">13 / 46</div>
 </section>
 
 <!-- ========== SLIDE 12 — AIDA APPLIED TO PEDRO ========== -->
-<section class="slide" id="slide-13" data-notes="Now let me show you AIDA applied to my own avatar. My ideal client — and yes I have one too, just like the buyer or seller avatars you built — is a real estate agent 23 to 35, doing 1 to 3 million in volume, 2 to 4 years licensed, Milwaukee or Central Florida. ATTENTION: I name them and the city. INTEREST: I tell them something true they haven't heard — they're not broken, they're under-trained. DESIRE: I show what's possible — live weekly training, real broker, bilingual community. ACTION: a one-word comment trigger that drops them into ManyChat. Notice how every line is specific. Specific filters. Generic fails.---Ahora les muestro AIDA aplicado a mi propio avatar. Mi cliente ideal — si, yo tambien tengo uno, igual que los avatares de buyer o seller que ustedes construyeron — es un agente 23 a 35, haciendo 1 a 3 millones de volumen, 2 a 4 anos con licencia, Milwaukee o Central Florida. ATENCION: los nombro y la ciudad. INTERES: les digo algo verdadero que no han escuchado — no estan rotos, les falta entrenamiento. DESEO: les muestro lo posible — entrenamiento en vivo, broker real, comunidad bilingue. ACCION: un comment trigger de una palabra que los mete a ManyChat. Cada linea es especifica. Lo especifico filtra. Lo generico falla.">
+<section class="slide" id="slide-14" data-notes="Now let me show you AIDA applied to my own avatar. My ideal client — and yes I have one too, just like the buyer or seller avatars you built — is a real estate agent 23 to 35, doing 1 to 3 million in volume, 2 to 4 years licensed, Milwaukee or Central Florida. ATTENTION: I name them and the city. INTEREST: I tell them something true they haven't heard — they're not broken, they're under-trained. DESIRE: I show what's possible — live weekly training, real broker, bilingual community. ACTION: a one-word comment trigger that drops them into ManyChat. Notice how every line is specific. Specific filters. Generic fails.---Ahora les muestro AIDA aplicado a mi propio avatar. Mi cliente ideal — si, yo tambien tengo uno, igual que los avatares de buyer o seller que ustedes construyeron — es un agente 23 a 35, haciendo 1 a 3 millones de volumen, 2 a 4 anos con licencia, Milwaukee o Central Florida. ATENCION: los nombro y la ciudad. INTERES: les digo algo verdadero que no han escuchado — no estan rotos, les falta entrenamiento. DESEO: les muestro lo posible — entrenamiento en vivo, broker real, comunidad bilingue. ACCION: un comment trigger de una palabra que los mete a ManyChat. Cada linea es especifica. Lo especifico filtra. Lo generico falla.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">AIDA &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">How the Framework Lands on a Real Person</h2></div>
         <div class="two-col" style="align-items:start;">
@@ -1450,11 +1535,11 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">13 / 46</div>
+    <div class="slide-number">14 / 46</div>
 </section>
 
 <!-- ========== AIDA SECTION CONTINUES ========== -->
-<section class="slide" id="slide-14" data-notes="The 4-piece creative formula you learned in Session 1 maps perfectly to AIDA. HOOK is Attention. VALUE is Interest. OFFER is Desire. CTA is Action. Same four moves, different names depending on which framework book you read. The key insight: every cold ad has these four pieces, and weak ads are weak because they skip one. Most agents skip Value — they jump from hook straight to offer — and the ad feels like a commercial instead of useful advice.---La formula de 4 piezas de la Sesion 1 mapea perfecto con AIDA. HOOK es Atencion. VALUE es Interes. OFFER es Deseo. CTA es Accion. Los mismos cuatro movimientos. La clave: cada cold ad tiene estas cuatro piezas, y los ads debiles son debiles porque saltan una. La mayoria de agentes salta el Value — van del hook directo a la oferta — y el ad se siente como comercial en vez de consejo util.">
+<section class="slide" id="slide-15" data-notes="The 4-piece creative formula you learned in Session 1 maps perfectly to AIDA. HOOK is Attention. VALUE is Interest. OFFER is Desire. CTA is Action. Same four moves, different names depending on which framework book you read. The key insight: every cold ad has these four pieces, and weak ads are weak because they skip one. Most agents skip Value — they jump from hook straight to offer — and the ad feels like a commercial instead of useful advice.---La formula de 4 piezas de la Sesion 1 mapea perfecto con AIDA. HOOK es Atencion. VALUE es Interes. OFFER es Deseo. CTA es Accion. Los mismos cuatro movimientos. La clave: cada cold ad tiene estas cuatro piezas, y los ads debiles son debiles porque saltan una. La mayoria de agentes salta el Value — van del hook directo a la oferta — y el ad se siente como comercial en vez de consejo util.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Creative Formula &middot; Aligned to AIDA</div><h2 class="slide-title">Four Pieces. <span style="color:var(--sprout);">One Frame.</span></h2><p class="slide-body">The 4-piece formula from Session 1 maps onto AIDA. Same moves, two names.</p></div>
         <div class="formula-flow">
@@ -1466,11 +1551,11 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         <div class="reveal" style="transition-delay:0.65s;"><div class="callout-line">Weak ads skip <strong style="color:var(--clay-soft);">Value</strong>. They jump from hook to offer &mdash; and feel like a commercial instead of <strong style="color:var(--sprout);">useful advice</strong>.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">14 / 46</div>
+    <div class="slide-number">15 / 46</div>
 </section>
 
 <!-- ========== SLIDE 15 — PEDRO'S FULL AIDA AD ========== -->
-<section class="slide" id="slide-15" data-notes="Here is the full AIDA ad I run. The Instagram mockup on the left is what an agent sees in the feed. The breakdown on the right shows you which line does which job. Notice: every line is specific. I name the cities. I name the production range. I name the action. The SYSTEMS keyword is what drops them into my ManyChat flow which fulfills the 48-week curriculum. The video is me on camera for 30 seconds — not a polished production. That's deliberate. Trust is built through real face, real voice, and specificity.---Aqui esta el AIDA ad completo que corro. Mockup de Instagram a la izquierda. Breakdown a la derecha. Cada linea es especifica. Nombro las ciudades. Nombro el rango de produccion. Nombro la accion. SYSTEMS es el keyword que los mete a mi flujo de ManyChat que entrega el curriculum de 48 semanas. El video es yo en camara por 30 segundos — no produccion fancy. Es deliberado. La confianza se construye con cara real, voz real, y especificidad.">
+<section class="slide" id="slide-16" data-notes="Here is the full AIDA ad I run. The Instagram mockup on the left is what an agent sees in the feed. The breakdown on the right shows you which line does which job. Notice: every line is specific. I name the cities. I name the production range. I name the action. The SYSTEMS keyword is what drops them into my ManyChat flow which fulfills the 48-week curriculum. The video is me on camera for 30 seconds — not a polished production. That's deliberate. Trust is built through real face, real voice, and specificity.---Aqui esta el AIDA ad completo que corro. Mockup de Instagram a la izquierda. Breakdown a la derecha. Cada linea es especifica. Nombro las ciudades. Nombro el rango de produccion. Nombro la accion. SYSTEMS es el keyword que los mete a mi flujo de ManyChat que entrega el curriculum de 48 semanas. El video es yo en camara por 30 segundos — no produccion fancy. Es deliberado. La confianza se construye con cara real, voz real, y especificidad.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Pedro's Full AIDA Ad &middot; Live Example</div><h2 class="slide-title">The Cold Ad <span style="color:var(--sprout);">in the Wild</span></h2></div>
         <div class="two-col" style="align-items:center;">
@@ -1509,11 +1594,11 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">15 / 46</div>
+    <div class="slide-number">16 / 46</div>
 </section>
 
 <!-- ========== NEW: AI PROMPT — AIDA HOOK FROM YOUR AVATAR ========== -->
-<section class="slide" id="slide-16" data-notes="Time to write your own AIDA hook. The prompt below is locked to your client avatar — it will not produce a good hook without one. Open Claude or ChatGPT. Paste the prompt. Replace the AVATAR block with your actual client avatar from Session 1. Run it. Refine. Save the output for your reel caption + CTA. The framework does the lifting. Your job is to make sure the avatar is specific enough that the AI has something to talk to.---Hora de escribir tu propio AIDA hook. El prompt está atado a tu avatar — sin avatar no sirve. Pega el prompt. Pega tu avatar. Refínalo. Guarda el output pa el caption del reel.">
+<section class="slide" id="slide-17" data-notes="Time to write your own AIDA hook. The prompt below is locked to your client avatar — it will not produce a good hook without one. Open Claude or ChatGPT. Paste the prompt. Replace the AVATAR block with your actual client avatar from Session 1. Run it. Refine. Save the output for your reel caption + CTA. The framework does the lifting. Your job is to make sure the avatar is specific enough that the AI has something to talk to.---Hora de escribir tu propio AIDA hook. El prompt está atado a tu avatar — sin avatar no sirve. Pega el prompt. Pega tu avatar. Refínalo. Guarda el output pa el caption del reel.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">AI Prompt &middot; AIDA Hook</div><h2 class="slide-title">Draft Your <span style="color:var(--sprout);">AIDA Hook</span> from Your Avatar</h2><p class="slide-body">Open Claude or ChatGPT. Paste this. Replace the AVATAR block. Run. Refine.</p></div>
         <div class="reveal" style="transition-delay:0.1s;">
@@ -1552,11 +1637,11 @@ Rules: second person. No jargon. No "DM me for info." Every line specific to the
         <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line">Save the output. The caption + comment trigger go straight into your Cold campaign in <strong style="color:var(--sprout);">3 slides from now</strong>.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">16 / 46</div>
+    <div class="slide-number">17 / 46</div>
 </section>
 
 <!-- ========== NEW: ADS MANAGER — COLD · SCREEN 1 (OBJECTIVE + SAC) ========== -->
-<section class="slide" id="slide-17" data-notes="Open Ads Manager. Click Create. First decision: Objective. For our cold AIDA campaign with ManyChat comment-to-DM, pick Engagement. Second decision before you even configure anything: Special Ad Category. You MUST declare this. For your housing ads, pick Housing. Meta will lock down your targeting options. Don't fight it — the creative does the targeting anyway. Name the campaign with the stage and the framework. I'll use 01 Cold Pedro AIDA. Naming convention matters because when you have three campaigns running, you need to read the dashboard in one glance.---Abre Ads Manager. Crear. Primera decisión: Objetivo. Para nuestra campaña AIDA con ManyChat: Engagement. Segunda decisión: Special Ad Category. Housing. No lo peleen — el creative hace el targeting. Nombren la campaña con la etapa y el framework. Cuando tengan tres campañas, necesitan leer el dashboard de un vistazo.">
+<section class="slide" id="slide-18" data-notes="Open Ads Manager. Click Create. First decision: Objective. For our cold AIDA campaign with ManyChat comment-to-DM, pick Engagement. Second decision before you even configure anything: Special Ad Category. You MUST declare this. For your housing ads, pick Housing. Meta will lock down your targeting options. Don't fight it — the creative does the targeting anyway. Name the campaign with the stage and the framework. I'll use 01 Cold Pedro AIDA. Naming convention matters because when you have three campaigns running, you need to read the dashboard in one glance.---Abre Ads Manager. Crear. Primera decisión: Objetivo. Para nuestra campaña AIDA con ManyChat: Engagement. Segunda decisión: Special Ad Category. Housing. No lo peleen — el creative hace el targeting. Nombren la campaña con la etapa y el framework. Cuando tengan tres campañas, necesitan leer el dashboard de un vistazo.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Ads Manager &middot; Cold Campaign &middot; Screen 1 / 3</div><h2 class="slide-title">Objective + Special Ad Category</h2><p class="slide-body">Two decisions before anything else. Declare SAC up front so Meta doesn't block your launch later.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -1609,11 +1694,11 @@ Rules: second person. No jargon. No "DM me for info." Every line specific to the
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">17 / 46</div>
+    <div class="slide-number">18 / 46</div>
 </section>
 
 <!-- ========== NEW: ADS MANAGER — COLD · SCREEN 2 (AUDIENCE + PLACEMENTS + BUDGET) ========== -->
-<section class="slide" id="slide-18" data-notes="Screen 2. Audience, placements, budget. Audience: location is the only real targeting you have under SAC. Pedro runs Milwaukee + Orlando 25-mile radius. You pick your metros. No interest targeting — locked. No age — locked. Detailed targeting — locked. Exclusions: this is where the 3-campaign architecture pays off. Exclude your warm audience here so cold doesn't waste spend on people who already engaged. Placements: leave it on Advantage Placements which is automatic. Budget: 20 to 50 dollars a day. Small enough to learn, big enough to give Meta data. Set the start date now or schedule it.---Pantalla 2. Audiencia, placements, presupuesto. Audiencia: location es lo único bajo SAC. Pedro corre Milwaukee + Orlando 25 millas. Sin interest. Sin edad. Sin detailed. Exclusiones: aquí la arquitectura de 3 campañas paga. Excluye tu warm audience aquí. Placements: Advantage. Presupuesto: $20-$50 al día.">
+<section class="slide" id="slide-19" data-notes="Screen 2. Audience, placements, budget. Audience: location is the only real targeting you have under SAC. Pedro runs Milwaukee + Orlando 25-mile radius. You pick your metros. No interest targeting — locked. No age — locked. Detailed targeting — locked. Exclusions: this is where the 3-campaign architecture pays off. Exclude your warm audience here so cold doesn't waste spend on people who already engaged. Placements: leave it on Advantage Placements which is automatic. Budget: 20 to 50 dollars a day. Small enough to learn, big enough to give Meta data. Set the start date now or schedule it.---Pantalla 2. Audiencia, placements, presupuesto. Audiencia: location es lo único bajo SAC. Pedro corre Milwaukee + Orlando 25 millas. Sin interest. Sin edad. Sin detailed. Exclusiones: aquí la arquitectura de 3 campañas paga. Excluye tu warm audience aquí. Placements: Advantage. Presupuesto: $20-$50 al día.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Ads Manager &middot; Cold Campaign &middot; Screen 2 / 3</div><h2 class="slide-title">Audience + Placements + Budget</h2><p class="slide-body">Location is the only real targeting under SAC. Exclude your warm audience so cold doesn't pay for engagers.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -1677,11 +1762,11 @@ Rules: second person. No jargon. No "DM me for info." Every line specific to the
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">18 / 46</div>
+    <div class="slide-number">19 / 46</div>
 </section>
 
 <!-- ========== NEW: ADS MANAGER — COLD · SCREEN 3 (CREATIVE UPLOAD + PUBLISH) ========== -->
-<section class="slide" id="slide-19" data-notes="Screen 3. The creative. Upload your existing reel — the one your team already made. Use a vertical 9:16 file. Paste the caption you wrote with the AI prompt three slides ago. Pick a CTA — for ManyChat comment-to-DM the CTA button is Send Message or you leave it blank and let the caption do the work. Most important: set up the ManyChat trigger keyword. The keyword has to match what your caption tells them to comment. Pedro uses SYSTEMS. Yours might be GUIDE or LIST or HOMES. Whatever it is, the ManyChat flow has to be wired BEFORE you hit publish or your first commenters get nothing back. Review everything. Hit Publish. Cold campaign is live.---Pantalla 3. El creative. Sube tu reel existente. Pega el caption del AI prompt. Configura el ManyChat keyword. El keyword tiene que coincidir con lo que el caption dice. ANTES de publicar, ManyChat tiene que estar wired. Revisa. Publica. Cold campaign está vivo.">
+<section class="slide" id="slide-20" data-notes="Screen 3. The creative. Upload your existing reel — the one your team already made. Use a vertical 9:16 file. Paste the caption you wrote with the AI prompt three slides ago. Pick a CTA — for ManyChat comment-to-DM the CTA button is Send Message or you leave it blank and let the caption do the work. Most important: set up the ManyChat trigger keyword. The keyword has to match what your caption tells them to comment. Pedro uses SYSTEMS. Yours might be GUIDE or LIST or HOMES. Whatever it is, the ManyChat flow has to be wired BEFORE you hit publish or your first commenters get nothing back. Review everything. Hit Publish. Cold campaign is live.---Pantalla 3. El creative. Sube tu reel existente. Pega el caption del AI prompt. Configura el ManyChat keyword. El keyword tiene que coincidir con lo que el caption dice. ANTES de publicar, ManyChat tiene que estar wired. Revisa. Publica. Cold campaign está vivo.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Ads Manager &middot; Cold Campaign &middot; Screen 3 / 3</div><h2 class="slide-title">Upload Creative + <span class="stroke stroke--sprout">Publish<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Reel already filmed. Caption from your AI prompt. ManyChat keyword wired. Hit Publish.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -1743,11 +1828,11 @@ Rules: second person. No jargon. No "DM me for info." Every line specific to the
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">19 / 46</div>
+    <div class="slide-number">20 / 46</div>
 </section>
 
 <!-- ========== SLIDE 20 — WHEN PAS vs FAB ========== -->
-<section class="slide" id="slide-20" data-notes="Once someone is warm — they've watched your videos, engaged with your content, visited your page — you have two choices of framework. PAS for pain-aware audiences. They already know they have the problem. You name it, twist the knife, then offer the solution. This is the carousel format that works really well on Instagram. FAB for comparison-stage audiences. They're shopping. Already see brokers. They want to know what makes you different. You give them feature, advantage compared to alternatives, then the benefit to them personally. This works well as a talking-head video. The choice is about consciousness. PAS: they feel the pain. FAB: they're comparing options. Match the framework to where their head is.---Una vez que alguien es warm tienes dos opciones. PAS pa audiencias conscientes del dolor. Ya saben el problema. Lo nombras, agitas, das solucion. Formato de carousel. FAB pa audiencias en comparacion. Estan comparando brokers. Quieren saber que te hace diferente. Feature, advantage, benefit. Formato de talking-head video. La eleccion es de consciencia. PAS: sienten el dolor. FAB: estan comparando opciones.">
+<section class="slide" id="slide-21" data-notes="Once someone is warm — they've watched your videos, engaged with your content, visited your page — you have two choices of framework. PAS for pain-aware audiences. They already know they have the problem. You name it, twist the knife, then offer the solution. This is the carousel format that works really well on Instagram. FAB for comparison-stage audiences. They're shopping. Already see brokers. They want to know what makes you different. You give them feature, advantage compared to alternatives, then the benefit to them personally. This works well as a talking-head video. The choice is about consciousness. PAS: they feel the pain. FAB: they're comparing options. Match the framework to where their head is.---Una vez que alguien es warm tienes dos opciones. PAS pa audiencias conscientes del dolor. Ya saben el problema. Lo nombras, agitas, das solucion. Formato de carousel. FAB pa audiencias en comparacion. Estan comparando brokers. Quieren saber que te hace diferente. Feature, advantage, benefit. Formato de talking-head video. La eleccion es de consciencia. PAS: sienten el dolor. FAB: estan comparando opciones.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Middle of Funnel &middot; Warm Audience</div><h2 class="slide-title">Pick the Framework Based on <span class="stroke stroke--sprout">Their Headspace<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Warm audiences split two ways. PAS for pain-aware. FAB for comparing.</p></div>
         <div class="when-grid">
@@ -1777,11 +1862,11 @@ Rules: second person. No jargon. No "DM me for info." Every line specific to the
         <div class="reveal" style="transition-delay:0.55s;"><div class="callout-line">Pedro's avatar feels both. Pain when they think about their last broker. Comparison when they look at other brokerages. <strong style="color:var(--sprout);">Run both.</strong></div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">20 / 46</div>
+    <div class="slide-number">21 / 46</div>
 </section>
 
 <!-- ========== SLIDE 17 — PAS APPLIED TO PEDRO (5-CARD CAROUSEL) ========== -->
-<section class="slide" id="slide-21" data-notes="PAS applied to my recruiting avatar — five-card carousel. Card 1 names the problem. Card 2 names the second problem. Card 3 agitates — twists the knife by naming the comparison to other agents who have a system. Card 4 presents the solution. Card 5 is the CTA. This runs to people who watched at least 75 percent of my AIDA video in the last 30 days, plus Instagram and Facebook page engagers. They already know me. The PAS does the rest.---PAS aplicado a mi avatar — carousel de cinco cards. Card 1 problema. Card 2 segundo problema. Card 3 agita — la comparacion con los que si tienen sistema. Card 4 solucion. Card 5 CTA. Corre a los que vieron 75 porciento de mi AIDA video en los ultimos 30 dias mas engagers de Instagram y Facebook page. Ya me conocen. El PAS hace el resto.">
+<section class="slide" id="slide-22" data-notes="PAS applied to my recruiting avatar — five-card carousel. Card 1 names the problem. Card 2 names the second problem. Card 3 agitates — twists the knife by naming the comparison to other agents who have a system. Card 4 presents the solution. Card 5 is the CTA. This runs to people who watched at least 75 percent of my AIDA video in the last 30 days, plus Instagram and Facebook page engagers. They already know me. The PAS does the rest.---PAS aplicado a mi avatar — carousel de cinco cards. Card 1 problema. Card 2 segundo problema. Card 3 agita — la comparacion con los que si tienen sistema. Card 4 solucion. Card 5 CTA. Corre a los que vieron 75 porciento de mi AIDA video en los ultimos 30 dias mas engagers de Instagram y Facebook page. Ya me conocen. El PAS hace el resto.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">PAS &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">The Warm Carousel That Closes the Loop</h2><p class="slide-body">Five cards. Pain-aware audience. Audience is 30-day video viewers + page engagers.</p></div>
         <div class="pas-carousel reveal" style="transition-delay:0.15s;">
@@ -1809,11 +1894,11 @@ Rules: second person. No jargon. No "DM me for info." Every line specific to the
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">21 / 46</div>
+    <div class="slide-number">22 / 46</div>
 </section>
 
 <!-- ========== NEW: AI PROMPT — PAS CAROUSEL FROM YOUR AVATAR ========== -->
-<section class="slide" id="slide-22" data-notes="Now you write the PAS carousel for your warm audience. Five cards. Pain-aware. Avatar required again — the AI cannot write authentic pain without your specific client. Paste the prompt. Paste your avatar. Replace the differentiator and offer. Run. The output will be 5 cards: two problems, one agitate, the solution, the CTA. Refine. Save it. You'll paste each card into Canva in the next slide.---Ahora escribes el PAS carousel pa tu warm audience. Cinco cards. Pain-aware. Avatar requerido. Pega el prompt. Pega el avatar. Refina. Guarda. Vas a pegar cada card en Canva en la próxima slide.">
+<section class="slide" id="slide-23" data-notes="Now you write the PAS carousel for your warm audience. Five cards. Pain-aware. Avatar required again — the AI cannot write authentic pain without your specific client. Paste the prompt. Paste your avatar. Replace the differentiator and offer. Run. The output will be 5 cards: two problems, one agitate, the solution, the CTA. Refine. Save it. You'll paste each card into Canva in the next slide.---Ahora escribes el PAS carousel pa tu warm audience. Cinco cards. Pain-aware. Avatar requerido. Pega el prompt. Pega el avatar. Refina. Guarda. Vas a pegar cada card en Canva en la próxima slide.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">AI Prompt &middot; PAS Carousel</div><h2 class="slide-title">Draft Your <span style="color:var(--sprout);">5-Card PAS Carousel</span></h2><p class="slide-body">Output goes straight into Canva on the next slide. Avatar-locked.</p></div>
         <div class="reveal" style="transition-delay:0.1s;">
@@ -1856,11 +1941,11 @@ Then write the Puerto Rican Spanish version with sazón.</div>
         <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line">Save the 5 card lines. <strong style="color:var(--sprout);">Next slide</strong>: paste them into Canva.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">22 / 46</div>
+    <div class="slide-number">23 / 46</div>
 </section>
 
 <!-- ========== NEW: CANVA PRODUCTION GUIDE — PAS CAROUSEL ========== -->
-<section class="slide" id="slide-23" data-notes="Now build the 5-card carousel in Canva. Open Canva. Create new design. Pick Instagram Post (square 1080x1080). You'll make 5 of them. Use the same template across all 5 — same font, same colors, same layout — only the text changes. Card 1 and 2 are the problem cards, use the muted/dark color of your brand. Card 3 is the agitate, go darker red or clay. Card 4 is the solution, switch to your brand sprout/green. Card 5 is the CTA, brightest version. Paste your AI prompt output one card at a time. Download as PNG. Upload all 5 to Meta in order. Five minutes per agent. We do this together right now.---Abre Canva. Crear nuevo. Instagram Post (1080). Cinco. Mismo template en los cinco. Solo el texto cambia. Pega cada card del AI output. Descarga. Sube los cinco a Meta en orden. Cinco minutos por agente.">
+<section class="slide" id="slide-24" data-notes="Now build the 5-card carousel in Canva. Open Canva. Create new design. Pick Instagram Post (square 1080x1080). You'll make 5 of them. Use the same template across all 5 — same font, same colors, same layout — only the text changes. Card 1 and 2 are the problem cards, use the muted/dark color of your brand. Card 3 is the agitate, go darker red or clay. Card 4 is the solution, switch to your brand sprout/green. Card 5 is the CTA, brightest version. Paste your AI prompt output one card at a time. Download as PNG. Upload all 5 to Meta in order. Five minutes per agent. We do this together right now.---Abre Canva. Crear nuevo. Instagram Post (1080). Cinco. Mismo template en los cinco. Solo el texto cambia. Pega cada card del AI output. Descarga. Sube los cinco a Meta en orden. Cinco minutos por agente.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Canva Production Guide &middot; PAS Carousel</div><h2 class="slide-title">5 Cards. <span style="color:var(--sprout);">5 Minutes.</span> One Template.</h2><p class="slide-body">Same template, color shifts as the story progresses. Paste your AI output card by card.</p></div>
         <div class="reveal-scale" style="transition-delay:0.2s;">
@@ -1895,11 +1980,11 @@ Then write the Puerto Rican Spanish version with sazón.</div>
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">23 / 46</div>
+    <div class="slide-number">24 / 46</div>
 </section>
 
 <!-- ========== SLIDE 24 — FAB APPLIED TO PEDRO ========== -->
-<section class="slide" id="slide-24" data-notes="FAB for my comparison-stage avatar. They're at KW, eXp, Real Broker, looking around. The video is 60 seconds. Three FAB triplets, fast. Feature one: live weekly training. Advantage: most brokerages do this once a quarter if at all. Benefit: every Tuesday they walk out with one thing they can use that week. Feature two: reKo accountability. Advantage: other brokerages track splits, we track behaviors. Benefit: they always know where they stand. Feature three: two markets, one curriculum, bilingual. Advantage: most brokers know one market and one language. Benefit: if their business moves, they can move with us. Notice the structure: every benefit is emotional or practical. Never abstract.---FAB pa mi avatar en comparacion. Estan en KW, eXp, Real Broker, mirando. El video es 60 segundos. Tres FAB triplets rapido. Cada beneficio es emocional o practico. Nunca abstracto.">
+<section class="slide" id="slide-25" data-notes="FAB for my comparison-stage avatar. They're at KW, eXp, Real Broker, looking around. The video is 60 seconds. Three FAB triplets, fast. Feature one: live weekly training. Advantage: most brokerages do this once a quarter if at all. Benefit: every Tuesday they walk out with one thing they can use that week. Feature two: reKo accountability. Advantage: other brokerages track splits, we track behaviors. Benefit: they always know where they stand. Feature three: two markets, one curriculum, bilingual. Advantage: most brokers know one market and one language. Benefit: if their business moves, they can move with us. Notice the structure: every benefit is emotional or practical. Never abstract.---FAB pa mi avatar en comparacion. Estan en KW, eXp, Real Broker, mirando. El video es 60 segundos. Tres FAB triplets rapido. Cada beneficio es emocional o practico. Nunca abstracto.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">FAB &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">Three Triplets. <span style="color:var(--sprout);">60 Seconds.</span> Done.</h2><p class="slide-body">For agents comparing brokerages. Each row earns the next.</p></div>
         <div class="fab-triplets reveal" style="transition-delay:0.15s;">
@@ -1925,11 +2010,11 @@ Then write the Puerto Rican Spanish version with sazón.</div>
         <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">Close: <em>"Comparing brokerages? DM me <strong style="color:var(--sprout);">COMPARE</strong> &mdash; I'll send the one-page breakdown."</em></div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">24 / 46</div>
+    <div class="slide-number">25 / 46</div>
 </section>
 
 <!-- ========== NEW: AI PROMPT — FAB SCRIPT FROM YOUR AVATAR ========== -->
-<section class="slide" id="slide-25" data-notes="The FAB script. This one is for warm comparison-stage audiences — people who are looking at other brokers or agents. Avatar required. Plus the avatar needs to include WHO they're comparing you against. Without that, FAB has nothing to differentiate from. Paste the prompt. Paste the avatar plus your top 3 features and what makes each one different. The AI will write 3 FAB triplets — Feature, Advantage, Benefit — that fit in 60 seconds. Save the output. You'll film it to the storyboard on the next slide.---El FAB script. Avatar requerido más con QUIÉN se está comparando. Sin eso, FAB no tiene diferenciador. Pega tu avatar más tus 3 features top. Tres FAB triplets. Sesenta segundos. Guarda. Próxima slide es la storyboard de filmación.">
+<section class="slide" id="slide-26" data-notes="The FAB script. This one is for warm comparison-stage audiences — people who are looking at other brokers or agents. Avatar required. Plus the avatar needs to include WHO they're comparing you against. Without that, FAB has nothing to differentiate from. Paste the prompt. Paste the avatar plus your top 3 features and what makes each one different. The AI will write 3 FAB triplets — Feature, Advantage, Benefit — that fit in 60 seconds. Save the output. You'll film it to the storyboard on the next slide.---El FAB script. Avatar requerido más con QUIÉN se está comparando. Sin eso, FAB no tiene diferenciador. Pega tu avatar más tus 3 features top. Tres FAB triplets. Sesenta segundos. Guarda. Próxima slide es la storyboard de filmación.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">AI Prompt &middot; FAB Script</div><h2 class="slide-title">Draft Your <span style="color:var(--sprout);">60-Sec FAB Script</span></h2><p class="slide-body">For comparison-stage audiences. Three FAB triplets, fast. Output goes to the filming storyboard next.</p></div>
         <div class="reveal" style="transition-delay:0.1s;">
@@ -1976,11 +2061,11 @@ Rules: each line says-able in 5 seconds. No jargon. Benefits are emotional or pr
         <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line">Save the 3 triplets + close. <strong style="color:var(--sprout);">Next slide</strong>: storyboard to film it.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">25 / 46</div>
+    <div class="slide-number">26 / 46</div>
 </section>
 
 <!-- ========== NEW: FAB FILMING STORYBOARD ========== -->
-<section class="slide" id="slide-26" data-notes="The storyboard. Four frames. Each one is what you film for that beat. Frame 1: the hook + first FAB triplet. Phone in portrait. You medium close-up. Look at camera. Read the F-A-B lines in 20 seconds. Frame 2: second triplet, same framing. Frame 3: third triplet. Frame 4: close. Look directly at camera and deliver the CTA. Tips for filming yourself: prop the phone at eye height, natural light from the front not behind, three takes per frame minimum. CapCut or InShot to edit them together. Add the on-screen text from your script. Boom — 60 seconds done.---La storyboard. Cuatro frames. Frame 1: hook + primer triplet. Eye height, luz natural, tres takes mínimo por frame. CapCut o InShot pa editar. Texto on-screen del script. 60 segundos.">
+<section class="slide" id="slide-27" data-notes="The storyboard. Four frames. Each one is what you film for that beat. Frame 1: the hook + first FAB triplet. Phone in portrait. You medium close-up. Look at camera. Read the F-A-B lines in 20 seconds. Frame 2: second triplet, same framing. Frame 3: third triplet. Frame 4: close. Look directly at camera and deliver the CTA. Tips for filming yourself: prop the phone at eye height, natural light from the front not behind, three takes per frame minimum. CapCut or InShot to edit them together. Add the on-screen text from your script. Boom — 60 seconds done.---La storyboard. Cuatro frames. Frame 1: hook + primer triplet. Eye height, luz natural, tres takes mínimo por frame. CapCut o InShot pa editar. Texto on-screen del script. 60 segundos.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">FAB Filming Storyboard &middot; 60s &middot; 9:16</div><h2 class="slide-title">Film It in <span style="color:var(--sprout);">4 Frames</span></h2><p class="slide-body">One beat per frame. Three takes each. Edit together in CapCut.</p></div>
         <div class="storyboard-row">
@@ -2025,11 +2110,11 @@ Rules: each line says-able in 5 seconds. No jargon. Benefits are emotional or pr
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">26 / 46</div>
+    <div class="slide-number">27 / 46</div>
 </section>
 
 <!-- ========== NEW: ADS MANAGER — WARM · SCREEN 1 (OBJECTIVE + CUSTOM AUDIENCES) ========== -->
-<section class="slide" id="slide-27" data-notes="Warm campaign. Screen 1. New campaign. Pick objective Leads. The warm audience is mature enough to fill out a form or click through to Calendly. Special Ad Category is still Housing — declare it again. Name this campaign 02 Warm with your avatar and PAS+FAB. Now the magic move: create the warm custom audience BEFORE you build the ad set. Go to Audiences, click Create Custom Audience, pick from Sources: Instagram engagement plus Facebook engagement plus video viewers. 90 days. Save it as Warm-Engagers-90d. Come back here. That's the audience you'll target in screen 2.---Warm campaign. Pantalla 1. Objetivo: Leads. SAC: Housing. Nombre: 02 Warm avatar PAS+FAB. Antes de continuar, crea el custom audience: Audiences > Custom > IG + FB engagement + video viewers 90d. Guárdalo Warm-Engagers-90d. Regresa.">
+<section class="slide" id="slide-28" data-notes="Warm campaign. Screen 1. New campaign. Pick objective Leads. The warm audience is mature enough to fill out a form or click through to Calendly. Special Ad Category is still Housing — declare it again. Name this campaign 02 Warm with your avatar and PAS+FAB. Now the magic move: create the warm custom audience BEFORE you build the ad set. Go to Audiences, click Create Custom Audience, pick from Sources: Instagram engagement plus Facebook engagement plus video viewers. 90 days. Save it as Warm-Engagers-90d. Come back here. That's the audience you'll target in screen 2.---Warm campaign. Pantalla 1. Objetivo: Leads. SAC: Housing. Nombre: 02 Warm avatar PAS+FAB. Antes de continuar, crea el custom audience: Audiences > Custom > IG + FB engagement + video viewers 90d. Guárdalo Warm-Engagers-90d. Regresa.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Ads Manager &middot; Warm Campaign &middot; Screen 1 / 3</div><h2 class="slide-title">Objective + Build Your <span style="color:var(--sprout);">Warm Custom Audience</span></h2><p class="slide-body">Build the custom audience BEFORE the ad set, not during. Saves 5 minutes per campaign.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -2087,11 +2172,11 @@ Rules: each line says-able in 5 seconds. No jargon. Benefits are emotional or pr
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">27 / 46</div>
+    <div class="slide-number">28 / 46</div>
 </section>
 
 <!-- ========== NEW: ADS MANAGER — WARM · SCREEN 2 (TWO AD SETS: PAS + FAB) ========== -->
-<section class="slide" id="slide-28" data-notes="Screen 2. Two ad sets inside the warm campaign. One for PAS, one for FAB. Why two ad sets in the same campaign? Same audience but different framework — and Meta will tell you which one converts better. You're A/B testing the framework. Both ad sets use the Warm-Engagers-90d audience. Both exclude converted-and-booked. Budget split: 60 dollars on PAS, 40 dollars on FAB, or whatever ratio your gut says. After 7 days the winner gets more.---Pantalla 2. Dos ad sets en la misma campaña. Una pa PAS, una pa FAB. Misma audiencia, framework diferente. Meta te dice cuál convierte mejor. Ambos excluyen booked. Split 60/40 PAS/FAB. Después de 7 días el ganador escala.">
+<section class="slide" id="slide-29" data-notes="Screen 2. Two ad sets inside the warm campaign. One for PAS, one for FAB. Why two ad sets in the same campaign? Same audience but different framework — and Meta will tell you which one converts better. You're A/B testing the framework. Both ad sets use the Warm-Engagers-90d audience. Both exclude converted-and-booked. Budget split: 60 dollars on PAS, 40 dollars on FAB, or whatever ratio your gut says. After 7 days the winner gets more.---Pantalla 2. Dos ad sets en la misma campaña. Una pa PAS, una pa FAB. Misma audiencia, framework diferente. Meta te dice cuál convierte mejor. Ambos excluyen booked. Split 60/40 PAS/FAB. Después de 7 días el ganador escala.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Ads Manager &middot; Warm Campaign &middot; Screen 2 / 3</div><h2 class="slide-title">Two Ad Sets &mdash; <span style="color:var(--sprout);">PAS vs FAB</span></h2><p class="slide-body">Same audience, different framework. Meta tells you which one converts. A/B inside the campaign.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -2152,11 +2237,11 @@ Rules: each line says-able in 5 seconds. No jargon. Benefits are emotional or pr
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">28 / 46</div>
+    <div class="slide-number">29 / 46</div>
 </section>
 
 <!-- ========== NEW: ADS MANAGER — WARM · SCREEN 3 (CREATIVE UPLOAD + PUBLISH) ========== -->
-<section class="slide" id="slide-29" data-notes="Screen 3. Upload the carousel for ad set A. Five PNGs from Canva, in order 1 through 5. Caption from your AI prompt output. CTA button: Book Now. Destination: your Calendly URL. Upload the FAB video for ad set B. MP4, 60 seconds, 9:16. Caption from your AI prompt output. CTA button: Send Message. Destination: ManyChat with COMPARE keyword. Review both ads. Hit Publish.---Pantalla 3. Sube los 5 PNGs en orden pa el carousel ad set A. Caption del AI. CTA: Book Now → Calendly. Sube el video FAB pa ad set B. Caption del AI. CTA: Send Message → ManyChat COMPARE. Revisa. Publica.">
+<section class="slide" id="slide-30" data-notes="Screen 3. Upload the carousel for ad set A. Five PNGs from Canva, in order 1 through 5. Caption from your AI prompt output. CTA button: Book Now. Destination: your Calendly URL. Upload the FAB video for ad set B. MP4, 60 seconds, 9:16. Caption from your AI prompt output. CTA button: Send Message. Destination: ManyChat with COMPARE keyword. Review both ads. Hit Publish.---Pantalla 3. Sube los 5 PNGs en orden pa el carousel ad set A. Caption del AI. CTA: Book Now → Calendly. Sube el video FAB pa ad set B. Caption del AI. CTA: Send Message → ManyChat COMPARE. Revisa. Publica.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Ads Manager &middot; Warm Campaign &middot; Screen 3 / 3</div><h2 class="slide-title">Upload Both Creatives + <span class="stroke stroke--sprout">Publish<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Carousel + video. Same campaign, two ads, two CTAs. Hit Publish.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -2219,11 +2304,11 @@ Rules: each line says-able in 5 seconds. No jargon. Benefits are emotional or pr
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">29 / 46</div>
+    <div class="slide-number">30 / 46</div>
 </section>
 
 <!-- ========== SLIDE 30 — IDCA EXPLAINED ========== -->
-<section class="slide" id="slide-30" data-notes="IDCA is the retargeting framework. The audience is people who saw your stuff but didn't convert. They watched the video but didn't book. Visited the Calendly but bounced. Commented but never replied. The whole game is acknowledging that and breaking the pattern. IDENTIFY: name them by behavior. DISRUPT: break their assumption — usually that it's a sales pitch. COMPEL: give them the real reason to act now. ACT: make the next step tiny. Notice — this is very different from AIDA which assumes they don't know you. IDCA assumes they know you and need a different push.---IDCA es el framework de retargeting. La audiencia son los que vieron tu stuff pero no convirtieron. Identifica, Disrumpe, Compele, Actua. Bien diferente de AIDA — IDCA asume que ya te conocen y necesitan un empujon diferente.">
+<section class="slide" id="slide-31" data-notes="IDCA is the retargeting framework. The audience is people who saw your stuff but didn't convert. They watched the video but didn't book. Visited the Calendly but bounced. Commented but never replied. The whole game is acknowledging that and breaking the pattern. IDENTIFY: name them by behavior. DISRUPT: break their assumption — usually that it's a sales pitch. COMPEL: give them the real reason to act now. ACT: make the next step tiny. Notice — this is very different from AIDA which assumes they don't know you. IDCA assumes they know you and need a different push.---IDCA es el framework de retargeting. La audiencia son los que vieron tu stuff pero no convirtieron. Identifica, Disrumpe, Compele, Actua. Bien diferente de AIDA — IDCA asume que ya te conocen y necesitan un empujon diferente.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Retargeting &middot; Re-engagement</div><h2 class="slide-title">IDCA &mdash; for People Who Already <span class="stroke stroke--sprout">Saw You<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">They watched. They visited. They didn't act. IDCA acknowledges that and breaks the pattern.</p></div>
         <div class="fw-circles">
@@ -2235,11 +2320,11 @@ Rules: each line says-able in 5 seconds. No jargon. Benefits are emotional or pr
         <div class="reveal" style="transition-delay:0.75s;"><div class="callout-line">AIDA assumes they don't know you. <strong style="color:var(--sprout);">IDCA</strong> assumes they do &mdash; and need a different push.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">30 / 46</div>
+    <div class="slide-number">31 / 46</div>
 </section>
 
 <!-- ========== SLIDE 22 — IDCA APPLIED TO PEDRO ========== -->
-<section class="slide" id="slide-31" data-notes="IDCA applied to my avatar. The retargeting ad runs to agents who watched 50 to 75 percent of my AIDA or FAB video but didn't comment, plus people who visited my Calendly page and didn't book. IDENTIFY: hey you watched my last video and didn't book the call. DISRUPT: I don't recruit. I don't pitch. The call is 20 minutes. If reThought isn't right for you I'll tell you in the first 10. COMPEL: but if you're already losing weekends figuring this out alone you owe yourself the conversation. ACT: link in bio or comment NOW. Notice the disrupt — I admit they were probably expecting a pitch and reframe the call as a gift. That's what unlocks them.---IDCA aplicado a mi avatar. Identifica por comportamiento, disrumpe la expectativa de pitch, compele con loss-frame, action tiny. El disrupt es la llave — admito que esperaban pitch y reframe el call como un regalo.">
+<section class="slide" id="slide-32" data-notes="IDCA applied to my avatar. The retargeting ad runs to agents who watched 50 to 75 percent of my AIDA or FAB video but didn't comment, plus people who visited my Calendly page and didn't book. IDENTIFY: hey you watched my last video and didn't book the call. DISRUPT: I don't recruit. I don't pitch. The call is 20 minutes. If reThought isn't right for you I'll tell you in the first 10. COMPEL: but if you're already losing weekends figuring this out alone you owe yourself the conversation. ACT: link in bio or comment NOW. Notice the disrupt — I admit they were probably expecting a pitch and reframe the call as a gift. That's what unlocks them.---IDCA aplicado a mi avatar. Identifica por comportamiento, disrumpe la expectativa de pitch, compele con loss-frame, action tiny. El disrupt es la llave — admito que esperaban pitch y reframe el call como un regalo.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">IDCA &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">Breaking the Pattern of "I'll Book Later"</h2></div>
         <div class="two-col" style="align-items:start;">
@@ -2263,11 +2348,11 @@ Rules: each line says-able in 5 seconds. No jargon. Benefits are emotional or pr
         <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">The <strong style="color:var(--sprout);">Disrupt</strong> is the key. Admit they expected a pitch &mdash; reframe the call as a gift.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">31 / 46</div>
+    <div class="slide-number">32 / 46</div>
 </section>
 
 <!-- ========== IDCA SECTION CONTINUES ========== -->
-<section class="slide" id="slide-32" data-notes="The full IDCA ad I run for retargeting. Fifteen seconds. The visual is just me talking directly to camera — no graphics. Different from the AIDA ad which has on-screen text and motion. Same Pedro, different intimacy. The CTA splits two ways: a calendly link in bio for people who want the easy path, plus a NOW comment trigger for people who like the AIDA-style comment-to-DM flow. Splitting the CTA catches both behaviors.---El IDCA ad completo. 15 segundos, yo directo a la camara, sin graphics. Diferente del AIDA que tiene text on-screen. Misma persona, intimidad diferente. El CTA se divide: link en bio pa los que prefieren ese path, comment NOW pa los que prefieren DM flow. Dividir el CTA captura ambos comportamientos.">
+<section class="slide" id="slide-33" data-notes="The full IDCA ad I run for retargeting. Fifteen seconds. The visual is just me talking directly to camera — no graphics. Different from the AIDA ad which has on-screen text and motion. Same Pedro, different intimacy. The CTA splits two ways: a calendly link in bio for people who want the easy path, plus a NOW comment trigger for people who like the AIDA-style comment-to-DM flow. Splitting the CTA catches both behaviors.---El IDCA ad completo. 15 segundos, yo directo a la camara, sin graphics. Diferente del AIDA que tiene text on-screen. Misma persona, intimidad diferente. El CTA se divide: link en bio pa los que prefieren ese path, comment NOW pa los que prefieren DM flow. Dividir el CTA captura ambos comportamientos.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Pedro's Full IDCA Ad &middot; Retargeting</div><h2 class="slide-title">The Retarget <span style="color:var(--sprout);">in the Wild</span></h2></div>
         <div class="two-col" style="align-items:center;">
@@ -2306,11 +2391,11 @@ Rules: each line says-able in 5 seconds. No jargon. Benefits are emotional or pr
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">32 / 46</div>
+    <div class="slide-number">33 / 46</div>
 </section>
 
 <!-- ========== NEW: AI PROMPT — IDCA SCRIPT FROM YOUR AVATAR ========== -->
-<section class="slide" id="slide-33" data-notes="IDCA script. Avatar required again. This one also needs the warm campaign creative because the IDCA Disrupt line acknowledges that warm ad: you watched my video and didn't book. Paste avatar, paste the cold AIDA and warm PAS/FAB summaries, paste the assumption you want to break. Run. The AI gives you a 15-second script that acknowledges, disrupts, compels, and asks for one tap. Save it. Storyboard is next.---IDCA script. Avatar más cold y warm creative. Plus la asunción que quieres romper. 15 segundos. Identifica, Disrumpe, Compele, Actúa. Guarda. Storyboard sigue.">
+<section class="slide" id="slide-34" data-notes="IDCA script. Avatar required again. This one also needs the warm campaign creative because the IDCA Disrupt line acknowledges that warm ad: you watched my video and didn't book. Paste avatar, paste the cold AIDA and warm PAS/FAB summaries, paste the assumption you want to break. Run. The AI gives you a 15-second script that acknowledges, disrupts, compels, and asks for one tap. Save it. Storyboard is next.---IDCA script. Avatar más cold y warm creative. Plus la asunción que quieres romper. 15 segundos. Identifica, Disrumpe, Compele, Actúa. Guarda. Storyboard sigue.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">AI Prompt &middot; IDCA Retargeting Script</div><h2 class="slide-title">Draft Your <span style="color:var(--sprout);">15-Sec IDCA Script</span></h2><p class="slide-body">For people who saw your warm ad and didn't act. Acknowledge it. Break the pattern.</p></div>
         <div class="reveal" style="transition-delay:0.1s;">
@@ -2354,11 +2439,11 @@ Rules: direct-to-camera tone. Conversational, not scripted-sounding. Then write 
         <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line">Save the 4 beats. <strong style="color:var(--sprout);">Next slide</strong>: storyboard to film 15 seconds, you on camera.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">33 / 46</div>
+    <div class="slide-number">34 / 46</div>
 </section>
 
 <!-- ========== NEW: IDCA FILMING STORYBOARD (15-SEC) ========== -->
-<section class="slide" id="slide-34" data-notes="IDCA storyboard. Four frames, 15 seconds total. Frame 1: Identify, 0-3s. Frame 2: Disrupt, 3-8s. Frame 3: Compel, 8-12s. Frame 4: Act, 12-15s. This video is intimate. Tighter close-up than the FAB. No graphics. Just you, direct to camera, low-key. The whole feeling has to be different from the warm ad they already saw because Meta serves them BOTH and they will pattern-match. Different angle, different lighting, different background even. Three takes per frame. CapCut. Done.---IDCA storyboard. Cuatro frames, 15 segundos. Más íntimo que el FAB. Más close-up. Sin gráficos. Tú directo a cámara. Diferente del warm ad. Tres takes por frame.">
+<section class="slide" id="slide-35" data-notes="IDCA storyboard. Four frames, 15 seconds total. Frame 1: Identify, 0-3s. Frame 2: Disrupt, 3-8s. Frame 3: Compel, 8-12s. Frame 4: Act, 12-15s. This video is intimate. Tighter close-up than the FAB. No graphics. Just you, direct to camera, low-key. The whole feeling has to be different from the warm ad they already saw because Meta serves them BOTH and they will pattern-match. Different angle, different lighting, different background even. Three takes per frame. CapCut. Done.---IDCA storyboard. Cuatro frames, 15 segundos. Más íntimo que el FAB. Más close-up. Sin gráficos. Tú directo a cámara. Diferente del warm ad. Tres takes por frame.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">IDCA Filming Storyboard &middot; 15s &middot; 9:16</div><h2 class="slide-title">Film It in <span style="color:var(--sprout);">15 Seconds Flat</span></h2><p class="slide-body">Tight close-up. Direct to camera. Different angle than your warm ad &mdash; pattern-breaking matters.</p></div>
         <div class="storyboard-row">
@@ -2403,11 +2488,11 @@ Rules: direct-to-camera tone. Conversational, not scripted-sounding. Then write 
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">34 / 46</div>
+    <div class="slide-number">35 / 46</div>
 </section>
 
 <!-- ========== NEW: ADS MANAGER — RETARGET · SCREEN 1 (CONVERSIONS + LAYERED EXCLUSIONS) ========== -->
-<section class="slide" id="slide-35" data-notes="Retarget campaign. Screen 1. Create campaign. Objective: Conversions. This optimizes for the click-and-book on Calendly. Special Ad Category: still Housing. Campaign name: 03 Retarget avatar IDCA. Then the audience math. Custom audience: video viewers 50-75% of warm video plus Calendly visitors who didn't book. Exclude: anyone who already booked OR who is in your client pipeline OR who unfollowed. This is the tightest audience of all three campaigns and that's correct. You want maybe 500-2000 people max here. Anything bigger means your funnel is leaking earlier.---Retarget. Objetivo: Conversions. SAC: Housing. Nombre: 03 Retarget IDCA. Custom audience: 50-75% video viewers warm + Calendly visitors no booked. Excluir: booked + clientes activos + unfollowers. La audiencia más tight de las tres. 500-2000 personas máximo.">
+<section class="slide" id="slide-36" data-notes="Retarget campaign. Screen 1. Create campaign. Objective: Conversions. This optimizes for the click-and-book on Calendly. Special Ad Category: still Housing. Campaign name: 03 Retarget avatar IDCA. Then the audience math. Custom audience: video viewers 50-75% of warm video plus Calendly visitors who didn't book. Exclude: anyone who already booked OR who is in your client pipeline OR who unfollowed. This is the tightest audience of all three campaigns and that's correct. You want maybe 500-2000 people max here. Anything bigger means your funnel is leaking earlier.---Retarget. Objetivo: Conversions. SAC: Housing. Nombre: 03 Retarget IDCA. Custom audience: 50-75% video viewers warm + Calendly visitors no booked. Excluir: booked + clientes activos + unfollowers. La audiencia más tight de las tres. 500-2000 personas máximo.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Ads Manager &middot; Retarget &middot; Screen 1 / 2</div><h2 class="slide-title">Conversions Objective + <span style="color:var(--sprout);">Layered Exclusions</span></h2><p class="slide-body">Tightest audience of all three. 500&ndash;2,000 people max. Bigger = funnel is leaking earlier.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -2469,11 +2554,11 @@ Rules: direct-to-camera tone. Conversational, not scripted-sounding. Then write 
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">35 / 46</div>
+    <div class="slide-number">36 / 46</div>
 </section>
 
 <!-- ========== NEW: ADS MANAGER — RETARGET · SCREEN 2 (CREATIVE + PUBLISH) ========== -->
-<section class="slide" id="slide-36" data-notes="Screen 2. Upload your IDCA video. 15 seconds. 9:16. Caption pulled from your AI prompt output — but trim it shorter than the warm ad caption. Retarget audiences scroll fast and have already seen you. Long caption hurts. CTA button: Send Message — but you set up a dual-path: link in bio for Calendly direct, comment NOW for ManyChat. Review. Publish. Campaign 3 is live. You now have three campaigns running with proper exclusion architecture. Cold feeds warm. Warm feeds retarget. Retarget excludes converters. The whole funnel is alive.---Pantalla 2. Sube el video IDCA. Caption corto del AI. Dual CTA. Revisa. Publica. Campaña 3 viva. Tres campañas. Cold → warm → retarget. Funnel completo.">
+<section class="slide" id="slide-37" data-notes="Screen 2. Upload your IDCA video. 15 seconds. 9:16. Caption pulled from your AI prompt output — but trim it shorter than the warm ad caption. Retarget audiences scroll fast and have already seen you. Long caption hurts. CTA button: Send Message — but you set up a dual-path: link in bio for Calendly direct, comment NOW for ManyChat. Review. Publish. Campaign 3 is live. You now have three campaigns running with proper exclusion architecture. Cold feeds warm. Warm feeds retarget. Retarget excludes converters. The whole funnel is alive.---Pantalla 2. Sube el video IDCA. Caption corto del AI. Dual CTA. Revisa. Publica. Campaña 3 viva. Tres campañas. Cold → warm → retarget. Funnel completo.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Ads Manager &middot; Retarget &middot; Screen 2 / 2</div><h2 class="slide-title">Upload IDCA + <span class="stroke stroke--sprout">Publish<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Last campaign. Short caption, dual CTA, frequency-capped. Hit Publish.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -2532,11 +2617,11 @@ Rules: direct-to-camera tone. Conversational, not scripted-sounding. Then write 
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">36 / 46</div>
+    <div class="slide-number">37 / 46</div>
 </section>
 
 <!-- ========== SLIDE 37 — SCIPAB EXPLAINED ========== -->
-<section class="slide" id="slide-37" data-notes="SCIPAB. Situation, Complication, Implication, Position, Action, Benefit. This is the framework for follow-up — emails, texts, DMs after the lead enters your system. It works because it never feels like a pitch. You start by naming where they are. You acknowledge the friction. You point at the cost of not fixing it. You position your offer. You ask one small action. You name what they get for it. The whole structure is built on the idea that the conversation is the bridge — not the ad. So the message has to feel human, not transactional. Six pieces. Every follow-up I send has all six.---SCIPAB. Situation, Complication, Implication, Position, Action, Benefit. Framework pa follow-up — emails, texts, DMs. Funciona porque nunca se siente como pitch. Empiezas nombrando donde estan. Reconoces la friccion. Apuntas el costo de no arreglarlo. Posicionas tu oferta. Pides una accion chiquita. Nombras el beneficio. Seis piezas. Cada follow-up lleva las seis.">
+<section class="slide" id="slide-38" data-notes="SCIPAB. Situation, Complication, Implication, Position, Action, Benefit. This is the framework for follow-up — emails, texts, DMs after the lead enters your system. It works because it never feels like a pitch. You start by naming where they are. You acknowledge the friction. You point at the cost of not fixing it. You position your offer. You ask one small action. You name what they get for it. The whole structure is built on the idea that the conversation is the bridge — not the ad. So the message has to feel human, not transactional. Six pieces. Every follow-up I send has all six.---SCIPAB. Situation, Complication, Implication, Position, Action, Benefit. Framework pa follow-up — emails, texts, DMs. Funciona porque nunca se siente como pitch. Empiezas nombrando donde estan. Reconoces la friccion. Apuntas el costo de no arreglarlo. Posicionas tu oferta. Pides una accion chiquita. Nombras el beneficio. Seis piezas. Cada follow-up lleva las seis.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Follow-Up &middot; The Conversation Layer</div><h2 class="slide-title">SCIPAB &mdash; the Framework for <span class="stroke stroke--sprout">Texts &amp; Emails<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Six pieces. The whole structure assumes the conversation is the bridge &mdash; not the ad.</p></div>
         <div class="fw-rows reveal" style="transition-delay:0.15s;">
@@ -2549,11 +2634,11 @@ Rules: direct-to-camera tone. Conversational, not scripted-sounding. Then write 
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">37 / 46</div>
+    <div class="slide-number">38 / 46</div>
 </section>
 
 <!-- ========== SLIDE 26 — SCIPAB APPLIED TO PEDRO ========== -->
-<section class="slide" id="slide-38" data-notes="Three messages. First text five minutes after they comment SYSTEMS. I name the situation, name the complication that the curriculum looks the same to everyone but the first month doesn't have to, point at the implication of wasting that month, position myself as having the right one, ask them to reply with a number plus market, promise the right material. Twenty four hour email if they don't reply: same SCIPAB structure rebuilt for email. Seven day text if they still don't reply: shorter, lower-pressure, last touch. Notice the same six pieces in every message. The pattern is constant. The content changes.---Tres mensajes. Primer text a los 5 minutos despues que comentan SYSTEMS. Email a las 24 horas si no responden. Text a los 7 dias si todavia no responden. Las mismas seis piezas en cada mensaje. El patron es constante. El contenido cambia.">
+<section class="slide" id="slide-39" data-notes="Three messages. First text five minutes after they comment SYSTEMS. I name the situation, name the complication that the curriculum looks the same to everyone but the first month doesn't have to, point at the implication of wasting that month, position myself as having the right one, ask them to reply with a number plus market, promise the right material. Twenty four hour email if they don't reply: same SCIPAB structure rebuilt for email. Seven day text if they still don't reply: shorter, lower-pressure, last touch. Notice the same six pieces in every message. The pattern is constant. The content changes.---Tres mensajes. Primer text a los 5 minutos despues que comentan SYSTEMS. Email a las 24 horas si no responden. Text a los 7 dias si todavia no responden. Las mismas seis piezas en cada mensaje. El patron es constante. El contenido cambia.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">SCIPAB &middot; Applied to Pedro's Avatar</div><h2 class="slide-title">Three Messages. <span style="color:var(--sprout);">One Framework.</span></h2><p class="slide-body">5-minute text &rarr; 24-hour email &rarr; 7-day check-in. All six pieces in every message.</p></div>
         <div class="three-col">
@@ -2589,11 +2674,11 @@ Rules: direct-to-camera tone. Conversational, not scripted-sounding. Then write 
         <div class="reveal" style="transition-delay:0.65s;"><div class="callout-line">Three touches. Three frames of the same question. <strong style="color:var(--sprout);">Conversation, not pitch.</strong></div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">38 / 46</div>
+    <div class="slide-number">39 / 46</div>
 </section>
 
 <!-- ========== NEW: AI PROMPT — SCIPAB SEQUENCE ========== -->
-<section class="slide" id="slide-39" data-notes="Last prompt. SCIPAB follow-up sequence. Avatar required again — without it the follow-up sounds like every other generic agent. Plus you need to give the AI what offer they responded to from the cold ad so the SCIPAB Situation beat references it. Three messages: 5-min text, 24-hour email, 7-day check-in. All six SCIPAB pieces in each message. Save the output. Paste each one into your CRM as a scheduled follow-up template.---Último prompt. SCIPAB sequence. Avatar más oferta del cold ad. Tres mensajes: 5-min text, 24-hr email, 7-day check-in. Seis piezas en cada uno. Guarda. Pega en tu CRM como templates programados.">
+<section class="slide" id="slide-40" data-notes="Last prompt. SCIPAB follow-up sequence. Avatar required again — without it the follow-up sounds like every other generic agent. Plus you need to give the AI what offer they responded to from the cold ad so the SCIPAB Situation beat references it. Three messages: 5-min text, 24-hour email, 7-day check-in. All six SCIPAB pieces in each message. Save the output. Paste each one into your CRM as a scheduled follow-up template.---Último prompt. SCIPAB sequence. Avatar más oferta del cold ad. Tres mensajes: 5-min text, 24-hr email, 7-day check-in. Seis piezas en cada uno. Guarda. Pega en tu CRM como templates programados.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">AI Prompt &middot; SCIPAB Follow-Up Sequence</div><h2 class="slide-title">Draft Your <span style="color:var(--sprout);">3-Touch SCIPAB Sequence</span></h2><p class="slide-body">5-min text &rarr; 24-hr email &rarr; 7-day check-in. All six pieces in every message.</p></div>
         <div class="reveal" style="transition-delay:0.1s;">
@@ -2643,11 +2728,11 @@ Rules: under 90 words each. Conversational. No "circling back." Then Puerto Rica
         <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line">Paste each output into your CRM as a scheduled template. <strong style="color:var(--sprout);">Speed kills competitors.</strong></div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">39 / 46</div>
+    <div class="slide-number">40 / 46</div>
 </section>
 
 <!-- ========== SLIDE 40 — FOLLOW-UP RHYTHM ========== -->
-<section class="slide" id="slide-40" data-notes="The follow-up rhythm. Five minutes — text, call, email if you have it. Triple touch. Speed is the single biggest lever. Twenty four hours — second touch with the resource and the SCIPAB question. Seven days — the lower-pressure check-in. Thirty days — nurture campaign. Live training reminders. New videos. Education emails. The agents who win at Meta ads aren't the ones with the cheapest leads. They're the ones with the fastest, most human follow-up. Same lesson whether your avatar is an agent or a homebuyer.---El ritmo de follow-up. Cinco minutos: text, call, email. Triple touch. La velocidad es la palanca mas grande. Veinte cuatro horas: el SCIPAB email. Siete dias: el check-in low-pressure. Treinta dias: nurture campaign. Los que ganan no son los del lead mas barato — son los del follow-up mas rapido y mas humano.">
+<section class="slide" id="slide-41" data-notes="The follow-up rhythm. Five minutes — text, call, email if you have it. Triple touch. Speed is the single biggest lever. Twenty four hours — second touch with the resource and the SCIPAB question. Seven days — the lower-pressure check-in. Thirty days — nurture campaign. Live training reminders. New videos. Education emails. The agents who win at Meta ads aren't the ones with the cheapest leads. They're the ones with the fastest, most human follow-up. Same lesson whether your avatar is an agent or a homebuyer.---El ritmo de follow-up. Cinco minutos: text, call, email. Triple touch. La velocidad es la palanca mas grande. Veinte cuatro horas: el SCIPAB email. Siete dias: el check-in low-pressure. Treinta dias: nurture campaign. Los que ganan no son los del lead mas barato — son los del follow-up mas rapido y mas humano.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">The Follow-Up Rhythm</div><h2 class="slide-title">Speed Is the <span class="stroke stroke--sprout">Single Biggest Lever<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Same cadence whether your avatar is an agent, a buyer, or a seller.</p></div>
         <div class="two-col" style="align-items:start;">
@@ -2673,11 +2758,11 @@ Rules: under 90 words each. Conversational. No "circling back." Then Puerto Rica
         </div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">40 / 46</div>
+    <div class="slide-number">41 / 46</div>
 </section>
 
 <!-- ========== SLIDE 28 — REAL SCOREBOARD ========== -->
-<section class="slide" id="slide-41" data-notes="The scoreboard. Likes are nice. Comments are useful. Views can help. But the real scoreboard is six numbers. Cost per lead. Lead quality. Speed to lead. Response rate. Appointment rate. Conversion rate. A cheap lead that never responds is not cheap. An expensive lead that becomes a client is very profitable. Track what happens AFTER the lead enters the system.---El scoreboard. Likes son chevere. Pero el scoreboard real son seis numeros. Cost per lead, lead quality, speed to lead, response rate, appointment rate, conversion rate. Trackeen que pasa DESPUES que el lead entra al sistema.">
+<section class="slide" id="slide-42" data-notes="The scoreboard. Likes are nice. Comments are useful. Views can help. But the real scoreboard is six numbers. Cost per lead. Lead quality. Speed to lead. Response rate. Appointment rate. Conversion rate. A cheap lead that never responds is not cheap. An expensive lead that becomes a client is very profitable. Track what happens AFTER the lead enters the system.---El scoreboard. Likes son chevere. Pero el scoreboard real son seis numeros. Cost per lead, lead quality, speed to lead, response rate, appointment rate, conversion rate. Trackeen que pasa DESPUES que el lead entra al sistema.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">What Numbers Actually Matter</div><h2 class="slide-title">Don't Get Distracted by Vanity Metrics</h2><p class="slide-body">Likes feel good. The scoreboard below is what tells you whether the campaign is working.</p></div>
         <div class="metric-grid">
@@ -2691,11 +2776,11 @@ Rules: under 90 words each. Conversational. No "circling back." Then Puerto Rica
         <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line">A <strong style="color:var(--clay-soft);">cheap lead</strong> that never responds is not cheap. An <strong style="color:var(--sprout);">expensive lead</strong> that becomes a client is very profitable.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">41 / 46</div>
+    <div class="slide-number">42 / 46</div>
 </section>
 
 <!-- ========== SLIDE 29 — PEDRO'S FULL CAMPAIGN ONE-PAGER ========== -->
-<section class="slide" id="slide-42" data-notes="Here is my full campaign as one page. Four stages. Four frameworks. One avatar. Top: AIDA video drives engaged comments via SYSTEMS keyword. Middle: PAS carousel plus FAB video to warm engagers. Retargeting: IDCA short video to people who watched but didn't book. Follow-up: SCIPAB messages across 5 minutes, 24 hours, 7 days. Same avatar through every stage. Different conversation at every stage. That's the whole system. You're going to build the same shape — different avatar, different offers.---Aqui esta mi campana completa en una pagina. Cuatro etapas, cuatro frameworks, un avatar. Mismo avatar en todas las etapas. Conversacion diferente en cada una. Ese es el sistema entero. Ustedes van a construir la misma forma — avatar diferente, ofertas diferentes.">
+<section class="slide" id="slide-43" data-notes="Here is my full campaign as one page. Four stages. Four frameworks. One avatar. Top: AIDA video drives engaged comments via SYSTEMS keyword. Middle: PAS carousel plus FAB video to warm engagers. Retargeting: IDCA short video to people who watched but didn't book. Follow-up: SCIPAB messages across 5 minutes, 24 hours, 7 days. Same avatar through every stage. Different conversation at every stage. That's the whole system. You're going to build the same shape — different avatar, different offers.---Aqui esta mi campana completa en una pagina. Cuatro etapas, cuatro frameworks, un avatar. Mismo avatar en todas las etapas. Conversacion diferente en cada una. Ese es el sistema entero. Ustedes van a construir la misma forma — avatar diferente, ofertas diferentes.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">Pedro's Full Campaign &middot; One Page</div><h2 class="slide-title">The Whole <span style="color:var(--sprout);">System</span> in 4 Boxes</h2><p class="slide-body">One avatar. Four stages. Four frameworks. Different conversation at every stage.</p></div>
         <div class="onepager-funnel">
@@ -2727,11 +2812,11 @@ Rules: under 90 words each. Conversational. No "circling back." Then Puerto Rica
         <div class="reveal" style="transition-delay:0.75s;"><div class="callout-line">One avatar. Four frameworks. <strong style="color:var(--sprout);">Different conversation at every stage.</strong> Build the same shape for your buyer or seller avatar.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">42 / 46</div>
+    <div class="slide-number">43 / 46</div>
 </section>
 
 <!-- ========== NEW: AI PROMPT LIBRARY — ALL 5 PROMPTS ========== -->
-<section class="slide" id="slide-43" data-notes="Save this slide. This is your prompt library. Five prompts. One for every framework. Avatar-locked, all of them. AIDA for cold. PAS for warm pain-aware. FAB for warm comparison. IDCA for retargeting. SCIPAB for follow-up. You will run these 50, 100, 200 times across the next year for every campaign you build. The pattern stays the same — only the avatar and offer change. Bookmark this slide. Screenshot it. Share it with your virtual assistant. The strategist is you. The typist is the AI.---Guarda esta slide. Tu prompt library. Cinco prompts. Uno por framework. Avatar-locked. Los vas a correr 50, 100, 200 veces. El patrón es constante. Solo el avatar y el offer cambian. Estratega: tú. Typist: el AI.">
+<section class="slide" id="slide-44" data-notes="Save this slide. This is your prompt library. Five prompts. One for every framework. Avatar-locked, all of them. AIDA for cold. PAS for warm pain-aware. FAB for warm comparison. IDCA for retargeting. SCIPAB for follow-up. You will run these 50, 100, 200 times across the next year for every campaign you build. The pattern stays the same — only the avatar and offer change. Bookmark this slide. Screenshot it. Share it with your virtual assistant. The strategist is you. The typist is the AI.---Guarda esta slide. Tu prompt library. Cinco prompts. Uno por framework. Avatar-locked. Los vas a correr 50, 100, 200 veces. El patrón es constante. Solo el avatar y el offer cambian. Estratega: tú. Typist: el AI.">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label">AI Prompt Library &middot; Save This Slide</div><h2 class="slide-title">5 Avatar-Locked Prompts. <span style="color:var(--sprout);">Reusable Forever.</span></h2><p class="slide-body">Every campaign, every avatar, every market. Same 5 prompts. Only the inputs change.</p></div>
         <div class="prompt-library-grid">
@@ -2769,11 +2854,11 @@ Rules: under 90 words each. Conversational. No "circling back." Then Puerto Rica
         <div class="reveal" style="transition-delay:0.7s;"><div class="callout-line">The strategist is <strong>you</strong>. The typist is the AI. Without your avatar, every prompt fails. <strong style="color:var(--sprout);">Strategist's job.</strong></div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">43 / 46</div>
+    <div class="slide-number">44 / 46</div>
 </section>
 
 <!-- ========== SLIDE 44 — WORKSHEET FOR YOUR AVATAR ========== -->
-<section class="slide bone" id="slide-44" data-notes="Worksheet time. Twenty minutes. You just saw my whole campaign. Now build the same shape for your client avatar — buyer, seller, investor, relocation, whoever you serve. Each box has a framework prompt. Top of funnel: write your AIDA hook. Middle: pick PAS or FAB based on your audience consciousness. Retargeting: draft your IDCA disrupt line — the assumption you're going to break. Follow-up: write your SCIPAB first text. When you walk out of here you should have at minimum the four hook lines that could go live this week.---Worksheet time. Veinte minutos. Acabas de ver mi campana completa. Ahora construye la misma forma pa tu avatar. Cada caja tiene un prompt de framework. Cuando salgas de aqui debes tener al menos las cuatro lineas que pueden salir vivas esta semana." style="background:var(--bone);">
+<section class="slide bone" id="slide-45" data-notes="Worksheet time. Twenty minutes. You just saw my whole campaign. Now build the same shape for your client avatar — buyer, seller, investor, relocation, whoever you serve. Each box has a framework prompt. Top of funnel: write your AIDA hook. Middle: pick PAS or FAB based on your audience consciousness. Retargeting: draft your IDCA disrupt line — the assumption you're going to break. Follow-up: write your SCIPAB first text. When you walk out of here you should have at minimum the four hook lines that could go live this week.---Worksheet time. Veinte minutos. Acabas de ver mi campana completa. Ahora construye la misma forma pa tu avatar. Cada caja tiene un prompt de framework. Cuando salgas de aqui debes tener al menos las cuatro lineas que pueden salir vivas esta semana." style="background:var(--bone);">
     <div class="slide-content" style="gap:var(--content-gap);">
         <div class="reveal"><div class="section-label" style="color:var(--brand);"><span style="background:var(--brand);"></span>Your Turn &middot; Worksheet</div><h2 class="slide-title" style="color:var(--ink);">Build It for <span style="color:var(--sprout-deep);">Your Avatar</span></h2><p class="slide-body" style="color:var(--muted);">Same four boxes. Different avatar. Walk out with the four lines that go live this week.</p></div>
         <div class="four-col" style="gap:clamp(0.5rem,1vw,0.9rem);">
@@ -2809,33 +2894,7 @@ Rules: under 90 words each. Conversational. No "circling back." Then Puerto Rica
         <div class="reveal" style="transition-delay:0.5s;"><div class="callout-line" style="color:var(--ink);background:white;border-left-color:var(--sprout-deep);">If you can't fill all four <strong style="color:var(--sprout-deep);">today</strong>, your avatar is still too generic. Go back to Session 1.</div></div>
     </div>
     <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 5</span></div>
-    <div class="slide-number">44 / 46</div>
-</section>
-
-<!-- ========== NEW: STORY MOMENT — RECORD + POST ========== -->
-<section class="slide punchline-bg" id="slide-45" data-notes="Take out your phones. Story time. Record this slide as your Instagram story right now and post it. Tag reThought. This is the punchline of everything we just built. Cold has a framework. Warm has a framework. Retargeting has a framework. The follow-up has a framework. And the right Lead Conversion System turns those ads into actual closings. That last line is the difference between an agent who spends money on Meta and an agent who builds a business with it. This is what reThought is built on. Post it. Let other agents see what kind of training we run.---Saquen el teléfono. Story time. Graben este slide como story y posteenlo. Tag reThought. Este es el punchline de todo. Cold: framework. Warm: framework. Retargeting: framework. Follow-up: framework. Y el Lead Conversion System correcto convierte ads en closings. Esa última línea es la diferencia. Posteen. Que los otros agentes vean qué tipo de training corremos." style="justify-content: center; align-items: center;">
-    <div class="punchline-glow"></div>
-    <div class="punchline-particles"><span style="left:10%;animation-duration:8s;animation-delay:0s;width:3px;height:3px;"></span><span style="left:25%;animation-duration:12s;animation-delay:1s;width:5px;height:5px;"></span><span style="left:40%;animation-duration:10s;animation-delay:2.5s;width:3px;height:3px;"></span><span style="left:55%;animation-duration:9s;animation-delay:0.5s;width:4px;height:4px;background:var(--brand-light);"></span><span style="left:70%;animation-duration:11s;animation-delay:3s;width:3px;height:3px;"></span><span style="left:85%;animation-duration:7s;animation-delay:1.5s;width:5px;height:5px;"></span><span style="left:15%;animation-duration:13s;animation-delay:4s;width:2px;height:2px;background:var(--brand-light);"></span><span style="left:60%;animation-duration:8.5s;animation-delay:2s;width:4px;height:4px;"></span><span style="left:90%;animation-duration:10s;animation-delay:0.8s;width:3px;height:3px;"></span><span style="left:35%;animation-duration:14s;animation-delay:5s;width:2px;height:2px;"></span></div>
-    <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/social-media-story-time-indicator.gif" alt="Story time" style="position:absolute;bottom:clamp(30px,5vh,50px);right:var(--slide-padding);opacity:0.8;height:clamp(50px,7vh,80px);width:auto;z-index:2;">
-    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(0.8rem,2vh,1.5rem);max-width:min(94vw,1100px);position:relative;z-index:1;padding:var(--slide-padding);">
-        <div class="reveal-scale" style="margin-bottom:clamp(0.3rem,1vh,0.8rem);">
-            <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" style="height:clamp(2.2rem,5vw,3.5rem);width:auto;color:var(--paper);"><g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g><g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay:0.5s;"/></g></svg>
-        </div>
-        <div class="reveal">
-            <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.5rem,3.6vw,2.9rem);letter-spacing:-0.02em;line-height:1.25;color:var(--paper);text-shadow:0 2px 30px rgba(0,0,0,0.3);">
-                Cold has a <span style="color:var(--brand-light);">framework</span>.<br>
-                Warm has a <span style="color:var(--sprout);">framework</span>.<br>
-                Retargeting has a <span style="color:var(--amber);">framework</span>.<br>
-                The follow-up has a <span style="color:var(--clay-soft);">framework</span>.<br>
-                <span style="display:inline-block;margin-top:clamp(0.8rem,1.8vh,1.4rem);font-size:clamp(1.7rem,4.2vw,3.4rem);">And the right <span class="stroke stroke--sprout">Lead Conversion System<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span><br>turns ads into <span style="color:var(--sprout);">closings</span>.</span>
-            </h1>
-        </div>
-        <div class="reveal" style="transition-delay:0.5s;">
-            <p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.9vw,0.78rem);letter-spacing:2px;text-transform:uppercase;color:var(--muted-2);">reThought Real Estate &middot; reLearn &middot; Marketing Machine</p>
-        </div>
-    </div>
-    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Highlight</span></div>
-    <div class="slide-number" style="z-index:2;">45 / 46</div>
+    <div class="slide-number">45 / 46</div>
 </section>
 
 <!-- ========== CLOSING QUOTE ========== -->
