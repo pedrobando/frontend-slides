@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Live Build Runsheet — Meta Ads (Employment SAC) | Marketing Machine S6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --ink: #1B252F; --ink-soft: #2b3744; --paper: #ffffff; --bone: #f5f1ea;
+    --brand: #034c76; --brand-light: #2c7cb5; --sprout: #5a8a1f; --sprout-bg: #f1f7e8;
+    --clay: #b14334; --amber: #b07d18; --amber-bg: #fbf3e0;
+    --muted: #5c6773; --line: #e2e6ea; --line-strong: #c8cfd6;
+    --font-display: 'Poppins', sans-serif; --font-sans: 'Instrument Sans', sans-serif; --font-mono: 'Geist Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #eef1f4; color: var(--ink); font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.page { max-width: 850px; margin: 24px auto; background: var(--paper); padding: 48px 56px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+
+/* Toolbar (screen only) */
+.toolbar { position: sticky; top: 0; z-index: 50; background: var(--ink); color: #fff; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.5px; }
+.toolbar button { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; background: var(--sprout); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+.toolbar .hint { color: #b9c2cc; }
+
+h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; line-height: 1.1; }
+.sub { color: var(--muted); font-size: 1rem; margin-top: 6px; }
+.kicker { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--sprout); font-weight: 600; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.01em; margin-top: 6px; line-height: 1.15; }
+h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin: 0 0 4px; }
+
+.section { margin-top: 34px; padding-top: 26px; border-top: 2px solid var(--line-strong); }
+.section.campaign { border-top: 3px solid var(--brand); }
+.section-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.pill { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+.pill.sprout { background: var(--sprout-bg); color: var(--sprout); border: 1px solid #cfe2b0; }
+.pill.brand { background: #e7f1f8; color: var(--brand); border: 1px solid #c3ddee; }
+.pill.amber { background: var(--amber-bg); color: var(--amber); border: 1px solid #ecd9a8; }
+.pill.clay { background: #fbe9e6; color: var(--clay); border: 1px solid #f0cbc4; }
+
+.lede { color: var(--muted); font-size: 0.95rem; margin: 4px 0 14px; }
+
+/* SAY / DO step table */
+.step { display: grid; grid-template-columns: 30px 1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 10px; overflow: hidden; break-inside: avoid; }
+.step-num { background: var(--ink); color: #fff; font-family: var(--font-mono); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
+.step-do, .step-say { padding: 10px 14px; }
+.step-do { border-right: 1px solid var(--line); }
+.step-do .lab, .step-say .lab { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; display: block; }
+.step-do .lab { color: var(--brand); }
+.step-say .lab { color: var(--sprout); }
+.step-say { background: var(--sprout-bg); }
+.step-do p, .step-say p { font-size: 0.86rem; line-height: 1.45; }
+.step-do code, .field code { font-family: var(--font-mono); font-size: 0.78rem; background: #eef1f4; padding: 1px 5px; border-radius: 4px; color: var(--ink); }
+.step-say em { color: var(--ink); font-style: italic; }
+.step-head { grid-column: 1 / -1; background: #f7f9fb; border-bottom: 1px solid var(--line); padding: 7px 14px; font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; }
+
+/* Setting chips */
+.settings { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 18px; margin: 10px 0 4px; }
+@media (max-width: 600px) { .settings { grid-template-columns: 1fr; } }
+.field { font-size: 0.85rem; padding: 5px 0; border-bottom: 1px dotted var(--line); display: flex; justify-content: space-between; gap: 10px; }
+.field .k { color: var(--muted); }
+.field .v { font-weight: 600; text-align: right; }
+
+/* Callouts */
+.note { border-left: 4px solid var(--amber); background: var(--amber-bg); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 0.85rem; margin: 12px 0; }
+.note.brand { border-left-color: var(--brand-light); background: #eef5fa; }
+.note.sprout { border-left-color: var(--sprout); background: var(--sprout-bg); }
+.note .nlab { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 2px; }
+.note.amber .nlab { color: var(--amber); }
+.note.brand .nlab { color: var(--brand); }
+.note.sprout .nlab { color: var(--sprout); }
+
+/* AI prompt block */
+.prompt { background: #1b252f; color: #d6dde4; border-radius: 8px; padding: 14px 16px; margin: 10px 0; break-inside: avoid; }
+.prompt-head { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 1.5px; text-transform: uppercase; color: #8cc94e; margin-bottom: 8px; display: flex; justify-content: space-between; }
+.prompt pre { font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.5; white-space: pre-wrap; color: #d6dde4; }
+.prompt pre b { color: #8cc94e; font-weight: 600; }
+
+/* Checklist */
+.check { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; margin: 10px 0; }
+@media (max-width: 600px) { .check { grid-template-columns: 1fr; } }
+.check li { font-size: 0.86rem; padding: 4px 0; display: flex; gap: 8px; align-items: flex-start; }
+.check li::before { content: "\2610"; font-size: 1.05rem; line-height: 1.1; color: var(--brand); }
+
+/* Troubleshooting */
+.trouble { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.trouble-row { border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; break-inside: avoid; }
+.trouble-row .sym { font-weight: 700; font-size: 0.88rem; color: var(--clay); }
+.trouble-row .fix { font-size: 0.85rem; margin-top: 3px; }
+
+.foot { margin-top: 40px; padding-top: 16px; border-top: 2px solid var(--line-strong); font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); text-align: center; }
+
+/* ===== PRINT ===== */
+@page { size: letter portrait; margin: 0.6in; }
+@media print {
+    body { background: #fff; }
+    .toolbar { display: none; }
+    .page { max-width: none; margin: 0; padding: 0; box-shadow: none; }
+    .section { break-inside: avoid-page; }
+    .section.campaign { break-before: page; }
+    .prompt { background: #f4f6f8 !important; color: #1b252f !important; border: 1px solid var(--line-strong); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .prompt pre { color: #1b252f !important; }
+    .prompt-head { color: var(--sprout) !important; }
+    .prompt pre b { color: var(--sprout) !important; }
+    .step-num { background: var(--ink) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .step-say, .note, .pill, .prompt { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+    <span>Live Build Runsheet &middot; keep this on your second screen</span>
+    <span class="hint">Cmd/Ctrl+P &rarr; Save as PDF</span>
+    <button onclick="window.print()">&#8595; Save as PDF</button>
+</div>
+
+<div class="page">
+
+<header>
+    <div class="kicker">Marketing Machine &middot; Session 6 &middot; Live Build &middot; Presenter Runsheet</div>
+    <h1>Building the 3-Campaign Meta Ads System &mdash; Live</h1>
+    <p class="sub">Pedro's recruiting demo &middot; <strong>Special Ad Category: Employment</strong> &middot; Milwaukee + Orlando. Agents replicate for their Housing (buyer/seller) campaigns &mdash; same clicks, different category.</p>
+    <div class="note brand" style="margin-top:14px;">
+        <span class="nlab">How to use this sheet</span>
+        Each step has two columns: <strong>DO</strong> = the exact click in Ads Manager / Canva / ManyChat. <strong>SAY</strong> = the line you say out loud while you do it. Go top to bottom. The AI-copy step comes before each campaign so the room writes copy with you. Build order never changes: <strong>Audiences &rarr; Cold &rarr; Warm &rarr; Retarget &rarr; Follow-up &rarr; Publish.</strong>
+    </div>
+</header>
+
+<!-- ============ PRE-FLIGHT ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill brand">Pre-Flight</span><h2>Before You Share Your Screen</h2></div>
+    <p class="lede">Set this up off-camera so the live build looks effortless. 3 tabs, 1 category decision, 1 budget number.</p>
+    <div class="settings">
+        <div class="field"><span class="k">Tab 1</span><span class="v">Meta Ads Manager (Create open)</span></div>
+        <div class="field"><span class="k">Tab 2</span><span class="v">ManyChat (flows ready to test)</span></div>
+        <div class="field"><span class="k">Tab 3</span><span class="v">Canva + Claude/ChatGPT</span></div>
+        <div class="field"><span class="k">Special Ad Category</span><span class="v">Employment (recruiting)</span></div>
+        <div class="field"><span class="k">Daily budget logic</span><span class="v">~10% of target annual earnings</span></div>
+        <div class="field"><span class="k">Your spend plan</span><span class="v">Cold $20&ndash;50 &middot; Warm $100 &middot; Retarget $20&ndash;50</span></div>
+    </div>
+    <div class="note amber"><span class="nlab">Say this up front</span> <em>"Most agents in this room will pick <strong>Housing</strong> because you're selling homes. I'm picking <strong>Employment</strong> because I'm recruiting agents. Same restrictions, same lesson &mdash; the creative does the targeting, not the audience settings."</em></div>
+</section>
+
+<!-- ============ STEP 0 — AUDIENCES ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill sprout">Step 0</span><h2>Build Your Audiences First</h2></div>
+    <p class="lede">Always before the ad sets. Saves ~5 min per campaign and is what makes the exclusion cascade possible. Ads Manager &rarr; <strong>Audiences</strong> &rarr; Create Custom Audience.</p>
+
+    <div class="step">
+        <div class="step-head">Audience A &mdash; <code>Warm-Engagers-90d</code></div>
+        <div class="step-num">A</div>
+        <div class="step-do"><span class="lab">Do</span><p>Source: <code>IG account &middot; engaged</code> + <code>FB Page &middot; engaged</code> + <code>Video &middot; watched 75%+ of cold reel</code>. Retention: <code>90 days</code>. Name it <code>Warm-Engagers-90d</code>. Save.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"This is everyone who's touched my content in the last 90 days. Cold builds this list for me for free &mdash; then warm talks only to them."</em></p></div>
+    </div>
+    <div class="step">
+        <div class="step-head">Audience B &mdash; Retarget custom audience</div>
+        <div class="step-num">B</div>
+        <div class="step-do"><span class="lab">Do</span><p>Source: <code>50&ndash;75% video viewers</code> of the warm video <strong>+</strong> <code>Calendly visitors who didn't book</code>. Retention 90 days. Name <code>Retarget-Warm-NoBook</code>.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"These people raised their hand and then ghosted. Tiny list, hottest leads. We'll hit them last."</em></p></div>
+    </div>
+    <div class="note sprout"><span class="nlab">The exclusion cascade (say it out loud)</span> Cold <strong>excludes</strong> Warm-Engagers-90d &rarr; Warm <strong>excludes</strong> anyone who booked &rarr; Retarget <strong>excludes</strong> booked + pipeline + unfollowers. <em>"That math is the whole game &mdash; without it the same person sees three ads and I pay three times."</em></div>
+</section>
+
+<!-- ============ CAMPAIGN 01 — COLD ============ -->
+<section class="section campaign">
+    <div class="section-head"><span class="pill clay">Campaign 01</span><span class="pill clay">AIDA</span><h2>Cold &mdash; People Who Don't Know You</h2></div>
+    <div class="settings">
+        <div class="field"><span class="k">Campaign name</span><span class="v"><code>01 &middot; Cold &middot; Agents &middot; AIDA</code></span></div>
+        <div class="field"><span class="k">Objective</span><span class="v">Engagement</span></div>
+        <div class="field"><span class="k">Special Ad Category</span><span class="v">Employment</span></div>
+        <div class="field"><span class="k">Audience</span><span class="v">Milwaukee + Orlando &middot; 25-mi</span></div>
+        <div class="field"><span class="k">Exclusions</span><span class="v">Warm-Engagers-90d</span></div>
+        <div class="field"><span class="k">Budget</span><span class="v">$20&ndash;50 / day</span></div>
+        <div class="field"><span class="k">Creative</span><span class="v">30s reel, 9:16</span></div>
+        <div class="field"><span class="k">CTA / keyword</span><span class="v">Comment <code>SYSTEMS</code> &rarr; ManyChat</span></div>
+    </div>
+
+    <h3 style="margin-top:18px;">① Write the copy live (AIDA)</h3>
+    <p class="lede">Paste your avatar, run it, read the output to the room. <em>"The framework does the lifting &mdash; my only job is making the avatar specific."</em></p>
+    <div class="prompt">
+        <div class="prompt-head"><span>Prompt 01 / 05 &middot; paste into Claude / ChatGPT</span><span>AIDA &middot; Cold</span></div>
+<pre>You are a Meta ads copywriter for real estate. Write me a 30-second AIDA
+hook for a cold-audience Instagram reel.
+
+<b>==CLIENT AVATAR==</b> (REQUIRED)
+[PASTE AVATAR — who they are, where, what they want, what they fear]
+(Pedro's: real estate agents 23–35, $1M–$3M volume, 2–4 yrs licensed,
+Milwaukee or Central FL, bilingual; pain: "no training, broker just takes splits")
+
+<b>==CAMPAIGN CONTEXT==</b>
+Funnel stage: cold (Special Ad Category — Employment)
+Format: 30-sec vertical talking-head reel
+CTA mechanic: comment-to-DM via ManyChat (keyword: SYSTEMS)
+My differentiator: [ONE SENTENCE — live weekly training, real broker, bilingual]
+
+<b>==OUTPUT==</b>
+Four beats with timestamps:
+A · ATTENTION (0–3s): call out who they are + where they are
+I · INTEREST (3–10s): one true thing they didn't know
+D · DESIRE (10–20s): name the outcome they want
+A · ACTION (20–30s): "comment SYSTEMS and I'll send you X"
+
+Rules: second person, no jargon, no "DM me for info," every line specific.
+Then write a Puerto Rican Spanish version with sazón.</pre>
+    </div>
+    <div class="note brand"><span class="nlab">Worked example to read aloud</span> <em>A:</em> "Milwaukee or Orlando agent closing 4&ndash;12 deals a year &mdash; this is for you." &middot; <em>I:</em> "You're not broken, you're building on the wrong foundation." &middot; <em>D:</em> "Live training every Tuesday. Four systems. Bilingual. Two markets." &middot; <em>A:</em> "Comment <strong>SYSTEMS</strong> for the 48-week curriculum."</div>
+
+    <h3 style="margin-top:18px;">② Build it in Ads Manager</h3>
+    <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-do"><span class="lab">Do &middot; Campaign tab</span><p>Create &rarr; Objective <code>Engagement</code>. Declare Special Ad Category <code>Employment</code>. Name <code>01 &middot; Cold &middot; Agents &middot; AIDA</code>.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"Engagement, because the reel ends in a comment and ManyChat fires the DM. And I declare the category NOW &mdash; forget it and Meta blocks you mid-launch and you rebuild."</em></p></div>
+    </div>
+    <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-do"><span class="lab">Do &middot; Ad set tab</span><p>Locations: <code>Milwaukee + Orlando, 25-mi</code>. Detailed targeting: locked (that's expected). Exclusions: <code>Warm-Engagers-90d</code>. Placements: <code>Advantage+</code>. Budget: <code>$20/day</code>.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"Location is the only real lever under SAC. I can't target &mdash; but I CAN exclude my engagers, and that's where the cascade starts. $20/day &times; 14 days = $280 to learn. Don't dump $500 on day one."</em></p></div>
+    </div>
+    <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-do"><span class="lab">Do &middot; Ad tab</span><p>Format <code>Single video / reel</code>. Upload <code>reel_aida.mp4</code> (9:16, &le;30s). Primary text = the AI caption ending in "comment SYSTEMS." Wire ManyChat keyword <code>SYSTEMS</code>. <strong>Test the keyword in ManyChat. Then Publish.</strong></p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"The keyword has to match the caption exactly. Wire and test ManyChat BEFORE publish &mdash; or your first commenters get silence and you've burned them."</em></p></div>
+    </div>
+    <div class="note sprout"><span class="nlab">Campaign 1 of 3 live</span> <em>"Cold is live. Next I need a warm carousel and a warm video before I can launch campaign two &mdash; so let's write those now."</em></div>
+</section>
+
+<!-- ============ CAMPAIGN 02 — WARM ============ -->
+<section class="section campaign">
+    <div class="section-head"><span class="pill brand">Campaign 02</span><span class="pill brand">PAS + FAB</span><h2>Warm &mdash; People Who Engaged</h2></div>
+    <div class="settings">
+        <div class="field"><span class="k">Campaign name</span><span class="v"><code>02 &middot; Warm &middot; Agents &middot; PAS+FAB</code></span></div>
+        <div class="field"><span class="k">Objective</span><span class="v">Leads (Calendly)</span></div>
+        <div class="field"><span class="k">Audience</span><span class="v">Warm-Engagers-90d</span></div>
+        <div class="field"><span class="k">Exclusions</span><span class="v">Booked Calendly</span></div>
+        <div class="field"><span class="k">Ad Set A (PAS)</span><span class="v">5-card carousel &middot; $60/day</span></div>
+        <div class="field"><span class="k">Ad Set B (FAB)</span><span class="v">60s video &middot; $40/day</span></div>
+        <div class="field"><span class="k">Test rule</span><span class="v">7 days &rarr; 80% budget to lower CPL</span></div>
+        <div class="field"><span class="k">CTAs</span><span class="v">Book Now &middot; keyword <code>COMPARE</code></span></div>
+    </div>
+
+    <h3 style="margin-top:18px;">① Write both pieces live</h3>
+    <p class="lede">PAS for the pain-aware (carousel). FAB for comparison-stage (video). Run both, then build the carousel in Canva on screen.</p>
+    <div class="prompt">
+        <div class="prompt-head"><span>Prompt 02 / 05</span><span>PAS &middot; Warm carousel</span></div>
+<pre>You are a real estate Meta ads copywriter. Write a 5-card PAS carousel
+for a warm Instagram audience.
+
+<b>==CLIENT AVATAR==</b> (REQUIRED) [PASTE]
+<b>==MY OFFER==</b> [ONE SENTENCE: what they get when they book/DM]
+<b>==MY DIFFERENTIATOR==</b> [ONE SENTENCE: why me, not another broker]
+
+<b>==OUTPUT==</b> 5 cards, one sentence each, phone-readable in 2 sec:
+Card 1 (PROBLEM): the thing they don't know is broken — specific
+Card 2 (PROBLEM): a second monthly pain
+Card 3 (AGITATE): twist the knife — compare to peers who solved it
+Card 4 (SOLUTION): one concrete deliverable, not vague benefits
+Card 5 (CTA): one action — Book / DM keyword / click
+Caption: one paragraph, ends on the CTA verb. Then PR Spanish w/ sazón.</pre>
+    </div>
+    <div class="prompt">
+        <div class="prompt-head"><span>Prompt 03 / 05</span><span>FAB &middot; Warm video</span></div>
+<pre>You are a real estate Meta ads copywriter. Write a 60-second FAB script
+for an Instagram talking-head video.
+
+<b>==CLIENT AVATAR==</b> (REQUIRED) [PASTE]
+<b>==COMPARISON SET==</b> (REQUIRED) [who are they comparing me to?]
+<b>==MY TOP 3 FEATURES==</b> 1. [...] 2. [...] 3. [...]
+
+<b>==OUTPUT==</b> 3 FAB triplets (Feature · Advantage vs comparison · Benefit):
+Triplet 1: 0–20s   Triplet 2: 20–40s   Triplet 3: 40–55s
+Close 55–60s: one-line CTA with a comment keyword for ManyChat.
+Rules: each line say-able in 5 sec. Benefits concrete ("get weekends
+back," not "save time"). Then PR Spanish w/ sazón.</pre>
+    </div>
+    <div class="step">
+        <div class="step-head">Canva &mdash; build the 5-card carousel on screen (~5 min)</div>
+        <div class="step-num">C</div>
+        <div class="step-do"><span class="lab">Do</span><p>Instagram Post 1080&times;1080, same template &times;5. Paste one card per slide. Color shifts: cards 1&ndash;2 muted, card 3 clay/red (agitate), card 4 sprout/green (solution), card 5 brightest (CTA). Download all 5 as PNG, in order.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"Same template, only the text changes, the color carries the emotion. Five minutes. Do it with me right now."</em></p></div>
+    </div>
+
+    <h3 style="margin-top:18px;">② Build it in Ads Manager</h3>
+    <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-do"><span class="lab">Do &middot; Campaign</span><p>Create &rarr; Objective <code>Leads</code>. SAC <code>Employment</code>. Name <code>02 &middot; Warm &middot; Agents &middot; PAS+FAB</code>.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"Warm is mature enough to fill a form or hit Calendly, so the objective is Leads."</em></p></div>
+    </div>
+    <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-do"><span class="lab">Do &middot; Two ad sets</span><p><strong>Set A (PAS):</strong> audience <code>Warm-Engagers-90d</code>, exclude <code>Booked Calendly</code>, <code>$60/day</code>. <strong>Set B (FAB):</strong> same audience + exclusion, <code>$40/day</code>.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"Same audience, two frameworks. Meta tells me which one my avatar prefers. Don't manually split the audience &mdash; Meta auto-dedupes, splitting just cuts reach."</em></p></div>
+    </div>
+    <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-do"><span class="lab">Do &middot; Ads</span><p><strong>Ad A:</strong> Carousel, 5 PNGs <em>in order</em>, CTA <code>Book Now &rarr; your Calendly</code>. <strong>Ad B:</strong> upload 60s FAB video, CTA <code>Send Message &rarr; ManyChat (COMPARE)</code>. Review both &rarr; Publish.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"Two ads, two CTAs, one campaign. Make sure the Calendly link is YOUR link, not mine."</em></p></div>
+    </div>
+    <div class="note amber"><span class="nlab">Test rule to announce</span> <em>"After 7 days, whichever ad set has the lower cost-per-Calendly-book gets 80% of the budget. Kill the loser. We're not married to either format."</em></div>
+    <div class="note brand"><span class="nlab">If your warm audience is under 1,000</span> <em>"Cold hasn't run long enough. Pause warm, let cold run 14 more days, come back."</em> (Don't skip this on a build-along &mdash; some agents won't have the audience yet; have them build the campaign in <strong>Draft</strong> and publish later.)</div>
+</section>
+
+<!-- ============ CAMPAIGN 03 — RETARGET ============ -->
+<section class="section campaign">
+    <div class="section-head"><span class="pill amber">Campaign 03</span><span class="pill amber">IDCA</span><h2>Retarget &mdash; Saw You, Didn't Act</h2></div>
+    <div class="settings">
+        <div class="field"><span class="k">Campaign name</span><span class="v"><code>03 &middot; Retarget &middot; Agents &middot; IDCA</code></span></div>
+        <div class="field"><span class="k">Objective</span><span class="v">Conversions</span></div>
+        <div class="field"><span class="k">Audience</span><span class="v"><code>Retarget-Warm-NoBook</code></span></div>
+        <div class="field"><span class="k">Audience size</span><span class="v">500&ndash;2,000 max</span></div>
+        <div class="field"><span class="k">Exclusions</span><span class="v">Booked &middot; pipeline &middot; unfollowed</span></div>
+        <div class="field"><span class="k">Creative</span><span class="v">15s video, 9:16, &le;40-word caption</span></div>
+        <div class="field"><span class="k">Frequency cap</span><span class="v">2 / week</span></div>
+        <div class="field"><span class="k">CTAs</span><span class="v">Book Now + keyword <code>NOW</code></span></div>
+    </div>
+
+    <h3 style="margin-top:18px;">① Write the copy live (IDCA)</h3>
+    <div class="prompt">
+        <div class="prompt-head"><span>Prompt 04 / 05</span><span>IDCA &middot; Retarget</span></div>
+<pre>You are a real estate Meta ads copywriter. Write a 15-second IDCA
+retargeting script.
+
+<b>==CLIENT AVATAR==</b> (REQUIRED) [PASTE]
+<b>==WHAT THEY ALREADY SAW==</b> (REQUIRED) [one line: the cold AIDA + warm
+PAS/FAB hook + offer]
+<b>==THE ASSUMPTION I WILL BREAK==</b> [usually "this is going to be a pitch"]
+<b>==MY CTA OPTIONS==</b> Primary: link in bio (Calendly). Secondary: comment NOW.
+
+<b>==OUTPUT==</b> 4 beats, 15 sec total:
+I · IDENTIFY (0–3s): name them by behavior ("you watched X, didn't Y")
+D · DISRUPT (3–8s): break the assumption
+C · COMPEL (8–12s): real reason to act now (loss-frame works)
+A · ACT (12–15s): dual CTA — link in bio AND comment NOW
+Direct-to-camera tone. Then PR Spanish w/ sazón.</pre>
+    </div>
+    <div class="note brand"><span class="nlab">Worked example</span> <em>"You watched the video. You didn't book. 20 minutes, no pitch &mdash; I'll tell you in 10 whether we're a fit. Link in bio, or comment NOW."</em></div>
+
+    <h3 style="margin-top:18px;">② Build it in Ads Manager</h3>
+    <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-do"><span class="lab">Do &middot; Campaign + audience</span><p>Objective <code>Conversions</code>. SAC <code>Employment</code>. Name <code>03 &middot; Retarget &middot; Agents &middot; IDCA</code>. Audience <code>Retarget-Warm-NoBook</code>. Exclude <code>booked + pipeline + unfollowed</code>.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"Tightest audience of all three &mdash; and that's correct. 500 to 2,000 people. If it's bigger, my funnel is leaking earlier. If it shows under 500, warm hasn't built enough &mdash; pause and scale warm first."</em></p></div>
+    </div>
+    <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-do"><span class="lab">Do &middot; Ad</span><p>Upload <code>reel_idca.mp4</code> (15s). Caption &le;40 words from the AI output. Primary button <code>Book Now &rarr; Calendly</code>. ManyChat keyword <code>NOW</code> &rarr; sends Calendly link. Set frequency cap <code>2/week</code>. Publish.</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"Different angle, lighting, background than the warm video &mdash; Meta serves them both and they'll pattern-match. Dual CTA so they can book OR DM. Cap at 2 a week so I'm not a stalker."</em></p></div>
+    </div>
+    <div class="note sprout"><span class="nlab">All 3 live</span> <em>"Cold &rarr; Warm &rarr; Retarget, exclusions cascading. Now the most important rule: stop touching it for 7 days. Meta needs the learning phase. Last thing &mdash; the follow-up."</em></div>
+</section>
+
+<!-- ============ FOLLOW-UP ============ -->
+<section class="section campaign">
+    <div class="section-head"><span class="pill sprout">Follow-Up</span><span class="pill sprout">SCIPAB</span><h2>Wire the Conversation Layer</h2></div>
+    <p class="lede">The ad is the front door &mdash; the money is in the follow-up. 3 touches: 5-min text &rarr; 24-hr email &rarr; 7-day check-in. All six SCIPAB beats in each.</p>
+    <div class="prompt">
+        <div class="prompt-head"><span>Prompt 05 / 05</span><span>SCIPAB &middot; Follow-Up Sequence</span></div>
+<pre>You are a real estate follow-up copywriter. Write the SCIPAB sequence
+for a lead that just came through Meta ads.
+
+<b>==CLIENT AVATAR==</b> (REQUIRED) [PASTE]
+<b>==WHAT THEY RESPONDED TO==</b> (REQUIRED) [e.g. "commented SYSTEMS on a
+Tuesday training reel"]
+<b>==WHAT I'M OFFERING==</b> [e.g. "48-week training curriculum PDF"]
+<b>==ONE-QUESTION FILTER==</b> [segmenting Q, e.g. "where are you producing?"]
+
+<b>==OUTPUT==</b> 3 messages, SCIPAB beats embedded:
+MSG 1 (5-min text): S name where they are · C the friction · I cost of
+   not fixing · P you as the solver · A reply with one thing · B what they get
+MSG 2 (24-hr email, no reply): same structure, new angle, subject line
+MSG 3 (7-day text, no reply): shorter, lower pressure, last touch
+Rules: under 90 words each, conversational, no "circling back."
+Then PR Spanish w/ sazón.</pre>
+    </div>
+    <div class="step">
+        <div class="step-num">✓</div>
+        <div class="step-do"><span class="lab">Do</span><p>Confirm the 3 ManyChat keyword flows respond: <code>SYSTEMS</code>, <code>COMPARE</code>, <code>NOW</code>. Paste each SCIPAB message into your CRM as a scheduled template (5-min / 24-hr / 7-day).</p></div>
+        <div class="step-say"><span class="lab">Say</span><p><em>"Speed is the single biggest lever. The agents who win at Meta aren't the ones with the cheapest leads &mdash; they're the ones with the fastest, most human follow-up."</em></p></div>
+    </div>
+</section>
+
+<!-- ============ PRE-PUBLISH CHECKLIST ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill brand">Verify</span><h2>Master Pre-Publish Checklist</h2></div>
+    <ul class="check">
+        <li>SAC declared (Employment) on all 3 campaigns</li>
+        <li>3 separate campaigns &mdash; not 3 ad sets in one</li>
+        <li>Named: <code>01 Cold</code> / <code>02 Warm</code> / <code>03 Retarget</code></li>
+        <li>Objectives: Engagement / Leads / Conversions</li>
+        <li>Each creative uses its matching framework</li>
+        <li>Cold caption keyword = ManyChat trigger (exact)</li>
+        <li>ManyChat SYSTEMS / COMPARE / NOW all tested</li>
+        <li>Exclusion cascade verified end to end</li>
+        <li>Calendly links are YOUR links</li>
+        <li>Retarget audience 500&ndash;2,000 + freq cap 2/wk</li>
+        <li>Budgets set (Cold $20&ndash;50 · Warm $100 · Retarget $20&ndash;50)</li>
+        <li>SCIPAB 3-touch loaded in CRM</li>
+    </ul>
+    <div class="note sprout"><span class="nlab">What numbers actually matter (ignore likes)</span> Cost per lead &middot; Lead quality &middot; Speed to lead &middot; Response rate &middot; Appointment rate &middot; Conversion rate. <em>"A cheap lead that never responds isn't cheap. An expensive lead that becomes a client is very profitable."</em></div>
+</section>
+
+<!-- ============ TROUBLESHOOTING ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill clay">If It Breaks Live</span><h2>Recovery Lines &mdash; Keep the Demo Moving</h2></div>
+    <div class="trouble">
+        <div class="trouble-row"><div class="sym">Meta blocks the campaign / SAC warning mid-build</div><div class="fix"><strong>Fix:</strong> you forgot to declare the category, or changed it after publish. You can't edit SAC after publish &mdash; duplicate the campaign, declare Employment first, rebuild. <em>Say: "This is exactly why we declare it on step one."</em></div></div>
+        <div class="trouble-row"><div class="sym">ManyChat doesn't fire on the keyword</div><div class="fix"><strong>Fix:</strong> keyword in the flow must match the caption exactly (case-insensitive, no extra spaces). Re-test in ManyChat preview before moving on. Keep the flow tab open.</div></div>
+        <div class="trouble-row"><div class="sym">Custom audience shows "too small / below 500&ndash;1,000"</div><div class="fix"><strong>Fix:</strong> expected if cold hasn't run yet. Build the campaign in <strong>Draft</strong>, don't publish. <em>Say: "Build it now, publish once your cold audience matures &mdash; the structure is done either way."</em></div></div>
+        <div class="trouble-row"><div class="sym">Detailed targeting / age / ZIP options are greyed out</div><div class="fix"><strong>Fix:</strong> not a bug &mdash; that's SAC working. <em>Say: "Locked on purpose. The creative does the targeting."</em> Move on.</div></div>
+        <div class="trouble-row"><div class="sym">Carousel cards upload out of order</div><div class="fix"><strong>Fix:</strong> remove all, re-add card01&hellip;card05 one at a time. Order = story order; agitate (card 3) must sit in the middle.</div></div>
+        <div class="trouble-row"><div class="sym">An agent falls behind</div><div class="fix"><strong>Fix:</strong> pause at the end of the current campaign, not mid-ad-set. <em>Say: "Catch me up &mdash; nobody gets left on a step."</em> Drafts save automatically.</div></div>
+    </div>
+</section>
+
+<div class="foot">reThought Real Estate &middot; reLearn &middot; Marketing Machine Session 6 &middot; Live Build Runsheet &middot; One avatar &middot; Four frameworks &middot; Three campaigns</div>
+
+</div>
+</body>
+</html>

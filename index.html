@@ -449,6 +449,7 @@ body {
         date:    meta('presentation-date')     || '',
         slides:  meta('presentation-slides')   || '—',
         pdf:     meta('presentation-pdf')      || null,
+        runsheet: meta('presentation-runsheet') || null,
       });
     } catch (_) {
       // network error — skip
@@ -567,6 +568,10 @@ body {
           ${p.pdf
             ? `<a class="btn btn--ghost" href="presentations/${encodeURIComponent(p.pdf)}" download>&#8595; PDF</a>`
             : `<button class="btn btn--ghost" onclick="window.open('presentations/${encodeURIComponent(p.filename)}','_blank'); setTimeout(() => alert('Use Cmd+P (or Ctrl+P) → Save as PDF. deck-stage formats one slide per page automatically.'), 800);" title="Opens presentation — use Cmd+P to save as PDF">&#8595; PDF</button>`
+          }
+          ${p.runsheet
+            ? `<a class="btn btn--ghost" href="presentations/${encodeURIComponent(p.runsheet)}" target="_blank" title="Presenter runsheet — open and use the Save as PDF button">&#128203; Runsheet</a>`
+            : ''
           }
         </div>
       `;
