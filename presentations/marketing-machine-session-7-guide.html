@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Participant Guide: Meta Ads, Redefined (EN / ES) | Marketing Machine S7</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="Meta Ads, Redefined: Participant Guide (EN/ES)">
+<meta name="presentation-series" content="Marketing Machine">
+<meta name="presentation-session" content="7">
+<meta name="presentation-date" content="2026-06-29">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --ink: #1B252F; --ink-soft: #2b3744; --paper: #ffffff; --bone: #f5f1ea;
+    --brand: #034c76; --brand-light: #2c7cb5; --sprout: #5a8a1f; --sprout-bg: #f1f7e8;
+    --clay: #b14334; --amber: #b07d18; --amber-bg: #fbf3e0;
+    --muted: #5c6773; --line: #e2e6ea; --line-strong: #c8cfd6;
+    --font-display: 'Poppins', sans-serif; --font-sans: 'Instrument Sans', sans-serif; --font-mono: 'Geist Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #eef1f4; color: var(--ink); font-family: var(--font-sans); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.page { max-width: 880px; margin: 24px auto; background: var(--paper); padding: 48px 56px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+@media (max-width: 600px) { .page { padding: 28px 22px; } }
+
+/* Toolbar (screen only) */
+.toolbar { position: sticky; top: 0; z-index: 50; background: var(--ink); color: #fff; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.5px; }
+.toolbar button { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; background: var(--sprout); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+.toolbar .hint { color: #b9c2cc; }
+
+h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; line-height: 1.1; }
+.sub { color: var(--muted); font-size: 1rem; margin-top: 6px; }
+.kicker { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--sprout); font-weight: 600; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.45rem; letter-spacing: -0.01em; margin-top: 6px; line-height: 1.15; }
+h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.08rem; margin: 0 0 4px; }
+
+.section { margin-top: 36px; padding-top: 26px; border-top: 2px solid var(--line-strong); }
+.section.build { border-top: 3px solid var(--brand); }
+.section-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.pill { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+.pill.sprout { background: var(--sprout-bg); color: var(--sprout); border: 1px solid #cfe2b0; }
+.pill.brand { background: #e7f1f8; color: var(--brand); border: 1px solid #c3ddee; }
+.pill.amber { background: var(--amber-bg); color: var(--amber); border: 1px solid #ecd9a8; }
+.pill.clay { background: #fbe9e6; color: var(--clay); border: 1px solid #f0cbc4; }
+
+.lede { color: var(--muted); font-size: 0.95rem; margin: 4px 0 14px; }
+
+/* Bilingual blocks */
+.en { font-size: 0.92rem; }
+.es { font-size: 0.88rem; color: var(--muted); font-style: italic; margin-top: 4px; padding-left: 12px; border-left: 2px solid var(--line-strong); }
+.es::before { content: "ES "; font-family: var(--font-mono); font-style: normal; font-size: 0.58rem; letter-spacing: 1px; color: var(--sprout); font-weight: 600; }
+
+/* Concept cards */
+.concept { border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; break-inside: avoid; }
+.concept .cname { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+.concept .cnum { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 1px; color: var(--brand); text-transform: uppercase; }
+.concept .row { margin-top: 8px; }
+.concept .rlab { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 600; color: var(--sprout); display: block; margin-bottom: 2px; }
+.concept .row.act { background: var(--sprout-bg); border-radius: 6px; padding: 8px 12px; margin-top: 10px; }
+
+/* Click steps with screenshots */
+.cstep { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 16px; overflow: hidden; break-inside: avoid; }
+.cstep-head { background: #f7f9fb; border-bottom: 1px solid var(--line); padding: 9px 16px; display: flex; gap: 10px; align-items: baseline; }
+.cstep-num { font-family: var(--font-mono); font-weight: 600; font-size: 0.8rem; background: var(--ink); color: #fff; border-radius: 6px; padding: 2px 9px; }
+.cstep-title { font-family: var(--font-display); font-weight: 600; font-size: 1rem; }
+.cstep-body { padding: 12px 16px; }
+.cstep-body p { font-size: 0.9rem; }
+.screen { font-family: var(--font-mono); font-size: 0.72rem; color: var(--brand); background: #eef5fa; border: 1px solid #c3ddee; border-radius: 5px; padding: 1px 6px; }
+code { font-family: var(--font-mono); font-size: 0.8rem; background: #eef1f4; padding: 1px 5px; border-radius: 4px; color: var(--ink); }
+figure { margin: 10px 0 4px; }
+figure img { width: 100%; border: 1px solid var(--line-strong); border-radius: 8px; display: block; }
+figcaption { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5px; color: var(--muted); margin-top: 4px; text-transform: uppercase; }
+
+/* Prompt */
+.prompt { background: #1b252f; color: #d6dde4; border-radius: 8px; padding: 14px 16px; margin: 10px 0; break-inside: avoid; }
+.prompt-head { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 1.5px; text-transform: uppercase; color: #8cc94e; margin-bottom: 8px; }
+.prompt pre { font-family: var(--font-mono); font-size: 0.74rem; line-height: 1.5; white-space: pre-wrap; color: #d6dde4; }
+.prompt pre b { color: #8cc94e; font-weight: 600; }
+
+/* Stage self-select */
+.stages { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 12px 0; }
+.stage { border: 1px solid var(--line); border-left: 4px solid var(--sprout); border-radius: 8px; padding: 10px 14px; }
+.stage.off { border-left-color: var(--clay); }
+.stage .sname { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; }
+
+/* Callouts */
+.note { border-left: 4px solid var(--amber); background: var(--amber-bg); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 0.86rem; margin: 12px 0; }
+.note.brand { border-left-color: var(--brand-light); background: #eef5fa; }
+.note.sprout { border-left-color: var(--sprout); background: var(--sprout-bg); }
+.note.clay { border-left-color: var(--clay); background: #fbe9e6; }
+.note .nlab { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 2px; }
+.note.amber .nlab { color: var(--amber); }
+.note.brand .nlab { color: var(--brand); }
+.note.sprout .nlab { color: var(--sprout); }
+.note.clay .nlab { color: var(--clay); }
+
+/* Checklist */
+.check { list-style: none; margin: 10px 0; }
+.check li { font-size: 0.9rem; padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; border-bottom: 1px dotted var(--line); }
+.check li::before { content: "\2610"; font-size: 1.1rem; line-height: 1.05; color: var(--brand); }
+
+.foot { margin-top: 40px; padding-top: 16px; border-top: 2px solid var(--line-strong); font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); text-align: center; }
+
+/* ===== PRINT ===== */
+@page { size: letter portrait; margin: 0.6in; }
+@media print {
+    body { background: #fff; }
+    .toolbar { display: none; }
+    .page { max-width: none; margin: 0; padding: 0; box-shadow: none; }
+    .section, .cstep, .concept { break-inside: avoid; }
+    .section.build { break-before: page; }
+    .cstep-num, .prompt { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .prompt { background: #f4f6f8 !important; color: #1b252f !important; border: 1px solid var(--line-strong); }
+    .prompt pre, .prompt pre b { color: #1b252f !important; }
+    .note, .stage, .pill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+    <span>Participant Guide &middot; English / Espa&ntilde;ol &middot; keep this open while you build</span>
+    <span class="hint">Cmd/Ctrl+P &rarr; Save as PDF</span>
+    <button onclick="window.print()">&#8595; Save as PDF</button>
+</div>
+
+<div class="page">
+
+<header>
+    <div class="kicker">Marketing Machine &middot; Session 7 &middot; Meta Ads, Redefined &middot; Participant Guide</div>
+    <h1>Your Click-By-Click Guide</h1>
+    <p class="sub">Every screen below matches Pedro's real Ads Manager. Category: <strong>Housing</strong> (selling homes). Follow along, click for click.</p>
+    <div class="note brand">
+        <span class="nlab">By the end of this session you will have</span>
+        <div class="en">Your audiences saved, and a cold campaign built (in draft or published) that starts real conversations with buyers in your city. Plus one number to track from now on: your cost per conversation.</div>
+        <div class="es">Tus audiencias guardadas, y una campa&ntilde;a cold construida (en borrador o publicada) que arranca conversaciones reales con compradores en tu ciudad. Y un n&uacute;mero para seguir de ahora en adelante: tu costo por conversaci&oacute;n.</div>
+    </div>
+</header>
+
+<!-- ============ PART 0 — WHICH STAGE ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill sprout">Part 0</span><h2>Which Stage Are You At?</h2></div>
+    <p class="lede">Find yourself first. Your stage decides whether you build today or do something else.</p>
+    <div class="stages">
+        <div class="stage off"><div class="sname">01 &middot; Not started (no video yet)</div><div class="en">Run the prompt below to lock your avatar and write your cold script. Follow the build to learn the path, then go record this week.</div><div class="es">Corre el prompt de abajo para fijar tu avatar y escribir tu script cold. Sigue el build para aprender el camino, despu&eacute;s graba esta semana.</div></div>
+        <div class="stage off"><div class="sname">02 &middot; Recorded, not edited</div><div class="en">The skill is not your tool today. Your only job is to finish one edit. You are excused from Ads Manager.</div><div class="es">La skill no es tu herramienta hoy. Tu &uacute;nico trabajo es terminar una edici&oacute;n. Est&aacute;s excusado de Ads Manager.</div></div>
+        <div class="stage"><div class="sname">03 &middot; Recorded + edited</div><div class="en">Run the prompt for ad copy, your offer, and your ManyChat keyword. Build the cold campaign in draft.</div><div class="es">Corre el prompt para ad copy, tu oferta, y tu keyword de ManyChat. Construye la campa&ntilde;a cold en borrador.</div></div>
+        <div class="stage"><div class="sname">04 &middot; Audiences built (finished S6)</div><div class="en">Build live with Pedro. Fill your setup sheet with the prompt, then follow every click below.</div><div class="es">Construye en vivo con Pedro. Llena tu hoja de setup con el prompt, despu&eacute;s sigue cada clic de abajo.</div></div>
+        <div class="stage"><div class="sname">05 &middot; Ready for more</div><div class="en">Run the full build, refine, then help the person next to you.</div><div class="es">Corre el build completo, refina, despu&eacute;s ayuda a la persona a tu lado.</div></div>
+    </div>
+    <div class="prompt">
+        <div class="prompt-head">Paste into Claude / ChatGPT with your avatar doc</div>
+<pre>Use the <b>Marketing Machine</b> skill. Here is my avatar:
+
+<b>[PASTE YOUR AVATAR DOC]</b>
+
+I am at this stage: <b>[not started / edited / audiences built]</b>
+Give me what I need for that stage (script, or ad copy + keyword,
+or my 3-campaign setup sheet). Category: <b>Housing</b>.
+My city: <b>[your city] + 15 mi</b>. Output English and Spanish.
+Keep my real voice. Make every line specific to my buyer.</pre>
+    </div>
+</section>
+
+<!-- ============ PART 1 — THE 9 CONCEPTS ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill brand">Part 1</span><h2>The 9 Concepts, In Plain Language</h2></div>
+    <p class="lede">Each one: what it is, our buyer Marisol &amp; Jay (first-time buyers near Orlando), and one action.</p>
+
+    <div class="concept">
+        <span class="cnum">Concept 01</span><div class="cname">The 3-Campaign Map</div>
+        <div class="row"><span class="rlab">What it is</span><div class="en">Three separate campaigns: Cold (strangers), Warm (engaged), Retarget (almost). Each excludes the one before it.</div><div class="es">Tres campa&ntilde;as separadas: Cold (desconocidos), Warm (interactuaron), Retarget (casi). Cada una excluye a la anterior.</div></div>
+        <div class="row"><span class="rlab">Marisol &amp; Jay</span><div class="en">First time, strangers in Orlando. Second time, watchers. Third time, almosts.</div><div class="es">Primera vez, desconocidos en Orlando. Segunda, los que vieron. Tercera, los casi.</div></div>
+        <div class="row act"><span class="rlab">Do this</span><div class="en">Build three campaigns, not one with three ad sets. Otherwise the same person sees all three and you pay three times.</div><div class="es">Construye tres campa&ntilde;as, no una con tres ad sets. Si no, la misma persona ve las tres y pagas tres veces.</div></div>
+    </div>
+
+    <div class="concept">
+        <span class="cnum">Concept 02</span><div class="cname">Campaign, Ad Set, Ad (three floors)</div>
+        <div class="row"><span class="rlab">What it is</span><div class="en">Campaign = the building (your goal). Ad set = the floor (who, budget, where). Ad = the room (the video and words).</div><div class="es">Campa&ntilde;a = el edificio (tu meta). Ad set = el piso (qui&eacute;n, presupuesto, d&oacute;nde). Ad = el cuarto (el video y las palabras).</div></div>
+        <div class="row"><span class="rlab">Marisol &amp; Jay</span><div class="en">Goal: conversations. Floor: near Orlando, $20/day. Room: the reel that says "I help first-time buyers stop renting."</div><div class="es">Meta: conversaciones. Piso: cerca de Orlando, $20/d&iacute;a. Cuarto: el reel que dice "ayudo a primerizos a dejar de alquilar."</div></div>
+        <div class="row act"><span class="rlab">Do this</span><div class="en">Before you click, say which floor you are on.</div><div class="es">Antes de hacer clic, di en qu&eacute; piso est&aacute;s.</div></div>
+    </div>
+
+    <div class="concept">
+        <span class="cnum">Concept 03</span><div class="cname">Objective</div>
+        <div class="row"><span class="rlab">What it is</span><div class="en">Tells Meta what human to find. Engagement finds commenters, Leads finds form-fillers, Conversions finds bookers.</div><div class="es">Le dice a Meta qu&eacute; humano buscar. Engagement busca los que comentan, Leads los que llenan formularios, Conversions los que agendan.</div></div>
+        <div class="row"><span class="rlab">Marisol &amp; Jay</span><div class="en">Cold = Engagement, Warm = Leads, Retarget = Conversions.</div><div class="es">Cold = Engagement, Warm = Leads, Retarget = Conversions.</div></div>
+        <div class="row act"><span class="rlab">Do this</span><div class="en">Match the objective to the next action you want, not the one you wish for.</div><div class="es">Empareja el objetivo con la pr&oacute;xima acci&oacute;n que quieres, no la que deseas.</div></div>
+    </div>
+
+    <div class="concept">
+        <span class="cnum">Concept 04</span><div class="cname">Special Ad Category: Housing</div>
+        <div class="row"><span class="rlab">What it is</span><div class="en">Real estate ads are declared Housing. Meta locks age, gender, tight location. The copy does the targeting instead.</div><div class="es">Los anuncios de bienes ra&iacute;ces se declaran Housing. Meta bloquea edad, g&eacute;nero, ubicaci&oacute;n apretada. El copy hace el targeting.</div></div>
+        <div class="row"><span class="rlab">Marisol &amp; Jay</span><div class="en">"First-time buyers near Orlando, tired of renting" filters better than any age slider.</div><div class="es">"Compradores primerizos cerca de Orlando, cansados de alquilar" filtra mejor que cualquier slider de edad.</div></div>
+        <div class="row act"><span class="rlab">Do this</span><div class="en">Declare Housing on step one, every time. (Recruiting agents is the exception: Employment.)</div><div class="es">Declara Housing en el paso uno, siempre. (Reclutar agentes es la excepci&oacute;n: Employment.)</div></div>
+    </div>
+
+    <div class="concept">
+        <span class="cnum">Concept 05</span><div class="cname">Where the lead lands</div>
+        <div class="row"><span class="rlab">What it is</span><div class="en">When someone taps, they land in a message (Messenger, Instagram, WhatsApp). A small auto-greeting starts the conversation.</div><div class="es">Cuando alguien toca, aterriza en un mensaje (Messenger, Instagram, WhatsApp). Un saludito autom&aacute;tico arranca la conversaci&oacute;n.</div></div>
+        <div class="row"><span class="rlab">Marisol &amp; Jay</span><div class="en">She taps at midnight, a message asks "are you renting right now?" and she answers.</div><div class="es">Toca a medianoche, un mensaje pregunta "&iquest;est&aacute;s alquilando ahora?" y ella responde.</div></div>
+        <div class="row act"><span class="rlab">Do this</span><div class="en">Wire the greeting so nobody who taps gets silence.</div><div class="es">Monta el saludo para que nadie que toque reciba silencio.</div></div>
+    </div>
+
+    <div class="concept">
+        <span class="cnum">Concept 06</span><div class="cname">Audience + the exclusion cascade</div>
+        <div class="row"><span class="rlab">What it is</span><div class="en">Two levers survive Housing: a location, and saved lists of people by what they did. Cold excludes warm, warm excludes leads, retarget excludes bookers.</div><div class="es">Dos palancas sobreviven a Housing: una ubicaci&oacute;n, y listas guardadas de gente por lo que hicieron. Cold excluye warm, warm excluye leads, retarget excluye los que agendaron.</div></div>
+        <div class="row"><span class="rlab">Marisol &amp; Jay</span><div class="en">Each campaign excludes the stage before it, so your money hits fresh eyes.</div><div class="es">Cada campa&ntilde;a excluye la etapa anterior, as&iacute; tu dinero llega a ojos frescos.</div></div>
+        <div class="row act"><span class="rlab">Do this</span><div class="en">Build your lists first, before any ad set (Part 3 below).</div><div class="es">Construye tus listas primero, antes de cualquier ad set (Parte 3 abajo).</div></div>
+    </div>
+
+    <div class="concept">
+        <span class="cnum">Concept 07</span><div class="cname">Budget</div>
+        <div class="row"><span class="rlab">What it is</span><div class="en">$20 to $50 a day per campaign. Small enough that a bad week does not hurt, big enough for Meta to learn. Plan to spend about 10% of what you want to earn.</div><div class="es">$20 a $50 al d&iacute;a por campa&ntilde;a. Suficiente chico para que una mala semana no duela, suficiente grande para que Meta aprenda. Planifica gastar como 10% de lo que quieres ganar.</div></div>
+        <div class="row"><span class="rlab">Marisol &amp; Jay</span><div class="en">$20/day on cold for two weeks is $280 to find out if your message lands. Cheap tuition.</div><div class="es">$20/d&iacute;a en cold por dos semanas son $280 para saber si tu mensaje pega. Matr&iacute;cula barata.</div></div>
+        <div class="row act"><span class="rlab">Do this</span><div class="en">Pick a daily number you will not flinch at, then leave it alone to learn.</div><div class="es">Escoge un n&uacute;mero diario que no te haga temblar, despu&eacute;s d&eacute;jalo quieto para que aprenda.</div></div>
+    </div>
+
+    <div class="concept">
+        <span class="cnum">Concept 08</span><div class="cname">Placement</div>
+        <div class="row"><span class="rlab">What it is</span><div class="en">Where your ad shows (reels, feed, stories). Advantage+ placements lets Meta choose, right for most of you. Manual is hand-picking, only with data.</div><div class="es">D&oacute;nde aparece tu anuncio (reels, feed, stories). Advantage+ placements deja que Meta escoja, correcto para casi todos. Manual es a mano, solo con datos.</div></div>
+        <div class="row"><span class="rlab">Marisol &amp; Jay</span><div class="en">Your vertical reel pours naturally into reels and stories where she scrolls at night.</div><div class="es">Tu reel vertical se vuelca naturalmente en reels y stories donde ella hace scroll de noche.</div></div>
+        <div class="row act"><span class="rlab">Do this</span><div class="en">Leave it on Advantage+ until you have a reason on paper to change it.</div><div class="es">D&eacute;jalo en Advantage+ hasta que tengas una raz&oacute;n en papel para cambiarlo.</div></div>
+    </div>
+
+    <div class="concept">
+        <span class="cnum">Concept 09</span><div class="cname">The metrics that matter (your scoreboard)</div>
+        <div class="row"><span class="rlab">What it is</span><div class="en">Ignore likes. Watch cost per result, click rate (CTR), cost per 1,000 (CPM), frequency, and results. Your headline number: cost per conversation.</div><div class="es">Ignora los likes. Mira costo por resultado, tasa de clics (CTR), costo por 1,000 (CPM), frecuencia, y resultados. Tu n&uacute;mero principal: costo por conversaci&oacute;n.</div></div>
+        <div class="row"><span class="rlab">Marisol &amp; Jay</span><div class="en">A cheap lead who never replies is not cheap. An expensive lead who becomes a client is a bargain.</div><div class="es">Un lead barato que nunca responde no es barato. Un lead caro que se vuelve cliente es una ganga.</div></div>
+        <div class="row act"><span class="rlab">Do this</span><div class="en">After today, read only these numbers and write down your cost per conversation.</div><div class="es">Despu&eacute;s de hoy, lee solo estos n&uacute;meros y anota tu costo por conversaci&oacute;n.</div></div>
+    </div>
+</section>
+
+<!-- ============ PART 2 — CLICK-BY-CLICK COLD ============ -->
+<section class="section build">
+    <div class="section-head"><span class="pill brand">Part 2</span><h2>Build The Cold Campaign, Click By Click</h2></div>
+    <p class="lede">These screens match Pedro's real Ads Manager exactly. Go top to bottom. Labels in <span class="screen">blue</span> are the exact words you will see on screen.</p>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">1</span><span class="cstep-title">Create the campaign + pick the objective</span></div>
+        <div class="cstep-body">
+            <div class="en">From the Campaigns dashboard, click <span class="screen">Create</span>. In <span class="screen">Create new campaign</span>, leave buying type on <span class="screen">Auction</span>. Under <span class="screen">Choose a campaign objective</span>, select <span class="screen">Engagement</span>. Click <span class="screen">Continue</span>.</div>
+            <div class="es">Desde el panel de Campaigns, haz clic en <span class="screen">Create</span>. En <span class="screen">Create new campaign</span>, deja el buying type en <span class="screen">Auction</span>. Bajo <span class="screen">Choose a campaign objective</span>, escoge <span class="screen">Engagement</span>. Haz clic en <span class="screen">Continue</span>.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.37.08%E2%80%AFPM.png" alt="Choose a campaign objective: Engagement"><figcaption>Choose a campaign objective &middot; Engagement</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">2</span><span class="cstep-title">Choose the campaign setup</span></div>
+        <div class="cstep-body">
+            <div class="en">On <span class="screen">Choose a campaign setup</span>, pick <span class="screen">Tailored messages campaign</span>. Click <span class="screen">Continue</span>.</div>
+            <div class="es">En <span class="screen">Choose a campaign setup</span>, escoge <span class="screen">Tailored messages campaign</span>. Haz clic en <span class="screen">Continue</span>.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.37.56%E2%80%AFPM.png" alt="Choose a campaign setup: Tailored messages campaign"><figcaption>Choose a campaign setup &middot; Tailored messages</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">3</span><span class="cstep-title">Name it + set the budget strategy</span></div>
+        <div class="cstep-body">
+            <div class="en">At the campaign level, set <span class="screen">Campaign name</span> to <code>01 Cold [your name] AIDA</code>. Under <span class="screen">Budget strategy</span>, choose <span class="screen">Ad set budget</span>. Leave <span class="screen">Campaign bid strategy</span> on <span class="screen">Highest volume</span>.</div>
+            <div class="es">En el nivel de campa&ntilde;a, pon <span class="screen">Campaign name</span> como <code>01 Cold [tu nombre] AIDA</code>. Bajo <span class="screen">Budget strategy</span>, escoge <span class="screen">Ad set budget</span>. Deja <span class="screen">Campaign bid strategy</span> en <span class="screen">Highest volume</span>.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.38.11%E2%80%AFPM.png" alt="Campaign name and budget strategy"><figcaption>Campaign name &middot; Budget strategy (Ad set budget)</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">4</span><span class="cstep-title">Declare Special Ad Category: Housing</span></div>
+        <div class="cstep-body">
+            <div class="en">Scroll to <span class="screen">Special Ad Categories</span>. Open <span class="screen">Categories</span> and choose <span class="screen">Housing</span>. Set <span class="screen">Countries</span> to <span class="screen">United States</span>. Click <span class="screen">Next</span>. Do this now, you cannot add it after publishing without rebuilding.</div>
+            <div class="es">Baja a <span class="screen">Special Ad Categories</span>. Abre <span class="screen">Categories</span> y escoge <span class="screen">Housing</span>. Pon <span class="screen">Countries</span> en <span class="screen">United States</span>. Haz clic en <span class="screen">Next</span>. Hazlo ahora, no lo puedes a&ntilde;adir despu&eacute;s de publicar sin reconstruir.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.38.28%E2%80%AFPM.png" alt="Special Ad Categories set to Housing"><figcaption>Special Ad Categories &middot; Housing &middot; United States</figcaption></figure>
+            <div class="note clay"><span class="nlab">This is concept 3 live</span><div class="en">From here, age, gender, and tight location are locked. That is expected. Your copy does the targeting.</div><div class="es">Desde aqu&iacute;, edad, g&eacute;nero, y ubicaci&oacute;n apretada quedan bloqueados. Es lo esperado. Tu copy hace el targeting.</div></div>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">5</span><span class="cstep-title">Ad set: conversion location + page</span></div>
+        <div class="cstep-body">
+            <div class="en">At the ad set level, under <span class="screen">Conversion</span>, set <span class="screen">Conversion location</span> to <span class="screen">Message destinations</span>. Select your <span class="screen">Facebook Page</span>.</div>
+            <div class="es">En el nivel de ad set, bajo <span class="screen">Conversion</span>, pon <span class="screen">Conversion location</span> en <span class="screen">Message destinations</span>. Selecciona tu <span class="screen">Facebook Page</span>.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.38.38%E2%80%AFPM.png" alt="Conversion location: Message destinations"><figcaption>Conversion location &middot; Message destinations</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">6</span><span class="cstep-title">Pick your messaging apps</span></div>
+        <div class="cstep-body">
+            <div class="en">Choose <span class="screen">Manual destination</span> and check the apps you actually answer: <span class="screen">Messenger</span>, <span class="screen">Instagram</span>, <span class="screen">WhatsApp</span>. This is concept 4, where the lead lands.</div>
+            <div class="es">Escoge <span class="screen">Manual destination</span> y marca las apps que de verdad contestas: <span class="screen">Messenger</span>, <span class="screen">Instagram</span>, <span class="screen">WhatsApp</span>. Este es el concepto 4, d&oacute;nde aterriza el lead.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.38.52%E2%80%AFPM.png" alt="Manual destination: Messenger, Instagram, WhatsApp"><figcaption>Manual destination &middot; Messenger / Instagram / WhatsApp</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">7</span><span class="cstep-title">Performance goal</span></div>
+        <div class="cstep-body">
+            <div class="en">Set <span class="screen">Performance goal</span> to <span class="screen">Maximize number of conversations</span>. That tells Meta to find people who actually message.</div>
+            <div class="es">Pon <span class="screen">Performance goal</span> en <span class="screen">Maximize number of conversations</span>. Eso le dice a Meta que busque gente que de verdad manda mensajes.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.38.58%E2%80%AFPM.png" alt="Performance goal: Maximize number of conversations"><figcaption>Performance goal &middot; Maximize number of conversations</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">8</span><span class="cstep-title">Budget &amp; schedule</span></div>
+        <div class="cstep-body">
+            <div class="en">Under <span class="screen">Budget &amp; schedule</span>, set <span class="screen">Daily budget</span> to your number ($20 to $50). Set a start date. Leave the end date off so it keeps running. This is concept 7.</div>
+            <div class="es">Bajo <span class="screen">Budget &amp; schedule</span>, pon <span class="screen">Daily budget</span> en tu n&uacute;mero ($20 a $50). Pon fecha de inicio. Deja la fecha de fin apagada para que siga corriendo. Este es el concepto 7.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.39.26%E2%80%AFPM.png" alt="Budget and schedule: daily budget"><figcaption>Budget &amp; schedule &middot; Daily budget</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">9</span><span class="cstep-title">Location (your one real targeting lever)</span></div>
+        <div class="cstep-body">
+            <div class="en">Under <span class="screen">Audience controls</span> &rarr; <span class="screen">Locations</span>, set your city plus a radius, like <span class="screen">Orlando, Florida + 15mi</span>. This is concept 6.</div>
+            <div class="es">Bajo <span class="screen">Audience controls</span> &rarr; <span class="screen">Locations</span>, pon tu ciudad m&aacute;s un radio, como <span class="screen">Orlando, Florida + 15mi</span>. Este es el concepto 6.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.39.48%E2%80%AFPM.png" alt="Locations: Orlando Florida plus 15 miles"><figcaption>Audience controls &middot; Locations</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">10</span><span class="cstep-title">Placements + advertiser</span></div>
+        <div class="cstep-body">
+            <div class="en">Under <span class="screen">Placements</span>, leave <span class="screen">Advantage+</span> on (let Meta choose). Under <span class="screen">Ad transparency</span>, set the advertiser to your verified business. This is concept 8.</div>
+            <div class="es">Bajo <span class="screen">Placements</span>, deja <span class="screen">Advantage+</span> encendido (deja que Meta escoja). Bajo <span class="screen">Ad transparency</span>, pon el anunciante como tu negocio verificado. Este es el concepto 8.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.40.20%E2%80%AFPM.png" alt="Placements: Advantage plus"><figcaption>Placements &middot; Advantage+</figcaption></figure>
+            <div class="note brand"><span class="nlab">You will see this and it is fine</span><div class="en">In <span class="screen">Detailed targeting</span>, <span class="screen">Age</span> is forced to 18 to 65+ and <span class="screen">Gender</span> to All. That is Housing locking it. Do not fight it.</div><div class="es">En <span class="screen">Detailed targeting</span>, <span class="screen">Age</span> se fuerza a 18 a 65+ y <span class="screen">Gender</span> a All. Eso es Housing bloque&aacute;ndolo. No pelees con eso.</div></div>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">11</span><span class="cstep-title">Ad level: identity</span></div>
+        <div class="cstep-body">
+            <div class="en">At the ad level, name the ad. Under <span class="screen">Identity</span>, confirm your <span class="screen">Facebook Page</span> and <span class="screen">Instagram profile</span>. Under <span class="screen">Destination</span>, choose <span class="screen">Messaging apps</span> and check the same apps as step 6.</div>
+            <div class="es">En el nivel de ad, nombra el anuncio. Bajo <span class="screen">Identity</span>, confirma tu <span class="screen">Facebook Page</span> e <span class="screen">Instagram profile</span>. Bajo <span class="screen">Destination</span>, escoge <span class="screen">Messaging apps</span> y marca las mismas apps del paso 6.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.45.36%E2%80%AFPM.png" alt="Destination: Messaging apps"><figcaption>Destination &middot; Messaging apps</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">12</span><span class="cstep-title">Ad creative + the conversation + publish</span></div>
+        <div class="cstep-body">
+            <div class="en">Under <span class="screen">Ad creative</span>, add your video (a video is required). Under <span class="screen">Conversations</span>, set the greeting and the quick questions people see after they tap. Check your <span class="screen">Tracking</span> events. Then click the green <span class="screen">Publish</span>.</div>
+            <div class="es">Bajo <span class="screen">Ad creative</span>, a&ntilde;ade tu video (un video es requerido). Bajo <span class="screen">Conversations</span>, pon el saludo y las preguntas r&aacute;pidas que la gente ve despu&eacute;s de tocar. Revisa tus eventos de <span class="screen">Tracking</span>. Despu&eacute;s haz clic en el <span class="screen">Publish</span> verde.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.45.54%E2%80%AFPM.png" alt="Conversations template and tracking"><figcaption>Conversations greeting + questions &middot; Tracking</figcaption></figure>
+            <div class="note sprout"><span class="nlab">No video yet?</span><div class="en">Build everything else and leave it in draft. The campaign waits for you. A campaign with no video has nothing to say.</div><div class="es">&iquest;No tienes video todav&iacute;a? Construye todo lo dem&aacute;s y d&eacute;jalo en borrador. La campa&ntilde;a te espera. Una campa&ntilde;a sin video no tiene nada que decir.</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PART 3 — BUILD YOUR AUDIENCES ============ -->
+<section class="section build">
+    <div class="section-head"><span class="pill sprout">Part 3</span><h2>Build Your Audiences (the cascade)</h2></div>
+    <p class="lede">This is what you built in Session 6. Ads Manager menu &rarr; <span class="screen">Audiences</span>. These lists power the warm and retarget campaigns.</p>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">A</span><span class="cstep-title">Start a custom audience</span></div>
+        <div class="cstep-body">
+            <div class="en">On the <span class="screen">Audiences</span> page, click <span class="screen">Create audience</span> &rarr; <span class="screen">Custom audience</span>. Click <span class="screen">Next</span>.</div>
+            <div class="es">En la p&aacute;gina de <span class="screen">Audiences</span>, haz clic en <span class="screen">Create audience</span> &rarr; <span class="screen">Custom audience</span>. Haz clic en <span class="screen">Next</span>.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.49.38%E2%80%AFPM.png" alt="Create audience: Custom audience"><figcaption>Create audience &middot; Custom audience</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">B</span><span class="cstep-title">Warm list: Facebook Page engagement</span></div>
+        <div class="cstep-body">
+            <div class="en">Choose source <span class="screen">Facebook Page</span>. For <span class="screen">Events</span>, pick <span class="screen">People who engaged with your Page</span>. Retention 90 days. Name it <code>Warm-Engagers-90d</code>. Click <span class="screen">Create audience</span>.</div>
+            <div class="es">Escoge la fuente <span class="screen">Facebook Page</span>. Para <span class="screen">Events</span>, escoge <span class="screen">People who engaged with your Page</span>. Retenci&oacute;n 90 d&iacute;as. Nombra <code>Warm-Engagers-90d</code>. Haz clic en <span class="screen">Create audience</span>.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.49.59%E2%80%AFPM.png" alt="Facebook Page custom audience events"><figcaption>Facebook Page &middot; People who engaged with your Page</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">C</span><span class="cstep-title">Retarget list: video viewers</span></div>
+        <div class="cstep-body">
+            <div class="en">New custom audience, source <span class="screen">Video</span>. Under <span class="screen">Choose an engagement type</span>, pick the heavy watchers: <span class="screen">People who either completed or viewed at least 15 seconds (ThruPlay)</span> or <span class="screen">at least 50%</span> / <span class="screen">75%</span>. Name it <code>Retarget-Viewers</code>.</div>
+            <div class="es">Nueva custom audience, fuente <span class="screen">Video</span>. Bajo <span class="screen">Choose an engagement type</span>, escoge los que ven mucho: <span class="screen">People who either completed or viewed at least 15 seconds (ThruPlay)</span> o <span class="screen">at least 50%</span> / <span class="screen">75%</span>. Nombra <code>Retarget-Viewers</code>.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.50.33%E2%80%AFPM.png" alt="Video engagement custom audience types"><figcaption>Video engagement &middot; ThruPlay / 50% / 75%</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cstep">
+        <div class="cstep-head"><span class="cstep-num">D</span><span class="cstep-title">Add Instagram engagement</span></div>
+        <div class="cstep-body">
+            <div class="en">One more custom audience, source <span class="screen">Instagram profile</span>. For <span class="screen">Events</span>, pick <span class="screen">People who engaged with this professional account</span>. Add this into your warm list so Instagram and Facebook engagers are both covered.</div>
+            <div class="es">Una custom audience m&aacute;s, fuente <span class="screen">Instagram profile</span>. Para <span class="screen">Events</span>, escoge <span class="screen">People who engaged with this professional account</span>. A&ntilde;ade esto a tu lista warm para cubrir engagers de Instagram y Facebook.</div>
+            <figure><img src="../docs/meta-ads-screenshots/Screenshot%202026-06-29%20at%202.50.43%E2%80%AFPM.png" alt="Instagram custom audience events"><figcaption>Instagram &middot; People who engaged with this professional account</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="note sprout"><span class="nlab">The cascade, in plain terms</span><div class="en">Cold runs to your location and quietly fills <code>Warm-Engagers-90d</code>. Warm talks to that list and excludes anyone who became a lead. Retarget talks to <code>Retarget-Viewers</code> and excludes anyone who booked. Build the lists, then attach them as Include or Exclude inside each ad set.</div><div class="es">Cold corre a tu ubicaci&oacute;n y calladito llena <code>Warm-Engagers-90d</code>. Warm le habla a esa lista y excluye a quien se hizo lead. Retarget le habla a <code>Retarget-Viewers</code> y excluye a quien agend&oacute;. Construye las listas, despu&eacute;s adju&eacute;ntalas como Include o Exclude dentro de cada ad set.</div></div>
+</section>
+
+<!-- ============ PART 4 — WARM + RETARGET BY ANALOGY ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill amber">Part 4</span><h2>Warm + Retarget (same clicks, different settings)</h2></div>
+    <div class="note amber"><span class="nlab">Heads up: no screenshot for these yet</span><div class="en">We have not captured screenshots of the Warm and Retarget builds yet, so this part is by analogy. The clicks are the same as the cold campaign above. Only the settings below change. Pedro will capture these screens for a future update.</div><div class="es">Todav&iacute;a no capturamos screenshots de los builds de Warm y Retarget, as&iacute; que esta parte es por analog&iacute;a. Los clics son iguales a la campa&ntilde;a cold de arriba. Solo cambian los ajustes de abajo. Pedro va a capturar estas pantallas para una actualizaci&oacute;n futura.</div></div>
+
+    <div class="concept">
+        <div class="cname">Campaign 02 &middot; Warm</div>
+        <div class="row"><span class="rlab">Change these</span><div class="en">Objective: <code>Leads</code>. Name: <code>02 Warm [name] PAS+FAB</code>. Audience: <code>Warm-Engagers-90d</code>. Exclude: anyone who already became a lead. Budget: about $100/day split across two ad sets for 7 days, then move 80% to the winner.</div><div class="es">Objetivo: <code>Leads</code>. Nombre: <code>02 Warm [nombre] PAS+FAB</code>. Audiencia: <code>Warm-Engagers-90d</code>. Excluye: quien ya se hizo lead. Presupuesto: como $100/d&iacute;a dividido en dos ad sets por 7 d&iacute;as, despu&eacute;s mueve 80% al ganador.</div></div>
+    </div>
+    <div class="concept">
+        <div class="cname">Campaign 03 &middot; Retarget</div>
+        <div class="row"><span class="rlab">Change these</span><div class="en">Objective: <code>Conversions</code>. Name: <code>03 Retarget [name] IDCA</code>. Audience: <code>Retarget-Viewers</code> (aim for 500 to 2,000 people). Exclude: booked, in pipeline, unfollowed. Budget: $20 to $50/day. Refresh the video once frequency passes 3 to 4.</div><div class="es">Objetivo: <code>Conversions</code>. Nombre: <code>03 Retarget [nombre] IDCA</code>. Audiencia: <code>Retarget-Viewers</code> (apunta a 500 a 2,000 personas). Excluye: agendados, en pipeline, dejaron de seguir. Presupuesto: $20 a $50/d&iacute;a. Refresca el video cuando la frecuencia pase de 3 a 4.</div></div>
+    </div>
+</section>
+
+<!-- ============ PART 5 — CREATIVE + PUBLISH BY ANALOGY ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill amber">Part 5</span><h2>Creative + Publish (what the screenshots stop short of)</h2></div>
+    <div class="note amber"><span class="nlab">Heads up: by analogy</span><div class="en">Our screenshots stop at "a video is required." Here is what to do when you have your video ready.</div><div class="es">Nuestros screenshots paran en "se requiere un video." Aqu&iacute; est&aacute; qu&eacute; hacer cuando tengas tu video listo.</div></div>
+    <ol style="margin-left: 18px; font-size: 0.9rem;">
+        <li class="en">Upload your vertical (9:16) video under <span class="screen">Ad creative</span>. Add your primary text, the caption that names your buyer specifically.</li>
+        <li class="en">Confirm the <span class="screen">Conversations</span> greeting and questions sound like you, not a robot.</li>
+        <li class="en">Open the <span class="screen">Review</span> tab, check every level, then hit the green <span class="screen">Publish</span>.</li>
+        <li class="en">After publish, leave it alone for 7 days. Meta needs the learning phase. Touching it resets the learning.</li>
+    </ol>
+    <p class="es" style="margin-top:8px;">Sube tu video vertical (9:16) bajo <span class="screen">Ad creative</span>. A&ntilde;ade tu texto principal que nombra a tu comprador. Confirma que el saludo de <span class="screen">Conversations</span> suene como t&uacute;. Abre la pesta&ntilde;a <span class="screen">Review</span>, revisa cada nivel, y dale al <span class="screen">Publish</span> verde. Despu&eacute;s de publicar, d&eacute;jalo quieto 7 d&iacute;as. Meta necesita la fase de aprendizaje.</p>
+</section>
+
+<!-- ============ END-OF-SESSION CHECKLIST ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill brand">Finish Line</span><h2>Your End-Of-Session Checklist</h2></div>
+    <ul class="check">
+        <li class="en">I found my stage (1 to 5) and know my one next action</li>
+        <li class="en">I can explain campaign vs ad set vs ad in my own words</li>
+        <li class="en">I declared Housing on the campaign</li>
+        <li class="en">I set a daily budget of $20 to $50</li>
+        <li class="en">My location is set (my city + 15mi)</li>
+        <li class="en">My audiences are saved: Warm-Engagers-90d + Retarget-Viewers</li>
+        <li class="en">My cold campaign is built (draft or published)</li>
+        <li class="en">I know my scoreboard number: cost per conversation</li>
+    </ul>
+    <p class="es">Encontr&eacute; mi etapa (1 a 5) y s&eacute; mi pr&oacute;xima acci&oacute;n. Puedo explicar campa&ntilde;a, ad set, y ad. Declar&eacute; Housing. Puse presupuesto diario de $20 a $50. Mi ubicaci&oacute;n est&aacute; puesta. Mis audiencias est&aacute;n guardadas. Mi campa&ntilde;a cold est&aacute; construida. S&eacute; mi n&uacute;mero: costo por conversaci&oacute;n.</p>
+</section>
+
+<!-- ============ SCOREBOARD ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill sprout">Scoreboard</span><h2>What To Measure From Now On</h2></div>
+    <div class="note sprout"><span class="nlab">Your one number</span><div class="en"><strong>Cost per conversation</strong> = ad spend divided by real conversations started. Check it weekly. A cheap lead who never replies is not cheap. An expensive lead who becomes a client is a bargain. Also glance at click rate (are they tapping?) and frequency (am I showing it too much?).</div><div class="es"><strong>Costo por conversaci&oacute;n</strong> = gasto del anuncio dividido por conversaciones reales iniciadas. Rev&iacute;salo cada semana. Un lead barato que nunca responde no es barato. Un lead caro que se vuelve cliente es una ganga. Tambi&eacute;n mira la tasa de clics (&iquest;est&aacute;n tocando?) y la frecuencia (&iquest;lo estoy mostrando demasiado?).</div></div>
+</section>
+
+<div class="foot">reThought Real Estate &middot; reLearn &middot; Marketing Machine Session 7 &middot; Participant Guide &middot; English / Espa&ntilde;ol &middot; Real Simple. Real Skills. Real Results.</div>
+
+</div>
+</body>
+</html>

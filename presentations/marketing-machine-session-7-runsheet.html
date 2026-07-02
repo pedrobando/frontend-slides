@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Presenter Run-of-Show: Meta Ads, Redefined | Marketing Machine S7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --ink: #1B252F; --ink-soft: #2b3744; --paper: #ffffff; --bone: #f5f1ea;
+    --brand: #034c76; --brand-light: #2c7cb5; --sprout: #5a8a1f; --sprout-bg: #f1f7e8;
+    --clay: #b14334; --amber: #b07d18; --amber-bg: #fbf3e0;
+    --muted: #5c6773; --line: #e2e6ea; --line-strong: #c8cfd6;
+    --font-display: 'Poppins', sans-serif; --font-sans: 'Instrument Sans', sans-serif; --font-mono: 'Geist Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #eef1f4; color: var(--ink); font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.page { max-width: 860px; margin: 24px auto; background: var(--paper); padding: 48px 56px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+
+/* Toolbar (screen only) */
+.toolbar { position: sticky; top: 0; z-index: 50; background: var(--ink); color: #fff; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.5px; }
+.toolbar button { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; background: var(--sprout); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+.toolbar .hint { color: #b9c2cc; }
+
+h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; line-height: 1.1; }
+.sub { color: var(--muted); font-size: 1rem; margin-top: 6px; }
+.kicker { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--sprout); font-weight: 600; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.01em; margin-top: 6px; line-height: 1.15; }
+h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin: 0 0 4px; }
+
+.section { margin-top: 34px; padding-top: 26px; border-top: 2px solid var(--line-strong); }
+.section-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.pill { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+.pill.sprout { background: var(--sprout-bg); color: var(--sprout); border: 1px solid #cfe2b0; }
+.pill.brand { background: #e7f1f8; color: var(--brand); border: 1px solid #c3ddee; }
+.pill.amber { background: var(--amber-bg); color: var(--amber); border: 1px solid #ecd9a8; }
+.pill.clay { background: #fbe9e6; color: var(--clay); border: 1px solid #f0cbc4; }
+
+.lede { color: var(--muted); font-size: 0.95rem; margin: 4px 0 14px; }
+
+/* Agenda time blocks */
+.agenda { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 12px 0; }
+.block { display: grid; grid-template-columns: 96px 1fr; gap: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; break-inside: avoid; }
+.block-time { background: var(--ink); color: #fff; font-family: var(--font-mono); font-size: 0.74rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 6px; text-align: center; gap: 2px; }
+.block-time .mins { color: var(--sprout); font-size: 0.62rem; }
+.block-body { padding: 10px 16px; }
+.block-body .bt { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+.block-body .bd { font-size: 0.86rem; color: var(--muted); margin-top: 2px; }
+.block-body .slides { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; color: var(--brand); margin-top: 5px; }
+
+/* SAY / DO step table */
+.step { display: grid; grid-template-columns: 30px 1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 10px; overflow: hidden; break-inside: avoid; }
+.step-num { background: var(--ink); color: #fff; font-family: var(--font-mono); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
+.step-do, .step-say { padding: 10px 14px; }
+.step-do { border-right: 1px solid var(--line); }
+.step-do .lab, .step-say .lab { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; display: block; }
+.step-do .lab { color: var(--brand); }
+.step-say .lab { color: var(--sprout); }
+.step-say { background: var(--sprout-bg); }
+.step-do p, .step-say p { font-size: 0.86rem; line-height: 1.45; }
+.step-do code, .field code { font-family: var(--font-mono); font-size: 0.78rem; background: #eef1f4; padding: 1px 5px; border-radius: 4px; color: var(--ink); }
+.step-say em { color: var(--ink); font-style: italic; }
+
+/* Setting chips */
+.settings { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 18px; margin: 10px 0 4px; }
+@media (max-width: 600px) { .settings { grid-template-columns: 1fr; } }
+.field { font-size: 0.85rem; padding: 5px 0; border-bottom: 1px dotted var(--line); display: flex; justify-content: space-between; gap: 10px; }
+.field .k { color: var(--muted); }
+.field .v { font-weight: 600; text-align: right; }
+
+/* Cohort routing table */
+.routes { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 12px 0; }
+.route { border: 1px solid var(--line); border-left: 4px solid var(--sprout); border-radius: 8px; padding: 10px 14px; break-inside: avoid; }
+.route.off { border-left-color: var(--clay); }
+.route .who { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; }
+.route .during { font-size: 0.85rem; margin-top: 3px; }
+.route .done { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.5px; text-transform: uppercase; color: var(--sprout); margin-top: 5px; }
+.route.off .done { color: var(--clay); }
+
+/* Callouts */
+.note { border-left: 4px solid var(--amber); background: var(--amber-bg); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 0.85rem; margin: 12px 0; }
+.note.brand { border-left-color: var(--brand-light); background: #eef5fa; }
+.note.sprout { border-left-color: var(--sprout); background: var(--sprout-bg); }
+.note .nlab { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 2px; }
+.note.amber .nlab { color: var(--amber); }
+.note.brand .nlab { color: var(--brand); }
+.note.sprout .nlab { color: var(--sprout); }
+
+/* Checklist */
+.check { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; margin: 10px 0; }
+@media (max-width: 600px) { .check { grid-template-columns: 1fr; } }
+.check li { font-size: 0.86rem; padding: 4px 0; display: flex; gap: 8px; align-items: flex-start; }
+.check li::before { content: "\2610"; font-size: 1.05rem; line-height: 1.1; color: var(--brand); }
+
+/* Troubleshooting / watch-outs */
+.trouble { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.trouble-row { border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; break-inside: avoid; }
+.trouble-row .sym { font-weight: 700; font-size: 0.88rem; color: var(--clay); }
+.trouble-row .fix { font-size: 0.85rem; margin-top: 3px; }
+
+.foot { margin-top: 40px; padding-top: 16px; border-top: 2px solid var(--line-strong); font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); text-align: center; }
+
+/* ===== PRINT ===== */
+@page { size: letter portrait; margin: 0.6in; }
+@media print {
+    body { background: #fff; }
+    .toolbar { display: none; }
+    .page { max-width: none; margin: 0; padding: 0; box-shadow: none; }
+    .section { break-inside: avoid-page; }
+    .step-num { background: var(--ink) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .block-time { background: var(--ink) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .step-say, .note, .pill, .route { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+    <span>Presenter Run-of-Show &middot; keep this on your second screen</span>
+    <span class="hint">Cmd/Ctrl+P &rarr; Save as PDF</span>
+    <button onclick="window.print()">&#8595; Save as PDF</button>
+</div>
+
+<div class="page">
+
+<header>
+    <div class="kicker">Marketing Machine &middot; Session 7 &middot; Meta Ads, Redefined &middot; Presenter Run-of-Show</div>
+    <h1>How To Run The Room</h1>
+    <p class="sub">For Pedro only. This sheet is the choreography around the deck. The deck is what is on screen. The participant guide is what agents click. This is how you route five groups through one session without losing anyone.</p>
+    <div class="note brand" style="margin-top:14px;">
+        <span class="nlab">The spine in one line</span>
+        Skill-routing opener, then one plain-language re-teach for the whole room, then five cohort exits. You teach the concepts <strong>once</strong>. The groups only differ at the open (which prompt) and the close (one action each).
+    </div>
+</header>
+
+<!-- ============ PRE-FLIGHT ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill brand">Pre-Flight</span><h2>Before The Room Fills Up</h2></div>
+    <p class="lede">Set this up off-camera so the live portion looks effortless.</p>
+    <div class="settings">
+        <div class="field"><span class="k">Tab 1</span><span class="v">Meta Ads Manager (Create open)</span></div>
+        <div class="field"><span class="k">Tab 2</span><span class="v">Claude / ChatGPT with avatar loaded</span></div>
+        <div class="field"><span class="k">Tab 3</span><span class="v">The participant guide (printed or open)</span></div>
+        <div class="field"><span class="k">Special Ad Category</span><span class="v">Housing (buyer / seller)</span></div>
+        <div class="field"><span class="k">Demo buyer</span><span class="v">Marisol &amp; Jay, first-time buyers, Orlando</span></div>
+        <div class="field"><span class="k">Daily budget to model</span><span class="v">$20 to $50 / day per campaign</span></div>
+    </div>
+    <div class="note amber"><span class="nlab">Say this once, up front</span> <em>"Today we are not adding anything new. Last session we built audiences, that is all we did. Today I make the whole thing finally make sense, in plain language, through one real buyer. Find yourself in the five groups, because each group leaves with a different next step."</em></div>
+    <div class="note brand"><span class="nlab">Source-of-truth note</span> The participant guide is built click-by-click from your real Ads Manager screenshots, declared <strong>Housing</strong>. The dashboard metrics screen was not screenshotted, so the metrics concept is taught from the standard column set. When you reach it live, open your real dashboard and point at the actual numbers.</div>
+</section>
+
+<!-- ============ AGENDA ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill sprout">Agenda</span><h2>The 60-Minute Flow</h2></div>
+    <p class="lede">Time-blocked. If you run long, the live build is where you trim, not the re-teach.</p>
+    <div class="agenda">
+        <div class="block"><div class="block-time">0:00<span class="mins">8 min</span></div><div class="block-body"><div class="bt">Open + Find Yourself</div><div class="bd">Welcome, frame the session, walk the five cohorts. Everyone picks their group out loud or by show of hands.</div><div class="slides">Slides 1 to 2</div></div></div>
+        <div class="block"><div class="block-time">0:08<span class="mins">7 min</span></div><div class="block-body"><div class="bt">Route To The Skill</div><div class="bd">Show the cohort routing table, then run the AI prompt live once. Be explicit that editing-stuck agents do not use the skill today.</div><div class="slides">Slides 3 to 5</div></div></div>
+        <div class="block"><div class="block-time">0:15<span class="mins">3 min</span></div><div class="block-body"><div class="bt">Optional: Story-Time Post</div><div class="bd">Phones out, post one line to stories, tag reThought, 30 seconds. Cut this first if you are tight on time.</div><div class="slides">Verbal, no slide</div></div></div>
+        <div class="block"><div class="block-time">0:18<span class="mins">20 min</span></div><div class="block-body"><div class="bt">The Re-Teach (9 concepts)</div><div class="bd">The big-picture map, then the concepts, each as definition, Marisol example, one action. Keep pace, about 2 minutes each. This is the heart, protect it.</div><div class="slides">Slides 6 to 14</div></div></div>
+        <div class="block"><div class="block-time">0:38<span class="mins">15 min</span></div><div class="block-body"><div class="bt">Live Build (Cold + audiences)</div><div class="bd">Open Ads Manager, share screen, everyone follows the participant guide. Build the cold campaign and the audiences. Go slow.</div><div class="slides">Slides 15 to 16</div></div></div>
+        <div class="block"><div class="block-time">0:53<span class="mins">7 min</span></div><div class="block-body"><div class="bt">Scoreboard + Cohort Exits</div><div class="bd">Lock the one number (cost per conversation). Give each group its single next action out loud. Confirm everyone knows theirs.</div><div class="slides">Slide 17</div></div></div>
+    </div>
+</section>
+
+<!-- ============ COHORT ROUTING ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill sprout">Routing</span><h2>Where Each Group Starts, Does, And Finishes</h2></div>
+    <p class="lede">Read this before the session. During the live build, this is who is doing what. Do not force the editing group into Ads Manager.</p>
+    <div class="routes">
+        <div class="route off"><div class="who">01 &middot; Not Started (recorded nothing)</div><div class="during">During: follows the re-teach to learn the path. During the live build, runs the prompt to lock avatar and write the cold script instead of building.</div><div class="done">Done: script in hand, recording booked this week</div></div>
+        <div class="route off"><div class="who">02 &middot; Recorded, Not Edited (stuck editing)</div><div class="during">During: sits through the re-teach, but the skill is NOT their tool today. The live build is not for them. Their job is to finish the edit. Say it plainly so they do not feel behind.</div><div class="done">Done: one video edited, or a hard edit deadline set</div></div>
+        <div class="route"><div class="who">03 &middot; Recorded + Edited (video ready)</div><div class="during">During: runs the prompt for ad copy, offer, ManyChat keyword. Builds the cold campaign in DRAFT so it is ready when they want to publish.</div><div class="done">Done: ad copy + offer + keyword drafted, cold in draft</div></div>
+        <div class="route"><div class="who">04 &middot; Audiences Built (finished S6)</div><div class="during">During: builds live with you, click for click. Fills the setup sheet via the prompt, then transfers it into the cold campaign and audiences.</div><div class="done">Done: setup sheet filled, cold campaign + audiences in draft</div></div>
+        <div class="route"><div class="who">05 &middot; Ready For More (ahead)</div><div class="during">During: runs the full build, refines targeting and creative, then becomes your floating helper for groups 3 and 4.</div><div class="done">Done: campaign optimized, or a teammate unblocked</div></div>
+    </div>
+    <div class="note sprout"><span class="nlab">Routing rule of thumb</span> <em>"Build live with me if you have audiences. Build in draft if you have a video. Learn the path and run the prompt if you have neither. And if you are editing, you are excused from the laptop, go finish."</em></div>
+</section>
+
+<!-- ============ THE RE-TEACH ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill brand">The Re-Teach</span><h2>Teaching The 9 Concepts (slides 6 to 14)</h2></div>
+    <p class="lede">Every concept the same shape: plain definition, then Marisol &amp; Jay, then one action. Roughly 2 minutes each. Below is the beat to hit and the trap to avoid for each.</p>
+    <div class="step"><div class="step-num">6</div><div class="step-do"><span class="lab">Teach &middot; The Map</span><p>Three separate campaigns, exclusions cascade. This frames everything after it.</p></div><div class="step-say"><span class="lab">Land this</span><p><em>"Three campaigns, not one with three parts. Cram them into one and the same person sees all three ads and you pay three times."</em></p></div></div>
+    <div class="step"><div class="step-num">7</div><div class="step-do"><span class="lab">Teach &middot; 3 Floors</span><p>Campaign = building (goal). Ad set = floor (who, budget, where). Ad = room (video + words).</p></div><div class="step-say"><span class="lab">Land this</span><p><em>"Before you click anything, say out loud which floor you are on."</em></p></div></div>
+    <div class="step"><div class="step-num">8</div><div class="step-do"><span class="lab">Teach &middot; Objective</span><p>It tells Meta what human to find. Engagement, Leads, Conversions across the three campaigns.</p></div><div class="step-say"><span class="lab">Land this</span><p><em>"Wrong objective, wrong crowd, no matter how good the ad."</em></p></div></div>
+    <div class="step"><div class="step-num">9</div><div class="step-do"><span class="lab">Teach &middot; Housing SAC</span><p>Declared Housing, targeting locks, the copy does the targeting. This is the one that trips people, slow down.</p></div><div class="step-say"><span class="lab">Land this</span><p><em>"Generic fails, specific filters. If the ad works for anybody, it works for nobody."</em></p></div></div>
+    <div class="step"><div class="step-num">10</div><div class="step-do"><span class="lab">Teach &middot; Where Lead Lands</span><p>Message destinations, the conversation starts in DM with an auto-greeting.</p></div><div class="step-say"><span class="lab">Land this</span><p><em>"She taps at midnight, a friendly message starts the conversation while you sleep."</em></p></div></div>
+    <div class="step"><div class="step-num">11</div><div class="step-do"><span class="lab">Teach &middot; Audience Cascade</span><p>The one they built last week. Location + saved lists, exclude down the chain.</p></div><div class="step-say"><span class="lab">Land this</span><p><em>"You already built this. Lists first, before any ad set."</em></p></div></div>
+    <div class="step"><div class="step-num">12</div><div class="step-do"><span class="lab">Teach &middot; Budget</span><p>$20 to $50/day. 10% of target earnings. Small enough to learn, big enough for data.</p></div><div class="step-say"><span class="lab">Land this</span><p><em>"$280 over two weeks is not gambling, it is cheap tuition."</em></p></div></div>
+    <div class="step"><div class="step-num">13</div><div class="step-do"><span class="lab">Teach &middot; Placement</span><p>Advantage+ placements for 90% of them. Do not overthink it.</p></div><div class="step-say"><span class="lab">Land this</span><p><em>"Leave it on Advantage+ until you have a reason on paper to change it."</em></p></div></div>
+    <div class="step"><div class="step-num">14</div><div class="step-do"><span class="lab">Teach &middot; Metrics</span><p>Ignore likes. Cost per result, CTR, CPM, frequency, results. Headline: cost per conversation. Open your real dashboard here.</p></div><div class="step-say"><span class="lab">Land this</span><p><em>"A cheap lead who never replies is not cheap. An expensive lead who becomes a client is a bargain."</em></p></div></div>
+    <div class="note amber"><span class="nlab">Pacing watch-out</span> The re-teach is 9 slides in 20 minutes. If a concept sparks great questions, let it breathe and trim the live build, not the teach. The teach is the whole point of this session.</div>
+</section>
+
+<!-- ============ WATCH-OUTS ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill clay">Watch-Outs</span><h2>Where People Get Stuck, And What To Do</h2></div>
+    <div class="trouble">
+        <div class="trouble-row"><div class="sym">The editing-stuck group feels behind and tries to build anyway</div><div class="fix"><strong>Do:</strong> name it as a real win. <em>"Your job today is one finished edit. That is progress and it counts. Do not open Ads Manager."</em> Keep them in the re-teach, excuse them from the laptop.</div></div>
+        <div class="trouble-row"><div class="sym">Someone panics that targeting (age, ZIP, interests) is greyed out</div><div class="fix"><strong>Do:</strong> that is Housing working, not a bug. <em>"Locked on purpose. The copy does the targeting."</em> Move on, do not let it derail the room.</div></div>
+        <div class="trouble-row"><div class="sym">Confusion between campaign, ad set, and ad</div><div class="fix"><strong>Do:</strong> go back to the building metaphor. Building, floor, room. Have them point at which level Ads Manager is showing them right now.</div></div>
+        <div class="trouble-row"><div class="sym">They want to set the budget high to "go faster"</div><div class="fix"><strong>Do:</strong> repeat the tuition line. $20 to $50/day, leave it alone for the learning phase. High budget early just burns money before Meta learns.</div></div>
+        <div class="trouble-row"><div class="sym">An agent falls behind in the live build</div><div class="fix"><strong>Do:</strong> pause at the end of the current screen, not mid-field. <em>"Catch me up, nobody gets left on a step."</em> Drafts save automatically.</div></div>
+        <div class="trouble-row"><div class="sym">Group asks about Warm and Retarget builds</div><div class="fix"><strong>Do:</strong> the guide covers those by analogy (same clicks, change the objective and attach the audience). Tell them the screenshots for those are coming, today we nail Cold and the audiences.</div></div>
+        <div class="trouble-row"><div class="sym">Recruiting-minded agent asks why it says Housing</div><div class="fix"><strong>Do:</strong> <em>"Selling homes is Housing. Recruiting agents is the one exception, that is Employment. Same lesson either way, the copy does the targeting."</em></div></div>
+    </div>
+</section>
+
+<!-- ============ EXIT CHECK ============ -->
+<section class="section">
+    <div class="section-head"><span class="pill brand">Close</span><h2>Before Anyone Leaves</h2></div>
+    <ul class="check">
+        <li>Every agent can name their cohort</li>
+        <li>Every agent has said their one next action out loud</li>
+        <li>The scoreboard number is locked: cost per conversation</li>
+        <li>Group 1 has a recording booked this week</li>
+        <li>Group 2 has a hard edit deadline</li>
+        <li>Group 3 has cold built in draft</li>
+        <li>Group 4 has cold + audiences in draft</li>
+        <li>Group 5 has helped at least one teammate</li>
+    </ul>
+    <div class="note sprout"><span class="nlab">Closing line</span> <em>"Wherever you walked in, you walk out one real step further, and you finally know what every button does. That was the whole point. Track your cost per conversation. See you next Tuesday."</em></div>
+</section>
+
+<div class="foot">reThought Real Estate &middot; reLearn &middot; Marketing Machine Session 7 &middot; Presenter Run-of-Show &middot; One buyer &middot; Nine concepts &middot; Five exits</div>
+
+</div>
+</body>
+</html>

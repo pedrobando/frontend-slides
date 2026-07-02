@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Meta Ads, Redefined | Marketing Machine</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="Meta Ads, Redefined">
+<meta name="presentation-series" content="Marketing Machine">
+<meta name="presentation-session" content="7">
+<meta name="presentation-runsheet" content="marketing-machine-session-7-runsheet.html">
+<meta name="presentation-date" content="2026-06-29">
+<meta name="presentation-slides" content="17">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   VIEWPORT BASE
+   =========================================== */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+    width: 100vw; height: 100vh; height: 100dvh;
+    overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    max-height: 100%; overflow: hidden; padding: var(--slide-padding);
+}
+:root {
+    --title-size: clamp(2rem, 5.5vw, 4.5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.3rem, 3.2vw, 2.4rem);
+    --body-size: clamp(1rem, 2.2vw, 1.6rem);
+    --small-size: clamp(0.8rem, 1.4vw, 1.15rem);
+    --slide-padding: clamp(1.5rem, 5vw, 5rem);
+    --content-gap: clamp(0.8rem, 3vw, 3rem);
+    --element-gap: clamp(0.4rem, 1.5vw, 1.5rem);
+}
+@media (max-height: 700px) {
+    :root { --slide-padding: clamp(1rem, 3vw, 2.5rem); --title-size: clamp(1.5rem, 4.5vw, 3rem); --h2-size: clamp(1.2rem, 3.5vw, 2.2rem); }
+}
+@media (max-height: 600px) {
+    :root { --slide-padding: clamp(0.75rem, 2.5vw, 1.5rem); --title-size: clamp(1.2rem, 4vw, 2.5rem); --body-size: clamp(0.8rem, 1.4vw, 1.1rem); }
+    .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root { --slide-padding: clamp(0.5rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.5rem, 8vw, 3rem); } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   RETHOUGHT TOKENS
+   =========================================== */
+:root {
+    --ink: #1B252F;
+    --ink-soft: #222E3A;
+    --ink-deep: #151D26;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --brand-light: #6ba8d6;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --amber: #e0a63a;
+    --amber-soft: #f5d08a;
+    --muted: #6e7a88;
+    --muted-2: #95a0ae;
+    --border-d: #ffffff18;
+    --border-l: #1B252F14;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--sprout); color: var(--ink); }
+
+/* ===========================================
+   GLOBAL COMPONENTS
+   =========================================== */
+.slide { background: var(--ink); padding: var(--slide-padding); }
+.slide.light { background: var(--paper); color: var(--ink); }
+.slide.light .section-label { color: var(--brand); }
+.slide.light .section-label::before { background: var(--brand); }
+.slide.light .slide-body { color: var(--muted); }
+.slide.light .slide-number { color: var(--muted); }
+
+.section-label {
+    font-family: var(--font-mono); font-size: clamp(0.75rem, 1.15vw, 0.95rem);
+    letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
+}
+.section-label::before { content: ""; width: clamp(14px, 2.5vw, 24px); height: 2px; background: var(--sprout); }
+
+.slide-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--h2-size); letter-spacing: -0.025em; line-height: 1.1;
+    margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+}
+.slide-body {
+    font-family: var(--font-sans); font-size: var(--body-size);
+    line-height: 1.6; color: var(--muted-2); max-width: 60ch;
+}
+
+.stroke { position: relative; display: inline-block; padding: 0 3px; }
+.stroke svg.ul {
+    position: absolute; left: -4px; right: -4px; bottom: clamp(-6px, -0.8vh, -10px);
+    width: calc(100% + 8px); height: clamp(10px, 1.5vw, 16px); pointer-events: none;
+}
+.stroke svg.ul path { fill: none; stroke-width: 3; stroke-linecap: round; }
+.stroke--sprout svg.ul path { stroke: var(--sprout); }
+.stroke--clay svg.ul path { stroke: var(--clay); }
+.stroke--brand svg.ul path { stroke: var(--brand-deep); }
+.stroke--amber svg.ul path { stroke: var(--amber); }
+
+.badge {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(8px, 1.2vw, 14px);
+    border-radius: 999px; text-transform: uppercase; display: inline-block;
+}
+.badge-sprout { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-brand { background: #034c7630; color: var(--brand-light); border: 1px solid #034c7650; }
+.badge-clay { background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550; }
+.badge-amber { background: #e0a63a30; color: var(--amber-soft); border: 1px solid #e0a63a50; }
+
+.callout-line { display: inline-block; background: var(--ink-soft); border-left: 3px solid var(--sprout); padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.8rem, 1.3vw, 1.2rem); border-radius: 0 8px 8px 0; font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.4; }
+
+.slide-footer {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.slide-number {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); right: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1px;
+}
+.slide-footer-logo { position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding); display: flex; flex-direction: column; align-items: flex-start; gap: clamp(3px, 0.5vh, 6px); }
+.slide-footer-logo .footer-text { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; }
+.relearn-logo { height: clamp(1.2rem, 2.5vw, 2rem); width: auto; opacity: 0.7; transition: opacity 0.3s ease; margin-top: -8px; }
+.relearn-logo:hover { opacity: 1; }
+
+.progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--sprout); z-index: 9999; transition: width 0.3s ease; }
+.nav-dots {
+    position: fixed; right: clamp(12px, 2vw, 24px); top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 8px; z-index: 9998;
+}
+.nav-dot {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--muted); opacity: 0.3;
+    cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
+}
+.nav-dot.active { background: var(--sprout); opacity: 1; transform: scale(1.4); }
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(1) { transition-delay: 0.05s; }
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.25s; }
+.reveal:nth-child(4) { transition-delay: 0.35s; }
+.reveal:nth-child(5) { transition-delay: 0.45s; }
+
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.visible .stagger > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.visible .stagger > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.visible .stagger > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.visible .stagger > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.visible .stagger > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+.visible .stagger > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+
+.reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.6s, transform 0.6s var(--ease-spring); }
+.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+.float { animation: float-gentle 4s ease-in-out infinite; }
+@keyframes float-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes stroke-draw { from { stroke-dashoffset: 200; } to { stroke-dashoffset: 0; } }
+.stroke-animate svg.ul path { stroke-dasharray: 200; stroke-dashoffset: 200; }
+.visible .stroke-animate svg.ul path { animation: stroke-draw 1.2s var(--ease-out-expo) forwards; }
+
+.gradient-bg { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 30%, var(--ink) 70%, var(--ink-soft) 100%); background-size: 300% 300%; animation: gradient-flow 8s ease infinite; }
+
+/* ===========================================
+   COHORT CARDS (Slide 2)
+   =========================================== */
+.cohort-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.4rem, 1vw, 0.9rem); }
+@media (max-width: 900px) { .cohort-grid { grid-template-columns: repeat(2, 1fr); } }
+.cohort-card {
+    background: var(--ink-soft); border: 1.5px solid var(--border-d); border-radius: 14px;
+    padding: clamp(0.7rem, 1.4vw, 1.2rem); display: flex; flex-direction: column; gap: clamp(0.3rem, 0.7vh, 0.6rem);
+    border-top: 4px solid var(--muted);
+}
+.cohort-card.c1 { border-top-color: var(--clay); }
+.cohort-card.c2 { border-top-color: var(--amber); }
+.cohort-card.c3 { border-top-color: var(--brand-light); }
+.cohort-card.c4 { border-top-color: var(--sprout); }
+.cohort-card.c5 { border-top-color: var(--sprout-soft); }
+.cohort-num { font-family: var(--font-mono); font-size: clamp(0.95rem, 1.8vw, 1.5rem); font-weight: 600; color: var(--muted-2); line-height: 1; }
+.cohort-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.5vw, 1.2rem); color: var(--paper); line-height: 1.1; }
+.cohort-desc { font-family: var(--font-sans); font-size: clamp(0.7rem, 1.1vw, 0.92rem); color: var(--muted-2); line-height: 1.4; }
+
+/* ===========================================
+   ROUTING TABLE (Slide 3)
+   =========================================== */
+.route-grid { display: grid; grid-template-columns: 1fr; gap: clamp(0.4rem, 1vw, 0.7rem); }
+.route-row {
+    display: grid; grid-template-columns: 1.1fr 1.4fr 1.1fr; gap: clamp(0.5rem, 1.2vw, 1rem);
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px;
+    padding: clamp(0.6rem, 1.2vw, 1rem); align-items: center; border-left: 4px solid var(--sprout);
+}
+.route-row.off { border-left-color: var(--clay); }
+@media (max-width: 760px) { .route-row { grid-template-columns: 1fr; gap: 4px; } }
+.route-who { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.4vw, 1.15rem); color: var(--paper); }
+.route-do { font-family: var(--font-sans); font-size: clamp(0.74rem, 1.15vw, 0.98rem); color: var(--muted-2); line-height: 1.35; }
+.route-done { font-family: var(--font-mono); font-size: clamp(0.62rem, 0.95vw, 0.8rem); color: var(--sprout); letter-spacing: 0.5px; line-height: 1.35; }
+.route-row.off .route-done { color: var(--clay-soft); }
+
+/* ===========================================
+   AI PROMPT CARD (Slides 4, 16)
+   =========================================== */
+.prompt-card {
+    background: var(--ink-deep); border: 1.5px solid var(--border-d); border-radius: 16px;
+    padding: clamp(1rem, 2vw, 1.8rem); display: flex; flex-direction: column; gap: clamp(0.5rem, 1vh, 0.9rem);
+    max-width: 60rem; width: 100%; margin: 0 auto;
+}
+.prompt-card .ptag { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.9vw, 0.75rem); letter-spacing: 1.5px; text-transform: uppercase; color: var(--sprout); display: flex; justify-content: space-between; gap: 10px; }
+.prompt-card pre { font-family: var(--font-mono); font-size: clamp(0.8rem, 1.15vw, 0.95rem); line-height: 1.55; white-space: pre-wrap; color: #d6dde4; }
+.prompt-card pre b { color: var(--sprout); font-weight: 600; }
+.prompt-how { font-family: var(--font-sans); font-size: clamp(0.78rem, 1.2vw, 1rem); color: var(--muted-2); }
+
+/* ===========================================
+   CAMPAIGN MAP (Slide 6)
+   =========================================== */
+.map-grid { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: clamp(0.4rem, 1vw, 0.9rem); align-items: stretch; }
+@media (max-width: 820px) { .map-grid { grid-template-columns: 1fr; } .map-arrow { display: none; } }
+.map-node {
+    border-radius: 16px; padding: clamp(0.8rem, 1.6vw, 1.4rem); background: var(--ink-soft);
+    border-top: 4px solid var(--muted); display: flex; flex-direction: column; gap: clamp(0.25rem, 0.7vh, 0.5rem);
+}
+.map-node.cold { border-top-color: var(--clay); }
+.map-node.warm { border-top-color: var(--brand-light); }
+.map-node.retarget { border-top-color: var(--amber); }
+.map-stage { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.9vw, 0.75rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2); }
+.map-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.1rem, 2.2vw, 1.8rem); letter-spacing: -0.02em; line-height: 1; }
+.map-node.cold .map-title { color: var(--clay-soft); }
+.map-node.warm .map-title { color: var(--brand-light); }
+.map-node.retarget .map-title { color: var(--amber-soft); }
+.map-meta { font-family: var(--font-sans); font-size: clamp(0.72rem, 1.15vw, 0.95rem); color: var(--paper); line-height: 1.4; }
+.map-sub { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.82vw, 0.7rem); color: var(--muted); letter-spacing: 0.5px; }
+.map-arrow { display: flex; align-items: center; justify-content: center; color: var(--sprout); font-size: clamp(1.2rem, 2.5vw, 2rem); }
+
+/* ===========================================
+   CONCEPT LAYOUT (Slides 7-14)
+   =========================================== */
+.concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.6rem, 1.5vw, 1.4rem); }
+@media (max-width: 760px) { .concept-grid { grid-template-columns: 1fr; } }
+.concept-box {
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 14px;
+    padding: clamp(0.9rem, 1.7vw, 1.5rem); display: flex; flex-direction: column; gap: clamp(0.3rem, 0.8vh, 0.6rem);
+}
+.concept-box.ex { border-left: 4px solid var(--brand-light); background: #6ba8d610; }
+.clab { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.9vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); font-weight: 600; }
+.concept-box.ex .clab { color: var(--brand-light); }
+.concept-text { font-family: var(--font-sans); font-size: clamp(0.85rem, 1.4vw, 1.15rem); color: var(--paper); line-height: 1.5; }
+.concept-text.muted { color: var(--muted-2); }
+.concept-action { margin-top: clamp(0.4rem, 1vh, 0.8rem); }
+.real-chip { display:inline-block; font-family: var(--font-mono); font-size: clamp(0.55rem,0.8vw,0.68rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--muted); border-radius: 6px; padding: 3px 8px; }
+
+/* ===========================================
+   METRICS (Slide 14)
+   =========================================== */
+.metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+@media (max-width: 760px) { .metric-grid { grid-template-columns: 1fr 1fr; } }
+.metric-card { background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px; padding: clamp(0.7rem, 1.4vw, 1.1rem); border-top: 3px solid var(--sprout); }
+.metric-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.5vw, 1.15rem); color: var(--paper); }
+.metric-q { font-family: var(--font-sans); font-size: clamp(0.7rem, 1.1vw, 0.9rem); color: var(--muted-2); line-height: 1.35; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ========== SLIDE 01 — COVER ========== -->
+<section class="slide gradient-bg" id="slide-1" data-notes="Welcome back. Last session we did one thing together, we set up our audiences. That is all we built, and that was on purpose. Today we slow all the way down and redefine Meta Ads in plain language. No theory dump. Every concept tied to one real buyer so it actually sticks. By the end you will know exactly which button does what, and exactly what to do next based on where you are right now. Bring your laptop and your avatar. Let us go.---Bienvenidos de vuelta. La sesion pasada hicimos una sola cosa juntos, montamos nuestras audiencias. Eso fue todo, y fue a proposito. Hoy bajamos la velocidad y redefinimos Meta Ads en lenguaje simple. Nada de teoria de relleno. Cada concepto amarrado a un comprador real para que se pegue. Al final van a saber exactamente que hace cada boton, y exactamente que hacer despues segun donde esten ahora mismo. Traigan su laptop y su avatar. Vamos." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal-scale" style="position:relative;display:flex;align-items:center;gap:clamp(1rem,2.5vw,2rem);">
+            <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" style="height:clamp(2.5rem,6vw,4.5rem);width:auto;">
+        </div>
+        <div>
+            <div class="section-label reveal" style="justify-content:center;">Marketing Machine &middot; Session 7</div>
+            <h1 class="reveal" style="font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,5.5vw,4.5rem);letter-spacing:-0.03em;line-height:1.05;">Meta Ads, <span class="stroke stroke--sprout stroke-animate">Redefined<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+            <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(1rem,2vw,1.4rem);color:var(--muted-2);margin-top:clamp(0.6rem,1.2vh,1rem);">The whole thing in plain language. One buyer. Seven concepts. Real buttons.</p>
+        </div>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.8rem,1.3vw,1.05rem);color:var(--muted-2);max-width:54ch;line-height:1.5;font-style:italic;">We are not adding more. We are making what you already touched make sense.</p>
+        <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <span class="badge badge-sprout">Plain Language</span>
+            <span class="badge badge-brand">One Real Buyer</span>
+        </div>
+    </div>
+    <div class="slide-footer" style="color:var(--muted-2);">reThought Real Estate &middot; reLearn</div>
+    <div class="slide-number" style="color:var(--muted-2);">01 / 17</div>
+</section>
+
+<!-- ========== SLIDE 02 — WHERE ARE YOU TODAY ========== -->
+<section class="slide" id="slide-2" data-notes="Before we touch a single concept, find yourself on this slide. We are not all in the same place and that is fine. Five groups. One, you have not recorded anything yet. Two, you recorded but have not edited. Three, you recorded and edited, you have a video ready. Four, you built your audiences with me last session. Five, you are ahead of the group and hungry for more. Look at these five, pick yours honestly, because the very next slide tells each group exactly what to do today. Nobody gets a generic answer.---Antes de tocar un solo concepto, encuentrense en este slide. No estamos todos en el mismo punto y esta bien. Cinco grupos. Uno, no han grabado nada todavia. Dos, grabaron pero no han editado. Tres, grabaron y editaron, tienen video listo. Cuatro, montaron sus audiencias conmigo la sesion pasada. Cinco, estan adelantados y con hambre de mas. Miren los cinco, escojan el suyo con honestidad, porque el proximo slide le dice a cada grupo exactamente que hacer hoy. Nadie recibe una respuesta generica." style="justify-content:center;">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">Find Yourself First</div><h2 class="slide-title">Where Are You <span class="stroke stroke--sprout">Today?<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Five groups. Pick yours honestly. The next slide tells each one exactly what to do.</p></div>
+        <div class="reveal stagger cohort-grid" style="transition-delay:0.2s;">
+            <div class="cohort-card c1"><div class="cohort-num">01</div><div class="cohort-name">Not Started</div><div class="cohort-desc">Recorded nothing yet. Avatar may still be loose.</div></div>
+            <div class="cohort-card c2"><div class="cohort-num">02</div><div class="cohort-name">Recorded, Not Edited</div><div class="cohort-desc">Footage exists. Stuck in the edit.</div></div>
+            <div class="cohort-card c3"><div class="cohort-num">03</div><div class="cohort-name">Recorded + Edited</div><div class="cohort-desc">A finished video, ready to run.</div></div>
+            <div class="cohort-card c4"><div class="cohort-num">04</div><div class="cohort-name">Audiences Built</div><div class="cohort-desc">Finished Session 6 with me.</div></div>
+            <div class="cohort-card c5"><div class="cohort-num">05</div><div class="cohort-name">Ready For More</div><div class="cohort-desc">Ahead of the group. Wants to scale.</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.5s;"><div class="callout-line">Wherever you are is the right place. Today moves <strong style="color:var(--sprout);">everyone</strong> one real step forward.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">02 / 17</div>
+</section>
+
+<!-- ========== SLIDE 03 — RUN THE MACHINE FOR YOUR STAGE ========== -->
+<section class="slide" id="slide-3" data-notes="Here is the honest part. We built a tool, the Marketing Machine skill. It writes your avatar, your scripts, your ad copy, your campaign setup sheet, your offer, your ManyChat. It is powerful, but it is not the right tool for every stage. Watch this. Group one, not started, the skill is perfect, use it to lock your avatar and write your script today. Group two, stuck editing, the skill does nothing for you right now, your job is to finish the edit, do not even open it. Group three, edited, use the skill for ad copy, offer, and ManyChat. Group four, audiences built, use it to fill your campaign setup sheet. Group five, run the full build and then help a neighbor. The skill is a tool, not a crutch. Use it where it earns its keep.---Aqui esta lo honesto. Construimos una herramienta, el Marketing Machine skill. Escribe tu avatar, tus scripts, tu ad copy, tu hoja de setup de campana, tu oferta, tu ManyChat. Es poderosa, pero no es la herramienta correcta para cada etapa. Miren esto. Grupo uno, no han empezado, la skill es perfecta, usenla para fijar su avatar y escribir su script hoy. Grupo dos, atascados editando, la skill no les hace nada ahora mismo, su trabajo es terminar la edicion, ni la abran. Grupo tres, ya editaron, usen la skill para ad copy, oferta, y ManyChat. Grupo cuatro, audiencias montadas, usenla para llenar su hoja de setup. Grupo cinco, corran el build completo y despues ayuden a un compañero. La skill es herramienta, no muleta. Usenla donde de verdad sirve." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.4vh,1.1rem);">
+        <div class="reveal"><div class="section-label">Use The Machine For Your Stage</div><h2 class="slide-title">The Right Prompt For <span style="color:var(--sprout);">Where You Are</span></h2></div>
+        <div class="reveal stagger route-grid" style="transition-delay:0.15s;">
+            <div class="route-row off"><div class="route-who">01 &middot; Not Started</div><div class="route-do">Run the skill: lock your avatar, then write your cold script.</div><div class="route-done">DONE: script in hand, recording booked this week</div></div>
+            <div class="route-row off"><div class="route-who">02 &middot; Recorded, Not Edited</div><div class="route-do">Skill does not apply yet. Finish the edit. That is the whole job.</div><div class="route-done">DONE: one video edited, or a hard edit deadline set</div></div>
+            <div class="route-row"><div class="route-who">03 &middot; Recorded + Edited</div><div class="route-do">Run the skill for ad copy, the offer, and the ManyChat keyword.</div><div class="route-done">DONE: ad copy + offer + keyword drafted</div></div>
+            <div class="route-row"><div class="route-who">04 &middot; Audiences Built</div><div class="route-do">Run the skill to fill your campaign setup sheet, then follow the guide.</div><div class="route-done">DONE: setup sheet filled, cold campaign in draft</div></div>
+            <div class="route-row"><div class="route-who">05 &middot; Ready For More</div><div class="route-do">Run the full build, refine, then help the person next to you.</div><div class="route-done">DONE: campaign optimized or a teammate unblocked</div></div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">03 / 17</div>
+</section>
+
+<!-- ========== SLIDE 04 — AI SHORTCUT (paired with slide 3) ========== -->
+<section class="slide" id="slide-4" data-notes="This is your shortcut. Copy this prompt, paste it into Claude or ChatGPT, and drop your avatar doc right in. Whatever stage you are at, you change one line, the part that says what you need. Watch me run it once on screen so you see what good output looks like. The skill does the heavy lifting. Your only job is to make the avatar specific, because specific is what makes the ad filter the right people. Generic avatar, generic ad, wasted money. Specific avatar, the ad does its own targeting.---Este es tu atajo. Copia este prompt, pegalo en Claude o ChatGPT, y mete tu documento de avatar ahi mismo. En cualquier etapa que estes, cambias una linea, la parte que dice que necesitas. Mirenme correrlo una vez en pantalla para que vean como se ve un buen resultado. La skill hace el trabajo pesado. Tu unico trabajo es hacer el avatar especifico, porque lo especifico es lo que hace que el anuncio filtre a la gente correcta. Avatar generico, anuncio generico, dinero perdido. Avatar especifico, el anuncio se targetea solo." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">AI Shortcut</div><h2 class="slide-title">Copy This. <span class="stroke stroke--sprout">Paste It.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> Change One Line.</h2></div>
+        <div class="reveal prompt-card" style="transition-delay:0.15s;">
+            <div class="ptag"><span>Paste into Claude / ChatGPT with your avatar doc</span><span>Marketing Machine</span></div>
+<pre>Use the <b>Marketing Machine</b> skill. Here is my avatar:
+
+<b>[PASTE YOUR AVATAR DOC]</b>
+
+I am at this stage: <b>[pick one]</b>
+  - not started  -> write my cold video script
+  - edited       -> write my cold/warm/retarget ad copy + ManyChat keyword
+  - audiences built -> fill my Meta campaign setup sheet (3 campaigns)
+
+Market: <b>[your city]</b>. Output English and Spanish.
+Keep my real voice. Make every line specific to my buyer.</pre>
+        </div>
+        <div class="reveal prompt-how" style="transition-delay:0.35s;">Stuck editing video? This is not your step today. Close the laptop prompt and go finish the edit.</div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">04 / 17</div>
+</section>
+
+<!-- ========== SLIDE 05 — THE HONEST NOTE ========== -->
+<section class="slide" id="slide-5" data-notes="One more honest beat before we teach. If you are stuck editing, I do not want you touching Ads Manager today. Seriously. A campaign with no video is a campaign with nothing to say. Your win today is finishing one edit. That is real progress and it counts. For everyone else, laptops open, because now we redefine the seven concepts that make Meta Ads finally click. Same buyer all the way through, her name is Marisol, she and her husband Jay are first-time buyers in the Orlando area, renting, scared they will not qualify, scrolling Zillow at night. Keep them in your head for the next ten minutes.---Un beat honesto mas antes de enseñar. Si estas atascado editando, no quiero que toques Ads Manager hoy. En serio. Una campana sin video es una campana que no tiene nada que decir. Tu victoria hoy es terminar una edicion. Eso es progreso real y cuenta. Para todos los demas, laptops abiertas, porque ahora redefinimos los siete conceptos que hacen que Meta Ads por fin tenga sentido. El mismo comprador de principio a fin, se llama Marisol, ella y su esposo Jay son compradores primerizos en el area de Orlando, alquilando, con miedo de no calificar, mirando Zillow de noche. Tenganlos en la cabeza los proximos diez minutos." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal"><span class="badge badge-clay">Honest Note</span></div>
+        <h2 class="reveal slide-title" style="transition-delay:0.1s;max-width:20ch;">The Skill Is A Tool, <span style="color:var(--clay-soft);">Not Every Step.</span></h2>
+        <p class="reveal slide-body" style="transition-delay:0.2s;text-align:center;max-width:54ch;">Stuck editing? Your only win today is finishing one edit. Everyone else: meet the buyer we will teach through.</p>
+        <div class="reveal concept-box ex" style="transition-delay:0.35s;max-width:46rem;text-align:left;">
+            <span class="clab">Our Buyer For The Next 10 Minutes</span>
+            <p class="concept-text"><strong style="color:var(--brand-light);">Marisol &amp; Jay</strong>. First-time buyers near Orlando, late 20s, bilingual. Renting and tired of it, not sure they can qualify, scared of the process, scrolling Zillow at midnight.</p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">05 / 17</div>
+</section>
+
+<!-- ========== SLIDE 06 — THE BIG PICTURE: 3-CAMPAIGN MAP ========== -->
+<section class="slide" id="slide-6" data-notes="Here is the whole machine on one slide. Three separate campaigns, not one campaign with three pieces. Cold talks to people who have never heard of you, in your city. It is cheap and its real job is to build your warm audience for free out of everyone who engages. Warm talks only to those people, the ones who already watched or liked. Retarget is the tightest, hottest group, the people who watched a lot but did not act yet. The trick is exclusions cascade. Cold excludes warm, warm excludes anyone who already became a lead, retarget excludes anyone who already booked. That cascade is why they have to be three separate campaigns. Cram them into one and the same person sees all three ads and you pay three times. Everything we redefine next lives somewhere on this map.---Aqui esta la maquina completa en un slide. Tres campanas separadas, no una campana con tres pedazos. Cold le habla a gente que nunca ha oido de ti, en tu ciudad. Es barata y su trabajo real es construir tu audiencia tibia gratis con todos los que interactuan. Warm le habla solo a esa gente, los que ya vieron o dieron like. Retarget es el grupo mas pequeño y caliente, los que vieron mucho pero no actuaron todavia. El truco es que las exclusiones se encadenan. Cold excluye a warm, warm excluye a cualquiera que ya se hizo lead, retarget excluye a cualquiera que ya agendo. Esa cascada es por que tienen que ser tres campanas separadas. Metelas en una y la misma persona ve los tres anuncios y pagas tres veces. Todo lo que redefinimos despues vive en algun punto de este mapa." style="justify-content:center;">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">The Big Picture</div><h2 class="slide-title">Three Campaigns. <span class="stroke stroke--sprout">One Cascade.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Not one campaign with three parts. Three campaigns, each excluding the last.</p></div>
+        <div class="reveal map-grid" style="transition-delay:0.2s;">
+            <div class="map-node cold"><div class="map-stage">01 &middot; Strangers</div><div class="map-title">Cold</div><div class="map-meta">People who do not know you, in your city.</div><div class="map-sub">Builds your warm list for free</div></div>
+            <div class="map-arrow">&rarr;</div>
+            <div class="map-node warm"><div class="map-stage">02 &middot; Engaged</div><div class="map-title">Warm</div><div class="map-meta">Everyone who watched or engaged.</div><div class="map-sub">Excludes anyone who became a lead</div></div>
+            <div class="map-arrow">&rarr;</div>
+            <div class="map-node retarget"><div class="map-stage">03 &middot; Almost</div><div class="map-title">Retarget</div><div class="map-meta">Watched a lot, did not act yet.</div><div class="map-sub">Excludes anyone who booked</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.5s;"><div class="callout-line">One campaign with three ad sets? The same person sees all three ads and <strong style="color:var(--sprout);">you pay three times.</strong></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">06 / 17</div>
+</section>
+
+<!-- ========== SLIDE 07 — CONCEPT: 3 FLOORS ========== -->
+<section class="slide" id="slide-7" data-notes="Concept one, the three floors. When you build an ad, Meta makes you fill three levels and people mix them up constantly. Think of a building. The campaign is the building itself, it holds one decision, what is my goal. The ad set is the floor, it holds who sees it, how much I spend, and where it shows. The ad is the room, it is the actual video and words people see. One campaign, one or more ad sets inside it, one or more ads inside each ad set. For Marisol, the campaign goal is get conversations, the ad set says show this to people near Orlando for twenty dollars a day, and the ad is the reel where you say I help first-time buyers near Orlando stop renting. Three floors, three different jobs. Action, before you click anything, say out loud which floor you are on.---Concepto uno, los tres pisos. Cuando construyes un anuncio, Meta te hace llenar tres niveles y la gente los confunde todo el tiempo. Piensa en un edificio. La campana es el edificio, tiene una decision, cual es mi meta. El ad set es el piso, tiene quien lo ve, cuanto gasto, y donde aparece. El ad es el cuarto, es el video y las palabras que la gente ve. Una campana, uno o mas ad sets adentro, uno o mas ads adentro de cada ad set. Para Marisol, la meta de la campana es conseguir conversaciones, el ad set dice muestra esto a gente cerca de Orlando por veinte dolares al dia, y el ad es el reel donde dices yo ayudo a compradores primerizos cerca de Orlando a dejar de alquilar. Tres pisos, tres trabajos distintos. Accion, antes de hacer clic en nada, di en voz alta en que piso estas." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">Concept 01 of 09</div><h2 class="slide-title">Campaign, Ad Set, Ad: <span style="color:var(--sprout);">Three Floors</span></h2></div>
+        <div class="reveal concept-grid" style="transition-delay:0.15s;">
+            <div class="concept-box"><span class="clab">What It Is</span><p class="concept-text muted"><strong style="color:var(--paper);">Campaign</strong> = the building. One decision: your goal.<br><strong style="color:var(--paper);">Ad set</strong> = the floor. Who sees it, your budget, where it shows.<br><strong style="color:var(--paper);">Ad</strong> = the room. The actual video and words.</p></div>
+            <div class="concept-box ex"><span class="clab">For Marisol &amp; Jay</span><p class="concept-text">Campaign goal: get conversations. Ad set: show it near Orlando for $20/day. Ad: the reel that says "I help first-time buyers near Orlando stop renting."</p></div>
+        </div>
+        <div class="reveal concept-action" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Do this:</strong> before you click, say out loud which floor you are on. Campaign, ad set, or ad.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">07 / 17</div>
+</section>
+
+<!-- ========== SLIDE 08 — CONCEPT: OBJECTIVE ========== -->
+<section class="slide" id="slide-8" data-notes="Concept two, the objective. This is the very first thing Meta asks and it is the most important choice you make, because it tells Meta what kind of human to go find. If you pick Engagement, Meta finds people who like to comment and message. If you pick Leads, Meta finds people who fill out forms. If you pick Sales, Meta finds people who buy. Pick the wrong one and Meta brings you the wrong crowd, no matter how good your ad is. For our three campaigns it is simple. Cold uses Engagement, because we want comments and DMs that build the warm list. Warm uses Leads, because now we want them to raise their hand. Retarget uses Conversions, because now we want the booking. Same buyer, three goals, because she is in a different headspace each time. Action, match the objective to what you actually want that person to do next, not what you wish they would do.---Concepto dos, el objetivo. Esto es lo primerito que Meta pregunta y es la decision mas importante, porque le dice a Meta que tipo de humano ir a buscar. Si escoges Engagement, Meta busca gente que comenta y manda mensajes. Si escoges Leads, Meta busca gente que llena formularios. Si escoges Sales, Meta busca gente que compra. Escoge el equivocado y Meta te trae la multitud equivocada, sin importar lo bueno que sea tu anuncio. Para nuestras tres campanas es simple. Cold usa Engagement, porque queremos comentarios y DMs que construyen la lista tibia. Warm usa Leads, porque ahora queremos que levanten la mano. Retarget usa Conversions, porque ahora queremos la cita. El mismo comprador, tres metas, porque esta en una mentalidad distinta cada vez. Accion, empareja el objetivo con lo que de verdad quieres que esa persona haga despues, no con lo que deseas que haga." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">Concept 02 of 09</div><h2 class="slide-title">Objective: <span style="color:var(--sprout);">What Human To Go Find</span></h2></div>
+        <div class="reveal concept-grid" style="transition-delay:0.15s;">
+            <div class="concept-box"><span class="clab">What It Is</span><p class="concept-text muted">The objective tells Meta who to hunt for. <strong style="color:var(--paper);">Engagement</strong> finds commenters. <strong style="color:var(--paper);">Leads</strong> finds form-fillers. <strong style="color:var(--paper);">Conversions</strong> finds bookers. Wrong pick, wrong crowd, no matter how good the ad.</p></div>
+            <div class="concept-box ex"><span class="clab">For Marisol &amp; Jay</span><p class="concept-text">Cold = Engagement (get her to comment). Warm = Leads (get her to raise her hand). Retarget = Conversions (get her to book the call).</p></div>
+        </div>
+        <div class="reveal concept-action" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Do this:</strong> match the objective to the next action you want, not the one you wish for.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">08 / 17</div>
+</section>
+
+<!-- ========== SLIDE 09 — CONCEPT: SPECIAL AD CATEGORY (HOUSING) ========== -->
+<section class="slide" id="slide-9" data-notes="Concept three, and this one trips everybody. Special Ad Category. Because we sell real estate, Meta makes us declare our ads as Housing. The moment you do that, Meta takes away your targeting toys. You cannot pick age, you cannot pick gender, you cannot draw a tight little circle around one neighborhood. People panic. Do not. Here is the secret. The copy does the targeting. When your ad literally says first-time buyers near Orlando who are tired of renting, that sentence filters the audience better than any age slider ever could. Generic fails, specific filters. If your ad would work for anybody, it works for nobody. One thing to know, recruiting agents is the only exception, that is Employment, not Housing, but for selling homes it is always Housing. Action, declare Housing on step one, every time, and let your words do the targeting.---Concepto tres, y este confunde a todos. Special Ad Category. Como vendemos bienes raices, Meta nos obliga a declarar nuestros anuncios como Housing. En el momento que lo haces, Meta te quita los juguetes de targeting. No puedes escoger edad, no puedes escoger genero, no puedes dibujar un circulito apretado alrededor de un vecindario. La gente entra en panico. No lo hagan. Aqui esta el secreto. El copy hace el targeting. Cuando tu anuncio dice literalmente compradores primerizos cerca de Orlando cansados de alquilar, esa oracion filtra mejor que cualquier slider de edad. Lo generico falla, lo especifico filtra. Si tu anuncio sirve para cualquiera, no sirve para nadie. Una cosa que saber, reclutar agentes es la unica excepcion, eso es Employment, no Housing, pero para vender casas siempre es Housing. Accion, declara Housing en el paso uno, siempre, y deja que tus palabras hagan el targeting." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">Concept 03 of 09</div><h2 class="slide-title">Special Ad Category: <span class="stroke stroke--clay">Housing<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2></div>
+        <div class="reveal concept-grid" style="transition-delay:0.15s;">
+            <div class="concept-box"><span class="clab">What It Is</span><p class="concept-text muted">Real estate ads must be declared <strong style="color:var(--paper);">Housing</strong>. Meta then locks age, gender, and tight location. Do not panic. <strong style="color:var(--paper);">The copy does the targeting.</strong> Generic fails, specific filters.</p></div>
+            <div class="concept-box ex"><span class="clab">For Marisol &amp; Jay</span><p class="concept-text">"First-time buyers near Orlando, tired of renting" filters better than any age slider. If the ad works for anybody, it works for nobody.</p></div>
+        </div>
+        <div class="reveal concept-action" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Do this:</strong> declare Housing on step one, every time. Recruiting agents is the one exception (Employment).</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">09 / 17</div>
+</section>
+
+<!-- ========== SLIDE 10 — CONCEPT: WHERE THE LEAD LANDS ========== -->
+<section class="slide" id="slide-10" data-notes="Concept four, where the lead lands. When someone taps your ad, they have to go somewhere. Meta calls this the conversion location. Our setup sends them into a message, Messenger, Instagram DM, or WhatsApp, so it becomes a real conversation instead of a cold form. In Ads Manager you will literally pick Message destinations and check the apps you want. Then Meta lets you set up a little auto-greeting and a few quick questions so the conversation starts even while you sleep. For Marisol, she taps the ad at midnight, a friendly message pops up, hi, are you renting right now, and she answers, and now you are talking to a real buyer instead of staring at a form she abandoned. Action, decide where the conversation happens before you build the ad, and wire the greeting so nobody who taps gets silence.---Concepto cuatro, donde aterriza el lead. Cuando alguien toca tu anuncio, tiene que ir a algun lado. Meta le llama la ubicacion de conversion. Nuestro montaje los manda a un mensaje, Messenger, DM de Instagram, o WhatsApp, para que se vuelva una conversacion real en vez de un formulario frio. En Ads Manager vas a escoger literalmente Message destinations y marcar las apps que quieres. Despues Meta te deja montar un saludito automatico y unas preguntas rapidas para que la conversacion arranque hasta mientras duermes. Para Marisol, toca el anuncio a medianoche, un mensaje amistoso aparece, hola, estas alquilando ahora mismo, y ella responde, y ya estas hablando con una compradora real en vez de mirar un formulario que abandono. Accion, decide donde pasa la conversacion antes de construir el anuncio, y monta el saludo para que nadie que toque reciba silencio." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">Concept 04 of 09</div><h2 class="slide-title">Where The Lead <span class="stroke stroke--sprout">Lands<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2></div>
+        <div class="reveal concept-grid" style="transition-delay:0.15s;">
+            <div class="concept-box"><span class="clab">What It Is</span><p class="concept-text muted">When someone taps, they go somewhere. We pick <strong style="color:var(--paper);">Message destinations</strong> (Messenger, Instagram, WhatsApp) so it becomes a real conversation, not a cold form. A small auto-greeting starts it for you.</p></div>
+            <div class="concept-box ex"><span class="clab">For Marisol &amp; Jay</span><p class="concept-text">She taps at midnight. A friendly message pops up: "Hi, are you renting right now?" She answers. Now you are talking to a real buyer, not chasing an abandoned form.</p></div>
+        </div>
+        <div class="reveal concept-action" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Do this:</strong> pick where the conversation happens before you build the ad. Wire the greeting so no tap gets silence.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">10 / 17</div>
+</section>
+
+<!-- ========== SLIDE 11 — CONCEPT: AUDIENCE + EXCLUSION CASCADE ========== -->
+<section class="slide" id="slide-11" data-notes="Concept five, audience and the exclusion cascade. This is the one we actually built together last session, so it should feel familiar. Under Housing you cannot target by age or interest, but you can still do two powerful things. One, set a location, like Orlando plus fifteen miles. Two, build saved lists of people based on what they did, everyone who watched your video, everyone who engaged on Instagram, everyone who messaged you. Those lists are what make the cascade work. Cold runs to the location and quietly builds the watcher list. Warm talks to the watchers but excludes anyone who already became a lead. Retarget talks to the heavy watchers but excludes anyone who already booked. Exclude, exclude, exclude, so no one gets the same ad twice and your money goes to fresh eyes. For Marisol, the first time she is a stranger in Orlando, the second time she is a watcher, the third time she is an almost. Action, build your lists first, before any ad set, exactly like we did last week.---Concepto cinco, audiencia y la cascada de exclusiones. Este es el que de verdad construimos juntos la sesion pasada, asi que debe sentirse familiar. Bajo Housing no puedes targetear por edad o interes, pero todavia puedes hacer dos cosas poderosas. Una, poner una ubicacion, como Orlando mas quince millas. Dos, construir listas guardadas de gente segun lo que hicieron, todos los que vieron tu video, todos los que interactuaron en Instagram, todos los que te mandaron mensaje. Esas listas son lo que hace funcionar la cascada. Cold corre a la ubicacion y calladito construye la lista de los que ven. Warm le habla a los que vieron pero excluye a quien ya se hizo lead. Retarget le habla a los que vieron mucho pero excluye a quien ya agendo. Excluye, excluye, excluye, para que nadie reciba el mismo anuncio dos veces y tu dinero vaya a ojos frescos. Para Marisol, la primera vez es una desconocida en Orlando, la segunda vez es una que vio, la tercera vez es una casi. Accion, construye tus listas primero, antes de cualquier ad set, igualito que la semana pasada." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">Concept 05 of 09 &middot; You Built This Last Week</div><h2 class="slide-title">Audience + The <span class="stroke stroke--sprout">Exclusion Cascade<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2></div>
+        <div class="reveal concept-grid" style="transition-delay:0.15s;">
+            <div class="concept-box"><span class="clab">What It Is</span><p class="concept-text muted">Under Housing you keep two levers: a <strong style="color:var(--paper);">location</strong> and <strong style="color:var(--paper);">saved lists</strong> of people by what they did (watched, engaged, messaged). Cold excludes warm, warm excludes leads, retarget excludes bookers. No one sees the same ad twice.</p></div>
+            <div class="concept-box ex"><span class="clab">For Marisol &amp; Jay</span><p class="concept-text">First time: a stranger in Orlando. Second time: a watcher. Third time: an almost. Each campaign excludes the stage before it, so your money hits fresh eyes.</p></div>
+        </div>
+        <div class="reveal concept-action" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Do this:</strong> build your lists first, before any ad set. Exactly like Session 6.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">11 / 17</div>
+</section>
+
+<!-- ========== SLIDE 12 — CONCEPT: BUDGET ========== -->
+<section class="slide" id="slide-12" data-notes="Concept six, budget, and this is where people either freeze or overspend. The rule is simple and it protects you. Twenty to fifty dollars a day per campaign. Small enough that a bad week does not hurt, big enough that Meta actually has data to learn from. If you only give Meta two dollars, it never learns and you waste it slowly. The bigger picture rule, plan to spend about ten percent of what you want to earn. Want a hundred thousand in commissions, plan around ten thousand in ads across the year. For Marisol, twenty dollars a day on cold for two weeks is two hundred eighty dollars to find out if your message lands. That is not gambling, that is tuition, and it is cheap tuition. Action, set a daily number you will not flinch at if it disappears, and leave it alone long enough for Meta to learn.---Concepto seis, presupuesto, y aqui la gente o se congela o gasta de mas. La regla es simple y te protege. Veinte a cincuenta dolares al dia por campana. Suficientemente chico para que una mala semana no duela, suficientemente grande para que Meta de verdad tenga datos para aprender. Si solo le das dos dolares a Meta, nunca aprende y lo desperdicias lento. La regla del cuadro grande, planifica gastar como diez por ciento de lo que quieres ganar. Quieres cien mil en comisiones, planifica como diez mil en anuncios en el ano. Para Marisol, veinte dolares al dia en cold por dos semanas son doscientos ochenta dolares para averiguar si tu mensaje pega. Eso no es apostar, eso es matricula, y es matricula barata. Accion, pon un numero diario que no te haga temblar si desaparece, y dejalo quieto suficiente tiempo para que Meta aprenda." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">Concept 06 of 09</div><h2 class="slide-title">Budget: <span style="color:var(--sprout);">Small Enough To Learn</span></h2></div>
+        <div class="reveal concept-grid" style="transition-delay:0.15s;">
+            <div class="concept-box"><span class="clab">What It Is</span><p class="concept-text muted"><strong style="color:var(--paper);">$20 to $50 a day</strong> per campaign. Small enough that a bad week does not hurt, big enough that Meta can learn. Big-picture rule: plan to spend about <strong style="color:var(--paper);">10% of what you want to earn.</strong></p></div>
+            <div class="concept-box ex"><span class="clab">For Marisol &amp; Jay</span><p class="concept-text">$20/day on cold for two weeks is $280 to find out if your message lands. That is not gambling. It is cheap tuition.</p></div>
+        </div>
+        <div class="reveal concept-action" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Do this:</strong> pick a daily number you will not flinch at, then leave it alone long enough to learn.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">12 / 17</div>
+</section>
+
+<!-- ========== SLIDE 13 — CONCEPT: PLACEMENT ========== -->
+<section class="slide" id="slide-13" data-notes="Concept seven, placement. Placement just means where your ad shows up, Instagram reels, Facebook feed, stories, and a bunch more. Meta gives you two roads. The easy road is Advantage plus placements, you let Meta put your ad wherever it performs best, and for ninety percent of you that is the right call, especially starting out. The other road is manual, where you hand-pick the spots, and you only want that once you have real data telling you one spot wins. For Marisol, your reel was shot vertical for phones, so let Meta run it everywhere and it will naturally pour into reels and stories where she actually scrolls at night. Do not overthink this one. Action, leave it on Advantage plus placements until you have a reason on paper to change it.---Concepto siete, placement. Placement solo significa donde aparece tu anuncio, reels de Instagram, feed de Facebook, stories, y un monton mas. Meta te da dos caminos. El camino facil es Advantage plus placements, dejas que Meta ponga tu anuncio donde mejor rinde, y para el noventa por ciento de ustedes esa es la decision correcta, sobre todo empezando. El otro camino es manual, donde escoges los lugares a mano, y solo quieres eso cuando ya tienes datos reales diciendote que un lugar gana. Para Marisol, tu reel se grabo vertical para telefonos, asi que deja que Meta lo corra en todos lados y naturalmente se va a volcar en reels y stories donde ella de verdad hace scroll de noche. No le des tantas vueltas a este. Accion, dejalo en Advantage plus placements hasta que tengas una razon en papel para cambiarlo." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">Concept 07 of 09</div><h2 class="slide-title">Placement: <span style="color:var(--sprout);">Where It Shows Up</span></h2></div>
+        <div class="reveal concept-grid" style="transition-delay:0.15s;">
+            <div class="concept-box"><span class="clab">What It Is</span><p class="concept-text muted">Placement is where your ad appears (reels, feed, stories). Two roads: <strong style="color:var(--paper);">Advantage+ placements</strong> lets Meta choose, right for 90% of you. <strong style="color:var(--paper);">Manual</strong> is hand-picking, only once data says one spot wins.</p></div>
+            <div class="concept-box ex"><span class="clab">For Marisol &amp; Jay</span><p class="concept-text">Your reel was shot vertical for phones. Let Meta run it everywhere and it pours into reels and stories, where she scrolls at night.</p></div>
+        </div>
+        <div class="reveal concept-action" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Do this:</strong> leave it on Advantage+ placements until you have a reason on paper to change it.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">13 / 17</div>
+</section>
+
+<!-- ========== SLIDE 14 — CONCEPT: METRICS THAT MATTER ========== -->
+<section class="slide" id="slide-14" data-notes="Concept eight, the numbers that actually matter, and concept nine is hiding in here too, your scoreboard. Meta will show you a hundred numbers and most of them are noise. Ignore likes, they feel good and pay nothing. Watch these. Cost per result, how much you pay each time someone does the thing you wanted. Click rate, are people actually tapping or just scrolling past. Cost to reach a thousand people, how expensive your audience is. And frequency, how many times the same person has seen it, because once that climbs past three or four on retarget, you are becoming a stalker and it is time to refresh the video. For Marisol, the number that matters is cost per conversation, how many dollars to get one real buyer talking to you. A cheap lead who never replies is not cheap. An expensive lead who becomes a client is a bargain. Action, after this session, open your campaign and read just these numbers, nothing else, and write down your cost per conversation. That is your scoreboard from now on.---Concepto ocho, los numeros que de verdad importan, y el concepto nueve esta escondido aqui tambien, tu marcador. Meta te va a mostrar cien numeros y la mayoria son ruido. Ignora los likes, se sienten bien y no pagan nada. Mira estos. Costo por resultado, cuanto pagas cada vez que alguien hace lo que querias. Tasa de clics, la gente de verdad toca o solo pasa de largo. Costo por alcanzar mil personas, que tan cara es tu audiencia. Y frecuencia, cuantas veces la misma persona lo ha visto, porque cuando eso sube de tres o cuatro en retarget, te estas volviendo un acosador y es hora de refrescar el video. Para Marisol, el numero que importa es costo por conversacion, cuantos dolares para que un comprador real te hable. Un lead barato que nunca responde no es barato. Un lead caro que se vuelve cliente es una ganga. Accion, despues de esta sesion, abre tu campana y lee solo estos numeros, nada mas, y anota tu costo por conversacion. Ese es tu marcador de ahora en adelante." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.1rem);">
+        <div class="reveal"><div class="section-label">Concept 08 + 09 of 09 &middot; Your Scoreboard</div><h2 class="slide-title">The Numbers That <span class="stroke stroke--sprout">Actually Matter<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Meta shows a hundred numbers. Most are noise. Ignore likes. Read these.</p></div>
+        <div class="reveal stagger metric-grid" style="transition-delay:0.2s;">
+            <div class="metric-card"><div class="metric-name">Cost / Result</div><div class="metric-q">What you pay each time someone does the thing you wanted.</div></div>
+            <div class="metric-card"><div class="metric-name">Click Rate (CTR)</div><div class="metric-q">Are people tapping, or scrolling past?</div></div>
+            <div class="metric-card"><div class="metric-name">Cost / 1,000 (CPM)</div><div class="metric-q">How expensive your audience is to reach.</div></div>
+            <div class="metric-card"><div class="metric-name">Frequency</div><div class="metric-q">Times one person saw it. Past 3 to 4 on retarget, refresh.</div></div>
+            <div class="metric-card"><div class="metric-name">Results</div><div class="metric-q">Comments, leads, or bookings, per the objective.</div></div>
+            <div class="metric-card" style="border-top-color:var(--amber);"><div class="metric-name" style="color:var(--amber-soft);">Cost / Conversation</div><div class="metric-q">Your headline number: dollars to get one real buyer talking.</div></div>
+        </div>
+        <div class="reveal concept-action" style="transition-delay:0.55s;"><div class="callout-line"><strong style="color:var(--sprout);">Do this:</strong> after today, read only these numbers and write down your cost per conversation. <span class="real-chip">Live demo: open your dashboard</span></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">14 / 17</div>
+</section>
+
+<!-- ========== SLIDE 15 — LIVE EXERCISE ========== -->
+<section class="slide gradient-bg" id="slide-15" data-notes="Concepts done. Now we open Ads Manager together and you follow the guide I am handing out, the participant guide, click by click. It matches my real screens exactly, the same buttons you will see. We are going to build the cold campaign and your audiences, the two things we have screenshots for, step by step. Groups four and five, you build live with me. Group three, build it in draft so it is ready when your video is. Group one, follow along to learn the path, then go run the prompt and write your script. Group two, you already know, finish your edit. Open your laptop, open the guide, and tell me when you are on the campaigns screen.---Conceptos listos. Ahora abrimos Ads Manager juntos y siguen la guia que les estoy repartiendo, la guia del participante, clic por clic. Coincide con mis pantallas reales exactamente, los mismos botones que van a ver. Vamos a construir la campana cold y tus audiencias, las dos cosas para las que tenemos screenshots, paso a paso. Grupos cuatro y cinco, construyen en vivo conmigo. Grupo tres, constryelo en borrador para que este listo cuando tu video lo este. Grupo uno, sigan para aprender el camino, despues corran el prompt y escriban su script. Grupo dos, ya saben, terminen su edicion. Abran su laptop, abran la guia, y diganme cuando esten en la pantalla de campanas." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal"><span class="badge badge-sprout">Live Exercise</span></div>
+        <h1 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5.5vw,4.2rem);letter-spacing:-0.03em;line-height:1.05;transition-delay:0.1s;">Open Ads Manager. <span class="stroke stroke--sprout stroke-animate">Follow The Guide.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(1rem,2vw,1.4rem);color:var(--paper);max-width:46ch;line-height:1.4;transition-delay:0.25s;">The participant guide matches my real screens, click for click. We build the <strong style="color:var(--sprout);">cold campaign</strong> and your <strong style="color:var(--sprout);">audiences</strong> together.</p>
+        <div class="reveal" style="transition-delay:0.4s;"><p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.72rem);letter-spacing:1.8px;text-transform:uppercase;color:var(--muted-2);">Built audiences? Build live. Edited? Build in draft. Not started? Learn the path, then run the prompt.</p></div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &middot; reLearn</div>
+    <div class="slide-number">15 / 17</div>
+</section>
+
+<!-- ========== SLIDE 16 — AI SHORTCUT (paired with slide 15) ========== -->
+<section class="slide" id="slide-16" data-notes="Same idea as before, here is the shortcut for the build itself. Before you click around Ads Manager, let the skill hand you your setup sheet, the exact campaign names, objectives, budgets, audiences, and exclusions, all filled in for your buyer. You paste your avatar, it gives you the three-campaign plan, and then you just transfer it into the buttons. Copy, paste, change the city line. The guide in your hand shows the clicks, this prompt fills in the what. Run it now if you are in group four, and let us start transferring it into the cold campaign.---Misma idea que antes, aqui esta el atajo para el build mismo. Antes de andar haciendo clic en Ads Manager, deja que la skill te entregue tu hoja de setup, los nombres exactos de campana, objetivos, presupuestos, audiencias, y exclusiones, todo lleno para tu comprador. Pegas tu avatar, te da el plan de tres campanas, y despues solo lo transfieres a los botones. Copia, pega, cambia la linea de la ciudad. La guia en tu mano muestra los clics, este prompt llena el que. Corranlo ahora si estan en el grupo cuatro, y empecemos a transferirlo a la campana cold." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">AI Shortcut</div><h2 class="slide-title">Let It Fill Your <span class="stroke stroke--sprout">Setup Sheet<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2></div>
+        <div class="reveal prompt-card" style="transition-delay:0.15s;">
+            <div class="ptag"><span>Paste into Claude / ChatGPT with your avatar doc</span><span>Stage 4 &middot; Meta Funnel</span></div>
+<pre>Use the <b>Marketing Machine</b> skill, Stage 4 (Meta Funnel).
+Here is my avatar:
+
+<b>[PASTE YOUR AVATAR DOC]</b>
+
+Fill my 3-campaign setup sheet for a <b>Housing</b> campaign:
+  - names, objectives (Engagement / Leads / Conversions)
+  - daily budgets, location, and the exclusion cascade
+My city: <b>[your city] + 15 mi</b>. Output English and Spanish.</pre>
+        </div>
+        <div class="reveal prompt-how" style="transition-delay:0.35s;">The guide in your hand shows the clicks. This prompt fills in the what. Then you just transfer it into the buttons.</div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 7</span></div>
+    <div class="slide-number">16 / 17</div>
+</section>
+
+<!-- ========== SLIDE 17 — SCOREBOARD + YOUR EXIT ========== -->
+<section class="slide gradient-bg" id="slide-17" data-notes="Last slide. Before you leave, two things. One, your scoreboard. From today on, the number you track is cost per conversation. Not likes, not views, dollars to get one real buyer talking. Write it down and check it weekly. Two, your exit, because everyone leaves with a different next step. Not started, go run the prompt and book your recording this week. Stuck editing, finish one video, that is your win. Edited, draft your ad copy and offer. Audiences built, finish your cold campaign in draft and get it ready to publish. Ready for more, optimize and help a teammate. Wherever you walked in, you walk out one real step further, and you finally understand what every button does. That is the whole point. See you next Tuesday.---Ultimo slide. Antes de irte, dos cosas. Una, tu marcador. De hoy en adelante, el numero que sigues es costo por conversacion. No likes, no vistas, dolares para que un comprador real te hable. Anotalo y revisalo cada semana. Dos, tu salida, porque cada quien se va con un proximo paso distinto. No empezaste, corre el prompt y agenda tu grabacion esta semana. Atascado editando, termina un video, esa es tu victoria. Editaste, redacta tu ad copy y tu oferta. Audiencias montadas, termina tu campana cold en borrador y dejala lista para publicar. Listo para mas, optimiza y ayuda a un compañero. Donde quiera que entraste, sales un paso real mas adelante, y por fin entiendes que hace cada boton. Ese es el punto completo. Nos vemos el proximo martes." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal"><span class="badge badge-sprout">Your Scoreboard</span></div>
+        <h1 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,5vw,3.8rem);letter-spacing:-0.03em;line-height:1.05;transition-delay:0.1s;">Track One Number: <span class="stroke stroke--sprout stroke-animate">Cost Per Conversation<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.9rem,1.7vw,1.25rem);color:var(--paper);max-width:50ch;line-height:1.45;transition-delay:0.25s;">Not likes. Not views. Dollars to get one real buyer talking to you. Everyone leaves with one next step.</p>
+        <div class="reveal" style="transition-delay:0.4s;"><p style="font-family:var(--font-mono);font-size:clamp(0.58rem,0.85vw,0.72rem);letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);">Not started: record &middot; Editing: finish it &middot; Edited: copy + offer &middot; Audiences: cold in draft &middot; Ahead: optimize + help</p></div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &reg;</div>
+    <div class="slide-number">17 / 17</div>
+</section>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+const slides = document.querySelectorAll('.slide');
+const navDotsContainer = document.getElementById('navDots');
+const progressBar = document.getElementById('progressBar');
+const totalSlides = slides.length;
+
+slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('nav-dot');
+    dot.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' }));
+    navDotsContainer.appendChild(dot);
+});
+const dots = navDotsContainer.querySelectorAll('.nav-dot');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            const idx = [...slides].indexOf(entry.target);
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            progressBar.style.width = ((idx + 1) / totalSlides * 100) + '%';
+        }
+    });
+}, { threshold: 0.5 });
+slides.forEach(s => observer.observe(s));
+
+document.addEventListener('keydown', e => {
+    const current = [...slides].findIndex(s => s.classList.contains('visible'));
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') && current < totalSlides - 1) {
+        e.preventDefault(); slides[current + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && current > 0) {
+        e.preventDefault(); slides[current - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+try {
+    const bc = new BroadcastChannel('presentation-sync');
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = [...slides].indexOf(entry.target);
+                bc.postMessage({ type: 'slide-change', slide: idx, series: 'marketing-machine', session: '7' });
+            }
+        });
+    }, { threshold: 0.5 });
+    slides.forEach(s => observer2.observe(s));
+    bc.onmessage = e => {
+        if (e.data.type === 'slide-change' && e.data.series === 'marketing-machine' && e.data.session === '7') {
+            slides[e.data.slide]?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+} catch(e) {}
+</script>
+
+</body>
+</html>
