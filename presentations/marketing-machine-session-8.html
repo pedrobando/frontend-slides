@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Close the Loop | Marketing Machine</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="Close the Loop">
+<meta name="presentation-series" content="Marketing Machine">
+<meta name="presentation-session" content="8">
+<meta name="presentation-date" content="2026-07-22">
+<meta name="presentation-slides" content="20">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   VIEWPORT BASE
+   =========================================== */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+    width: 100vw; height: 100vh; height: 100dvh;
+    overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    max-height: 100%; overflow: hidden; padding: var(--slide-padding);
+}
+:root {
+    --title-size: clamp(2rem, 5.5vw, 4.5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.3rem, 3.2vw, 2.4rem);
+    --body-size: clamp(1rem, 2.2vw, 1.6rem);
+    --small-size: clamp(0.8rem, 1.4vw, 1.15rem);
+    --slide-padding: clamp(1.5rem, 5vw, 5rem);
+    --content-gap: clamp(0.8rem, 3vw, 3rem);
+    --element-gap: clamp(0.4rem, 1.5vw, 1.5rem);
+}
+@media (max-height: 700px) {
+    :root { --slide-padding: clamp(1rem, 3vw, 2.5rem); --title-size: clamp(1.5rem, 4.5vw, 3rem); --h2-size: clamp(1.2rem, 3.5vw, 2.2rem); }
+}
+@media (max-height: 600px) {
+    :root { --slide-padding: clamp(0.75rem, 2.5vw, 1.5rem); --title-size: clamp(1.2rem, 4vw, 2.5rem); --body-size: clamp(0.8rem, 1.4vw, 1.1rem); }
+    .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root { --slide-padding: clamp(0.5rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.5rem, 8vw, 3rem); } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   RETHOUGHT TOKENS
+   =========================================== */
+:root {
+    --ink: #1B252F;
+    --ink-soft: #222E3A;
+    --ink-deep: #151D26;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --brand-light: #6ba8d6;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --amber: #e0a63a;
+    --amber-soft: #f5d08a;
+    --muted: #6e7a88;
+    --muted-2: #95a0ae;
+    --border-d: #ffffff18;
+    --border-l: #1B252F14;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--sprout); color: var(--ink); }
+
+/* ===========================================
+   GLOBAL COMPONENTS
+   =========================================== */
+.slide { background: var(--ink); padding: var(--slide-padding); }
+.slide.light { background: var(--paper); color: var(--ink); }
+.slide.light .section-label { color: var(--brand); }
+.slide.light .section-label::before { background: var(--brand); }
+.slide.light .slide-body { color: var(--muted); }
+.slide.light .slide-number { color: var(--muted); }
+
+.section-label {
+    font-family: var(--font-mono); font-size: clamp(0.75rem, 1.15vw, 0.95rem);
+    letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
+}
+.section-label::before { content: ""; width: clamp(14px, 2.5vw, 24px); height: 2px; background: var(--sprout); }
+
+.slide-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--h2-size); letter-spacing: -0.025em; line-height: 1.1;
+    margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+}
+.slide-body {
+    font-family: var(--font-sans); font-size: var(--body-size);
+    line-height: 1.6; color: var(--muted-2); max-width: 60ch;
+}
+
+.stroke { position: relative; display: inline-block; padding: 0 3px; }
+.stroke svg.ul {
+    position: absolute; left: -4px; right: -4px; bottom: clamp(-6px, -0.8vh, -10px);
+    width: calc(100% + 8px); height: clamp(10px, 1.5vw, 16px); pointer-events: none;
+}
+.stroke svg.ul path { fill: none; stroke-width: 3; stroke-linecap: round; }
+.stroke--sprout svg.ul path { stroke: var(--sprout); }
+.stroke--clay svg.ul path { stroke: var(--clay); }
+.stroke--brand svg.ul path { stroke: var(--brand-deep); }
+.stroke--amber svg.ul path { stroke: var(--amber); }
+
+.badge {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(8px, 1.2vw, 14px);
+    border-radius: 999px; text-transform: uppercase; display: inline-block;
+}
+.badge-sprout { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-brand { background: #034c7630; color: var(--brand-light); border: 1px solid #034c7650; }
+.badge-clay { background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550; }
+.badge-amber { background: #e0a63a30; color: var(--amber-soft); border: 1px solid #e0a63a50; }
+
+.callout-line { display: inline-block; background: var(--ink-soft); border-left: 3px solid var(--sprout); padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.8rem, 1.3vw, 1.2rem); border-radius: 0 8px 8px 0; font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.4; }
+
+.slide-footer {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.slide-number {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); right: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1px;
+}
+.slide-footer-logo { position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding); display: flex; flex-direction: column; align-items: flex-start; gap: clamp(3px, 0.5vh, 6px); }
+.slide-footer-logo .footer-text { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; }
+.relearn-logo { height: clamp(1.2rem, 2.5vw, 2rem); width: auto; opacity: 0.7; transition: opacity 0.3s ease; margin-top: -8px; }
+.relearn-logo:hover { opacity: 1; }
+
+.progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--sprout); z-index: 9999; transition: width 0.3s ease; }
+.nav-dots {
+    position: fixed; right: clamp(12px, 2vw, 24px); top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 8px; z-index: 9998;
+}
+.nav-dot {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--muted); opacity: 0.3;
+    cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
+}
+.nav-dot.active { background: var(--sprout); opacity: 1; transform: scale(1.4); }
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(1) { transition-delay: 0.05s; }
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.25s; }
+.reveal:nth-child(4) { transition-delay: 0.35s; }
+.reveal:nth-child(5) { transition-delay: 0.45s; }
+
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.visible .stagger > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.visible .stagger > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.visible .stagger > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.visible .stagger > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.visible .stagger > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+.visible .stagger > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+.visible .stagger > *:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+
+.reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.6s, transform 0.6s var(--ease-spring); }
+.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+.float { animation: float-gentle 4s ease-in-out infinite; }
+@keyframes float-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes stroke-draw { from { stroke-dashoffset: 200; } to { stroke-dashoffset: 0; } }
+.stroke-animate svg.ul path { stroke-dasharray: 200; stroke-dashoffset: 200; }
+.visible .stroke-animate svg.ul path { animation: stroke-draw 1.2s var(--ease-out-expo) forwards; }
+
+.gradient-bg { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 30%, var(--ink) 70%, var(--ink-soft) 100%); background-size: 300% 300%; animation: gradient-flow 8s ease infinite; }
+
+/* ===========================================
+   CAMPAIGN MAP
+   =========================================== */
+.map-grid { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: clamp(0.4rem, 1vw, 0.9rem); align-items: stretch; }
+@media (max-width: 820px) { .map-grid { grid-template-columns: 1fr; } .map-arrow { display: none; } }
+.map-node {
+    border-radius: 16px; padding: clamp(0.8rem, 1.6vw, 1.4rem); background: var(--ink-soft);
+    border-top: 4px solid var(--muted); display: flex; flex-direction: column; gap: clamp(0.25rem, 0.7vh, 0.5rem);
+}
+.map-node.cold { border-top-color: var(--clay); }
+.map-node.warm { border-top-color: var(--brand-light); }
+.map-node.retarget { border-top-color: var(--amber); }
+.map-node.active-focus { border: 2px solid var(--sprout); box-shadow: 0 0 20px #8cc94e30; }
+.map-stage { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.9vw, 0.75rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2); }
+.map-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.1rem, 2.2vw, 1.8rem); letter-spacing: -0.02em; line-height: 1; }
+.map-node.cold .map-title { color: var(--clay-soft); }
+.map-node.warm .map-title { color: var(--brand-light); }
+.map-node.retarget .map-title { color: var(--amber-soft); }
+.map-meta { font-family: var(--font-sans); font-size: clamp(0.72rem, 1.15vw, 0.95rem); color: var(--paper); line-height: 1.4; }
+.map-sub { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.82vw, 0.7rem); color: var(--muted); letter-spacing: 0.5px; }
+.map-arrow { display: flex; align-items: center; justify-content: center; color: var(--sprout); font-size: clamp(1.2rem, 2.5vw, 2rem); }
+
+/* ===========================================
+   CONCEPT LAYOUT
+   =========================================== */
+.concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.6rem, 1.5vw, 1.4rem); }
+@media (max-width: 760px) { .concept-grid { grid-template-columns: 1fr; } }
+.concept-box {
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 14px;
+    padding: clamp(0.9rem, 1.7vw, 1.5rem); display: flex; flex-direction: column; gap: clamp(0.3rem, 0.8vh, 0.6rem);
+}
+.concept-box.ex { border-left: 4px solid var(--brand-light); background: #6ba8d610; }
+.clab { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.9vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); font-weight: 600; }
+.concept-box.ex .clab { color: var(--brand-light); }
+.concept-text { font-family: var(--font-sans); font-size: clamp(0.85rem, 1.4vw, 1.15rem); color: var(--paper); line-height: 1.5; }
+.concept-text.muted { color: var(--muted-2); }
+.concept-action { margin-top: clamp(0.4rem, 1vh, 0.8rem); }
+
+/* ===========================================
+   CHECKPOINT GRID
+   =========================================== */
+.check-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.4rem, 1vw, 0.8rem); }
+@media (max-width: 900px) { .check-grid { grid-template-columns: repeat(2, 1fr); } }
+.check-card {
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 14px;
+    padding: clamp(0.7rem, 1.4vw, 1.2rem); display: flex; flex-direction: column; gap: clamp(0.3rem, 0.6vh, 0.5rem);
+    border-left: 4px solid var(--sprout);
+}
+.check-card.pending { border-left-color: var(--amber); }
+.check-num { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2); }
+.check-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 1.3vw, 1.05rem); color: var(--paper); line-height: 1.15; }
+.check-desc { font-family: var(--font-sans); font-size: clamp(0.68rem, 1vw, 0.85rem); color: var(--muted-2); line-height: 1.35; }
+
+/* ===========================================
+   META ADS MANAGER MOCKUP
+   =========================================== */
+.meta-mockup {
+    background: #f0f2f5; border-radius: 12px; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1c1e21; max-width: 58rem; width: 100%; margin: 0 auto;
+    border: 1px solid #dadde1;
+}
+.meta-topbar {
+    background: #fff; padding: clamp(6px, 1vh, 10px) clamp(10px, 1.5vw, 16px);
+    border-bottom: 1px solid #dadde1; display: flex; align-items: center; gap: 10px;
+    font-size: clamp(0.65rem, 0.95vw, 0.8rem);
+}
+.meta-topbar-icon { width: 20px; height: 20px; background: #1877f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 12px; flex-shrink: 0; }
+.meta-topbar-title { font-weight: 600; color: #1c1e21; }
+.meta-topbar-breadcrumb { color: #65676b; }
+.meta-body { padding: clamp(10px, 1.8vw, 20px); display: flex; flex-direction: column; gap: clamp(8px, 1.2vh, 14px); }
+.meta-section {
+    background: #fff; border-radius: 8px; padding: clamp(10px, 1.6vw, 18px);
+    border: 1px solid #dadde1;
+}
+.meta-section-title {
+    font-weight: 600; font-size: clamp(0.75rem, 1.15vw, 0.95rem); color: #1c1e21;
+    margin-bottom: clamp(6px, 1vh, 10px); display: flex; align-items: center; gap: 6px;
+}
+.meta-field { display: flex; flex-direction: column; gap: 4px; margin-bottom: clamp(6px, 1vh, 10px); }
+.meta-field:last-child { margin-bottom: 0; }
+.meta-label { font-size: clamp(0.6rem, 0.9vw, 0.75rem); font-weight: 500; color: #65676b; }
+.meta-input {
+    background: #f0f2f5; border: 1px solid #ced0d4; border-radius: 6px;
+    padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1vw, 12px);
+    font-size: clamp(0.7rem, 1vw, 0.85rem); color: #1c1e21; font-weight: 500;
+}
+.meta-input.selected { border-color: #1877f2; background: #e7f3ff; }
+.meta-radio { display: flex; gap: clamp(8px, 1.2vw, 16px); flex-wrap: wrap; }
+.meta-radio-opt {
+    display: flex; align-items: center; gap: 6px; background: #f0f2f5;
+    border: 1px solid #ced0d4; border-radius: 6px; padding: clamp(5px, 0.7vh, 8px) clamp(8px, 1vw, 12px);
+    font-size: clamp(0.65rem, 0.95vw, 0.8rem); color: #1c1e21;
+}
+.meta-radio-opt.active { border-color: #1877f2; background: #e7f3ff; font-weight: 600; }
+.meta-radio-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #ced0d4; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.meta-radio-opt.active .meta-radio-dot { border-color: #1877f2; }
+.meta-radio-opt.active .meta-radio-dot::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #1877f2; }
+.meta-select {
+    background: #fff; border: 1px solid #ced0d4; border-radius: 6px;
+    padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1vw, 12px);
+    font-size: clamp(0.7rem, 1vw, 0.85rem); color: #1c1e21; font-weight: 500;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.meta-select::after { content: "\25BC"; font-size: 0.6em; color: #65676b; }
+.meta-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #e7f3ff; border: 1px solid #1877f2; border-radius: 16px;
+    padding: 3px 10px; font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+    color: #1877f2; font-weight: 600;
+}
+.meta-chip.exclude { background: #fce4ec; border-color: #c05445; color: #c05445; }
+.meta-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #1877f2; color: #fff; border: none; border-radius: 6px;
+    padding: clamp(6px, 0.8vh, 10px) clamp(12px, 1.5vw, 20px);
+    font-size: clamp(0.65rem, 0.95vw, 0.8rem); font-weight: 600; cursor: default;
+}
+.meta-btn.secondary { background: #e4e6eb; color: #1c1e21; }
+.meta-note {
+    background: #fff8e1; border-left: 3px solid #e0a63a; border-radius: 0 6px 6px 0;
+    padding: clamp(6px, 0.8vh, 10px) clamp(8px, 1vw, 12px);
+    font-size: clamp(0.6rem, 0.9vw, 0.75rem); color: #65676b; line-height: 1.4;
+}
+.meta-note strong { color: #1c1e21; }
+.meta-divider { height: 1px; background: #dadde1; margin: clamp(4px, 0.6vh, 8px) 0; }
+.meta-tag-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.meta-highlight { background: #e7f3ff; padding: 2px 6px; border-radius: 4px; font-weight: 600; color: #1877f2; }
+
+/* ===========================================
+   DASHBOARD MOCKUP
+   =========================================== */
+.dash-mockup {
+    background: #f0f2f5; border-radius: 12px; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1c1e21; max-width: 62rem; width: 100%; margin: 0 auto;
+    border: 1px solid #dadde1;
+}
+.dash-header {
+    background: #fff; padding: clamp(8px, 1.2vh, 14px) clamp(10px, 1.5vw, 16px);
+    border-bottom: 1px solid #dadde1; display: flex; align-items: center; justify-content: space-between;
+}
+.dash-title { font-weight: 700; font-size: clamp(0.75rem, 1.15vw, 0.95rem); color: #1c1e21; }
+.dash-period { font-size: clamp(0.6rem, 0.85vw, 0.72rem); color: #65676b; background: #f0f2f5; padding: 4px 10px; border-radius: 4px; }
+.dash-table { width: 100%; border-collapse: collapse; background: #fff; }
+.dash-table th {
+    text-align: left; padding: clamp(6px, 1vh, 10px) clamp(8px, 1vw, 12px);
+    font-size: clamp(0.55rem, 0.82vw, 0.68rem); font-weight: 600; color: #65676b;
+    border-bottom: 2px solid #dadde1; text-transform: uppercase; letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+.dash-table td {
+    padding: clamp(8px, 1.2vh, 14px) clamp(8px, 1vw, 12px);
+    font-size: clamp(0.68rem, 1vw, 0.85rem); border-bottom: 1px solid #f0f2f5;
+    white-space: nowrap;
+}
+.dash-table td:first-child { font-weight: 600; }
+.dash-table tr.good td { background: #f0faf0; }
+.dash-table tr.bad td { background: #fff5f5; }
+.dash-table tr.warn td { background: #fffde7; }
+.dash-verdict {
+    display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px;
+    border-radius: 12px; font-size: clamp(0.55rem, 0.8vw, 0.68rem); font-weight: 700;
+    letter-spacing: 0.5px; text-transform: uppercase;
+}
+.dash-verdict.good { background: #d4edda; color: #155724; }
+.dash-verdict.bad { background: #f8d7da; color: #721c24; }
+.dash-verdict.warn { background: #fff3cd; color: #856404; }
+.dash-metric-big {
+    font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+    letter-spacing: -0.02em; line-height: 1;
+}
+.dash-metric-label {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+    letter-spacing: 1px; text-transform: uppercase; color: #65676b;
+}
+.dash-kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(6px, 1vw, 12px); padding: clamp(8px, 1.2vh, 14px) clamp(10px, 1.5vw, 16px); }
+@media (max-width: 760px) { .dash-kpi-row { grid-template-columns: repeat(2, 1fr); } }
+.dash-kpi {
+    background: #fff; border-radius: 8px; padding: clamp(8px, 1.2vw, 14px);
+    border: 1px solid #dadde1; display: flex; flex-direction: column; gap: 4px; text-align: center;
+}
+.dash-kpi.good-border { border-top: 3px solid #28a745; }
+.dash-kpi.bad-border { border-top: 3px solid #dc3545; }
+.dash-kpi.warn-border { border-top: 3px solid #ffc107; }
+.dash-kpi.neutral-border { border-top: 3px solid #6c757d; }
+
+/* ===========================================
+   DECISION TREE
+   =========================================== */
+.tree-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+@media (max-width: 760px) { .tree-grid { grid-template-columns: 1fr; } }
+.tree-card {
+    border-radius: 14px; padding: clamp(0.8rem, 1.5vw, 1.3rem);
+    display: flex; flex-direction: column; gap: clamp(0.3rem, 0.7vh, 0.6rem);
+    border: 1px solid var(--border-d);
+}
+.tree-card.kill { background: linear-gradient(135deg, #c0544520, var(--ink-soft)); border-top: 4px solid var(--clay); }
+.tree-card.scale { background: linear-gradient(135deg, #8cc94e20, var(--ink-soft)); border-top: 4px solid var(--sprout); }
+.tree-card.refresh { background: linear-gradient(135deg, #e0a63a20, var(--ink-soft)); border-top: 4px solid var(--amber); }
+.tree-icon { font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; }
+.tree-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.8vw, 1.4rem); }
+.tree-card.kill .tree-title { color: var(--clay-soft); }
+.tree-card.scale .tree-title { color: var(--sprout); }
+.tree-card.refresh .tree-title { color: var(--amber-soft); }
+.tree-when { font-family: var(--font-sans); font-size: clamp(0.72rem, 1.1vw, 0.92rem); color: var(--muted-2); line-height: 1.4; }
+.tree-do { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.88vw, 0.75rem); color: var(--paper); letter-spacing: 0.5px; background: var(--ink-deep); padding: 6px 10px; border-radius: 6px; line-height: 1.4; }
+
+/* ===========================================
+   SCORECARD
+   =========================================== */
+.score-grid { display: grid; grid-template-columns: 1fr; gap: clamp(0.3rem, 0.7vw, 0.5rem); max-width: 50rem; }
+.score-row {
+    display: grid; grid-template-columns: clamp(24px, 3vw, 36px) 1fr 1fr; gap: clamp(0.5rem, 1vw, 1rem);
+    align-items: center; background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 10px; padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.6rem, 1.2vw, 1rem);
+}
+.score-step { font-family: var(--font-mono); font-size: clamp(0.7rem, 1.1vw, 0.9rem); font-weight: 700; color: var(--sprout); text-align: center; }
+.score-what { font-family: var(--font-sans); font-size: clamp(0.75rem, 1.15vw, 0.95rem); color: var(--paper); font-weight: 600; }
+.score-how { font-family: var(--font-sans); font-size: clamp(0.68rem, 1vw, 0.85rem); color: var(--muted-2); line-height: 1.3; }
+
+/* ===========================================
+   METRICS GRID
+   =========================================== */
+.metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+@media (max-width: 760px) { .metric-grid { grid-template-columns: 1fr 1fr; } }
+.metric-card { background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px; padding: clamp(0.7rem, 1.4vw, 1.1rem); border-top: 3px solid var(--sprout); }
+.metric-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.5vw, 1.15rem); color: var(--paper); }
+.metric-q { font-family: var(--font-sans); font-size: clamp(0.7rem, 1.1vw, 0.9rem); color: var(--muted-2); line-height: 1.35; margin-top: 2px; }
+
+/* ===========================================
+   PUNCHLINE (slide 5)
+   =========================================== */
+@keyframes punchline-bg {
+  0%   { background-position: 0% 50%; }
+  25%  { background-position: 100% 50%; }
+  50%  { background-position: 50% 100%; }
+  75%  { background-position: 0% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.punchline-bg {
+    background: linear-gradient(135deg, var(--ink-deep) 0%, var(--brand-deep) 20%, var(--ink) 40%, #1a3a25 60%, var(--ink-deep) 80%, var(--brand) 100%);
+    background-size: 400% 400%; animation: punchline-bg 12s ease infinite;
+}
+.punchline-glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: clamp(400px, 60vw, 800px); height: clamp(400px, 60vw, 800px);
+    background: radial-gradient(circle, #8cc94e15 0%, transparent 60%);
+    pointer-events: none; animation: gradient-flow 8s ease infinite;
+}
+.punchline-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.punchline-particles span { position: absolute; bottom: 0; background: var(--sprout); border-radius: 50%; animation: particle-rise linear infinite; }
+@keyframes particle-rise {
+    0%   { transform: translateY(20px); opacity: 0; }
+    50%  { opacity: 0.6; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ========== SLIDE 01 — COVER ========== -->
+<section class="slide gradient-bg" id="slide-1" data-notes="Welcome back. It has been four weeks. Two of those were virtual and I know those were hard. Today we are back in the same room and that changes everything. Here is where we are. Most of you have your ManyChat set up, you have your custom audiences built, some of you even ran the cold campaign for a bit. Today we close the loop. We build the retarget campaign together, the one that chases the people who watched but did not act. And then we spend real time reading the scoreboard, because running an ad without reading the numbers is like driving with your eyes closed. Two parts. Build the retarget. Read the score. Let us go.---Bienvenidos de vuelta. Han pasado cuatro semanas. Dos de esas fueron virtuales y se que fueron dificiles. Hoy estamos de vuelta en el mismo cuarto y eso lo cambia todo. Aqui es donde estamos. La mayoria tiene su ManyChat montado, tienen sus audiencias custom construidas, algunos hasta corrieron la campana cold un rato. Hoy cerramos el ciclo. Construimos la campana de retarget juntos, la que persigue a la gente que vio pero no actuo. Y despues pasamos tiempo real leyendo el marcador, porque correr un anuncio sin leer los numeros es como manejar con los ojos cerrados. Dos partes. Construir el retarget. Leer el marcador. Vamos." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal-scale" style="position:relative;display:flex;align-items:center;gap:clamp(1rem,2.5vw,2rem);">
+            <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" style="height:clamp(2.5rem,6vw,4.5rem);width:auto;">
+        </div>
+        <div>
+            <div class="section-label reveal" style="justify-content:center;">Marketing Machine &middot; Session 8</div>
+            <h1 class="reveal" style="font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,5.5vw,4.5rem);letter-spacing:-0.03em;line-height:1.05;">Close the <span class="stroke stroke--sprout stroke-animate">Loop<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+            <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(1rem,2vw,1.4rem);color:var(--muted-2);margin-top:clamp(0.6rem,1.2vh,1rem);">Build the retarget. Read the score. Drive with your eyes open.</p>
+        </div>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.8rem,1.3vw,1.05rem);color:var(--muted-2);max-width:54ch;line-height:1.5;font-style:italic;">Four weeks apart. Two virtual. Back in the room. Time to close what we started.</p>
+        <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <span class="badge badge-amber">Retarget Build</span>
+            <span class="badge badge-sprout">Read the Score</span>
+            <span class="badge badge-brand">Session 8</span>
+        </div>
+    </div>
+    <div class="slide-footer" style="color:var(--muted-2);">reThought Real Estate &middot; reLearn</div>
+    <div class="slide-number" style="color:var(--muted-2);">01 / 20</div>
+</section>
+
+<!-- ========== SLIDE 02 — MISSION & VISION — ENGLISH (dark) ========== -->
+<section class="slide" id="slide-2" data-notes="Our mission and vision. Read these. Live these. Human First. Tech Driven. Community Focused.---Nuestra mision y vision. Leanlas. Vivanlas. Humanos Primero. Impulsados por Tecnologia. Enfocados en la Comunidad." style="justify-content: center;">
+    <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+        <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand-light); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Mission</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">To redefine traditional real estate expectations delivering a <span style="color: var(--sprout); font-weight: 700;">personalized</span>, <span style="color: var(--sprout); font-weight: 700;">tech-driven</span>, and <span style="color: var(--sprout); font-weight: 700;">client-centric</span> approach to buying and selling real estate.</p>
+        </div>
+        <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Vision</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">To succeed in becoming the local industry <span style="color: var(--brand-light); font-weight: 700;">leader</span> focused on <span style="color: var(--brand-light); font-weight: 700;">humanizing</span> the real estate industry, leveraging innovation, investment and growth, while remaining a <span style="color: var(--brand-light); font-weight: 700;">community resource</span>.</p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
+    <div class="slide-number">02 / 20</div>
+</section>
+
+<!-- ========== SLIDE 03 — MISIÓN Y VISIÓN — SPANISH (light) ========== -->
+<section class="slide light" id="slide-3" data-notes="Ahora en espanol. MISION: Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque personalizado, impulsado por la tecnologia y centrado en el cliente para la compra y venta de propiedades. VISION: Triunfar en convertirnos en el lider local de la industria enfocado en humanizar el sector inmobiliario, aprovechando la innovacion, la inversion y el crecimiento, mientras seguimos siendo un recurso para la comunidad.---Now in Spanish. Read them or let the team absorb them." style="justify-content: center;">
+    <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+        <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Misi&oacute;n</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque <span style="color: var(--brand); font-weight: 700;">personalizado</span>, impulsado por la <span style="color: var(--brand); font-weight: 700;">tecnolog&iacute;a</span> y centrado en el <span style="color: var(--brand); font-weight: 700;">cliente</span> para la compra y venta de propiedades.</p>
+        </div>
+        <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout-deep); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Visi&oacute;n</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">Triunfar en convertirnos en el <span style="color: var(--sprout-deep); font-weight: 700;">l&iacute;der local</span> de la industria enfocado en <span style="color: var(--sprout-deep); font-weight: 700;">humanizar</span> el sector inmobiliario, aprovechando la innovaci&oacute;n, la inversi&oacute;n y el crecimiento, mientras seguimos siendo un <span style="color: var(--sprout-deep); font-weight: 700;">recurso para la comunidad</span>.</p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
+    <div class="slide-number">03 / 20</div>
+</section>
+
+<!-- ========== SLIDE 04 — CHECKPOINT ========== -->
+<section class="slide" id="slide-4" data-notes="Here is the honest checkpoint. Four weeks is a long time. Let us see where you actually are. These are the eight things you should have done by now. ManyChat set up with your keyword. Your cold video recorded and edited. Your custom audiences built, Warm Engagers 90 day and Retarget Viewers. Your cold campaign created, even if it is paused. Your ad copy written. Your offer or lead magnet ready. Your ManyChat automation wired to the keyword. And your Calendly or booking link active. Look at this list. How many do you have? Be honest. If you have six out of eight, you are in great shape. If you have three, that is okay too, we will get you caught up. But pretending you are further along than you are wastes your time and mine. Raise your hand if you have all eight. Now raise your hand if you have five or more. Now raise your hand if you need help today.---Aqui esta el checkpoint honesto. Cuatro semanas es mucho tiempo. Veamos donde estan de verdad. Estas son las ocho cosas que deberian haber hecho. ManyChat montado con su keyword. Su video cold grabado y editado. Sus audiencias custom construidas, Warm Engagers 90 dias y Retarget Viewers. Su campana cold creada, aunque este pausada. Su ad copy escrito. Su oferta o lead magnet lista. Su automatizacion de ManyChat conectada al keyword. Y su link de Calendly o cita activo. Miren esta lista. Cuantas tienen? Sean honestos. Si tienen seis de ocho, estan en buena forma. Si tienen tres, tambien esta bien, los vamos a poner al dia. Pero pretender que estan mas adelante de lo que estan pierde su tiempo y el mio. Levanten la mano si tienen las ocho. Ahora levanten si tienen cinco o mas. Ahora levanten si necesitan ayuda hoy." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">4-Week Checkpoint</div><h2 class="slide-title">What Should Be <span class="stroke stroke--sprout">Done<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> By Now</h2><p class="slide-body">Be honest. Nobody gets judged. Everybody gets helped.</p></div>
+        <div class="reveal stagger check-grid" style="transition-delay:0.15s;">
+            <div class="check-card"><div class="check-num">01</div><div class="check-name">ManyChat Set Up</div><div class="check-desc">Keyword active, automation wired</div></div>
+            <div class="check-card"><div class="check-num">02</div><div class="check-name">Cold Video</div><div class="check-desc">Recorded, edited, ready to run</div></div>
+            <div class="check-card"><div class="check-num">03</div><div class="check-name">Custom Audiences</div><div class="check-desc">Warm-Engagers-90d + Retarget-Viewers</div></div>
+            <div class="check-card"><div class="check-num">04</div><div class="check-name">Cold Campaign</div><div class="check-desc">Created in Ads Manager (even if paused)</div></div>
+            <div class="check-card"><div class="check-num">05</div><div class="check-name">Ad Copy</div><div class="check-desc">Primary text + headline written</div></div>
+            <div class="check-card"><div class="check-num">06</div><div class="check-name">Offer / Lead Magnet</div><div class="check-desc">What the buyer gets for engaging</div></div>
+            <div class="check-card"><div class="check-num">07</div><div class="check-name">ManyChat Wired</div><div class="check-desc">Keyword triggers the right flow</div></div>
+            <div class="check-card pending"><div class="check-num">08</div><div class="check-name">Retarget Campaign</div><div class="check-desc" style="color:var(--amber-soft);">Today &mdash; we build this together</div></div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">04 / 20</div>
+</section>
+
+<!-- ========== SLIDE 05 — TODAY'S AGENDA ========== -->
+<section class="slide" id="slide-5" data-notes="Two parts today. Part one, we build the retarget campaign together. Step by step. You will follow along on your own laptop. This is the campaign that chases the people who watched your videos, engaged with your posts, but have not taken action yet. These are your warmest people and they are slipping away because nobody is following up. Part two, we learn to read the scoreboard. I am going to show you real looking dashboards, good ones and bad ones, and you are going to learn to diagnose what is working and what is burning money. By the end you will know exactly when to kill an ad, when to scale it, and when to refresh it. Two skills. Build and read. Let us start with the build.---Dos partes hoy. Parte uno, construimos la campana de retarget juntos. Paso a paso. Van a seguir en su propia laptop. Esta es la campana que persigue a la gente que vio sus videos, interactuo con sus posts, pero no ha tomado accion. Estos son sus contactos mas calientes y se les estan escapando porque nadie les da seguimiento. Parte dos, aprendemos a leer el marcador. Les voy a mostrar dashboards que se ven reales, buenos y malos, y van a aprender a diagnosticar que esta funcionando y que esta quemando dinero. Al final van a saber exactamente cuando matar un anuncio, cuando escalarlo, y cuando refrescarlo. Dos habilidades. Construir y leer. Empecemos con el build." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal"><span class="badge badge-sprout">Today&rsquo;s Plan</span></div>
+        <h2 class="reveal slide-title" style="transition-delay:0.1s;max-width:22ch;">Two Skills. <span style="color:var(--sprout);">Build &amp; Read.</span></h2>
+        <div class="reveal concept-grid" style="transition-delay:0.2s;max-width:52rem;">
+            <div class="concept-box" style="border-top:4px solid var(--amber);text-align:center;">
+                <span class="clab" style="color:var(--amber-soft);">Part 1 &middot; ~30 min</span>
+                <p class="concept-text" style="font-size:clamp(1rem,1.8vw,1.3rem);font-weight:700;">Build the Retarget Campaign</p>
+                <p class="concept-text muted" style="font-size:clamp(0.78rem,1.1vw,0.92rem);">Step-by-step in Ads Manager. Your laptop, your account.</p>
+            </div>
+            <div class="concept-box" style="border-top:4px solid var(--sprout);text-align:center;">
+                <span class="clab">Part 2 &middot; ~30 min</span>
+                <p class="concept-text" style="font-size:clamp(1rem,1.8vw,1.3rem);font-weight:700;">Read the Scoreboard</p>
+                <p class="concept-text muted" style="font-size:clamp(0.78rem,1.1vw,0.92rem);">Mock dashboards. Diagnose winners, money pits, and fatigue.</p>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line">Running an ad without reading the numbers is <strong style="color:var(--sprout);">driving with your eyes closed.</strong></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">05 / 20</div>
+</section>
+
+<!-- ========== SLIDE 06 — SOCIAL MEDIA PUNCHLINE ========== -->
+<section class="slide punchline-bg" id="slide-6" data-notes="Story time. Here is the truth about retargeting that nobody talks about. Eighty percent of people who are interested in your service will not act the first time they see you. Not because they do not want to. Because life gets in the way. Marisol saw your cold reel while waiting for her kid at daycare. She watched thirty seconds. She thought yes, this is me. Then the kid came out. She forgot. Without a retarget campaign, she is gone forever. With one, she sees you again three days later while scrolling at night, and this time the message is different, it is warmer, it is more specific, and it says I know you are still thinking about this, here is your next step. That is not stalking. That is service. The retarget is the follow-up your best agents already do by phone, except it runs while you sleep. Post this, screen-shot this, share it with your team. Eighty percent of interested buyers will not act the first time. Your retarget is the follow-up that never sleeps.---Historia. Aqui esta la verdad del retargeting que nadie cuenta. El ochenta por ciento de la gente interesada en tu servicio no va a actuar la primera vez que te ven. No porque no quieran. Porque la vida se mete. Marisol vio tu reel cold mientras esperaba a su hijo en el daycare. Vio treinta segundos. Penso si, esta soy yo. Entonces salio el niño. Se olvido. Sin una campana de retarget, se fue para siempre. Con una, te ve de nuevo tres dias despues mientras hace scroll de noche, y esta vez el mensaje es diferente, es mas calido, es mas especifico, y dice yo se que todavia estas pensando en esto, aqui esta tu proximo paso. Eso no es acoso. Eso es servicio. El retarget es el seguimiento que tus mejores agentes ya hacen por telefono, excepto que corre mientras duermes. Publiquen esto, capturen la pantalla, compartan con su equipo. El ochenta por ciento de compradores interesados no actuan la primera vez. Tu retarget es el seguimiento que nunca duerme." style="justify-content: center; align-items: center;">
+    <div class="punchline-glow"></div>
+    <div class="punchline-particles"><span style="left:10%;animation-duration:8s;animation-delay:0s;width:3px;height:3px;"></span><span style="left:25%;animation-duration:12s;animation-delay:1s;width:5px;height:5px;"></span><span style="left:40%;animation-duration:10s;animation-delay:2.5s;width:3px;height:3px;"></span><span style="left:55%;animation-duration:9s;animation-delay:0.5s;width:4px;height:4px;background:var(--brand-light);"></span><span style="left:70%;animation-duration:11s;animation-delay:3s;width:3px;height:3px;"></span><span style="left:85%;animation-duration:7s;animation-delay:1.5s;width:5px;height:5px;"></span><span style="left:15%;animation-duration:13s;animation-delay:4s;width:2px;height:2px;background:var(--brand-light);"></span><span style="left:60%;animation-duration:8.5s;animation-delay:2s;width:4px;height:4px;"></span><span style="left:90%;animation-duration:10s;animation-delay:0.8s;width:3px;height:3px;"></span><span style="left:35%;animation-duration:14s;animation-delay:5s;width:2px;height:2px;"></span></div>
+    <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/social-media-story-time-indicator.gif" alt="Story time" style="position:absolute;bottom:clamp(30px,5vh,50px);right:var(--slide-padding);opacity:0.8;height:clamp(50px,7vh,80px);width:auto;z-index:2;">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(0.8rem,2vh,1.5rem);max-width:min(90vw,800px);position:relative;z-index:1;">
+        <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <span class="badge badge-sprout">Story Time</span>
+            <span class="badge badge-amber">Share This</span>
+        </div>
+        <h2 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,4.5vw,3.5rem);letter-spacing:-0.03em;line-height:1.08;transition-delay:0.1s;max-width:20ch;">80% of interested buyers won&rsquo;t act the <span class="stroke stroke--sprout stroke-animate">first time.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(1rem,2vw,1.4rem);color:var(--paper);max-width:42ch;line-height:1.45;transition-delay:0.25s;">Your retarget is the follow-up that <strong style="color:var(--sprout);">never sleeps.</strong></p>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.8rem,1.3vw,1rem);color:var(--muted-2);max-width:42ch;line-height:1.4;transition-delay:0.4s;font-style:italic;">Tu retarget es el seguimiento que nunca duerme.</p>
+        <div class="reveal" style="transition-delay:0.5s;"><p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.9vw,0.78rem);letter-spacing:2px;text-transform:uppercase;color:var(--muted-2);">reThought Real Estate &middot; reLearn &middot; Marketing Machine</p></div>
+    </div>
+    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Highlight</span></div>
+    <div class="slide-number" style="z-index:2;">06 / 20</div>
+</section>
+
+<!-- ========== SLIDE 07 — THE MAP (retarget highlighted) ========== -->
+<section class="slide" id="slide-7" data-notes="Quick refresh on the full machine. Three campaigns. Cold finds strangers. Warm talks to engagers. Retarget chases the almost. You have already built cold. Some of you have warm audiences ready. Today we build the third piece, the retarget. This is the tightest, hottest group. People who watched seventy-five percent or more of your videos. People who engaged with your Instagram. People who visited your profile multiple times. They are interested. They just have not pulled the trigger. The retarget campaign gives them one more reason to act, with a different message, a different angle, and a direct call to action. Notice the green glow on retarget, that is our focus today. Everything else stays as-is.---Repaso rapido de la maquina completa. Tres campanas. Cold encuentra desconocidos. Warm le habla a los que interactuan. Retarget persigue a los casi. Ya construyeron cold. Algunos tienen audiencias warm listas. Hoy construimos la tercera pieza, el retarget. Este es el grupo mas apretado y caliente. Gente que vio setenta y cinco por ciento o mas de tus videos. Gente que interactuo con tu Instagram. Gente que visito tu perfil multiples veces. Estan interesados. Solo no han jalado el gatillo. La campana de retarget les da una razon mas para actuar, con un mensaje diferente, un angulo diferente, y un llamado directo a la accion. Noten el brillo verde en retarget, ese es nuestro enfoque hoy. Todo lo demas se queda igual." style="justify-content:center;">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">The Full Machine</div><h2 class="slide-title">Today We Build the <span style="color:var(--amber-soft);">Third Piece</span></h2><p class="slide-body">Cold finds them. Warm warms them. Retarget closes the loop.</p></div>
+        <div class="reveal map-grid" style="transition-delay:0.2s;">
+            <div class="map-node cold" style="opacity:0.5;"><div class="map-stage">01 &middot; Strangers</div><div class="map-title">Cold</div><div class="map-meta">Built &checkmark;</div><div class="map-sub">Running or ready to run</div></div>
+            <div class="map-arrow" style="opacity:0.4;">&rarr;</div>
+            <div class="map-node warm" style="opacity:0.5;"><div class="map-stage">02 &middot; Engaged</div><div class="map-title">Warm</div><div class="map-meta">Audiences ready &checkmark;</div><div class="map-sub">Campaign next</div></div>
+            <div class="map-arrow">&rarr;</div>
+            <div class="map-node retarget active-focus"><div class="map-stage">03 &middot; Almost</div><div class="map-title">Retarget</div><div class="map-meta"><strong style="color:var(--sprout);">Today&rsquo;s Build</strong></div><div class="map-sub">The follow-up that never sleeps</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.5s;"><div class="callout-line">These are the people who <strong style="color:var(--sprout);">already showed interest</strong>. They just need one more reason to act.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">07 / 20</div>
+</section>
+
+<!-- ========== SLIDE 08 — ADS MANAGER: CREATE CAMPAIGN ========== -->
+<section class="slide" id="slide-8" data-notes="Open your laptop. Open Ads Manager. Click the green Create button. Here is exactly what you are going to see. First thing, campaign name. Name it Retarget dash your city dash the date. For example, Retarget-Orlando-Jul22. This keeps things clean when you have multiple campaigns. Next, buying type, leave it on Auction. Next, the campaign objective. We are picking Engagement, and specifically we want messaging conversations. Why not Leads or Conversions? Because at this stage we want a real conversation, not a form fill. These people already know you. They watched your content. A cold form would feel impersonal. A message feels like a real person following up. Then at the very bottom, Special Ad Category, select Housing. Every time. Do not skip this or Meta will reject your ad and you lose days waiting. Click Next when you are here.---Abran su laptop. Abran Ads Manager. Hagan clic en el boton verde de Create. Aqui esta exactamente lo que van a ver. Primero, nombre de la campana. Ponganle Retarget guion su ciudad guion la fecha. Por ejemplo, Retarget-Orlando-Jul22. Esto mantiene todo limpio cuando tienes multiples campanas. Siguiente, buying type, dejenlo en Auction. Siguiente, el objetivo de la campana. Vamos a escoger Engagement, y especificamente queremos conversaciones por mensaje. Por que no Leads o Conversions? Porque en esta etapa queremos una conversacion real, no un formulario. Esta gente ya te conoce. Vieron tu contenido. Un formulario frio se sentiria impersonal. Un mensaje se siente como una persona real dando seguimiento. Despues al fondo, Special Ad Category, seleccionen Housing. Siempre. No se salten esto o Meta va a rechazar su anuncio y pierden dias esperando. Hagan clic en Next cuando esten aqui." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.2vh,0.9rem);">
+        <div class="reveal"><div class="section-label">Part 1 &middot; Step 1 of 5</div><h2 class="slide-title">Create Campaign + <span style="color:var(--sprout);">Pick the Objective</span></h2></div>
+        <div class="reveal meta-mockup" style="transition-delay:0.15s;">
+            <div class="meta-topbar">
+                <div class="meta-topbar-icon">M</div>
+                <span class="meta-topbar-title">Ads Manager</span>
+                <span class="meta-topbar-breadcrumb">&rsaquo; Create new campaign</span>
+            </div>
+            <div class="meta-body">
+                <div class="meta-section">
+                    <div class="meta-section-title">Campaign name</div>
+                    <div class="meta-input selected">Retarget-Orlando-Jul22</div>
+                </div>
+                <div class="meta-section">
+                    <div class="meta-section-title">Buying type</div>
+                    <div class="meta-radio">
+                        <div class="meta-radio-opt active"><div class="meta-radio-dot"></div> Auction</div>
+                        <div class="meta-radio-opt"><div class="meta-radio-dot"></div> Reservation</div>
+                    </div>
+                </div>
+                <div class="meta-section">
+                    <div class="meta-section-title">Campaign objective</div>
+                    <div class="meta-radio" style="flex-direction:column;">
+                        <div class="meta-radio-opt"><div class="meta-radio-dot"></div> Awareness</div>
+                        <div class="meta-radio-opt"><div class="meta-radio-dot"></div> Traffic</div>
+                        <div class="meta-radio-opt active"><div class="meta-radio-dot"></div> Engagement &nbsp;<span style="font-size:0.85em;color:#65676b;">&mdash; Messaging conversations</span></div>
+                        <div class="meta-radio-opt"><div class="meta-radio-dot"></div> Leads</div>
+                        <div class="meta-radio-opt"><div class="meta-radio-dot"></div> Sales</div>
+                    </div>
+                </div>
+                <div class="meta-section" style="border-left:3px solid #e0a63a;">
+                    <div class="meta-section-title" style="color:#e0a63a;">&#9888; Special Ad Category</div>
+                    <div class="meta-tag-row">
+                        <span class="meta-chip">Housing</span>
+                        <span style="font-size:clamp(0.6rem,0.85vw,0.72rem);color:#65676b;">Always. Every time. No exceptions for selling homes.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Why Engagement?</strong> They already know you. A message feels like follow-up. A form feels cold.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">08 / 20</div>
+</section>
+
+<!-- ========== SLIDE 09 — ADS MANAGER: AD SET — AUDIENCE ========== -->
+<section class="slide" id="slide-9" data-notes="Now the ad set. This is where you tell Meta who should see this ad. Name it Retarget-Viewers-90d. For the audience, we are using the custom audience you already built, Retarget-Viewers. This is the list of people who watched seventy-five percent or more of your videos in the last ninety days. If you also have an Instagram engagers audience, you can add that here too. Click Add custom audience, search for Retarget-Viewers, and select it. Now the critical part, the exclusion. You need to exclude anyone who already responded, anyone who already booked, anyone who already became a lead. If you have a Calendly visitors audience or a leads list, add it under Exclude. This is the cascade. Cold excludes warm. Warm excludes leads. Retarget excludes bookers. Without exclusions you are paying to show ads to people who already converted and that is pure waste. Location, set it to your metro area plus fifteen miles, same as cold. Age, gender, interests, all locked by Housing, so do not stress about those.---Ahora el ad set. Aqui es donde le dices a Meta quien debe ver este anuncio. Nombralo Retarget-Viewers-90d. Para la audiencia, usamos la audiencia custom que ya construiste, Retarget-Viewers. Esta es la lista de gente que vio setenta y cinco por ciento o mas de tus videos en los ultimos noventa dias. Si tambien tienes una audiencia de engagers de Instagram, la puedes agregar aqui. Haz clic en Add custom audience, busca Retarget-Viewers, y seleccionala. Ahora la parte critica, la exclusion. Necesitas excluir a cualquiera que ya respondio, cualquiera que ya agendo, cualquiera que ya se hizo lead. Si tienes una audiencia de visitantes de Calendly o una lista de leads, agregala en Exclude. Esta es la cascada. Cold excluye warm. Warm excluye leads. Retarget excluye bookers. Sin exclusiones estas pagando para mostrar anuncios a gente que ya convirtio y eso es desperdicio puro. Ubicacion, ponla en tu area metro mas quince millas, igual que cold. Edad, genero, intereses, todo bloqueado por Housing, asi que no se estresen con eso." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.2vh,0.9rem);">
+        <div class="reveal"><div class="section-label">Part 1 &middot; Step 2 of 5</div><h2 class="slide-title">Ad Set: <span class="stroke stroke--amber">Your Hottest Audience<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2></div>
+        <div class="reveal meta-mockup" style="transition-delay:0.15s;">
+            <div class="meta-topbar">
+                <div class="meta-topbar-icon">M</div>
+                <span class="meta-topbar-title">Ad Set</span>
+                <span class="meta-topbar-breadcrumb">&rsaquo; Retarget-Orlando-Jul22 &rsaquo; Audience</span>
+            </div>
+            <div class="meta-body">
+                <div class="meta-section">
+                    <div class="meta-section-title">Ad set name</div>
+                    <div class="meta-input selected">Retarget-Viewers-90d</div>
+                </div>
+                <div class="meta-section">
+                    <div class="meta-section-title">&#127919; Custom Audiences &mdash; Include</div>
+                    <div class="meta-tag-row" style="margin-bottom:8px;">
+                        <span class="meta-chip">Retarget-Viewers</span>
+                        <span class="meta-chip">IG-Engagers-90d</span>
+                    </div>
+                    <div class="meta-note"><strong>These are the lists you built.</strong> People who watched 75%+ of your videos + Instagram engagers in the last 90 days.</div>
+                </div>
+                <div class="meta-section" style="border-left:3px solid #c05445;">
+                    <div class="meta-section-title" style="color:#c05445;">&#10060; Custom Audiences &mdash; Exclude</div>
+                    <div class="meta-tag-row">
+                        <span class="meta-chip exclude">Booked / Pipeline</span>
+                        <span class="meta-chip exclude">Existing Leads</span>
+                    </div>
+                    <div class="meta-note" style="border-left-color:#c05445;background:#fff5f5;margin-top:6px;"><strong>The cascade.</strong> Never pay to retarget someone who already converted. This is how you stop wasting money.</div>
+                </div>
+                <div class="meta-section">
+                    <div class="meta-section-title">&#128205; Location</div>
+                    <div class="meta-tag-row">
+                        <span class="meta-chip">Orlando, FL + 15 mi</span>
+                        <span style="font-size:clamp(0.6rem,0.85vw,0.72rem);color:#65676b;">Same as your cold campaign</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">09 / 20</div>
+</section>
+
+<!-- ========== SLIDE 10 — ADS MANAGER: BUDGET + PLACEMENTS ========== -->
+<section class="slide" id="slide-10" data-notes="Budget and placements. For retarget, you do not need to spend as much because the audience is smaller. These are not strangers, these are people who already showed interest. Twenty dollars a day is the sweet spot. That is about six hundred a month. If your total budget is three hundred to five hundred a month, you could split it, half on cold to fill the funnel, half on retarget to close the loop. Schedule, set it to run continuously, no end date. You want this always running in the background like a net catching the people who fall through. Placements, leave it on Advantage Plus. Meta will put your ad wherever it performs best. For retarget that usually means Instagram stories and reels because that is where people scroll at night, which is exactly when Marisol is thinking about buying a house. One important setting, frequency cap. Under optimization, look for the frequency option. You want no more than two impressions per week. More than that and you become annoying. Less than that and they forget you exist. Two per week is the sweet spot.---Presupuesto y placements. Para retarget, no necesitas gastar tanto porque la audiencia es mas chica. No son desconocidos, son gente que ya mostro interes. Veinte dolares al dia es el punto ideal. Eso es como seiscientos al mes. Si tu presupuesto total es trescientos a quinientos al mes, puedes dividirlo, mitad en cold para llenar el embudo, mitad en retarget para cerrar el ciclo. Horario, ponlo a correr continuamente, sin fecha de fin. Quieres que esto corra siempre en el fondo como una red atrapando a la gente que se cae. Placements, dejalo en Advantage Plus. Meta va a poner tu anuncio donde mejor rinda. Para retarget eso usualmente significa stories y reels de Instagram porque ahi es donde la gente hace scroll de noche, que es exactamente cuando Marisol esta pensando en comprar casa. Un ajuste importante, limite de frecuencia. Bajo optimizacion, busca la opcion de frecuencia. Quieres no mas de dos impresiones por semana. Mas que eso y te vuelves molesto. Menos que eso y se olvidan de ti. Dos por semana es el punto ideal." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.2vh,0.9rem);">
+        <div class="reveal"><div class="section-label">Part 1 &middot; Step 3 of 5</div><h2 class="slide-title">Budget, Schedule &amp; <span style="color:var(--sprout);">Placements</span></h2></div>
+        <div class="reveal meta-mockup" style="transition-delay:0.15s;">
+            <div class="meta-topbar">
+                <div class="meta-topbar-icon">M</div>
+                <span class="meta-topbar-title">Ad Set</span>
+                <span class="meta-topbar-breadcrumb">&rsaquo; Budget &amp; Schedule</span>
+            </div>
+            <div class="meta-body">
+                <div class="meta-section">
+                    <div class="meta-section-title">&#128176; Daily Budget</div>
+                    <div class="meta-input selected" style="font-size:clamp(0.85rem,1.3vw,1.1rem);font-weight:700;">$20.00 / day</div>
+                    <div class="meta-note" style="margin-top:6px;"><strong>Budget split idea:</strong> $300-500/mo total? Half on cold (fill the funnel), half on retarget (close the loop). Small audience = less spend needed.</div>
+                </div>
+                <div class="meta-section">
+                    <div class="meta-section-title">&#128197; Schedule</div>
+                    <div class="meta-radio">
+                        <div class="meta-radio-opt active"><div class="meta-radio-dot"></div> Run continuously (no end date)</div>
+                        <div class="meta-radio-opt"><div class="meta-radio-dot"></div> Set start and end date</div>
+                    </div>
+                </div>
+                <div class="meta-section">
+                    <div class="meta-section-title">&#127760; Placements</div>
+                    <div class="meta-radio">
+                        <div class="meta-radio-opt active"><div class="meta-radio-dot"></div> Advantage+ placements (recommended)</div>
+                        <div class="meta-radio-opt"><div class="meta-radio-dot"></div> Manual placements</div>
+                    </div>
+                </div>
+                <div class="meta-section" style="border-left:3px solid var(--sprout);">
+                    <div class="meta-section-title" style="color:var(--sprout);">&#9201; Frequency Cap</div>
+                    <div class="meta-input selected">Max 2 impressions per 7 days</div>
+                    <div class="meta-note" style="margin-top:6px;border-left-color:var(--sprout);background:#f0faf0;"><strong>The sweet spot.</strong> More than 2/week = annoying. Less than 1/week = forgotten. Two keeps you present without becoming a stalker.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">10 / 20</div>
+</section>
+
+<!-- ========== SLIDE 11 — ADS MANAGER: THE AD CREATIVE ========== -->
+<section class="slide" id="slide-11" data-notes="Now the ad itself. This is what Marisol actually sees on her phone. A few rules for retarget creative. One, it has to be different from your cold ad. If she already saw your cold reel and did not act, showing her the same thing again will not change her mind. You need a different angle. Two, keep it short. Fifteen seconds max. She already knows who you are, you do not need to introduce yourself. Three, be direct. This is not awareness, this is a nudge. The IDCA framework works perfectly here. Identify, hey you saw my video about first-time buyers. Disrupt, most people wait until rates drop but rates do not drop when everyone expects them to. Compel, I can show you what you actually qualify for in ten minutes. Act, tap here and I will send you the numbers. For the text, keep it under forty words. For the headline, one line that matches the video. Select your Facebook page and Instagram account. Upload the video. Preview it in stories and reels format. That is your retarget ad.---Ahora el anuncio en si. Esto es lo que Marisol de verdad ve en su telefono. Unas reglas para el creativo de retarget. Uno, tiene que ser diferente de tu anuncio cold. Si ya vio tu reel cold y no actuo, mostrarle lo mismo otra vez no va a cambiar su mente. Necesitas un angulo diferente. Dos, mantenlo corto. Quince segundos maximo. Ya sabe quien eres, no necesitas presentarte. Tres, se directo. Esto no es awareness, esto es un empujon. El framework IDCA funciona perfecto aqui. Identify, hey viste mi video sobre compradores primerizos. Disrupt, la mayoria espera a que bajen las tasas pero las tasas no bajan cuando todos lo esperan. Compel, te puedo mostrar para que calificas en diez minutos. Act, toca aqui y te mando los numeros. Para el texto, menos de cuarenta palabras. Para el headline, una linea que combine con el video. Selecciona tu pagina de Facebook y cuenta de Instagram. Sube el video. Previsualizalo en formato de stories y reels. Ese es tu anuncio de retarget." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.2vh,0.9rem);">
+        <div class="reveal"><div class="section-label">Part 1 &middot; Step 4 of 5</div><h2 class="slide-title">The Ad: <span class="stroke stroke--amber">Different Angle, Direct Ask<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2></div>
+        <div class="reveal meta-mockup" style="transition-delay:0.15s;">
+            <div class="meta-topbar">
+                <div class="meta-topbar-icon">M</div>
+                <span class="meta-topbar-title">Ad</span>
+                <span class="meta-topbar-breadcrumb">&rsaquo; Retarget-Orlando-Jul22 &rsaquo; Creative</span>
+            </div>
+            <div class="meta-body">
+                <div class="meta-section">
+                    <div class="meta-section-title">&#127916; Media</div>
+                    <div class="meta-field">
+                        <div class="meta-label">Video (15 sec, 9:16 vertical)</div>
+                        <div class="meta-input" style="display:flex;align-items:center;gap:8px;"><span style="font-size:1.2em;">&#128249;</span> retarget-reel-orlando.mp4 <span style="color:#28a745;font-weight:600;font-size:0.85em;">Uploaded</span></div>
+                    </div>
+                    <div class="meta-note"><strong>Rule:</strong> This must be a DIFFERENT video than your cold ad. Same person = new angle or they scroll past.</div>
+                </div>
+                <div class="meta-section">
+                    <div class="meta-section-title">&#9997; IDCA Framework (for retarget)</div>
+                    <div class="meta-field">
+                        <div class="meta-label">Primary text (&le; 40 words)</div>
+                        <div class="meta-input" style="line-height:1.4;">You watched my video about buying your first home near Orlando. Most people wait for rates to drop &mdash; but I can show you what you qualify for in 10 minutes. Tap &ldquo;Send Message&rdquo; and I&rsquo;ll send the numbers.</div>
+                    </div>
+                    <div class="meta-field">
+                        <div class="meta-label">Headline</div>
+                        <div class="meta-input">Still renting? Let&rsquo;s see your real numbers.</div>
+                    </div>
+                    <div class="meta-field">
+                        <div class="meta-label">Call to action</div>
+                        <div class="meta-select">Send Message</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Identify &rarr; Disrupt &rarr; Compel &rarr; Act.</strong> She knows you. Skip the intro. Make the ask.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">11 / 20</div>
+</section>
+
+<!-- ========== SLIDE 12 — ADS MANAGER: REVIEW + PUBLISH ========== -->
+<section class="slide" id="slide-12" data-notes="Last step of the build. Review everything before you hit publish. Let me walk you through the checklist. Campaign name matches Retarget dash city dash date. Objective is Engagement with messaging. Housing is declared. Your audience is Retarget-Viewers plus Instagram engagers. Exclusions include booked and existing leads. Budget is twenty dollars a day, no end date. Frequency cap is two per week. Video is different from your cold ad. Text is under forty words using IDCA. CTA is Send Message. If all of that checks out, hit Publish. Meta will review it, usually within twenty-four hours. If it gets rejected, ninety percent of the time it is because Housing was not declared or because the text says something that sounds like it is targeting a specific demographic. Review the rejection reason, fix it, and resubmit. Do not panic. Everyone gets rejected at least once. It is part of the process. Once approved, your retarget is live and the loop is officially closed. Your machine now has all three pieces running.---Ultimo paso del build. Revisen todo antes de darle publish. Deja que te lleve por el checklist. Nombre de campana coincide con Retarget guion ciudad guion fecha. Objetivo es Engagement con mensajes. Housing esta declarado. Tu audiencia es Retarget-Viewers mas engagers de Instagram. Exclusiones incluyen agendados y leads existentes. Presupuesto es veinte dolares al dia, sin fecha de fin. Limite de frecuencia es dos por semana. Video es diferente a tu anuncio cold. Texto es menos de cuarenta palabras usando IDCA. CTA es Send Message. Si todo eso checa, dale Publish. Meta lo va a revisar, usualmente dentro de veinticuatro horas. Si lo rechazan, el noventa por ciento de las veces es porque no se declaro Housing o porque el texto suena como que targetea un demografico especifico. Revisa la razon de rechazo, arreglalo, y reenvia. No entren en panico. Todos los rechazan al menos una vez. Es parte del proceso. Una vez aprobado, tu retarget esta en vivo y el ciclo esta oficialmente cerrado. Tu maquina ahora tiene las tres piezas corriendo." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.2vh,0.9rem);">
+        <div class="reveal"><div class="section-label">Part 1 &middot; Step 5 of 5</div><h2 class="slide-title">Review &amp; <span class="stroke stroke--sprout stroke-animate">Publish<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2></div>
+        <div class="reveal meta-mockup" style="transition-delay:0.15s;">
+            <div class="meta-topbar">
+                <div class="meta-topbar-icon">M</div>
+                <span class="meta-topbar-title">Review Campaign</span>
+                <span class="meta-topbar-breadcrumb">&rsaquo; Retarget-Orlando-Jul22 &rsaquo; Final check</span>
+            </div>
+            <div class="meta-body" style="gap:clamp(4px,0.8vh,8px);">
+                <div class="meta-section" style="padding:clamp(6px,1vw,12px);">
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;font-size:clamp(0.65rem,0.95vw,0.8rem);">
+                        <span><strong>Campaign:</strong> Retarget-Orlando-Jul22</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                        <span><strong>Objective:</strong> Engagement &rarr; Messaging</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                        <span><strong>Special Ad Category:</strong> Housing</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                        <span><strong>Audience:</strong> Retarget-Viewers + IG-Engagers-90d</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                        <span><strong>Exclusions:</strong> Booked / Pipeline + Existing Leads</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                        <span><strong>Budget:</strong> $20/day, no end date</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                        <span><strong>Frequency:</strong> Max 2 per week</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                        <span><strong>Video:</strong> Different from cold ad, 15s, 9:16</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                        <span><strong>Text:</strong> &le;40 words, IDCA framework</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                        <span><strong>CTA:</strong> Send Message</span><span style="color:#28a745;font-weight:700;">&#10003;</span>
+                    </div>
+                </div>
+                <div style="display:flex;gap:10px;justify-content:flex-end;padding:0 clamp(6px,1vw,12px);">
+                    <div class="meta-btn secondary">Save as Draft</div>
+                    <div class="meta-btn">&#9654; Publish</div>
+                </div>
+                <div class="meta-note"><strong>Rejected?</strong> 90% of the time it is Housing not declared or text that sounds like demographic targeting. Fix, resubmit. Everyone gets rejected at least once.</div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line">Hit Publish. The loop is <strong style="color:var(--sprout);">closed</strong>. Your machine now has all three campaigns.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">12 / 20</div>
+</section>
+
+<!-- ========== SLIDE 13 — TRANSITION TO PART 2 ========== -->
+<section class="slide gradient-bg" id="slide-13" data-notes="Part one done. Your retarget campaign is built or in draft. Now the second skill, and honestly this is the one most agents never learn. Reading the numbers. I am going to show you three mock dashboards. They look exactly like what you see in Ads Manager. Agent A is winning. Agent B is burning money. Agent C has a fatigued ad. Your job is to figure out which is which before I tell you, and then learn what to do about each one. This is not theory. This is the exact screen you will stare at next week. Let us learn to read it.---Parte uno lista. Tu campana de retarget esta construida o en borrador. Ahora la segunda habilidad, y honestamente esta es la que la mayoria de agentes nunca aprenden. Leer los numeros. Les voy a mostrar tres dashboards de ejemplo. Se ven exactamente como lo que ven en Ads Manager. Agente A esta ganando. Agente B esta quemando dinero. Agente C tiene un anuncio fatigado. Su trabajo es descifrar cual es cual antes de que les diga, y despues aprender que hacer con cada uno. Esto no es teoria. Esta es la pantalla exacta que van a mirar la proxima semana. Aprendamos a leerla." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal"><span class="badge badge-sprout">Part 2</span></div>
+        <h1 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5.5vw,4.2rem);letter-spacing:-0.03em;line-height:1.05;transition-delay:0.1s;">Now Learn to <span class="stroke stroke--sprout stroke-animate">Read the Score.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(1rem,2vw,1.4rem);color:var(--paper);max-width:46ch;line-height:1.4;transition-delay:0.25s;">Three mock dashboards. One winner. One money pit. One fatigued ad. <strong style="color:var(--sprout);">Can you tell which is which?</strong></p>
+    </div>
+    <div class="slide-footer">reThought Real Estate &middot; reLearn</div>
+    <div class="slide-number">13 / 20</div>
+</section>
+
+<!-- ========== SLIDE 14 — MOCK DASHBOARD: THE WINNER ========== -->
+<section class="slide" id="slide-14" data-notes="Agent A. Look at these numbers. Fourteen days running. Two hundred eighty dollars spent. Cost per result, meaning cost per messaging conversation, is eight dollars and seventy-five cents. That means for every eight seventy-five she spent, one person started a real conversation with her. Click rate is two point three percent, which is above average for Housing ads where you are usually competing with terrible targeting. CPM, cost to reach a thousand people, is twenty-two dollars, which is normal for a metro area like Orlando. Frequency is one point four, meaning the average person saw the ad once or twice. And results, thirty-two messaging conversations in fourteen days. That is more than two real buyers talking to her every single day. The verdict, this campaign is working. Do not touch it. Do not change the creative. Do not increase the budget yet. Let it run until frequency climbs above two or cost per result starts rising. The hardest thing in ads is leaving a winner alone. Most people tinker with what is working and break it.---Agente A. Miren estos numeros. Catorce dias corriendo. Doscientos ochenta dolares gastados. Costo por resultado, o sea costo por conversacion en mensajes, es ocho dolares con setenta y cinco centavos. Eso significa que por cada ocho setenta y cinco que gasto, una persona empezo una conversacion real con ella. Tasa de clics es dos punto tres por ciento, que esta por encima del promedio para anuncios de Housing donde usualmente compites con targeting terrible. CPM, costo para alcanzar mil personas, es veintidos dolares, que es normal para un area metro como Orlando. Frecuencia es uno punto cuatro, o sea la persona promedio vio el anuncio una o dos veces. Y resultados, treinta y dos conversaciones en mensajes en catorce dias. Eso es mas de dos compradores reales hablandole cada dia. El veredicto, esta campana esta funcionando. No la toques. No cambies el creativo. No subas el presupuesto todavia. Dejala correr hasta que la frecuencia suba de dos o el costo por resultado empiece a subir. Lo mas dificil en anuncios es dejar un ganador quieto. La mayoria toquetea lo que funciona y lo rompe." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.2vh,0.9rem);">
+        <div class="reveal"><div class="section-label">Scenario A</div><h2 class="slide-title"><span style="color:var(--sprout);">The Winner</span> &mdash; Agent A&rsquo;s Cold Campaign</h2></div>
+        <div class="reveal dash-mockup" style="transition-delay:0.15s;">
+            <div class="dash-header">
+                <div class="dash-title">Cold-Orlando-Jul08 &nbsp; <span style="color:#28a745;font-size:0.8em;">&#9679; Active</span></div>
+                <div class="dash-period">Jul 8 &ndash; Jul 21 (14 days)</div>
+            </div>
+            <div class="dash-kpi-row">
+                <div class="dash-kpi good-border"><div class="dash-metric-big" style="color:#28a745;">$8.75</div><div class="dash-metric-label">Cost / Conversation</div></div>
+                <div class="dash-kpi good-border"><div class="dash-metric-big" style="color:#28a745;">2.3%</div><div class="dash-metric-label">Click Rate (CTR)</div></div>
+                <div class="dash-kpi neutral-border"><div class="dash-metric-big">$22</div><div class="dash-metric-label">CPM</div></div>
+                <div class="dash-kpi good-border"><div class="dash-metric-big" style="color:#28a745;">1.4</div><div class="dash-metric-label">Frequency</div></div>
+            </div>
+            <div style="padding:0 clamp(10px,1.5vw,16px) clamp(8px,1.2vh,14px);">
+                <table class="dash-table">
+                    <tr><th>Metric</th><th>Value</th><th>Benchmark</th><th>Verdict</th></tr>
+                    <tr class="good"><td>Results (conversations)</td><td><strong>32</strong></td><td>&gt; 15 in 14 days</td><td><span class="dash-verdict good">Winning</span></td></tr>
+                    <tr class="good"><td>Amount spent</td><td>$280.00</td><td>$20/day budget</td><td><span class="dash-verdict good">On track</span></td></tr>
+                    <tr class="good"><td>Reach</td><td>12,727</td><td>&mdash;</td><td><span class="dash-verdict good">Healthy</span></td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Verdict: DO NOT TOUCH IT.</strong> The hardest thing in ads is leaving a winner alone. Let it run until frequency passes 2.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">14 / 20</div>
+</section>
+
+<!-- ========== SLIDE 15 — MOCK DASHBOARD: THE MONEY PIT ========== -->
+<section class="slide" id="slide-15" data-notes="Agent B. Same budget, same timeframe. But look at these numbers. Cost per conversation is forty-two dollars. That is almost five times what Agent A is paying. Click rate is zero point four percent, which means out of every thousand people who see this ad, only four tap on it. That is a sign that the creative is not connecting. People are scrolling right past it. CPM is eighteen dollars, actually cheaper than Agent A, which tells you the problem is not the audience, it is the message. The audience is there and they are cheap to reach, but when they see the ad they do not care. Frequency is one point one, so it is not fatigue. Results, seven conversations in fourteen days. That is one every two days. For twenty dollars a day that is not sustainable. The diagnosis, the ad copy or the video is generic. It does not speak to a specific person. Remember, when we said specific filters and generic fails? This agent probably wrote something like are you thinking about buying a home question mark, which could be for anyone and therefore is for no one. The fix is not more money. The fix is a new video and new copy that speaks directly to their avatar.---Agente B. Mismo presupuesto, mismo periodo. Pero miren estos numeros. Costo por conversacion es cuarenta y dos dolares. Eso es casi cinco veces lo que paga el Agente A. Tasa de clics es cero punto cuatro por ciento, lo que significa que de cada mil personas que ven este anuncio, solo cuatro tocan. Eso es senal de que el creativo no esta conectando. La gente pasa de largo. CPM es dieciocho dolares, de hecho mas barato que Agente A, lo que les dice que el problema no es la audiencia, es el mensaje. La audiencia esta ahi y es barata de alcanzar, pero cuando ven el anuncio no les importa. Frecuencia es uno punto uno, asi que no es fatiga. Resultados, siete conversaciones en catorce dias. Eso es una cada dos dias. Por veinte dolares al dia eso no es sostenible. El diagnostico, el ad copy o el video es generico. No le habla a una persona especifica. Recuerdan cuando dijimos lo especifico filtra y lo generico falla? Este agente probablemente escribio algo como estas pensando en comprar casa signo de interrogacion, que podria ser para cualquiera y por lo tanto no es para nadie. El arreglo no es mas dinero. El arreglo es un video nuevo y copy nuevo que le hable directo a su avatar." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.2vh,0.9rem);">
+        <div class="reveal"><div class="section-label">Scenario B</div><h2 class="slide-title"><span style="color:var(--clay-soft);">The Money Pit</span> &mdash; Agent B&rsquo;s Cold Campaign</h2></div>
+        <div class="reveal dash-mockup" style="transition-delay:0.15s;">
+            <div class="dash-header">
+                <div class="dash-title">Cold-Tampa-Jul08 &nbsp; <span style="color:#28a745;font-size:0.8em;">&#9679; Active</span></div>
+                <div class="dash-period">Jul 8 &ndash; Jul 21 (14 days)</div>
+            </div>
+            <div class="dash-kpi-row">
+                <div class="dash-kpi bad-border"><div class="dash-metric-big" style="color:#dc3545;">$42.00</div><div class="dash-metric-label">Cost / Conversation</div></div>
+                <div class="dash-kpi bad-border"><div class="dash-metric-big" style="color:#dc3545;">0.4%</div><div class="dash-metric-label">Click Rate (CTR)</div></div>
+                <div class="dash-kpi neutral-border"><div class="dash-metric-big">$18</div><div class="dash-metric-label">CPM</div></div>
+                <div class="dash-kpi good-border"><div class="dash-metric-big" style="color:#28a745;">1.1</div><div class="dash-metric-label">Frequency</div></div>
+            </div>
+            <div style="padding:0 clamp(10px,1.5vw,16px) clamp(8px,1.2vh,14px);">
+                <table class="dash-table">
+                    <tr><th>Metric</th><th>Value</th><th>Benchmark</th><th>Verdict</th></tr>
+                    <tr class="bad"><td>Results (conversations)</td><td><strong>7</strong></td><td>&gt; 15 in 14 days</td><td><span class="dash-verdict bad">Failing</span></td></tr>
+                    <tr><td>Amount spent</td><td>$294.00</td><td>$20/day budget</td><td><span class="dash-verdict warn">Burning</span></td></tr>
+                    <tr class="good"><td>Reach</td><td>16,333</td><td>&mdash;</td><td><span class="dash-verdict good">Large</span></td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="reveal concept-grid" style="transition-delay:0.3s;">
+            <div class="concept-box" style="border-top:3px solid var(--clay);"><span class="clab" style="color:var(--clay-soft);">Diagnosis</span><p class="concept-text muted">CPM is cheap = the audience is there. CTR is terrible = the <strong style="color:var(--paper);">message does not connect.</strong> The ad is generic. It speaks to everyone, so it speaks to no one.</p></div>
+            <div class="concept-box ex" style="border-left-color:var(--sprout);"><span class="clab" style="color:var(--sprout);">The Fix</span><p class="concept-text">New video + new copy that speaks to <strong>one specific buyer</strong>. Not more money. The fix is always the message, not the budget.</p></div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">15 / 20</div>
+</section>
+
+<!-- ========== SLIDE 16 — MOCK DASHBOARD: THE FATIGUED AD ========== -->
+<section class="slide" id="slide-16" data-notes="Agent C. This one is tricky because it started great. Look at the first week. Cost per conversation was nine dollars, click rate was two point one percent, frequency was one point two. Almost identical to Agent A, a clear winner. But then look at week three. Cost per conversation climbed to twenty-eight dollars. Click rate dropped to zero point eight percent. And frequency is now four point two. That means the average person in her audience has seen this ad over four times. That is the textbook definition of ad fatigue. The audience is bored of the creative. They have seen it too many times. Their brain now automatically skips it like a banner ad. The ad did not get worse. The audience got tired. This is the number one reason good campaigns die, and most agents think the ad stopped working when really the audience just needs something fresh. The fix is simple. Keep the exact same campaign, same audience, same budget, same everything. Just swap the video for a new one. Different angle, different hook, same buyer. The campaign settings are fine. The targeting is fine. The message just needs to be refreshed. This is why I said record more than one video. You need fresh creative every three to four weeks on retarget.---Agente C. Este es complicado porque empezo genial. Miren la primera semana. Costo por conversacion era nueve dolares, tasa de clics era dos punto uno por ciento, frecuencia era uno punto dos. Casi identico a Agente A, un claro ganador. Pero miren la semana tres. Costo por conversacion subio a veintiocho dolares. Tasa de clics bajo a cero punto ocho por ciento. Y la frecuencia ahora es cuatro punto dos. Eso significa que la persona promedio en su audiencia ha visto este anuncio mas de cuatro veces. Esa es la definicion de libro de texto de fatiga de anuncio. La audiencia esta aburrida del creativo. Lo han visto demasiadas veces. Su cerebro ahora automaticamente lo salta como un banner. El anuncio no empeoro. La audiencia se canso. Esta es la razon numero uno por la que las buenas campanas mueren, y la mayoria de agentes piensan que el anuncio dejo de funcionar cuando en realidad la audiencia solo necesita algo fresco. El arreglo es simple. Manten la misma campana exacta, misma audiencia, mismo presupuesto, mismo todo. Solo cambia el video por uno nuevo. Diferente angulo, diferente gancho, mismo comprador. Los ajustes de la campana estan bien. El targeting esta bien. El mensaje solo necesita refrescarse. Por eso dije que graben mas de un video. Necesitan creativo fresco cada tres a cuatro semanas en retarget." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.5rem,1.2vh,0.9rem);">
+        <div class="reveal"><div class="section-label">Scenario C</div><h2 class="slide-title"><span style="color:var(--amber-soft);">The Fatigued Ad</span> &mdash; Agent C&rsquo;s Retarget</h2></div>
+        <div class="reveal dash-mockup" style="transition-delay:0.15s;">
+            <div class="dash-header">
+                <div class="dash-title">Retarget-Orlando-Jun24 &nbsp; <span style="color:#28a745;font-size:0.8em;">&#9679; Active</span></div>
+                <div class="dash-period">Jun 24 &ndash; Jul 21 (28 days)</div>
+            </div>
+            <div style="padding:clamp(6px,1vh,10px) clamp(10px,1.5vw,16px) 0;">
+                <table class="dash-table">
+                    <tr><th></th><th>Week 1</th><th>Week 2</th><th>Week 3</th><th>Week 4</th></tr>
+                    <tr class="good"><td>Cost / Conv.</td><td><strong>$9.00</strong></td><td>$11.50</td><td style="color:#dc3545;font-weight:700;">$28.00</td><td style="color:#dc3545;font-weight:700;">$35.00</td></tr>
+                    <tr><td>CTR</td><td><strong>2.1%</strong></td><td>1.6%</td><td style="color:#dc3545;">0.8%</td><td style="color:#dc3545;">0.5%</td></tr>
+                    <tr class="warn"><td>Frequency</td><td>1.2</td><td>2.1</td><td style="color:#e0a63a;font-weight:700;">3.4</td><td style="color:#dc3545;font-weight:700;">4.2</td></tr>
+                    <tr><td>Results</td><td>16</td><td>12</td><td>5</td><td>4</td></tr>
+                </table>
+            </div>
+            <div style="padding:clamp(6px,1vh,10px) clamp(10px,1.5vw,16px) clamp(8px,1.2vh,14px);">
+                <div class="meta-note" style="background:#fff8e1;border-left-color:#e0a63a;"><strong>Pattern:</strong> Cost rises + CTR drops + Frequency climbs = <strong>AD FATIGUE</strong>. The ad did not get worse. The audience got tired.</div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.35s;"><div class="callout-line"><strong style="color:var(--amber);">Fix:</strong> Keep the campaign. Swap the video. Different angle, different hook, <strong style="color:var(--sprout);">same buyer.</strong> Refresh every 3-4 weeks on retarget.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">16 / 20</div>
+</section>
+
+<!-- ========== SLIDE 17 — DECISION TREE ========== -->
+<section class="slide" id="slide-17" data-notes="Here is your decision tree. Every week when you check your numbers, you are making one of three decisions. Kill it, scale it, or refresh it. Kill when cost per conversation is over thirty dollars after fourteen days and click rate is under zero point five percent. That means the message is not working for this audience. Do not throw more money at it. Pause it, write a new video and new copy, and try again. Scale when cost per conversation is under fifteen dollars and frequency is under two after fourteen days. That means the machine is working. You can increase budget by twenty percent per week, slowly, do not double it overnight or Meta resets the learning phase and you lose the momentum. Refresh when frequency is over three and cost per conversation is climbing week over week. The campaign settings are fine, just swap the creative. New video, new hook, same buyer. Tape this to your monitor. This is the only framework you need. Kill, scale, or refresh. Every Tuesday, check the numbers, make the call.---Aqui esta tu arbol de decisiones. Cada semana cuando revises tus numeros, estas tomando una de tres decisiones. Matarlo, escalarlo, o refrescarlo. Mata cuando costo por conversacion esta sobre treinta dolares despues de catorce dias y tasa de clics esta bajo cero punto cinco por ciento. Eso significa que el mensaje no esta funcionando para esta audiencia. No le tires mas dinero. Pausalo, escribe un video nuevo y copy nuevo, e intentalo de nuevo. Escala cuando costo por conversacion esta bajo quince dolares y frecuencia esta bajo dos despues de catorce dias. Eso significa que la maquina esta funcionando. Puedes subir el presupuesto veinte por ciento por semana, despacio, no lo dupliques de la noche a la manana o Meta resetea la fase de aprendizaje y pierdes el impulso. Refresca cuando frecuencia esta sobre tres y costo por conversacion esta subiendo semana sobre semana. Los ajustes de la campana estan bien, solo cambia el creativo. Video nuevo, gancho nuevo, mismo comprador. Peguen esto en su monitor. Este es el unico framework que necesitan. Matar, escalar, o refrescar. Cada martes, revisen los numeros, hagan la decision." style="justify-content:center;">
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="reveal"><div class="section-label">The Only Framework You Need</div><h2 class="slide-title">Kill, Scale, or <span class="stroke stroke--sprout stroke-animate">Refresh<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><p class="slide-body">Every week. Check the numbers. Make one call.</p></div>
+        <div class="reveal stagger tree-grid" style="transition-delay:0.15s;">
+            <div class="tree-card kill">
+                <div class="tree-title">Kill It</div>
+                <div class="tree-when"><strong>When:</strong> Cost/conv &gt; $30 after 14 days AND CTR &lt; 0.5%</div>
+                <div class="tree-do">Pause. New video + new copy. Try again.</div>
+            </div>
+            <div class="tree-card scale">
+                <div class="tree-title">Scale It</div>
+                <div class="tree-when"><strong>When:</strong> Cost/conv &lt; $15 AND frequency &lt; 2 after 14 days</div>
+                <div class="tree-do">Increase budget 20%/week. Never double overnight.</div>
+            </div>
+            <div class="tree-card refresh">
+                <div class="tree-title">Refresh It</div>
+                <div class="tree-when"><strong>When:</strong> Frequency &gt; 3 AND cost/conv climbing week-over-week</div>
+                <div class="tree-do">Keep campaign. Swap video. New hook, same buyer.</div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.5s;"><div class="callout-line"><strong style="color:var(--sprout);">Tape this to your monitor.</strong> Every Tuesday: check numbers, make one call. That is the whole system.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">17 / 20</div>
+</section>
+
+<!-- ========== SLIDE 18 — WEEKLY 5-MINUTE SCORECARD ========== -->
+<section class="slide" id="slide-18" data-notes="Last teaching slide. Here is your weekly ritual. Five minutes every Tuesday morning before our meeting. Step one, open Ads Manager. Step two, look at cost per conversation. Is it going up, down, or sideways. Step three, check frequency. Is it below two, between two and three, or above three. Step four, check click rate. Above one percent is healthy. Below half a percent is a problem. Step five, make the call. Kill, scale, or refresh. Then come to this meeting and tell me the number. That is it. Five steps. Five minutes. No spreadsheets, no fancy analytics, no courses. Just these five numbers once a week. If you do this every Tuesday for the next four weeks, you will know more about your ads than ninety percent of agents who have been running ads for years. The ones who fail are not the ones who run bad ads. They are the ones who never look at the numbers. Do not be that agent.---Ultimo slide de ensenanza. Aqui esta tu ritual semanal. Cinco minutos cada martes en la manana antes de nuestra reunion. Paso uno, abre Ads Manager. Paso dos, mira costo por conversacion. Esta subiendo, bajando, o igual. Paso tres, revisa frecuencia. Esta bajo dos, entre dos y tres, o arriba de tres. Paso cuatro, revisa tasa de clics. Arriba de uno por ciento es saludable. Debajo de medio por ciento es problema. Paso cinco, toma la decision. Matar, escalar, o refrescar. Despues ven a esta reunion y dime el numero. Eso es todo. Cinco pasos. Cinco minutos. No hojas de calculo, no analitica lujosa, no cursos. Solo estos cinco numeros una vez por semana. Si hacen esto cada martes por las proximas cuatro semanas, van a saber mas de sus anuncios que el noventa por ciento de agentes que llevan anos corriendo anuncios. Los que fallan no son los que corren malos anuncios. Son los que nunca miran los numeros. No sean ese agente." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(0.6rem,1.6vh,1.1rem);">
+        <div class="reveal"><div class="section-label">Your Tuesday Ritual</div><h2 class="slide-title">5 Minutes. <span style="color:var(--sprout);">5 Numbers.</span> Every Week.</h2><p class="slide-body">Before every meeting, open Ads Manager and answer these five questions.</p></div>
+        <div class="reveal stagger score-grid" style="transition-delay:0.15s;">
+            <div class="score-row"><div class="score-step">1</div><div class="score-what">Open Ads Manager</div><div class="score-how">Go to your campaigns tab</div></div>
+            <div class="score-row"><div class="score-step">2</div><div class="score-what">Cost / Conversation</div><div class="score-how">Going up, down, or sideways?</div></div>
+            <div class="score-row"><div class="score-step">3</div><div class="score-what">Frequency</div><div class="score-how">Below 2 = good. Above 3 = refresh time.</div></div>
+            <div class="score-row"><div class="score-step">4</div><div class="score-what">Click Rate (CTR)</div><div class="score-how">Above 1% = healthy. Below 0.5% = message problem.</div></div>
+            <div class="score-row"><div class="score-step">5</div><div class="score-what">Make the Call</div><div class="score-how">Kill, scale, or refresh. Then come tell me the number.</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.5s;"><div class="callout-line">The agents who fail are not the ones who run bad ads. They are the ones who <strong style="color:var(--sprout);">never look at the numbers.</strong></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Marketing Machine &middot; Session 8</span></div>
+    <div class="slide-number">18 / 20</div>
+</section>
+
+<!-- ========== SLIDE 19 — WORK TIME ========== -->
+<section class="slide gradient-bg" id="slide-19" data-notes="Work time. You have everything you need. If your retarget campaign is in draft, finish it now. If you already published, open your dashboard and practice reading the numbers. If you are behind on earlier steps, this is your time to catch up. I am here. Walk me through your screen if you get stuck. The best part about being back in person is I can see your screen and fix things in real time instead of trying to describe buttons over a video call. Use this time. Do not scroll your phone. Do not check email. You have thirty minutes of focused build time with me in the room. That is worth more than any video tutorial. Go.---Tiempo de trabajar. Tienen todo lo que necesitan. Si su campana de retarget esta en borrador, terminenla ahora. Si ya la publicaron, abran su dashboard y practiquen leer los numeros. Si estan atrasados en pasos anteriores, este es su momento para ponerse al dia. Estoy aqui. Muestrenme su pantalla si se atoran. Lo mejor de estar de vuelta en persona es que puedo ver su pantalla y arreglar cosas en tiempo real en vez de intentar describir botones por videollamada. Usen este tiempo. No vean su telefono. No revisen email. Tienen treinta minutos de tiempo enfocado de construccion conmigo en el cuarto. Eso vale mas que cualquier tutorial de video. Vamos." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal"><span class="badge badge-sprout">Work Time</span></div>
+        <h1 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5.5vw,4.2rem);letter-spacing:-0.03em;line-height:1.05;transition-delay:0.1s;">Open Your Laptop. <span class="stroke stroke--sprout stroke-animate">Build It Now.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(1rem,2vw,1.4rem);color:var(--paper);max-width:46ch;line-height:1.4;transition-delay:0.25s;">Retarget in draft? Finish it. Already live? Practice reading the dashboard. Behind? Catch up. <strong style="color:var(--sprout);">I am in the room.</strong></p>
+        <div class="reveal" style="transition-delay:0.4s;"><p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.72rem);letter-spacing:1.8px;text-transform:uppercase;color:var(--muted-2);">30 minutes of focused build time with me here is worth more than any video tutorial.</p></div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &middot; reLearn</div>
+    <div class="slide-number">19 / 20</div>
+</section>
+
+<!-- ========== SLIDE 20 — CLOSING ========== -->
+<section class="slide gradient-bg" id="slide-20" data-notes="Last slide. Here is the truth. Most agents give up on ads after two weeks because they never learned to read the numbers. They see money leaving and have no idea if it is working. Now you do. You built the retarget, the piece that catches the people who almost converted. You learned to read the dashboard, the skill that tells you whether to keep going or change course. And you have a five-minute weekly ritual that will make you smarter about your ads every single Tuesday. The agents who win are not the ones with the biggest budgets. They are the ones who check their numbers, make one decision, and keep going. Close the loop. Read the score. Every week. That is the whole game. See you next Tuesday. Come with your numbers.---Ultimo slide. Aqui esta la verdad. La mayoria de agentes se rinden con los anuncios despues de dos semanas porque nunca aprendieron a leer los numeros. Ven el dinero saliendo y no tienen idea si esta funcionando. Ahora ustedes si saben. Construyeron el retarget, la pieza que atrapa a la gente que casi convirtio. Aprendieron a leer el dashboard, la habilidad que les dice si seguir o cambiar rumbo. Y tienen un ritual semanal de cinco minutos que los va a hacer mas inteligentes sobre sus anuncios cada martes. Los agentes que ganan no son los que tienen los presupuestos mas grandes. Son los que revisan sus numeros, toman una decision, y siguen adelante. Cierren el ciclo. Lean el marcador. Cada semana. Ese es todo el juego. Nos vemos el proximo martes. Vengan con sus numeros." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal"><span class="badge badge-sprout">Close</span></div>
+        <h1 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,5vw,3.8rem);letter-spacing:-0.03em;line-height:1.08;transition-delay:0.1s;max-width:22ch;">The agents who win check their numbers and <span class="stroke stroke--sprout stroke-animate">keep going.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.95rem,1.8vw,1.3rem);color:var(--paper);max-width:46ch;line-height:1.45;transition-delay:0.25s;">Close the loop. Read the score. Every week.</p>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.8rem,1.4vw,1.05rem);color:var(--muted-2);max-width:46ch;line-height:1.4;transition-delay:0.35s;font-style:italic;">Los agentes que ganan revisan sus n&uacute;meros y siguen adelante.</p>
+        <div class="reveal" style="transition-delay:0.5s;"><p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.88vw,0.75rem);letter-spacing:1.8px;text-transform:uppercase;color:var(--muted-2);">Next Tuesday: come with your numbers.</p></div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &reg;</div>
+    <div class="slide-number">20 / 20</div>
+</section>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+const slides = document.querySelectorAll('.slide');
+const navDotsContainer = document.getElementById('navDots');
+const progressBar = document.getElementById('progressBar');
+const totalSlides = slides.length;
+
+slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('nav-dot');
+    dot.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' }));
+    navDotsContainer.appendChild(dot);
+});
+const dots = navDotsContainer.querySelectorAll('.nav-dot');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            const idx = [...slides].indexOf(entry.target);
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            progressBar.style.width = ((idx + 1) / totalSlides * 100) + '%';
+        }
+    });
+}, { threshold: 0.5 });
+slides.forEach(s => observer.observe(s));
+
+document.addEventListener('keydown', e => {
+    const current = [...slides].findIndex(s => s.classList.contains('visible'));
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') && current < totalSlides - 1) {
+        e.preventDefault(); slides[current + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && current > 0) {
+        e.preventDefault(); slides[current - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+try {
+    const bc = new BroadcastChannel('presentation-sync');
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = [...slides].indexOf(entry.target);
+                bc.postMessage({ type: 'slide-change', slide: idx, series: 'marketing-machine', session: '8' });
+            }
+        });
+    }, { threshold: 0.5 });
+    slides.forEach(s => observer2.observe(s));
+    bc.onmessage = e => {
+        if (e.data.type === 'slide-change' && e.data.series === 'marketing-machine' && e.data.session === '8') {
+            slides[e.data.slide]?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+} catch(e) {}
+</script>
+
+</body>
+</html>
