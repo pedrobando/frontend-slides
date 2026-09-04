@@ -1,0 +1,1586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>7 Steps From Renting to Owning · Danigsha Alicea · reThought Real Estate</title>
+<link rel="stylesheet" href="tokens.css" />
+<script src="deck-stage.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #0a0e13; }
+  deck-stage { --slide-gap: 36px; }
+
+  :root {
+    --pad-x: 88px;
+    --pad-top: 110px;
+    --pad-bottom: 110px;
+    --gap-title: 56px;
+    --gap-item: 28px;
+    --type-display: 168px;
+    --type-title: 96px;
+    --type-h2: 80px;
+    --type-h3: 52px;
+    --type-subtitle: 44px;
+    --type-body: 32px;
+    --type-small: 26px;
+    --type-eyebrow: 26px;
+  }
+
+  /* ---------- slide base ---------- */
+  .slide {
+    width: 100%; height: 100%; box-sizing: border-box;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    background: var(--bg); color: var(--fg);
+    position: relative; overflow: hidden;
+    font-family: var(--font-body);
+    display: flex; flex-direction: column;
+  }
+  .slide.dark  { background: var(--re-navy); color: var(--re-white); }
+  .slide.dark h1, .slide.dark h2, .slide.dark h3, .slide.dark h4 { color: var(--re-white); }
+  .slide.green { background: var(--re-green); color: white; }
+  .slide.green h1, .slide.green h2, .slide.green h3 { color: white; }
+  .slide.subtle { background: var(--re-gray-50); }
+  .slide.blue  { background: var(--re-blue); color: var(--re-white); }
+  .slide.blue h1, .slide.blue h2, .slide.blue h3 { color: var(--re-white); }
+
+  /* ---------- typographic primitives ---------- */
+  h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.02; }
+  .title  { font-size: var(--type-title); font-weight: 900; line-height: 0.98; letter-spacing: -0.035em; }
+  .h2     { font-size: var(--type-h2); font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; }
+  .h3     { font-size: var(--type-h3); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+  .subtitle { font-size: var(--type-subtitle); font-weight: 500; line-height: 1.18; color: var(--fg-muted); }
+  .slide.dark .subtitle, .slide.blue .subtitle { color: rgba(255,255,255,0.72); }
+  .body   { font-size: var(--type-body); line-height: 1.4; }
+  .small  { font-size: var(--type-small); line-height: 1.5; }
+  .display { font-size: var(--type-display); font-weight: 900; line-height: 0.9; letter-spacing: -0.045em; }
+  .script { font-family: var(--font-script); color: var(--re-blue); line-height: 1; }
+  .slide.dark .script, .slide.blue .script { color: var(--re-green); }
+
+  .eyebrow {
+    font-family: var(--font-display); font-size: var(--type-eyebrow);
+    font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--re-green); display: inline-flex; align-items: center; gap: 14px;
+  }
+
+  /* ---------- two-dot motif ---------- */
+  .dots { display: inline-flex; flex-direction: row; gap: 8px; align-items: center; justify-content: center; }
+  .dots span { width: 14px; height: 14px; border-radius: 999px; background: var(--re-green); display: block; }
+  .dots.lg span { width: 22px; height: 22px; }
+  .dots.sm span { width: 9px; height: 9px; }
+
+  /* ---------- header / footer chrome ---------- */
+  .chrome-top {
+    position: absolute; top: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    white-space: nowrap; gap: 16px;
+  }
+  .chrome-bottom {
+    position: absolute; bottom: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-display); font-size: 24px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--fg-muted); white-space: nowrap; gap: 16px;
+  }
+  .chrome-bottom > span { white-space: nowrap; }
+  .slide.dark .chrome-bottom, .slide.blue .chrome-bottom { color: rgba(255,255,255,0.55); }
+  .chrome-bottom .lockup-mark { color: var(--re-green); }
+
+  .logo-chip { height: 44px; width: auto; display: block; }
+  .pillar-tag {
+    font-family: var(--font-display); font-size: 24px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--re-green);
+  }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    padding: 0; background: var(--re-navy); color: white;
+    display: grid; grid-template-rows: auto auto 1fr auto;
+  }
+  .cover-top {
+    padding: 72px 88px 0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cover-top .lockup {
+    font-family: var(--font-display); font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 22px; color: rgba(255,255,255,0.7); white-space: nowrap;
+  }
+  .cover-eyebrow {
+    padding: 44px 88px 0;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .cover-eyebrow .dots span { width: 16px; height: 16px; }
+  .cover-eyebrow .label {
+    font-family: var(--font-display); font-size: 24px; font-weight: 800;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--re-green);
+  }
+  .cover-title-row {
+    padding: 28px 88px 0;
+  }
+  .cover-title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 140px; line-height: 0.93; letter-spacing: -0.045em;
+    color: white; margin: 0;
+  }
+  .cover-title .accent { color: var(--re-green); }
+  .cover-bottom {
+    padding: 0 0 0 88px;
+    display: grid; grid-template-columns: 1fr 460px;
+    gap: 24px; align-items: end;
+  }
+  .cover-bottom-left {
+    display: flex; flex-direction: column; gap: 20px;
+    padding-bottom: 36px;
+  }
+  .cover-sub {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 30px; line-height: 1.3; color: rgba(255,255,255,0.72);
+    max-width: 520px; margin: 0;
+  }
+  .cover-signature {
+    margin-top: 4px;
+  }
+  .cover-signature img {
+    height: 110px; width: auto; opacity: 0.92;
+  }
+  .cover-photo-col {
+    position: relative; align-self: end;
+    border-radius: 28px 28px 0 0; overflow: hidden;
+    height: 740px;
+    background: linear-gradient(160deg, var(--re-green) 0%, #6aab38 100%);
+  }
+  .cover-photo-col img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+    display: block;
+  }
+  .cover-foot {
+    padding: 28px 88px 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .cover-byline {
+    display: flex; align-items: center; gap: 18px;
+    font-family: var(--font-display); font-weight: 800; font-size: 28px;
+    color: white; letter-spacing: -0.005em;
+  }
+  .cover-byline .by {
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase; letter-spacing: 0.2em; font-size: 22px; font-weight: 600;
+  }
+  .cover-foot .markets {
+    font-family: var(--font-display); font-weight: 600; font-size: 22px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); text-align: right;
+  }
+
+  /* ---------- title block ---------- */
+  .title-block { display: flex; flex-direction: column; gap: 24px; margin-bottom: var(--gap-title); }
+  .title-block .kicker {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+
+  /* ---------- intro slide ---------- */
+  .intro-slide {
+    padding: 0; display: grid; grid-template-rows: auto auto 1fr;
+  }
+  .intro-banner {
+    background: var(--re-green); padding: 64px 88px 56px;
+    position: relative; overflow: hidden;
+  }
+  .intro-banner .banner-bg {
+    position: absolute; right: -40px; top: -60px;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 320px; line-height: 0.85; letter-spacing: -0.06em;
+    color: rgba(255,255,255,0.15); pointer-events: none;
+    white-space: nowrap;
+  }
+  .intro-banner .banner-kicker {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 40px; line-height: 1.2; color: white;
+    position: relative; z-index: 1;
+  }
+  .intro-banner .banner-title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 76px; line-height: 0.98; letter-spacing: -0.035em;
+    color: var(--re-navy); margin-top: 10px;
+    position: relative; z-index: 1;
+  }
+  .intro-text-area {
+    padding: 48px 88px 36px;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .intro-text-area .lead {
+    font-family: var(--font-body); font-size: 30px; line-height: 1.5;
+    color: var(--fg-muted); max-width: 780px;
+  }
+  .intro-text-area .highlight {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 40px; line-height: 1.2; color: var(--re-navy);
+  }
+  .intro-text-area .highlight .green { color: var(--re-green); }
+  .intro-text-area .highlight .blue  { color: var(--re-blue); }
+  .intro-text-area .cta-note {
+    font-family: var(--font-body); font-size: 26px; line-height: 1.45;
+    color: var(--fg-muted); max-width: 700px;
+  }
+  .intro-bottom {
+    padding: 0 88px 72px;
+    display: flex; flex-direction: column; gap: 20px;
+    margin-top: auto;
+  }
+  .intro-bottom .sig-img { height: auto; max-height: 110px; width: auto; object-fit: contain; }
+  .intro-bottom .sig-label {
+    font-family: var(--font-body); font-size: 24px; color: var(--fg-muted);
+  }
+  .intro-bottom .contact-row {
+    display: flex; align-items: center; gap: 16px; margin-top: 8px;
+  }
+
+  /* ---------- benefits grid (2x3) ---------- */
+  .benefits-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr; gap: 20px;
+    flex: 1; min-height: 0;
+  }
+  .benefits-grid .card {
+    background: rgba(255,255,255,0.85); border-radius: 24px;
+    padding: 32px 28px; display: flex; flex-direction: column; gap: 12px;
+    border: 1.5px solid rgba(0,0,0,0.06);
+  }
+  .benefits-grid .card .icon-row {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .benefits-grid .card .icon-badge {
+    width: 44px; height: 44px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .benefits-grid .card .card-title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 30px; line-height: 1.1; color: var(--re-blue);
+    letter-spacing: -0.015em;
+  }
+  .benefits-grid .card .card-desc {
+    font-family: var(--font-body); font-size: 22px; line-height: 1.4;
+    color: var(--fg-muted);
+  }
+  .stat-bar {
+    margin-top: 20px; background: var(--re-navy); border-radius: 20px;
+    padding: 32px 36px; display: flex; align-items: center; gap: 28px;
+  }
+  .stat-bar .big-num {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 72px; line-height: 0.9; letter-spacing: -0.04em;
+    color: var(--re-green); white-space: nowrap;
+  }
+  .stat-bar .stat-text {
+    font-family: var(--font-body); font-size: 24px; line-height: 1.4;
+    color: rgba(255,255,255,0.85);
+  }
+  .stat-bar .stat-text strong { color: white; font-weight: 700; }
+
+  /* ---------- journey overview ---------- */
+  .journey-list {
+    display: flex; flex-direction: column; gap: 0;
+    flex: 1; justify-content: center;
+  }
+  .journey-list .step-row {
+    display: grid; grid-template-columns: 72px 44px 1fr;
+    gap: 20px; align-items: center;
+    padding: 28px 0;
+    border-bottom: 1.5px solid var(--border);
+  }
+  .journey-list .step-row:last-child { border-bottom: none; }
+  .journey-list .step-num {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 44px; color: var(--re-navy); letter-spacing: -0.03em;
+  }
+  .journey-list .step-line {
+    width: 36px; height: 3px; background: var(--re-green); border-radius: 2px;
+  }
+  .journey-list .step-label {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 34px; color: var(--re-navy); letter-spacing: -0.01em;
+  }
+  .journey-signature {
+    margin-top: 40px; display: flex; justify-content: flex-end;
+  }
+  .journey-signature img { height: auto; max-height: 100px; width: auto; object-fit: contain; }
+
+  /* ---------- step page ---------- */
+  .step-badge {
+    width: 120px; height: 120px; border-radius: 999px;
+    background: var(--re-green); color: white;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 64px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(140,201,76,0.35);
+  }
+  .step-name {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 28px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--re-green); margin-bottom: 12px;
+  }
+  .step-headline {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 68px; line-height: 1.0; letter-spacing: -0.035em;
+    color: var(--re-navy); margin-bottom: 12px;
+  }
+  .slide.dark .step-headline { color: white; }
+  .step-intro {
+    font-family: var(--font-body); font-size: 28px; line-height: 1.45;
+    color: var(--fg-muted); max-width: 860px; margin-bottom: 36px;
+  }
+  .slide.dark .step-intro { color: rgba(255,255,255,0.75); }
+
+  /* 3-column layout */
+  .three-col {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 36px; flex: 1; min-height: 0; align-content: start;
+  }
+  .three-col .col-head {
+    display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;
+  }
+  .three-col .col-dot {
+    width: 16px; height: 16px; border-radius: 999px;
+    background: var(--re-navy); display: block;
+  }
+  .slide.dark .three-col .col-dot { background: var(--re-green); }
+  .three-col .col-title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 28px; line-height: 1.15; color: var(--re-navy);
+    letter-spacing: -0.01em;
+  }
+  .slide.dark .three-col .col-title { color: white; }
+  .three-col .col-items {
+    display: flex; flex-direction: column; gap: 14px;
+    font-family: var(--font-body); font-size: 23px; line-height: 1.4;
+    color: var(--fg-muted);
+  }
+  .slide.dark .three-col .col-items { color: rgba(255,255,255,0.78); }
+
+  /* step slide footer stack: pro-tip → progress → chrome */
+  .step-footer {
+    margin-top: auto;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+
+  /* pro tip callout */
+  .pro-tip {
+    background: var(--re-navy); border-radius: 20px;
+    padding: 32px 36px; display: flex; gap: 16px; align-items: flex-start;
+  }
+  .slide.dark .pro-tip { background: rgba(255,255,255,0.08); }
+  .pro-tip .tip-label {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--re-green); white-space: nowrap; padding-top: 2px;
+  }
+  .pro-tip .tip-text {
+    font-family: var(--font-body); font-size: 24px; line-height: 1.4;
+    color: rgba(255,255,255,0.88);
+  }
+  .pro-tip .tip-text strong { color: white; font-weight: 700; }
+
+  /* progress dots — in flow, not absolute */
+  .progress-row {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .progress-row .dots-group {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .progress-row .p-dot {
+    width: 18px; height: 18px; border-radius: 999px;
+    background: var(--re-gray-300);
+  }
+  .progress-row .p-dot.active { background: var(--re-navy); }
+  .slide.dark .progress-row .p-dot { background: rgba(255,255,255,0.25); }
+  .slide.dark .progress-row .p-dot.active { background: white; }
+  .progress-row .progress-step {
+    font-family: var(--font-body); font-size: 24px; color: var(--fg-muted);
+  }
+  .slide.dark .progress-row .progress-step { color: rgba(255,255,255,0.5); }
+
+  /* ---------- green page (pre-approval deep dive) ---------- */
+  .green-title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 72px; line-height: 0.98; letter-spacing: -0.035em;
+    color: white; margin-bottom: 8px;
+  }
+  .green-subtitle {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 40px; line-height: 1.15; color: white;
+    margin-bottom: 28px; opacity: 0.85;
+  }
+  .green-section-title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 30px; color: white; margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .check-list {
+    display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px;
+  }
+  .check-list .item {
+    display: grid; grid-template-columns: 36px 1fr; gap: 14px;
+    align-items: center;
+    font-family: var(--font-body); font-size: 26px; line-height: 1.35;
+    color: white;
+  }
+  .check-list .item strong { font-weight: 700; }
+  .check-mark {
+    width: 28px; height: 28px; border-radius: 999px;
+    background: white; color: var(--re-green);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900;
+  }
+  .green-callout {
+    background: rgba(255,255,255,0.2); border-radius: 18px;
+    padding: 24px 28px; margin-bottom: 28px;
+    font-family: var(--font-body); font-size: 24px; line-height: 1.4;
+    color: white;
+  }
+  .green-callout strong { font-weight: 700; }
+  .green-learn-title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 28px; color: white; margin-bottom: 16px;
+  }
+
+  /* ---------- loan types (dark page 2x2) ---------- */
+  .loan-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; gap: 20px;
+    flex: 1; min-height: 0;
+  }
+  .loan-grid .loan-card {
+    border: 2px solid var(--re-green); border-radius: 24px;
+    padding: 32px 28px; display: flex; flex-direction: column; gap: 14px;
+    background: rgba(255,255,255,0.04);
+  }
+  .loan-grid .loan-card .loan-name {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 34px; color: var(--re-green); letter-spacing: -0.01em;
+  }
+  .loan-grid .loan-card .loan-desc {
+    font-family: var(--font-body); font-size: 22px; line-height: 1.4;
+    color: rgba(255,255,255,0.82);
+  }
+  .loan-grid .loan-card .loan-desc strong { color: white; font-weight: 700; }
+
+  .loan-pro-move {
+    margin-top: 20px; background: rgba(255,255,255,0.08);
+    border-radius: 18px; padding: 28px 32px;
+    font-family: var(--font-body); font-size: 24px; line-height: 1.4;
+    color: rgba(255,255,255,0.85);
+  }
+  .loan-pro-move strong { color: var(--re-green); font-weight: 800; }
+
+  .loan-questions {
+    margin-top: 20px;
+  }
+  .loan-questions .q-title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 26px; color: var(--re-green); margin-bottom: 14px;
+  }
+  .loan-questions .q-list {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .loan-questions .q-item {
+    display: grid; grid-template-columns: 32px 1fr; gap: 12px;
+    align-items: center; font-family: var(--font-body); font-size: 23px;
+    color: rgba(255,255,255,0.88); line-height: 1.35;
+  }
+  .q-check {
+    width: 24px; height: 24px; border-radius: 999px;
+    background: var(--re-green); color: var(--re-navy);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 900;
+  }
+
+  /* ---------- agent checklist page ---------- */
+  .agent-check-list {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .agent-check-list .item {
+    display: grid; grid-template-columns: 36px 1fr; gap: 14px;
+    align-items: start;
+    font-family: var(--font-body); font-size: 26px; line-height: 1.4;
+    color: var(--fg-muted);
+  }
+  .agent-check-mark {
+    width: 28px; height: 28px; border-radius: 999px;
+    background: var(--re-green); color: var(--re-navy);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900; margin-top: 4px;
+  }
+  .agent-callout {
+    margin-top: 28px; border-left: 4px solid var(--re-blue);
+    padding: 20px 28px; background: rgba(4,76,118,0.06);
+    border-radius: 0 16px 16px 0;
+  }
+  .agent-callout .callout-title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 26px; color: var(--re-navy); margin-bottom: 8px;
+  }
+  .agent-callout .callout-text {
+    font-family: var(--font-body); font-size: 24px; line-height: 1.4;
+    color: var(--fg-muted);
+  }
+  .agent-callout .callout-text em { font-style: italic; }
+  .agent-bottom-quote {
+    margin-top: 24px;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 30px; line-height: 1.2; color: var(--re-blue);
+  }
+  .agent-bottom-quote .green { color: var(--re-green); }
+
+  /* ---------- closing quote ---------- */
+  .closing-quote {
+    display: flex; flex-direction: column; gap: 32px;
+    flex: 1; justify-content: center;
+  }
+  .closing-quote .mark {
+    font-family: var(--font-script); color: var(--re-green);
+    font-size: 200px; line-height: 0.6;
+  }
+  .closing-quote .text {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 76px; line-height: 1.0; letter-spacing: -0.03em; color: white;
+  }
+  .closing-quote .text .green { color: var(--re-green); }
+  .closing-quote .sub {
+    font-family: var(--font-body); font-size: 30px; line-height: 1.45;
+    color: rgba(255,255,255,0.75); max-width: 820px;
+  }
+  .closing-quote .sig { margin-top: 16px; }
+  .closing-quote .sig img { height: 100px; width: auto; }
+  .closing-quote .author {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); margin-top: 8px;
+  }
+
+  /* ---------- CTA slide ---------- */
+  .cta-slide {
+    padding: 0; background: var(--re-navy); color: white;
+    display: grid; grid-template-rows: auto 1fr auto;
+  }
+  .cta-photo {
+    position: relative; background: var(--re-green);
+    aspect-ratio: 4 / 3; overflow: hidden;
+  }
+  .cta-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .cta-photo .frame-tag {
+    position: absolute; left: 36px; bottom: 36px;
+    background: var(--re-navy); color: white;
+    padding: 16px 24px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .cta-content {
+    padding: 56px 88px 32px;
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .cta-content h2 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 92px; line-height: 0.95; letter-spacing: -0.04em; color: white;
+  }
+  .cta-content .accent { color: var(--re-green); }
+  .cta-content p {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 30px; line-height: 1.3; color: rgba(255,255,255,0.78);
+    max-width: 820px; margin: 0;
+  }
+  .cta-list { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 12px; }
+  .cta-list li {
+    display: grid; grid-template-columns: 36px 1fr; gap: 16px;
+    font-size: 26px; line-height: 1.32; color: rgba(255,255,255,0.92);
+  }
+  .cta-list li::before {
+    content: ""; width: 14px; height: 14px; border-radius: 999px;
+    background: var(--re-green); margin-top: 14px;
+  }
+  .cta-foot {
+    background: var(--re-green); color: var(--re-navy);
+    padding: 44px 88px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .cta-foot .name {
+    font-family: var(--font-display); font-weight: 900; font-size: 48px;
+    line-height: 1; letter-spacing: -0.025em;
+  }
+  .cta-foot .name small {
+    display: block; font-size: 22px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    margin-top: 8px; opacity: 0.75; white-space: nowrap;
+  }
+  .cta-foot .links {
+    text-align: right; font-family: var(--font-display); font-weight: 600;
+    font-size: 22px; line-height: 1.4;
+    display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
+  }
+  .cta-foot .links span {
+    display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
+  }
+
+  /* ---------- big re: watermark ---------- */
+  .re-watermark {
+    position: absolute; top: 0; right: -40px;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 480px; line-height: 0.85; letter-spacing: -0.06em;
+    color: rgba(0,0,0,0.04); pointer-events: none; z-index: 0;
+  }
+  .slide.dark .re-watermark { color: rgba(255,255,255,0.03); }
+</style>
+</head>
+<body>
+
+<deck-stage width="1080" height="1920">
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 1 — COVER
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide cover">
+    <div class="cover-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="lockup">Real Estate® · 2026</div>
+    </div>
+
+    <div class="cover-eyebrow">
+      <span class="dots"><span></span><span></span></span>
+      <span class="label">A Step-By-Step Guide</span>
+    </div>
+
+    <div class="cover-title-row">
+      <h1 class="cover-title">7 Steps<br/>From Renting<br/>to <span class="accent">Owning</span></h1>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-bottom-left">
+        <p class="cover-sub">A clear, honest playbook for the journey from your last rent check to your first front door.</p>
+        <div class="cover-signature">
+          <img src="assets/danigsha-signature-white.png" alt="Danigsha Alicea · Real Estate Agent" />
+        </div>
+      </div>
+      <div class="cover-photo-col">
+        <img src="assets/danigsha.png" alt="Danigsha Alicea" />
+      </div>
+    </div>
+
+    <div class="cover-foot">
+      <div class="cover-byline">
+        <span class="by">become a</span>
+        <span>First-Time Homeowner</span>
+      </div>
+      <div class="markets">2026 Edition</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 2 — STARTING THE JOURNEY
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide intro-slide">
+    <!-- Green banner header -->
+    <div class="intro-banner">
+      <div class="banner-bg">Home Ownership</div>
+      <div class="banner-kicker">Starting the Journey...</div>
+      <div class="banner-title">of obtaining Home Ownership</div>
+    </div>
+
+    <!-- Body text -->
+    <div class="intro-text-area">
+      <p class="lead">At reThought Real Estate, we've made it our goal to become masters of the home-buying process and we are here for you. Helping people like you buy their homes has allowed us to master the skills of the process.</p>
+
+      <p class="highlight">Our <span class="green">professionalism</span>, <span class="blue">consistency</span>, and <span class="green">dedication</span> is what drives us to help serve you!</p>
+
+      <p class="cta-note">Once you have gone through this guide and you still feel like you have questions or need clarification, <strong style="color: var(--re-green);">let us know</strong>. Helping people is our passion as we are community market leaders.</p>
+    </div>
+
+    <!-- Bottom: signature + contact -->
+    <div class="intro-bottom">
+      <img class="sig-img" src="assets/danigsha-signature-dark.png" alt="Danigsha Alicea" />
+      <div class="sig-label">
+        <span style="color: var(--re-green); font-style: italic; font-weight: 500;">Real Estate Agent</span><br/>
+        reThought Real Estate
+      </div>
+      <div class="contact-row">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8CC94C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span style="font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--fg-muted); letter-spacing: 0.04em;">414.502.5332</span>
+        <span style="margin-left: 16px; font-family: var(--font-display); font-weight: 600; font-size: 22px; color: var(--fg-muted);">daa@rethought-realestate.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 3 — RENT VS. OWN
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Why Own?</div>
+      <div class="pillar-tag">03 / 17</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 80px;">
+      <div class="kicker">Rent vs. Own</div>
+      <h2 class="h2" style="font-size: 68px;">Why ownership wins<br/><span style="color: var(--re-green);">long-term.</span></h2>
+    </div>
+
+    <p class="body" style="color: var(--fg-muted); margin-bottom: 28px; max-width: 840px;">Every monthly rent check pays off <em>someone else's</em> mortgage. Owning your home flips the script: each payment builds something you keep.</p>
+
+    <div class="benefits-grid">
+      <div class="card">
+        <div class="icon-row">
+          <div class="icon-badge" style="background: rgba(140,201,76,0.18);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8CC94C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+        </div>
+        <div class="card-title">Build Real Equity</div>
+        <div class="card-desc">Each mortgage payment builds ownership in an asset you control. After 5 years, you may have tens of thousands in equity instead of a stack of rent receipts.</div>
+      </div>
+      <div class="card">
+        <div class="icon-row">
+          <div class="icon-badge" style="background: rgba(4,76,118,0.12);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#044C76" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg>
+          </div>
+        </div>
+        <div class="card-title">Lock In Your Payment</div>
+        <div class="card-desc">A fixed-rate mortgage means your principal &amp; interest payment stays the same for 30 years &mdash; even when rents in your area keep climbing.</div>
+      </div>
+      <div class="card">
+        <div class="icon-row">
+          <div class="icon-badge" style="background: rgba(255,204,0,0.18);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFCC00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+        </div>
+        <div class="card-title">Tax Benefits</div>
+        <div class="card-desc">Mortgage interest and property taxes can be deductible. Talk to a CPA &mdash; many buyers see real savings come April.</div>
+      </div>
+      <div class="card">
+        <div class="icon-row">
+          <div class="icon-badge" style="background: rgba(239,68,68,0.12);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="card-title">Make It Yours</div>
+        <div class="card-desc">Paint the walls. Replace the floors. Plant the garden. No landlord, no security-deposit fear, no permission slips.</div>
+      </div>
+      <div class="card">
+        <div class="icon-row">
+          <div class="icon-badge" style="background: rgba(140,201,76,0.18);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8CC94C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+        </div>
+        <div class="card-title">Stability for Family</div>
+        <div class="card-desc">Same school district. Same neighbors. Same routine. Owning brings predictability that renting rarely offers.</div>
+      </div>
+      <div class="card">
+        <div class="icon-row">
+          <div class="icon-badge" style="background: rgba(4,76,118,0.12);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#044C76" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+        </div>
+        <div class="card-title">Generational Wealth</div>
+        <div class="card-desc">A home is the #1 way most families build long-term wealth that can be passed down. You're building a legacy.</div>
+      </div>
+    </div>
+
+    <div class="stat-bar">
+      <div class="big-num">$1,200</div>
+      <div class="stat-text">Median U.S. rent. Twelve years of that is <strong>$172,800 with nothing to show</strong>. Twelve years of mortgage payments builds an asset.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>7 Steps · Rent vs. Own</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 4 — WELCOME / JOURNEY OVERVIEW
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Welcome</div>
+      <div class="pillar-tag">04 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="title-block">
+        <div class="kicker">The Journey</div>
+        <h2 class="h2" style="font-size: 76px;">From renter<br/>to homeowner.</h2>
+      </div>
+
+      <p class="body" style="color: var(--fg-muted); max-width: 780px; margin-bottom: 16px;">If you're holding this guide, you're seriously thinking about trading rent receipts for a place that's actually yours &mdash; and that's a real step worth celebrating.</p>
+      <p class="body" style="color: var(--fg-muted); max-width: 780px; margin-bottom: 40px;">My goal is to make this feel simple, honest, and supportive. Owning shouldn't feel out of reach. It should feel like a plan you can follow. That's what the next seven pages are for.</p>
+    </div>
+
+    <div class="journey-list">
+      <div class="step-row"><div class="step-num">01</div><div class="step-line"></div><div class="step-label">Shift your mindset</div></div>
+      <div class="step-row"><div class="step-num">02</div><div class="step-line"></div><div class="step-label">Build your credit profile</div></div>
+      <div class="step-row"><div class="step-num">03</div><div class="step-line"></div><div class="step-label">Budget &amp; save</div></div>
+      <div class="step-row"><div class="step-num">04</div><div class="step-line"></div><div class="step-label">Get pre-approved</div></div>
+      <div class="step-row"><div class="step-num">05</div><div class="step-line"></div><div class="step-label">Partner with a buyer's agent</div></div>
+      <div class="step-row"><div class="step-num">06</div><div class="step-line"></div><div class="step-label">Tour, offer &amp; inspect</div></div>
+      <div class="step-row"><div class="step-num">07</div><div class="step-line"></div><div class="step-label">Close &amp; move in</div></div>
+    </div>
+
+    <div class="journey-signature">
+      <img src="assets/danigsha-signature-dark.png" alt="Danigsha Alicea" />
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>7 Steps · Overview</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 5 — STEP 1: MINDSET
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-dark.png" alt="reThought" style="height: 44px;" />
+      <div class="pillar-tag">05 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="step-badge">1</div>
+      <div class="step-name">Mindset</div>
+      <h2 class="step-headline">Decide on purpose &mdash; not someday.</h2>
+      <p class="step-intro">Before paper work, before pre-approval, before showings &mdash; the first step is internal. Renters think in months. Owners think in years. Switching that lens is what makes everything else possible.</p>
+    </div>
+
+    <div class="three-col">
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Three shifts to make today</div>
+        </div>
+        <div class="col-items">
+          <div>Rent isn't easy &mdash; it's expensive. You're building someone else's wealth.</div>
+          <div>Trade 'someday' for a 12&ndash;24 month window. Vague goals = vague results.</div>
+          <div>You don't do this alone. You hire a team: agent, lender, title, inspector.</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Bust the myths</div>
+        </div>
+        <div class="col-items">
+          <div>You don't need 20% down. Conventional starts at 3%, FHA 3.5%, VA/USDA 0%.</div>
+          <div>Your credit doesn't have to be perfect. FHA can approve down to 580.</div>
+          <div>'I'll wait for prices to drop' usually loses to 'rent keeps going up.'</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Your why</div>
+        </div>
+        <div class="col-items">
+          <div>Stability for your family. A yard. A wall to paint. Equity instead of receipts.</div>
+          <div>Write it down. When the process gets bumpy (it will), your why carries you.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-footer">
+      <div class="pro-tip">
+        <div class="tip-label">Pro Tip</div>
+        <div class="tip-text">Waiting feels safe &mdash; the math usually says it isn't. Two years of paying rent vs. building equity can be a <strong>$50K+ swing</strong>.</div>
+      </div>
+      <div class="progress-row">
+        <div class="dots-group">
+          <span class="p-dot active"></span>
+          <span class="p-dot"></span><span class="p-dot"></span><span class="p-dot"></span>
+          <span class="p-dot"></span><span class="p-dot"></span><span class="p-dot"></span>
+        </div>
+        <span class="progress-step">Step 1 of 7</span>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span>Step 1 &mdash; Mindset</span>
+      <span>re:thought Real Estate</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 6 — STEP 2: CREDIT
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-dark.png" alt="reThought" style="height: 44px;" />
+      <div class="pillar-tag">06 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="step-badge">2</div>
+      <div class="step-name">Credit</div>
+      <h2 class="step-headline">Move your score on purpose.</h2>
+      <p class="step-intro">Your credit score decides whether you qualify, which programs you qualify for, and the rate you'll pay. Good news: it's a number you can move &mdash; most buyers lift their score 20&ndash;60 points in 90 days.</p>
+    </div>
+
+    <div class="three-col">
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">What lenders look for</div>
+        </div>
+        <div class="col-items">
+          <div>580+ FHA loan minimum</div>
+          <div>620+ Conventional minimum</div>
+          <div>680+ Better rates, more options</div>
+          <div>740+ Best-tier rates, lowest PMI</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Do this</div>
+        </div>
+        <div class="col-items">
+          <div>Pay every bill on time &mdash; set autopay on the minimum, always.</div>
+          <div>Keep balances under 30% of each card's limit; under 10% is even better.</div>
+          <div>Dispute legitimate errors on your report.</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Don't do this</div>
+        </div>
+        <div class="col-items">
+          <div>Don't close old credit cards &mdash; length of history matters.</div>
+          <div>Don't open new credit lines 6 months before applying.</div>
+          <div>Don't co-sign for anyone until you've closed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-footer">
+      <div class="pro-tip">
+        <div class="tip-label">Pro Tip</div>
+        <div class="tip-text">Ask each card for a credit-limit increase (no hard pull). Same balance + higher limit = <strong>lower utilization = higher score</strong>. Costs nothing.</div>
+      </div>
+      <div class="progress-row">
+        <div class="dots-group">
+          <span class="p-dot active"></span><span class="p-dot active"></span>
+          <span class="p-dot"></span><span class="p-dot"></span>
+          <span class="p-dot"></span><span class="p-dot"></span><span class="p-dot"></span>
+        </div>
+        <span class="progress-step">Step 2 of 7</span>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span>Step 2 &mdash; Credit</span>
+      <span>re:thought Real Estate</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 7 — STEP 3: BUDGET & SAVE
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-dark.png" alt="reThought" style="height: 44px;" />
+      <div class="pillar-tag">07 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="step-badge">3</div>
+      <div class="step-name">Budget &amp; Save</div>
+      <h2 class="step-headline">Know your numbers before a lender does.</h2>
+      <p class="step-intro">The biggest reason first-time buyers get spooked at the closing table is they don't know the real costs going in. Get clear on the four buckets of home buying cash and build a payment you actually want to live with.</p>
+    </div>
+
+    <div class="three-col">
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">The four cash buckets</div>
+        </div>
+        <div class="col-items">
+          <div>Down payment &mdash; 0% to 20% of price (loan-dependent).</div>
+          <div>Closing costs &mdash; typically 2&ndash;5% of purchase price.</div>
+          <div>Earnest money &mdash; 1&ndash;3% at offer, applied to closing.</div>
+          <div>Move-in reserves &mdash; 1&ndash;3 months PITI + setup.</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Your real monthly cost (PITI)</div>
+        </div>
+        <div class="col-items">
+          <div>P &mdash; Principal (the wealth-building part)</div>
+          <div>I &mdash; Interest</div>
+          <div>T &mdash; Taxes (varies by city)</div>
+          <div>I &mdash; Insurance + PMI/MIP (if under 20% down)</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Saving rhythm</div>
+        </div>
+        <div class="col-items">
+          <div>Open a separate Home Fund (high-yield online savings).</div>
+          <div>Automate payday transfers &mdash; even $300 / 2 weeks = $7,800 / year.</div>
+          <div>Stack windfalls 100% &mdash; tax refunds, bonuses, side income.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-footer">
+      <div class="pro-tip">
+        <div class="tip-label">Pro Tip</div>
+        <div class="tip-text">Aim to keep total PITI under 28% of your gross monthly income. Lenders qualify you on what you <strong>CAN</strong> pay. You should buy what you <strong>WANT</strong> to pay.</div>
+      </div>
+      <div class="progress-row">
+        <div class="dots-group">
+          <span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot active"></span>
+          <span class="p-dot"></span><span class="p-dot"></span><span class="p-dot"></span><span class="p-dot"></span>
+        </div>
+        <span class="progress-step">Step 3 of 7</span>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span>Step 3 &mdash; Budget &amp; Save</span>
+      <span>re:thought Real Estate</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 8 — STEP 4: PRE-APPROVAL
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-dark.png" alt="reThought" style="height: 44px;" />
+      <div class="pillar-tag">08 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="step-badge">4</div>
+      <div class="step-name">Pre-Approval</div>
+      <h2 class="step-headline">Lock in your buying power.</h2>
+      <p class="step-intro">Pre-approval is a lender's written statement that they're willing to loan you a specific amount. No serious offer goes out without one. Get quotes from 2&ndash;3 lenders inside a 7-day window so credit bureaus treat them as a single inquiry.</p>
+    </div>
+
+    <div class="three-col">
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Documents to gather</div>
+        </div>
+        <div class="col-items">
+          <div>2 years of W-2s (or 1099s if self-employed)</div>
+          <div>30 days of recent paystubs</div>
+          <div>2 months of bank statements (all accounts)</div>
+          <div>2 years of federal tax returns</div>
+          <div>Photo ID + landlord contact info</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Loan types &mdash; at a glance</div>
+        </div>
+        <div class="col-items">
+          <div>Conventional 3&ndash;20% down, 620+ score</div>
+          <div>FHA 3.5% down, 580+ score</div>
+          <div>VA 0% down, military/veterans</div>
+          <div>USDA 0% down, eligible areas</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">What you'll learn</div>
+        </div>
+        <div class="col-items">
+          <div>Your max price &mdash; and your comfortable price.</div>
+          <div>Estimated monthly payment, taxes, and insurance.</div>
+          <div>Estimated cash to close.</div>
+          <div>Which programs and DPA you qualify for.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-footer">
+      <div class="pro-tip">
+        <div class="tip-label">Pro Tip</div>
+        <div class="tip-text">You marry the home, you date the rate. A higher rate today can be refinanced later &mdash; but <strong>the home you love won't wait</strong>.</div>
+      </div>
+      <div class="progress-row">
+        <div class="dots-group">
+          <span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot active"></span>
+          <span class="p-dot active"></span><span class="p-dot"></span><span class="p-dot"></span><span class="p-dot"></span>
+        </div>
+        <span class="progress-step">Step 4 of 7</span>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span>Step 4 &mdash; Pre-Approval</span>
+      <span>re:thought Real Estate</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 9 — PRE-APPROVAL DEEP DIVE (GREEN)
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide green">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 44px;" />
+      <div class="pillar-tag" style="color: white; opacity: 0.7;">09 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="green-title">It's time for you<br/>to get pre-approved</div>
+      <div class="green-subtitle">Getting Pre-Approved</div>
+
+      <p style="font-family: var(--font-body); font-size: 26px; line-height: 1.4; color: white; margin-bottom: 28px; max-width: 840px; opacity: 0.9;">Pre-approval is a lender's written statement that they're willing to loan you a certain amount, based on your income, credit, and assets. No serious offer goes out without one.</p>
+
+      <div class="green-section-title">Documents to gather before you call a lender</div>
+      <div class="check-list">
+        <div class="item"><span class="check-mark">&#10003;</span><span><strong>2 years</strong> of W-2s (or 1099s if self-employed)</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span><strong>30 days</strong> of recent paystubs</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span><strong>2 months</strong> of bank statements (all pages, all accounts)</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span><strong>2 years</strong> of federal tax returns</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span><strong>Photo ID</strong> &mdash; driver's license or passport</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span>Asset documentation &mdash; retirement, brokerage, gift letters</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span>Landlord contact info &mdash; for proof of rent payments</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span>For self-employed: profit/loss statements &amp; business returns</span></div>
+      </div>
+
+      <div class="green-callout">
+        <strong>How long does it take?</strong> Submitting documents takes 30 minutes. A real pre-approval letter typically comes back in 24&ndash;72 hours. Verbal "pre-qualifications" are not the same thing &mdash; insist on pre-approval.
+      </div>
+
+      <div class="green-learn-title">What you'll learn</div>
+      <div class="check-list">
+        <div class="item"><span class="check-mark">&#10003;</span><span>Your maximum purchase price &mdash; and your <em>comfortable</em> purchase price</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span>The loan programs you qualify for</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span>Your estimated monthly payment, including taxes &amp; insurance</span></div>
+        <div class="item"><span class="check-mark">&#10003;</span><span>Estimated cash to close</span></div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom" style="color: rgba(255,255,255,0.6);">
+      <span><span style="color: white;">::</span> reThought Real Estate®</span>
+      <span>7 Steps · Pre-Approval</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 10 — LOAN TYPES (DARK)
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Loan Types</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">10 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="title-block" style="margin-bottom: 32px;">
+        <h2 class="h2" style="font-size: 72px; color: white;">Loan Types</h2>
+        <p style="font-family: var(--font-display); font-weight: 800; font-size: 42px; color: var(--re-green); margin: 0;">Find the right fit</p>
+      </div>
+      <p class="body" style="color: rgba(255,255,255,0.75); margin-bottom: 28px; max-width: 840px;">Most first-time buyers fall into one of four loan buckets. Each has trade-offs &mdash; the right answer depends on your credit, down payment, and military/service status.</p>
+    </div>
+
+    <div class="loan-grid">
+      <div class="loan-card">
+        <div class="loan-name">Conventional</div>
+        <div class="loan-desc"><strong>3&ndash;20% down.</strong> Best for 620+ scores with steady income. PMI drops off automatically at 78% loan-to-value. Most flexible property types.</div>
+      </div>
+      <div class="loan-card">
+        <div class="loan-name">FHA</div>
+        <div class="loan-desc"><strong>3.5% down</strong> with 580+ credit (or 10% down from 500). Easier qualifying. Mortgage insurance for the life of the loan unless refinanced. Great for first-time buyers.</div>
+      </div>
+      <div class="loan-card">
+        <div class="loan-name">VA</div>
+        <div class="loan-desc"><strong>0% down</strong> for active-duty, veterans, and qualifying spouses. No PMI. Competitive rates. One of the best programs available &mdash; if you qualify, use it.</div>
+      </div>
+      <div class="loan-card">
+        <div class="loan-name">USDA</div>
+        <div class="loan-desc"><strong>0% down</strong> for eligible rural and many suburban areas. Income limits apply. Check your target neighborhoods on the USDA eligibility map.</div>
+      </div>
+    </div>
+
+    <div class="loan-pro-move">
+      <strong>Pro move:</strong> Get quotes from <strong>at least three lenders</strong> within a 14-day window &mdash; the credit bureaus treat them as a single inquiry. Compare APR (not just rate), fees, and lender credits.
+    </div>
+
+    <div class="loan-questions">
+      <div class="q-title">Questions to ask every lender</div>
+      <div class="q-list">
+        <div class="q-item"><span class="q-check">&#10003;</span>What's the interest rate <em>and</em> the APR?</div>
+        <div class="q-item"><span class="q-check">&#10003;</span>What are your origination, underwriting, and processing fees?</div>
+        <div class="q-item"><span class="q-check">&#10003;</span>Will my rate be locked &mdash; and for how long?</div>
+        <div class="q-item"><span class="q-check">&#10003;</span>Do you offer lender credits or down-payment-assistance pairing?</div>
+        <div class="q-item"><span class="q-check">&#10003;</span>Who actually services the loan after I close?</div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>7 Steps · Loan Types</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 11 — STEP 5: YOUR AGENT
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-dark.png" alt="reThought" style="height: 44px;" />
+      <div class="pillar-tag">11 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="step-badge">5</div>
+      <div class="step-name">Your Agent</div>
+      <h2 class="step-headline">Put the right person in your corner.</h2>
+      <p class="step-intro">A great buyer's agent isn't a door-opener &mdash; they're a strategist, negotiator, and project manager. In most markets they're paid by the transaction. The right agent saves you more than they cost, in price and headaches you'll never see.</p>
+    </div>
+
+    <div class="three-col">
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">What I actually do</div>
+        </div>
+        <div class="col-items">
+          <div>Daily MLS alerts so you see homes early.</div>
+          <div>Pull comps so you don't overpay (or underbid and lose).</div>
+          <div>Negotiate offer, repairs, credits, and concessions.</div>
+          <div>Coordinate inspections, title, lender, and closing.</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Interview your agent</div>
+        </div>
+        <div class="col-items">
+          <div>How long with first-time buyers?</div>
+          <div>Who is on your vetted team?</div>
+          <div>Walk me through your offer strategy.</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Build the search</div>
+        </div>
+        <div class="col-items">
+          <div>Define non-negotiables: budget, location, beds/baths, commute.</div>
+          <div>Set MLS alerts (freshest source &mdash; Zillow lags).</div>
+          <div>Filter Active + New + Recently Reduced for best signal.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-footer">
+      <div class="pro-tip">
+        <div class="tip-label">Pro Tip</div>
+        <div class="tip-text">Skills matter, but so does fit. You'll text this person at 9 p.m. when you're nervous about a counter-offer. <strong>Make sure that feels right.</strong></div>
+      </div>
+      <div class="progress-row">
+        <div class="dots-group">
+          <span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot active"></span>
+          <span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot"></span><span class="p-dot"></span>
+        </div>
+        <span class="progress-step">Step 5 of 7</span>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span>Step 5 &mdash; Your Agent</span>
+      <span>re:thought Real Estate</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 12 — NOT ALL AGENTS ARE EQUAL
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide subtle">
+    <div class="re-watermark">re:</div>
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Your Agent</div>
+      <div class="pillar-tag">12 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px; position: relative; z-index: 1;">
+      <div class="title-block" style="margin-bottom: 20px;">
+        <div class="kicker" style="color: var(--re-green);">Not All Agents</div>
+        <h2 class="h2" style="font-size: 64px;">are created equal</h2>
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: 36px; color: var(--re-navy); margin: 12px 0 0;"><span style="color: var(--re-green);">Step 5</span> Partner with a Buyer's Agent</p>
+      </div>
+
+      <div style="margin-top: 32px; font-family: var(--font-display); font-weight: 800; font-size: 30px; color: var(--re-blue); margin-bottom: 16px; letter-spacing: -0.01em;">What a buyer's agent actually does for you</div>
+      <div class="agent-check-list">
+        <div class="item"><span class="agent-check-mark">&#10003;</span><span>Helps you determine your goals &mdash; price, location, must-haves vs. nice-to-haves</span></div>
+        <div class="item"><span class="agent-check-mark">&#10003;</span><span>Sets you up with daily/weekly MLS alerts so you see homes before the public does</span></div>
+        <div class="item"><span class="agent-check-mark">&#10003;</span><span>Pulls comps to make sure you don't overpay (or underbid &amp; lose)</span></div>
+        <div class="item"><span class="agent-check-mark">&#10003;</span><span>Negotiates the offer, repairs, credits, and seller concessions</span></div>
+        <div class="item"><span class="agent-check-mark">&#10003;</span><span>Coordinates inspections, title, lender, and closing &mdash; so you don't miss a deadline</span></div>
+        <div class="item"><span class="agent-check-mark">&#10003;</span><span>Reads the fine print on contracts most buyers skim past</span></div>
+        <div class="item"><span class="agent-check-mark">&#10003;</span><span>Stays in your corner after closing &mdash; for contractor referrals, market updates, and refinance timing</span></div>
+      </div>
+
+      <div class="agent-callout">
+        <div class="callout-title">Buyer Agency Agreement.</div>
+        <div class="callout-text">This is a written agreement between you and your agent that defines the scope, term, and compensation of the relationship. Read it, ask questions, and don't sign one with someone you haven't actually <em>talked</em> with.</div>
+      </div>
+
+      <p class="agent-bottom-quote">The right agent will save you more than they cost &mdash; <span class="green">in price, in repairs, and in headaches you'll never know you avoided.</span></p>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>7 Steps · Your Agent</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 13 — STEP 6: OFFER & INSPECT
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-dark.png" alt="reThought" style="height: 44px;" />
+      <div class="pillar-tag">13 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="step-badge">6</div>
+      <div class="step-name">Offer &amp; Inspect</div>
+      <h2 class="step-headline">Tour smart. Offer cleanly. Inspect carefully.</h2>
+      <p class="step-intro">Touring is fun &mdash; but it's also where buyers fall for the wrong thing. Walk every home with a checklist, write a clean offer, and never skip the inspection. Strong offers aren't always the highest &mdash; they're the cleanest.</p>
+    </div>
+
+    <div class="three-col">
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Tour like a pro</div>
+        </div>
+        <div class="col-items">
+          <div>Open windows &mdash; listen for noise.</div>
+          <div>Check water pressure &amp; flush toilets.</div>
+          <div>Look for ceiling water stains, soft floors, odors.</div>
+          <div>Ask age of roof, furnace, water heater, panel.</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">What's in the offer</div>
+        </div>
+        <div class="col-items">
+          <div>Price (based on comps, not list).</div>
+          <div>Earnest money 1&ndash;3%.</div>
+          <div>Closing date &mdash; match seller's timing if you can.</div>
+          <div>Contingencies: financing, appraisal, inspection.</div>
+          <div>Seller concessions toward closing costs.</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Inspection options</div>
+        </div>
+        <div class="col-items">
+          <div>Accept as-is.</div>
+          <div>Ask seller to repair or credit specific items.</div>
+          <div>Walk away (within your inspection window).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-footer">
+      <div class="pro-tip">
+        <div class="tip-label">Pro Tip</div>
+        <div class="tip-text">Don't waive your inspection contingency. You can use 'inspect for information only' to stay competitive <strong>without giving up your right to walk</strong>.</div>
+      </div>
+      <div class="progress-row">
+        <div class="dots-group">
+          <span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot active"></span>
+          <span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot"></span>
+        </div>
+        <span class="progress-step">Step 6 of 7</span>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span>Step 6 &mdash; Offer &amp; Inspect</span>
+      <span>re:thought Real Estate</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 14 — STEP 7: CLOSE & MOVE IN
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-dark.png" alt="reThought" style="height: 44px;" />
+      <div class="pillar-tag">14 / 17</div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <div class="step-badge">7</div>
+      <div class="step-name">Close &amp; Move In</div>
+      <h2 class="step-headline">From clear-to-close to keys in hand.</h2>
+      <p class="step-intro">Closing usually takes 60&ndash;90 minutes. There's a lot of paper, a few big signatures, and one very satisfying moment where someone hands you a key ring. Take the picture &mdash; you earned it.</p>
+    </div>
+
+    <div class="three-col">
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Underwriting (weeks 1&ndash;3)</div>
+        </div>
+        <div class="col-items">
+          <div>Lender re-verifies every document.</div>
+          <div>Appraisal is reviewed.</div>
+          <div>Homeowner's insurance is bound.</div>
+          <div>Title work completes &rarr; 'Clear to Close.'</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">Closing day</div>
+        </div>
+        <div class="col-items">
+          <div>Final walkthrough 24 hours prior.</div>
+          <div>Bring photo ID + cashier's check / wire confirmation.</div>
+          <div>Sign loan docs (60&ndash;90 min).</div>
+          <div>Deed records. Seller is paid. You get the keys.</div>
+        </div>
+      </div>
+      <div>
+        <div class="col-head">
+          <span class="col-dot"></span>
+          <div class="col-title">First 7 days as an owner</div>
+        </div>
+        <div class="col-items">
+          <div>Set up electric, gas, water, internet.</div>
+          <div>Forward USPS mail; update license.</div>
+          <div>Re-key all exterior locks.</div>
+          <div>Test smoke &amp; CO alarms; locate water shut-off.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-footer">
+      <div class="pro-tip">
+        <div class="tip-label">Pro Tip</div>
+        <div class="tip-text">During the 21 days before closing: <strong>don't change jobs, take new loans, make big credit purchases, or co-sign anything</strong>. Lenders may re-pull credit at the end.</div>
+      </div>
+      <div class="progress-row">
+        <div class="dots-group">
+          <span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot active"></span>
+          <span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot active"></span><span class="p-dot active"></span>
+        </div>
+        <span class="progress-step">Step 7 of 7</span>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span>Step 7 &mdash; Close &amp; Move In</span>
+      <span>re:thought Real Estate</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 15 — CLOSING QUOTE
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow">When You're Ready</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">15 / 17</div>
+    </div>
+
+    <div class="closing-quote">
+      <div class="mark">"</div>
+      <div class="text">
+        Let's go find<br/>
+        <span class="green">your first<br/>front door.</span>
+      </div>
+      <p class="sub">If you finish this guide with one new question or one new fear &mdash; that's exactly the point. Bring it to me. We'll figure out what's true, what's mine to handle, and what's yours. That's the work.</p>
+      <div class="sig">
+        <img src="assets/danigsha-signature-white.png" alt="Danigsha Alicea" />
+      </div>
+      <div class="author">reThought Real Estate</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>7 Steps · Closing</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 16 — CTA
+       ═══════════════════════════════════════════════════ -->
+  <section class="cta-slide slide">
+    <div class="cta-photo">
+      <img src="assets/danigsha.png" alt="Danigsha Alicea" />
+      <div class="frame-tag">Your next step</div>
+    </div>
+    <div class="cta-content">
+      <h2>One call.<br/><span class="accent">20 minutes.</span><br/>No pitch.</h2>
+      <p>We work through your specific situation. You walk away with a clear next step &mdash; whether that's this year or 18 months from now.</p>
+      <ul class="cta-list">
+        <li>We review your real financial picture</li>
+        <li>We identify the programs that apply to you</li>
+        <li>We define your realistic buying power</li>
+        <li>You leave with a clear next step</li>
+      </ul>
+    </div>
+    <div class="cta-foot">
+      <div class="name">Danigsha Alicea<small>reThought Real Estate</small></div>
+      <div class="links">
+        <span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>414.502.5332</span>
+        <span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>daa@rethought-realestate.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 17 — FINAL LOGO
+       ═══════════════════════════════════════════════════ -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">17 / 17</div>
+    </div>
+
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 48px;">
+      <div class="dots lg" style="gap: 22px;"><span></span><span></span></div>
+      <div style="font-family: var(--font-display); font-weight: 900; font-size: 124px; line-height: 0.95; letter-spacing: -0.04em; color: white;">
+        Real Simple.<br/>
+        Real Skills.<br/>
+        <span style="font-family: var(--font-script); font-size: 160px; font-weight: 400; letter-spacing: 0; color: var(--re-green);">Real Results.</span><span style="color: var(--re-green); font-size: 60px; vertical-align: super;">®</span>
+      </div>
+      <p style="font-family: var(--font-display); font-weight: 600; font-size: 30px; color: rgba(255,255,255,0.65); max-width: 800px; line-height: 1.35;">
+        Milwaukee · Central Florida · South Florida<br/>
+        Bilingual boutique brokerage + agent development platform.
+      </p>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>7 Steps From Renting to Owning · 2026</span>
+    </div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>
