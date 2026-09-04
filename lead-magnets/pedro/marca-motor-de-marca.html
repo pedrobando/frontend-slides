@@ -1,0 +1,1426 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>El Motor de Marca · Pedro Bando Rivera · reThought Real Estate</title>
+<link rel="stylesheet" href="tokens.css" />
+<script src="deck-stage.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #0a0e13; }
+  deck-stage { --slide-gap: 36px; }
+
+  :root {
+    --pad-x: 88px;
+    --pad-top: 110px;
+    --pad-bottom: 110px;
+    --gap-title: 56px;
+    --type-h2: 88px;
+    --type-body: 30px;
+    --type-eyebrow: 24px;
+  }
+
+  /* ---------- slide base ---------- */
+  .slide {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    background: var(--bg);
+    color: var(--fg);
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+  }
+  .slide.dark { background: var(--re-navy); color: var(--re-white); }
+  .slide.dark h1, .slide.dark h2, .slide.dark h3, .slide.dark h4 { color: var(--re-white); }
+  .slide.subtle { background: var(--re-gray-50); }
+
+  /* ---------- typographic primitives ---------- */
+  h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.02; }
+  .h2 { font-size: var(--type-h2); font-weight: 900; line-height: 1.0; letter-spacing: -0.035em; }
+  .body { font-size: var(--type-body); line-height: 1.4; }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--type-eyebrow);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--re-green);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+  }
+
+  /* ---------- two-dot motif ---------- */
+  .dots { display: inline-flex; flex-direction: row; gap: 8px; align-items: center; }
+  .dots span { width: 14px; height: 14px; border-radius: 999px; background: var(--re-green); display: block; }
+  .dots.lg span { width: 22px; height: 22px; }
+
+  /* ---------- header / footer chrome ---------- */
+  .chrome-top {
+    position: absolute; top: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    white-space: nowrap;
+    gap: 16px;
+  }
+  .chrome-bottom {
+    position: absolute; bottom: 56px; left: var(--pad-x); right: var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-display); font-size: 24px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--fg-muted);
+    white-space: nowrap;
+    gap: 16px;
+  }
+  .slide.dark .chrome-bottom { color: rgba(255,255,255,0.55); }
+  .chrome-bottom .lockup-mark { color: var(--re-green); }
+
+  .logo-chip { height: 44px; width: auto; display: block; }
+  .pillar-tag {
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    padding: 0;
+    background: var(--re-navy);
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  .cover-top {
+    padding: 72px 88px 0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cover-top .lockup {
+    font-family: var(--font-display); font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 22px; color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+  }
+  .cover-eyebrow {
+    padding: 44px 88px 0;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .cover-eyebrow .dots span { width: 16px; height: 16px; }
+  .cover-eyebrow .label {
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 800;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--re-green);
+    line-height: 1.3;
+  }
+  .cover-hero {
+    padding: 28px 88px 0;
+    display: flex; flex-direction: column; gap: 30px;
+  }
+  .cover-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 128px;
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    color: white;
+    margin: 0;
+  }
+  .cover-title .accent { color: var(--re-green); }
+  .cover-sub {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 31px;
+    line-height: 1.34;
+    color: rgba(255,255,255,0.78);
+    max-width: 880px;
+    margin: 0;
+  }
+  .cover-photo-wrap {
+    position: relative;
+    margin: 32px 88px 0;
+    border-radius: 32px;
+    overflow: hidden;
+    background: var(--re-navy);
+    aspect-ratio: 4 / 3;
+    max-height: 600px;
+  }
+  .cover-photo-wrap img {
+    width: 100%; height: 100%; object-fit: cover; object-position: 40% center;
+    display: block;
+  }
+  .cover-photo-wrap .photo-tag {
+    position: absolute; left: 32px; top: 32px;
+    background: var(--re-navy); color: var(--re-white);
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 12px 20px; border-radius: 999px;
+  }
+  .cover-photo-wrap .frame-meta {
+    position: absolute; right: 32px; bottom: 32px;
+    background: rgba(27,37,47,0.78); color: white;
+    backdrop-filter: blur(8px);
+    padding: 12px 20px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .cover-quote {
+    margin: 36px 88px 0;
+    border-left: 6px solid var(--re-green);
+    padding-left: 28px;
+    font-family: var(--font-display);
+    font-weight: 700; font-style: italic;
+    font-size: 36px; line-height: 1.22;
+    letter-spacing: -0.02em;
+    color: white;
+  }
+  .cover-foot {
+    margin-top: auto;
+    padding: 40px 88px 80px;
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 32px;
+  }
+  .cover-byline .name {
+    font-family: var(--font-display);
+    font-weight: 900; font-size: 40px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: white;
+    line-height: 1;
+  }
+  .cover-byline .role {
+    font-family: var(--font-display);
+    font-weight: 600; font-size: 24px;
+    color: var(--re-green);
+    margin-top: 12px;
+    letter-spacing: 0.02em;
+  }
+  .cover-byline .org {
+    font-family: var(--font-display);
+    font-weight: 500; font-size: 21px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* ---------- title block ---------- */
+  .title-block { display: flex; flex-direction: column; gap: 22px; margin-bottom: var(--gap-title); }
+  .title-block .kicker {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+  .slide:not(.dark) .title-block .kicker { color: var(--re-green-700); }
+
+  /* ---------- prose ---------- */
+  .prose { display: flex; flex-direction: column; gap: 40px; }
+  .prose p {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 34px; line-height: 1.46;
+    color: var(--fg-strong);
+    max-width: 880px;
+  }
+  .slide.dark .prose p { color: rgba(255,255,255,0.85); }
+  .prose p .hl { color: var(--re-green-700); font-weight: 700; }
+  .slide.dark .prose p .hl { color: var(--re-green); font-weight: 700; }
+  .prose .lead {
+    font-family: var(--font-display);
+    font-weight: 600; font-size: 38px; line-height: 1.3;
+  }
+
+  /* ---------- callout box ---------- */
+  .callout {
+    background: var(--re-navy);
+    color: white;
+    border-radius: 24px;
+    padding: 36px 40px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .slide.dark .callout { background: rgba(255,255,255,0.07); }
+  .callout .lab {
+    font-family: var(--font-display); font-weight: 700; font-size: 24px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--re-green);
+  }
+  .callout .txt {
+    font-family: var(--font-display); font-weight: 600; font-size: 32px;
+    line-height: 1.26; letter-spacing: -0.01em;
+  }
+
+  /* ---------- stat grid ---------- */
+  .stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  }
+  .stat-grid .stat {
+    background: var(--re-gray-50);
+    border-radius: 24px;
+    padding: 40px 36px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .slide.subtle .stat-grid .stat { background: white; }
+  .stat-grid .stat.green, .slide.subtle .stat-grid .stat.green { background: var(--re-green); }
+  .stat-grid .stat.green .n, .stat-grid .stat.green .d { color: var(--re-white); }
+  .stat-grid .stat .n {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 84px; line-height: 1; letter-spacing: -0.03em;
+    color: var(--re-navy);
+  }
+  .stat-grid .stat .d {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 26px; line-height: 1.3;
+    color: var(--fg-muted);
+  }
+
+  /* ---------- numbered list ---------- */
+  .num-list { display: flex; flex-direction: column; gap: 44px; }
+  .num-list .item {
+    display: grid; grid-template-columns: 96px 1fr; gap: 32px; align-items: start;
+  }
+  .num-list .num {
+    width: 88px; height: 88px; border-radius: 999px;
+    background: var(--re-green); color: var(--re-white);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900; font-size: 40px;
+    box-shadow: 0 0 0 8px rgba(140,201,76,0.16);
+  }
+  .num-list .txt { display: flex; flex-direction: column; gap: 12px; padding-top: 4px; }
+  .num-list .head {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 40px; line-height: 1.08; letter-spacing: -0.02em;
+    color: var(--fg-strong);
+  }
+  .slide.dark .num-list .head { color: white; }
+  .num-list .desc {
+    font-family: var(--font-body); font-size: 29px; line-height: 1.42;
+    color: var(--fg-muted);
+  }
+  .slide.dark .num-list .desc { color: rgba(255,255,255,0.74); }
+  .num-list .desc .hl { color: var(--re-green-700); font-weight: 700; }
+  .slide.dark .num-list .desc .hl { color: var(--re-green); }
+
+  /* ---------- phase list ---------- */
+  .phase-list { display: flex; flex-direction: column; gap: 26px; }
+  .phase {
+    display: grid; grid-template-columns: 170px 1fr; gap: 28px; align-items: start;
+    background: white; border-radius: 20px; padding: 30px 34px;
+  }
+  .slide.dark .phase { background: rgba(255,255,255,0.07); }
+  .phase .tag {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 26px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--re-green-700);
+    padding-top: 4px;
+  }
+  .slide.dark .phase .tag { color: var(--re-green); }
+  .phase .txt { display: flex; flex-direction: column; gap: 8px; }
+  .phase .head {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 33px; line-height: 1.1; letter-spacing: -0.015em;
+    color: var(--fg-strong);
+  }
+  .slide.dark .phase .head { color: white; }
+  .phase .desc {
+    font-family: var(--font-body); font-size: 26px; line-height: 1.4;
+    color: var(--fg-muted);
+  }
+  .slide.dark .phase .desc { color: rgba(255,255,255,0.72); }
+
+  /* ---------- prompt pages ---------- */
+  .prompt-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin: 96px 0 32px;
+    gap: 16px;
+  }
+  .prompt-head .lab {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 26px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--re-green-700);
+    white-space: nowrap;
+  }
+  .prompt-head .part {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-muted);
+    white-space: nowrap;
+  }
+  .code-card {
+    background: var(--re-navy);
+    border-radius: 24px;
+    padding: 44px 48px;
+    flex: 1;
+    overflow: hidden;
+  }
+  .code-card pre {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 22px;
+    line-height: 1.42;
+    color: rgba(255,255,255,0.92);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code-card pre .k { color: var(--re-green); font-weight: 700; }
+
+  /* ---------- divider pages ---------- */
+  .divider-hero { display: flex; flex-direction: column; gap: 40px; margin-top: 120px; }
+  .divider-hero .big {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 108px; line-height: 0.98; letter-spacing: -0.04em;
+    color: white;
+  }
+  .divider-hero .big .accent { color: var(--re-green); }
+  .divider-hero .sub {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 32px; line-height: 1.4;
+    color: rgba(255,255,255,0.78);
+    max-width: 880px;
+  }
+
+  /* ---------- closing word ---------- */
+  .closing-quote { display: flex; flex-direction: column; gap: 32px; flex: 1; justify-content: center; }
+  .closing-quote .mark {
+    font-family: var(--font-script); color: var(--re-green);
+    font-size: 200px; line-height: 0.6;
+  }
+  .closing-quote .text {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 88px; line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: white;
+  }
+  .closing-quote .text .green { color: var(--re-green); }
+  .closing-quote .sub {
+    font-family: var(--font-display); font-weight: 600; font-style: italic;
+    font-size: 36px; line-height: 1.25;
+    color: rgba(255,255,255,0.72);
+    max-width: 820px;
+  }
+  .closing-quote .author {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 26px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--re-green);
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<deck-stage width="1080" height="1920">
+
+  <!-- PAGE 01 — COVER -->
+  <section class="slide cover">
+    <div class="cover-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="lockup">Real Estate® · 2026</div>
+    </div>
+
+    <div class="cover-eyebrow">
+      <span class="dots"><span></span><span></span></span>
+      <span class="label">Guía gratuita · Marca personal con IA</span>
+    </div>
+
+    <div class="cover-hero">
+      <h1 class="cover-title">El Motor<br/>de <span class="accent">Marca</span></h1>
+      <p class="cover-sub">Un solo prompt. Un sistema completo de marca personal y contenido, construido con tu historia real — no con plantillas genéricas de marketing.</p>
+    </div>
+
+    <div class="cover-photo-wrap">
+      <img src="assets/pedro-studio.jpg" alt="Pedro Bando Rivera" />
+      <div class="photo-tag">Palabra clave: MARCA</div>
+      <div class="frame-meta">Español + English</div>
+    </div>
+
+    <div class="cover-quote">“Tu marca personal es lo que la gente siente cuando escucha tu nombre.”</div>
+
+    <div class="cover-foot">
+      <div class="cover-byline">
+        <div class="name">Pedro Bando Rivera</div>
+        <div class="role">Broker / Owner · @pedrobandorivera</div>
+        <div class="org">reThought Real Estate® · Milwaukee · Central Florida · Real Simple. Real Skills. Real Results.®</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 02 — INTRO (reel echo) -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Empieza aquí</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">02 / 32</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 96px;">
+      <div class="kicker">Antes de construir</div>
+      <h2 class="h2">Tu marca no es<br/>tu logo. Es lo que<br/><span style="color: var(--re-green);">la gente siente</span>.</h2>
+    </div>
+
+    <div class="prose">
+      <p class="lead">Tu marca personal no es tu logo. No son tus colores. Ni es lo que dices de ti.</p>
+      <p>Es lo que la gente siente cuando escucha tu nombre. Confianza. Palabra. Consistencia. Que eres <span class="hl">la misma persona</span> con la cámara prendida que con la cámara apagada.</p>
+      <p>Pero antes de construir una marca personal, tienes que conocerte a ti mismo. Entender quién eres, qué representas y cómo eso conecta con lo que haces todos los días.</p>
+      <p>Este documento te da la herramienta exacta para hacerlo — con inteligencia artificial y con <span class="hl">tu historia real</span>.</p>
+    </div>
+
+    <div class="callout" style="margin-top: auto;">
+      <div class="lab">La pregunta de fondo</div>
+      <div class="txt">¿Tú realmente te conoces?</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Motor de Marca · Intro</span>
+    </div>
+  </section>
+
+  <!-- PAGE 03 — QUÉ ES -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Qué es esto</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">03 / 32</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 96px;">
+      <div class="kicker">El Motor de Marca</div>
+      <h2 class="h2">Un prompt que<br/>convierte a la IA en<br/><span style="color: var(--re-green-700);">tu estratega</span>.</h2>
+    </div>
+
+    <div class="prose" style="margin-bottom: 56px;">
+      <p>Es un prompt maestro que pegas en Claude o ChatGPT. Convierte a la IA en un estratega de marca que <span class="hl">primero te entrevista</span> y después construye contigo todo tu sistema de marca y contenido, fase por fase.</p>
+      <p>Está escrito para agentes de bienes raíces. Si tienes otro negocio, también funciona: responde sobre tu negocio y salta lo que no aplique.</p>
+    </div>
+
+    <div class="stat-grid" style="margin-top: auto;">
+      <div class="stat green"><div class="n">1</div><div class="d">prompt maestro que lo construye todo</div></div>
+      <div class="stat"><div class="n">6</div><div class="d">fases, de la entrevista al lanzamiento</div></div>
+      <div class="stat"><div class="n">20+</div><div class="d">activos de marca al terminar</div></div>
+      <div class="stat"><div class="n">14</div><div class="d">días de contenido listo para grabar</div></div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Motor de Marca · Qué es</span>
+    </div>
+  </section>
+
+  <!-- PAGE 04 — CÓMO USARLO -->
+  <section class="slide">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Cómo usarlo</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">04 / 32</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 96px; margin-bottom: 64px;">
+      <div class="kicker">5 pasos</div>
+      <h2 class="h2">Así se corre<br/><span style="color: var(--re-green-700);">el motor</span>.</h2>
+    </div>
+
+    <div class="num-list">
+      <div class="item">
+        <div class="num">1</div>
+        <div class="txt">
+          <div class="head">Abre un chat nuevo</div>
+          <div class="desc">En Claude o ChatGPT. Un modelo de pago da resultados <span class="hl">notablemente mejores</span>.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">2</div>
+        <div class="txt">
+          <div class="head">Pega el prompt completo</div>
+          <div class="desc">Como tu primer mensaje. Nada más. El prompt está en las páginas 07–17 (español) y 20–30 (English).</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">3</div>
+        <div class="txt">
+          <div class="head">Responde con honestidad</div>
+          <div class="desc">Las historias reales valen más que las respuestas pulidas. El sistema es tan bueno como <span class="hl">tu materia prima</span>.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">4</div>
+        <div class="txt">
+          <div class="head">Aprueba cada fase</div>
+          <div class="desc">Tú eres el editor. La IA es el constructor. Ajusta antes de avanzar a la siguiente fase.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">5</div>
+        <div class="txt">
+          <div class="head">Guarda cada entregable</div>
+          <div class="desc">En un lugar permanente. Al final tendrás tu Libro de Marca completo.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: auto;">
+      <div class="lab">Tiempo real</div>
+      <div class="txt">60–90 minutos la corrida completa. Puedes pausar después de cualquier fase y retomar luego.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Motor de Marca · Cómo usarlo</span>
+    </div>
+  </section>
+
+  <!-- PAGE 05 — LAS 6 FASES -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>El pipeline</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">05 / 32</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 96px; margin-bottom: 56px;">
+      <div class="kicker">6 fases, en orden</div>
+      <h2 class="h2">De tu historia<br/>a un sistema<br/><span style="color: var(--re-green-700);">completo</span>.</h2>
+    </div>
+
+    <div class="phase-list">
+      <div class="phase">
+        <div class="tag">Fase 0</div>
+        <div class="txt">
+          <div class="head">Entrevista de materia prima</div>
+          <div class="desc">La IA te entrevista: tu negocio, tu historia personal y tu audiencia real. Termina con tu Frase Estrella del Norte.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="tag">Fase 1</div>
+        <div class="txt">
+          <div class="head">Inteligencia de audiencia</div>
+          <div class="desc">Perfil de tribu, psicografía profunda, el sentimiento sin nombre, tu carril abierto y tu matriz de lenguaje.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="tag">Fase 2</div>
+        <div class="txt">
+          <div class="head">ADN de marca</div>
+          <div class="desc">Gran idea, arquetipo, propuesta de valor, misión, visión, eslogan, manifiesto y tus cinco mensajes centrales.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="tag">Fase 3</div>
+        <div class="txt">
+          <div class="head">Sistema de historias</div>
+          <div class="desc">Tu historia de origen, la transformación de tu audiencia, la historia de nosotros y la historia del ahora.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="tag">Fase 4</div>
+        <div class="txt">
+          <div class="head">Motor de contenido</div>
+          <div class="desc">5 pilares, 25 temas, banco de ganchos, mapa de formatos y mapa de activación por plataforma.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="tag">Fase 5</div>
+        <div class="txt">
+          <div class="head">Lanzamiento de 14 días</div>
+          <div class="desc">Calendario completo, guiones palabra por palabra, captions y tu Libro de Marca final.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Motor de Marca · Fases</span>
+    </div>
+  </section>
+
+  <!-- PAGE 06 — DIVIDER ES -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>El prompt maestro</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">06 / 32</div>
+    </div>
+
+    <div class="divider-hero">
+      <div class="big">El Prompt<br/>Maestro<br/><span class="accent">· Español</span></div>
+      <div class="sub">Copia TODO el texto de las páginas <strong style="color: var(--re-green);">07 a 17</strong> — desde “Eres mi estratega de marca...” hasta “...tu primera pregunta de entrevista.” — y pégalo como tu primer mensaje en un chat nuevo.</div>
+    </div>
+
+    <div class="num-list" style="margin-top: 72px;">
+      <div class="item">
+        <div class="num">1</div>
+        <div class="txt"><div class="head">Selecciona el texto</div><div class="desc">De la primera línea de la página 07 hasta la última de la página 17.</div></div>
+      </div>
+      <div class="item">
+        <div class="num">2</div>
+        <div class="txt"><div class="head">Cópialo completo</div><div class="desc">Las 11 páginas son UN solo prompt. No lo cortes por fases.</div></div>
+      </div>
+      <div class="item">
+        <div class="num">3</div>
+        <div class="txt"><div class="head">Pégalo y envía</div><div class="desc">La IA se presenta y te hace la primera pregunta de la entrevista.</div></div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: auto;">
+      <div class="lab">Consejo</div>
+      <div class="txt">Hazlo desde una computadora. Seleccionar y copiar todo el texto es mucho más fácil que en el teléfono.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Motor de Marca · Prompt ES</span>
+    </div>
+  </section>
+
+  <!-- PAGE 07 — PROMPT ES 1/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">07 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Reglas de operación</div>
+      <div class="part">Parte 1 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>Eres mi estratega de marca y arquitecto de contenido. Tu trabajo es construir conmigo mi sistema completo de marca y contenido, partiendo de MI historia real y MI audiencia real, no de plantillas genéricas de marketing.
+
+<span class="k">REGLAS DE OPERACIÓN (síguelas durante toda la sesión):</span>
+
+1. PRIMERO ENTREVISTA, DESPUÉS CONSTRUYE. Nunca escribas un entregable sin tener la materia prima. Cuando falte información, pregúntame. Nunca inventes datos, números, credenciales ni historias sobre mí.
+2. UNA FASE A LA VEZ. Completa una fase, muéstrame los entregables y espera mi aprobación o mis ediciones antes de empezar la siguiente. Si edito algo, arrastra esa edición a todo lo que venga después.
+3. OPCIONES DONDE IMPORTA EL GUSTO. Para los activos de identidad (gran idea, eslogan, misión, propuesta de valor), dame 3 opciones distintas y dime cuál elegirías tú y por qué. Para los activos de análisis, dame tu mejor versión única.
+4. MI VOZ, NO VOZ DE MARKETING. Escribe a nivel de lectura de quinto grado. Frases cortas. Voz activa. Sin palabras de humo, sin lenguaje corporativo. Directo, cálido, específico.
+5. HONESTO POR DEFECTO. Nada de estadísticas fabricadas, testimonios inventados ni urgencia falsa. Si una afirmación no se sostiene con algo que yo te dije, no la escribas.
+6. DESCRIBE A MI AUDIENCIA POR LO QUE QUIERE, no por quién le está fallando. No nombres competidores ni empresas específicas. Posicióname por lo que construyo, no por derribar a nadie.
+7. SI ESTOY EN BIENES RAÍCES: mantén todo dentro de las normas de vivienda justa (fair housing). Segmenta por situación, producción y metas. Nunca por clase protegida.
+8. OPCIÓN BILINGÜE. Si te digo que mi audiencia habla otro idioma, ofrece cada entregable en ambos idiomas. Escribe el segundo idioma de forma nativa y cultural, nunca como traducción literal.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 1/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 08 — PROMPT ES 2/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">08 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 0 · Entrevista</div>
+      <div class="part">Parte 2 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>EL PIPELINE. Construiremos estas fases en orden:
+
+<span class="k">═══════════════════════════════════════
+FASE 0: ENTREVISTA DE MATERIA PRIMA
+═══════════════════════════════════════</span>
+
+Entrevístame una pregunta a la vez. Mantenlo conversacional. Profundiza cuando mi respuesta sea vaga. Recopila:
+
+A. LOS DATOS DEL NEGOCIO
+- Qué hago, dónde lo hago y desde cuándo
+- Mis números actuales (producción, clientes servidos, resultados que puedo comprobar)
+- Qué estoy vendiendo realmente y cómo se ve una "victoria" en los próximos 90 días
+- Credenciales, roles y pruebas que me dan autoridad
+
+B. LA MATERIA PRIMA PERSONAL
+- Momentos formativos: 3 a 5 eventos que moldearon cómo veo el mundo
+- Experiencia vivida: lo que yo pasé y que mi audiencia está pasando ahora mismo
+- Comunidades a las que pertenezco y que lidero
+- Fluidez cultural: idiomas, culturas y mundos entre los que me muevo
+- Obsesiones: lo que no puedo dejar de pensar, construir o estudiar
+- Lo que me dijeron que aplanara: las partes de mí que me aconsejaron esconder o suavizar para que me tomaran en serio</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 2/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 09 — PROMPT ES 3/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">09 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 0 · Estrella del Norte</div>
+      <div class="part">Parte 3 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>C. LOS DATOS DE LA AUDIENCIA
+- A quién exactamente quiero llegar (edad, situación, etapa, ubicación, idioma)
+- Qué ya intentaron y en qué están atorados
+- Conversaciones reales que he tenido con ellos: sus palabras exactas, quejas y preguntas
+
+Cuando la entrevista esté completa, escribe mi FRASE ESTRELLA DEL NORTE en este formato exacto y confírmala conmigo:
+
+"Quiero construir [el resultado de contenido] que me traiga [resultado específico y medible] para [mi negocio], sirviendo a [mi audiencia exacta], porque [mi ventaja injusta], [lo que está cambiando en el mercado], y el costo de esperar es [lo que pierdo por seguir invisible]."</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 3/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 10 — PROMPT ES 4/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">10 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 1 · Audiencia</div>
+      <div class="part">Parte 4 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+FASE 1: INTELIGENCIA DE AUDIENCIA
+═══════════════════════════════════════</span>
+
+Construye estos seis entregables a partir de mis respuestas:
+
+1. PERFIL DE TRIBU. Nombra a mi audiencia como una tribu específica (una etiqueta de identidad de dos o tres palabras, no un dato demográfico). Después mapea cinco capas: (a) cómo se llaman a sí mismos, (b) la experiencia compartida que todo miembro ha vivido, (c) las señales no dichas que reconocen entre ellos, (d) lo que colectivamente quieren dejar atrás, planteado desde la aspiración y no desde la culpa, (e) el futuro que están tratando de construir.
+
+2. PERFIL PSICOGRÁFICO PROFUNDO. (a) Miedo central: lo que los mantiene despiertos a las 2am, en sus propias palabras. (b) Deseo central: la transformación a nivel de identidad que quieren, no el deseo superficial. (c) Detonante de compartir: qué haría que le enviaran mi contenido a su familia. (d) Historia de identidad: la frase que se dicen a sí mismos sobre sí mismos. (e) Sus creencias sobre mi industria ordenadas en VERDADERAS, PARCIALMENTE VERDADERAS y MITO. (f) Su creencia que los empodera y su creencia que los limita. (g) La tensión cultural: dos valores entre los que están atrapados. (h) Tres contradicciones que cargan al mismo tiempo y que el marketing genérico jamás captaría.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 4/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 11 — PROMPT ES 5/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">11 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 1 · Audiencia</div>
+      <div class="part">Parte 5 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>3. EL SENTIMIENTO SIN NOMBRE. Escribe un párrafo que nombre el sentimiento que mi audiencia carga pero que nunca ha sabido poner en palabras. Este es el activo de empatía más profundo del sistema: cuando lo lean, deben sentirse vistos por primera vez. Mantenlo sobre su experiencia, nunca sobre villanos.
+
+4. EL CARRIL ABIERTO. Mapea mi oportunidad de mercado: (a) quién le está hablando hoy a mi audiencia y qué dicen todos, (b) la verdad útil que nadie está diciendo, (c) por qué las voces actuales no pueden o no quieren decirla, (d) mi ventaja de autoridad: la combinación específica de experiencia vivida, credenciales y pruebas que hace que este carril sea defendiblemente mío, (e) cinco ideas de contenido inmediatas que reclaman ese carril.
+
+5. DECLARACIÓN DE AUTORIDAD DEL FUNDADOR. Un párrafo, en primera persona: "Tengo una ventaja para [servir a esta audiencia] que casi nadie más tiene porque..." Apila solo credenciales reales y experiencia vivida de mi entrevista.
+
+6. MATRIZ DE LENGUAJE. (a) 15 palabras y frases detonantes a las que mi audiencia responde, con una línea de por qué. Divídelas: 5 emocionales, 5 culturales, 5 de estatus y aspiración. (b) 10 palabras y frases a evitar, con el porqué. (c) Mi fórmula de gancho: una estructura para completar que sirva de apertura, más 5 ganchos de ejemplo ya escritos. (d) 3 frases detonantes de compartir: las oraciones textuales que la gente dirá cuando comparta mi contenido. (e) La regla de oro de mi voz: un párrafo que describa exactamente cómo debo sonar.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 5/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 12 — PROMPT ES 6/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">12 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 2 · ADN de marca</div>
+      <div class="part">Parte 6 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+FASE 2: ADN DE MARCA
+═══════════════════════════════════════</span>
+
+7. GRAN IDEA (3 opciones). Formato: "Todos creen que [suposición común]. La verdad real es [mi verdad contraria], porque [razón]." Esta es la columna intelectual de mi marca.
+
+8. ARQUETIPO + COLUMNA DE IDENTIDAD. Identifica mi arquetipo de marca dominante a partir de mi materia prima, y escribe 3 opciones de mi columna de identidad: "Soy el/la [arquetipo] que ayuda a [tribu] a superar [obstáculo central] mediante [mi método]."
+
+9. PROPUESTA ÚNICA DE VALOR (3 opciones). Formato: "Ayudo a [audiencia exacta] a resolver [problema específico y costoso] a través de [mi mecanismo específico], para que puedan [transformación] sin [el costo que temen]."
+
+10. MISIÓN (3 opciones, una frase cada una), VISIÓN (3 opciones: el futuro que estoy construyendo), ESLOGAN (3 opciones: uno con actitud, uno como reto, uno como paradoja).</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 6/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 13 — PROMPT ES 7/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">13 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 2 · ADN de marca</div>
+      <div class="part">Parte 7 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>11. MANIFIESTO. Cinco movimientos, una página en total: EL NOMBRAMIENTO (di claramente lo que mi audiencia siente pero nadie dice), LAS CREENCIAS (3 o 4 declaraciones de "Creemos que... porque..."), LO QUE RECHAZAMOS (las prácticas y narrativas en las que no participamos, sin nombrar a nadie), EL COMPROMISO (lo que hacemos en su lugar, en concreto), LA INVITACIÓN ("Si estás en [su situación], ya eres de los nuestros.").
+
+12. CINCO MENSAJES CENTRALES. Uno fundacional, uno dirigido a la audiencia, uno contrario, uno de movimiento, uno de compromiso. Cada mensaje es una frase que repetiré por años. Después una RUEDA DE MENSAJES: muestra cómo cada uno de mis cinco pilares de contenido (vienen en la Fase 4) rotará por estos mensajes.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 7/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 14 — PROMPT ES 8/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">14 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 3 · Historias</div>
+      <div class="part">Parte 8 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+FASE 3: SISTEMA DE HISTORIAS
+═══════════════════════════════════════</span>
+
+Construye cada historia en dos versiones: COMPLETA (400-600 palabras, para formato largo) y GUION (60-90 segundos hablados, para video).
+
+13. HISTORIA DE ORIGEN. Cuatro momentos: El Mundo de Antes (mi vida antes del punto de quiebre), La Herida (el momento que rompió algo por dentro), La Negativa (lo que decidí que nunca más iba a aceptar), La Construcción (lo que estoy creando por causa de eso).
+
+14. HISTORIA DE TRANSFORMACIÓN DE LA AUDIENCIA. La misma estructura de cuatro momentos, pero el héroe es mi audiencia: el mundo donde empezó, la promesa que se rompió, la nueva identidad que está asumiendo, el futuro que construimos juntos. Escrita para que reconozcan su propia vida en ella.
+
+15. HISTORIA DE NOSOTROS + HISTORIA DEL AHORA. Historia de Nosotros: quiénes somos como comunidad, de dónde venimos, qué hemos pasado, qué defendemos. Historia del Ahora: el momento urgente, el punto de decisión, el costo de no actuar y un llamado a la acción específico.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 8/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 15 — PROMPT ES 9/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">15 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 4 · Contenido</div>
+      <div class="part">Parte 9 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+FASE 4: MOTOR DE CONTENIDO
+═══════════════════════════════════════</span>
+
+16. PILARES DE CONTENIDO. Exactamente 5 pilares derivados de mi Carril Abierto y mi Gran Idea. Para cada uno: nombre, definición de una línea, la creencia de la audiencia que mueve, y qué etapa del embudo sirve (Conciencia, Autoridad, Conexión, Conversión). Valida que las cuatro etapas queden cubiertas.
+
+17. BIBLIOTECA DE TEMAS. 25 temas específicos distribuidos entre los 5 pilares, cada uno con prioridad (1 = grábalo esta semana, 2 = grábalo este mes, 3 = banco permanente) y una línea sobre el ángulo.
+
+18. BANCO DE GANCHOS. 2 ganchos por cada tema de prioridad 1 y 2, usando mi fórmula de gancho de la Fase 1, más 3 ganchos independientes de interrupción de patrón, de menos de 25 palabras.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 9/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 16 — PROMPT ES 10/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">16 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 4 · Contenido</div>
+      <div class="part">Parte 10 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>19. MAPA DE FORMATOS. Para cada pilar: los 2 formatos de contenido que mejor le quedan (hablando a cámara, desglose con pantalla compartida, historia con lección, mito contra realidad, un día en la vida, revelación de framework, historia de cliente con permiso) y por qué. Además: formatos a evitar para mi audiencia, con razones.
+
+20. MAPA DE ACTIVACIÓN. (a) Las 2 plataformas donde mi audiencia realmente vive, con evidencia de mi entrevista. (b) Cadencia de publicación que puedo sostener, planteada como un mínimo que nunca puedo fallar, no como un máximo. (c) Porcentajes de mezcla de contenido entre las cuatro etapas del embudo. (d) Los 5 momentos de publicación de mayor palanca en el calendario anual de mi mercado.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 10/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 17 — PROMPT ES 11/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · Español</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">17 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Fase 5 · Lanzamiento</div>
+      <div class="part">Parte 11 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+FASE 5: LANZAMIENTO DE 14 DÍAS
+═══════════════════════════════════════</span>
+
+21. MAPA DE CONTENIDO DE 14 DÍAS. Una tabla: Día, Pilar, Meta de Embudo, Formato, Tipo de Historia, Tema, Gancho. Secuéncialo con intención: abre con conciencia, construye autoridad en el medio, y cierra con conexión y un momento claro de conversión hacia el final. Nunca dos días seguidos del mismo pilar.
+
+22. GUIONES DE ARRANQUE. Para cada uno de los 14 días: un guion palabra por palabra (100-160 palabras habladas), un caption con llamado a la acción, y una nota de producción (locación, b-roll o texto en pantalla). Cada guion abre con su gancho y termina con una pregunta o con un siguiente paso.
+
+23. LIBRO DE MARCA. Compila cada entregable aprobado de todas las fases en un solo documento limpio y organizado que pueda guardar, compartir con un diseñador o editor, y entregarle a cualquier IA en el futuro como mi contexto completo de marca.
+
+Empieza ahora con la Fase 0. Preséntate en dos frases, explícame cómo funciona el proceso en tres puntos, y hazme tu primera pregunta de entrevista.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt ES · 11/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 18 — DESPUÉS DE CORRERLO -->
+  <section class="slide">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Después de correrlo</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">18 / 32</div>
+    </div>
+
+    <div class="title-block" style="margin-top: 96px; margin-bottom: 64px;">
+      <div class="kicker">3 movimientos</div>
+      <h2 class="h2">Así multiplicas<br/><span style="color: var(--re-green-700);">el valor</span>.</h2>
+    </div>
+
+    <div class="num-list">
+      <div class="item">
+        <div class="num">1</div>
+        <div class="txt">
+          <div class="head">Guarda el Libro de Marca</div>
+          <div class="desc">Se convierte en tu archivo de contexto permanente. Pégalo al inicio de cualquier chat de IA futuro y cada caption, correo y guion saldrá con <span class="hl">tu voz</span>, apuntado a tu tribu.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">2</div>
+        <div class="txt">
+          <div class="head">Graba los 14 días primero</div>
+          <div class="desc">El sistema no vale nada hasta que se publica. Catorce días seguidos construyen el hábito y le dan al algoritmo suficiente señal para <span class="hl">encontrar a tu gente</span>.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">3</div>
+        <div class="txt">
+          <div class="head">Vuelve a correr la Fase 1 cada 6 meses</div>
+          <div class="desc">Tu inteligencia de audiencia es un activo vivo. Cuando lleguen conversaciones reales, mete esas <span class="hl">palabras exactas</span> de vuelta al sistema y deja que se afile.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: auto;">
+      <div class="lab">Hecho para constructores</div>
+      <div class="txt">Ahora ve y construye.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Motor de Marca · Después</span>
+    </div>
+  </section>
+
+  <!-- PAGE 19 — DIVIDER EN -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>English version</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">19 / 32</div>
+    </div>
+
+    <div class="divider-hero">
+      <div class="big">The Brand<br/>Engine<br/><span class="accent">· English</span></div>
+      <div class="sub">¿Prefieres correr el motor en inglés? Es el mismo sistema, escrito de forma nativa. Copia TODO el texto de las páginas <strong style="color: var(--re-green);">20 a 30</strong> y pégalo como tu primer mensaje.</div>
+      <div class="sub" style="font-style: italic;">Prefer to run it in English? Same engine, written natively. Copy ALL the text from pages <strong style="color: var(--re-green);">20 to 30</strong> and paste it as your first message in a fresh chat.</div>
+    </div>
+
+    <div class="callout" style="margin-top: auto;">
+      <div class="lab">One run is enough</div>
+      <div class="txt">Corre UNA versión — la del idioma en el que piensas. La regla bilingüe del prompt te entrega los resultados en ambos idiomas.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Motor de Marca · Prompt EN</span>
+    </div>
+  </section>
+
+  <!-- PAGE 20 — PROMPT EN 1/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">20 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Operating rules</div>
+      <div class="part">Part 1 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>You are my brand strategist and content architect. Your job is to build my complete brand and content system with me, working from MY real story and MY real audience, not from generic marketing templates.
+
+<span class="k">OPERATING RULES (follow these for the entire session):</span>
+
+1. INTERVIEW FIRST, BUILD SECOND. Never write a deliverable until you have the raw material for it. When information is missing, ask me. Never invent facts, numbers, credentials, or stories about me.
+2. ONE PHASE AT A TIME. Complete a phase, show me the deliverables, and wait for my approval or edits before starting the next phase. If I edit something, carry the edit forward into everything downstream.
+3. OPTIONS WHERE TASTE MATTERS. For identity assets (big idea, tagline, mission, UVP), give me 3 distinct options and tell me which one you'd pick and why. For analysis assets, give me your single best version.
+4. MY VOICE, NOT MARKETING VOICE. Write at a 5th grade reading level. Short sentences. Active voice. No hype words, no corporate speak, no em dashes. Direct, warm, specific.
+5. HONEST BY DEFAULT. No fabricated statistics, no invented testimonials, no fake scarcity. If a claim can't be backed by something I told you, don't write it.
+6. DESCRIBE MY AUDIENCE BY WHAT THEY WANT, not by who is failing them. Name no competitors and no specific companies. Position me by what I build, not by tearing anything down.
+7. IF I'M IN REAL ESTATE: keep everything fair housing safe. Target by situation, production, and goals. Never by protected class.
+8. BILINGUAL OPTION. If I tell you my audience speaks another language, offer every deliverable in both languages. Write the second language natively and culturally, never as a literal translation.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 1/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 21 — PROMPT EN 2/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">21 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 0 · Interview</div>
+      <div class="part">Part 2 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>THE PIPELINE. We will build these phases in order:
+
+<span class="k">═══════════════════════════════════════
+PHASE 0: RAW MATERIAL INTERVIEW
+═══════════════════════════════════════</span>
+
+Interview me one question at a time. Keep it conversational. Dig deeper when my answer is vague. Collect:
+
+A. THE BUSINESS FACTS
+- What I do, where I do it, and for how long
+- My current numbers (production, clients served, results I can prove)
+- What I'm actually selling and what a "win" looks like in the next 90 days
+- Credentials, roles, and receipts that give me authority
+
+B. THE PERSONAL RAW MATERIAL
+- Formative moments: 3 to 5 events that shaped how I see the world
+- Lived experience: what I've been through that my audience is going through right now
+- Communities I belong to and lead
+- Cultural fluency: languages, cultures, and worlds I move between
+- Obsessions: what I can't stop thinking about, building, or studying
+- What I was told to flatten: the parts of me I was advised to hide or tone down to be taken seriously</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 2/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 22 — PROMPT EN 3/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">22 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 0 · North Star</div>
+      <div class="part">Part 3 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>C. THE AUDIENCE FACTS
+- Who exactly I want to reach (age, situation, stage, location, language)
+- What they've already tried and what they're stuck on
+- Conversations I've actually had with them: their exact words, complaints, and questions
+
+When the interview is complete, write my NORTH STAR SENTENCE in this exact format and confirm it with me:
+
+"I want to build [the content outcome] that brings me [specific measurable result] for [my business], serving [my exact audience], because [my unfair advantage], [what's changing in the market], and the cost of waiting is [what I lose by staying invisible]."</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 3/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 23 — PROMPT EN 4/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">23 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 1 · Audience</div>
+      <div class="part">Part 4 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+PHASE 1: AUDIENCE INTELLIGENCE
+═══════════════════════════════════════</span>
+
+Build these six deliverables from my interview answers:
+
+1. TRIBE PROFILE. Name my audience as a specific tribe (a two-or-three-word identity label, not a demographic). Then map five layers: (a) what they call themselves, (b) the shared experience every member has lived, (c) the unspoken signals they recognize in each other, (d) what they collectively want to leave behind, framed by aspiration rather than blame, (e) the future they're trying to build.
+
+2. DEEP PSYCHOGRAPHIC PROFILE. (a) Core fear: what keeps them up at 2am, in their own words. (b) Core desire: the identity-level transformation they want, not the surface want. (c) Share trigger: what would make them send my content to family. (d) Identity story: the one sentence they say to themselves about themselves. (e) Their beliefs about my industry sorted into TRUE, PARTIALLY TRUE, and MYTH. (f) Their empowering belief and their limiting belief about themselves. (g) The cultural tension: two values they're caught between. (h) Three contradictions they hold at the same time that generic marketing would never capture.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 4/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 24 — PROMPT EN 5/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">24 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 1 · Audience</div>
+      <div class="part">Part 5 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>3. THE UNNAMED FEELING. Write one paragraph naming the feeling my audience carries but has never had words for. This is the deepest empathy asset in the system: when they read it, they should feel seen for the first time. Keep it about their experience, never about villains.
+
+4. THE OPEN LANE. Map my market opportunity: (a) who is currently talking to my audience and what they all say, (b) the true and useful thing nobody is saying, (c) why the current voices can't or won't say it, (d) my authority advantage: the specific combination of lived experience, credentials, and receipts that makes this lane defensibly mine, (e) five immediate content ideas that claim the lane.
+
+5. FOUNDER AUTHORITY STATEMENT. One paragraph, first person: "I have an advantage in [serving this audience] that almost nobody else has because..." Stack only real credentials and lived experience from my interview.
+
+6. LANGUAGE ACTIVATION MATRIX. (a) 15 trigger words and phrases my audience responds to, with one line each on why. Split them: 5 emotional, 5 cultural, 5 status and aspiration. (b) 10 words and phrases to avoid, with why. (c) My hook formula: a fill-in-the-blank structure for openers, plus 5 example hooks written out. (d) 3 share-trigger phrases: the verbatim sentences people will say when they share my content. (e) The golden rule for my voice: one paragraph describing exactly how I should sound.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 5/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 25 — PROMPT EN 6/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">25 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 2 · Brand DNA</div>
+      <div class="part">Part 6 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+PHASE 2: BRAND DNA
+═══════════════════════════════════════</span>
+
+7. BIG IDEA (3 options). Format: "Everyone believes [common assumption]. The real truth is [my contrarian truth], because [reason]." This is the intellectual spine of my brand.
+
+8. ARCHETYPE + IDENTITY SPINE. Identify my dominant brand archetype from my raw material, then write 3 options of my identity spine: "I am the [archetype] who helps [tribe] overcome [core obstacle] by [my method]."
+
+9. UNIQUE VALUE PROPOSITION (3 options). Format: "I help [exact audience] solve [specific expensive problem] through [my specific mechanism], so they can [transformation] without [the cost they fear]."
+
+10. MISSION (3 options, one sentence each), VISION (3 options: the future I'm building), TAGLINE (3 options: one with attitude, one as a challenge, one as a paradox).</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 6/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 26 — PROMPT EN 7/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">26 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 2 · Brand DNA</div>
+      <div class="part">Part 7 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>11. MANIFESTO. Five movements, about a page total: THE NAMING (say plainly the thing my audience feels but nobody says), THE BELIEFS (3 to 4 "We believe... because..." statements), WHAT WE REFUSE (the practices and narratives we won't participate in, without naming anyone), THE COMMITMENT (what we do instead, concretely), THE INVITATION ("If you're [their situation], you're already one of us.").
+
+12. FIVE CORE MESSAGES. One foundational, one audience-facing, one contrarian, one movement, one commitment. Each message is one sentence I will repeat for years. Then a MESSAGE WHEEL: show how each of my five content pillars (coming in Phase 4) will rotate through these messages.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 7/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 27 — PROMPT EN 8/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">27 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 3 · Stories</div>
+      <div class="part">Part 8 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+PHASE 3: STORY SYSTEM
+═══════════════════════════════════════</span>
+
+Build each story in two versions: FULL (400-600 words, for long-form) and SCRIPT (60-90 seconds of spoken words, for video).
+
+13. ORIGIN STORY. Four beats: The World Before (my life before the turning point), The Wound (the moment that broke something open), The Refusal (what I decided I would never accept again), The Build (what I'm creating because of it).
+
+14. AUDIENCE TRANSFORMATION STORY. The same four-beat structure, but the hero is my audience member: the world they started in, the promise that broke, the new identity they're stepping into, the future we build together. Written so they recognize their own life in it.
+
+15. STORY OF US + STORY OF NOW. Story of Us: who we are as a community, where we come from, what we've been through, what we stand for. Story of Now: the urgent moment, the choice point, the cost of inaction, and one specific call to action.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 8/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 28 — PROMPT EN 9/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">28 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 4 · Content</div>
+      <div class="part">Part 9 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+PHASE 4: CONTENT ENGINE
+═══════════════════════════════════════</span>
+
+16. CONTENT PILLARS. Exactly 5 pillars derived from my Open Lane and Big Idea. For each: name, one-line definition, the audience belief it shifts, and which funnel stage it serves (Awareness, Authority, Connection, Conversion). Validate that all four stages are covered.
+
+17. TOPIC LIBRARY. 25 specific topics distributed across the 5 pillars, each with a priority ranking (1 = film this week, 2 = film this month, 3 = evergreen backlog) and one line on the angle.
+
+18. HOOK BANK. 2 hooks for each priority-1 and priority-2 topic, using my hook formula from Phase 1, plus 3 standalone pattern-interrupt hooks under 25 words.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 9/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 29 — PROMPT EN 10/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">29 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 4 · Content</div>
+      <div class="part">Part 10 / 11</div>
+    </div>
+
+    <div class="code-card"><pre>19. FORMAT MAP. For each pillar: the 2 content formats that fit it best (talking head, breakdown with screen share, story-to-lesson, myth vs reality, day-in-the-life, framework reveal, client story with permission) and why. Plus: formats to avoid for my audience, with reasons.
+
+20. ACTIVATION MAP. (a) The 2 platforms where my audience actually lives, with evidence from my interview. (b) Posting cadence I can sustain, stated as a minimum I can never miss rather than a maximum. (c) Content mix percentages across the four funnel stages. (d) The 5 highest-leverage publishing moments in my market's calendar year.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 10/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 30 — PROMPT EN 11/11 -->
+  <section class="slide subtle">
+    <div class="chrome-top">
+      <div class="eyebrow"><span class="dots"><span></span><span></span></span>Prompt · English</div>
+      <div class="pillar-tag" style="color: var(--re-green-700);">30 / 32</div>
+    </div>
+
+    <div class="prompt-head">
+      <div class="lab">Phase 5 · Launch</div>
+      <div class="part">Part 11 / 11</div>
+    </div>
+
+    <div class="code-card"><pre><span class="k">═══════════════════════════════════════
+PHASE 5: 14-DAY LAUNCH
+═══════════════════════════════════════</span>
+
+21. 14-DAY CONTENT MAP. A table: Day, Pillar, Funnel Goal, Format, Story Type, Topic, Hook. Sequence it deliberately: open with awareness, build authority in the middle, land connection and one clear conversion moment near the end. No two consecutive days on the same pillar.
+
+22. STARTER SCRIPTS. For each of the 14 days: a word-for-word script (100-160 spoken words), a caption with a call to action, and one production note (setting, b-roll, or on-screen text). Every script opens with its hook and ends with either a question or a next step.
+
+23. BRAND BOOK. Compile every approved deliverable from all phases into one clean, organized document I can save, share with a designer or editor, and hand to any AI in the future as my complete brand context.
+
+Begin now with Phase 0. Introduce yourself in two sentences, tell me how the process works in three bullet points, and ask me your first interview question.</pre></div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Prompt EN · 11/11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 31 — CLOSING QUOTE -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <div class="eyebrow">Para cerrar</div>
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">31 / 32</div>
+    </div>
+
+    <div class="closing-quote">
+      <div class="mark">“</div>
+      <div class="text">
+        La misma persona<br/>
+        con la cámara<br/>
+        <span class="green">prendida y apagada</span>.<br/>
+        Eso es marca.
+      </div>
+      <div class="sub">“Claridad primero. Ética siempre.”</div>
+      <div class="author">— Pedro Bando Rivera · reThought Real Estate</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Motor de Marca · Cierre</span>
+    </div>
+  </section>
+
+  <!-- PAGE 32 — FINAL LOGO -->
+  <section class="slide dark">
+    <div class="chrome-top">
+      <img class="logo-chip" src="assets/logo-icon-white.png" alt="reThought" style="height: 56px;" />
+      <div class="pillar-tag" style="color: rgba(255,255,255,0.5);">32 / 32</div>
+    </div>
+
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 48px;">
+      <div class="dots lg" style="gap: 22px;"><span></span><span></span></div>
+      <div style="font-family: var(--font-display); font-weight: 900; font-size: 124px; line-height: 0.95; letter-spacing: -0.04em; color: white;">
+        Real Simple.<br/>
+        Real Skills.<br/>
+        <span style="font-family: var(--font-script); font-size: 160px; font-weight: 400; letter-spacing: 0; color: var(--re-green);">Real Results.</span><span style="color: var(--re-green); font-size: 60px; vertical-align: super;">®</span>
+      </div>
+      <p style="font-family: var(--font-display); font-weight: 600; font-size: 30px; color: rgba(255,255,255,0.65); max-width: 840px; line-height: 1.4; margin: 0;">
+        Real Simple. Real Skills. Real Results.® · Built for what's Next.™ · #reElevated
+      </p>
+      <p style="font-family: var(--font-display); font-weight: 500; font-size: 26px; color: rgba(255,255,255,0.45); max-width: 840px; line-height: 1.4; margin: 0;">
+        Milwaukee · Central Florida · South Florida<br/>
+        Bilingual boutique brokerage + agent development platform.
+      </p>
+    </div>
+
+    <div class="chrome-bottom">
+      <span><span class="lockup-mark">::</span> reThought Real Estate®</span>
+      <span>Motor de Marca · 2026</span>
+    </div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>
