@@ -53,7 +53,7 @@ lead-magnets/
 Every page uses `class="page"` with these variants:
 - `.page` — White background
 - `.page.dark` — Navy background (`--re-navy`)
-- `.page.green` — Green background (`--re-green`)
+- `.page.green` — Green background (`--re-green`) — **ALL text must be white** (see rule below)
 - `.page.subtle` — Light gray background (`--re-gray-50`)
 
 ### 2. Required HTML structure
@@ -100,6 +100,17 @@ Every page uses `class="page"` with these variants:
 
 Use standalone numbering: `01 / {total}` through `{total} / {total}`. Each lead magnet is independent — no reference to the Master Playbook numbering.
 
+### 5. Footer stacking rule — NO absolute positioning in slide footers
+
+All footer elements (pro-tip cards, progress dots, step counters) must be **in the document flow**, never absolutely positioned. Absolute positioning causes overlaps and collisions when content length varies.
+
+**Correct pattern:** Wrap footer elements in a `.step-footer` container with `margin-top: auto` and `display: flex; flex-direction: column; gap: 24px`. The stack order is:
+1. Pro-tip card (`.pro-tip`)
+2. Progress row (`.progress-row`) — dots left, step label right, using `justify-content: space-between`
+3. Chrome footer (`.chrome-bottom`) — remains absolutely positioned at the very bottom (this is the only element that should be absolute)
+
+**Never** use `position: absolute; bottom: Npx` for pro-tip cards, progress dots, or step counters. They must flow naturally above the chrome footer.
+
 ## Component Library
 
 All components are defined in the inline `<style>` block. Reference the existing lead magnets for exact CSS. Key components:
@@ -124,7 +135,7 @@ All components are defined in the inline `<style>` block. Reference the existing
 ## Card Variants
 
 - `.c` — Default (gray-50 background)
-- `.c.green` — Green background, navy text
+- `.c.green` — Green background, **white text**
 - `.c.navy` — Navy background, white text
 - Custom: use inline `style="background: var(--re-blue); color: white;"`
 
@@ -151,3 +162,5 @@ Before delivering any lead magnet:
 - [ ] CTA has correct agent contact information
 - [ ] All asset paths are relative (`assets/filename.ext`)
 - [ ] `tokens.css` is linked, not inlined
+- [ ] **All text on green backgrounds is white** — headings, body, labels, chrome, badges. Never navy or blue on green.
+- [ ] **No distorted images** — all images use `object-fit: cover/contain`, never stretched. Use dark/light asset variants for different backgrounds instead of CSS `filter: invert()`.
