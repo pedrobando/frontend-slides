@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You're the CEO | Business Management</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="You're the CEO">
+<meta name="presentation-series" content="Business Management">
+<meta name="presentation-session" content="1">
+<meta name="presentation-date" content="2026-09-29">
+<meta name="presentation-slides" content="20">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   VIEWPORT BASE
+   =========================================== */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+    width: 100vw; height: 100vh; height: 100dvh;
+    overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    max-height: 100%; overflow: hidden; padding: var(--slide-padding);
+}
+:root {
+    --title-size: clamp(2rem, 5.5vw, 4.5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.3rem, 3.2vw, 2.4rem);
+    --body-size: clamp(1rem, 2.2vw, 1.6rem);
+    --small-size: clamp(0.8rem, 1.4vw, 1.15rem);
+    --slide-padding: clamp(1.5rem, 5vw, 5rem);
+    --content-gap: clamp(0.8rem, 3vw, 3rem);
+    --element-gap: clamp(0.4rem, 1.5vw, 1.5rem);
+}
+@media (max-height: 700px) {
+    :root { --slide-padding: clamp(1rem, 3vw, 2.5rem); --title-size: clamp(1.5rem, 4.5vw, 3rem); --h2-size: clamp(1.2rem, 3.5vw, 2.2rem); }
+}
+@media (max-height: 600px) {
+    :root { --slide-padding: clamp(0.75rem, 2.5vw, 1.5rem); --title-size: clamp(1.2rem, 4vw, 2.5rem); --body-size: clamp(0.8rem, 1.4vw, 1.1rem); }
+    .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root { --slide-padding: clamp(0.5rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.5rem, 8vw, 3rem); } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   RETHOUGHT TOKENS
+   =========================================== */
+:root {
+    --ink: #1B252F;
+    --ink-soft: #222E3A;
+    --ink-deep: #151D26;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --brand-light: #6ba8d6;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --amber: #e0a63a;
+    --amber-soft: #f5d08a;
+    --muted: #6e7a88;
+    --muted-2: #95a0ae;
+    --border-d: #ffffff18;
+    --border-l: #1B252F14;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--sprout); color: var(--ink); }
+
+/* ===========================================
+   GLOBAL COMPONENTS
+   =========================================== */
+.slide { background: var(--ink); padding: var(--slide-padding); }
+.slide.light { background: var(--paper); color: var(--ink); }
+.slide.light .section-label { color: var(--brand); }
+.slide.light .section-label::before { background: var(--brand); }
+.slide.light .slide-body { color: var(--muted); }
+.slide.light .slide-number { color: var(--muted); }
+
+.section-label {
+    font-family: var(--font-mono); font-size: clamp(0.75rem, 1.15vw, 0.95rem);
+    letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
+}
+.section-label::before { content: ""; width: clamp(14px, 2.5vw, 24px); height: 2px; background: var(--sprout); }
+
+.slide-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--h2-size); letter-spacing: -0.025em; line-height: 1.1;
+    margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+}
+.slide-body {
+    font-family: var(--font-sans); font-size: var(--body-size);
+    line-height: 1.6; color: var(--muted-2); max-width: 60ch;
+}
+
+.stroke { position: relative; display: inline-block; padding: 0 3px; }
+.stroke svg.ul {
+    position: absolute; left: -4px; right: -4px; bottom: clamp(-6px, -0.8vh, -10px);
+    width: calc(100% + 8px); height: clamp(10px, 1.5vw, 16px); pointer-events: none;
+}
+.stroke svg.ul path { fill: none; stroke-width: 3; stroke-linecap: round; }
+.stroke--sprout svg.ul path { stroke: var(--sprout); }
+.stroke--clay svg.ul path { stroke: var(--clay); }
+.stroke--brand svg.ul path { stroke: var(--brand-deep); }
+.stroke--amber svg.ul path { stroke: var(--amber); }
+
+.badge {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(8px, 1.2vw, 14px);
+    border-radius: 999px; text-transform: uppercase; display: inline-block;
+}
+.badge-sprout { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-brand { background: #034c7630; color: var(--brand-light); border: 1px solid #034c7650; }
+.badge-clay { background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550; }
+.badge-amber { background: #e0a63a30; color: var(--amber-soft); border: 1px solid #e0a63a50; }
+
+.callout-line { display: inline-block; background: var(--ink-soft); border-left: 3px solid var(--sprout); padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.8rem, 1.3vw, 1.2rem); border-radius: 0 8px 8px 0; font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.4; }
+
+.slide-footer {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.slide-number {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); right: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1px;
+}
+.slide-footer-logo { position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding); display: flex; flex-direction: column; align-items: flex-start; gap: clamp(3px, 0.5vh, 6px); }
+.slide-footer-logo .footer-text { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; }
+.relearn-logo { height: clamp(1.2rem, 2.5vw, 2rem); width: auto; opacity: 0.7; transition: opacity 0.3s ease; margin-top: -8px; }
+.relearn-logo:hover { opacity: 1; }
+
+.progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--sprout); z-index: 9999; transition: width 0.3s ease; }
+.nav-dots {
+    position: fixed; right: clamp(12px, 2vw, 24px); top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 6px; z-index: 9998;
+}
+.nav-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.3;
+    cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
+}
+.nav-dot.active { background: var(--sprout); opacity: 1; transform: scale(1.4); }
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(1) { transition-delay: 0.05s; }
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.25s; }
+.reveal:nth-child(4) { transition-delay: 0.35s; }
+.reveal:nth-child(5) { transition-delay: 0.45s; }
+
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.visible .stagger > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.visible .stagger > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.22s; }
+.visible .stagger > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.34s; }
+.visible .stagger > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.46s; }
+.visible .stagger > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.58s; }
+.visible .stagger > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+.visible .stagger > *:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 0.82s; }
+.visible .stagger > *:nth-child(8) { opacity: 1; transform: translateY(0); transition-delay: 0.94s; }
+.visible .stagger > *:nth-child(9) { opacity: 1; transform: translateY(0); transition-delay: 1.06s; }
+
+.reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.6s, transform 0.6s var(--ease-spring); }
+.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+.float { animation: float-gentle 4s ease-in-out infinite; }
+@keyframes float-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes stroke-draw { from { stroke-dashoffset: 200; } to { stroke-dashoffset: 0; } }
+.stroke-animate svg.ul path { stroke-dasharray: 200; stroke-dashoffset: 200; }
+.visible .stroke-animate svg.ul path { animation: stroke-draw 1.2s var(--ease-out-expo) forwards; }
+
+.gradient-bg { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 30%, var(--ink) 70%, var(--ink-soft) 100%); background-size: 300% 300%; animation: gradient-flow 8s ease infinite; }
+
+/* Pulse used on statute pills + duty highlights */
+@keyframes pulse-soft { 0%, 100% { box-shadow: 0 0 0 0 #8cc94e30; } 50% { box-shadow: 0 0 0 8px #8cc94e00; } }
+.pulse { animation: pulse-soft 2.4s ease-in-out infinite; }
+
+/* Connector lines that draw themselves (broker supervision diagram) */
+@keyframes line-draw { from { stroke-dashoffset: 120; } to { stroke-dashoffset: 0; } }
+.draw-line { stroke-dasharray: 120; stroke-dashoffset: 120; }
+.visible .draw-line { animation: line-draw 1s var(--ease-out-expo) forwards; }
+.visible .draw-line.d2 { animation-delay: 0.25s; }
+.visible .draw-line.d3 { animation-delay: 0.5s; }
+.visible .draw-line.d4 { animation-delay: 0.75s; }
+
+/* ===========================================
+   AI PROMPT CARD (slide 24)
+   =========================================== */
+.ai-card {
+    background: var(--ink-deep); border: 2px solid var(--sprout); border-radius: 14px;
+    max-width: 58rem; width: 100%; margin: 0 auto; overflow: hidden;
+}
+.ai-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: clamp(8px, 1.2vh, 12px) clamp(12px, 1.8vw, 20px); border-bottom: 1px solid #8cc94e30; }
+.ai-card-lbl { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.82vw, 0.7rem); letter-spacing: 1.8px; text-transform: uppercase; color: var(--sprout); }
+.ai-card-body { padding: clamp(10px, 1.6vw, 18px) clamp(12px, 1.8vw, 20px); font-family: var(--font-mono); font-size: clamp(0.8rem, 1.15vw, 0.95rem); color: var(--paper); line-height: 1.55; }
+
+/* ===========================================
+   PUNCHLINE (slide 5)
+   =========================================== */
+@keyframes punchline-bg {
+  0%   { background-position: 0% 50%; }
+  25%  { background-position: 100% 50%; }
+  50%  { background-position: 50% 100%; }
+  75%  { background-position: 0% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.punchline-bg {
+    background: linear-gradient(135deg, var(--ink-deep) 0%, var(--brand-deep) 20%, var(--ink) 40%, #1a3a25 60%, var(--ink-deep) 80%, var(--brand) 100%);
+    background-size: 400% 400%; animation: punchline-bg 12s ease infinite;
+}
+.punchline-glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: clamp(400px, 60vw, 800px); height: clamp(400px, 60vw, 800px);
+    background: radial-gradient(circle, #8cc94e15 0%, transparent 60%);
+    pointer-events: none; animation: gradient-flow 8s ease infinite;
+}
+.punchline-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.punchline-particles span { position: absolute; bottom: 0; background: var(--sprout); border-radius: 50%; animation: particle-rise linear infinite; }
+@keyframes particle-rise {
+    0%   { transform: translateY(20px); opacity: 0; }
+    50%  { opacity: 0.6; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* ===========================================
+   DEPARTMENT COLORS + LAYOUT HELPERS
+   =========================================== */
+:root {
+    --d-bd: var(--sprout);      --d-bd-soft: #8cc94e1f;
+    --d-mk: var(--amber);       --d-mk-soft: #e0a63a1f;
+    --d-sa: var(--brand-light); --d-sa-soft: #6ba8d61f;
+    --d-ad: var(--clay);        --d-ad-soft: #c054451f;
+}
+/* Content slides spread across the full height, with side air only when there is spare height */
+.airy {
+    justify-content: space-between !important;
+    padding-block: calc(max(0px, 100vh - 760px) * 0.28);
+}
+@keyframes grow-y { to { transform: scaleY(1); } }
+@keyframes grow-x { to { transform: scaleX(1); } }
+@keyframes stem-grow { to { transform: translateX(-50%) scaleY(1); } }
+.echo-es { font-family: var(--font-sans); font-style: italic; color: var(--muted-2); font-size: clamp(0.8rem, 1.3vw, 1.05rem); line-height: 1.4; }
+.tool-chip {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.7rem); letter-spacing: 0.6px;
+    color: var(--paper); background: var(--ink-deep); border: 1px solid var(--border-d);
+    border-radius: 8px; padding: 4px 9px; white-space: nowrap;
+}
+
+/* ===========================================
+   ORG CHART — every box says You (slide 6)
+   =========================================== */
+.org { --org-gap: clamp(0.5rem, 1.2vw, 1rem); --org-drop: clamp(14px, 2.4vh, 28px); display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 66rem; margin: 0 auto; }
+.org-ceo {
+    display: flex; align-items: center; gap: clamp(0.6rem, 1.2vw, 1rem);
+    background: linear-gradient(135deg, #8cc94e22, var(--ink-soft)); border: 2px solid var(--sprout);
+    border-radius: 16px; padding: clamp(0.5rem, 1vw, 0.85rem) clamp(1rem, 2vw, 1.7rem);
+    box-shadow: 0 0 28px #8cc94e30;
+}
+.org-ceo-badge { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.9vw, 0.75rem); letter-spacing: 2px; text-transform: uppercase; color: var(--sprout); }
+.org-ceo-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.6vw, 2.1rem); letter-spacing: -0.02em; color: var(--paper); line-height: 1; }
+.org-tree { position: relative; width: 100%; height: var(--org-drop); }
+.org-stem { position: absolute; left: 50%; top: 0; width: 2px; height: 100%; background: var(--muted); transform: translateX(-50%) scaleY(0); transform-origin: top; }
+.org-bar { position: absolute; left: calc(12.5% - var(--org-gap) * 0.375); right: calc(12.5% - var(--org-gap) * 0.375); bottom: 0; height: 2px; background: var(--muted); transform: scaleX(0); transform-origin: center; }
+.visible .org-stem { animation: stem-grow 0.35s var(--ease-out-expo) 0.25s forwards; }
+.visible .org-bar { animation: grow-x 0.6s var(--ease-out-expo) 0.5s forwards; }
+.org-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--org-gap); width: 100%; padding-top: var(--org-drop); }
+.org-dept {
+    position: relative; background: var(--ink-soft); border: 1px solid var(--border-d); border-top: 4px solid var(--dc);
+    border-radius: 14px; padding: clamp(0.65rem, 1.3vw, 1.1rem);
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(0.3rem, 0.7vh, 0.55rem);
+}
+.org-dept::before { content: ""; position: absolute; left: 50%; top: calc(-1 * var(--org-drop) - 4px); width: 2px; height: var(--org-drop); background: var(--muted); transform: translateX(-50%); }
+.org-dept-tag { font-family: var(--font-mono); font-size: clamp(0.52rem, 0.78vw, 0.66rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--dc); }
+.org-dept-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.4vw, 1.15rem); color: var(--paper); line-height: 1.15; }
+.org-dept-job { font-family: var(--font-sans); font-size: clamp(0.68rem, 1vw, 0.86rem); color: var(--muted-2); line-height: 1.35; }
+.org-head { margin-top: auto; font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2); display: flex; align-items: center; gap: 6px; }
+.you-pill { font-family: var(--font-display); font-weight: 700; letter-spacing: 0; text-transform: none; font-size: clamp(0.72rem, 1.05vw, 0.9rem); color: var(--ink); background: var(--dc); border-radius: 999px; padding: 2px 11px; display: inline-block; }
+@keyframes you-pop { 0% { transform: scale(0.3); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.visible .you-pill { animation: you-pop 0.5s var(--ease-spring) both; }
+.org-dept:nth-child(1) .you-pill { animation-delay: 1.0s; }
+.org-dept:nth-child(2) .you-pill { animation-delay: 1.3s; }
+.org-dept:nth-child(3) .you-pill { animation-delay: 1.6s; }
+.org-dept:nth-child(4) .you-pill { animation-delay: 1.9s; }
+@media (max-width: 820px) {
+    .org-row { grid-template-columns: repeat(2, 1fr); padding-top: var(--org-gap); }
+    .org-tree, .org-dept::before { display: none; }
+}
+
+/* ===========================================
+   ENGINE LOOP — how the departments connect (slide 7)
+   =========================================== */
+.engine { width: 100%; max-width: 76rem; margin: 0 auto; }
+.engine-row { display: grid; grid-template-columns: 1.15fr auto 1fr auto 1fr auto 1fr; align-items: center; gap: clamp(0.3rem, 0.7vw, 0.6rem); }
+.eng-stack { display: flex; flex-direction: column; gap: clamp(0.4rem, 0.9vh, 0.7rem); }
+.eng-node {
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-left: 4px solid var(--dc);
+    border-radius: 12px; padding: clamp(0.55rem, 1.1vw, 0.9rem) clamp(0.7rem, 1.3vw, 1.05rem);
+    display: flex; flex-direction: column; gap: clamp(2px, 0.5vh, 5px);
+}
+.eng-node.out { --dc: var(--sprout); border: 1.5px solid #8cc94e55; border-left: 4px solid var(--sprout); background: linear-gradient(160deg, #8cc94e18, var(--ink-soft)); box-shadow: 0 0 22px #8cc94e22; }
+.eng-tag { font-family: var(--font-mono); font-size: clamp(0.52rem, 0.78vw, 0.66rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--dc); }
+.eng-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.85rem, 1.35vw, 1.12rem); color: var(--paper); line-height: 1.15; }
+.eng-desc { font-family: var(--font-sans); font-size: clamp(0.64rem, 0.95vw, 0.82rem); color: var(--muted-2); line-height: 1.35; }
+.eng-arrow { display: flex; flex-direction: column; align-items: center; gap: 6px; width: clamp(58px, 6.5vw, 96px); }
+.eng-arrow-lbl { font-family: var(--font-mono); font-size: clamp(0.48rem, 0.7vw, 0.6rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); white-space: nowrap; }
+.eng-arrow-line { position: relative; width: 100%; height: 2px; background: #ffffff2a; }
+.eng-arrow-line::after { content: ""; position: absolute; right: -3px; top: 50%; transform: translateY(-50%); border-left: 8px solid #ffffff66; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.eng-arrow-line i { position: absolute; top: 50%; left: 0; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: var(--sprout); box-shadow: 0 0 8px var(--sprout); opacity: 0; }
+@keyframes eng-dot { 0% { left: 0; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: calc(100% - 8px); opacity: 0; } }
+.visible .eng-arrow-line i { animation: eng-dot 2.2s linear infinite; animation-delay: var(--d, 0s); }
+.eng-loop {
+    position: relative; margin: 0 9% 0 10%; height: clamp(24px, 4.2vh, 42px);
+    border: 2px dashed #8cc94e70; border-top: none; border-radius: 0 0 18px 18px;
+}
+.eng-loop::before { content: ""; position: absolute; left: -7px; top: -2px; border-bottom: 9px solid var(--sprout); border-left: 6px solid transparent; border-right: 6px solid transparent; }
+.eng-loop-lbl {
+    position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%);
+    background: var(--ink); padding: 2px 12px; white-space: nowrap;
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.75vw, 0.64rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout);
+}
+@media (max-width: 900px) {
+    .engine-row { grid-template-columns: 1fr; }
+    .eng-arrow { width: 100%; flex-direction: row; justify-content: center; }
+    .eng-arrow-line { width: 2px; height: 18px; }
+    .eng-arrow-line::after, .eng-arrow-line i { display: none; }
+    .eng-loop { display: none; }
+}
+
+/* ===========================================
+   DEPARTMENT SLIDES (8-11)
+   =========================================== */
+.dept-track { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: clamp(0.45rem, 1.1vh, 0.85rem); }
+.dept-track span { font-family: var(--font-mono); font-size: clamp(0.52rem, 0.78vw, 0.66rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border-d); border-radius: 999px; padding: 3px 10px; }
+.dept-track span.on { color: var(--ink); background: var(--dc); border-color: var(--dc); font-weight: 600; }
+.dept-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(0.8rem, 2vw, 1.8rem); align-items: stretch; width: 100%; }
+@media (max-width: 900px) { .dept-grid { grid-template-columns: 1fr; } }
+.dept-list { display: flex; flex-direction: column; gap: clamp(0.3rem, 0.7vh, 0.55rem); justify-content: center; }
+.dept-item {
+    display: grid; grid-template-columns: clamp(26px, 2.6vw, 36px) 1fr; gap: clamp(0.5rem, 1vw, 0.8rem); align-items: start;
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 10px;
+    padding: clamp(0.45rem, 0.9vw, 0.72rem) clamp(0.6rem, 1.1vw, 0.9rem);
+}
+.dept-num { font-family: var(--font-mono); font-weight: 700; font-size: clamp(0.62rem, 0.95vw, 0.8rem); color: var(--dc); padding-top: 2px; }
+.dept-what { font-family: var(--font-sans); font-weight: 700; font-size: clamp(0.76rem, 1.15vw, 0.98rem); color: var(--paper); line-height: 1.25; }
+.dept-how { font-family: var(--font-sans); font-size: clamp(0.64rem, 0.95vw, 0.82rem); color: var(--muted-2); line-height: 1.32; margin-top: 2px; }
+.dept-side { display: flex; flex-direction: column; gap: clamp(0.45rem, 1vh, 0.8rem); justify-content: center; }
+.kpi-card {
+    background: linear-gradient(160deg, var(--dc-soft), var(--ink-soft)); border: 1.5px solid var(--dc); border-radius: 16px;
+    padding: clamp(0.7rem, 1.4vw, 1.15rem); display: flex; flex-direction: column; gap: clamp(0.3rem, 0.7vh, 0.55rem);
+}
+.kpi-lbl { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--dc); }
+.kpi-val { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.05rem, 2vw, 1.65rem); letter-spacing: -0.02em; color: var(--paper); line-height: 1.1; }
+.kpi-desc { font-family: var(--font-sans); font-size: clamp(0.66rem, 0.98vw, 0.84rem); color: var(--muted-2); line-height: 1.35; }
+.kpi-ex { font-family: var(--font-mono); font-size: clamp(0.48rem, 0.68vw, 0.58rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+.side-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.runs-on { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.runs-lbl, .head-you { font-family: var(--font-mono); font-size: clamp(0.52rem, 0.76vw, 0.64rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2); }
+.head-you { display: flex; align-items: center; gap: 6px; }
+
+/* Mini visual — BD week bars */
+.mini-bars { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(4px, 0.6vw, 8px); height: clamp(58px, 9.5vh, 100px); }
+.mini-bar { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 3px; height: 100%; }
+.mini-bar b { display: block; width: 100%; height: var(--h); background: var(--dc); border-radius: 5px 5px 2px 2px; transform: scaleY(0); transform-origin: bottom; }
+.visible .mini-bar b { animation: grow-y 0.7s var(--ease-out-expo) forwards; }
+.mini-bar:nth-child(2) b { animation-delay: 0.12s; }
+.mini-bar:nth-child(3) b { animation-delay: 0.24s; }
+.mini-bar:nth-child(4) b { animation-delay: 0.36s; }
+.mini-bar:nth-child(5) b { animation-delay: 0.48s; }
+.mini-bar em { font-style: normal; font-family: var(--font-mono); font-weight: 600; font-size: clamp(0.55rem, 0.8vw, 0.7rem); color: var(--paper); }
+.mini-bar span { font-family: var(--font-mono); font-size: clamp(0.48rem, 0.68vw, 0.58rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); }
+
+/* Mini visual — Marketing formula */
+.mini-formula { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: clamp(4px, 0.6vw, 8px); }
+.mf-box { background: var(--ink-deep); border: 1px solid var(--border-d); border-radius: 10px; padding: clamp(0.4rem, 0.8vw, 0.65rem) clamp(0.3rem, 0.6vw, 0.5rem); text-align: center; display: flex; flex-direction: column; gap: 2px; }
+.mf-box b { font-family: var(--font-display); font-weight: 800; font-size: clamp(0.95rem, 1.7vw, 1.4rem); color: var(--paper); line-height: 1; }
+.mf-box span { font-family: var(--font-mono); font-size: clamp(0.46rem, 0.66vw, 0.56rem); letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted-2); }
+.mf-box.hot { border: 1.5px solid var(--dc); background: var(--dc-soft); }
+.mf-box.hot b { color: var(--dc); }
+.mf-op { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.5vw, 1.25rem); color: var(--muted-2); }
+
+/* Mini visual — Sales funnel */
+.mini-funnel { display: flex; flex-direction: column; gap: clamp(4px, 0.7vh, 7px); }
+.mfun-row { display: grid; grid-template-columns: clamp(78px, 8.5vw, 118px) 1fr clamp(20px, 2.2vw, 30px); align-items: center; gap: 8px; }
+.mfun-row span { font-family: var(--font-mono); font-size: clamp(0.48rem, 0.7vw, 0.6rem); letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted-2); }
+.mfun-track { height: clamp(10px, 1.6vh, 16px); background: #ffffff0f; border-radius: 999px; overflow: hidden; }
+.mfun-track b { display: block; height: 100%; width: var(--w); background: var(--dc); border-radius: 999px; transform: scaleX(0); transform-origin: left; }
+.visible .mfun-track b { animation: grow-x 0.8s var(--ease-out-expo) forwards; }
+.mfun-row:nth-child(2) .mfun-track b { animation-delay: 0.2s; }
+.mfun-row:nth-child(3) .mfun-track b { animation-delay: 0.4s; }
+.mfun-row em { font-style: normal; font-family: var(--font-mono); font-weight: 700; font-size: clamp(0.62rem, 0.9vw, 0.78rem); color: var(--paper); text-align: right; }
+
+/* Mini visual — Admin P&L */
+.mini-pl { display: flex; flex-direction: column; background: var(--ink-deep); border: 1px solid var(--border-d); border-radius: 10px; overflow: hidden; }
+.pl-row { display: flex; justify-content: space-between; gap: 10px; padding: clamp(4px, 0.7vh, 7px) clamp(8px, 1vw, 12px); border-bottom: 1px solid var(--border-d); font-family: var(--font-sans); font-size: clamp(0.64rem, 0.95vw, 0.82rem); color: var(--paper); }
+.pl-row em { font-style: normal; font-family: var(--font-mono); font-weight: 600; }
+.pl-row.minus em { color: var(--clay-soft); }
+.pl-row.total { border-bottom: none; background: var(--dc-soft); font-weight: 700; }
+.pl-row.total em { color: var(--sprout); }
+
+/* ===========================================
+   WHEN A DEPARTMENT CLOSES (slide 12)
+   =========================================== */
+.closed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.5rem, 1.1vw, 0.95rem); width: 100%; max-width: 66rem; }
+@media (max-width: 760px) { .closed-grid { grid-template-columns: 1fr; } }
+.closed-card {
+    position: relative; background: var(--ink-soft); border: 1px solid var(--border-d); border-left: 4px solid var(--dc);
+    border-radius: 14px; padding: clamp(0.7rem, 1.4vw, 1.15rem) clamp(0.85rem, 1.6vw, 1.3rem);
+    display: flex; flex-direction: column; gap: clamp(0.25rem, 0.6vh, 0.45rem);
+}
+.closed-dept { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.7rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--dc); }
+.closed-sign {
+    position: absolute; top: clamp(0.6rem, 1.2vw, 1rem); right: clamp(0.7rem, 1.3vw, 1.1rem);
+    font-family: var(--font-mono); font-weight: 700; font-size: clamp(0.5rem, 0.72vw, 0.62rem); letter-spacing: 2px;
+    color: var(--clay-soft); border: 1.5px solid var(--clay); border-radius: 4px; padding: 2px 7px; transform: rotate(-6deg);
+}
+@keyframes stamp { 0% { transform: rotate(-6deg) scale(1.9); opacity: 0; } 100% { transform: rotate(-6deg) scale(1); opacity: 1; } }
+.visible .closed-sign { animation: stamp 0.45s var(--ease-spring) both; }
+.closed-card:nth-child(1) .closed-sign { animation-delay: 0.6s; }
+.closed-card:nth-child(2) .closed-sign { animation-delay: 0.8s; }
+.closed-card:nth-child(3) .closed-sign { animation-delay: 1.0s; }
+.closed-card:nth-child(4) .closed-sign { animation-delay: 1.2s; }
+.closed-head { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.92rem, 1.55vw, 1.25rem); color: var(--paper); line-height: 1.2; padding-right: clamp(4rem, 6vw, 5.5rem); }
+.closed-desc { font-family: var(--font-sans); font-size: clamp(0.68rem, 1vw, 0.86rem); color: var(--muted-2); line-height: 1.38; }
+
+/* ===========================================
+   CEO WEEK — calendar mockup (slide 13)
+   =========================================== */
+.cal { background: var(--ink-deep); border: 1px solid var(--border-d); border-radius: 14px; overflow: hidden; width: 100%; max-width: 72rem; margin: 0 auto; box-shadow: 0 18px 40px #0000004d; }
+.cal-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: clamp(6px, 1vh, 10px) clamp(10px, 1.4vw, 16px); background: var(--ink-soft); border-bottom: 1px solid var(--border-d); }
+.cal-bar-left { display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); }
+.cal-dots { display: flex; gap: 6px; }
+.cal-dots i { width: 9px; height: 9px; border-radius: 50%; background: #ffffff22; display: block; }
+.cal-title { font-family: var(--font-sans); font-weight: 600; font-size: clamp(0.66rem, 0.95vw, 0.82rem); color: var(--paper); }
+.cal-nav { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); color: var(--muted-2); }
+.cal-view { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.72vw, 0.62rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); border: 1px solid var(--border-d); border-radius: 6px; padding: 2px 8px; }
+.cal-grid {
+    display: grid; grid-template-columns: clamp(30px, 3.4vw, 46px) repeat(6, 1fr);
+    grid-template-rows: auto repeat(16, clamp(10px, 1.8vh, 20px));
+    column-gap: 4px; padding: clamp(6px, 1vh, 10px) clamp(8px, 1vw, 12px) clamp(8px, 1.2vh, 12px);
+}
+.cal-day { grid-row: 1; text-align: center; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.72vw, 0.62rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); padding-bottom: 6px; }
+.cal-day b { display: block; font-family: var(--font-display); font-size: clamp(0.78rem, 1.15vw, 0.98rem); color: var(--paper); letter-spacing: 0; }
+.cal-time { grid-column: 1; font-family: var(--font-mono); font-size: clamp(0.44rem, 0.6vw, 0.54rem); color: var(--muted); text-align: right; padding-right: 6px; transform: translateY(-0.55em); }
+.cal-line { grid-column: 2 / -1; border-top: 1px solid #ffffff0f; pointer-events: none; }
+.cal-ev {
+    position: relative; z-index: 1; margin: 1px 0; border-radius: 6px; padding: 2px 6px; overflow: hidden;
+    font-family: var(--font-sans); font-size: clamp(0.48rem, 0.7vw, 0.64rem); font-weight: 700; line-height: 1.15;
+    color: var(--ink); background: var(--dc); opacity: 0; transform: translateY(6px);
+    transition: opacity 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
+}
+.cal-ev small { display: block; font-weight: 500; opacity: 0.85; }
+.visible .cal-ev { opacity: 1; transform: none; transition-delay: calc(0.35s + var(--i, 0) * 0.05s); }
+.cal-legend { display: flex; gap: clamp(0.4rem, 1vw, 0.9rem); flex-wrap: wrap; justify-content: center; }
+.cal-key { display: flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.7rem); letter-spacing: 0.8px; text-transform: uppercase; color: var(--paper); }
+.cal-key i { width: 12px; height: 12px; border-radius: 3px; background: var(--dc); display: block; }
+.cal-key em { font-style: normal; color: var(--muted-2); }
+
+/* ===========================================
+   LAB — agenda (14), ladder (15), pipeline (16)
+   =========================================== */
+.lab-agenda { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); width: 100%; max-width: 60rem; text-align: left; }
+@media (max-width: 760px) { .lab-agenda { grid-template-columns: 1fr; } }
+.lab-step { background: #1B252Fcc; border: 1px solid var(--border-d); border-top: 3px solid var(--sprout); border-radius: 14px; padding: clamp(0.7rem, 1.4vw, 1.1rem); display: flex; flex-direction: column; gap: clamp(0.25rem, 0.6vh, 0.45rem); }
+.lab-num { font-family: var(--font-mono); font-weight: 700; font-size: clamp(0.62rem, 0.9vw, 0.76rem); letter-spacing: 1.4px; color: var(--sprout); }
+.lab-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.5vw, 1.2rem); color: var(--paper); line-height: 1.15; }
+.lab-desc { font-family: var(--font-sans); font-size: clamp(0.68rem, 1vw, 0.86rem); color: var(--muted-2); line-height: 1.35; }
+.open-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; }
+
+.ladder { display: grid; grid-template-columns: repeat(7, 1fr); gap: clamp(0.3rem, 0.7vw, 0.6rem); align-items: end; height: clamp(210px, 44vh, 470px); width: 100%; }
+.step {
+    height: var(--h); overflow: hidden;
+    background: linear-gradient(180deg, #e0a63a2e, var(--ink-soft) 70%); border: 1px solid #e0a63a45; border-top: 3px solid var(--amber);
+    border-radius: 12px 12px 6px 6px; padding: clamp(0.45rem, 0.9vw, 0.8rem);
+    display: flex; flex-direction: column; gap: clamp(3px, 0.5vh, 6px);
+    transform: scaleY(0); transform-origin: bottom;
+}
+.visible .step { animation: grow-y 0.6s var(--ease-out-expo) forwards; }
+.step:nth-child(2) { animation-delay: 0.1s !important; }
+.step:nth-child(3) { animation-delay: 0.2s !important; }
+.step:nth-child(4) { animation-delay: 0.3s !important; }
+.step:nth-child(5) { animation-delay: 0.4s !important; }
+.step:nth-child(6) { animation-delay: 0.5s !important; }
+.step:nth-child(7) { animation-delay: 0.6s !important; }
+.step-num { font-family: var(--font-mono); font-weight: 700; font-size: clamp(0.7rem, 1.1vw, 0.95rem); color: var(--amber); }
+.step-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.7rem, 1.08vw, 0.95rem); color: var(--paper); line-height: 1.15; }
+.step-desc { font-family: var(--font-sans); font-size: clamp(0.56rem, 0.82vw, 0.74rem); color: var(--muted-2); line-height: 1.3; }
+.step.top { border-top-color: var(--sprout); border-color: #8cc94e55; background: linear-gradient(180deg, #8cc94e30, var(--ink-soft) 70%); }
+.step.top .step-num { color: var(--sprout); }
+@media (max-width: 900px) {
+    .ladder { grid-template-columns: 1fr; height: auto; }
+    .step { height: auto; }
+}
+
+.pipe-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.4rem, 0.9vw, 0.8rem); width: 100%; }
+@media (max-width: 900px) { .pipe-grid { grid-template-columns: repeat(2, 1fr); } }
+.pipe-tile { background: var(--ink-soft); border: 1px solid var(--border-d); border-top: 3px solid var(--dc); border-radius: 14px; padding: clamp(0.6rem, 1.2vw, 1rem); display: flex; flex-direction: column; gap: clamp(0.25rem, 0.6vh, 0.5rem); }
+.pipe-idx { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1.2px; text-transform: uppercase; color: var(--dc); }
+.pipe-blank { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3.2vw, 2.7rem); color: #ffffff2e; line-height: 1; letter-spacing: 0.04em; }
+.pipe-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.78rem, 1.18vw, 1rem); color: var(--paper); line-height: 1.2; }
+.pipe-where { font-family: var(--font-sans); font-size: clamp(0.6rem, 0.88vw, 0.76rem); color: var(--muted-2); line-height: 1.3; margin-top: auto; }
+.gap-row { display: grid; grid-template-columns: auto 1fr; gap: clamp(0.8rem, 2vw, 1.6rem); align-items: center; width: 100%; }
+.days-ring { position: relative; width: clamp(92px, 11vw, 150px); aspect-ratio: 1; }
+.days-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); display: block; }
+.days-ring .track { fill: none; stroke: #ffffff14; stroke-width: 9; }
+.days-ring .arc { fill: none; stroke: var(--amber); stroke-width: 9; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; }
+@keyframes ring-fill { to { stroke-dashoffset: var(--off); } }
+.visible .days-ring .arc { animation: ring-fill 1.4s var(--ease-out-expo) 0.4s forwards; }
+.days-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.days-center b { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.8vw, 2.3rem); color: var(--paper); line-height: 1; }
+.days-center span { font-family: var(--font-mono); font-size: clamp(0.44rem, 0.62vw, 0.54rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); max-width: 9ch; line-height: 1.3; margin-top: 3px; }
+@media (max-width: 700px) { .gap-row { grid-template-columns: 1fr; justify-items: center; } }
+
+/* ===========================================
+   MARKETING VOTE (slide 17)
+   =========================================== */
+.vote-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.45rem, 1vw, 0.85rem); width: 100%; }
+@media (max-width: 1000px) { .vote-grid { grid-template-columns: repeat(2, 1fr); } }
+.vote-card {
+    position: relative; background: var(--ink-soft); border: 1.5px solid var(--border-d); border-radius: 16px;
+    padding: clamp(0.75rem, 1.5vw, 1.25rem); display: flex; flex-direction: column; gap: clamp(0.3rem, 0.7vh, 0.55rem);
+    cursor: pointer; user-select: none; transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+.vote-card:hover { border-color: #8cc94e70; }
+.vote-card.leading { border-color: var(--sprout); box-shadow: 0 0 26px #8cc94e35; background: linear-gradient(160deg, #8cc94e16, var(--ink-soft)); }
+.vote-letter { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3.2vw, 2.6rem); color: var(--amber); line-height: 1; }
+.vote-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.9rem, 1.45vw, 1.2rem); color: var(--paper); line-height: 1.15; }
+.vote-desc { font-family: var(--font-sans); font-size: clamp(0.68rem, 1vw, 0.86rem); color: var(--muted-2); line-height: 1.38; }
+.vote-tag { margin-top: auto; align-self: flex-start; }
+.vote-count {
+    position: absolute; top: clamp(0.7rem, 1.4vw, 1.1rem); right: clamp(0.7rem, 1.4vw, 1.1rem);
+    font-family: var(--font-mono); font-weight: 700; font-size: clamp(0.7rem, 1.1vw, 0.9rem); color: var(--muted-2);
+    background: var(--ink-deep); border: 1px solid var(--border-d); border-radius: 999px; min-width: 2.4em; text-align: center; padding: 2px 8px;
+}
+.vote-card.leading .vote-count { color: var(--ink); background: var(--sprout); border-color: var(--sprout); }
+.vote-hint { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.6rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+
+/* ===========================================
+   NEXT STEPS — two commitments (slide 18)
+   =========================================== */
+.commit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.6rem, 1.4vw, 1.2rem); width: 100%; }
+@media (max-width: 860px) { .commit-grid { grid-template-columns: 1fr; } }
+.commit-card { background: var(--ink-soft); border: 1.5px solid var(--border-d); border-top: 4px solid var(--cc); border-radius: 18px; padding: clamp(0.9rem, 1.8vw, 1.5rem); display: flex; flex-direction: column; gap: clamp(0.35rem, 0.8vh, 0.65rem); }
+.commit-num { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.85vw, 0.72rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--cc); }
+.commit-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.1rem, 2vw, 1.65rem); color: var(--paper); line-height: 1.1; letter-spacing: -0.015em; }
+.commit-desc { font-family: var(--font-sans); font-size: clamp(0.72rem, 1.08vw, 0.92rem); color: var(--muted-2); line-height: 1.42; }
+.commit-opts { display: flex; flex-direction: column; gap: 6px; }
+.commit-opt { display: flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: clamp(0.68rem, 1vw, 0.86rem); color: var(--paper); }
+.commit-opt i { width: 10px; height: 10px; border-radius: 3px; background: var(--dc); flex-shrink: 0; display: block; }
+.commit-opt em { font-style: normal; font-family: var(--font-mono); font-size: 0.85em; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted-2); min-width: 6.5em; }
+.date-strip { display: flex; align-items: center; gap: clamp(0.7rem, 1.5vw, 1.2rem); background: var(--ink-soft); border: 1px solid var(--border-d); border-left: 4px solid var(--sprout); border-radius: 0 14px 14px 0; padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.8rem, 1.5vw, 1.2rem); }
+.date-chip { display: flex; flex-direction: column; align-items: center; background: var(--paper); color: var(--ink); border-radius: 10px; overflow: hidden; min-width: clamp(48px, 5vw, 64px); flex-shrink: 0; }
+.date-chip .m { background: var(--clay); color: #fff; width: 100%; text-align: center; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); letter-spacing: 1.2px; padding: 2px 0; }
+.date-chip .d { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.1rem, 2vw, 1.6rem); line-height: 1.1; padding: 2px 8px 4px; }
+.date-text { font-family: var(--font-sans); font-size: clamp(0.76rem, 1.15vw, 0.98rem); color: var(--paper); line-height: 1.4; }
+.date-text strong { color: var(--sprout); }
+
+/* ===========================================
+   CLOSED STAMP CASE + TALL-SCREEN SCALE-UP
+   (real presentation screens get bigger diagrams; short viewports keep the compact sizes above)
+   =========================================== */
+.closed-sign { text-transform: uppercase; }
+@media (min-height: 800px) and (min-width: 1200px) {
+    .org { max-width: 78rem; }
+    .org-ceo-name { font-size: clamp(1.6rem, 2.8vw, 2.5rem); }
+    .org-dept { padding: clamp(0.9rem, 1.5vw, 1.4rem); }
+    .org-dept-name { font-size: clamp(1rem, 1.5vw, 1.35rem); }
+    .org-dept-job { font-size: clamp(0.8rem, 1vw, 0.98rem); }
+    .engine { max-width: 86rem; }
+    .eng-name { font-size: clamp(1rem, 1.4vw, 1.3rem); }
+    .eng-desc { font-size: clamp(0.76rem, 0.98vw, 0.94rem); }
+    .dept-list { gap: clamp(0.45rem, 0.9vh, 0.75rem); }
+    .dept-item { padding: clamp(0.7rem, 1.1vw, 1rem) clamp(0.9rem, 1.3vw, 1.2rem); }
+    .dept-what { font-size: clamp(0.9rem, 1.2vw, 1.12rem); }
+    .dept-how { font-size: clamp(0.76rem, 0.95vw, 0.94rem); }
+    .kpi-card { padding: clamp(1rem, 1.6vw, 1.5rem); gap: clamp(0.45rem, 0.9vh, 0.75rem); }
+    .kpi-val { font-size: clamp(1.5rem, 2.2vw, 2.1rem); }
+    .kpi-desc { font-size: clamp(0.8rem, 1vw, 0.96rem); }
+    .mini-bars { height: clamp(90px, 12vh, 140px); }
+    .closed-grid { max-width: 82rem; }
+    .closed-head { font-size: clamp(1.1rem, 1.6vw, 1.45rem); }
+    .closed-desc { font-size: clamp(0.8rem, 1vw, 0.98rem); }
+    .commit-opt { font-size: clamp(0.8rem, 1.05vw, 0.98rem); }
+}
+
+/* ===========================================
+   PRINT / PDF EXPORT — one slide per page
+   =========================================== */
+@media print {
+    @page { size: 1920px 1080px; margin: 0; }
+    html { scroll-snap-type: none; }
+    .slide { break-after: page; page-break-after: always; height: 1080px; }
+    .progress-bar, .nav-dots { display: none !important; }
+    .reveal, .reveal-scale, .stagger > * { opacity: 1 !important; transform: none !important; filter: none !important; }
+    .stroke-animate svg.ul path, .draw-line { stroke-dashoffset: 0 !important; animation: none !important; }
+    * { animation: none !important; transition: none !important; }
+}
+
+@media print {
+    .org-stem { transform: translateX(-50%) !important; }
+    .org-bar, .step, .mini-bar b, .mfun-track b { transform: none !important; }
+    .cal-ev { opacity: 1 !important; transform: none !important; }
+    .days-ring .arc { stroke-dashoffset: var(--off) !important; }
+    .vote-count, .vote-hint, .eng-arrow-line i { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ========== SLIDE 01 — COVER ========== -->
+<section class="slide gradient-bg" id="slide-1" data-notes="Welcome. Today we open a new section. It&#x27;s called **Business Management.**
+
+- Marketing Machine taught you how to get attention.
+- The Standard taught you the law.
+- This series is about the business itself.
+
+Here&#x27;s the plan for today:
+1. About twenty-five minutes on what a real estate business is, one department at a time.
+2. Lab time. We check where everyone is with marketing and with your pipeline.
+3. We decide together what we do next with marketing.
+4. Every one of you leaves with next steps.
+
+Let&#x27;s get into it.
+
+---
+
+Bienvenidos. Hoy abrimos una sección nueva. Se llama **Business Management.**
+
+- Marketing Machine les enseñó a llamar la atención.
+- The Standard les enseñó la ley.
+- Esta serie es sobre el negocio en sí.
+
+Este es el plan de hoy:
+1. Unos veinticinco minutos sobre lo que es un negocio de bienes raíces, un departamento a la vez.
+2. Tiempo de laboratorio. Vemos dónde está cada uno con el marketing y con su pipeline.
+3. Decidimos juntos qué hacemos ahora con el marketing.
+4. Cada uno de ustedes sale de aquí con sus próximos pasos.
+
+Vamos a meterle." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal-scale" style="position:relative;display:flex;align-items:center;gap:clamp(1rem,2.5vw,2rem);">
+            <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate" style="height:clamp(2.5rem,6vw,4.5rem);width:auto;color:var(--paper);">
+                <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+                <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay:0.5s;"/></g>
+            </svg>
+            <span style="color:var(--muted);font-size:clamp(1.2rem,2.5vw,2rem);font-weight:200;opacity:0.3;">&times;</span>
+            <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" style="height:clamp(2.2rem,5vw,3.8rem);width:auto;margin-top:-10px;">
+        </div>
+        <div>
+            <div class="section-label reveal" style="justify-content:center;">Business Management &middot; Session 1</div>
+            <h1 class="reveal" style="font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,5.5vw,4.5rem);letter-spacing:-0.03em;line-height:1.05;">You&rsquo;re the <span class="stroke stroke--sprout stroke-animate">CEO<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+            <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(1rem,2vw,1.4rem);color:var(--muted-2);margin-top:clamp(0.6rem,1.2vh,1rem);">The four departments of a real estate business, and who runs them.</p>
+        </div>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.8rem,1.2vw,1rem);color:var(--muted-2);">Pedro Bando Rivera, Broker/Owner</p>
+        <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <span class="badge badge-sprout">Presentation + Lab</span>
+            <span class="badge badge-brand">Business Management</span>
+            <span class="badge badge-amber">Session 1</span>
+        </div>
+    </div>
+    <div class="slide-footer" style="color:var(--muted-2);">reThought Real Estate &middot; reLearn</div>
+    <div class="slide-number" style="color:var(--muted-2);">01 / 20</div>
+</section>
+
+<!-- ========== SLIDE 02 — YEAR STATEMENT ========== -->
+<section class="slide" id="slide-2" data-notes="Quick reminder before we start.
+
+**2026 is the year of systems and new skill developments.**
+
+Today&#x27;s system is the biggest one you have. It&#x27;s your business.
+
+By the end of this session you&#x27;ll see it as four departments, and you&#x27;ll know which one needs you this week.
+
+---
+
+Recordatorio rápido antes de empezar.
+
+**El 2026 es el año de los sistemas y del desarrollo de destrezas nuevas.**
+
+El sistema de hoy es el más grande que tienen. Es su negocio.
+
+Cuando terminemos, lo van a ver como cuatro departamentos, y van a saber cuál los necesita esta semana." style="justify-content: center; align-items: center;">
+    <div style="text-align:center;max-width:min(85vw,900px);margin:0 auto;">
+        <div class="section-label reveal" style="justify-content:center;">The Year Of</div>
+        <h2 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(2.2rem,6.5vw,5rem);letter-spacing:-0.04em;line-height:1.12;">
+            2026 Is THE Year of<br>
+            <span class="stroke stroke--sprout stroke-animate">SYSTEMS<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> and <span class="stroke stroke--brand stroke-animate">NEW<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 8 C 60 14, 120 2, 198 8"/></svg></span><br>
+            Skill Developments.
+        </h2>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">02 / 20</div>
+</section>
+
+<!-- ========== SLIDE 03 — MISSION & VISION — ENGLISH (dark) ========== -->
+<section class="slide" id="slide-3" data-notes="Our mission and our vision.
+
+**Mission.** To redefine traditional real estate expectations delivering a personalized, tech-driven, and client-centric approach to buying and selling real estate.
+
+**Vision.** To succeed in becoming the local industry leader focused on humanizing the real estate industry, leveraging innovation, investment and growth, while remaining a community resource.
+
+Look at the word **leader.** Nobody leads an industry by accident. You lead it by running a real business, and that&#x27;s what today is about.
+
+---
+
+Nuestra misión y nuestra visión, aquí en inglés. En la próxima las leemos en español.
+
+Fíjense en la palabra **leader,** líder. Nadie lidera una industria por accidente. Se lidera manejando un negocio de verdad, y de eso se trata hoy." style="justify-content: center;">
+    <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+        <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand-light); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Mission</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">To redefine traditional real estate expectations delivering a <span style="color: var(--sprout); font-weight: 700;">personalized</span>, <span style="color: var(--sprout); font-weight: 700;">tech-driven</span>, and <span style="color: var(--sprout); font-weight: 700;">client-centric</span> approach to buying and selling real estate.</p>
+        </div>
+        <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Vision</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">To succeed in becoming the local industry <span style="color: var(--brand-light); font-weight: 700;">leader</span> focused on <span style="color: var(--brand-light); font-weight: 700;">humanizing</span> the real estate industry, leveraging innovation, investment and growth, while remaining a <span style="color: var(--brand-light); font-weight: 700;">community resource</span>.</p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
+    <div class="slide-number">03 / 20</div>
+</section>
+
+<!-- ========== SLIDE 04 — MISIÓN Y VISIÓN — SPANISH (light) ========== -->
+<section class="slide light" id="slide-4" data-notes="Here it is in Spanish. Same mission, same vision, same standard.
+
+Our clients live in both languages, so we work in both.
+
+&gt; Give the room a few seconds to read it.
+
+---
+
+Ahora en español.
+
+**Misión.** Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque personalizado, impulsado por la tecnología y centrado en el cliente para la compra y venta de propiedades.
+
+**Visión.** Triunfar en convertirnos en el líder local de la industria enfocado en humanizar el sector inmobiliario, aprovechando la innovación, la inversión y el crecimiento, mientras seguimos siendo un recurso para la comunidad.
+
+Mismas palabras, mismo estándar, en los dos idiomas. Nuestros clientes viven en los dos, así que nosotros trabajamos en los dos.
+
+&gt; Dale al salón unos segundos para leerla." style="justify-content: center;">
+    <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+        <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Misi&oacute;n</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque <span style="color: var(--brand); font-weight: 700;">personalizado</span>, impulsado por la <span style="color: var(--brand); font-weight: 700;">tecnolog&iacute;a</span> y centrado en el <span style="color: var(--brand); font-weight: 700;">cliente</span> para la compra y venta de propiedades.</p>
+        </div>
+        <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout-deep); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Visi&oacute;n</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">Triunfar en convertirnos en el <span style="color: var(--sprout-deep); font-weight: 700;">l&iacute;der local</span> de la industria enfocado en <span style="color: var(--sprout-deep); font-weight: 700;">humanizar</span> el sector inmobiliario, aprovechando la innovaci&oacute;n, la inversi&oacute;n y el crecimiento, mientras seguimos siendo un <span style="color: var(--sprout-deep); font-weight: 700;">recurso para la comunidad</span>.</p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
+    <div class="slide-number">04 / 20</div>
+</section>
+
+<!-- ========== SLIDE 05 — SOCIAL MEDIA PUNCHLINE (STORY TIME) ========== -->
+<section class="slide punchline-bg" id="slide-5" data-notes="Story time. Picture one of you posting this on your stories.
+
+**I didn&#x27;t get a license. I started a business. My broker taught me the difference.**
+
+Here&#x27;s why that line matters.
+- The state gave you a license. A license is permission to practice.
+- It didn&#x27;t come with clients, a system, or a paycheck.
+- The day you passed the exam, you became the owner of a small business, whether anyone told you or not.
+
+Most agents never hear that. You&#x27;re hearing it today.
+
+---
+
+Story time. Imagínense a uno de ustedes subiendo esto a sus stories.
+
+**No saqué una licencia. Monté un negocio. Mi broker me enseñó la diferencia.**
+
+Esa línea importa por esto.
+- El estado te dio una licencia. Una licencia es un permiso para trabajar.
+- No vino con clientes, ni con un sistema, ni con un cheque.
+- El día que pasaste el examen te convertiste en dueño o dueña de un negocio pequeño, te lo dijeran o no.
+
+A la mayoría de los agentes nadie se lo dice. Ustedes lo están escuchando hoy." style="justify-content: center; align-items: center;">
+    <div class="punchline-glow"></div>
+    <div class="punchline-particles"><span style="left:10%;animation-duration:8s;animation-delay:0s;width:3px;height:3px;"></span><span style="left:25%;animation-duration:12s;animation-delay:1s;width:5px;height:5px;"></span><span style="left:40%;animation-duration:10s;animation-delay:2.5s;width:3px;height:3px;"></span><span style="left:55%;animation-duration:9s;animation-delay:0.5s;width:4px;height:4px;background:var(--brand-light);"></span><span style="left:70%;animation-duration:11s;animation-delay:3s;width:3px;height:3px;"></span><span style="left:85%;animation-duration:7s;animation-delay:1.5s;width:5px;height:5px;"></span><span style="left:15%;animation-duration:13s;animation-delay:4s;width:2px;height:2px;background:var(--brand-light);"></span><span style="left:60%;animation-duration:8.5s;animation-delay:2s;width:4px;height:4px;"></span><span style="left:90%;animation-duration:10s;animation-delay:0.8s;width:3px;height:3px;"></span><span style="left:35%;animation-duration:14s;animation-delay:5s;width:2px;height:2px;"></span></div>
+    <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/social-media-story-time-indicator.gif" alt="Story time" style="position:absolute;bottom:clamp(30px,5vh,50px);right:var(--slide-padding);opacity:0.8;height:clamp(50px,7vh,80px);width:auto;z-index:2;">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(0.8rem,2vh,1.5rem);max-width:min(90vw,820px);position:relative;z-index:1;margin:0 auto;">
+        <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <span class="badge badge-sprout">Story Time</span>
+        </div>
+        <h2 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,4.6vw,3.7rem);letter-spacing:-0.03em;line-height:1.15;transition-delay:0.1s;">I didn&rsquo;t get a license.<br>I started a <span class="stroke stroke--sprout stroke-animate">business.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+        <p class="reveal" style="font-family:var(--font-display);font-weight:600;font-size:clamp(1.05rem,2.2vw,1.7rem);color:var(--sprout);letter-spacing:-0.01em;transition-delay:0.25s;">My broker taught me the difference.</p>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.9rem,1.6vw,1.2rem);color:var(--muted-2);max-width:60ch;line-height:1.4;transition-delay:0.4s;font-style:italic;">No saqu&eacute; una licencia. Mont&eacute; un negocio. Mi broker me ense&ntilde;&oacute; la diferencia.</p>
+        <div class="reveal" style="transition-delay:0.55s;"><p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.9vw,0.78rem);letter-spacing:2px;text-transform:uppercase;color:var(--muted-2);">reThought Real Estate &middot; reLearn &middot; Business Management</p></div>
+    </div>
+    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Highlight</span></div>
+    <div class="slide-number" style="z-index:2;">05 / 20</div>
+</section>
+
+<!-- ========== SLIDE 06 — ORG CHART: EVERY BOX SAYS YOU ========== -->
+<section class="slide" id="slide-6" data-notes="Here&#x27;s your org chart. At the top, the CEO. **That&#x27;s you.**
+
+Under the CEO, four departments:
+1. Business Development
+2. Marketing
+3. Sales
+4. Admin
+
+Now look at who runs each one. You. You. You. You.
+
+&gt; Point at each &quot;You&quot; as it pops in.
+
+That&#x27;s the reality. You&#x27;re a company of one with four jobs.
+
+Most agents only show up for one of these boxes, and it&#x27;s Sales. They love showings, negotiating and the closing table. The other three boxes sit empty until the pipeline dries up, and then they wonder what happened.
+
+**Nobody in this office runs a one-department business. Not anymore.**
+
+---
+
+Este es tu organigrama. Arriba está el CEO. **Ese eres tú.**
+
+Debajo del CEO hay cuatro departamentos:
+1. Business Development, que es desarrollo de negocios
+2. Marketing
+3. Ventas
+4. Administración
+
+Ahora miren quién dirige cada uno. Tú. Tú. Tú. Tú.
+
+&gt; Señala cada &quot;You&quot; cuando aparezca.
+
+Esa es la realidad. Eres una compañía de una sola persona con cuatro trabajos.
+
+La mayoría de los agentes solo aparece en una de estas cajas, y es Ventas. Les encantan los showings, negociar y la mesa de cierre. Las otras tres cajas se quedan vacías hasta que el pipeline se seca, y entonces se preguntan qué pasó.
+
+**En esta oficina nadie maneja un negocio de un solo departamento. Ya no.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Your Org Chart</div><h2 class="slide-title">Four Departments. <span style="color:var(--sprout);">Every Box Says You.</span></h2><p class="slide-body">You&rsquo;re a company of one with four jobs. Most agents only show up for one of them.</p></div>
+        <div class="org">
+            <div class="org-ceo reveal-scale"><span class="org-ceo-badge">CEO</span><span class="org-ceo-name">You</span></div>
+            <div class="org-tree"><span class="org-stem"></span><span class="org-bar"></span></div>
+            <div class="org-row stagger">
+                <div class="org-dept" style="--dc:var(--d-bd);"><div class="org-dept-tag">1-to-1</div><div class="org-dept-name">Business Development</div><div class="org-dept-job">Relationships, one person at a time</div><div class="org-head">Head <span class="you-pill">You</span></div></div>
+                <div class="org-dept" style="--dc:var(--d-mk);"><div class="org-dept-tag">1-to-many</div><div class="org-dept-name">Marketing</div><div class="org-dept-job">Attention, many people at a time</div><div class="org-head">Head <span class="you-pill">You</span></div></div>
+                <div class="org-dept" style="--dc:var(--d-sa);"><div class="org-dept-tag">Convert</div><div class="org-dept-name">Sales</div><div class="org-dept-job">Conversations into signed agreements</div><div class="org-head">Head <span class="you-pill">You</span></div></div>
+                <div class="org-dept" style="--dc:var(--d-ad);"><div class="org-dept-tag">Run &amp; protect</div><div class="org-dept-name">Admin</div><div class="org-dept-job">Deals to closing, money and records</div><div class="org-head">Head <span class="you-pill">You</span></div></div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.5s;"><div class="callout-line">Most agents only staff <strong style="color:var(--brand-light);">Sales</strong>. The other three boxes sit empty until the pipeline dries up.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">06 / 20</div>
+</section>
+
+<!-- ========== SLIDE 07 — THE ENGINE: HOW THE DEPARTMENTS CONNECT ========== -->
+<section class="slide" id="slide-7" data-notes="Now watch how the four departments connect.
+
+1. **Business Development and Marketing start conversations.** BD does it one person at a time. Marketing does it with many people at a time.
+2. **Sales turns a conversation into a signed agreement,** and then into a contract.
+3. **Admin gets the deal to the closing table** clean and on time, and keeps your money and your records straight.
+4. **Every closing feeds the loop again.** A happy client gives you a review for Marketing and a referral for BD, if you ask.
+
+That last step is the one most agents skip.
+
+**When this loop runs, year three is easier than year one.** When it doesn&#x27;t, every month starts at zero.
+
+---
+
+Ahora miren cómo se conectan los cuatro departamentos.
+
+1. **Business Development y Marketing empiezan conversaciones.** BD lo hace una persona a la vez. Marketing lo hace con muchas personas a la vez.
+2. **Ventas convierte una conversación en un acuerdo firmado,** y después en un contrato.
+3. **Administración lleva el negocio a la mesa de cierre** limpio y a tiempo, y mantiene tu dinero y tus récords en orden.
+4. **Cada cierre alimenta el ciclo otra vez.** Un cliente contento te da un review para Marketing y un referido para BD, si se lo pides.
+
+Ese último paso es el que casi todos los agentes se saltan.
+
+**Cuando este ciclo corre, el tercer año es más fácil que el primero.** Cuando no corre, cada mes empieza en cero." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">How It Connects</div><h2 class="slide-title">Four Departments. <span style="color:var(--sprout);">One Engine.</span></h2><p class="slide-body">Each department feeds the next one. Skip one and the whole thing stalls.</p></div>
+        <div class="engine reveal" style="transition-delay:0.15s;padding-bottom:0.9rem;">
+            <div class="engine-row">
+                <div class="eng-stack">
+                    <div class="eng-node" style="--dc:var(--d-bd);"><span class="eng-tag">1-to-1</span><span class="eng-name">Business Development</span><span class="eng-desc">Conversations with people you know</span></div>
+                    <div class="eng-node" style="--dc:var(--d-mk);"><span class="eng-tag">1-to-many</span><span class="eng-name">Marketing</span><span class="eng-desc">Conversations with people who don&rsquo;t know you yet</span></div>
+                </div>
+                <div class="eng-arrow"><span class="eng-arrow-lbl">Conversations</span><div class="eng-arrow-line"><i></i></div></div>
+                <div class="eng-node" style="--dc:var(--d-sa);"><span class="eng-tag">Convert</span><span class="eng-name">Sales</span><span class="eng-desc">Signed agreements, then contracts</span></div>
+                <div class="eng-arrow"><span class="eng-arrow-lbl">Contracts</span><div class="eng-arrow-line"><i style="--d:0.7s;"></i></div></div>
+                <div class="eng-node" style="--dc:var(--d-ad);"><span class="eng-tag">Run &amp; protect</span><span class="eng-name">Admin</span><span class="eng-desc">A clean closing, money and records straight</span></div>
+                <div class="eng-arrow"><span class="eng-arrow-lbl">Closings</span><div class="eng-arrow-line"><i style="--d:1.4s;"></i></div></div>
+                <div class="eng-node out"><span class="eng-tag">The payoff</span><span class="eng-name">Happy Client</span><span class="eng-desc">A review and a referral, if you ask</span></div>
+            </div>
+            <div class="eng-loop"><span class="eng-loop-lbl">Reviews feed Marketing &middot; Referrals feed BD</span></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line">When the loop runs, <strong style="color:var(--sprout);">year three is easier than year one.</strong> When it doesn&rsquo;t, every month starts at zero.<br><span class="echo-es">Cuando el ciclo corre, el tercer a&ntilde;o es m&aacute;s f&aacute;cil que el primero.</span></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">07 / 20</div>
+</section>
+
+<!-- ========== SLIDE 08 — DEPARTMENT 1: BUSINESS DEVELOPMENT ========== -->
+<section class="slide" id="slide-8" data-notes="Department one. **Business Development.** This is one-to-one. The people you know, the people they know, and the partners who send you business.
+
+What it looks like this week:
+1. **Sphere and past clients.** A home anniversary or a market update about their house. Not a &quot;just checking in&quot; text.
+2. **Referral partners.** Stay close to your lenders, attorneys, inspectors and builders.
+3. **Open houses.** Face to face with neighbors and buyers who don&#x27;t have an agent yet.
+4. **Follow-up.** Every conversation goes into Lofty with the next touch on the calendar.
+5. **Community.** Show up where your people already are.
+
+The number for this department is **conversations per week.** Real two-way conversations. Likes don&#x27;t count. A text left on read doesn&#x27;t count.
+
+If you know this number every Friday, you know if your pipeline is growing.
+
+---
+
+Departamento uno. **Business Development.** Esto es uno a uno. La gente que conoces, la gente que ellos conocen, y los socios que te mandan negocio.
+
+Así se ve esta semana:
+1. **Esfera y clientes pasados.** Un aniversario de la casa o una actualización del mercado sobre su casa. No un texto de &quot;solo quería saludarte&quot;.
+2. **Socios de referidos.** Mantente cerca de tus lenders, abogados, inspectores y constructores.
+3. **Open houses.** Cara a cara con vecinos y compradores que todavía no tienen agente.
+4. **Seguimiento.** Cada conversación va a Lofty con el próximo contacto en el calendario.
+5. **Comunidad.** Déjate ver donde ya está tu gente.
+
+El número de este departamento es **conversaciones por semana.** Conversaciones reales, de dos lados. Los likes no cuentan. Un texto que dejaron en visto no cuenta.
+
+Si sabes este número todos los viernes, sabes si tu pipeline está creciendo." style="justify-content:center;--dc:var(--d-bd);--dc-soft:var(--d-bd-soft);">
+    <div class="slide-content" style="gap:clamp(1rem,3.2vh,2.6rem);justify-content:center;">
+        <div class="reveal">
+            <div class="dept-track"><span class="on">Business Development</span><span>Marketing</span><span>Sales</span><span>Admin</span></div>
+            <div class="section-label">Department 1 of 4</div>
+            <h2 class="slide-title">Business Development. <span style="color:var(--dc);">One Person at a Time.</span></h2>
+            <p class="slide-body">The people you know, the people they know, and the partners who send you business.</p>
+        </div>
+        <div class="dept-grid">
+            <div class="dept-list stagger">
+                <div class="dept-item"><span class="dept-num">01</span><div><div class="dept-what">Sphere and past clients</div><div class="dept-how">Home anniversaries and market updates about their home, not a &ldquo;just checking in&rdquo; text</div></div></div>
+                <div class="dept-item"><span class="dept-num">02</span><div><div class="dept-what">Referral partners</div><div class="dept-how">Lenders, attorneys, inspectors and builders who send you clients</div></div></div>
+                <div class="dept-item"><span class="dept-num">03</span><div><div class="dept-what">Open houses</div><div class="dept-how">Face to face with neighbors and buyers who don&rsquo;t have an agent yet</div></div></div>
+                <div class="dept-item"><span class="dept-num">04</span><div><div class="dept-what">Follow-up</div><div class="dept-how">Every conversation logged in Lofty, with the next touch on the calendar</div></div></div>
+                <div class="dept-item"><span class="dept-num">05</span><div><div class="dept-what">Community</div><div class="dept-how">Show up where your people already are: events, church, school, sports</div></div></div>
+            </div>
+            <div class="dept-side reveal" style="transition-delay:0.3s;">
+                <div class="kpi-card">
+                    <div class="kpi-lbl">The number</div>
+                    <div class="kpi-val">Conversations per week</div>
+                    <div class="kpi-desc">Real two-way conversations. Likes don&rsquo;t count. A text left on read doesn&rsquo;t count.</div>
+                    <div class="mini-bars">
+                        <div class="mini-bar" style="--h:28%;"><em>2</em><b></b><span>Mon</span></div>
+                        <div class="mini-bar" style="--h:42%;"><em>3</em><b></b><span>Tue</span></div>
+                        <div class="mini-bar" style="--h:14%;"><em>1</em><b></b><span>Wed</span></div>
+                        <div class="mini-bar" style="--h:56%;"><em>4</em><b></b><span>Thu</span></div>
+                        <div class="mini-bar" style="--h:28%;"><em>2</em><b></b><span>Fri</span></div>
+                    </div>
+                    <div class="kpi-ex">Example week &middot; 12 conversations</div>
+                </div>
+                <div class="side-row">
+                    <div class="runs-on"><span class="runs-lbl">Runs on</span><span class="tool-chip">Lofty</span><span class="tool-chip">Phone</span><span class="tool-chip">Calendar</span></div>
+                    <div class="head-you">Head <span class="you-pill">You</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">08 / 20</div>
+</section>
+
+<!-- ========== SLIDE 09 — DEPARTMENT 2: MARKETING ========== -->
+<section class="slide" id="slide-9" data-notes="Department two. **Marketing.** This is one-to-many. Getting in front of people who don&#x27;t know you yet, and giving them a reason to raise their hand.
+
+You already built most of this department in Marketing Machine:
+1. **Brand.** The same photo, bio and message everywhere people find you.
+2. **Content.** Built on the six frameworks from Session 1.
+3. **Offer and lead magnet.** From Session 2.
+4. **Meta ads and ManyChat.** Sessions 3 through 8.
+5. **Handoff.** Every new lead lands in Lofty the same day.
+
+The number here is the one we locked in Session 7, **cost per conversation.** What you spent, divided by the real conversations it started.
+
+**Example.** A hundred and fifty dollars that starts ten conversations is fifteen dollars per conversation.
+
+Views and likes feel good. **This number tells you if marketing is working.**
+
+---
+
+Departamento dos. **Marketing.** Esto es uno a muchos. Ponerte frente a gente que todavía no te conoce, y darles una razón para levantar la mano.
+
+La mayor parte de este departamento ya la construyeron en Marketing Machine:
+1. **Marca.** La misma foto, la misma bio y el mismo mensaje dondequiera que te encuentren.
+2. **Contenido.** Montado sobre los seis frameworks de la Sesión 1.
+3. **Oferta y lead magnet.** De la Sesión 2.
+4. **Anuncios de Meta y ManyChat.** De las Sesiones 3 a la 8.
+5. **Handoff.** Cada lead nuevo cae en Lofty el mismo día.
+
+El número aquí es el que dejamos claro en la Sesión 7, **costo por conversación.** Lo que gastaste, dividido entre las conversaciones reales que empezó.
+
+**Ejemplo.** Ciento cincuenta dólares que empiezan diez conversaciones son quince dólares por conversación.
+
+Los views y los likes se sienten bien. **Este número te dice si el marketing está funcionando.**" style="justify-content:center;--dc:var(--d-mk);--dc-soft:var(--d-mk-soft);">
+    <div class="slide-content" style="gap:clamp(1rem,3.2vh,2.6rem);justify-content:center;">
+        <div class="reveal">
+            <div class="dept-track"><span>Business Development</span><span class="on">Marketing</span><span>Sales</span><span>Admin</span></div>
+            <div class="section-label">Department 2 of 4</div>
+            <h2 class="slide-title">Marketing. <span style="color:var(--dc);">Many People at a Time.</span></h2>
+            <p class="slide-body">Getting in front of people who don&rsquo;t know you yet, and giving them a reason to raise their hand.</p>
+        </div>
+        <div class="dept-grid">
+            <div class="dept-list stagger">
+                <div class="dept-item"><span class="dept-num">01</span><div><div class="dept-what">Brand</div><div class="dept-how">The same photo, bio and message everywhere people find you</div></div></div>
+                <div class="dept-item"><span class="dept-num">02</span><div><div class="dept-what">Content</div><div class="dept-how">Posts and reels built on the six frameworks from Session 1</div></div></div>
+                <div class="dept-item"><span class="dept-num">03</span><div><div class="dept-what">Offer and lead magnet</div><div class="dept-how">A reason to raise a hand. You built it in Session 2</div></div></div>
+                <div class="dept-item"><span class="dept-num">04</span><div><div class="dept-what">Meta ads and ManyChat</div><div class="dept-how">Cold, retarget and keyword DMs from Sessions 3 to 8</div></div></div>
+                <div class="dept-item"><span class="dept-num">05</span><div><div class="dept-what">Handoff</div><div class="dept-how">Every new lead in Lofty the same day</div></div></div>
+            </div>
+            <div class="dept-side reveal" style="transition-delay:0.3s;">
+                <div class="kpi-card">
+                    <div class="kpi-lbl">The number</div>
+                    <div class="kpi-val">Cost per conversation</div>
+                    <div class="kpi-desc">Dollars spent to get one real buyer or seller talking to you. Views and likes don&rsquo;t count.</div>
+                    <div class="mini-formula stagger">
+                        <div class="mf-box"><b>$150</b><span>spent on ads</span></div>
+                        <div class="mf-op">&divide;</div>
+                        <div class="mf-box"><b>10</b><span>conversations</span></div>
+                        <div class="mf-op">=</div>
+                        <div class="mf-box hot"><b>$15</b><span>per conversation</span></div>
+                    </div>
+                    <div class="kpi-ex">Example &middot; the Session 7 scoreboard</div>
+                </div>
+                <div class="side-row">
+                    <div class="runs-on"><span class="runs-lbl">Runs on</span><span class="tool-chip">Meta Ads Manager</span><span class="tool-chip">ManyChat</span><span class="tool-chip">Lofty</span></div>
+                    <div class="head-you">Head <span class="you-pill">You</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">09 / 20</div>
+</section>
+
+<!-- ========== SLIDE 10 — DEPARTMENT 3: SALES ========== -->
+<section class="slide" id="slide-10" data-notes="Department three. **Sales.** Turning a conversation into a signed agreement, and then into a contract.
+
+This is the department everybody likes. It only works when the other three feed it.
+
+What it looks like this week:
+1. **Speed to lead.** Answer fast and set the appointment while they still care.
+2. **Buyer consultation.** A signed Buyer Broker Agreement before the first showing. That&#x27;s The Standard.
+3. **Listing presentation.** A price, a plan and a signed listing agreement.
+4. **Showings and offers.** Complete offer packages, presented the same day.
+5. **Negotiation and follow-up.** Stay on it until they sign or tell you no.
+
+The number is **signed agreements.** Buyer agreements and listing agreements signed this month.
+
+**Example.** Twenty conversations, six appointments, three signatures.
+
+Appointments feel like progress. **Signatures are the business.**
+
+---
+
+Departamento tres. **Ventas.** Convertir una conversación en un acuerdo firmado, y después en un contrato.
+
+Este es el departamento que a todo el mundo le gusta. Solo funciona cuando los otros tres lo alimentan.
+
+Así se ve esta semana:
+1. **Speed to lead.** Contestas rápido y pones la cita mientras todavía les interesa.
+2. **Consulta con el comprador.** Un Buyer Broker Agreement firmado antes del primer showing. Eso es The Standard.
+3. **Presentación de listado.** Un precio, un plan y un contrato de listado firmado.
+4. **Showings y ofertas.** Paquetes de oferta completos, presentados el mismo día.
+5. **Negociación y seguimiento.** Síguele hasta que firmen o te digan que no.
+
+El número es **acuerdos firmados.** Acuerdos de comprador y contratos de listado firmados este mes.
+
+**Ejemplo.** Veinte conversaciones, seis citas, tres firmas.
+
+Las citas se sienten como progreso. **Las firmas son el negocio.**" style="justify-content:center;--dc:var(--d-sa);--dc-soft:var(--d-sa-soft);">
+    <div class="slide-content" style="gap:clamp(1rem,3.2vh,2.6rem);justify-content:center;">
+        <div class="reveal">
+            <div class="dept-track"><span>Business Development</span><span>Marketing</span><span class="on">Sales</span><span>Admin</span></div>
+            <div class="section-label">Department 3 of 4</div>
+            <h2 class="slide-title">Sales. <span style="color:var(--dc);">Conversations Into Contracts.</span></h2>
+            <p class="slide-body">Everybody likes this department. It only works when the other three feed it.</p>
+        </div>
+        <div class="dept-grid">
+            <div class="dept-list stagger">
+                <div class="dept-item"><span class="dept-num">01</span><div><div class="dept-what">Speed to lead</div><div class="dept-how">Answer fast and set the appointment while they still care</div></div></div>
+                <div class="dept-item"><span class="dept-num">02</span><div><div class="dept-what">Buyer consultation</div><div class="dept-how">A signed Buyer Broker Agreement before the first showing</div></div></div>
+                <div class="dept-item"><span class="dept-num">03</span><div><div class="dept-what">Listing presentation</div><div class="dept-how">A price, a plan and a signed listing agreement</div></div></div>
+                <div class="dept-item"><span class="dept-num">04</span><div><div class="dept-what">Showings and offers</div><div class="dept-how">Complete offer packages, presented the same day</div></div></div>
+                <div class="dept-item"><span class="dept-num">05</span><div><div class="dept-what">Negotiation and follow-up</div><div class="dept-how">Stay on it until they sign or tell you no</div></div></div>
+            </div>
+            <div class="dept-side reveal" style="transition-delay:0.3s;">
+                <div class="kpi-card">
+                    <div class="kpi-lbl">The number</div>
+                    <div class="kpi-val">Signed agreements</div>
+                    <div class="kpi-desc">Buyer and listing agreements signed this month. Appointments feel like progress. Signatures are the business.</div>
+                    <div class="mini-funnel">
+                        <div class="mfun-row"><span>Conversations</span><div class="mfun-track"><b style="--w:100%;"></b></div><em>20</em></div>
+                        <div class="mfun-row"><span>Appointments</span><div class="mfun-track"><b style="--w:30%;"></b></div><em>6</em></div>
+                        <div class="mfun-row"><span>Signed</span><div class="mfun-track"><b style="--w:15%;"></b></div><em>3</em></div>
+                    </div>
+                    <div class="kpi-ex">Example month</div>
+                </div>
+                <div class="side-row">
+                    <div class="runs-on"><span class="runs-lbl">Runs on</span><span class="tool-chip">Lofty pipeline</span><span class="tool-chip">dotloop</span></div>
+                    <div class="head-you">Head <span class="you-pill">You</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">10 / 20</div>
+</section>
+
+<!-- ========== SLIDE 11 — DEPARTMENT 4: ADMIN ========== -->
+<section class="slide" id="slide-11" data-notes="Department four. **Admin.** Nobody posts about this one, and it protects everything else.
+
+Getting every deal to closing without surprises, and keeping the business itself running:
+1. **Transactions.** Every document in dotloop when it happens, not the night before closing.
+2. **CRM hygiene.** Stages, notes and next tasks current in Lofty, so nothing slips.
+3. **Compliance.** The Standard on every file, every time.
+4. **Money.** A budget, a monthly P&amp;L, and money set aside for taxes every time you get paid. Ask your CPA what percentage is right for you.
+5. **Calendar.** Planned every Monday, with a block for every department.
+
+The number here is your **monthly P&amp;L.** What came in, what went out, what you set aside, and what&#x27;s left.
+
+**If you don&#x27;t know that number, you don&#x27;t know if you have a business or an expensive hobby.**
+
+---
+
+Departamento cuatro. **Administración.** Nadie postea sobre este, y es el que protege todo lo demás.
+
+Llevar cada negocio al cierre sin sorpresas, y mantener el negocio en sí funcionando:
+1. **Transacciones.** Cada documento en dotloop cuando pasa, no la noche antes del cierre.
+2. **Higiene del CRM.** Tus etapas, tus notas y tus próximas tareas al día en Lofty, para que nada se te escape.
+3. **Cumplimiento.** The Standard en cada expediente, todas las veces.
+4. **Dinero.** Un presupuesto, un P&amp;L mensual, y dinero separado para los impuestos cada vez que cobras. Pregúntale a tu CPA qué porcentaje te conviene.
+5. **Calendario.** Planificado todos los lunes, con un bloque para cada departamento.
+
+El número aquí es tu **P&amp;L mensual.** Lo que entró, lo que salió, lo que separaste y lo que queda.
+
+**Si no sabes ese número, no sabes si tienes un negocio o un pasatiempo caro.**" style="justify-content:center;--dc:var(--d-ad);--dc-soft:var(--d-ad-soft);">
+    <div class="slide-content" style="gap:clamp(1rem,3.2vh,2.6rem);justify-content:center;">
+        <div class="reveal">
+            <div class="dept-track"><span>Business Development</span><span>Marketing</span><span>Sales</span><span class="on">Admin</span></div>
+            <div class="section-label">Department 4 of 4</div>
+            <h2 class="slide-title">Admin. <span style="color:var(--clay-soft);">Clean Deals. Known Numbers.</span></h2>
+            <p class="slide-body">Nobody posts about this department. It protects everything else.</p>
+        </div>
+        <div class="dept-grid">
+            <div class="dept-list stagger">
+                <div class="dept-item"><span class="dept-num">01</span><div><div class="dept-what">Transactions</div><div class="dept-how">Every document in dotloop when it happens, not the night before closing</div></div></div>
+                <div class="dept-item"><span class="dept-num">02</span><div><div class="dept-what">CRM hygiene</div><div class="dept-how">Stages, notes and next tasks current in Lofty</div></div></div>
+                <div class="dept-item"><span class="dept-num">03</span><div><div class="dept-what">Compliance</div><div class="dept-how">The Standard on every file, every time</div></div></div>
+                <div class="dept-item"><span class="dept-num">04</span><div><div class="dept-what">Money</div><div class="dept-how">A budget, a monthly P&amp;L, and taxes set aside every time you get paid</div></div></div>
+                <div class="dept-item"><span class="dept-num">05</span><div><div class="dept-what">Calendar</div><div class="dept-how">Planned every Monday, with a block for every department</div></div></div>
+            </div>
+            <div class="dept-side reveal" style="transition-delay:0.3s;">
+                <div class="kpi-card">
+                    <div class="kpi-lbl">The number</div>
+                    <div class="kpi-val">Your monthly P&amp;L</div>
+                    <div class="kpi-desc">What came in, what went out, what you set aside, and what&rsquo;s left. Plus zero missing documents in dotloop.</div>
+                    <div class="mini-pl">
+                        <div class="pl-row"><span>Came in</span><em>$9,000</em></div>
+                        <div class="pl-row minus"><span>Business expenses</span><em>&minus;$1,500</em></div>
+                        <div class="pl-row minus"><span>Set aside for taxes</span><em>&minus;$2,000</em></div>
+                        <div class="pl-row total"><span>Yours to keep</span><em>$5,500</em></div>
+                    </div>
+                    <div class="kpi-ex">Example month &middot; ask your CPA for your tax percentage</div>
+                </div>
+                <div class="side-row">
+                    <div class="runs-on"><span class="runs-lbl">Runs on</span><span class="tool-chip">dotloop</span><span class="tool-chip">Lofty</span><span class="tool-chip">Office 365</span></div>
+                    <div class="head-you">Head <span class="you-pill">You</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">11 / 20</div>
+</section>
+
+<!-- ========== SLIDE 12 — WHEN A DEPARTMENT CLOSES ========== -->
+<section class="slide" id="slide-12" data-notes="So what happens when one of these departments is closed?
+
+Here&#x27;s the thing. You can&#x27;t really close a department. You can only stop showing up for it, and then you pay for it.
+
+- **BD closed means feast or famine.** Your pipeline runs on luck, and past clients call another agent when it&#x27;s time to sell.
+- **Marketing closed means nobody new knows you sell homes.** Your business only grows as fast as your contact list.
+- **Sales closed means leads go cold.** You pay for conversations and never get the signature.
+- **Admin closed means deals and money slip away.** Missing files at closing, a pipeline you can&#x27;t see, and a tax bill you didn&#x27;t plan for.
+
+**Which one did you feel this year?** Answer it honestly, just for yourself.
+
+&gt; Pause. Let them think.
+
+Hold on to that answer. You&#x27;ll use it in the lab.
+
+---
+
+Entonces, ¿qué pasa cuando uno de estos departamentos está cerrado?
+
+Miren. En verdad no puedes cerrar un departamento. Lo que puedes es dejar de aparecer, y después lo pagas.
+
+- **BD cerrado es feast or famine.** O hay mucho trabajo o no hay nada. Tu pipeline depende de la suerte, y tus clientes pasados llaman a otro agente cuando les toca vender.
+- **Marketing cerrado significa que nadie nuevo sabe que vendes casas.** Tu negocio solo crece tan rápido como tu lista de contactos.
+- **Ventas cerrado significa leads que se enfrían.** Pagas por conversaciones y la firma nunca llega.
+- **Administración cerrada significa que los negocios y el dinero se te escapan.** Documentos que faltan en el cierre, un pipeline que no puedes ver, y una factura de impuestos que no planificaste.
+
+**¿Cuál sentiste tú este año?** Contéstate con honestidad, nada más para ti.
+
+&gt; Pausa. Déjalos pensar.
+
+Guarda esa respuesta. La vas a usar en el laboratorio." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Diagnosis</div><h2 class="slide-title">When a Department Closes, <span style="color:var(--clay-soft);">You Feel It.</span></h2><p class="slide-body">You can&rsquo;t really close a department. You can only stop showing up for it. Here&rsquo;s what that costs.</p></div>
+        <div class="closed-grid stagger">
+            <div class="closed-card" style="--dc:var(--d-bd);"><span class="closed-sign">Closed</span><div class="closed-dept">Business Development</div><div class="closed-head">Feast or famine.</div><div class="closed-desc">Your pipeline runs on luck, and past clients call another agent when it&rsquo;s time to sell.</div></div>
+            <div class="closed-card" style="--dc:var(--d-mk);"><span class="closed-sign">Closed</span><div class="closed-dept">Marketing</div><div class="closed-head">Nobody new knows you sell homes.</div><div class="closed-desc">Your business only grows as fast as your contact list.</div></div>
+            <div class="closed-card" style="--dc:var(--d-sa);"><span class="closed-sign">Closed</span><div class="closed-dept">Sales</div><div class="closed-head">Leads go cold.</div><div class="closed-desc">You pay for conversations and never get the signature.</div></div>
+            <div class="closed-card" style="--dc:var(--d-ad);"><span class="closed-sign">Closed</span><div class="closed-dept">Admin</div><div class="closed-head">Deals and money slip away.</div><div class="closed-desc">Missing files at closing, a pipeline you can&rsquo;t see, and a tax bill you didn&rsquo;t plan for.</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line" style="border-left-color:var(--amber);"><strong style="color:var(--amber-soft);">Which one did you feel this year?</strong> Hold on to the answer. You&rsquo;ll use it in the lab.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">12 / 20</div>
+</section>
+
+<!-- ========== SLIDE 13 — THE CEO WEEK (CALENDAR MOCKUP) ========== -->
+<section class="slide" id="slide-13" data-notes="So how do you run four departments without a team? Not by feel. **With a calendar.** This is an example CEO week.
+
+- **Mornings, 9 to 11, are Business Development.** Two hours, every day, before anything else. Calls, notes, follow-up.
+- **11 to 12 rotates.** Monday is Admin, to plan the week and check your numbers. Tuesday through Thursday is Marketing, for content and ads. Friday is Admin again, for dotloop files and your P&amp;L.
+- **Afternoons are Sales.** Consultations, showings, listing appointments, offers. Friday ends with a weekly review.
+- **Saturday** is the open house and more showings.
+
+Your week won&#x27;t look exactly like this. But every department needs a block with its name on it.
+
+**Appointments will fill your afternoons on their own. Nothing fills your mornings unless you put it there.**
+
+---
+
+Entonces, ¿cómo manejas cuatro departamentos sin un equipo? No al garete. **Con un calendario.** Esta es una semana de CEO de ejemplo.
+
+- **Las mañanas, de 9 a 11, son de Business Development.** Dos horas, todos los días, antes de cualquier otra cosa. Llamadas, notas, seguimiento.
+- **De 11 a 12 va rotando.** El lunes es Administración, para planificar la semana y revisar tus números. De martes a jueves es Marketing, para contenido y anuncios. El viernes es Administración otra vez, para tus expedientes en dotloop y tu P&amp;L.
+- **Las tardes son de Ventas.** Consultas, showings, citas de listado, ofertas. El viernes cierra con una revisión de la semana.
+- **El sábado** es el open house y más showings.
+
+Tu semana no va a quedar exactamente así. Pero cada departamento necesita un bloque con su nombre.
+
+**Las citas te van a llenar las tardes solitas. Las mañanas no se llenan a menos que tú las llenes.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.45rem,1.2vh,0.9rem);">
+        <div class="reveal"><div class="section-label">Time Blocking</div><h2 class="slide-title">The CEO Week. <span style="color:var(--sprout);">One Block per Department.</span></h2></div>
+        <div class="cal reveal" style="transition-delay:0.15s;">
+            <div class="cal-bar">
+                <div class="cal-bar-left"><div class="cal-dots"><i></i><i></i><i></i></div><span class="cal-title">Calendar &middot; Week of Oct 5, 2026</span><span class="cal-nav">&lsaquo; Today &rsaquo;</span></div>
+                <span class="cal-view">Week</span>
+            </div>
+            <div class="cal-grid">
+                <div class="cal-day" style="grid-column:2;">Mon<b>5</b></div>
+                <div class="cal-day" style="grid-column:3;">Tue<b>6</b></div>
+                <div class="cal-day" style="grid-column:4;">Wed<b>7</b></div>
+                <div class="cal-day" style="grid-column:5;">Thu<b>8</b></div>
+                <div class="cal-day" style="grid-column:6;">Fri<b>9</b></div>
+                <div class="cal-day" style="grid-column:7;">Sat<b>10</b></div>
+                <div class="cal-time" style="grid-row:2;">9a</div><div class="cal-line" style="grid-row:2;"></div>
+                <div class="cal-time" style="grid-row:4;">10a</div><div class="cal-line" style="grid-row:4;"></div>
+                <div class="cal-time" style="grid-row:6;">11a</div><div class="cal-line" style="grid-row:6;"></div>
+                <div class="cal-time" style="grid-row:8;">12p</div><div class="cal-line" style="grid-row:8;"></div>
+                <div class="cal-time" style="grid-row:10;">1p</div><div class="cal-line" style="grid-row:10;"></div>
+                <div class="cal-time" style="grid-row:12;">2p</div><div class="cal-line" style="grid-row:12;"></div>
+                <div class="cal-time" style="grid-row:14;">3p</div><div class="cal-line" style="grid-row:14;"></div>
+                <div class="cal-time" style="grid-row:16;">4p</div><div class="cal-line" style="grid-row:16;"></div>
+                <!-- Monday -->
+                <div class="cal-ev" style="--dc:var(--d-bd);grid-column:2;grid-row:2/6;--i:0;">Calls + follow-up<small>Business Dev</small></div>
+                <div class="cal-ev" style="--dc:var(--d-ad);grid-column:2;grid-row:6/8;--i:1;">Plan + numbers<small>Admin</small></div>
+                <div class="cal-ev" style="--dc:var(--d-sa);grid-column:2;grid-row:10/18;--i:2;">Appointments<small>Sales</small></div>
+                <!-- Tuesday -->
+                <div class="cal-ev" style="--dc:var(--d-bd);grid-column:3;grid-row:2/6;--i:3;">Sphere calls<small>Business Dev</small></div>
+                <div class="cal-ev" style="--dc:var(--d-mk);grid-column:3;grid-row:6/8;--i:4;">Content<small>Marketing</small></div>
+                <div class="cal-ev" style="--dc:var(--d-sa);grid-column:3;grid-row:10/18;--i:5;">Showings<small>Sales</small></div>
+                <!-- Wednesday -->
+                <div class="cal-ev" style="--dc:var(--d-bd);grid-column:4;grid-row:2/6;--i:6;">Partners + past clients<small>Business Dev</small></div>
+                <div class="cal-ev" style="--dc:var(--d-mk);grid-column:4;grid-row:6/8;--i:7;">Ads check<small>Marketing</small></div>
+                <div class="cal-ev" style="--dc:var(--d-sa);grid-column:4;grid-row:10/18;--i:8;">Consults + offers<small>Sales</small></div>
+                <!-- Thursday -->
+                <div class="cal-ev" style="--dc:var(--d-bd);grid-column:5;grid-row:2/6;--i:9;">Calls + follow-up<small>Business Dev</small></div>
+                <div class="cal-ev" style="--dc:var(--d-mk);grid-column:5;grid-row:6/8;--i:10;">Content<small>Marketing</small></div>
+                <div class="cal-ev" style="--dc:var(--d-sa);grid-column:5;grid-row:10/18;--i:11;">Showings<small>Sales</small></div>
+                <!-- Friday -->
+                <div class="cal-ev" style="--dc:var(--d-bd);grid-column:6;grid-row:2/6;--i:12;">Calls + follow-up<small>Business Dev</small></div>
+                <div class="cal-ev" style="--dc:var(--d-ad);grid-column:6;grid-row:6/8;--i:13;">dotloop files + P&amp;L<small>Admin</small></div>
+                <div class="cal-ev" style="--dc:var(--d-sa);grid-column:6;grid-row:10/16;--i:14;">Listing appts<small>Sales</small></div>
+                <div class="cal-ev" style="--dc:var(--d-ad);grid-column:6;grid-row:16/18;--i:15;">Weekly review<small>Admin</small></div>
+                <!-- Saturday -->
+                <div class="cal-ev" style="--dc:var(--d-bd);grid-column:7;grid-row:4/10;--i:16;">Open house<small>Business Dev</small></div>
+                <div class="cal-ev" style="--dc:var(--d-sa);grid-column:7;grid-row:12/18;--i:17;">Showings<small>Sales</small></div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.5s;display:flex;flex-direction:column;gap:clamp(0.4rem,1vh,0.7rem);align-items:center;">
+            <div class="cal-legend">
+                <span class="cal-key" style="--dc:var(--d-bd);"><i></i>Business Dev <em>13 h</em></span>
+                <span class="cal-key" style="--dc:var(--d-mk);"><i></i>Marketing <em>3 h</em></span>
+                <span class="cal-key" style="--dc:var(--d-sa);"><i></i>Sales <em>22 h</em></span>
+                <span class="cal-key" style="--dc:var(--d-ad);"><i></i>Admin <em>3 h</em></span>
+            </div>
+            <div class="callout-line">Appointments will fill your afternoons on their own. <strong style="color:var(--sprout);">Nothing fills your mornings unless you put it there.</strong></div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">13 / 20</div>
+</section>
+
+<!-- ========== SLIDE 14 — LAB TIME ========== -->
+<section class="slide gradient-bg" id="slide-14" data-notes="That&#x27;s the presentation. Now it&#x27;s lab time, and **lab time means real numbers.**
+
+&gt; Laptops open. Lofty, dotloop and Meta Ads Manager open.
+
+Three parts:
+1. **Where is everyone.** Your Marketing Machine build and your pipeline.
+2. **What&#x27;s next for marketing.** We decide together.
+3. **Next steps.** Nobody leaves without two commitments.
+
+Same rule as always. Be honest. **Nobody gets judged. Everybody gets helped.**
+
+---
+
+Esa fue la presentación. Ahora es tiempo de laboratorio, y **laboratorio significa números reales.**
+
+&gt; Laptops abiertas. Lofty, dotloop y el Ads Manager de Meta abiertos.
+
+Tres partes:
+1. **Dónde está cada uno.** Cómo va su Marketing Machine y su pipeline.
+2. **Qué hacemos ahora con el marketing.** Lo decidimos juntos.
+3. **Próximos pasos.** Nadie se va sin dos compromisos.
+
+La misma regla de siempre. Sean honestos. **Aquí no se juzga a nadie. Aquí se ayuda a todo el mundo.**" style="justify-content:center;align-items:center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:clamp(0.8rem,2.4vh,1.6rem);justify-content:center;">
+        <div class="reveal"><span class="badge badge-sprout">Lab Time</span></div>
+        <h2 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(2.2rem,6vw,4.8rem);letter-spacing:-0.04em;line-height:1.05;">Now We <span class="stroke stroke--sprout stroke-animate">Work.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.95rem,1.8vw,1.3rem);color:var(--muted-2);max-width:46ch;line-height:1.45;">Real numbers only. Nobody gets judged. Everybody gets helped.</p>
+        <div class="lab-agenda stagger">
+            <div class="lab-step"><div class="lab-num">01</div><div class="lab-name">Where is everyone</div><div class="lab-desc">Your Marketing Machine step and your five pipeline numbers</div></div>
+            <div class="lab-step"><div class="lab-num">02</div><div class="lab-name">What&rsquo;s next for marketing</div><div class="lab-desc">Four options. One team vote.</div></div>
+            <div class="lab-step"><div class="lab-num">03</div><div class="lab-name">Next steps</div><div class="lab-desc">Two commitments for the next two weeks</div></div>
+        </div>
+        <div class="open-row reveal" style="transition-delay:0.6s;"><span class="runs-lbl">Open now</span><span class="tool-chip">Lofty</span><span class="tool-chip">dotloop</span><span class="tool-chip">Meta Ads Manager</span></div>
+    </div>
+    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Lab</span></div>
+    <div class="slide-number">14 / 20</div>
+</section>
+
+<!-- ========== SLIDE 15 — LAB 1A: MARKETING MACHINE LADDER ========== -->
+<section class="slide" id="slide-15" data-notes="Part one. **Where is everyone with Marketing Machine?** These are the seven steps we built over eight sessions:
+1. Your offer and lead magnet
+2. ManyChat wired to your keyword
+3. Your cold video, recorded and edited
+4. Your cold campaign, built in Ads Manager
+5. Your custom audiences
+6. Your retarget campaign, live
+7. Reading your numbers every week
+
+&gt; Go around the room.
+
+Tell me the highest step you&#x27;ve fully finished. **Not almost. Finished.**
+
+If you&#x27;re stuck on a step, tell me which one and why. That&#x27;s not a confession. **That&#x27;s your next step.**
+
+---
+
+Parte uno. **¿Dónde está cada uno con Marketing Machine?** Estos son los siete pasos que construimos en ocho sesiones:
+1. Tu oferta y tu lead magnet
+2. ManyChat conectado a tu keyword
+3. Tu video cold, grabado y editado
+4. Tu campaña cold, creada en el Ads Manager
+5. Tus audiencias custom
+6. Tu campaña de retarget, corriendo
+7. Leer tus números todas las semanas
+
+&gt; Ve por todo el salón.
+
+Díganme el paso más alto que tienen terminado completo. **No casi. Terminado.**
+
+Si te trancaste en algún paso, dime cuál y por qué. Eso no es una confesión. **Ese es tu próximo paso.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Lab &middot; Part 1 &middot; Where Is Everyone</div><h2 class="slide-title">Marketing Machine. <span style="color:var(--amber);">What Step Are You On?</span></h2><p class="slide-body">Say the highest step you&rsquo;ve fully finished. Not almost. Finished.</p></div>
+        <div class="ladder">
+            <div class="step" style="--h:40%;"><span class="step-num">01</span><span class="step-name">Offer + lead magnet</span><span class="step-desc">A reason for a buyer to raise a hand</span></div>
+            <div class="step" style="--h:50%;"><span class="step-num">02</span><span class="step-name">ManyChat wired</span><span class="step-desc">Your keyword triggers the right flow</span></div>
+            <div class="step" style="--h:60%;"><span class="step-num">03</span><span class="step-name">Cold video</span><span class="step-desc">Recorded, edited, ready to run</span></div>
+            <div class="step" style="--h:70%;"><span class="step-num">04</span><span class="step-name">Cold campaign</span><span class="step-desc">Built in Ads Manager, copy written</span></div>
+            <div class="step" style="--h:80%;"><span class="step-num">05</span><span class="step-name">Custom audiences</span><span class="step-desc">Warm engagers 90d + retarget viewers</span></div>
+            <div class="step" style="--h:90%;"><span class="step-num">06</span><span class="step-name">Retarget live</span><span class="step-desc">A different angle and a direct ask</span></div>
+            <div class="step top" style="--h:100%;"><span class="step-num">07</span><span class="step-name">Weekly numbers</span><span class="step-desc">5 minutes, 5 numbers, every week</span></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.7s;"><div class="callout-line" style="border-left-color:var(--amber);">Stuck on a step? <strong style="color:var(--amber-soft);">That&rsquo;s not a confession. That&rsquo;s your next step.</strong></div></div>
+    </div>
+    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Lab</span></div>
+    <div class="slide-number">15 / 20</div>
+</section>
+
+<!-- ========== SLIDE 16 — LAB 1B: PIPELINE NUMBERS ========== -->
+<section class="slide" id="slide-16" data-notes="Now your pipeline. **Five numbers, out loud,** from your real data. Not from memory. Open Lofty and dotloop if you need to.
+1. Buyers under a signed Buyer Broker Agreement
+2. Active listings
+3. Deals under contract
+4. What you&#x27;ve closed in 2026, in units and GCI
+5. Your goal for 2026
+
+Now take number five minus number four. **That&#x27;s your gap.**
+
+There are 93 days left in the year. That gap is what those 93 days are for.
+
+If you don&#x27;t know one of these numbers, that&#x27;s not a problem for today. That&#x27;s your Admin department talking, and now you know where to start.
+
+---
+
+Ahora tu pipeline. **Cinco números, en voz alta,** con tus datos reales. No de memoria. Abran Lofty y dotloop si hace falta.
+1. Compradores con un Buyer Broker Agreement firmado
+2. Listados activos
+3. Negocios bajo contrato
+4. Lo que has cerrado en el 2026, en unidades y en GCI
+5. Tu meta para el 2026
+
+Ahora, el número cinco menos el número cuatro. **Esa es tu brecha.**
+
+Quedan 93 días en el año. Para eso son esos 93 días.
+
+Si no sabes uno de estos números, eso no es un problema para hoy. Ese es tu departamento de Administración hablándote, y ya sabes por dónde empezar." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Lab &middot; Part 1 &middot; Where Is Everyone</div><h2 class="slide-title">Your Pipeline. <span style="color:var(--brand-light);">Five Numbers, Out Loud.</span></h2><p class="slide-body">From Lofty and dotloop, not from memory.</p></div>
+        <div class="pipe-grid stagger">
+            <div class="pipe-tile" style="--dc:var(--d-sa);"><span class="pipe-idx">01 &middot; Sales</span><span class="pipe-blank">?</span><span class="pipe-name">Buyers under agreement</span><span class="pipe-where">Signed Buyer Broker Agreement</span></div>
+            <div class="pipe-tile" style="--dc:var(--d-sa);"><span class="pipe-idx">02 &middot; Sales</span><span class="pipe-blank">?</span><span class="pipe-name">Active listings</span><span class="pipe-where">Signed and on the market</span></div>
+            <div class="pipe-tile" style="--dc:var(--d-ad);"><span class="pipe-idx">03 &middot; Admin</span><span class="pipe-blank">?</span><span class="pipe-name">Under contract</span><span class="pipe-where">Pending in dotloop, not closed yet</span></div>
+            <div class="pipe-tile" style="--dc:var(--sprout);"><span class="pipe-idx">04 &middot; Scoreboard</span><span class="pipe-blank">?</span><span class="pipe-name">Closed in 2026</span><span class="pipe-where">Units and GCI, year to date</span></div>
+            <div class="pipe-tile" style="--dc:var(--amber);"><span class="pipe-idx">05 &middot; Target</span><span class="pipe-blank">?</span><span class="pipe-name">Your 2026 goal</span><span class="pipe-where">Units and GCI for the year</span></div>
+        </div>
+        <div class="gap-row reveal" style="transition-delay:0.5s;">
+            <div class="days-ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="42"/><circle class="arc" cx="50" cy="50" r="42" pathLength="100" style="--off:74.5;"/></svg><div class="days-center"><b>93</b><span>days left in 2026</span></div></div>
+            <div class="callout-line" style="border-left-color:var(--amber);">Number 5 minus number 4 is your gap. <strong style="color:var(--amber-soft);">That gap is what the next 93 days are for.</strong><br>Don&rsquo;t know one of these numbers? That&rsquo;s your Admin department talking.</div>
+        </div>
+    </div>
+    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Lab</span></div>
+    <div class="slide-number">16 / 20</div>
+</section>
+
+<!-- ========== SLIDE 17 — LAB 2: WHAT'S NEXT FOR MARKETING (VOTE) ========== -->
+<section class="slide" id="slide-17" data-notes="Part two. **What do we do next with marketing?** Four options, and we pick one as a team.
+
+- **A. Relaunch.** Refresh your cold video and restart the campaigns you paused. It uses everything you already built.
+- **B. Second lead magnet.** A new offer for a different client, like sellers, investors or first-time buyers. That opens a new audience.
+- **C. Content engine.** Three posts a week using the six frameworks from Session 1. No ad spend.
+- **D. Sphere retargeting.** Upload your past clients and your sphere as a Meta audience so they see you every week. That&#x27;s BD and Marketing working together.
+
+One vote each. Hands up.
+
+&gt; Click a card once for each hand. Shift+click takes a vote back.
+
+**Whatever wins is what we build in the next sessions.**
+
+---
+
+Parte dos. **¿Qué hacemos ahora con el marketing?** Cuatro opciones, y escogemos una como equipo.
+
+- **A. Relanzar.** Refrescas tu video cold y vuelves a prender las campañas que pausaste. Usa todo lo que ya construiste.
+- **B. Segundo lead magnet.** Una oferta nueva para otro tipo de cliente, como vendedores, inversionistas o compradores de primera vez. Eso abre una audiencia nueva.
+- **C. Motor de contenido.** Tres posts a la semana usando los seis frameworks de la Sesión 1. Sin gastar en anuncios.
+- **D. Retargeting a tu esfera.** Subes a tus clientes pasados y a tu esfera como una audiencia en Meta para que te vean todas las semanas. Eso es BD y Marketing trabajando juntos.
+
+Un voto por persona. Manos arriba.
+
+&gt; Haz clic en la tarjeta una vez por cada mano. Shift+clic quita un voto.
+
+**Lo que gane es lo que construimos en las próximas sesiones.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Lab &middot; Part 2 &middot; Marketing</div><h2 class="slide-title">What&rsquo;s Next for Marketing? <span style="color:var(--sprout);">We Pick Together.</span></h2><p class="slide-body">One vote each. Whatever wins is what we build in the next sessions.</p></div>
+        <div class="vote-grid stagger">
+            <div class="vote-card"><span class="vote-count">0</span><span class="vote-letter">A</span><span class="vote-name">Relaunch</span><span class="vote-desc">Refresh your cold video and restart the campaigns you paused.</span><span class="badge badge-amber vote-tag">Uses what you built</span></div>
+            <div class="vote-card"><span class="vote-count">0</span><span class="vote-letter">B</span><span class="vote-name">Second lead magnet</span><span class="vote-desc">A new offer for a different client: sellers, investors or first-time buyers.</span><span class="badge badge-brand vote-tag">New audience</span></div>
+            <div class="vote-card"><span class="vote-count">0</span><span class="vote-letter">C</span><span class="vote-name">Content engine</span><span class="vote-desc">Three posts a week built on the six frameworks from Session 1.</span><span class="badge badge-sprout vote-tag">No ad spend</span></div>
+            <div class="vote-card"><span class="vote-count">0</span><span class="vote-letter">D</span><span class="vote-name">Sphere retargeting</span><span class="vote-desc">Upload past clients and your sphere as a Meta audience so they see you every week.</span><span class="badge badge-clay vote-tag">BD + Marketing</span></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.6s;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;"><div class="callout-line">Hands up. <strong style="color:var(--sprout);">The winner becomes our next Marketing Machine build.</strong></div><span class="vote-hint">Click a card to count a vote &middot; Shift+click to undo</span></div>
+    </div>
+    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Lab</span></div>
+    <div class="slide-number">17 / 20</div>
+</section>
+
+<!-- ========== SLIDE 18 — LAB 3: NEXT STEPS ========== -->
+<section class="slide" id="slide-18" data-notes="Part three. **Next steps.** Everyone leaves with two commitments for the next two weeks.
+
+**Commitment one. Your marketing move.**
+- Stuck on the ladder? Your move is finishing your next step.
+- Finished the ladder? Your move is the option we just picked.
+
+**Commitment two. One number.** Pick the department that hurts most right now and track its number every week.
+- Conversations per week for BD
+- Cost per conversation for Marketing
+- Signed agreements for Sales
+- Your monthly P&amp;L for Admin
+
+&gt; Before anyone leaves, check that both commitments are in Lofty as tasks with a due date.
+
+**On Tuesday, October 13, we check both.**
+
+---
+
+Parte tres. **Próximos pasos.** Todo el mundo sale de aquí con dos compromisos para las próximas dos semanas.
+
+**Compromiso uno. Tu movida de marketing.**
+- ¿Te trancaste en la escalera? Tu movida es terminar tu próximo paso.
+- ¿Ya terminaste la escalera? Tu movida es la opción que acabamos de escoger.
+
+**Compromiso dos. Un número.** Escoge el departamento que más te duele ahora mismo y mide su número todas las semanas.
+- Conversaciones por semana para BD
+- Costo por conversación para Marketing
+- Acuerdos firmados para Ventas
+- Tu P&amp;L mensual para Administración
+
+&gt; Antes de que alguien se vaya, verifica que los dos compromisos estén en Lofty como tareas con fecha.
+
+**El martes 13 de octubre revisamos los dos.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Lab &middot; Part 3 &middot; Next Steps</div><h2 class="slide-title">Two Commitments. <span style="color:var(--sprout);">Two Weeks.</span></h2><p class="slide-body">Nobody leaves this room without both.</p></div>
+        <div class="commit-grid stagger">
+            <div class="commit-card" style="--cc:var(--amber);">
+                <span class="commit-num">Commitment 1</span>
+                <span class="commit-name">Your marketing move</span>
+                <span class="commit-desc">One move you finish in the next two weeks. Which one depends on where you are on the ladder.</span>
+                <div class="commit-opts">
+                    <span class="commit-opt" style="--dc:var(--amber);"><i></i><em>Stuck</em>Finish your next ladder step</span>
+                    <span class="commit-opt" style="--dc:var(--sprout);"><i></i><em>Finished</em>Start the option the team picked</span>
+                </div>
+            </div>
+            <div class="commit-card" style="--cc:var(--sprout);">
+                <span class="commit-num">Commitment 2</span>
+                <span class="commit-name">Your one number</span>
+                <span class="commit-desc">Pick the department that hurts most and track its number every week.</span>
+                <div class="commit-opts">
+                    <span class="commit-opt" style="--dc:var(--d-bd);"><i></i><em>BD</em>Conversations per week</span>
+                    <span class="commit-opt" style="--dc:var(--d-mk);"><i></i><em>Marketing</em>Cost per conversation</span>
+                    <span class="commit-opt" style="--dc:var(--d-sa);"><i></i><em>Sales</em>Signed agreements</span>
+                    <span class="commit-opt" style="--dc:var(--d-ad);"><i></i><em>Admin</em>Your monthly P&amp;L</span>
+                </div>
+            </div>
+        </div>
+        <div class="date-strip reveal" style="transition-delay:0.5s;">
+            <div class="date-chip"><span class="m">OCT</span><span class="d">13</span></div>
+            <div class="date-text">Put both in <strong>Lofty as tasks with a due date</strong> before you leave. On Tuesday, October 13, we check both.</div>
+        </div>
+    </div>
+    <div class="slide-footer-logo" style="z-index:2;"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Lab</span></div>
+    <div class="slide-number">18 / 20</div>
+</section>
+
+<!-- ========== SLIDE 19 — AI SHORTCUT: TWO-WEEK PLAN ========== -->
+<section class="slide" id="slide-19" data-notes="Here&#x27;s your shortcut for tonight. Copy this prompt into Claude or ChatGPT and fill in the brackets with the numbers you said out loud today:
+- Your step on the ladder
+- Your five pipeline numbers
+- Your marketing move
+- The department that hurts most
+
+The AI builds your next two weeks as a calendar, with a block for every department, your marketing move scheduled, and a weekly check of your number.
+
+**It only works with real numbers.** If you guessed today, the plan will be a guess too.
+
+Bring the calendar on October 13.
+
+---
+
+Aquí está tu atajo para esta noche. Copia este prompt en Claude o en ChatGPT y llena los corchetes con los números que dijiste en voz alta hoy:
+- Tu paso en la escalera
+- Tus cinco números del pipeline
+- Tu movida de marketing
+- El departamento que más te duele
+
+La inteligencia artificial te arma las próximas dos semanas como un calendario, con un bloque para cada departamento, tu movida de marketing en agenda, y una revisión semanal de tu número.
+
+**Solo funciona con números reales.** Si hoy adivinaste, el plan también va a ser una adivinanza.
+
+Trae el calendario el 13 de octubre." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">AI Shortcut</div><h2 class="slide-title">Use AI to <span style="color:var(--sprout);">Build Your Two-Week Plan</span></h2><p class="slide-body">Copy this prompt. Paste it into Claude or ChatGPT. Fill the brackets with the numbers you said today.</p></div>
+        <div class="reveal ai-card" style="transition-delay:0.2s;">
+            <div class="ai-card-head">
+                <span class="ai-card-lbl">Copy &middot; Paste into your AI project</span>
+                <span class="badge badge-sprout">Claude / ChatGPT / Gemini</span>
+            </div>
+            <div class="ai-card-body">You are my real estate business coach. My business has 4 departments: Business Development (1-to-1 relationships), Marketing (1-to-many attention), Sales (signed agreements), Admin (files, CRM, money, calendar).<br><br>My numbers today: Marketing Machine step finished [1 to 7] &middot; Buyers under agreement [ ] &middot; Active listings [ ] &middot; Under contract [ ] &middot; Closed in 2026 [units, GCI] &middot; 2026 goal [units, GCI]. My marketing move: [ ]. The department that hurts most: [ ].<br><br>Build my next 2 weeks as a time-blocked calendar, Monday to Saturday. Give every department its own block. Schedule my marketing move and a weekly check of that department&rsquo;s number. Keep it realistic for a solo agent. Answer in [English / Spanish].</div>
+        </div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line" style="border-left-color:var(--amber);"><strong style="color:var(--amber-soft);">This only works with real numbers.</strong> Guesses in, guesses out.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 1</span></div>
+    <div class="slide-number">19 / 20</div>
+</section>
+
+<!-- ========== SLIDE 20 — CLOSING QUOTE ========== -->
+<section class="slide gradient-bg" id="slide-20" data-notes="I&#x27;ll close with Jim Rohn.
+
+**Either you run the day or the day runs you.**
+
+Today you saw that each one of you is the CEO of a business with four departments. A CEO&#x27;s first job is deciding where the hours go.
+
+So run your day:
+- Put all four departments on your calendar.
+- Keep your two commitments.
+- On October 13, we look at the numbers together.
+
+Thank you. **Let&#x27;s go to work.**
+
+---
+
+Cierro con Jim Rohn.
+
+**O diriges tú el día, o el día te dirige a ti.**
+
+Hoy vieron que cada uno de ustedes es el CEO de un negocio con cuatro departamentos. El primer trabajo de un CEO es decidir a dónde van las horas.
+
+Así que dirijan su día:
+- Pongan los cuatro departamentos en el calendario.
+- Cumplan sus dos compromisos.
+- El 13 de octubre miramos los números juntos.
+
+Gracias. **Vamos a trabajar.**" style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal"><span style="font-family:var(--font-display);font-size:clamp(3rem,8vw,6rem);color:var(--sprout);line-height:0.6;">&ldquo;</span></div>
+        <h1 class="reveal" style="font-family:var(--font-display);font-weight:300;font-style:italic;font-size:clamp(1.7rem,4.4vw,3.5rem);letter-spacing:-0.02em;line-height:1.25;max-width:22ch;transition-delay:0.15s;">Either you run the day or the day <span class="stroke stroke--sprout stroke-animate">runs you.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+        <p class="reveal" style="font-family:var(--font-mono);font-size:clamp(0.7rem,1.1vw,0.9rem);letter-spacing:2.4px;text-transform:uppercase;color:var(--sprout);transition-delay:0.3s;">Jim Rohn</p>
+        <p class="reveal echo-es" style="transition-delay:0.4s;">O diriges t&uacute; el d&iacute;a, o el d&iacute;a te dirige a ti.</p>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.8rem,1.3vw,1.05rem);color:var(--muted-2);max-width:48ch;line-height:1.5;transition-delay:0.5s;">Four departments. One calendar. See you Tuesday, October 13, with your numbers.</p>
+    </div>
+    <div class="slide-footer">reThought Real Estate &reg;</div>
+    <div class="slide-number">20 / 20</div>
+</section>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+const slides = document.querySelectorAll('.slide');
+const navDotsContainer = document.getElementById('navDots');
+const progressBar = document.getElementById('progressBar');
+const totalSlides = slides.length;
+
+navDotsContainer.innerHTML = '';
+slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('nav-dot');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' }));
+    navDotsContainer.appendChild(dot);
+});
+const dots = navDotsContainer.querySelectorAll('.nav-dot');
+
+/* currentIndex tracks the slide on screen — .visible stays on past slides
+   so their animations don't replay, which is why keyboard nav can't rely on it */
+let currentIndex = 0;
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            const idx = [...slides].indexOf(entry.target);
+            currentIndex = idx;
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            progressBar.style.width = ((idx + 1) / totalSlides * 100) + '%';
+        }
+    });
+}, { threshold: 0.5 });
+slides.forEach(s => observer.observe(s));
+
+document.addEventListener('keydown', e => {
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') && currentIndex < totalSlides - 1) {
+        e.preventDefault(); slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && currentIndex > 0) {
+        e.preventDefault(); slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+try {
+    const bc = new BroadcastChannel('presentation-sync');
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = [...slides].indexOf(entry.target);
+                bc.postMessage({ type: 'slide-change', slide: idx, series: 'business-management', session: '1' });
+            }
+        });
+    }, { threshold: 0.5 });
+    slides.forEach(s => observer2.observe(s));
+    bc.onmessage = e => {
+        if (e.data.type === 'slide-change' && e.data.series === 'business-management' && e.data.session === '1') {
+            slides[e.data.slide]?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+} catch(e) {}
+</script>
+<script>
+/* Lab vote counter (slide 17): click adds a vote, Shift+click removes one, the leader glows */
+(function () {
+    const cards = [...document.querySelectorAll('.vote-card')];
+    const count = card => parseInt(card.querySelector('.vote-count').textContent, 10) || 0;
+    cards.forEach(card => card.addEventListener('click', e => {
+        const next = e.shiftKey ? Math.max(0, count(card) - 1) : count(card) + 1;
+        card.querySelector('.vote-count').textContent = next;
+        const max = Math.max(...cards.map(count));
+        cards.forEach(c => c.classList.toggle('leading', max > 0 && count(c) === max));
+    }));
+})();
+</script>
+
+</body>
+</html>

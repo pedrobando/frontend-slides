@@ -26,6 +26,7 @@
     --sprout: #8cc94e;
     --sprout-soft: #b4dc84;
     --clay: #c05445;
+    --amber: #e0a63a;
     --muted: #6e7a88;
     --muted-2: #95a0ae;
     --border-d: #ffffff18;
@@ -238,6 +239,30 @@ body {
     border: none;
     border-top: 1px solid var(--border-d);
     margin: 1em 0;
+}
+/* Lists and stage cues in notes ("- ", "1. ", "> " lines) */
+.notes-panel__content ul,
+.notes-panel__content ol {
+    margin: 0 0 0.8em;
+    padding-left: 1.4em;
+}
+.notes-panel__content li {
+    margin-bottom: 0.35em;
+    padding-left: 0.2em;
+}
+.notes-panel__content li::marker {
+    color: var(--sprout);
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+}
+.notes-panel__content .notes-cue {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    color: var(--amber);
+    border-left: 2px solid var(--amber);
+    padding: 0.15em 0 0.15em 0.7em;
 }
 .notes-panel__content .lang-label {
     font-family: var(--font-mono);
@@ -495,6 +520,15 @@ body {
     let timerInterval = null;
     let audienceWindow = null;
     let currentLang = 'all';
+    // Remember the ALL / EN / ES choice across slides, decks and reloads
+    const LANG_KEY = 'rethought-notes-lang';
+    try {
+        const savedLang = localStorage.getItem(LANG_KEY);
+        if (savedLang === 'en' || savedLang === 'es') currentLang = savedLang;
+    } catch (e) { /* storage blocked — default to ALL */ }
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.lang === currentLang);
+    });
 
     // DOM references
     const elTitle = document.getElementById('presTitle');
@@ -776,18 +810,54 @@ body {
         elNotes.scrollTop = 0;
     }
 
+    // Blocks split on blank lines. Inside a block, "- " lines become a bulleted list,
+    // "1. " lines a numbered list and "> " lines a stage cue; other lines stay one
+    // paragraph with single newlines as <br>. **bold** works everywhere.
     function formatParagraphs(text) {
         var result = '';
-        var paragraphs = text.split(/\\n\\n+|\n\n+/);
-        paragraphs.forEach(function(p) {
-            var trimmed = p.trim();
-            if (!trimmed) return;
-            var formatted = trimmed
-                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\\n|\n/g, '<br>');
-            result += '<p>' + formatted + '</p>';
+        var blocks = text.split(/\\n\\n+|\n\n+/);
+        blocks.forEach(function(block) {
+            var lines = block.split(/\\n|\n/).map(function(l) { return l.trim(); }).filter(Boolean);
+            var para = [];
+            var list = null;
+            function flushPara() {
+                if (para.length) result += '<p>' + inlineFormat(para.join('<br>')) + '</p>';
+                para = [];
+            }
+            function closeList() {
+                if (list) result += '</' + list + '>';
+                list = null;
+            }
+            lines.forEach(function(line) {
+                var bullet = line.match(/^[-•]\s+(.*)$/);
+                var number = line.match(/^(\d+)[.)]\s+(.*)$/);
+                var cue = line.match(/^>\s+(.*)$/);
+                if (bullet || number) {
+                    var type = bullet ? 'ul' : 'ol';
+                    flushPara();
+                    if (list !== type) {
+                        closeList();
+                        result += (type === 'ol' && number[1] !== '1') ? '<ol start="' + number[1] + '">' : '<' + type + '>';
+                        list = type;
+                    }
+                    result += '<li>' + inlineFormat(bullet ? bullet[1] : number[2]) + '</li>';
+                } else if (cue) {
+                    flushPara();
+                    closeList();
+                    result += '<p class="notes-cue">' + inlineFormat(cue[1]) + '</p>';
+                } else {
+                    closeList();
+                    para.push(line);
+                }
+            });
+            flushPara();
+            closeList();
         });
         return result;
+    }
+
+    function inlineFormat(text) {
+        return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     }
 
     // -----------------------------------------------
@@ -905,6 +975,7 @@ body {
     document.getElementById('langToggle').addEventListener('click', function(e) {
         if (!e.target.classList.contains('lang-btn')) return;
         currentLang = e.target.dataset.lang;
+        try { localStorage.setItem(LANG_KEY, currentLang); } catch (err) { /* not persisted */ }
         document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
         e.target.classList.add('active');
         renderNotes(slideNotes[currentSlide]);

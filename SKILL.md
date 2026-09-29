@@ -295,8 +295,8 @@ Slides 5 through N-1 contain the week's content — agenda, updates, metrics, tr
 
 ### Script Requirements:
 1. **Two languages per slide** — English first, then Puerto Rican Spanish (con sazón). Separate with `---` divider.
-2. **Puerto Rican Spanish** — Not formal Castilian. Use natural PR expressions, contractions, and flow. Examples: "pa'lante", "dale", "vamos", "mira", "esto es lo que hay". The tone is direct, warm, confident — like Pedro actually talks.
-3. **Word-for-word recitation** — The presenter should be able to read the script exactly as written and sound natural. No "talking points" — full sentences, full paragraphs.
+2. **Puerto Rican Spanish** — Not formal Castilian. Use natural PR expressions, contractions, and flow. Examples: "pa'lante", "dale", "vamos", "mira", "esto es lo que hay". The tone is direct, warm, confident — like Pedro actually talks. Always write full orthography: accents, ñ, ¿ and ¡ ("año", not "ano"; "campaña", not "campana").
+3. **Word-for-word recitation** — The presenter should be able to read the script exactly as written and sound natural. No "talking points" — full sentences. Lists are fine for anything the slide enumerates, as long as each item reads naturally out loud.
 4. **Match the slide content** — The script explains, expands, and contextualizes what's on the slide. It adds the story and emotion the slide can't show.
 5. **Conversational tone** — Write as if speaking to a room of 8-15 agents. Direct, personal, no corporate language.
 
@@ -309,7 +309,20 @@ English script paragraphs here...
 Spanish script paragraphs here...
 ```
 
-The presenter view renders `---` as a language divider with EN/ES labels.
+The presenter view renders `---` as a language divider with EN/ES labels. English always goes before the divider and Spanish after it, on every slide (including the Misión y Visión slide). Use `---` only once, as that divider.
+
+Formatting the presenter view understands (use it in both languages, with the same structure in each):
+
+| Write | Renders as |
+| ----- | ---------- |
+| Blank line | New paragraph. Keep paragraphs to one idea, 1–3 sentences |
+| Single line break | Line break inside a paragraph |
+| `- item` | Bulleted list |
+| `1. item` | Numbered list (use for anything the slide shows in order) |
+| `> Go around the room.` | Stage cue for the presenter, not read aloud (amber, mono) |
+| `**key line**` | Bold. One or two key lines per slide |
+
+The ALL / EN / ES toggle in the presenter top bar hides the other language and remembers the choice. Reference: `presentations/business-management-session-1.html`.
 
 ---
 
