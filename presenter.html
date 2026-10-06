@@ -572,6 +572,20 @@ body {
         }
     };
 
+    // Newer decks (ai, business-management, the-standard...) broadcast on
+    // 'presentation-sync' with {type:'slide-change', slide} — follow them too.
+    try {
+        const syncChannel = new BroadcastChannel('presentation-sync');
+        syncChannel.onmessage = function (e) {
+            const msg = e.data;
+            if (msg && msg.type === 'slide-change' && typeof msg.slide === 'number' &&
+                msg.slide !== currentSlide && msg.slide >= 0 && msg.slide < totalSlides) {
+                currentSlide = msg.slide;
+                updatePresenterView();
+            }
+        };
+    } catch (err) { /* BroadcastChannel unsupported */ }
+
     // -----------------------------------------------
     // 4. Load & Parse Presentation
     // -----------------------------------------------

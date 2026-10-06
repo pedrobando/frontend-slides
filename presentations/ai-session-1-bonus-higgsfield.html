@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Animated IG Stories with Claude + Higgsfield | AI Session 1 Bonus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@page { size: letter portrait; margin: 0; }
+:root {
+  --ink: #1B252F; --ink-soft: #222E3A; --ink-deep: #151D26;
+  --paper: #fbfbfb; --bone: #f5f1ea;
+  --brand: #034c76; --brand-deep: #0a6399; --brand-light: #6ba8d6;
+  --sprout: #8cc94e; --sprout-soft: #b4dc84; --sprout-deep: #2c5e15;
+  --clay: #c05445; --clay-soft: #eab1ac;
+  --amber: #e0a63a; --amber-soft: #f5d08a; --amber-deep: #8a5a05;
+  --muted: #55616f; --muted-2: #95a0ae;
+  --line: #1B252F1f; --line-d: #ffffff22;
+  --font-display: 'Poppins', sans-serif; --font-sans: 'Instrument Sans', sans-serif; --font-mono: 'Geist Mono', monospace;
+  /* department palette (fills carry WHITE text; ink versions for text on paper) */
+  --bd: #8cc94e; --bd-ink: #2c5e15; --bd-lt: #8cc94e; --bd-tint: #8cc94e24;
+  --mk: #e0a63a; --mk-ink: #8a5a05; --mk-lt: #e0a63a; --mk-tint: #e0a63a26;
+  --sa: #0a6399; --sa-ink: #034c76; --sa-lt: #6ba8d6; --sa-tint: #0a63991c;
+  --ad: #c05445; --ad-ink: #a2402f; --ad-lt: #eab1ac; --ad-tint: #c0544520;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #dcd9d2; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: var(--font-sans); color: var(--ink); font-size: 10.5pt; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+@media screen { body { padding: 0.3in 0; } .page { margin: 0 auto 0.3in; box-shadow: 0 2px 18px #00000030; } }
+@media print { html, body { background: none; } .page { break-after: page; break-inside: avoid; } .page:last-child { break-after: auto; } }
+
+/* ---------- page shell ---------- */
+.page { width: 8.5in; height: 11in; overflow: hidden; position: relative; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); break-after: page; }
+.page-body { flex: 1; display: flex; flex-direction: column; gap: 0.24in; padding: 0.7in 0.8in 0.95in; }
+.chrome-bottom { position: absolute; left: 0.8in; right: 0.8in; bottom: 0.42in; display: flex; justify-content: space-between; align-items: center; padding-top: 0.12in; border-top: 0.75pt solid var(--line); }
+.cb-left { display: flex; align-items: center; gap: 0.14in; }
+.cb-logo { height: 0.26in; width: auto; display: block; }
+.cb-text, .cb-num { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+.cb-num { font-weight: 600; color: var(--ink); }
+.page.dark { background: var(--ink); color: #fff; }
+.page.dark .chrome-bottom { border-top-color: var(--line-d); }
+.page.dark .cb-text { color: var(--muted-2); } .page.dark .cb-num { color: #fff; }
+
+/* ---------- type ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2.4px; text-transform: uppercase; color: var(--brand); display: flex; align-items: center; gap: 0.1in; margin-bottom: 0.12in; font-weight: 500; }
+.eyebrow::before { content: ""; width: 0.26in; height: 2px; background: currentColor; }
+.eyebrow.on-dark { color: var(--sprout); }
+.page-title { font-family: var(--font-display); font-weight: 700; font-size: 26pt; line-height: 1.1; letter-spacing: -0.025em; color: var(--ink); }
+.page-title .accent { color: var(--brand); display: block; }
+.lede { font-size: 12pt; line-height: 1.45; color: var(--muted); max-width: 6.2in; margin-top: 0.1in; }
+.sec-lbl { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.echo-es { display: block; font-style: italic; color: var(--muted); font-size: 10.5pt; margin-top: 0.06in; }
+
+.callout { border-left: 3pt solid var(--sprout-deep); background: var(--bone); padding: 0.2in 0.28in; font-size: 12.5pt; line-height: 1.5; border-radius: 0 0.08in 0.08in 0; margin-top: auto; }
+.callout strong { font-weight: 700; color: var(--brand); }
+.callout.amber { border-left-color: var(--amber); }
+.callout.amber strong { color: var(--amber-deep); }
+.callout .sub-line { display: block; margin-top: 0.08in; font-size: 10.5pt; color: var(--muted); }
+
+.you-pill { display: inline-block; background: var(--sprout); color: #fff; font-family: var(--font-mono); font-weight: 700; font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; padding: 2pt 7pt; border-radius: 99px; vertical-align: middle; margin-left: 4pt; }
+.tool-chip { display: inline-block; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1px; text-transform: uppercase; border: 0.75pt solid var(--line); background: #fff; padding: 3pt 9pt; border-radius: 99px; color: var(--ink); font-weight: 500; }
+
+/* ---------- cover / back ---------- */
+.page.cover, .page.back { background: var(--ink); color: #fff; background-image: radial-gradient(ellipse 5.5in 4in at 85% 8%, #8cc94e22, transparent 70%), radial-gradient(ellipse 6in 4in at 0% 100%, #034c7655, transparent 70%); }
+.cover-inner, .back-inner { flex: 1; display: flex; flex-direction: column; padding: 0.9in 0.85in 0.85in; }
+.back-inner { padding-bottom: 1.15in; }
+.cover-top, .back-top { display: flex; align-items: center; gap: 0.22in; }
+.wordmark { height: 0.5in; width: auto; color: var(--paper); display: block; }
+.cover-x { color: #ffffff55; font-size: 20pt; font-weight: 200; }
+.cover-relearn { height: 0.46in; width: auto; margin-top: -0.04in; display: block; }
+.cover-mid { margin: auto 0; }
+.cover-title { font-family: var(--font-display); font-weight: 700; font-size: 62pt; line-height: 1.02; letter-spacing: -0.035em; color: #fff; margin-top: 0.1in; }
+.ceo { position: relative; display: inline-block; padding: 0 2pt; }
+.ceo .ul { position: absolute; left: 0; right: 0; bottom: -0.06in; width: 100%; height: 0.14in; }
+.ul path { fill: none; stroke: var(--sprout); stroke-width: 3.5; stroke-linecap: round; }
+.cover-sub { font-family: var(--font-display); font-weight: 500; font-size: 19pt; line-height: 1.3; letter-spacing: -0.01em; color: var(--sprout-soft); margin-top: 0.4in; }
+.cover-sub2 { font-size: 12pt; color: var(--muted-2); margin-top: 0.12in; }
+.cover-bottom { margin-top: auto; }
+.cover-bars { display: flex; gap: 0.06in; height: 0.1in; }
+.cover-bars i { flex: 1; border-radius: 99px; }
+.cover-labels { display: flex; gap: 0.06in; margin: 0.1in 0 0.4in; }
+.cover-labels span { flex: 1; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2); }
+.cover-meta { display: flex; gap: 0.4in; border-top: 0.75pt solid var(--line-d); padding-top: 0.22in; }
+.meta-k { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 2px; text-transform: uppercase; color: var(--sprout); margin-bottom: 0.04in; }
+.meta-v { font-size: 10.5pt; color: #fff; }
+
+.back-mid { margin: auto 0; }
+.back-hero { font-family: var(--font-display); font-weight: 800; font-size: 40pt; line-height: 1.12; letter-spacing: -0.03em; color: #fff; margin-top: 0.12in; }
+.back-rule { width: 0.8in; height: 3pt; background: var(--sprout); border-radius: 2px; margin: 0.5in 0 0.4in; }
+.back-quote { font-family: var(--font-display); font-weight: 300; font-style: italic; font-size: 21pt; line-height: 1.3; letter-spacing: -0.015em; color: #fff; max-width: 5.6in; }
+.back-author { font-family: var(--font-mono); font-size: 8.5pt; letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout); margin-top: 0.16in; }
+.back-es { font-style: italic; color: var(--muted-2); font-size: 11pt; margin-top: 0.06in; }
+.back-sub { font-size: 12pt; color: var(--muted-2); margin-top: 0.3in; max-width: 5in; line-height: 1.5; }
+.back-mission { border-top: 0.75pt solid var(--line-d); padding-top: 0.25in; }
+.back-mission p { font-size: 11pt; line-height: 1.55; color: #dfe5ec; max-width: 6in; }
+.back-mission b { color: var(--sprout-soft); font-weight: 700; }
+.back-tag { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2); margin-top: 0.14in; }
+
+.ai-card { background: var(--ink); color: #fff; border-radius: 0.14in; overflow: hidden; }
+.ai-card-head { display: flex; align-items: center; justify-content: space-between; padding: 0.15in 0.3in; background: var(--ink-deep); border-bottom: 0.75pt solid var(--line-d); }
+.ai-card-lbl { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--sprout); }
+.ai-badge { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #fff; border: 0.75pt solid #ffffff55; border-radius: 99px; padding: 2.5pt 9pt; }
+.ai-card-body { font-family: var(--font-mono); font-size: 10.5pt; line-height: 1.6; color: #e4eaf0; padding: 0.3in 0.32in 0.34in; }
+.ai-card-body b { font-weight: 600; color: var(--amber-soft); }
+
+/* ---------- bonus additions ---------- */
+.page-body { gap: 0.2in; }
+.cover-title { font-size: 54pt; }
+.cover-title .hl { color: var(--sprout-soft); display: block; }
+.cover-es { font-family: var(--font-display); font-weight: 300; font-style: italic; font-size: 20pt; color: #fff; margin-top: 0.22in; }
+.who-chip { display: inline-block; font-family: var(--font-mono); font-weight: 700; font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; padding: 2.5pt 8pt; border-radius: 99px; color: #fff; background: var(--c); }
+.flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.1in; align-items: stretch; }
+.flow-node { --c: var(--brand); position: relative; border: 0.75pt solid var(--line); border-top: 4pt solid var(--c); border-radius: 0.1in; background: #fff; padding: 0.14in 0.12in; display: flex; flex-direction: column; gap: 0.06in; }
+.flow-node.you { --c: var(--amber); } .flow-node.cl { --c: #c4694f; } .flow-node.hf { --c: var(--brand-deep); } .flow-node.ig { --c: var(--clay); } .flow-node.dl { --c: var(--sprout-deep); }
+.flow-node:not(:last-child)::after { content: "\25B6"; position: absolute; right: -0.115in; top: 50%; font-size: 8pt; color: var(--ink); z-index: 2; background: var(--paper); line-height: 1; padding: 2pt 0; }
+.flow-n { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; color: var(--muted); font-weight: 600; }
+.flow-name { font-family: var(--font-display); font-weight: 700; font-size: 12.5pt; line-height: 1.15; letter-spacing: -0.015em; }
+.flow-desc { font-size: 9.5pt; line-height: 1.35; color: var(--muted); }
+.flow-node .who-chip { align-self: flex-start; margin-top: auto; }
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.14in; }
+.trio-card { --c: var(--brand); border: 0.75pt solid var(--line); border-left: 5pt solid var(--c); border-radius: 0 0.1in 0.1in 0; background: #fff; padding: 0.16in 0.2in; }
+.trio-card.a { --c: #c4694f; } .trio-card.b { --c: var(--brand-deep); } .trio-card.c { --c: var(--amber); }
+.trio-h { font-family: var(--font-display); font-weight: 700; font-size: 13pt; letter-spacing: -0.01em; }
+.trio-card ul { list-style: none; margin-top: 0.06in; display: flex; flex-direction: column; gap: 0.04in; }
+.trio-card li { font-size: 10pt; line-height: 1.35; padding-left: 0.16in; position: relative; color: var(--ink); }
+.trio-card li::before { content: ""; position: absolute; left: 0; top: 0.08in; width: 0.07in; height: 0.07in; border-radius: 2px; background: var(--c); }
+
+.code { background: var(--ink); color: #e4eaf0; border-radius: 0.12in; overflow: hidden; }
+.code-head { display: flex; align-items: center; justify-content: space-between; padding: 0.1in 0.22in; background: var(--ink-deep); border-bottom: 0.75pt solid var(--line-d); }
+.code-lbl { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout); font-weight: 500; }
+.code-badge { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #fff; border: 0.75pt solid #ffffff55; border-radius: 99px; padding: 2pt 8pt; }
+.code-body { font-family: var(--font-mono); font-size: 9pt; line-height: 1.5; padding: 0.16in 0.22in 0.18in; white-space: pre-wrap; }
+.code-body b { color: var(--amber-soft); font-weight: 600; }
+.code-body i { font-style: normal; color: var(--sprout-soft); }
+.code-body u { text-decoration: none; color: var(--brand-light); }
+.fm { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.07in; }
+.fm div { background: #fff; border: 0.75pt solid var(--line); border-top: 3pt solid var(--c); border-radius: 0.07in; padding: 0.07in 0.08in; text-align: center; }
+.fm b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 10.5pt; }
+.fm span { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); }
+.fm div:nth-child(1) { --c: var(--brand); } .fm div:nth-child(2) { --c: var(--sprout); } .fm div:nth-child(3) { --c: var(--amber); } .fm div:nth-child(4) { --c: var(--clay); } .fm div:nth-child(5) { --c: var(--brand-light); }
+.tip { display: flex; gap: 0.16in; align-items: center; background: var(--bone); border-radius: 0.1in; padding: 0.13in 0.2in; font-size: 10.5pt; line-height: 1.4; }
+.tip .pc { flex: 0 0 auto; font-family: var(--font-mono); font-weight: 700; font-size: 8pt; letter-spacing: 1.4px; text-transform: uppercase; background: var(--sprout); color: #fff; padding: 4pt 10pt; border-radius: 99px; }
+.tip code { font-family: var(--font-mono); font-size: 9.5pt; background: #fff; border: 0.75pt solid var(--line); border-radius: 4pt; padding: 1pt 5pt; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.18in; }
+.two-fixed { display: grid; grid-template-columns: 2.6in 1fr; gap: 0.2in; align-items: start; }
+.tree { background: var(--ink); color: #e4eaf0; border-radius: 0.12in; padding: 0.16in 0.2in; font-family: var(--font-mono); font-size: 9pt; line-height: 1.62; white-space: pre; }
+.tree .d { color: var(--sprout-soft); font-weight: 600; } .tree .f { color: #fff; } .tree .c { color: var(--muted-2); } .tree .hot { color: var(--amber-soft); font-weight: 600; }
+.sub-list { display: flex; flex-direction: column; gap: 0.06in; }
+.sub-item { display: grid; grid-template-columns: 0.34in 1fr; gap: 0.1in; align-items: center; border: 0.75pt solid var(--line); border-radius: 0.08in; background: #fff; padding: 0.07in 0.12in; }
+.sub-item b { font-family: var(--font-mono); font-size: 10pt; color: var(--brand); }
+.sub-item span { font-size: 9.5pt; line-height: 1.3; color: var(--muted); }
+.sub-item span strong { color: var(--ink); font-family: var(--font-display); font-weight: 600; display: block; font-size: 10pt; }
+.rule-strip { display: flex; align-items: center; gap: 0.14in; border: 1.25pt dashed var(--sprout-deep); border-radius: 0.1in; padding: 0.1in 0.18in; font-size: 10pt; line-height: 1.35; }
+.rule-strip code { font-family: var(--font-mono); font-weight: 600; font-size: 10pt; color: var(--sprout-deep); }
+
+.otbl { border: 0.75pt solid var(--line); border-radius: 0.1in; overflow: hidden; background: #fff; }
+.otbl-h, .otbl-r { display: grid; grid-template-columns: 0.55in 1.9in 1.6in 1fr; gap: 0.1in; padding: 0.075in 0.16in; font-size: 9.5pt; line-height: 1.3; align-items: center; }
+.otbl-h { background: var(--ink); color: #fff; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; }
+.otbl-r { border-top: 0.75pt solid var(--line); }
+.otbl-r b { font-family: var(--font-mono); color: var(--brand); }
+.otbl-cap { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); }
+
+.ex { display: flex; flex-direction: column; gap: 0.13in; }
+.ex-card { border-radius: 0.1in; overflow: hidden; background: var(--ink); }
+.ex-top { display: flex; align-items: center; gap: 0.12in; padding: 0.07in 0.18in; background: var(--ink-deep); border-bottom: 0.75pt solid var(--line-d); }
+.ex-top .nm { font-family: var(--font-display); font-weight: 600; font-size: 10.5pt; color: #fff; }
+.ex-top .kind { margin-left: auto; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout); border: 0.75pt solid #8cc94e66; border-radius: 99px; padding: 2pt 8pt; }
+.ex-card .code-body { padding: 0.1in 0.18in 0.12in; font-size: 9pt; line-height: 1.45; color: #e4eaf0; }
+.ex-ig { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.4px; color: var(--amber-soft); padding: 0 0.18in 0.11in; }
+
+/* higgsfield mockups */
+.hf-steps { display: flex; flex-direction: column; gap: 0.16in; }
+.hf-row { display: grid; grid-template-columns: 0.42in 1fr; gap: 0.16in; align-items: start; }
+.hf-n { width: 0.42in; height: 0.42in; border-radius: 50%; background: var(--brand); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 14pt; display: flex; align-items: center; justify-content: center; }
+.hf-txt h3 { font-family: var(--font-display); font-weight: 700; font-size: 12.5pt; letter-spacing: -0.01em; }
+.hf-txt p { font-size: 10pt; line-height: 1.4; color: var(--muted); margin-top: 0.02in; }
+.mock { background: #0e1117; color: #e8ecf1; border-radius: 0.1in; border: 0.75pt solid #2b3340; overflow: hidden; font-family: var(--font-sans); }
+.mock-bar { display: flex; align-items: center; gap: 0.1in; background: #171c25; padding: 0.07in 0.14in; border-bottom: 0.75pt solid #2b3340; }
+.mock-dots { display: flex; gap: 4pt; } .mock-dots i { width: 6pt; height: 6pt; border-radius: 50%; background: #3a4352; display: block; }
+.mock-url { font-family: var(--font-mono); font-size: 8pt; color: #9aa6b6; background: #0e1117; border-radius: 99px; padding: 2pt 10pt; }
+.mock-nav { display: flex; gap: 0.16in; align-items: center; padding: 0.09in 0.16in; font-size: 9.5pt; color: #9aa6b6; border-bottom: 0.75pt solid #2b3340; }
+.mock-nav .logo { font-family: var(--font-display); font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+.mock-nav .on { color: #0e1117; background: var(--sprout-soft); border-radius: 99px; padding: 2pt 10pt; font-weight: 700; }
+.mock-body { padding: 0.1in 0.14in; display: flex; flex-direction: column; gap: 0.08in; }
+.mock-cols { display: grid; grid-template-columns: 1.1in 1fr; gap: 0.14in; }
+.drop { border: 1.25pt dashed #4a5568; border-radius: 0.08in; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 8.5pt; color: #9aa6b6; padding: 0.1in; line-height: 1.3; gap: 3pt; min-height: 0.8in; }
+.drop .ph { width: 0.42in; height: 0.52in; border-radius: 4pt; background: linear-gradient(160deg, #3a5f7d, #8cc94e88); }
+.prompt-box { background: #171c25; border: 0.75pt solid #2b3340; border-radius: 0.08in; padding: 0.09in 0.12in; font-size: 9pt; line-height: 1.4; color: #cdd6e1; min-height: 0.8in; }
+.prompt-box small { display: block; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1px; text-transform: uppercase; color: #7d8999; margin-bottom: 3pt; }
+.set-row { display: flex; gap: 0.08in; flex-wrap: wrap; align-items: center; }
+.set { font-size: 8.5pt; border: 0.75pt solid #3a4352; border-radius: 99px; padding: 3pt 10pt; color: #cdd6e1; background: #171c25; }
+.set b { color: #7d8999; font-weight: 500; margin-right: 4pt; font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.8px; }
+.set.hot { border-color: var(--sprout); color: #fff; } .set.hot span { color: var(--sprout-soft); font-weight: 700; }
+.gen-btn { margin-left: auto; background: var(--sprout); color: #fff; font-weight: 700; font-size: 9.5pt; border-radius: 99px; padding: 4pt 16pt; }
+.models { display: flex; gap: 0.08in; flex-wrap: wrap; }
+.model { font-size: 8.5pt; border: 0.75pt solid #3a4352; border-radius: 0.06in; padding: 3pt 9pt; color: #cdd6e1; background: #171c25; }
+.model.sel { border-color: var(--brand-light); box-shadow: inset 0 0 0 1pt var(--brand-light); color: #fff; }
+.result { display: grid; grid-template-columns: 0.85in 1fr; gap: 0.16in; align-items: center; }
+.vid { width: 0.85in; aspect-ratio: 9 / 16; border-radius: 0.08in; background: linear-gradient(170deg, #1d3d57 0%, #034c76 55%, #8cc94e 130%); position: relative; border: 0.75pt solid #3a4352; display: flex; align-items: center; justify-content: center; }
+.vid::after { content: ""; border: 7pt solid transparent; border-left: 11pt solid #ffffffcc; border-right: 0; margin-left: 3pt; }
+.vid small { position: absolute; bottom: 4pt; left: 0; right: 0; text-align: center; font-family: var(--font-mono); font-size: 7pt; color: #fff; }
+.res-actions { display: flex; flex-direction: column; gap: 0.07in; font-size: 9pt; }
+.btn-ghost { border: 0.75pt solid #4a5568; border-radius: 99px; padding: 3pt 12pt; color: #cdd6e1; align-self: flex-start; }
+.btn-dl { background: var(--sprout); color: #fff; font-weight: 700; border-radius: 99px; padding: 4pt 14pt; align-self: flex-start; }
+.note-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.14in; }
+.note { border: 0.75pt solid var(--line); border-top: 3pt solid var(--c); border-radius: 0.1in; background: #fff; padding: 0.13in 0.16in; font-size: 10pt; line-height: 1.4; color: var(--muted); }
+.note b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 11pt; color: var(--ink); margin-bottom: 0.03in; }
+.note:nth-child(1) { --c: var(--brand); } .note:nth-child(2) { --c: var(--amber); } .note:nth-child(3) { --c: var(--sprout); }
+
+/* instagram mock */
+.ig-wrap { display: grid; grid-template-columns: 2.1in 1fr; gap: 0.28in; align-items: start; }
+.phone { width: 2.1in; aspect-ratio: 9 / 16; border-radius: 0.24in; background: #111; border: 4pt solid #222; position: relative; overflow: hidden; background-image: linear-gradient(170deg, #1d3d57 0%, #034c76 60%, #2c5e15 130%); }
+.phone .prog { position: absolute; top: 0.1in; left: 0.12in; right: 0.12in; height: 2.5pt; background: #ffffff55; border-radius: 2px; } .phone .prog b { display: block; width: 45%; height: 100%; background: #fff; border-radius: 2px; }
+.phone .who { position: absolute; top: 0.2in; left: 0.12in; display: flex; align-items: center; gap: 5pt; color: #fff; font-size: 8pt; font-weight: 600; } .phone .who i { width: 0.2in; height: 0.2in; border-radius: 50%; background: var(--sprout); display: block; }
+.phone .txt { position: absolute; left: 0.14in; right: 0.14in; top: 1.25in; right: 0.4in; text-align: center; font-family: var(--font-display); font-weight: 800; font-size: 15pt; line-height: 1.1; color: #fff; text-shadow: 0 1px 6px #0008; }
+.phone .link { position: absolute; left: 50%; transform: translateX(-50%); bottom: 0.7in; background: #fff; color: #0a6399; font-weight: 700; font-size: 8pt; border-radius: 99px; padding: 3pt 10pt; white-space: nowrap; }
+.phone .brk { position: absolute; left: 0; right: 0; bottom: 0.3in; text-align: center; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 1px; color: #fff; text-transform: uppercase; }
+.phone .tools { position: absolute; right: 0.1in; top: 0.5in; display: flex; flex-direction: column; gap: 5pt; } .phone .tools i { width: 0.2in; height: 0.2in; border-radius: 50%; background: #ffffff33; border: 1pt solid #ffffff88; display: block; }
+.ig-steps { display: flex; flex-direction: column; gap: 0.08in; }
+.ig-step { display: grid; grid-template-columns: 0.34in 1fr; gap: 0.12in; align-items: start; border: 0.75pt solid var(--line); border-radius: 0.09in; background: #fff; padding: 0.09in 0.14in; }
+.ig-step b { font-family: var(--font-mono); font-size: 11pt; color: var(--clay); }
+.ig-step span { font-size: 10pt; line-height: 1.35; color: var(--muted); } .ig-step span strong { font-family: var(--font-display); font-weight: 600; color: var(--ink); display: block; font-size: 10.5pt; }
+
+/* checklist */
+.chk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.12in 0.18in; }
+.chk { --c: var(--sprout); border: 0.75pt solid var(--line); border-left: 4pt solid var(--c); border-radius: 0 0.09in 0.09in 0; background: #fff; padding: 0.11in 0.16in; display: grid; grid-template-columns: 0.24in 1fr; gap: 0.12in; align-items: start; }
+.chk.no { --c: var(--clay); } .chk.am { --c: var(--amber); } .chk.bl { --c: var(--brand-deep); }
+.chk i { width: 0.2in; height: 0.2in; border: 1.5pt solid var(--ink); border-radius: 4pt; display: block; margin-top: 1pt; }
+.chk strong { font-family: var(--font-display); font-weight: 700; font-size: 11pt; display: block; line-height: 1.2; }
+.chk span { font-size: 9.5pt; line-height: 1.35; color: var(--muted); display: block; margin-top: 2pt; }
+.never { background: var(--ink); color: #fff; border-radius: 0.12in; padding: 0.18in 0.26in; border-left: 5pt solid var(--clay); }
+.never h4 { font-family: var(--font-mono); font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: var(--clay-soft); font-weight: 600; margin-bottom: 0.08in; }
+.never ul { list-style: none; display: flex; flex-direction: column; gap: 0.05in; }
+.never li { font-size: 10.5pt; line-height: 1.4; padding-left: 0.2in; position: relative; color: #e4eaf0; }
+.never li::before { content: "\2715"; position: absolute; left: 0; color: var(--clay-soft); font-weight: 700; }
+
+</style>
+</head>
+<body>
+<section class="page cover">
+<div class="cover-inner">
+  <div class="cover-top">    <svg class="wordmark" viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate">
+                <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+                <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08"/><circle cx="64.17" cy="39.49" r="5.08" style="animation-delay:0.5s;"/></g>
+            </svg>
+<span class="cover-x">&times;</span><img class="cover-relearn" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn"></div>
+  <div class="cover-mid">
+    <div class="eyebrow on-dark">AI &middot; Session 1 &middot; Bonus Guide</div>
+    <h1 class="cover-title">Animated Instagram Stories <span class="hl">with Claude + Higgsfield</span></h1>
+    <p class="cover-es">Historias que se mueven.</p>
+    <p class="cover-sub">Claude plans it. Higgsfield animates it. You post it.</p>
+    <p class="cover-sub2">Set up one project folder and make a week of 9:16 stories without touching an editor.</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      <div><div class="meta-k">Builds on</div><div class="meta-v">Role &middot; Task &middot; Context &middot; Examples &middot; Format</div></div>
+      <div><div class="meta-k">You will need</div><div class="meta-v">Claude Desktop &middot; Higgsfield account</div></div>
+      <div><div class="meta-k">Presented by</div><div class="meta-v">Pedro Bando Rivera, Broker/Owner</div></div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">The Workflow</div><h1 class="page-title">Five Steps. <span class="accent">One Story.</span></h1><p class="lede">You do not need video skills. You need a good plan and a clear prompt.</p></header>
+<div class="flow">
+  <div class="flow-node you"><span class="flow-n">01</span><span class="flow-name">Idea</span><span class="flow-desc">One thing your followers should learn or feel in 10 seconds.</span><span class="who-chip" style="--c:var(--amber)">You</span></div>
+  <div class="flow-node cl"><span class="flow-n">02</span><span class="flow-name">Claude</span><span class="flow-desc">Plans the week, writes the script and the Higgsfield prompts.</span><span class="who-chip" style="--c:#c4694f">Claude Desktop</span></div>
+  <div class="flow-node hf"><span class="flow-n">03</span><span class="flow-name">Higgsfield</span><span class="flow-desc">Turns the prompt (and your photo) into a 9:16 animated clip.</span><span class="who-chip" style="--c:var(--brand-deep)">higgsfield.ai</span></div>
+  <div class="flow-node dl"><span class="flow-n">04</span><span class="flow-name">Download</span><span class="flow-desc">Save the video into your 05-Final folder.</span><span class="who-chip" style="--c:var(--sprout-deep)">You</span></div>
+  <div class="flow-node ig"><span class="flow-n">05</span><span class="flow-name">Story</span><span class="flow-desc">Add text, music, link sticker. Review. Post.</span><span class="who-chip" style="--c:var(--clay)">Instagram</span></div>
+</div>
+<div class="trio">
+  <div class="trio-card a"><div class="trio-h">Claude does</div><ul><li>Plans a week of stories</li><li>Writes hooks and short scripts</li><li>Writes the Higgsfield prompts</li><li>Keeps your voice and rules</li></ul></div>
+  <div class="trio-card b"><div class="trio-h">Higgsfield does</div><ul><li>Generates the moving image</li><li>Animates your own photo</li><li>Delivers a vertical 9:16 file</li><li>Uses credits on a plan</li></ul></div>
+  <div class="trio-card c"><div class="trio-h">You do</div><ul><li>Pick the idea and approve it</li><li>Upload photos you own</li><li>Add the text in Instagram</li><li>Review before posting</li></ul></div>
+</div>
+<div class="code" style="background:var(--bone);color:var(--ink)"><div class="code-body" style="font-family:var(--font-sans);font-size:10.5pt;line-height:1.5;white-space:normal;color:var(--ink)"><b style="color:var(--brand);font-family:var(--font-display)">Why a project and not one-off chats?</b> A folder with its own CLAUDE.md means Claude already knows your brand, your voice, the 9:16 format and the rules every time. You stop re-explaining. You also keep every idea, script and winning prompt in one place you can reuse next week.<span class="echo-es">Un proyecto organizado: Claude ya sabe qui&eacute;n eres antes de que le pidas nada.</span></div></div>
+<div class="callout">Claude writes the recipe. <strong>Higgsfield cooks it.</strong> You serve it.<span class="sub-line">Advanced, later: Higgsfield also offers a connector so Claude can call it directly. Start with copy and paste. Learn the steps first.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">02 / 11</span></div>
+</section>
+<section class="page">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Set Up the Project</div><h1 class="page-title">One Folder <span class="accent">for All Your Stories.</span></h1><p class="lede">Everything for IG Stories lives inside the folder structure you already built.</p></header>
+<div class="two-fixed">
+  <div class="tree"><span class="d">My AI Work/</span>
+  <span class="f">CLAUDE.md</span>  <span class="c">(your main one)</span>
+  <span class="d">01-Clients/</span>
+  <span class="d">02-Marketing/</span>
+  <span class="d">03-Social-Media/</span>
+    <span class="d">IG-Stories/</span>  <span class="hot">&larr; new</span>
+      <span class="hot">CLAUDE.md</span>
+      <span class="d">01-Ideas/</span>
+      <span class="d">02-Scripts/</span>
+      <span class="d">03-Higgsfield-Prompts/</span>
+      <span class="d">04-Assets/</span>
+      <span class="d">05-Final/</span>
+  <span class="d">04-Listings/</span>
+  <span class="d">05-Templates/</span>
+    <span class="f">prompts-that-worked.md</span>
+  <span class="d">06-Archive/</span></div>
+  <div class="sub-list">
+    <div class="sub-item"><b>01</b><span><strong>Ideas</strong>The weekly plan from Claude.</span></div>
+    <div class="sub-item"><b>02</b><span><strong>Scripts</strong>Hook, voice-over line, and text for each story.</span></div>
+    <div class="sub-item"><b>03</b><span><strong>Higgsfield-Prompts</strong>Copy-ready prompts, one file per story.</span></div>
+    <div class="sub-item"><b>04</b><span><strong>Assets</strong>Your photos, headshot, logo. Only ones you own.</span></div>
+    <div class="sub-item"><b>05</b><span><strong>Final</strong>The downloaded videos, ready to post.</span></div>
+    <div class="rule-strip"><span>Name every file</span><code>2026-10-13-market-teaser</code></div>
+  </div>
+</div>
+<div class="trio">
+  <div class="trio-card a"><div class="trio-h">Why numbers?</div><ul><li>01 to 05 keep the steps in order</li><li>Same order as your workflow</li></ul></div>
+  <div class="trio-card b"><div class="trio-h">Why the date?</div><ul><li>YYYY-MM-DD sorts itself</li><li>You find any story in seconds</li></ul></div>
+  <div class="trio-card c"><div class="trio-h">Why hyphens?</div><ul><li>No spaces in file names</li><li>Claude and Higgsfield both like it</li></ul></div>
+</div>
+<div class="tip"><span class="pc">Open it</span><span>Claude Desktop &rarr; <strong>Code</strong> tab &rarr; choose the <code>IG-Stories</code> folder. Claude reads the CLAUDE.md there first (next page), then your main one in My AI Work.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">03 / 11</span></div>
+</section>
+<section class="page">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Set Up the Project</div><h1 class="page-title">Give the Folder <span class="accent">a Brain.</span></h1><p class="lede">A story-specific CLAUDE.md. Copy it, fill the brackets, save it in IG-Stories.</p></header>
+<div class="code"><div class="code-head"><span class="code-lbl">Copy &middot; Save as CLAUDE.md inside IG-Stories</span><span class="code-badge">Fill the brackets</span></div><div class="code-body"><b># IG Stories project</b>
+Agent: <i>[YOUR NAME]</i>, <i>[FL/WI]</i> license, <i>reThought Real Estate</i>
+Market: <i>[CITIES/NEIGHBORHOODS]</i> | Languages: <i>[English / Spanish / both]</i>
+
+<b># Format</b>
+- Instagram Stories, vertical 9:16. Each clip 5 to 15 seconds.
+- The hook lands in the first second. One idea per story.
+- Text is added later inside Instagram, never baked into the video.
+
+<b># Brand</b>
+- Colors: <i>[BRAND COLORS]</i>. Voice: <i>[warm, direct, funny...]</i>
+- Phrases I use: <i>[EXAMPLES]</i>. Phrases I avoid: <i>[EXAMPLES]</i>
+
+<b># Rules</b>
+- Fair Housing: never mention protected classes, never steer.
+- Never invent stats, prices or market data. Use [PLACEHOLDERS].
+- Keep "reThought Real Estate" visible on every story.
+- Use only photos I own or have rights to. No fake people or fake homes.
+- I review everything. Do not post anything for me.
+
+<b># What I ask you for</b>
+Plans: save in 01-Ideas. Scripts: 02-Scripts. Higgsfield prompts: 03-Higgsfield-Prompts.
+Name files <i>YYYY-MM-DD-topic</i>, no spaces, use hyphens.</div></div>
+<div class="fill-grid">
+  <div><span>01</span>Your name, license state, languages</div>
+  <div><span>02</span>Your cities and neighborhoods</div>
+  <div><span>03</span>Brand colors and how you sound</div>
+  <div><span>04</span>Phrases you use and avoid</div>
+</div>
+<div class="callout">Write it once. <strong>Every story starts smarter.</strong><span class="echo-es">Escr&iacute;belo una vez. Cada historia empieza mejor.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">04 / 11</span></div>
+</section>
+<section class="page">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Step 1 &middot; Plan</div><h1 class="page-title">Let Claude Plan <span class="accent">Your Week.</span></h1></header>
+<div class="fm"><div><b>Role</b><span>who Claude is</span></div><div><b>Task</b><span>what to make</span></div><div><b>Context</b><span>your facts</span></div><div><b>Examples</b><span>your voice</span></div><div><b>Format</b><span>the shape</span></div></div>
+<div class="code"><div class="code-head"><span class="code-lbl">Copy &middot; Paste into Claude (Code tab, IG-Stories folder)</span><span class="code-badge">5-part prompt</span></div><div class="code-body"><b>&lt;role&gt;</b>
+You are a bilingual social media strategist for real estate agents who creates short animated Instagram Stories.
+<b>&lt;/role&gt;</b>
+
+<b>&lt;task&gt;</b>
+Plan 7 days of Instagram Stories (one per day, 5 to 15 seconds each) that build trust and start conversations with future buyers and sellers. Mix the types: market update teaser, meet your agent, first-time buyer tip, neighborhood spotlight, behind the scenes.
+<b>&lt;/task&gt;</b>
+
+<b>&lt;context&gt;</b>
+Read CLAUDE.md in this folder for my brand, voice and rules.
+Week of: <i>[YYYY-MM-DD]</i>. Focus this week: <i>[TOPIC, EVENT, OR NEIGHBORHOOD]</i>.
+Photos I already have in 04-Assets: <i>[LIST OR "none yet"]</i>.
+Do not invent stats or prices. Follow Fair Housing.
+<b>&lt;/context&gt;</b>
+
+<b>&lt;examples&gt;</b>
+A story of mine that did well: <i>[DESCRIBE IT OR PASTE THE TEXT]</i>
+<b>&lt;/examples&gt;</b>
+
+<b>&lt;format&gt;</b>
+A table: Day, Story type, Hook (first second), One-line idea, Photo needed (yes/no). Language: <i>[ENGLISH/SPANISH/BOTH]</i>. Then save it as 01-Ideas/<i>[YYYY-MM-DD]</i>-week-plan.md.
+<b>&lt;/format&gt;</b></div></div>
+<div class="tip"><span class="pc">Prompt Coach</span><span>Started with a rough idea? Say <code>Coach this prompt: plan my week of IG stories</code> and Prompt Coach asks 3 or 4 questions, then builds the 5 parts for you.</span></div>
+
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">05 / 11</span></div>
+</section>
+<section class="page">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Step 1 &middot; Plan</div><h1 class="page-title">Read It. <span class="accent">Fix It. Save It.</span></h1><p class="lede">Claude hands back a table like this. You stay in charge.</p></header>
+<div><div class="otbl-cap" style="margin-bottom:0.06in">What Claude should hand back &middot; example shape</div>
+<div class="otbl"><div class="otbl-h"><span>Day</span><span>Hook</span><span>Type</span><span>Idea</span></div>
+<div class="otbl-r"><b>MON</b><span>&ldquo;3 things before you tour a home&rdquo;</span><span>First-time buyer tip</span><span>Three quick clips, one tip each</span></div>
+<div class="otbl-r"><b>WED</b><span>&ldquo;Meet your agent&rdquo;</span><span>Meet your agent</span><span>Animate my headshot, add my name</span></div>
+<div class="otbl-r"><b>FRI</b><span>&ldquo;This block, this weekend&rdquo;</span><span>Neighborhood spotlight</span><span>Animate one of my own photos</span></div></div></div>
+
+<div class="code"><div class="code-head"><span class="code-lbl">Copy &middot; Follow-up prompts to refine</span><span class="code-badge">Keep chatting</span></div><div class="code-body">Swap Wednesday for a <i>[STORY TYPE]</i> and make every hook shorter.
+Rewrite the whole plan in <i>[SPANISH / SPANGLISH]</i>, keep my voice from CLAUDE.md.
+Now write the script for Monday: a hook for the first second, one line of voice-over, and the text for the screen.
+Looks good. Save it to 01-Ideas/<i>[YYYY-MM-DD]</i>-week-plan.md.</div></div>
+<div class="trio">
+  <div class="trio-card a"><div class="trio-h">Check</div><ul><li>Sounds like you?</li><li>Any invented numbers?</li></ul></div>
+  <div class="trio-card b"><div class="trio-h">Fair Housing</div><ul><li>Describes home and service?</li><li>No steering language?</li></ul></div>
+  <div class="trio-card c"><div class="trio-h">Photos</div><ul><li>Which days need your photo?</li><li>Add them to 04-Assets</li></ul></div>
+</div>
+<div class="callout amber"><strong>Review the plan.</strong> Delete any day that does not sound like you. You are the CEO of this channel.<span class="echo-es">Si no suena a ti, no se publica.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">06 / 11</span></div>
+</section>
+<section class="page">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Step 2 &middot; Prompts</div><h1 class="page-title">Claude Writes <span class="accent">The Higgsfield Prompts.</span></h1></header>
+<div class="code"><div class="code-head"><span class="code-lbl">Copy &middot; Paste into Claude</span><span class="code-badge">Role &middot; Task &middot; Context &middot; Examples &middot; Format</span></div><div class="code-body"><b>&lt;role&gt;</b> You are an expert prompt writer for AI video (Higgsfield) and a real estate social media pro. <b>&lt;/role&gt;</b>
+<b>&lt;task&gt;</b> Read 01-Ideas/<i>[YYYY-MM-DD]</i>-week-plan.md. For each story write ONE Higgsfield prompt I can paste as is. <b>&lt;/task&gt;</b>
+<b>&lt;context&gt;</b> Follow CLAUDE.md. Vertical 9:16, 5 to 10 seconds. Tell me if it needs my photo (image-to-video) or no photo (text-to-video). No text or logos inside the video, I add text in Instagram. No real faces unless I upload my own photo. No fake homes shown as real listings. <b>&lt;/context&gt;</b>
+<b>&lt;examples&gt;</b> Style I like: <i>[CLEAN AND BRIGHT / MOODY / MINIMAL]</i> <b>&lt;/examples&gt;</b>
+<b>&lt;format&gt;</b> Per story: Scene, Subject, Camera motion, Style, Lighting, Duration, Aspect ratio, and "Text to add in Instagram". Save in 03-Higgsfield-Prompts/<i>YYYY-MM-DD-topic</i>.md <b>&lt;/format&gt;</b></div></div>
+<div class="ex"><div class="ex-card"><div class="ex-top"><span class="nm">Market update teaser</span><span class="kind">Text-to-video</span></div><div class="code-body"><b>Scene:</b> abstract city skyline at golden hour. <b>Subject:</b> a glowing arrow rising over rooftops. <b>Camera:</b> slow push-in. <b>Style:</b> clean, modern. <b>Light:</b> warm sunset. <b>Duration:</b> 6 s. <b>Aspect:</b> 9:16. No text, numbers or logos.</div><div class="ex-ig">+ Add in Instagram: &ldquo;October market update: swipe up&rdquo; + your real stats from MLS + brokerage name</div></div><div class="ex-card"><div class="ex-top"><span class="nm">Meet your agent</span><span class="kind">Image-to-video</span></div><div class="code-body"><b>Use my uploaded headshot.</b> Keep my face and clothes exactly as in the photo. Subtle motion: warm smile, slight head turn. <b>Camera:</b> gentle push-in. <b>Style:</b> bright, friendly. <b>Duration:</b> 5 s. <b>Aspect:</b> 9:16.</div><div class="ex-ig">+ Add in Instagram: &ldquo;Hi, I&rsquo;m [NAME], your agent at reThought Real Estate&rdquo; + mention sticker</div></div><div class="ex-card"><div class="ex-top"><span class="nm">Neighborhood spotlight</span><span class="kind">Image-to-video</span></div><div class="code-body"><b>Use my uploaded photo</b> of [PLACE I PHOTOGRAPHED]. Animate only the environment: leaves, light, clouds. Do not add or change buildings. <b>Camera:</b> slow pan right. <b>Style:</b> natural. <b>Duration:</b> 8 s. <b>Aspect:</b> 9:16.</div><div class="ex-ig">+ Add in Instagram: &ldquo;Why locals love [NEIGHBORHOOD]&rdquo; + location sticker</div></div></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">07 / 11</span></div>
+</section>
+<section class="page">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Step 3 &middot; Higgsfield</div><h1 class="page-title">Make the Clip <span class="accent">in Higgsfield.</span></h1></header>
+<div class="hf-steps">
+ <div class="hf-row"><div class="hf-n">1</div><div class="hf-txt"><h3>Sign in, open the video tool, pick a model</h3><p>Sign in at higgsfield.ai, open the video tool, choose a model. Screens and model names change often, so look for the same ideas.</p>
+  <div class="mock" style="margin-top:0.08in"><div class="mock-nav"><span class="logo">higgsfield</span><span class="on">Create</span><span>Video</span><span>Image</span><span>Explore</span></div>
+  <div class="mock-body"><div class="models"><span class="model sel">Model: Kling 3.0</span><span class="model">Seedance 2.5</span><span class="model">Veo 3.1</span><span class="model">more models...</span></div></div></div></div></div>
+ <div class="hf-row"><div class="hf-n">2</div><div class="hf-txt"><h3>Add your photo (or none), paste the prompt, set 9:16</h3><p>With a photo (image-to-video) it animates your picture. Without one (text-to-video) it builds the scene from words. Paste Claude's prompt, set the ratio to 9:16, pick a short duration.</p>
+  <div class="mock" style="margin-top:0.08in"><div class="mock-body"><div class="mock-cols"><div class="drop"><div class="ph"></div>Upload image<br>(optional)</div><div class="prompt-box"><small>Prompt</small>Use my uploaded headshot. Keep my face exactly as in the photo. Subtle natural motion, gentle push-in, bright and friendly...</div></div>
+  <div class="set-row"><span class="set hot"><b>Ratio</b><span>9:16</span></span><span class="set"><b>Duration</b>5 s</span><span class="set"><b>Resolution</b>1080p</span><span class="set"><b>Audio</b>Off</span><span class="gen-btn">Generate</span></div></div></div></div></div>
+ <div class="hf-row"><div class="hf-n">3</div><div class="hf-txt"><h3>Generate, check it, download</h3><p>Click Generate and watch the result. Something off? Fix the prompt and regenerate. Happy? Download it into 05-Final.</p>
+  <div class="mock" style="margin-top:0.08in"><div class="mock-body"><div class="result"><div class="vid"><small>9:16 &middot; 5 s</small></div><div class="res-actions"><span style="color:#9aa6b6">Your result</span><span class="btn-dl">Download</span><span class="btn-ghost">Regenerate</span><span class="btn-ghost">Save</span></div></div></div></div></div></div>
+</div>
+<div class="tip"><span class="pc">Credits</span><span>Each clip uses credits from your Higgsfield plan (there is a free trial). Test 5 seconds first and save credits for the final version. Upload only photos you own.</span></div>
+
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">08 / 11</span></div>
+</section>
+<section class="page">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Step 4 &middot; Post</div><h1 class="page-title">Download, Add Text, <span class="accent">Hit Post.</span></h1></header>
+<div class="ig-wrap">
+  <div class="phone"><div class="prog"><b></b></div><div class="who"><i></i>youragent</div><div class="tools"><i></i><i></i><i></i></div><div class="txt">Hi, I&rsquo;m [NAME].<br>Your agent.</div><div class="link">Book a call</div><div class="brk">reThought Real Estate</div></div>
+  <div class="ig-steps">
+    <div class="ig-step"><b>01</b><span><strong>Save to 05-Final</strong>Rename it 2026-10-13-meet-your-agent.mp4</span></div>
+    <div class="ig-step"><b>02</b><span><strong>Open Instagram, add to Story</strong>Choose the video from your phone. Send it to your phone first (AirDrop or cloud) if it is on your computer.</span></div>
+    <div class="ig-step"><b>03</b><span><strong>Add the text</strong>Use the exact lines Claude gave you under &ldquo;Text to add in Instagram&rdquo;.</span></div>
+    <div class="ig-step"><b>04</b><span><strong>Add music, stickers, link</strong>Music, a link sticker, a mention or location sticker if it fits.</span></div>
+    <div class="ig-step"><b>05</b><span><strong>Check and post</strong>Brokerage name visible? Fair Housing clean? Then share.</span></div>
+  </div>
+</div>
+<div class="code"><div class="code-head"><span class="code-lbl">Then ask Claude &middot; Save what worked</span><span class="code-badge">05-Templates/prompts-that-worked.md</span></div><div class="code-body">That Higgsfield prompt worked great. Add it to 05-Templates/prompts-that-worked.md with:
+- Date: <i>[YYYY-MM-DD]</i>  - Story type: <i>[TYPE]</i>  - Model used: <i>[MODEL]</i>
+- The full prompt, copied exactly
+- What I would change next time: <i>[NOTE]</i>
+Keep the file in order, newest on top.</div></div>
+<div class="callout"><strong>Every winning prompt becomes a template.</strong> Next week you start from what worked, not from zero.<span class="echo-es">Lo que funciona se guarda y se repite.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">09 / 11</span></div>
+</section>
+<section class="page">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Before You Post</div><h1 class="page-title">Check It. <span class="accent">Then Share It.</span></h1></header>
+<div class="chk-grid">
+  <div class="chk"><i></i><div><strong>Fair Housing clean</strong><span>No mention of protected classes. Describe the home and your service, not who should live there.</span></div></div>
+  <div class="chk"><i></i><div><strong>Photos I own</strong><span>Only your photos or ones you have rights to. No random web images.</span></div></div>
+  <div class="chk bl"><i></i><div><strong>Brokerage name visible</strong><span>reThought Real Estate shows on the story where advertising rules require it.</span></div></div>
+  <div class="chk am"><i></i><div><strong>Numbers are real</strong><span>Every stat, price and date comes from MLS or another source I checked. No invented data.</span></div></div>
+  <div class="chk"><i></i><div><strong>AI is disclosed when needed</strong><span>If the clip could be mistaken for real footage, label it as AI-generated or add a note.</span></div></div>
+  <div class="chk"><i></i><div><strong>Hook in the first second</strong><span>Watch it on mute with the text on. Is it clear? Is it under 15 seconds?</span></div></div>
+  <div class="chk bl"><i></i><div><strong>Saved and filed</strong><span>Video in 05-Final. Winning prompt in prompts-that-worked.md.</span></div></div>
+  <div class="chk am"><i></i><div><strong>I reviewed it</strong><span>I watched the whole clip. Claude and Higgsfield never post for me.</span></div></div>
+</div>
+<div class="never"><h4>Never</h4><ul>
+  <li>Never make a fake person and present them as a real client, agent or testimonial.</li>
+  <li>Never generate a house and present it as a real listing or your sold home.</li>
+  <li>Never use someone's face, voice or photo without permission.</li>
+  <li>Never post stats, prices or market claims you cannot back up.</li>
+  <li>Never skip your review. You are responsible for what goes out.</li></ul></div>
+<div class="callout amber"><strong>Rule of thumb:</strong> AI makes the motion. You supply the truth.<span class="echo-es">La IA pone el movimiento. T&uacute; pones la verdad.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">10 / 11</span></div>
+</section>
+<section class="page back dark">
+<div class="back-inner">
+  <div class="back-top">    <svg class="wordmark" viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate">
+                <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+                <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08"/><circle cx="64.17" cy="39.49" r="5.08" style="animation-delay:0.5s;"/></g>
+            </svg>
+<span class="cover-x">&times;</span><img class="cover-relearn" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn"></div>
+  <div class="back-mid">
+    <div class="eyebrow on-dark">Your First Week</div>
+    <div class="back-hero">Plan it.<br>Prompt it.<br><span class="ceo">Post it.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></div>
+    <div class="back-rule"></div>
+    <div class="back-quote">&ldquo;The way to get started is to quit talking and begin doing.&rdquo;</div>
+    <div class="back-author">Walt Disney</div>
+    <div class="back-es">La manera de empezar es dejar de hablar y comenzar a hacer.</div>
+    <p class="back-sub">Make one story this week. Save the prompt that worked. Next week, make it better.</p>
+  </div>
+  <div class="back-mission">
+    <div class="eyebrow on-dark">Mission</div>
+    <p>To redefine traditional real estate expectations delivering a <b>personalized</b>, <b>tech-driven</b>, and <b>client-centric</b> approach to buying and selling real estate.</p>
+    <div class="back-tag">Human First &middot; Tech Driven &middot; Community Focused</div>
+  </div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; AI &middot; Session 1 Bonus</span></div><span class="cb-num">11 / 11</span></div>
+</section>
+
+</body>
+</html>
