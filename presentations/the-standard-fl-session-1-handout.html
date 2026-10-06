@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Law Is the Standard | The Standard Handout (Florida)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@page { size: letter portrait; margin: 0; }
+:root {
+  --ink: #1B252F; --ink-soft: #222E3A; --ink-deep: #151D26;
+  --paper: #fbfbfb; --bone: #f5f1ea;
+  --brand: #034c76; --brand-deep: #0a6399; --brand-light: #6ba8d6;
+  --sprout: #8cc94e; --sprout-soft: #b4dc84; --sprout-deep: #2c5e15;
+  --clay: #c05445; --clay-soft: #eab1ac;
+  --amber: #e0a63a; --amber-soft: #f5d08a; --amber-deep: #8a5a05;
+  --muted: #55616f; --muted-2: #95a0ae;
+  --line: #1B252F1f; --line-d: #ffffff22;
+  --font-display: 'Poppins', sans-serif; --font-sans: 'Instrument Sans', sans-serif; --font-mono: 'Geist Mono', monospace;
+  /* department palette (fills carry WHITE text; ink versions for text on paper) */
+  --bd: #8cc94e; --bd-ink: #2c5e15; --bd-lt: #8cc94e; --bd-tint: #8cc94e24;
+  --mk: #e0a63a; --mk-ink: #8a5a05; --mk-lt: #e0a63a; --mk-tint: #e0a63a26;
+  --sa: #0a6399; --sa-ink: #034c76; --sa-lt: #6ba8d6; --sa-tint: #0a63991c;
+  --ad: #c05445; --ad-ink: #a2402f; --ad-lt: #eab1ac; --ad-tint: #c0544520;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #dcd9d2; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: var(--font-sans); color: var(--ink); font-size: 10.5pt; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+@media screen { body { padding: 0.3in 0; } .page { margin: 0 auto 0.3in; box-shadow: 0 2px 18px #00000030; } }
+@media print { html, body { background: none; } .page { break-after: page; break-inside: avoid; } .page:last-child { break-after: auto; } }
+
+/* ---------- page shell ---------- */
+.page { width: 8.5in; height: 11in; overflow: hidden; position: relative; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); break-after: page; }
+.page-body { flex: 1; display: flex; flex-direction: column; gap: 0.24in; padding: 0.7in 0.8in 0.95in; }
+.chrome-bottom { position: absolute; left: 0.8in; right: 0.8in; bottom: 0.42in; display: flex; justify-content: space-between; align-items: center; padding-top: 0.12in; border-top: 0.75pt solid var(--line); }
+.cb-left { display: flex; align-items: center; gap: 0.14in; }
+.cb-logo { height: 0.26in; width: auto; display: block; }
+.cb-text, .cb-num { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+.cb-num { font-weight: 600; color: var(--ink); }
+.page.dark { background: var(--ink); color: #fff; }
+.page.dark .chrome-bottom { border-top-color: var(--line-d); }
+.page.dark .cb-text { color: var(--muted-2); } .page.dark .cb-num { color: #fff; }
+
+/* ---------- type ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2.4px; text-transform: uppercase; color: var(--brand); display: flex; align-items: center; gap: 0.1in; margin-bottom: 0.12in; font-weight: 500; }
+.eyebrow::before { content: ""; width: 0.26in; height: 2px; background: currentColor; }
+.eyebrow.on-dark { color: var(--sprout); }
+.page-title { font-family: var(--font-display); font-weight: 700; font-size: 26pt; line-height: 1.1; letter-spacing: -0.025em; color: var(--ink); }
+.page-title .accent { color: var(--brand); display: block; }
+.lede { font-size: 12pt; line-height: 1.45; color: var(--muted); max-width: 6.2in; margin-top: 0.1in; }
+.sec-lbl { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.echo-es { display: block; font-style: italic; color: var(--muted); font-size: 10.5pt; margin-top: 0.06in; }
+
+.callout { border-left: 3pt solid var(--sprout-deep); background: var(--bone); padding: 0.2in 0.28in; font-size: 12.5pt; line-height: 1.5; border-radius: 0 0.08in 0.08in 0; margin-top: auto; }
+.callout strong { font-weight: 700; color: var(--brand); }
+.callout.amber { border-left-color: var(--amber); }
+.callout.amber strong { color: var(--amber-deep); }
+.callout .sub-line { display: block; margin-top: 0.08in; font-size: 10.5pt; color: var(--muted); }
+
+.you-pill { display: inline-block; background: var(--sprout); color: #fff; font-family: var(--font-mono); font-weight: 700; font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; padding: 2pt 7pt; border-radius: 99px; vertical-align: middle; margin-left: 4pt; }
+.tool-chip { display: inline-block; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1px; text-transform: uppercase; border: 0.75pt solid var(--line); background: #fff; padding: 3pt 9pt; border-radius: 99px; color: var(--ink); font-weight: 500; }
+
+/* ---------- cover / back ---------- */
+.page.cover, .page.back { background: var(--ink); color: #fff; background-image: radial-gradient(ellipse 5.5in 4in at 85% 8%, #8cc94e22, transparent 70%), radial-gradient(ellipse 6in 4in at 0% 100%, #034c7655, transparent 70%); }
+.cover-inner, .back-inner { flex: 1; display: flex; flex-direction: column; padding: 0.9in 0.85in 0.85in; }
+.back-inner { padding-bottom: 1.15in; }
+.cover-top, .back-top { display: flex; align-items: center; gap: 0.22in; }
+.wordmark { height: 0.5in; width: auto; color: var(--paper); display: block; }
+.cover-x { color: #ffffff55; font-size: 20pt; font-weight: 200; }
+.cover-relearn { height: 0.46in; width: auto; margin-top: -0.04in; display: block; }
+.cover-mid { margin: auto 0; }
+.cover-title { font-family: var(--font-display); font-weight: 700; font-size: 62pt; line-height: 1.02; letter-spacing: -0.035em; color: #fff; margin-top: 0.1in; }
+.ceo { position: relative; display: inline-block; padding: 0 2pt; }
+.ceo .ul { position: absolute; left: 0; right: 0; bottom: -0.06in; width: 100%; height: 0.14in; }
+.ul path { fill: none; stroke: var(--sprout); stroke-width: 3.5; stroke-linecap: round; }
+.cover-sub { font-family: var(--font-display); font-weight: 500; font-size: 19pt; line-height: 1.3; letter-spacing: -0.01em; color: var(--sprout-soft); margin-top: 0.4in; }
+.cover-sub2 { font-size: 12pt; color: var(--muted-2); margin-top: 0.12in; }
+.cover-bottom { margin-top: auto; }
+.cover-bars { display: flex; gap: 0.06in; height: 0.1in; }
+.cover-bars i { flex: 1; border-radius: 99px; }
+.cover-labels { display: flex; gap: 0.06in; margin: 0.1in 0 0.4in; }
+.cover-labels span { flex: 1; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2); }
+.cover-meta { display: flex; gap: 0.4in; border-top: 0.75pt solid var(--line-d); padding-top: 0.22in; }
+.meta-k { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 2px; text-transform: uppercase; color: var(--sprout); margin-bottom: 0.04in; }
+.meta-v { font-size: 10.5pt; color: #fff; }
+
+.back-mid { margin: auto 0; }
+.back-hero { font-family: var(--font-display); font-weight: 800; font-size: 40pt; line-height: 1.12; letter-spacing: -0.03em; color: #fff; margin-top: 0.12in; }
+.back-rule { width: 0.8in; height: 3pt; background: var(--sprout); border-radius: 2px; margin: 0.5in 0 0.4in; }
+.back-quote { font-family: var(--font-display); font-weight: 300; font-style: italic; font-size: 21pt; line-height: 1.3; letter-spacing: -0.015em; color: #fff; max-width: 5.6in; }
+.back-author { font-family: var(--font-mono); font-size: 8.5pt; letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout); margin-top: 0.16in; }
+.back-es { font-style: italic; color: var(--muted-2); font-size: 11pt; margin-top: 0.06in; }
+.back-sub { font-size: 12pt; color: var(--muted-2); margin-top: 0.3in; max-width: 5in; line-height: 1.5; }
+.back-mission { border-top: 0.75pt solid var(--line-d); padding-top: 0.25in; }
+.back-mission p { font-size: 11pt; line-height: 1.55; color: #dfe5ec; max-width: 6in; }
+.back-mission b { color: var(--sprout-soft); font-weight: 700; }
+.back-tag { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2); margin-top: 0.14in; }
+
+/* ---------- page 2: org ---------- */
+.quote-card { background: var(--ink); color: #fff; border-radius: 0.14in; padding: 0.22in 0.34in; }
+.qc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.1in; }
+.story-pill { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.6px; text-transform: uppercase; background: #8cc94e33; color: var(--sprout); border: 0.75pt solid #8cc94e66; border-radius: 99px; padding: 3pt 10pt; font-weight: 600; }
+.qc-lbl { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2); }
+.qc-big { font-family: var(--font-display); font-weight: 800; font-size: 22pt; line-height: 1.15; letter-spacing: -0.03em; }
+.qc-big .u { border-bottom: 3pt solid var(--sprout); }
+.qc-sub { font-family: var(--font-display); font-weight: 600; font-size: 14pt; color: var(--sprout); margin-top: 0.12in; }
+.qc-es { font-style: italic; color: var(--muted-2); font-size: 10.5pt; margin-top: 0.06in; }
+.ceo-chip { display: flex; align-items: center; justify-content: center; gap: 0.12in; margin-bottom: -0.1in; }
+.ceo-badge { font-family: var(--font-mono); font-weight: 700; font-size: 8pt; letter-spacing: 2px; background: var(--ink); color: #fff; padding: 4pt 11pt; border-radius: 99px; }
+.ceo-name { font-family: var(--font-display); font-weight: 700; font-size: 15pt; }
+.org-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.18in; }
+.org-card { display: flex; gap: 0.18in; border: 0.75pt solid var(--line); border-radius: 0.12in; padding: 0.16in 0.18in; background: #fff; border-top: 4pt solid var(--c); }
+.org-card.bd { --c: var(--bd); --ci: var(--bd-ink); } .org-card.mk { --c: var(--mk); --ci: var(--mk-ink); } .org-card.sa { --c: var(--sa); --ci: var(--sa-ink); } .org-card.ad { --c: var(--ad); --ci: var(--ad-ink); }
+.org-num { flex: 0 0 0.52in; height: 0.52in; border-radius: 0.09in; background: var(--c); color: #fff; font-family: var(--font-mono); font-weight: 600; font-size: 14pt; display: flex; align-items: center; justify-content: center; }
+.org-tag { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ci); font-weight: 600; }
+.org-name { font-family: var(--font-display); font-weight: 700; font-size: 14pt; line-height: 1.2; letter-spacing: -0.015em; margin-top: 0.03in; }
+.org-job { font-size: 10.5pt; color: var(--muted); margin-top: 0.05in; line-height: 1.4; }
+.org-head { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-top: 0.08in; }
+
+/* ---------- page 3: engine ---------- */
+.engine { display: flex; flex-direction: column; align-items: stretch; }
+.eng-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.18in; }
+.eng-row3 { display: grid; grid-template-columns: 1fr 0.7in 1fr 0.7in 1fr; align-items: stretch; }
+.h-arrow { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4pt; }
+.h-arrow span { font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.h-arrow i { display: block; width: 0.5in; height: 2pt; background: var(--ink); position: relative; }
+.h-arrow i::after { content: ""; position: absolute; right: -1pt; top: 50%; transform: translateY(-50%); border: 5pt solid transparent; border-left: 7pt solid var(--ink); border-right: 0; }
+.eng-node { border: 0.75pt solid var(--line); border-left: 5pt solid var(--c); border-radius: 0.1in; padding: 0.17in 0.22in; background: #fff; display: flex; flex-direction: column; gap: 0.03in; }
+.eng-node.bd { --c: var(--bd); --ci: var(--bd-ink); } .eng-node.mk { --c: var(--mk); --ci: var(--mk-ink); } .eng-node.sa { --c: var(--sa); --ci: var(--sa-ink); } .eng-node.ad { --c: var(--ad); --ci: var(--ad-ink); }
+.eng-node.out { --c: var(--sprout); --ci: var(--sprout-deep); background: var(--ink); color: #fff; border-color: var(--ink); border-left-color: var(--sprout); }
+.eng-node.out .eng-desc { color: #c9d2dc; } .eng-node.out .eng-tag { color: var(--sprout); }
+.eng-tag { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ci); font-weight: 600; }
+.eng-name { font-family: var(--font-display); font-weight: 700; font-size: 15pt; letter-spacing: -0.015em; line-height: 1.2; }
+.eng-desc { font-size: 10.5pt; color: var(--muted); }
+.eng-arrow { display: flex; align-items: center; justify-content: center; gap: 0.14in; height: 0.62in; position: relative; }
+.eng-arrow i { display: block; width: 2pt; height: 0.48in; background: var(--ink); position: relative; }
+.eng-arrow i::after { content: ""; position: absolute; left: 50%; bottom: -1pt; transform: translateX(-50%); border: 5pt solid transparent; border-top: 7pt solid var(--ink); border-bottom: 0; }
+.eng-arrow span { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.eng-loop { margin-top: 0.2in; border: 1.25pt dashed var(--sprout-deep); border-radius: 99px; text-align: center; padding: 0.11in 0.2in; font-family: var(--font-mono); font-size: 8.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout-deep); font-weight: 600; }
+.loop-arrow { font-size: 12pt; margin-right: 4pt; vertical-align: -1pt; }
+
+/* ---------- dept pages ---------- */
+.dept.bd { --c: var(--bd); --ci: var(--bd-ink); --cl: var(--bd-lt); --ct: var(--bd-tint); }
+.dept.mk { --c: var(--mk); --ci: var(--mk-ink); --cl: var(--mk-lt); --ct: var(--mk-tint); }
+.dept.sa { --c: var(--sa); --ci: var(--sa-ink); --cl: var(--sa-lt); --ct: var(--sa-tint); }
+.dept.ad { --c: var(--ad); --ci: var(--ad-ink); --cl: var(--ad-lt); --ct: var(--ad-tint); }
+.dept-head { background: var(--ink); color: #fff; padding: 0.42in 0.8in 0.32in; border-bottom: 5pt solid var(--c); }
+.dept-track { display: flex; gap: 0.06in; margin-bottom: 0.22in; }
+.dept-track span { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2); padding: 4pt 9pt 5pt; border-bottom: 2pt solid transparent; }
+.dept-track span.on { color: #fff; background: #ffffff1c; border-bottom-color: var(--c); border-radius: 3pt 3pt 0 0; font-weight: 600; }
+.dh-row { display: flex; gap: 0.28in; align-items: flex-start; }
+.dh-num { flex: 0 0 0.85in; height: 0.85in; background: var(--c); color: #fff; border-radius: 0.12in; font-family: var(--font-display); font-weight: 800; font-size: 32pt; display: flex; align-items: center; justify-content: center; letter-spacing: -0.03em; }
+.dh-title { font-family: var(--font-display); font-weight: 700; font-size: 22pt; line-height: 1.12; letter-spacing: -0.025em; }
+.dh-accent { color: var(--cl); display: block; }
+.dh-lede { color: #c3ccd7; font-size: 11pt; line-height: 1.45; margin-top: 0.08in; max-width: 5.2in; }
+.dept-body { gap: 0.26in; padding-top: 0.34in; }
+.dept-list { display: flex; flex-direction: column; gap: 0.06in; margin-top: -0.04in; }
+.dept-item { display: flex; gap: 0.18in; align-items: center; border: 0.75pt solid var(--line); border-radius: 0.1in; padding: 0.1in 0.2in; background: #fff; }
+.dept-num { flex: 0 0 0.36in; font-family: var(--font-mono); font-weight: 600; font-size: 12pt; color: var(--ci); }
+.dept-what { font-family: var(--font-display); font-weight: 600; font-size: 12pt; letter-spacing: -0.01em; line-height: 1.25; }
+.dept-how { font-size: 10.5pt; color: var(--muted); line-height: 1.4; margin-top: 1pt; }
+.kpi-card { display: grid; grid-template-columns: 2.55in 1fr; gap: 0.3in; background: var(--bone); border-left: 5pt solid var(--c); border-radius: 0 0.12in 0.12in 0; padding: 0.18in 0.28in; }
+.kpi-lbl { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--ci); font-weight: 600; }
+.kpi-val { font-family: var(--font-display); font-weight: 700; font-size: 16pt; line-height: 1.15; letter-spacing: -0.02em; margin: 0.04in 0 0.06in; }
+.kpi-desc { font-size: 10.5pt; line-height: 1.45; color: var(--muted); }
+.kpi-right { display: flex; flex-direction: column; justify-content: center; }
+.kpi-ex { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-top: 0.14in; }
+.side-row { display: flex; justify-content: space-between; align-items: center; gap: 0.2in; margin-top: auto; }
+.runs-on { display: flex; align-items: center; gap: 0.07in; flex-wrap: wrap; }
+.runs-lbl { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-right: 0.04in; }
+.head-you { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+/* graphics */
+.mini-bars { display: flex; gap: 0.12in; align-items: flex-end; height: 1.15in; }
+.bar { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2pt; }
+.bar em { font-style: normal; font-family: var(--font-display); font-weight: 700; font-size: 12pt; color: var(--ink); }
+.bar b { display: block; width: 100%; background: var(--c); border-radius: 3pt 3pt 0 0; }
+.bar span { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); padding-top: 3pt; }
+.bar { border-bottom: 0.75pt solid var(--line); }
+.mini-formula { display: flex; align-items: center; gap: 0.1in; }
+.mf-box { flex: 1; background: #fff; border: 0.75pt solid var(--line); border-radius: 0.08in; text-align: center; padding: 0.12in 0.04in; }
+.mf-box b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 20pt; line-height: 1.1; letter-spacing: -0.02em; }
+.mf-box span { display: block; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-top: 2pt; }
+.mf-box.hot { background: var(--c); border-color: var(--c); } .mf-box.hot b, .mf-box.hot span { color: #fff; }
+.mf-op { font-family: var(--font-display); font-weight: 600; font-size: 16pt; color: var(--muted); }
+.mini-funnel { display: flex; flex-direction: column; gap: 0.11in; }
+.mfun-row { display: grid; grid-template-columns: 1.05in 1fr 0.35in; gap: 0.1in; align-items: center; }
+.mfun-row span { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+.mfun-track { height: 0.2in; background: #1b252f12; border-radius: 99px; overflow: hidden; }
+.mfun-track b { display: block; height: 100%; background: var(--c); border-radius: 99px; }
+.mfun-row em { font-style: normal; font-family: var(--font-display); font-weight: 700; font-size: 14pt; text-align: right; }
+.mini-pl { display: flex; flex-direction: column; background: #fff; border: 0.75pt solid var(--line); border-radius: 0.08in; overflow: hidden; }
+.pl-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.075in 0.16in; border-bottom: 0.75pt solid var(--line); font-size: 10.5pt; }
+.pl-row em { font-style: normal; font-family: var(--font-mono); font-weight: 600; font-size: 10.5pt; }
+.pl-row.minus em { color: var(--ad-ink); }
+.pl-row.total { background: var(--ink); color: #fff; border-bottom: 0; } .pl-row.total span { font-weight: 600; } .pl-row.total em { color: var(--sprout-soft); font-size: 12pt; }
+
+/* ---------- page 8: closed ---------- */
+.closed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2in; }
+.closed-card { --c: var(--bd); --ci: var(--bd-ink); border: 0.75pt solid var(--line); border-top: 4pt solid var(--c); border-radius: 0.12in; padding: 0.22in 0.24in 0.26in; background: #fff; position: relative; }
+.closed-card.mk { --c: var(--mk); --ci: var(--mk-ink); } .closed-card.sa { --c: var(--sa); --ci: var(--sa-ink); } .closed-card.ad { --c: var(--ad); --ci: var(--ad-ink); }
+.closed-sign { display: inline-block; font-family: var(--font-mono); font-weight: 700; font-size: 8pt; letter-spacing: 2.4px; text-transform: uppercase; color: var(--clay); border: 1.25pt solid var(--clay); border-radius: 3pt; padding: 2pt 8pt; transform: rotate(-3deg); }
+.closed-dept { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--ci); font-weight: 600; margin-top: 0.16in; }
+.closed-head { font-family: var(--font-display); font-weight: 700; font-size: 16pt; line-height: 1.2; letter-spacing: -0.02em; margin-top: 0.06in; }
+.closed-desc { font-size: 10.5pt; line-height: 1.5; color: var(--muted); margin-top: 0.1in; }
+.reflect { margin-top: auto; background: var(--ink); color: #fff; border-radius: 0.14in; padding: 0.3in 0.36in; }
+.reflect-q { font-family: var(--font-display); font-weight: 700; font-size: 18pt; letter-spacing: -0.02em; color: var(--amber-soft); }
+.reflect-s { color: #c3ccd7; font-size: 11pt; margin-top: 0.05in; }
+.reflect-lines { display: flex; flex-direction: column; gap: 0.3in; margin-top: 0.32in; }
+.reflect-lines i { display: block; border-bottom: 0.75pt solid #ffffff55; height: 1pt; }
+
+/* ---------- page 9: calendar ---------- */
+.cal { border: 0.75pt solid var(--line); border-radius: 0.12in; overflow: hidden; background: #fff; }
+.cal-bar { background: var(--ink); color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 0.1in 0.2in; }
+.cal-title { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; text-transform: uppercase; }
+.cal-view { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; border: 0.75pt solid #ffffff55; border-radius: 99px; padding: 2pt 9pt; }
+.cal-grid { display: grid; grid-template-columns: 0.5in repeat(6, 1fr); grid-template-rows: auto repeat(16, 0.3in); padding: 0 0.08in 0.08in 0; }
+.cal-day { text-align: center; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); padding: 0.09in 0 0.06in; border-bottom: 0.75pt solid var(--line); }
+.cal-day b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 15pt; color: var(--ink); letter-spacing: -0.02em; line-height: 1.1; }
+.cal-time { grid-column: 1; font-family: var(--font-mono); font-size: 7.5pt; color: var(--muted); text-align: right; padding-right: 0.08in; transform: translateY(-4pt); }
+.cal-line { grid-column: 2 / 8; border-top: 0.75pt solid var(--line); }
+.cal-ev { margin: 1.5pt 2pt; padding: 3pt 5pt; border-left: 3pt solid var(--c); background: var(--t); border-radius: 0 4pt 4pt 0; position: relative; z-index: 1; font-size: 9pt; line-height: 1.2; font-weight: 600; color: var(--ink); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-start; }
+.cal-ev small { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ci); font-weight: 500; margin-top: 2pt; }
+.cal-ev.bd { --c: var(--bd); --t: #eef6e2; --ci: var(--bd-ink); } .cal-ev.mk { --c: var(--mk); --t: #fbf1dc; --ci: var(--mk-ink); } .cal-ev.sa { --c: var(--sa); --t: #e2edf5; --ci: var(--sa-ink); } .cal-ev.ad { --c: var(--ad); --t: #f8e4e1; --ci: var(--ad-ink); }
+.cal-legend { display: flex; justify-content: space-between; gap: 0.1in; }
+.cal-key { display: flex; align-items: center; gap: 0.08in; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink); font-weight: 500; }
+.cal-key i { width: 0.14in; height: 0.14in; border-radius: 3pt; background: var(--c); display: block; }
+.cal-key em { font-style: normal; color: var(--muted); }
+.cal-key.bd { --c: var(--bd); } .cal-key.mk { --c: var(--mk); } .cal-key.sa { --c: var(--sa); } .cal-key.ad { --c: var(--ad); }
+
+/* ---------- page 10: ladder ---------- */
+.ladder { display: flex; flex-direction: column; gap: 0.1in; }
+.step { display: grid; grid-template-columns: 0.45in 2.55in 1fr 0.3in; gap: 0.18in; align-items: center; border: 0.75pt solid var(--line); border-radius: 0.1in; padding: 0.13in 0.2in; background: #fff; }
+.step.top { border-color: var(--amber); border-width: 1.5pt; }
+.step-num { font-family: var(--font-mono); font-weight: 600; font-size: 13pt; color: var(--amber-deep); }
+.step-name { font-family: var(--font-display); font-weight: 600; font-size: 12pt; line-height: 1.2; }
+.step-desc { font-size: 10.5pt; color: var(--muted); line-height: 1.35; }
+.step-track { height: 0.14in; background: #1b252f12; border-radius: 99px; overflow: hidden; }
+.step-track b { display: block; height: 100%; background: var(--amber); border-radius: 99px; }
+.step-box { display: block; width: 0.26in; height: 0.26in; border: 1.5pt solid var(--ink); border-radius: 4pt; background: #fff; }
+.ladder-key { display: flex; align-items: center; gap: 0.12in; font-size: 10.5pt; color: var(--muted); margin-top: -0.08in; }
+.ladder-key .step-box { width: 0.2in; height: 0.2in; }
+
+/* ---------- page 11: pipeline ---------- */
+.pipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 2.45in; gap: 0.2in; }
+.pipe-tile { --c: var(--sa); --ci: var(--sa-ink); border: 0.75pt solid var(--line); border-top: 5pt solid var(--c); border-radius: 0.12in; background: #fff; padding: 0.2in 0.22in; display: flex; flex-direction: column; }
+.pipe-tile.ad { --c: var(--ad); --ci: var(--ad-ink); } .pipe-tile.bd { --c: var(--bd); --ci: var(--bd-ink); } .pipe-tile.mk { --c: var(--mk); --ci: var(--mk-ink); }
+.pipe-idx { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ci); font-weight: 600; }
+.pipe-blank { font-family: var(--font-display); font-weight: 800; font-size: 54pt; line-height: 1; color: var(--c); opacity: 0.55; margin: 0.12in 0 0.04in; }
+.pipe-name { font-family: var(--font-display); font-weight: 700; font-size: 13pt; line-height: 1.2; letter-spacing: -0.015em; }
+.pipe-where { font-size: 10.5pt; color: var(--muted); line-height: 1.35; margin-top: 0.03in; }
+.pipe-line { display: block; margin-top: auto; border-bottom: 0.75pt solid var(--ink); height: 1pt; }
+.ring-tile { align-items: center; justify-content: center; position: relative; background: var(--bone); border-top-color: var(--sprout); padding: 0.15in; }
+.ring-tile svg { width: 1.85in; height: 1.85in; transform: rotate(-90deg); }
+.ring-tile .track { fill: none; stroke: #1b252f18; stroke-width: 8; }
+.ring-tile .arc { fill: none; stroke: var(--sprout); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 74.5; }
+.days-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.days-center b { font-family: var(--font-display); font-weight: 800; font-size: 40pt; line-height: 1; letter-spacing: -0.04em; }
+.days-center span { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-top: 3pt; max-width: 0.95in; line-height: 1.3; }
+
+/* ---------- page 12: vote ---------- */
+.vote-list { display: flex; flex-direction: column; gap: 0.16in; }
+.vote-card { --c: var(--mk); --ci: var(--mk-ink); display: grid; grid-template-columns: 0.75in 1fr 1in; gap: 0.24in; align-items: center; border: 0.75pt solid var(--line); border-radius: 0.12in; padding: 0.18in 0.28in; background: #fff; }
+.vote-card.sa { --c: var(--sa); --ci: var(--sa-ink); } .vote-card.bd { --c: var(--bd); --ci: var(--bd-ink); } .vote-card.ad { --c: var(--ad); --ci: var(--ad-ink); }
+.vote-letter { width: 0.75in; height: 0.75in; border-radius: 50%; background: var(--c); color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 30pt; display: flex; align-items: center; justify-content: center; }
+.vote-name { font-family: var(--font-display); font-weight: 700; font-size: 16pt; letter-spacing: -0.02em; line-height: 1.2; }
+.vote-desc { font-size: 10.5pt; color: var(--muted); line-height: 1.45; margin-top: 0.05in; }
+.vote-tag { display: inline-block; margin-top: 0.1in; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 600; color: var(--ci); background: var(--t, #1b252f10); border: 0.75pt solid var(--c); border-radius: 99px; padding: 2.5pt 9pt; }
+.vote-box { height: 0.9in; border: 1.25pt dashed var(--ink); border-radius: 0.1in; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 0.07in; }
+.vote-box span { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- page 13: commitments ---------- */
+.commit-stack { display: flex; flex-direction: column; gap: 0.22in; }
+.commit-card { border: 0.75pt solid var(--line); border-radius: 0.14in; overflow: hidden; background: #fff; }
+.commit-head { background: var(--ink); color: #fff; padding: 0.17in 0.3in; display: flex; align-items: baseline; justify-content: space-between; border-top: 4pt solid var(--amber); }
+.commit-card.c2 .commit-head { border-top-color: var(--sprout); }
+.commit-num { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; }
+.commit-card.c1 .commit-num { color: var(--amber-soft); } .commit-card.c2 .commit-num { color: var(--sprout); }
+.commit-name { font-family: var(--font-display); font-weight: 700; font-size: 17pt; letter-spacing: -0.02em; }
+.commit-desc { padding: 0.2in 0.3in 0.1in; font-size: 11.5pt; color: var(--muted); }
+.commit-opts { display: grid; gap: 0.12in; padding: 0.1in 0.3in 0.26in; }
+.commit-opts.two { grid-template-columns: 1fr 1fr; } .commit-opts.four { grid-template-columns: 1fr 1fr; }
+.commit-opt { --c: var(--amber); --ci: var(--amber-deep); display: flex; gap: 0.14in; align-items: center; border: 0.75pt solid var(--line); border-left: 4pt solid var(--c); border-radius: 0 0.08in 0.08in 0; padding: 0.13in 0.18in; font-size: 11pt; line-height: 1.35; }
+.commit-opt.sprout { --c: var(--sprout); --ci: var(--sprout-deep); } .commit-opt.bd { --c: var(--bd); --ci: var(--bd-ink); } .commit-opt.mk { --c: var(--mk); --ci: var(--mk-ink); } .commit-opt.sa { --c: var(--sa); --ci: var(--sa-ink); } .commit-opt.ad { --c: var(--ad); --ci: var(--ad-ink); }
+.commit-opt i { flex: 0 0 0.2in; width: 0.2in; height: 0.2in; border: 1.5pt solid var(--ink); border-radius: 4pt; display: block; }
+.commit-opt em { display: block; font-style: normal; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ci); font-weight: 600; margin-bottom: 1pt; }
+.date-strip { margin-top: auto; display: flex; align-items: center; gap: 0.26in; background: var(--bone); border-radius: 0.14in; padding: 0.22in 0.3in; }
+.date-chip { flex: 0 0 0.9in; height: 0.9in; border-radius: 0.12in; background: var(--sprout); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.date-chip .m { font-family: var(--font-mono); font-weight: 700; font-size: 9pt; letter-spacing: 2.4px; }
+.date-chip .d { font-family: var(--font-display); font-weight: 800; font-size: 30pt; line-height: 1; }
+.date-text { font-size: 12.5pt; line-height: 1.5; }
+.date-text strong { color: var(--brand); }
+
+/* ---------- page 14: AI ---------- */
+.ai-card { background: var(--ink); color: #fff; border-radius: 0.14in; overflow: hidden; }
+.ai-card-head { display: flex; align-items: center; justify-content: space-between; padding: 0.15in 0.3in; background: var(--ink-deep); border-bottom: 0.75pt solid var(--line-d); }
+.ai-card-lbl { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--sprout); }
+.ai-badge { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #fff; border: 0.75pt solid #ffffff55; border-radius: 99px; padding: 2.5pt 9pt; }
+.ai-card-body { font-family: var(--font-mono); font-size: 10.5pt; line-height: 1.6; color: #e4eaf0; padding: 0.3in 0.32in 0.34in; }
+.ai-card-body b { font-weight: 600; color: var(--amber-soft); }
+.fill-list { display: flex; flex-direction: column; gap: 0.12in; }
+.fill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.1in 0.2in; }
+.fill-grid div { display: flex; align-items: center; gap: 0.12in; font-size: 11pt; border: 0.75pt solid var(--line); border-radius: 0.08in; padding: 0.1in 0.16in; background: #fff; }
+.fill-grid span { font-family: var(--font-mono); font-weight: 600; font-size: 10pt; color: var(--brand); }
+
+.engine { margin: auto 0; }
+.eng-pair .eng-node { padding: 0.24in 0.26in; min-height: 1.3in; }
+.eng-row3 .eng-node { padding: 0.24in 0.2in; min-height: 1.9in; }
+.eng-name { font-size: 16pt; }
+.eng-arrow { justify-content: flex-start; padding-left: 0.933in; height: 0.8in; }
+.eng-arrow i { height: 0.62in; margin-left: -1pt; }
+.eng-loop { margin-top: 0.32in; padding: 0.16in 0.2in; }
+
+
+/* ================= THE STANDARD · additions ================= */
+.page-title.sm { font-size: 24pt; }
+.lede.tight { margin-top: 0.06in; }
+.cover-title.std { font-size: 60pt; }
+.cover-bars i.b1 { background: var(--sprout); } .cover-bars i.b2 { background: var(--amber); } .cover-bars i.b3 { background: var(--brand-light); }
+
+/* statute cite pills */
+.cite { display: inline-block; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.5px; font-weight: 600; color: var(--brand); border: 0.75pt solid var(--brand); border-radius: 99px; padding: 2pt 8pt; background: #fff; white-space: nowrap; line-height: 1.3; }
+.cite.fill { background: var(--sprout-deep); border-color: var(--sprout-deep); color: #fff; }
+.cite.amber { color: var(--amber-deep); border-color: var(--amber); }
+.cite-row { display: flex; flex-wrap: wrap; gap: 0.06in; align-items: center; }
+.ful-lbl { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 700; color: var(--sprout-deep); margin-right: 0.04in; }
+
+/* law quote block */
+.law-quote { background: var(--bone); border-left: 4pt solid var(--brand); border-radius: 0 0.12in 0.12in 0; padding: 0.18in 0.3in 0.2in; position: relative; }
+.lq-mark { font-family: var(--font-display); font-size: 38pt; font-weight: 800; line-height: 0.5; color: var(--sprout); height: 0.2in; display: block; }
+.lq-text { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 11pt; line-height: 1.55; color: var(--ink); }
+.lq-attr { font-family: var(--font-mono); font-size: 8.5pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); font-weight: 600; margin-top: 0.08in; }
+.lq-sep { border: 0; border-top: 0.75pt dashed #1b252f40; margin: 0.14in 0 0.12in; }
+.plain { display: flex; gap: 0.16in; align-items: flex-start; }
+.plain-tag { flex: 0 0 auto; margin-top: 2pt; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; background: var(--sprout-deep); color: #fff; padding: 3pt 9pt; border-radius: 99px; }
+.plain-text { font-size: 11.5pt; line-height: 1.45; color: var(--ink); }
+.plain-text b { color: var(--brand); }
+
+/* timeline */
+.tl { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); padding: 0.06in 0 0; }
+.tl::before { content: ""; position: absolute; top: 0.29in; left: 16.6%; width: 33.4%; height: 3pt; background: var(--ink); }
+.tl::after { content: ""; position: absolute; top: 0.29in; left: 50%; width: 33.4%; height: 3pt; background: repeating-linear-gradient(90deg, var(--ink) 0 7pt, transparent 7pt 13pt); }
+.tl-node { text-align: center; position: relative; z-index: 1; }
+.tl-dot { width: 0.46in; height: 0.46in; border-radius: 50%; background: var(--sprout); color: #fff; margin: 0 auto 0.08in; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 14pt; border: 3pt solid var(--paper); box-sizing: content-box; width: 0.4in; height: 0.4in; }
+.tl-dot.x { background: var(--clay); }
+.tl-day { font-family: var(--font-mono); font-size: 9pt; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: var(--ink); }
+.tl-label { font-size: 11pt; color: var(--muted); margin-top: 0.02in; line-height: 1.35; padding: 0 0.1in; }
+.kept { display: grid; grid-template-columns: 1fr 1fr; gap: 0.12in; }
+.kept-chip { border: 0.75pt solid var(--line); border-left: 4pt solid var(--sprout); border-radius: 0 0.08in 0.08in 0; padding: 0.13in 0.18in; background: #fff; font-size: 11pt; line-height: 1.35; }
+.kept-chip b { font-family: var(--font-display); font-weight: 600; }
+.kept-chip .tick { color: var(--sprout-deep); font-weight: 800; margin-right: 5pt; }
+.kept-chip .rest { color: var(--muted); }
+
+/* chain (clock) */
+.chain { display: grid; grid-template-columns: 1fr 1.05in 1fr 1.05in 1fr; align-items: stretch; }
+.ch-node { border: 0.75pt solid var(--line); border-top: 5pt solid var(--c, var(--sprout)); border-radius: 0.1in; background: #fff; padding: 0.16in 0.14in; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 0.03in; }
+.ch-node.dark { background: var(--ink); color: #fff; border-color: var(--ink); border-top-color: var(--sprout); }
+.ch-node b { font-family: var(--font-display); font-weight: 700; font-size: 13pt; line-height: 1.2; letter-spacing: -0.01em; }
+.ch-node span { font-size: 10.5pt; color: var(--muted); line-height: 1.35; }
+.ch-node.dark span { color: #c3ccd7; }
+.ch-arrow { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4pt; text-align: center; padding: 0 2pt; }
+.ch-arrow em { font-style: normal; font-family: var(--font-display); font-weight: 800; font-size: 15pt; line-height: 1.05; color: var(--sprout-deep); letter-spacing: -0.02em; }
+.ch-arrow small { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.4px; text-transform: uppercase; color: var(--muted); line-height: 1.3; }
+.ch-arrow i { display: block; width: 0.8in; height: 2pt; background: var(--ink); position: relative; }
+.ch-arrow i::after { content: ""; position: absolute; right: -1pt; top: 50%; transform: translateY(-50%); border: 5pt solid transparent; border-left: 7pt solid var(--ink); border-right: 0; }
+.week { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.07in; }
+.wk { border: 0.75pt solid var(--line); border-radius: 0.09in; background: #fff; padding: 0.1in 0.08in 0.12in; text-align: center; display: flex; flex-direction: column; gap: 0.04in; }
+.wk.on { border-color: var(--sprout-deep); border-top: 4pt solid var(--sprout); }
+.wk.off { background: #1b252f0a; border-style: dashed; }
+.wk.wall { background: var(--ink); border-color: var(--ink); border-top: 4pt solid var(--sprout); color: #fff; }
+.wk-name { font-family: var(--font-display); font-weight: 800; font-size: 16pt; letter-spacing: -0.02em; }
+.wk-what { font-size: 10.5pt; line-height: 1.3; color: var(--muted); }
+.wk.wall .wk-what { color: #d6dde5; }
+.wk-badge { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; color: var(--clay); }
+.hol-note { display: flex; align-items: center; gap: 0.16in; border: 1.25pt dashed var(--amber); background: #e0a63a14; border-radius: 0.1in; padding: 0.14in 0.2in; font-size: 11pt; }
+.hol-note b { color: var(--amber-deep); font-family: var(--font-display); }
+
+/* lanes */
+.lane { border: 0.75pt solid var(--line); border-radius: 0.12in; background: #fff; overflow: hidden; }
+.lane-top { display: flex; align-items: baseline; gap: 0.16in; padding: 0.13in 0.24in; background: var(--ink); color: #fff; border-top: 4pt solid var(--sprout); }
+.lane.buyer .lane-top { border-top-color: var(--amber); }
+.lane-label { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--sprout); font-weight: 600; }
+.lane.buyer .lane-label { color: var(--amber-soft); }
+.lane-head { font-family: var(--font-display); font-weight: 700; font-size: 13.5pt; letter-spacing: -0.015em; }
+.lane-body { padding: 0.16in 0.24in 0.16in; display: flex; flex-direction: column; gap: 0.12in; }
+.docs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.1in; }
+.doc { border: 0.75pt solid var(--line); border-radius: 0.08in; padding: 0.1in 0.14in; background: #fff; display: flex; flex-direction: column; gap: 1pt; }
+.doc.hi { border-color: var(--sprout-deep); border-width: 1.5pt; background: #8cc94e14; }
+.doc b { font-family: var(--font-display); font-weight: 600; font-size: 11pt; line-height: 1.25; }
+.doc small { font-size: 10.5pt; line-height: 1.3; color: var(--muted); }
+.doc small.g { color: var(--sprout-deep); font-weight: 600; } .doc small.a { color: var(--amber-deep); font-weight: 600; }
+.lane-note { font-size: 10.5pt; color: var(--muted); line-height: 1.45; }
+.flow { display: grid; grid-template-columns: 1fr 0.3in 1fr 0.3in 1.35fr; align-items: stretch; }
+.flow-step { border: 0.75pt solid var(--line); border-radius: 0.09in; padding: 0.12in 0.14in; background: #fff; font-size: 11pt; line-height: 1.35; font-weight: 500; display: flex; align-items: center; }
+.flow-step.hot { background: var(--sprout-deep); border-color: var(--sprout-deep); color: #fff; font-weight: 700; }
+.flow-arrow { display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14pt; color: var(--ink); }
+
+/* instagram mockups */
+.ig-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.24in; }
+.ig-col { display: flex; flex-direction: column; gap: 0.08in; }
+.ig-verdict { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--clay); display: flex; align-items: center; gap: 0.08in; }
+.ig-col.good .ig-verdict { color: var(--sprout-deep); }
+.ig { border: 1.25pt solid var(--clay-soft); border-radius: 0.14in; background: #fff; overflow: hidden; }
+.ig-col.good .ig { border-color: var(--sprout); }
+.ig-head { display: flex; align-items: center; gap: 0.1in; padding: 0.1in 0.14in; }
+.ig-av { width: 0.34in; height: 0.34in; border-radius: 50%; background: linear-gradient(135deg, var(--amber), var(--clay)); flex: none; }
+.ig-col.good .ig-av { background: linear-gradient(135deg, var(--brand-light), var(--brand)); }
+.ig-user { font-weight: 600; font-size: 10.5pt; }
+.ig-photo { height: 1.7in; background: linear-gradient(160deg, #c9b79c, #8d7a5f 55%, #5d6b73); display: flex; align-items: flex-end; padding: 0.12in 0.14in; }
+.ig-col.good .ig-photo { background: linear-gradient(160deg, #9cc3de, #4f8bb4 55%, #034c76); }
+.ig-photo span { font-family: var(--font-display); font-weight: 800; font-size: 19pt; color: #fff; letter-spacing: -0.02em; text-shadow: 0 1px 6px #00000055; }
+.ig-cap { padding: 0.12in 0.14in; font-size: 10.5pt; line-height: 1.4; min-height: 0.62in; }
+.ig-chips { display: flex; gap: 0.07in; flex-wrap: wrap; padding: 0 0.14in 0.13in; }
+.ig-chip { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 700; border-radius: 99px; padding: 2.5pt 8pt; background: var(--clay); color: #fff; }
+.ig-col.good .ig-chip { background: var(--sprout-deep); }
+
+/* email thread */
+.thread { background: var(--bone); border-radius: 0.14in; padding: 0.2in 0.26in; display: flex; flex-direction: column; gap: 0.12in; }
+.thread-lbl { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; display: flex; justify-content: space-between; }
+.em { background: #fff; border: 0.75pt solid var(--line); border-radius: 0.09in; padding: 0.12in 0.18in; }
+.em.dir { border-left: 4pt solid var(--sprout); }
+.em-head { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.6px; color: var(--muted); border-bottom: 0.75pt solid var(--line); padding-bottom: 0.05in; margin-bottom: 0.06in; }
+.em-head b { color: var(--ink); font-weight: 600; }
+.em-body { font-size: 11pt; line-height: 1.45; }
+.em-att { display: flex; flex-wrap: wrap; gap: 0.06in; margin-top: 0.08in; }
+.att { font-family: var(--font-mono); font-size: 8pt; border: 0.75pt solid var(--line); border-radius: 4pt; padding: 2pt 7pt; background: #f7f7f7; color: var(--ink-soft); }
+.em-flag { display: inline-block; margin-top: 0.08in; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; background: var(--sprout-deep); color: #fff; padding: 2.5pt 9pt; border-radius: 99px; }
+
+/* 3 verb lanes */
+.dcm { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.16in; }
+.dcm-card { border: 0.75pt solid var(--line); border-radius: 0.12in; background: #fff; overflow: hidden; display: flex; flex-direction: column; }
+.dcm-head { background: var(--ink); color: #fff; padding: 0.14in 0.18in; border-top: 4pt solid var(--c); display: flex; align-items: baseline; gap: 0.1in; }
+.dcm-n { font-family: var(--font-mono); font-size: 9pt; font-weight: 600; color: var(--c); letter-spacing: 1.4px; }
+.dcm-v { font-family: var(--font-display); font-weight: 800; font-size: 15pt; letter-spacing: -0.02em; }
+.dcm-body { padding: 0.16in 0.18in 0.18in; display: flex; flex-direction: column; gap: 0.12in; flex: 1; }
+.dcm-what { font-family: var(--font-display); font-weight: 600; font-size: 11.5pt; line-height: 1.3; letter-spacing: -0.01em; }
+.dcm-pills { display: flex; flex-direction: column; gap: 0.06in; margin-top: auto; }
+.dcm-pill { font-size: 10.5pt; border: 0.75pt solid var(--line); border-radius: 0.07in; padding: 0.07in 0.12in; background: var(--bone); line-height: 1.3; }
+.dcm-pill.ok { background: var(--sprout-deep); border-color: var(--sprout-deep); color: #fff; font-weight: 600; }
+.stakes { display: flex; align-items: center; gap: 0.2in; background: var(--ink); color: #fff; border-radius: 0.12in; padding: 0.18in 0.28in; border-left: 5pt solid var(--clay); }
+.stakes .sh { font-size: 24pt; }
+.stakes p { font-size: 11.5pt; line-height: 1.45; flex: 1; }
+.stakes .lic { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; border: 1.25pt solid var(--clay-soft); color: var(--clay-soft); border-radius: 99px; padding: 3pt 10pt; }
+
+/* why page */
+.broker { display: flex; align-items: center; gap: 0.2in; background: var(--ink); color: #fff; border-radius: 0.14in; padding: 0.2in 0.3in; border-left: 5pt solid var(--sprout); }
+.av { width: 0.62in; height: 0.62in; border-radius: 50%; background: var(--sprout); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 17pt; flex: none; }
+.broker-name { font-family: var(--font-display); font-weight: 700; font-size: 16pt; letter-spacing: -0.02em; }
+.broker-role { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout); margin-top: 0.02in; }
+.under { text-align: center; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin: -0.06in 0; }
+.sa-list { display: flex; flex-direction: column; gap: 0.08in; }
+.sa-row { display: grid; grid-template-columns: 0.46in 1fr auto; gap: 0.18in; align-items: center; border: 0.75pt solid var(--line); border-radius: 0.1in; padding: 0.11in 0.2in; background: #fff; }
+.sa-dot { width: 0.4in; height: 0.4in; border-radius: 50%; background: var(--sprout); color: #fff; font-family: var(--font-mono); font-weight: 700; font-size: 8.5pt; display: flex; align-items: center; justify-content: center; }
+.sa-name { font-family: var(--font-display); font-weight: 700; font-size: 14pt; letter-spacing: -0.02em; }
+.sa-sub { font-family: var(--font-display); font-weight: 600; font-size: 11.5pt; color: var(--brand); font-style: italic; }
+.cites { display: flex; flex-direction: column; gap: 0.08in; }
+.cite-line { display: grid; grid-template-columns: 2.35in 1fr; gap: 0.16in; align-items: center; font-size: 11pt; }
+
+/* six duty cards */
+.six { display: grid; grid-template-columns: 1fr 1fr; gap: 0.16in; }
+.six-card { border: 0.75pt solid var(--line); border-top: 4pt solid var(--c, var(--sprout)); border-radius: 0.12in; background: #fff; padding: 0.18in 0.22in; display: flex; flex-direction: column; gap: 0.06in; }
+.six-top { display: flex; align-items: center; gap: 0.12in; }
+.six-ico { font-size: 19pt; line-height: 1; }
+.six-n { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-left: auto; }
+.six-name { font-family: var(--font-display); font-weight: 700; font-size: 14pt; line-height: 1.2; letter-spacing: -0.015em; }
+.six-desc { font-size: 10.5pt; color: var(--muted); line-height: 1.45; flex: 1; }
+
+/* toc */
+.toc { display: flex; flex-direction: column; border: 0.75pt solid var(--line); border-radius: 0.12in; background: #fff; overflow: hidden; }
+.toc-row { display: grid; grid-template-columns: 0.75in 1fr auto; gap: 0.16in; align-items: center; padding: 0.1in 0.22in; border-bottom: 0.75pt solid var(--line); }
+.toc-row:last-child { border-bottom: 0; }
+.toc-a { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout-deep); font-weight: 700; }
+.toc-t { font-family: var(--font-display); font-weight: 600; font-size: 11.5pt; letter-spacing: -0.01em; line-height: 1.25; }
+.toc-t small { display: block; font-family: var(--font-sans); font-weight: 400; font-size: 10.5pt; color: var(--muted); letter-spacing: 0; }
+.toc-p { font-family: var(--font-mono); font-size: 9pt; font-weight: 600; color: var(--ink); }
+.prose p { font-size: 11.5pt; line-height: 1.55; color: var(--ink-soft); margin-bottom: 0.1in; }
+.prose p b { color: var(--brand); }
+
+/* relationships */
+.rel-q { background: var(--ink); color: #fff; border-radius: 0.14in; padding: 0.24in 0.34in; display: flex; flex-direction: column; gap: 0.08in; }
+.rel-q .rq-big { font-family: var(--font-display); font-weight: 800; font-size: 20pt; line-height: 1.15; letter-spacing: -0.03em; }
+.rel-q .rq-big .u { color: var(--sprout); }
+.rel-q p { color: #c3ccd7; font-size: 11pt; }
+.rel-q .rq-es { color: var(--muted-2); font-style: italic; font-size: 10.5pt; }
+.rel-q .rq-top { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--amber-soft); }
+.rels { display: flex; flex-direction: column; gap: 0.14in; }
+.rel { display: grid; grid-template-columns: 0.55in 1fr; gap: 0.2in; border: 0.75pt solid var(--line); border-left: 5pt solid var(--c); border-radius: 0 0.12in 0.12in 0; background: #fff; padding: 0.17in 0.24in; }
+.rel.def { border-color: var(--sprout-deep); border-left-color: var(--sprout); background: #8cc94e10; border-width: 1.25pt; border-left-width: 5pt; }
+.rel-num { width: 0.5in; height: 0.5in; border-radius: 50%; background: var(--c); color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 17pt; display: flex; align-items: center; justify-content: center; }
+.rel-tag { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 700; color: var(--ci); }
+.rel-title { font-family: var(--font-display); font-weight: 700; font-size: 16pt; letter-spacing: -0.02em; line-height: 1.15; margin-top: 0.02in; }
+.rel-meta { font-size: 11pt; margin-top: 0.05in; line-height: 1.4; }
+.rel-sub { font-size: 10.5pt; color: var(--muted); line-height: 1.4; margin-top: 0.06in; }
+
+/* duty checklists */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2in; align-items: start; }
+.dl-card { border: 0.75pt solid var(--line); border-radius: 0.12in; background: #fff; overflow: hidden; }
+.dl-head { background: var(--ink); color: #fff; padding: 0.14in 0.2in; border-top: 4pt solid var(--sprout); }
+.dl-head.b { border-top-color: var(--brand-light); }
+.dl-t { font-family: var(--font-display); font-weight: 700; font-size: 13pt; letter-spacing: -0.015em; line-height: 1.2; }
+.dl-s { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--sprout); margin-top: 0.03in; }
+.dl-head.b .dl-s { color: var(--brand-light); }
+.dl-list { display: flex; flex-direction: column; }
+.dl-item { display: grid; grid-template-columns: 0.2in 0.28in 1fr; gap: 0.1in; align-items: start; padding: 0.1in 0.18in; border-bottom: 0.75pt solid var(--line); font-size: 10.5pt; line-height: 1.38; }
+.dl-item:last-child { border-bottom: 0; }
+.dl-item i { display: block; width: 0.18in; height: 0.18in; border: 1.5pt solid var(--ink); border-radius: 3pt; margin-top: 1pt; }
+.dl-item .n { font-family: var(--font-mono); font-weight: 600; font-size: 9.5pt; color: var(--muted); margin-top: 1pt; }
+.dl-item.fidu { background: #034c7612; }
+.dl-item.fidu .n { color: var(--brand); }
+.dl-item b { font-weight: 700; }
+.dl-item .d { color: var(--muted); }
+.dl-item .mini { display: block; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1px; text-transform: uppercase; color: var(--sprout-deep); font-weight: 700; margin-top: 2pt; }
+.legend { display: flex; gap: 0.2in; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); align-items: center; }
+.legend i { display: inline-block; width: 0.16in; height: 0.16in; border-radius: 3pt; background: #034c7633; border: 1pt solid var(--brand); margin-right: 5pt; vertical-align: -3pt; }
+.note-box { border: 1.25pt solid var(--amber); background: #e0a63a14; border-radius: 0.1in; padding: 0.14in 0.22in; font-size: 11pt; line-height: 1.45; }
+.note-box b { color: var(--amber-deep); }
+
+/* confidentiality */
+.bento { display: grid; grid-template-columns: 1fr 1fr; gap: 0.14in; }
+.bc { border: 0.75pt solid var(--line); border-radius: 0.12in; background: #fff; padding: 0.16in 0.22in; border-top: 4pt solid var(--clay); display: flex; flex-direction: column; gap: 0.05in; }
+.bc.large { grid-column: 1 / 3; background: var(--ink); color: #fff; border-color: var(--ink); border-top-color: var(--clay); flex-direction: row; align-items: center; gap: 0.3in; padding: 0.24in 0.3in; }
+.bc-lock { font-size: 19pt; line-height: 1; }
+.bc.large .bc-lock { font-size: 34pt; }
+.bc-what { font-family: var(--font-display); font-weight: 700; font-size: 13.5pt; line-height: 1.2; letter-spacing: -0.015em; }
+.bc.large .bc-what { font-size: 17pt; }
+.bc-quote { font-style: italic; font-size: 11pt; color: var(--clay); font-weight: 600; }
+.bc.large .bc-quote { color: var(--amber-soft); font-size: 13pt; }
+.bc-extra { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--clay-soft); margin-top: 0.04in; }
+.say { display: grid; grid-template-columns: 1fr 1fr; gap: 0.16in; }
+.say-col { border-radius: 0.12in; padding: 0.2in 0.26in; border: 0.75pt solid var(--line); background: #fff; }
+.say-col.no { border-top: 5pt solid var(--clay); }
+.say-col.yes { border-top: 5pt solid var(--sprout-deep); background: #8cc94e12; }
+.say-h { font-family: var(--font-mono); font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+.say-col.no .say-h { color: var(--clay); } .say-col.yes .say-h { color: var(--sprout-deep); }
+.say-col ul { list-style: none; margin-top: 0.08in; display: flex; flex-direction: column; gap: 0.05in; }
+.say-col li { font-size: 11pt; line-height: 1.4; padding-left: 0.2in; position: relative; }
+.say-col li::before { position: absolute; left: 0; font-weight: 800; }
+.say-col.no li::before { content: "\2717"; color: var(--clay); } .say-col.yes li::before { content: "\2713"; color: var(--sprout-deep); }
+.say-big { font-family: var(--font-display); font-weight: 700; font-size: 14.5pt; line-height: 1.3; letter-spacing: -0.015em; margin-top: 0.1in; color: var(--ink); }
+
+/* paper */
+.req2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.16in; }
+.req { border: 0.75pt solid var(--line); border-top: 5pt solid var(--brand); border-radius: 0.12in; background: #fff; padding: 0.2in 0.24in; display: flex; flex-direction: column; gap: 0.1in; }
+.req-l { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--brand); font-weight: 700; }
+.req-t { font-family: var(--font-display); font-weight: 600; font-size: 12.5pt; line-height: 1.35; letter-spacing: -0.01em; flex: 1; }
+.docstrip { background: var(--bone); border-radius: 0.12in; padding: 0.2in 0.26in; }
+.docstrip-t { font-family: var(--font-display); font-weight: 700; font-size: 12.5pt; letter-spacing: -0.01em; margin-bottom: 0.12in; }
+.chips-col { display: flex; flex-direction: column; gap: 0.07in; }
+.docchip { display: flex; align-items: center; gap: 0.12in; background: #fff; border: 0.75pt solid var(--line); border-radius: 0.08in; padding: 0.1in 0.16in; font-size: 11pt; font-weight: 500; }
+.docchip .pg { font-size: 15pt; }
+.trans { border: 1.25pt solid var(--amber); background: #e0a63a14; border-radius: 0.12in; padding: 0.2in 0.26in; }
+.trans-t { font-family: var(--font-display); font-weight: 700; font-size: 13pt; color: var(--amber-deep); margin-bottom: 0.06in; }
+.trans p { font-size: 11.5pt; line-height: 1.5; }
+.consent { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 0.12in; }
+.cn { border-radius: 0.1in; padding: 0.14in 0.18in; font-size: 11pt; line-height: 1.35; display: flex; gap: 0.1in; align-items: flex-start; }
+.cn.no { border: 1.25pt solid var(--clay-soft); background: #c0544510; }
+.cn.yes { background: var(--sprout-deep); color: #fff; font-weight: 700; }
+.cn .x { font-weight: 800; color: var(--clay); font-size: 13pt; line-height: 1.1; }
+.cn.yes .x { color: #fff; }
+
+/* buyer agreement */
+.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.16in; }
+.vs-col { border: 0.75pt solid var(--line); border-radius: 0.12in; background: #fff; overflow: hidden; }
+.vs-h { padding: 0.13in 0.2in; font-family: var(--font-display); font-weight: 700; font-size: 12.5pt; letter-spacing: -0.01em; background: var(--bone); border-top: 4pt solid var(--muted-2); }
+.vs-col.nar .vs-h { background: var(--ink); color: #fff; border-top-color: var(--sprout); }
+.vs-i { display: grid; grid-template-columns: 0.22in 1fr; gap: 0.08in; padding: 0.11in 0.2in; border-bottom: 0.75pt solid var(--line); font-size: 10.5pt; line-height: 1.4; }
+.vs-i:last-child { border-bottom: 0; }
+.vs-i i { font-style: normal; font-weight: 800; color: var(--muted); }
+.vs-col.nar .vs-i i { color: var(--sprout-deep); }
+.ident { background: var(--bone); border-radius: 0.14in; padding: 0.2in 0.26in; display: flex; flex-direction: column; gap: 0.12in; }
+.ident-t { font-family: var(--font-display); font-weight: 800; font-size: 16pt; letter-spacing: -0.02em; }
+.ident-g { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.12in; }
+.ident-c { background: #fff; border: 0.75pt solid var(--line); border-radius: 0.1in; padding: 0.14in 0.16in; font-size: 10.5pt; line-height: 1.4; }
+.ident-c b { display: block; font-family: var(--font-mono); font-size: 9pt; color: var(--sprout-deep); margin-bottom: 0.03in; letter-spacing: 1px; }
+.badges { display: grid; grid-template-columns: 1fr 1fr; gap: 0.14in; }
+.badge { text-align: center; border-radius: 0.1in; padding: 0.16in; font-family: var(--font-display); font-weight: 700; font-size: 14pt; letter-spacing: -0.015em; }
+.badge.a { background: var(--ink); color: #fff; } .badge.b { background: var(--sprout-deep); color: #fff; }
+
+/* scenarios */
+.scn { border: 0.75pt solid var(--line); border-radius: 0.12in; background: #fff; overflow: hidden; }
+.scn-top { display: flex; align-items: baseline; gap: 0.14in; background: var(--ink); color: #fff; padding: 0.1in 0.22in; border-top: 4pt solid var(--clay); }
+.scn-n { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--clay-soft); font-weight: 600; }
+.scn-t { font-family: var(--font-display); font-weight: 700; font-size: 14pt; letter-spacing: -0.02em; }
+.scn-body { padding: 0.12in 0.22in 0.1in; display: flex; flex-direction: column; gap: 0.09in; }
+.scn-story { font-size: 10.5pt; line-height: 1.4; color: var(--muted); font-style: italic; }
+.mflow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.1in; }
+.mf { border: 0.75pt solid var(--line); border-radius: 0.08in; padding: 0.08in 0.12in; background: #fff; position: relative; }
+.mf.bad { background: #c054451a; border-color: var(--clay-soft); }
+.mf small { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.mf b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 10.5pt; line-height: 1.2; margin: 1pt 0; }
+.mf span { display: block; font-size: 10.5pt; line-height: 1.3; color: var(--muted); }
+.chipgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.06in 0.1in; }
+.xchip { font-size: 10.5pt; line-height: 1.3; border-left: 3pt solid var(--clay); background: #c054450d; padding: 0.05in 0.12in; border-radius: 0 0.06in 0.06in 0; }
+.xchip em { font-style: normal; font-family: var(--font-mono); font-size: 7.5pt; color: var(--clay); font-weight: 600; letter-spacing: 0.5px; margin-left: 4pt; }
+.rule { background: var(--bone); border-left: 4pt solid var(--sprout-deep); border-radius: 0 0.08in 0.08in 0; padding: 0.09in 0.16in; font-size: 10.5pt; line-height: 1.4; }
+.rule b { color: var(--brand); }
+.rule .rl { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout-deep); font-weight: 700; margin-right: 6pt; }
+.s2 { display: grid; grid-template-columns: 1fr 1.25fr; gap: 0.2in; }
+.mini-steps { display: flex; flex-direction: column; gap: 0.05in; }
+.ms { display: grid; grid-template-columns: 0.26in 1fr; gap: 0.08in; align-items: start; font-size: 10.5pt; line-height: 1.3; }
+.ms i { width: 0.24in; height: 0.24in; border-radius: 50%; background: var(--sprout-deep); color: #fff; font-style: normal; font-weight: 800; font-size: 9pt; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); }
+.ms b { font-family: var(--font-display); font-weight: 600; }
+.ms span { color: var(--muted); }
+.cites-v { display: flex; flex-direction: column; gap: 0.05in; }
+.cites-v div { font-size: 10.5pt; line-height: 1.3; }
+.pk { display: grid; grid-template-columns: 1fr 1fr; gap: 0.12in; }
+.pk-col { border: 0.75pt solid var(--line); border-radius: 0.09in; padding: 0.08in 0.14in; }
+.pk-col.bad { background: #c054450a; border-top: 3pt solid var(--clay); } .pk-col.good { background: #8cc94e12; border-top: 3pt solid var(--sprout-deep); }
+.pk-h { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; margin-bottom: 0.03in; }
+.pk-col.bad .pk-h { color: var(--clay); } .pk-col.good .pk-h { color: var(--sprout-deep); }
+.pk-col div.it { font-size: 10.5pt; line-height: 1.3; padding: 1.5pt 0; }
+
+/* tools */
+.tool { display: grid; grid-template-columns: 1.7in 1fr; border: 1.25pt solid var(--ink); border-radius: 0.14in; overflow: hidden; background: #fff; }
+.tool-id { background: var(--ink); color: #fff; padding: 0.2in 0.2in; display: flex; flex-direction: column; justify-content: center; gap: 0.06in; border-left: 6pt solid var(--c); }
+.tool-ico { font-size: 22pt; line-height: 1; }
+.tool-n { font-family: var(--font-display); font-weight: 800; font-size: 17pt; line-height: 1.1; letter-spacing: -0.025em; }
+.tool-r { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--c); font-weight: 600; line-height: 1.35; }
+.tool-rows { display: flex; flex-direction: column; }
+.tr { padding: 0.11in 0.22in; border-bottom: 0.75pt solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 0.16in; align-items: center; }
+.tr:last-child { border-bottom: 0; }
+.tr-t { font-family: var(--font-display); font-weight: 700; font-size: 11.5pt; line-height: 1.25; letter-spacing: -0.01em; }
+.tr-d { font-size: 10.5pt; color: var(--muted); line-height: 1.35; margin-top: 1pt; }
+.tr-f { display: flex; flex-direction: column; align-items: flex-end; gap: 0.04in; }
+.tr-f .ful-lbl { margin: 0; }
+.tr.soft .tr-t { font-weight: 600; }
+.addr { display: grid; grid-template-columns: 1fr 1fr; gap: 0.1in; padding: 0.1in 0.22in 0.13in; border-top: 0.75pt solid var(--line); background: var(--bone); }
+.addr div { border-radius: 0.07in; padding: 0.07in 0.12in; font-size: 10.5pt; line-height: 1.3; }
+.addr .bad { border: 1pt dashed var(--clay); background: #fff; } .addr .good { border: 1pt solid var(--sprout-deep); background: #fff; }
+.addr small { display: block; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; }
+.addr .bad small { color: var(--clay); } .addr .good small { color: var(--sprout-deep); }
+.addr code { font-family: var(--font-mono); font-size: 9pt; }
+.big-stat { background: var(--ink); color: #fff; border-radius: 0.14in; padding: 0.2in 0.3in; display: flex; align-items: center; justify-content: space-between; gap: 0.2in; border-left: 5pt solid var(--sprout); }
+.big-stat p { font-family: var(--font-display); font-weight: 700; font-size: 14pt; line-height: 1.3; letter-spacing: -0.015em; }
+.big-stat p span { color: var(--sprout); }
+.big-stat .zs { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--sprout-soft); text-align: right; line-height: 1.7; }
+
+/* protocols */
+.steps { display: flex; flex-direction: column; gap: 0.07in; }
+.step5 { display: grid; grid-template-columns: 0.4in 2.6in 1fr; gap: 0.16in; align-items: center; border: 0.75pt solid var(--line); border-radius: 0.1in; padding: 0.09in 0.18in; background: #fff; }
+.step5 .sn { width: 0.34in; height: 0.34in; border-radius: 50%; background: var(--sprout-deep); color: #fff; font-family: var(--font-mono); font-weight: 700; font-size: 11pt; display: flex; align-items: center; justify-content: center; }
+.step5 .sw { font-family: var(--font-display); font-weight: 600; font-size: 11pt; line-height: 1.25; letter-spacing: -0.01em; }
+.step5 .sh { font-size: 10.5pt; color: var(--muted); line-height: 1.35; }
+.sec-bar { display: flex; align-items: center; gap: 0.14in; }
+.sec-bar .sb-t { font-family: var(--font-display); font-weight: 700; font-size: 13pt; letter-spacing: -0.015em; }
+.sec-bar .sb-l { flex: 1; height: 0.75pt; background: var(--line); }
+.send { display: grid; grid-template-columns: 1.55fr 1fr; gap: 0.18in; align-items: start; }
+.mail { border: 1.25pt solid var(--ink); border-radius: 0.12in; overflow: hidden; background: #fff; }
+.mail-top { background: var(--ink); color: #fff; padding: 0.07in 0.16in; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.4px; text-transform: uppercase; }
+.mail-f { display: grid; grid-template-columns: 0.55in 1fr; gap: 0.06in; padding: 0.05in 0.16in; border-bottom: 0.75pt solid var(--line); font-size: 10.5pt; line-height: 1.3; }
+.mail-f span:first-child { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); padding-top: 2pt; }
+.mail-b { padding: 0.1in 0.16in 0.08in; font-size: 10.5pt; line-height: 1.4; }
+.mail-b ul { list-style: none; margin: 0.04in 0; padding-left: 0.1in; }
+.mail-b li { padding: 0.5pt 0; }
+.mail-att { display: flex; flex-wrap: wrap; gap: 0.05in; padding: 0 0.16in 0.1in; }
+.side-c { border-radius: 0.1in; padding: 0.12in 0.16in; border-left: 4pt solid var(--c); background: var(--bone); margin-bottom: 0.1in; }
+.side-c b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 11pt; line-height: 1.25; }
+.side-c span { display: block; font-size: 10.5pt; color: var(--muted); margin-top: 2pt; line-height: 1.35; }
+.vm { background: var(--ink); color: #fff; border-radius: 0.14in; padding: 0.16in 0.26in; display: grid; grid-template-columns: 1.1in 1fr; gap: 0.22in; align-items: center; }
+.vm-ph { text-align: center; }
+.vm-ph .ico { font-size: 24pt; }
+.vm-ph .lb { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--sprout); margin-top: 2pt; }
+.vm-s p { font-size: 10.5pt; line-height: 1.45; color: #e4eaf0; }
+.vm-s .vm-l { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--amber-soft); margin-bottom: 0.03in; }
+.vm-s .es { color: var(--muted-2); font-style: italic; margin-top: 0.05in; }
+
+/* commitments */
+.cm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.14in; }
+.cm { border: 0.75pt solid var(--line); border-left: 4pt solid var(--sprout); border-radius: 0 0.1in 0.1in 0; background: #fff; padding: 0.15in 0.2in; display: grid; grid-template-columns: 0.3in 1fr; gap: 0.14in; }
+.cm .bx { width: 0.26in; height: 0.26in; border: 1.75pt solid var(--ink); border-radius: 4pt; margin-top: 1pt; }
+.cm-n { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; color: var(--sprout-deep); font-weight: 700; }
+.cm-name { font-family: var(--font-display); font-weight: 700; font-size: 13pt; letter-spacing: -0.015em; line-height: 1.2; }
+.cm-d { font-size: 10.5pt; color: var(--muted); line-height: 1.35; margin: 0.03in 0 0.06in; }
+.sign { display: flex; gap: 0.3in; align-items: flex-end; background: var(--bone); border-radius: 0.12in; padding: 0.22in 0.3in; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); }
+.sign span { display: flex; flex: 1; align-items: flex-end; gap: 0.1in; }
+.sign span i { flex: 1; border-bottom: 0.75pt solid var(--ink); height: 0.2in; display: block; }
+
+/* roleplay */
+.rp { display: flex; flex-direction: column; gap: 0.1in; }
+.rp-h { display: grid; grid-template-columns: 0.5in 1fr 1fr; gap: 0.16in; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--muted); padding: 0 0.1in; }
+.rp-r { display: grid; grid-template-columns: 0.5in 1fr 1fr; gap: 0.16in; border: 0.75pt solid var(--line); border-radius: 0.1in; background: #fff; padding: 0.12in 0.16in; align-items: start; }
+.rp-n { width: 0.4in; height: 0.4in; border-radius: 50%; background: var(--brand); color: #fff; font-family: var(--font-mono); font-weight: 700; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+.rp-q { font-family: var(--font-display); font-weight: 700; font-size: 11.5pt; line-height: 1.3; letter-spacing: -0.01em; }
+.rp-t { font-size: 10.5pt; color: var(--muted); line-height: 1.35; margin-top: 0.03in; }
+.rp-es { border-left: 0.75pt solid var(--line); padding-left: 0.16in; }
+.score { display: flex; gap: 0.2in; align-items: center; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); }
+.score i { display: inline-block; width: 0.5in; border-bottom: 0.75pt solid var(--ink); height: 0.16in; vertical-align: bottom; }
+.ai-card-body { font-size: 10.5pt; line-height: 1.55; padding: 0.22in 0.28in 0.24in; }
+.back-hero.sm { font-size: 34pt; }
+
+/* ---- density + fixes (round 2) ---- */
+.page-body { gap: 0.2in; }
+.callout { padding: 0.15in 0.26in; font-size: 12pt; line-height: 1.45; }
+.callout .echo-es { margin-top: 0.03in; }
+.page-title.sm .accent { display: inline; }
+.page-title.sm { font-size: 25pt; }
+.lq-attr { text-transform: none; letter-spacing: 0.6px; font-size: 9pt; }
+.nc { text-transform: none; letter-spacing: 1.2px; }
+.ident-c b.k { display: inline; font-family: var(--font-display); font-size: inherit; color: var(--clay); letter-spacing: 0; }
+.dl-item { padding: 0.085in 0.18in; }
+.loopm { border: 1.25pt solid var(--ink); border-radius: 0.12in; overflow: hidden; background: #fff; }
+.loopm-top { background: var(--ink); color: #fff; padding: 0.08in 0.18in; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1px; text-transform: uppercase; }
+.loopm-top b { color: var(--sprout); font-weight: 600; }
+.lr { display: flex; justify-content: space-between; align-items: center; gap: 0.16in; padding: 0.075in 0.18in; border-bottom: 0.75pt solid var(--line); font-size: 10.5pt; }
+.lr .st { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; border-radius: 99px; padding: 2pt 9pt; background: var(--sprout-deep); color: #fff; }
+.lr .st.sent { background: var(--brand); }
+.actv { background: var(--bone); padding: 0.1in 0.18in; font-size: 10.5pt; line-height: 1.5; }
+.actv .al { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 0.02in; }
+.actv .dot { color: var(--sprout-deep); margin-right: 5pt; }
+.pk2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.16in; }
+.pk2 .pk-col { padding: 0.14in 0.2in; border-radius: 0.1in; }
+.pk2 .pk-col div.it { padding: 0.04in 0; font-size: 10.5pt; line-height: 1.35; }
+.pk2 .pk-h { font-size: 8pt; margin-bottom: 0.05in; }
+.step5.c { padding: 0.07in 0.16in; }
+.mail-att.two { display: grid; grid-template-columns: 1fr 1fr; }
+.tools-lite .tr { padding: 0.085in 0.2in; }
+
+/* ---- round 3 ---- */
+.callout .echo-es { display: inline; margin-left: 7pt; font-size: 10.5pt; }
+.page-title.xs { font-size: 21pt; }
+.page-title.xs .accent { display: inline; }
+.lq-text { font-size: 10.5pt; line-height: 1.5; }
+.law-quote { padding: 0.15in 0.28in 0.17in; }
+.lane-top { padding: 0.09in 0.22in; }
+.lane-body { padding: 0.12in 0.22in 0.13in; gap: 0.09in; }
+.doc { padding: 0.07in 0.12in; }
+.flow-step { padding: 0.08in 0.12in; }
+.toc-row { padding: 0.075in 0.22in; }
+.vm { padding: 0.12in 0.24in; }
+.lr { padding: 0.06in 0.18in; }
+.ai-card-body { padding: 0.16in 0.26in 0.18in; }
+.ai-card-head { padding: 0.1in 0.26in; }
+.rp-r { padding: 0.09in 0.16in; }
+.tool-id { padding: 0.14in 0.18in; }
+.tr { padding: 0.07in 0.2in; }
+.addr { padding: 0.07in 0.2in 0.09in; gap: 0.1in; }
+.addr div { padding: 0.05in 0.1in; }
+.big-stat { padding: 0.14in 0.28in; }
+.tr-f { flex-direction: row; align-items: center; flex-wrap: wrap; justify-content: flex-end; max-width: 1.5in; }
+.pk2 .pk-col { padding: 0.1in 0.18in; }
+.pk2 .pk-col div.it { padding: 0.025in 0; }
+.mail-f { padding: 0.04in 0.16in; }
+.att { white-space: nowrap; font-size: 7.5pt; padding: 2pt 6pt; }
+.mail-att.two { gap: 0.05in; }
+.mail-att.two .att { overflow: hidden; }
+.dl-item { padding: 0.075in 0.18in; }
+
+/* ---- round 4: tool rows ---- */
+.tr { display: block; padding: 0.075in 0.2in 0.08in; }
+.tr-h { display: flex; justify-content: space-between; align-items: center; gap: 0.12in; }
+.tr-f { max-width: none; flex-wrap: nowrap; justify-content: flex-end; gap: 0.05in; }
+.tr-d { margin-top: 0; }
+.tool-n { font-size: 16pt; }
+.slim { display: flex; align-items: center; justify-content: space-between; gap: 0.2in; background: var(--ink); color: #fff; border-radius: 0.12in; padding: 0.13in 0.26in; border-left: 5pt solid var(--sprout); }
+.slim b { font-family: var(--font-display); font-size: 13pt; color: var(--sprout); letter-spacing: -0.01em; }
+.slim span { font-size: 11.5pt; color: #e4eaf0; }
+.slim .flowx { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout-soft); white-space: nowrap; }
+
+/* ---- round 5: horizontal tool cards ---- */
+.tool { display: block; }
+.tool-id { flex-direction: row; align-items: center; gap: 0.14in; padding: 0.12in 0.22in; border-left: 0; border-top: 5pt solid var(--c); }
+.tool-ico { font-size: 20pt; }
+.tool-n { font-size: 17pt; white-space: nowrap; }
+.tool-r { margin-left: auto; text-align: right; max-width: 3in; }
+.tr-t { font-size: 12pt; }
+.tr-d { font-size: 10.5pt; }
+.tr { padding: 0.09in 0.22in 0.1in; }
+.slim { padding: 0.12in 0.22in; }
+
+/* ---- round 6 ---- */
+.tool-r { max-width: 4.6in; }
+.tool-id { padding: 0.09in 0.22in; }
+.tr { padding: 0.065in 0.22in 0.07in; }
+.addr { padding: 0.06in 0.2in 0.07in; }
+.slim .flowx { display: none; }
+.lane-top { padding: 0.07in 0.22in; }
+.lane-body { padding: 0.1in 0.22in 0.11in; gap: 0.07in; }
+.doc { padding: 0.055in 0.12in; }
+.rp-r { padding: 0.07in 0.16in; }
+.step5.c { padding: 0.055in 0.16in; }
+.steps { gap: 0.055in; }
+.mail-b { padding: 0.07in 0.16in 0.05in; }
+.scn-story { margin: -0.02in 0; }
+.pk2 .pk-h { margin-bottom: 0.02in; }
+
+/* ---- round 7 ---- */
+.page-body { padding-top: 0.6in; gap: 0.18in; }
+.page-body .eyebrow { margin-bottom: 0.08in; }
+.send { grid-template-columns: 1.7fr 1fr; }
+.mail-att.two .att { text-overflow: clip; overflow: visible; }
+.mail-att.two { padding: 0 0.12in 0.1in; }
+.tool-r { white-space: nowrap; }
+.slim { padding: 0.1in 0.22in; }
+.rule { padding: 0.07in 0.16in; }
+.pk2 .pk-col { padding: 0.08in 0.18in; }
+.six { gap: 0.2in; }
+.six-card { padding: 0.28in 0.28in 0.3in; gap: 0.1in; }
+.six-ico { font-size: 24pt; }
+.six-name { font-size: 16pt; }
+.six-desc { font-size: 11.5pt; }
+.see-you { font-family: var(--font-display); font-weight: 700; font-size: 20pt; letter-spacing: -0.02em; color: var(--sprout); margin-top: 0.22in; }
+.back-sub { margin-top: 0.22in; }
+.six { gap: 0.16in; }
+.six-card { padding: 0.22in 0.26in 0.24in; gap: 0.08in; }
+.tool-n { font-size: 19pt; }
+.tool .cite.fill { font-size: 8.5pt; padding: 2.5pt 9pt; }
+.tool-n { font-size: 18pt; }
+.tool .cite.fill { font-size: 8pt; padding: 2pt 8pt; }
+.page.tight .page-body { gap: 0.13in; }
+.rcol { display: flex; flex-direction: column; gap: 0.14in; }
+.rel-q { padding: 0.18in 0.3in; gap: 0.05in; }
+.rel-q .rq-big { font-size: 18pt; }
+.rel { padding: 0.13in 0.22in; }
+.page.tight .rels { gap: 0.1in; }
+.ru { display: flex; flex-direction: column; gap: 0.08in; }
+.ru-pins { display: flex; justify-content: space-between; gap: 0.3in; }
+.pin { max-width: 2.9in; font-size: 10.5pt; line-height: 1.35; }
+.pin b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 15pt; letter-spacing: -0.02em; }
+.pin.r { text-align: right; }
+.pin span { color: var(--muted); }
+.ru-bar { height: 0.3in; border-radius: 99px; background: var(--sprout); position: relative; overflow: hidden; background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(25% - 1.5pt), #ffffffcc calc(25% - 1.5pt), #ffffffcc 25%); }
+.ru-lbl { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 8pt; letter-spacing: 1.2px; color: var(--muted); font-weight: 600; }
+.ig-col { display: flex; flex-direction: column; }
+.ig { flex: 1; display: flex; flex-direction: column; }
+.ig-cap { flex: 1; }
+.page.roomy .page-body { gap: 0.22in; }
+.page.roomy .bento { gap: 0.2in; }
+.page.roomy .bc { padding: 0.24in 0.26in; gap: 0.08in; }
+.page.roomy .bc.large { padding: 0.32in 0.36in; }
+.page.roomy .bc-what { font-size: 15.5pt; }
+.page.roomy .bc.large .bc-what { font-size: 19pt; }
+.page.roomy .bc-quote { font-size: 12pt; }
+.page.roomy .say-col { padding: 0.28in 0.3in; }
+.page.roomy .say-col li { font-size: 12pt; }
+.page.roomy .say-big { font-size: 16pt; }
+.page.roomy .page-body { gap: 0.2in; }
+.page.roomy .bento { gap: 0.16in; }
+.page.roomy .bc { padding: 0.19in 0.24in; gap: 0.06in; }
+.page.roomy .bc.large { padding: 0.26in 0.34in; }
+.page.roomy .bc-what { font-size: 14.5pt; }
+.page.roomy .bc.large .bc-what { font-size: 18pt; }
+.page.roomy .bc-quote { font-size: 11.5pt; }
+.page.roomy .say-col { padding: 0.22in 0.28in; }
+.page.roomy .say-col li { font-size: 11.5pt; }
+.page.roomy .say-big { font-size: 15pt; }
+.practice { border: 1.25pt dashed var(--ink); border-radius: 0.12in; padding: 0.12in 0.24in 0.14in; display: flex; flex-direction: column; gap: 0.2in; }
+.pr-t { font-family: var(--font-display); font-weight: 700; font-size: 11.5pt; }
+.pr-t span { font-family: var(--font-mono); font-weight: 500; font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-left: 0.1in; }
+.practice i { display: block; border-bottom: 0.75pt solid var(--ink); height: 0.1in; }
+.mail-att.two { grid-template-columns: 1fr; gap: 0.04in; }
+.mail-att.two .att { display: block; }
+.xchip em { white-space: nowrap; }
+.mail-att.two { grid-template-columns: 1fr 1fr; gap: 0.05in; }
+.mail-att.two .att { letter-spacing: -0.35px; padding: 2pt 5pt; font-size: 7.5pt; }
+.send { grid-template-columns: 1.95fr 1fr; }
+.page.tight .page-body { gap: 0.11in; }
+.mail-b { line-height: 1.32; }
+.pk2 .pk-col div.it { padding: 0.015in 0; }
+</style>
+</head>
+<body>
+<section class="page cover">
+<div class="cover-inner">
+  <div class="cover-top"><svg class="wordmark" viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate">
+                <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+                <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08"/><circle cx="64.17" cy="39.49" r="5.08" style="animation-delay:0.5s;"/></g>
+            </svg><span class="cover-x">&times;</span><img class="cover-relearn" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn"></div>
+  <div class="cover-mid">
+    <div class="eyebrow on-dark">The Standard &middot; Session 1 &middot; Florida</div>
+    <h1 class="cover-title std">The Law Is<br>the <span class="ceo">Standard<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+    <p class="cover-sub">Our Duties Under Florida Chapter 475</p>
+    <p class="cover-sub2">The Standard &middot; Session 1 &middot; Florida &middot; Presentation + Reference handout</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-bars"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+    <div class="cover-labels"><span>General</span><span>Office</span><span>Ethics</span></div>
+    <div class="cover-meta">
+      <div><div class="meta-k">Date</div><div class="meta-v">Tuesday, September 22, 2026</div></div>
+      <div><div class="meta-k">Presented by</div><div class="meta-v">Pedro Bando Rivera, Broker/Owner</div></div>
+      <div><div class="meta-k">Office</div><div class="meta-v">Florida Office</div></div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">The Series &middot; Story Time</div><h1 class="page-title">The Punchline <span class="accent">Say it out loud.</span></h1></header><div class="quote-card">
+  <div class="qc-top"><span class="story-pill">Story Time</span><span class="qc-lbl">Say it out loud</span></div>
+  <div class="qc-big" style="font-size:20pt">My broker doesn&rsquo;t just teach me to close. He teaches me <span class="u">the law</span> that protects my clients.</div>
+  <div class="qc-es">Mi broker no solo me ense&ntilde;a a cerrar. Me ense&ntilde;a la ley que protege a mis clientes.</div>
+</div><div class="prose">
+  <p><b>The Standard</b> is the General &middot; Office &middot; Ethics series at reThought Real Estate. Session 1 starts where every office system starts: the statute &mdash; our duties under <b>Florida Chapter 475</b>, and why every system we run exists because of them.</p>
+  </div><div class="sec-lbl">Inside this handout</div><div class="toc"><div class="toc-row"><span class="toc-a">Act 1</span><span class="toc-t">The Broker&rsquo;s Duty<small>Why I teach this &middot; six duties &middot; six deep dives</small></span><span class="toc-p">p. 3&ndash;10</span></div><div class="toc-row"><span class="toc-a">Act 2</span><span class="toc-t">Relationships &amp; Duties<small>Who you work for &middot; duty lists &middot; confidentiality &middot; paper</small></span><span class="toc-p">p. 11&ndash;14</span></div><div class="toc-row"><span class="toc-a">Act 3</span><span class="toc-t">The Buyer Agreement<small>Before you tour, you sign</small></span><span class="toc-p">p. 15</span></div><div class="toc-row"><span class="toc-a">Act 4</span><span class="toc-t">Real Scenarios<small>Invisible Seller &middot; Offer Nobody Answered &middot; Naked Offer</small></span><span class="toc-p">p. 16, 18</span></div><div class="toc-row"><span class="toc-a">Act 5</span><span class="toc-t">Offer Protocols<small>Receiving an offer &middot; sending one like a professional</small></span><span class="toc-p">p. 17&ndash;18</span></div><div class="toc-row"><span class="toc-a">Act 6</span><span class="toc-t">Systems as Duty<small>The loop &middot; company email &middot; Teams &amp; voicemail &mdash; and the statute behind each</small></span><span class="toc-p">p. 19</span></div><div class="toc-row"><span class="toc-a">Recap</span><span class="toc-t">The Standard<small>Eight commitments &middot; role-play &middot; AI practice partner</small></span><span class="toc-p">p. 20&ndash;21</span></div></div><div class="callout amber">Every system we run in this office starts with a statute. This handout maps each one.</div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">02 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 1 &middot; The Broker&rsquo;s Duty</div><h1 class="page-title">Why I&rsquo;m Required <span class="accent">to Teach This</span></h1></header><div class="broker"><span class="av">PB</span><div><div class="broker-name">Pedro Bando Rivera</div><div class="broker-role">Broker of Record &middot; reThought FL</div></div></div><div class="under">&#9660; &nbsp; Under one license &nbsp; &#9660;</div><div class="sa-list"><div class="sa-row"><span class="sa-dot">SA</span><span class="sa-name">Every offer you write</span><span class="sa-sub">my license wrote</span></div><div class="sa-row"><span class="sa-dot">SA</span><span class="sa-name">Every deposit you take</span><span class="sa-sub">my license holds</span></div><div class="sa-row"><span class="sa-dot">SA</span><span class="sa-name">Every ad you run</span><span class="sa-sub">my license runs</span></div><div class="sa-row"><span class="sa-dot">SA</span><span class="sa-name">Every message you send</span><span class="sa-sub">my license keeps</span></div><div class="sa-row"><span class="sa-dot">SA</span><span class="sa-name">Every client you serve</span><span class="sa-sub">my license answers for</span></div></div><div class="sec-lbl">The statutes behind it</div><div class="cites"><div class="cite-line"><span class="cite fill">&sect;475.01(1)(j)</span><span>you act under the broker&rsquo;s &ldquo;direction, control, or management&rdquo;</span></div><div class="cite-line"><span class="cite fill">&sect;475.25(1)(u)</span><span>failing to supervise = discipline</span></div><div class="cite-line"><span class="cite fill">&sect;475.5015</span><span>records &amp; communications kept 5 years</span></div></div><div class="callout">This session isn&rsquo;t culture. It&rsquo;s Chapter 475 &mdash; the one job the state says I can&rsquo;t delegate.</div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">03 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 1 &middot; The Broker&rsquo;s Duty</div><h1 class="page-title">What My License <span class="accent">Answers For</span></h1><p class="lede tight">Six statutory responsibilities. Every office system maps to one of them.</p></header><div class="six"><div class="six-card" style="--c:var(--sprout)"><div class="six-top"><span class="six-ico">📁</span><span class="six-n">01 / 06</span></div><div class="six-name">Your Transaction Records</div><div class="six-desc">Every contract, disclosure &amp; offer &mdash; preserved 5 years, by the broker.</div><div><span class="cite fill">&sect;475.5015</span></div></div><div class="six-card" style="--c:var(--amber)"><div class="six-top"><span class="six-ico">💰</span><span class="six-n">02 / 06</span></div><div class="six-name">Escrow Money</div><div class="six-desc">Deposit to your broker by end of next business day; banked by day 3.</div><div><span class="cite fill">61J2-14.008 / .009</span></div></div><div class="six-card" style="--c:var(--brand-light)"><div class="six-top"><span class="six-ico">📝</span><span class="six-n">03 / 06</span></div><div class="six-name">Relationship Disclosures</div><div class="six-desc">Single agent notices &amp; transition consents &mdash; in writing, on file.</div><div><span class="cite fill">&sect;475.278</span></div></div><div class="six-card" style="--c:var(--clay)"><div class="six-top"><span class="six-ico">📢</span><span class="six-n">04 / 06</span></div><div class="six-name">Your Advertising</div><div class="six-desc">Brokerage name on every ad. Nothing false, deceptive, or misleading.</div><div><span class="cite fill">61J2-10.025</span></div></div><div class="six-card" style="--c:var(--sprout)"><div class="six-top"><span class="six-ico">📧</span><span class="six-n">05 / 06</span></div><div class="six-name">Your Communications</div><div class="six-desc">The written trail behind every negotiation is a brokerage record.</div><div><span class="cite fill">&sect;475.5015</span></div></div><div class="six-card" style="--c:var(--brand)"><div class="six-top"><span class="six-ico">🛡</span><span class="six-n">06 / 06</span></div><div class="six-name">Supervision Itself</div><div class="six-desc">&ldquo;Direct, control, or manage&rdquo; every associate &mdash; or face discipline.</div><div><span class="cite fill">&sect;475.25(1)(u)</span></div></div></div><div class="callout">Everything in today&rsquo;s session exists because one of these boxes is mine.</div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">04 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 1 &middot; Deep Dive 1 of 6 &middot; Your Transaction Records</div><h1 class="page-title sm">The File Outlives <span class="accent">the Deal</span></h1></header><div class="law-quote"><span class="lq-mark">&ldquo;</span><div class="lq-text">&ldquo;Each broker shall preserve at least one legible copy of all books, accounts, and records pertaining to her or his real estate brokerage business for at least 5 years from the date of receipt of any money, fund, deposit, check, or draft entrusted to the broker or, in the event no funds are entrusted to the broker, for at least 5 years from the date of execution by any party of any listing agreement, offer to purchase, &hellip; or any other written or verbal agreement which engages the services of the broker.&rdquo;</div><div class="lq-attr">&mdash; Fla. Stat. &sect;475.5015</div></div><div class="plain"><span class="plain-tag">En cristiano</span><div class="plain-text">If a client ever signed anything, or money ever touched the broker&rsquo;s hands, the file stays <b>five years</b> &mdash; whether or not the deal ever closed.</div></div><div class="tl">
+<div class="tl-node"><div class="tl-dot">0</div><div class="tl-day">Day 0</div><div class="tl-label">Offer signed</div></div>
+<div class="tl-node"><div class="tl-dot x">&times;</div><div class="tl-day">Week 3</div><div class="tl-label">Seller rejects it &mdash; deal dies</div></div>
+<div class="tl-node"><div class="tl-dot">5</div><div class="tl-day">Year 5</div><div class="tl-label">The file lives on</div></div>
+</div><div class="kept"><div class="kept-chip"><span class="tick">&#10003;</span><b>Rejected offers</b> <span class="rest">&mdash; kept</span></div><div class="kept-chip"><span class="tick">&#10003;</span><b>Expired listings</b> <span class="rest">&mdash; kept</span></div><div class="kept-chip"><span class="tick">&#10003;</span><b>Buyer agreements that never bought</b> <span class="rest">&mdash; kept</span></div><div class="kept-chip"><span class="tick">&#10003;</span><b>Cancelled contracts</b> <span class="rest">&mdash; kept</span></div></div><div class="callout">The deal can die. The file cannot.<span class="echo-es">El deal puede morir. El expediente no.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">05 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 1 &middot; Deep Dive 2 of 6 &middot; Escrow Money</div><h1 class="page-title sm">The 72-Hour <span class="accent">Clock</span></h1></header><div class="law-quote"><span class="lq-mark">&ldquo;</span><div class="lq-text">&ldquo;Every sales associate who receives any deposit shall deliver the same to the broker or employer no later than the end of the next business day following receipt&hellip;&rdquo;</div><div class="lq-attr">&mdash; FREC Rule 61J2-14.009</div><hr class="lq-sep"><div class="lq-text">&ldquo;&lsquo;Immediately&rsquo; means the placement of a deposit in an escrow account no later than the end of the third business day following receipt of the item to be deposited.&rdquo;</div><div class="lq-attr">&mdash; FREC Rule 61J2-14.008(3)</div></div><div class="plain"><span class="plain-tag">En cristiano</span><div class="plain-text">You have until end of tomorrow to hand it to your broker. The broker has until end of day three to bank it. <b>Weekends and holidays don&rsquo;t count.</b></div></div><div class="chain">
+<div class="ch-node dark"><b>Check touches your hand</b><span>The clock starts</span></div>
+<div class="ch-arrow"><em>1 day</em><i></i><small>end of next business day<br>61J2-14.009</small></div>
+<div class="ch-node" style="--c:var(--amber)"><b>In your broker&rsquo;s hands</b><span>You&rsquo;re done</span></div>
+<div class="ch-arrow"><em>3 days</em><i></i><small>end of 3rd business day<br>61J2-14.008(3)</small></div>
+<div class="ch-node" style="--c:var(--brand-light)"><b>In the escrow account</b><span>Banked</span></div>
+</div><div class="sec-lbl">A deposit received Monday</div>
+<div class="week">
+<div class="wk wall" style="border-top-color:var(--amber)"><div class="wk-name">Mon</div><div class="wk-what">Check touches your hand &mdash; clock starts</div></div>
+<div class="wk on"><div class="wk-name">Tue</div><div class="wk-what">In my hands (end of next business day)</div></div>
+<div class="wk"><div class="wk-name">Wed</div><div class="wk-what">Day 2 &mdash; clock still running</div></div>
+<div class="wk wall"><div class="wk-name">Thu</div><div class="wk-what">In the escrow account (end of 3rd business day)</div></div>
+<div class="wk off"><div class="wk-name">Sat</div><div class="wk-what">&mdash;</div><div class="wk-badge">Not a business day</div></div>
+<div class="wk off"><div class="wk-name">Sun</div><div class="wk-what">&mdash;</div><div class="wk-badge">Not a business day</div></div>
+</div><div class="callout">The clock starts when the check touches your hand &mdash; not when you get around to it.<span class="echo-es">El reloj empieza cuando el cheque toca tu mano.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">06 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 1 &middot; Deep Dive 3 of 6 &middot; Relationship Disclosures</div><h1 class="page-title sm">Before, <span class="accent">Not After</span></h1></header><div class="law-quote"><span class="lq-mark">&ldquo;</span><div class="lq-text">&ldquo;Duties of a single agent must be fully described and disclosed in writing to a buyer or seller either as a separate and distinct disclosure document or included as part of another document such as a listing agreement or other agreement for representation. The disclosure must be made before, or at the time of, entering into a listing agreement or an agreement for representation or before the showing of property, whichever occurs first.&rdquo;</div><div class="lq-attr">&mdash; Fla. Stat. &sect;475.278(3)(b)</div></div><div class="plain"><span class="plain-tag">En cristiano</span><div class="plain-text">The notice can live inside the contract itself &mdash; and whichever of the three trigger moments comes first, the notice already has to be there.</div></div><div class="lane"><div class="lane-top"><span class="lane-label">Listing Side</span><span class="lane-head">The notice lives inside the contract.</span></div><div class="lane-body"><div class="docs"><div class="doc hi"><b>📄 Single Agent Listing Agreement</b><small class="g">Single Agent Notice printed inside &middot; one signature</small></div><div class="doc"><b>📄 Transaction Broker Listing</b></div><div class="doc"><b>📄 No Brokerage Listing</b></div><div class="doc"><b>📄 Consent to Transition</b><small class="a">when single agent &rarr; transaction broker mid-deal</small></div></div><div class="lane-note">You choose the relationship the moment you choose the form. Contract and disclosure &mdash; signed together, filed together.</div></div></div><div class="lane buyer"><div class="lane-top"><span class="lane-label">Buyer Side</span><span class="lane-head">The first showing is the deadline.</span></div><div class="lane-body"><div class="flow"><div class="flow-step">Buyer calls Tuesday</div><div class="flow-arrow">&rarr;</div><div class="flow-step">Showings Saturday</div><div class="flow-arrow">&rarr;</div><div class="flow-step hot">Notice + buyer agreement BEFORE the first door opens</div></div><div class="lane-note">No listing contract to carry the paper yet &mdash; that&rsquo;s exactly why the statute names the showing. (And NAR already requires the signed buyer agreement before touring.)</div></div></div><div class="callout">Paper before the relationship &mdash; never after the handshake.<span class="echo-es">El papel antes de la relaci&oacute;n, nunca despu&eacute;s.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">07 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 1 &middot; Deep Dive 4 of 6 &middot; Your Advertising</div><h1 class="page-title sm">Every Post <span class="accent">Is an Ad</span></h1></header><div class="law-quote"><span class="lq-mark">&ldquo;</span><div class="lq-text">&ldquo;&hellip;in a manner in which reasonable persons would know they are dealing with a real estate licensee&hellip; No real estate advertisement&hellip;shall be fraudulent, false, deceptive or misleading.&rdquo;</div><div class="lq-attr">&mdash; FREC Rule 61J2-10.025</div></div><div class="plain"><span class="plain-tag">En cristiano</span><div class="plain-text">If a stranger scrolling by can&rsquo;t tell you&rsquo;re a licensed agent with a real brokerage, the post itself breaks the rule.</div></div><div class="ig-pair"><div class="ig-col "><div class="ig-verdict">&#10007; &nbsp;The violation</div><div class="ig"><div class="ig-head"><span class="ig-av"></span><span class="ig-user">sunshine_haus_queen</span></div><div class="ig-photo"><span>Just Listed</span></div><div class="ig-cap">DM me for this gem! 🏠✨</div><div class="ig-chips"><span class="ig-chip">No brokerage name</span><span class="ig-chip">Who is this?</span></div></div></div><div class="ig-col good"><div class="ig-verdict">&#10003; &nbsp;The standard</div><div class="ig"><div class="ig-head"><span class="ig-av"></span><span class="ig-user">maria.sells.orlando</span></div><div class="ig-photo"><span>Just Listed</span></div><div class="ig-cap">Just listed in Winter Garden! 🏠 &mdash; <b>Maria Lopez &middot; reThought Real Estate</b></div><div class="ig-chips"><span class="ig-chip">Brokerage named</span><span class="ig-chip">Clearly a licensee</span></div></div></div></div><div class="callout">If a reasonable person can&rsquo;t tell you&rsquo;re a licensee with reThought, the post is the violation.<span class="echo-es">Si no pueden saberlo, el post ya es la violaci&oacute;n.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">08 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 1 &middot; Deep Dive 5 of 6 &middot; Your Communications</div><h1 class="page-title sm">Write It Like <span class="accent">Evidence</span></h1></header><div class="law-quote"><span class="lq-mark">&ldquo;</span><div class="lq-text">&ldquo;&hellip;or any other written or verbal agreement which engages the services of the broker.&rdquo;</div><div class="lq-attr">&mdash; Fla. Stat. &sect;475.5015</div></div><div class="plain"><span class="plain-tag">En cristiano</span><div class="plain-text">Your transaction emails and messages aren&rsquo;t private chit-chat &mdash; they&rsquo;re <b>brokerage records</b> I have to keep, and evidence if a deal ever ends up in a dispute.</div></div><div class="thread"><div class="thread-lbl"><span>Exhibit A &middot; 123 Palm Ave</span><span>Offer thread</span></div>
+<div class="em"><div class="em-head"><span><b>Maria Lopez</b> &rarr; Seller (Elena R.)</span><span>10:02 AM</span></div>
+<div class="em-body">Offer received on 123 Palm Ave &mdash; presenting it to you now. Full package attached. Your call on how to respond.</div>
+<div class="em-att"><span class="att">📎 FARBAR_AsIs_Offer_Smith_415000.pdf</span><span class="att">📎 PreApproval_Smith.pdf</span><span class="att">📎 Disclosures_Signed.pdf</span></div></div>
+<div class="em dir"><div class="em-head"><span><b>Seller (Elena R.)</b> &rarr; Maria Lopez</span><span>2:40 PM</span></div>
+<div class="em-body">Let&rsquo;s counter at $430,000, closing Oct 30. Please send it today.</div><span class="em-flag">Written Direction &mdash; On File</span></div>
+<div class="em"><div class="em-head"><span><b>Maria Lopez</b> &rarr; Buyer&rsquo;s Agent</span><span>3:05 PM</span></div>
+<div class="em-body">Seller counters at $430,000, closing Oct 30. Signed counteroffer attached &mdash; response by Thu 6 PM.</div>
+<div class="em-att"><span class="att">📎 Counteroffer_430000_Signed.pdf</span></div></div></div><div class="callout">Write every message like a judge will read it. One day, one might.<span class="echo-es">Un d&iacute;a, capaz lo lea.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">09 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 1 &middot; Deep Dive 6 of 6 &middot; Supervision Itself</div><h1 class="page-title sm">Direct. Control. <span class="accent">Manage.</span></h1></header><div class="law-quote"><span class="lq-mark">&ldquo;</span><div class="lq-text">&ldquo;Has failed, if a broker, to direct, control, or manage a broker associate or sales associate employed by such broker.&rdquo;</div><div class="lq-attr">&mdash; Fla. Stat. &sect;475.25(1)(u)</div></div><div class="plain"><span class="plain-tag">En cristiano</span><div class="plain-text">If I don&rsquo;t actively direct, control, and manage every one of you, the Commission can discipline my license for it &mdash; <b>not yours, mine</b>.</div></div><div class="dcm"><div class="dcm-card" style="--c:var(--sprout)"><div class="dcm-head"><span class="dcm-n">01</span><span class="dcm-v">DIRECT</span></div><div class="dcm-body"><div class="dcm-what">Training before the field.</div><div class="dcm-pills"><div class="dcm-pill">Tuesday sessions like this one</div><div class="dcm-pill">Written office policies</div></div></div></div><div class="dcm-card" style="--c:var(--amber)"><div class="dcm-head"><span class="dcm-n">02</span><span class="dcm-v">CONTROL</span></div><div class="dcm-body"><div class="dcm-what">Nothing binds unchecked &mdash; every document stays within my reach.</div><div class="dcm-pills"><div class="dcm-pill">Broker file review</div><div class="dcm-pill">Every file lives in the loop</div><div class="dcm-pill ok">Submitted &rarr; Reviewed &#10003;</div></div></div></div><div class="dcm-card" style="--c:var(--brand-light)"><div class="dcm-head"><span class="dcm-n">03</span><span class="dcm-v">MANAGE</span></div><div class="dcm-body"><div class="dcm-what">The systems running in the background.</div><div class="dcm-pills"><div class="dcm-pill">Company email</div><div class="dcm-pill">Microsoft Teams</div><div class="dcm-pill">5-year records archive</div></div></div></div></div><div class="stakes"><span class="sh">🛡</span><p>Three lanes. One license &mdash; mine. If any lane goes dark, &sect;475.25(1)(u) doesn&rsquo;t discipline you &mdash; it disciplines me.</p><span class="lic">License</span></div><div class="callout">When I review your file, that&rsquo;s not micromanagement &mdash; that&rsquo;s the statute happening.<span class="echo-es">Eso no es microgerencia, es el estatuto pasando.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">10 / 22</span></div>
+</section>
+<section class="page tight">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 2 &middot; <span class="nc">&sect;475.278</span></div><h1 class="page-title sm">Three Relationships. <span class="accent">One Presumption.</span></h1><p class="lede tight">Florida gives you exactly three ways to work with a buyer or seller. If nothing is in writing &mdash; you&rsquo;re the first one.</p></header><div class="rel-q"><div class="rq-big">When a client says &ldquo;you work for me&rdquo;&hellip; <span class="u">do you?</span></div><p>Florida gives you exactly three legal relationships with a buyer or seller. Most agents can&rsquo;t name the one they&rsquo;re in.</p><div class="rq-es">Tres relaciones legales. Una presunci&oacute;n. &iquest;Cu&aacute;l es la tuya?</div></div><div class="rels"><div class="rel def" style="--c:var(--sprout);--ci:var(--sprout-deep)"><div class="rel-num">1</div><div><div class="rel-tag">The Default &mdash; Presumed</div><div class="rel-title">Transaction Broker</div><div class="rel-meta">Limited representation of buyer, seller, or both &mdash; no fiduciary duty to either.</div><div class="rel-sub">&sect;475.278(1)(b): &ldquo;It shall be presumed that all licensees are operating as transaction brokers&rdquo; unless another relationship is established in writing.</div></div></div><div class="rel" style="--c:var(--brand);--ci:var(--brand)"><div class="rel-num">2</div><div><div class="rel-tag">In Writing Only</div><div class="rel-title">Single Agent</div><div class="rel-meta">Full fiduciary representation of one party only.</div><div class="rel-sub">Requires the statutory Single Agent Notice, in writing, before or at listing / representation &mdash; or before showing.</div></div></div><div class="rel" style="--c:var(--amber);--ci:var(--amber-deep)"><div class="rel-num">3</div><div><div class="rel-tag">Rare</div><div class="rel-title">No Brokerage Relationship</div><div class="rel-meta">You represent no one &mdash; but still owe honesty, material-fact disclosure &amp; accounting.</div><div class="rel-sub">Established in writing. Three baseline duties never go away.</div></div></div></div><div class="callout">If you can&rsquo;t name your relationship on a deal, Florida already named it for you.</div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">11 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 2 &middot; The Duties</div><h1 class="page-title sm">The Duty Lists: <span class="accent">Both Tiers</span></h1><p class="lede tight">Check each one you can explain to a client in plain language.</p></header><div class="two"><div class="dl-card"><div class="dl-head"><div class="dl-t">Transaction Broker: 7 Duties You Already Owe</div><div class="dl-s">&sect;475.278(2) &middot; the default &middot; the floor, not the ceiling</div></div><div class="dl-list"><div class="dl-item"><i></i><span class="n">01</span><div>Dealing honestly and fairly</div></div><div class="dl-item"><i></i><span class="n">02</span><div>Accounting for all funds</div></div><div class="dl-item"><i></i><span class="n">03</span><div>Using skill, care, and diligence</div></div><div class="dl-item"><i></i><span class="n">04</span><div>Disclosing known facts that materially affect value of residential property, not readily observable to the buyer</div></div><div class="dl-item"><i></i><span class="n">05</span><div>Presenting all offers and counteroffers in a timely manner unless a party has previously directed otherwise &mdash; in writing</div></div><div class="dl-item"><i></i><span class="n">06</span><div>Limited confidentiality unless waived in writing <span class='mini'>Deep dive on the next page</span></div></div><div class="dl-item"><i></i><span class="n">07</span><div>Any additional duties mutually agreed to</div></div></div></div><div class="rcol"><div class="dl-card"><div class="dl-head b"><div class="dl-t">Single Agent: 9 Fiduciary Duties</div><div class="dl-s">&sect;475.278(3) &middot; the five you know + the four in blue</div></div><div class="dl-list"><div class="dl-item"><i></i><span class="n">01</span><div>Dealing honestly and fairly</div></div><div class="dl-item fidu"><i></i><span class="n">02</span><div><b>Loyalty</b> <span class='d'>the client&rsquo;s interest first &mdash; before yours, before your commission</span></div></div><div class="dl-item fidu"><i></i><span class="n">03</span><div><b>Confidentiality</b> <span class='d'>full &mdash; not limited</span></div></div><div class="dl-item fidu"><i></i><span class="n">04</span><div><b>Obedience</b> <span class='d'>their price, their terms, their call &mdash; you advise, they decide</span></div></div><div class="dl-item fidu"><i></i><span class="n">05</span><div><b>Full disclosure</b> <span class='d'>everything relevant to your principal &mdash; not just defects</span></div></div><div class="dl-item"><i></i><span class="n">06</span><div>Accounting for all funds</div></div><div class="dl-item"><i></i><span class="n">07</span><div>Skill, care, and diligence</div></div><div class="dl-item"><i></i><span class="n">08</span><div>Presenting all offers &amp; counteroffers in a timely manner</div></div><div class="dl-item"><i></i><span class="n">09</span><div>Disclosing known facts that materially affect value</div></div></div></div><div class="legend"><span><i></i>Blue = what makes it fiduciary</span></div></div></div><div class="callout"><strong>Limited representation is not low representation.</strong> Single agent = the client&rsquo;s advocate. Transaction broker = a neutral facilitator. Know which hat you&rsquo;re wearing.<span class="echo-es">Representaci&oacute;n limitada no es representaci&oacute;n baja.</span></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">12 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 2 &middot; <span class="nc">&sect;475.278(2)(f)</span></div><h1 class="page-title sm">Limited Confidentiality: <span class="accent">5 Things You Never Reveal</span></h1><p class="lede tight">Most violations sound like friendly small talk. Each one is a statutory breach.</p></header><div class="bento"><div class="bc large"><div class="bc-lock">🔒</div><div><div class="bc-what">Seller will take less than asking</div><div class="bc-quote">&ldquo;Offer 380, I know they&rsquo;ll take it&rdquo;</div><div class="bc-extra">The #1 accidental violation in Florida</div></div></div><div class="bc"><div class="bc-lock">🔒</div><div class="bc-what">Buyer will pay more than offered</div><div class="bc-quote">&ldquo;They&rsquo;d honestly go to 425&rdquo;</div></div><div class="bc"><div class="bc-lock">🔒</div><div class="bc-what">Anyone&rsquo;s motivation</div><div class="bc-quote">&ldquo;It&rsquo;s a divorce &mdash; they&rsquo;re desperate&rdquo;</div></div><div class="bc"><div class="bc-lock">🔒</div><div class="bc-what">Flexible financing terms</div><div class="bc-quote">&ldquo;They&rsquo;d carry the difference&rdquo;</div></div><div class="bc"><div class="bc-lock">🔒</div><div class="bc-what">Anything asked to stay confidential</div><div class="bc-quote">&ldquo;Between us&hellip;&rdquo; isn&rsquo;t a loophole</div></div></div><div class="say"><div class="say-col no"><div class="say-h">You never say</div><ul><li>What they&rsquo;ll take</li><li>What they&rsquo;d pay</li><li>Why they&rsquo;re selling</li><li>What terms they&rsquo;d flex</li><li>Anything asked to stay confidential</li></ul></div><div class="say-col yes"><div class="say-h">The only right answer</div><div class="say-big">&ldquo;Present your best offer and we&rsquo;ll present it to the seller.&rdquo;</div><p style="font-size:10.5pt;color:var(--muted);margin-top:0.08in">to &ldquo;what will they take?&rdquo;</p></div></div><div class="practice"><div class="pr-t">Say it in your own words <span>Your answer to &ldquo;what will they take?&rdquo;</span></div><i></i><i></i></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">13 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 2 &middot; <span class="nc">&sect;475.278(3)(b)&ndash;(c)</span></div><h1 class="page-title sm">When the Law <span class="accent">Demands Paper</span></h1><p class="lede tight">Two legal requirements. Zero drafting &mdash; the language lives in our forms.</p></header><div class="req2"><div class="req"><div class="req-l">Single Agent</div><div class="req-t">Duties disclosed in writing before listing, representation, or first showing &mdash; whichever occurs first.</div><div><span class="cite fill">&sect;475.278(3)(b)</span></div></div><div class="req"><div class="req-l">Single Agent &rarr; Transaction Broker Mid-Deal</div><div class="req-t">The principal&rsquo;s written consent, signed or initialed, before the transition.</div><div><span class="cite fill">&sect;475.278(3)(c)</span></div></div></div><div class="docstrip"><div class="docstrip-t">You never draft this language &mdash; it&rsquo;s already printed inside our documents:</div><div class="chips-col"><div class="docchip"><span class="pg">📄</span>Listing Agreement &mdash; Single Agent edition (notice built in)</div><div class="docchip"><span class="pg">📄</span>Buyer Broker Agreement &mdash; Single Agent (notice built in)</div><div class="docchip"><span class="pg">📄</span>Consent to Transition to Transaction Broker (standalone form)</div></div></div><div class="trans"><div class="trans-t">When would I ever transition?</div><p>Your single-agent buyer falls in love with your own single-agent listing. You can&rsquo;t owe undivided loyalty to both sides of one deal &mdash; so BOTH sign the consent, and you become a transaction broker for that transaction.</p></div><div class="consent"><div class="cn no"><span class="x">&#10007;</span><span>A phone call is not consent.</span></div><div class="cn no"><span class="x">&#10007;</span><span>A text that says &ldquo;ok&rdquo; is not consent.</span></div><div class="cn yes"><span class="x">&#10003;</span><span>Signed or initialed. On file.</span></div></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">14 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 3 &middot; NAR Settlement &middot; Aug 17, 2024</div><h1 class="page-title sm">Buyer Broker Agreement: <span class="accent">Before You Tour, You Sign</span></h1></header><div class="vs"><div class="vs-col"><div class="vs-h">Florida Law</div><div class="vs-i"><i>&mdash;</i><span>Ch. 475 does not require a written buyer agreement</span></div><div class="vs-i"><i>&mdash;</i><span>The transaction-broker presumption fills the gap</span></div><div class="vs-i"><i>&mdash;</i><span>So legally&hellip; optional?</span></div></div><div class="vs-col nar"><div class="vs-h">NAR + MLS Policy &mdash; Binding on Us</div><div class="vs-i"><i>&#10003;</i><span>Written agreement before touring &mdash; including live virtual tours</span></div><div class="vs-i"><i>&#10003;</i><span>Compensation specific &amp; conspicuous &mdash; objectively ascertainable, never open-ended</span></div><div class="vs-i"><i>&#10003;</i><span>You may not collect more than the buyer agreed to &mdash; from any source</span></div></div></div><div class="ident"><div class="ident-t">The Agreement &ne; The Relationship</div><div class="ident-g"><div class="ident-c"><b>01</b>Sign nothing about agency? Florida still presumes you&rsquo;re a transaction broker &mdash; automatically.</div><div class="ident-c"><b>02</b>Writing is only required to change that default &mdash; single agent or no brokerage, per Ch. 475.</div><div class="ident-c"><b>03</b>The buyer agreement sets services + compensation. It does <b class='k'>not</b> establish single agency &mdash; want fiduciary status? Add the Single Agent Notice.</div></div></div><div class="badges"><div class="badge a">No signed agreement = No tour</div><div class="badge b">It&rsquo;s also how you get paid</div></div><div class="callout">This isn&rsquo;t friction. It&rsquo;s the moment your buyer learns what you do and what you earn. <strong>Clarity is the brand.</strong></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">15 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 4 &middot; Real Scenarios &middot; Names changed, lessons real</div><h1 class="page-title sm">Two Offers. <span class="accent">Two Broken Duties</span></h1></header><div class="scn"><div class="scn-top"><span class="scn-n">Scenario 1 &middot; Anonymized</span><span class="scn-t">The Invisible Seller</span></div><div class="scn-body">
+<div class="mflow">
+<div class="mf"><small>Step 1</small><b>Offer arrives: $385K</b><span>List price $410K. &ldquo;Carmen&rdquo; thinks it&rsquo;s low.</span></div>
+<div class="mf"><small>Step 2</small><b>She counters on her own</b><span>&ldquo;They won&rsquo;t take less than 400 &mdash; come up and we have a deal.&rdquo;</span></div>
+<div class="mf"><small>Step 3</small><b>Seller never knew</b><span>No offer presented. No direction given. No record anywhere.</span></div>
+<div class="mf bad"><small>Result</small><b>Duties broken. License exposed.</b><span>And the seller&rsquo;s bottom line? Leaked.</span></div></div>
+<div class="chipgrid"><div class="xchip">&#10007; Present all offers timely<em>&sect;475.278</em></div><div class="xchip">&#10007; Obedience &amp; loyalty (single agent)</div><div class="xchip">&#10007; Limited confidentiality &mdash; bottom line revealed</div><div class="xchip">&#10007; Breach of trust<em>&sect;475.25(1)(b)</em></div></div>
+<div class="rule"><span class="rl">The rule</span><b>Every offer gets presented. The seller directs the response. You advise &mdash; they decide.</b> <i>Cada oferta se presenta &mdash; el seller decide.</i></div></div></div><div class="scn"><div class="scn-top"><span class="scn-n">Scenario 2 &middot; Anonymized</span><span class="scn-t">The Offer Nobody Answered</span></div><div class="scn-body">
+<div class="scn-story">&ldquo;Marcos&rdquo; sends a clean full-price offer. Day 1&hellip; day 2&hellip; day 3 &mdash; his buyers walk.</div>
+<div class="s2"><div><div class="sec-lbl" style="margin-bottom:0.06in">The law behind it</div><div class="cites-v"><div><b>&sect;475.278</b> &mdash; present ALL offers &amp; counteroffers &ldquo;in a timely manner&rdquo;</div><div><b>NAR SOP 1-6</b> &mdash; &ldquo;as quickly as possible&rdquo;</div><div><b>NAR SOP 1-7</b> &mdash; written affirmation of presentation on written request</div></div></div>
+<div><div class="sec-lbl" style="margin-bottom:0.06in">What should have happened</div><div class="mini-steps"><div class="ms"><i>1</i><div><b>Acknowledge &mdash; same day.</b> <span>&ldquo;Received, thank you &mdash; presenting to my seller today.&rdquo; In writing.</span></div></div>
+<div class="ms"><i>2</i><div><b>Present &mdash; same day.</b> <span>Seller sees every offer. Log when and how it was presented.</span></div></div>
+<div class="ms"><i>3</i><div><b>Respond &mdash; in writing.</b> <span>Accept, counter, or decline &mdash; whatever the seller directs. Paper trail always.</span></div></div></div></div></div>
+<div class="rule"><span class="rl">The rule</span><b>Silence is not a negotiation strategy.</b> Every offer deserves an answer &mdash; and a cooperating broker can demand written proof it was presented.</div></div></div><div class="callout">Every offer is presented, answered, and written down &mdash; <strong>that is the duty.</strong></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">16 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 5 &middot; Listing-Side Protocol</div><h1 class="page-title xs">An Offer Lands on Your Listing. <span class="accent">Now What?</span></h1></header><div class="steps"><div class="step5 c"><span class="sn">1</span><span class="sw">Acknowledge &mdash; same day, in writing</span><span class="sh">&ldquo;Received &mdash; presenting to my seller today.&rdquo;</span></div><div class="step5 c"><span class="sn">2</span><span class="sw">Upload to the loop &mdash; immediately</span><span class="sh">The moment it&rsquo;s in, it&rsquo;s a brokerage record. <b>&sect;475.5015</b></span></div><div class="step5 c"><span class="sn">3</span><span class="sw">Present to your seller &mdash; same day</span><span class="sh">Phone + email. The email is your proof of presentation.</span></div><div class="step5 c"><span class="sn">4</span><span class="sw">Get the seller&rsquo;s direction &mdash; in writing</span><span class="sh">Accept / counter / decline. Their words, not your assumption.</span></div><div class="step5 c"><span class="sn">5</span><span class="sw">Respond in writing &mdash; log it</span><span class="sh">The record answers for you.</span></div></div><div class="loopm"><div class="loopm-top">My Loops &rsaquo; 123 Palm Ave &mdash; Listing &rsaquo; <b>Offer 1 &mdash; Smith</b></div>
+<div class="lr"><span>📄 FAR/BAR AS-IS Contract &mdash; Smith Offer $385,000</span><span class="st">Submitted</span></div>
+<div class="lr"><span>📄 Pre-Approval Letter &mdash; Smith</span><span class="st">Submitted</span></div>
+<div class="lr"><span>📄 Seller Counter #1 &mdash; $402,500 (seller-directed)</span><span class="st sent">Sent</span></div>
+<div class="actv"><div class="al">Activity</div>
+<div><span class="dot">&#9679;</span>Offer received &amp; acknowledged &mdash; 10:02 AM</div>
+<div><span class="dot">&#9679;</span>Presented to seller (call + email) &mdash; 11:15 AM</div>
+<div><span class="dot">&#9679;</span>Seller directed counter at $402,500 &mdash; 2:40 PM</div>
+<div><span class="dot">&#9679;</span>Counter delivered to buyer&rsquo;s agent &mdash; 3:05 PM</div></div></div><div class="vm"><div class="vm-ph"><div class="ico">📞</div><div class="lb">Greeting &middot; 0:12</div></div><div class="vm-s">
+<div class="vm-l">Your voicemail is a duty checkpoint &mdash; record this today, 30 seconds</div>
+<p>&ldquo;You&rsquo;ve reached [your name] with reThought Real Estate. I can&rsquo;t take your call right now &mdash; leave your name and number and I&rsquo;ll call you back the same business day.&rdquo;</p>
+<p class="es">&ldquo;Ha llamado a [su nombre] de reThought Real Estate. Deje su nombre y n&uacute;mero y le devuelvo la llamada el mismo d&iacute;a laboral.&rdquo;</p></div></div><div class="callout">A file that looks like this can never be accused of sitting on an offer. <strong>The record answers for you.</strong></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">17 / 22</span></div>
+</section>
+<section class="page tight">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 4 &middot; Scenario 3 &middot; Act 5 &middot; Buyer-Side Protocol</div><h1 class="page-title sm">The Naked Offer <span class="accent">vs. a Professional One</span></h1></header><div class="scn-story" style="font-size:11.5pt">&ldquo;Hi, my clients want to offer $415K on Palm Ave &mdash; let me know.&rdquo; That was the whole offer.</div><div class="pk2"><div class="pk-col bad"><div class="pk-h">What arrived</div><div class="it">&#10007; A price&hellip; in an email</div><div class="it">&#10007; No signed contract &mdash; no initials, blanks empty</div><div class="it">&#10007; No pre-approval or proof of funds</div><div class="it">&#10007; No disclosures, no deadlines, no escrow details</div></div><div class="pk-col good"><div class="pk-h">What a professional sends</div><div class="it">&#10003; Fully signed FAR/BAR &mdash; every blank filled, every page initialed</div><div class="it">&#10003; Pre-approval / POF &mdash; dated, matching the buyer</div><div class="it">&#10003; Signed disclosures + escrow: who holds it, when it lands</div><div class="it">&#10003; Response deadline + one clean summary email</div></div></div><div class="rule"><span class="rl">The rule</span><b>&ldquo;Skill, care, and diligence&rdquo; is a statute, not a compliment. In multiple offers, complete files get ranked first &mdash; every time.</b></div><div class="sec-bar"><span class="sb-t">Sending an offer like a professional</span><span class="sb-l"></span></div><div class="send"><div class="mail"><div class="mail-top">&#9993; New Message &nbsp;&middot;&nbsp; 4 attachments</div>
+<div class="mail-f"><span>From:</span><span>maria.lopez@rethought-realestate.com</span></div>
+<div class="mail-f"><span>To:</span><span>Jordan Wells &lt;jordan@theirbrokerage.com&gt;</span></div>
+<div class="mail-f"><span>Subject:</span><span><b>OFFER &mdash; 123 Palm Ave &mdash; Smith &mdash; $415,000 &mdash; Response by Thu 6 PM</b></span></div>
+<div class="mail-b">Hi Jordan,<br>Attached is a complete offer from my buyers, the Smith family:
+<ul><li>Price: $415,000 &mdash; conventional, 20% down (pre-approval attached)</li><li>Closing: October 30</li><li>Escrow: $10,000 with Coastal Title within 3 days of effective date</li><li>Response by: Thursday, 6:00 PM</li></ul>
+Calling you now to confirm receipt &mdash; my cell is below for anything you need.<br><b>Maria Lopez</b> &middot; reThought Real Estate &middot; (407) 555-0142</div>
+<div class="mail-att two"><span class="att">FARBAR_AsIs_Signed_Smith.pdf</span><span class="att">PreApproval_Smith_0918.pdf</span><span class="att">Disclosures_Signed.pdf</span><span class="att">Escrow_Deposit_Details.pdf</span></div></div><div><div class="side-c" style="--c:var(--sprout-deep)"><b>Send &mdash; then call to confirm receipt</b><span>The call makes your offer impossible to miss.</span></div><div class="side-c" style="--c:var(--brand)"><b>Complete package = your diligence duty</b><span>Skill, care, and diligence is a statute &mdash; an incomplete offer is a diligence failure.</span></div><div class="side-c" style="--c:var(--amber)"><b>The cheapest advantage</b><span>A clean, complete offer costs 15 minutes of care.</span></div></div></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">18 / 22</span></div>
+</section>
+<section class="page tight">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Act 6 &middot; Systems as Duty</div><h1 class="page-title sm">The Systems Are How <span class="accent">We Obey the Law</span></h1></header><div class="tools-lite" style="display:contents"><div class="tool" style="--c:var(--sprout)"><div class="tool-id"><span class="tool-ico">🔁</span><span class="tool-n">The Loop</span><span class="tool-r">Transaction management &middot; every file, every time</span></div><div><div class="tool-rows"><div class="tr"><div class="tr-h"><span class="tr-t">5-Year Record Duty &mdash; met on submit</span><div class="tr-f"><span class="ful-lbl">Fulfills</span><span class="cite fill">&sect;475.5015</span></div></div><div class="tr-d">Every contract, offer &amp; disclosure preserved the moment it&rsquo;s uploaded.</div></div><div class="tr"><div class="tr-h"><span class="tr-t">Broker review = statutory supervision</span><div class="tr-f"><span class="ful-lbl">Fulfills</span><span class="cite fill">&sect;475.25(1)(u)</span></div></div><div class="tr-d">&ldquo;Submitted &rarr; Reviewed&rdquo; is &ldquo;direct, control, manage&rdquo; happening in real time.</div></div><div class="tr"><div class="tr-h"><span class="tr-t">The escrow clock &mdash; proven</span><div class="tr-f"><span class="ful-lbl">Fulfills</span><span class="cite fill">61J2-14.008</span><span class="cite fill">61J2-14.009</span></div></div><div class="tr-d">To your broker by next business day; banked by day 3. Timestamps are the evidence.</div></div></div></div></div><div class="tool" style="--c:var(--amber)"><div class="tool-id"><span class="tool-ico">📧</span><span class="tool-n">Company Email</span><span class="tool-r">Business runs on the firm&rsquo;s address</span></div><div><div class="tool-rows"><div class="tr"><div class="tr-h"><span class="tr-t">It&rsquo;s a brokerage record</span><div class="tr-f"><span class="ful-lbl">Fulfills</span><span class="cite fill">&sect;475.5015</span></div></div><div class="tr-d">Transaction emails are part of the 5-year file &mdash; captured automatically.</div></div><div class="tr"><div class="tr-h"><span class="tr-t">It carries the firm&rsquo;s name</span><div class="tr-f"><span class="ful-lbl">Fulfills</span><span class="cite fill">61J2-10.025</span></div></div><div class="tr-d">Often your first impression &mdash; licensed professional, real firm, real broker.</div></div><div class="tr soft"><div class="tr-h"><span class="tr-t">Also: it protects client data &amp; covers your client</span><div class="tr-f"><span class="ful-lbl" style="color:var(--muted)">Good practice</span></div></div><div class="tr-d">Business-grade security &mdash; and the office can step in if you&rsquo;re on a plane and the deal is on fire.</div></div></div><div class="addr"><div class="bad"><small>Could be anyone</small><code>sunshineagent407@&hellip;</code> &mdash; no firm, no broker, no way to verify</div><div class="good"><small>Backed by a brokerage</small><code>maria.lopez@rethought-realestate.com</code> &mdash; verifiable in one glance</div></div></div></div><div class="tool" style="--c:var(--brand-light)"><div class="tool-id"><span class="tool-ico">💬</span><span class="tool-n">Teams + Voicemail</span><span class="tool-r">Reachable: broker + market</span></div><div><div class="tool-rows"><div class="tr"><div class="tr-h"><span class="tr-t">Microsoft Teams &mdash; the &ldquo;manage&rdquo; lane</span><div class="tr-f"><span class="ful-lbl">Fulfills</span><span class="cite fill">&sect;475.25(1)(u)</span></div></div><div class="tr-d">Background systems the broker uses to direct, control, and manage every associate.</div></div><div class="tr"><div class="tr-h"><span class="tr-t">Voicemail &amp; callbacks &mdash; a duty checkpoint</span><div class="tr-f"><span class="ful-lbl">Fulfills</span><span class="cite fill">&sect;475.278(2)</span></div></div><div class="tr-d">Offers can&rsquo;t be presented &ldquo;in a timely manner&rdquo; if the market can&rsquo;t reach you. Branded greeting + same-business-day returns.</div></div></div></div></div></div><div class="slim"><div><b>One system. Three statutes. Zero stress.</b> <span>When the Commission asks a question, the loop answers in 30 seconds.</span></div><div class="flowx">Tool &rarr; Statute &rarr; Proof</div></div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">19 / 22</span></div>
+</section>
+<section class="page ">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">The Standard &middot; Recap</div><h1 class="page-title sm">Eight Commitments. <span class="accent">Zero Preferences.</span></h1><p class="lede tight">Every one traces to a statute or rule we read today. Check the box when it&rsquo;s a habit &mdash; Session 2 opens with a self-check.</p></header><div class="cm-grid"><div class="cm"><div class="bx"></div><div><div class="cm-n">01</div><div class="cm-name">Relationship disclosed</div><div class="cm-d">TB or single agent &mdash; named &amp; on file, every deal</div><span class="cite fill">&sect;475.278(3)(b)</span></div></div><div class="cm"><div class="bx"></div><div><div class="cm-n">02</div><div class="cm-name">Buyer agreement first</div><div class="cm-d">Signed before touring &mdash; compensation specific</div><span class="cite fill">NAR + MLS</span></div></div><div class="cm"><div class="bx"></div><div><div class="cm-n">03</div><div class="cm-name">Offers presented same day</div><div class="cm-d">Acknowledged, presented, logged</div><span class="cite fill">&sect;475.278(2)</span></div></div><div class="cm"><div class="bx"></div><div><div class="cm-n">04</div><div class="cm-name">Seller directs, I execute</div><div class="cm-d">Never negotiate without written direction</div><span class="cite fill">&sect;475.278(3)</span></div></div><div class="cm"><div class="bx"></div><div><div class="cm-n">05</div><div class="cm-name">Complete offer packages</div><div class="cm-d">Contract + financing + disclosures + deadline</div><span class="cite fill">&sect;475.278(2)</span></div></div><div class="cm"><div class="bx"></div><div><div class="cm-n">06</div><div class="cm-name">Every file in the loop</div><div class="cm-d">Uploaded when it happens &mdash; not at closing</div><span class="cite fill">&sect;475.5015</span></div></div><div class="cm"><div class="bx"></div><div><div class="cm-n">07</div><div class="cm-name">Business on company email</div><div class="cm-d">Records, identity, security, coverage</div><span class="cite fill">&sect;475.5015</span></div></div><div class="cm"><div class="bx"></div><div><div class="cm-n">08</div><div class="cm-name">Voicemail + callbacks</div><div class="cm-d">Branded greeting &middot; same-business-day returns</div><span class="cite fill">&sect;475.278(2)</span></div></div></div><div class="sign"><span>Name<i></i></span><span>Initials<i></i></span><span>Date<i></i></span></div><div class="callout">Ch. 475 + FREC rules + the REALTOR&reg; Code &mdash; translated into eight habits.</div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">20 / 22</span></div>
+</section>
+<section class="page tight">
+<div class="page-body">
+<header class="title-block"><div class="eyebrow">Practice &middot; 10 Minutes &middot; Pairs &middot; Three rounds, switch roles after each</div><h1 class="page-title xs">Duty Role-Play <span class="accent">+ Your AI Practice Partner</span></h1></header><div class="rp"><div class="rp-h"><span></span><span>EN</span><span>ES</span></div><div class="rp-r"><span class="rp-n">R1</span><div><div class="rp-q">&ldquo;So&hellip; do you work for me or not?&rdquo;</div><div class="rp-t">Explain TB vs. single agent in plain language &mdash; 60 seconds, no statute numbers.</div></div><div class="rp-es"><div class="rp-q">&ldquo;&iquest;Entonces&hellip; trabajas para m&iacute; o no?&rdquo;</div><div class="rp-t">Explica transaction broker vs. single agent en lenguaje simple &mdash; 60 segundos, sin n&uacute;meros de estatuto.</div></div></div><div class="rp-r"><span class="rp-n">R2</span><div><div class="rp-q">&ldquo;Just tell me &mdash; what will they really take?&rdquo;</div><div class="rp-t">Answer as a transaction broker without breaking limited confidentiality.</div></div><div class="rp-es"><div class="rp-q">&ldquo;Dale, dime &mdash; &iquest;cu&aacute;nto es lo que de verdad aceptan?&rdquo;</div><div class="rp-t">Responde como transaction broker sin romper la confidencialidad limitada.</div></div></div><div class="rp-r"><span class="rp-n">R3</span><div><div class="rp-q">&ldquo;Don&rsquo;t bring me anything under $400K.&rdquo;</div><div class="rp-t">What must exist before you can filter offers? (It starts with &ldquo;in writing&hellip;&rdquo;)</div></div><div class="rp-es"><div class="rp-q">&ldquo;No me traigas nada por debajo de $400K.&rdquo;</div><div class="rp-t">&iquest;Qu&eacute; tiene que existir antes de poder filtrar ofertas? (Empieza con &ldquo;por escrito&hellip;&rdquo;)</div></div></div></div><div class="sec-bar"><span class="sb-t">AI shortcut &mdash; 10 minutes a night until Session 2</span><span class="sb-l"></span></div><div class="ai-card"><div class="ai-card-head"><span class="ai-card-lbl">Copy &middot; Paste into your AI project</span><span class="ai-badge">Claude / ChatGPT / Gemini</span></div>
+<div class="ai-card-body">You are a tough-but-fair Florida real estate broker running a compliance drill. Quiz me ONE scenario at a time on my duties under Fla. Stat. &sect;475.278: transaction broker vs. single agent, limited confidentiality, presenting offers, written disclosures, and NAR&rsquo;s written buyer agreement rule. Play buyers, sellers, and agents who pressure me to break a duty. After each answer tell me: (1) was I legally correct, (2) which duty was at stake, (3) a cleaner way to say it to a real client. Keep score out of 10. Start easy, get harder.</div></div><div class="callout amber">The pressure is the practice. The AI plays the pushy buyer so the real one never catches you off guard.</div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">21 / 22</span></div>
+</section>
+<section class="page back dark">
+<div class="back-inner">
+  <div class="back-top"><svg class="wordmark" viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate">
+                <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+                <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08"/><circle cx="64.17" cy="39.49" r="5.08" style="animation-delay:0.5s;"/></g>
+            </svg><span class="cover-x">&times;</span><img class="cover-relearn" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn"></div>
+  <div class="back-mid">
+    <div class="eyebrow on-dark">Reputation Insurance</div>
+    <div class="back-hero sm">The law is the standard.<br><span class="ceo">Every system starts there.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></div>
+    <div class="back-rule"></div>
+    <div class="back-quote">&ldquo;It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you&rsquo;ll do things differently.&rdquo;</div>
+    <div class="back-author">Warren Buffett</div>
+    <div class="back-es">Toma veinte a&ntilde;os construir una reputaci&oacute;n y cinco minutos arruinarla. Si piensas en eso, har&aacute;s las cosas diferente.</div>
+    <p class="back-sub">Everything today was reputation insurance &mdash; for you, for this firm, and for every family that trusts us with the biggest decision of their lives.</p>
+    <div class="see-you">See you next Tuesday.</div>
+    <div class="back-tag" style="margin-top:0.06in">Come ready for the Session 2 self-check</div>
+  </div>
+  <div class="back-mission">
+    <div class="eyebrow on-dark">Mission</div>
+    <p>To redefine traditional real estate expectations delivering a <b>personalized</b>, <b>tech-driven</b>, and <b>client-centric</b> approach to buying and selling real estate.</p>
+    <div class="back-tag">Human First &middot; Tech Driven &middot; Community Focused</div>
+  </div>
+</div>
+<div class="chrome-bottom"><div class="cb-left"><img class="cb-logo" src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn"><span class="cb-text">reThought Real Estate &middot; reLearn &middot; The Standard</span></div><span class="cb-num">22 / 22</span></div>
+</section>
+</body>
+</html>
