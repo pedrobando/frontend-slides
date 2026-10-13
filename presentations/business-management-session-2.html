@@ -543,6 +543,10 @@ body { background: var(--ink); color: var(--paper); font-family: var(--font-sans
 .date-text { font-family: var(--font-sans); font-size: clamp(0.85rem, 1.25vw, 1.05rem); color: var(--paper); line-height: 1.4; }
 .date-text strong { color: var(--sprout); }
 
+/* Headless PDF export: jump every CSS animation/transition to its end state */
+.still *, .still *::before, .still *::after { animation-duration: 0s !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition: none !important; }
+.still .tr-row { opacity: 1; transform: none; }
+
 /* Short screens (laptops at 720p): trim the densest slides so nothing clips */
 @media (max-height: 780px) {
     .gs-note { display: none; }
@@ -1995,7 +1999,10 @@ const SCENES = {
 };
 
 window.MG = (function () {
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Headless export (scripts/export-pdf.sh drives Playwright) gets final frames, like print
+    const still = navigator.webdriver === true;
+    if (still) document.documentElement.classList.add('still');
+    const reduce = still || matchMedia('(prefers-reduced-motion: reduce)').matches;
     const all = [];
     document.querySelectorAll('[data-mg]').forEach(node => {
         const def = SCENES[node.dataset.mg]; if (!def) return;
