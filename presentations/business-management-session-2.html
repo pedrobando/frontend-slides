@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Talk to One Person | Business Management</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="Talk to One Person">
+<meta name="presentation-series" content="Business Management">
+<meta name="presentation-session" content="2">
+<meta name="presentation-date" content="2026-10-13">
+<meta name="presentation-slides" content="23">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   VIEWPORT BASE
+   =========================================== */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+    width: 100vw; height: 100vh; height: 100dvh;
+    overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    max-height: 100%; overflow: hidden; padding: var(--slide-padding);
+}
+:root {
+    --title-size: clamp(2rem, 5.5vw, 4.5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.3rem, 3.2vw, 2.4rem);
+    --body-size: clamp(1rem, 2.2vw, 1.6rem);
+    --small-size: clamp(0.8rem, 1.4vw, 1.15rem);
+    --slide-padding: clamp(1.5rem, 5vw, 5rem);
+    --content-gap: clamp(0.8rem, 3vw, 3rem);
+    --element-gap: clamp(0.4rem, 1.5vw, 1.5rem);
+}
+@media (max-height: 700px) {
+    :root { --slide-padding: clamp(1rem, 3vw, 2.5rem); --title-size: clamp(1.5rem, 4.5vw, 3rem); --h2-size: clamp(1.2rem, 3.5vw, 2.2rem); }
+}
+@media (max-height: 600px) {
+    :root { --slide-padding: clamp(0.75rem, 2.5vw, 1.5rem); --title-size: clamp(1.2rem, 4vw, 2.5rem); --body-size: clamp(0.8rem, 1.4vw, 1.1rem); }
+    .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root { --slide-padding: clamp(0.5rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.5rem, 8vw, 3rem); } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   RETHOUGHT TOKENS
+   =========================================== */
+:root {
+    --ink: #1B252F;
+    --ink-soft: #222E3A;
+    --ink-deep: #151D26;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --brand-light: #6ba8d6;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --amber: #e0a63a;
+    --amber-soft: #f5d08a;
+    --muted: #6e7a88;
+    --muted-2: #95a0ae;
+    --border-d: #ffffff18;
+    --border-l: #1B252F14;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--sprout); color: var(--ink); }
+
+/* ===========================================
+   GLOBAL COMPONENTS
+   =========================================== */
+.slide { background: var(--ink); padding: var(--slide-padding); }
+/* Footer clearance: the bottom padding always covers the footer stack
+   (offset + logo + mono line) plus breathing room, so content never touches it */
+:root {
+    --footer-stack: calc(clamp(10px, 1.8vh, 20px) + clamp(1.2rem, 2.5vw, 2rem) - 8px + clamp(3px, 0.5vh, 6px) + clamp(0.5rem, 0.7vw, 0.62rem) * 1.5);
+    --footer-clearance: calc(var(--footer-stack) + clamp(20px, 3.2vh, 34px));
+}
+.slide { --slide-pad-bottom: max(var(--slide-padding), var(--footer-clearance)); padding-bottom: var(--slide-pad-bottom); }
+/* Slides whose .slide-content keeps its own default padding already clear the footer;
+   give back the extra so their total bottom space (and fit) stays unchanged */
+.slide-content { padding-bottom: max(0px, calc(var(--slide-padding) * 2 - var(--slide-pad-bottom))); }
+.slide.light { background: var(--paper); color: var(--ink); }
+.slide.light .section-label { color: var(--brand); }
+.slide.light .section-label::before { background: var(--brand); }
+.slide.light .slide-body { color: var(--muted); }
+.slide.light .slide-number { color: var(--muted); }
+
+.section-label {
+    font-family: var(--font-mono); font-size: clamp(0.75rem, 1.15vw, 0.95rem);
+    letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
+}
+.section-label::before { content: ""; width: clamp(14px, 2.5vw, 24px); height: 2px; background: var(--sprout); }
+
+.slide-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--h2-size); letter-spacing: -0.025em; line-height: 1.1;
+    margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+}
+.slide-body {
+    font-family: var(--font-sans); font-size: var(--body-size);
+    line-height: 1.6; color: var(--muted-2); max-width: 60ch;
+}
+
+.stroke { position: relative; display: inline-block; padding: 0 3px; }
+.stroke svg.ul {
+    position: absolute; left: -4px; right: -4px; bottom: clamp(-6px, -0.8vh, -10px);
+    width: calc(100% + 8px); height: clamp(10px, 1.5vw, 16px); pointer-events: none;
+}
+.stroke svg.ul path { fill: none; stroke-width: 3; stroke-linecap: round; }
+.stroke--sprout svg.ul path { stroke: var(--sprout); }
+.stroke--clay svg.ul path { stroke: var(--clay); }
+.stroke--brand svg.ul path { stroke: var(--brand-deep); }
+.stroke--amber svg.ul path { stroke: var(--amber); }
+
+.badge {
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(8px, 1.2vw, 14px);
+    border-radius: 999px; text-transform: uppercase; display: inline-block;
+}
+.badge-sprout { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-brand { background: #034c7630; color: var(--brand-light); border: 1px solid #034c7650; }
+.badge-clay { background: #c0544530; color: var(--clay-soft); border: 1px solid #c0544550; }
+.badge-amber { background: #e0a63a30; color: var(--amber-soft); border: 1px solid #e0a63a50; }
+
+.callout-line { display: inline-block; background: var(--ink-soft); border-left: 3px solid var(--sprout); padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.8rem, 1.3vw, 1.2rem); border-radius: 0 8px 8px 0; font-family: var(--font-sans); font-size: clamp(0.9rem, 1.6vw, 1.25rem); color: var(--paper); line-height: 1.4; }
+
+.slide-footer {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.slide-number {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); right: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+    color: var(--muted); letter-spacing: 1px;
+}
+.slide-footer-logo { position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding); display: flex; flex-direction: column; align-items: flex-start; gap: clamp(3px, 0.5vh, 6px); z-index: 2; }
+.slide-footer-logo .footer-text { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; }
+.relearn-logo { height: clamp(1.2rem, 2.5vw, 2rem); width: auto; opacity: 0.7; transition: opacity 0.3s ease; margin-top: -8px; }
+.relearn-logo:hover { opacity: 1; }
+
+.progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--sprout); z-index: 9999; transition: width 0.3s ease; }
+.nav-dots {
+    position: fixed; right: clamp(12px, 2vw, 24px); top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 6px; z-index: 9998;
+}
+.nav-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.3;
+    cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
+}
+.nav-dot.active { background: var(--sprout); opacity: 1; transform: scale(1.4); }
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(1) { transition-delay: 0.05s; }
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.25s; }
+.reveal:nth-child(4) { transition-delay: 0.35s; }
+.reveal:nth-child(5) { transition-delay: 0.45s; }
+
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.visible .stagger > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.visible .stagger > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.visible .stagger > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.visible .stagger > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
+.visible .stagger > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+.visible .stagger > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.85s; }
+
+.reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.6s, transform 0.6s var(--ease-spring); }
+.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+.float { animation: float-gentle 4s ease-in-out infinite; }
+@keyframes float-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes stroke-draw { from { stroke-dashoffset: 200; } to { stroke-dashoffset: 0; } }
+.stroke-animate svg.ul path { stroke-dasharray: 200; stroke-dashoffset: 200; }
+.visible .stroke-animate svg.ul path { animation: stroke-draw 1.2s var(--ease-out-expo) forwards; }
+
+.gradient-bg { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 30%, var(--ink) 70%, var(--ink-soft) 100%); background-size: 300% 300%; animation: gradient-flow 8s ease infinite; }
+
+.ai-card {
+    background: var(--ink-deep); border: 2px solid var(--sprout); border-radius: 14px;
+    max-width: 62rem; width: 100%; margin: 0 auto; overflow: hidden;
+}
+.ai-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: clamp(8px, 1.2vh, 12px) clamp(12px, 1.8vw, 20px); border-bottom: 1px solid #8cc94e30; }
+.ai-card-lbl { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.72rem); letter-spacing: 1.8px; text-transform: uppercase; color: var(--sprout); }
+.ai-card-body { padding: clamp(10px, 1.6vw, 18px) clamp(12px, 1.8vw, 20px); font-family: var(--font-mono); font-size: clamp(0.8rem, 1.15vw, 0.95rem); color: var(--paper); line-height: 1.55; }
+
+/* Punchline (slide 5) */
+@keyframes punchline-bg { 0% { background-position: 0% 50%; } 25% { background-position: 100% 50%; } 50% { background-position: 50% 100%; } 75% { background-position: 0% 50%; } 100% { background-position: 0% 50%; } }
+.punchline-bg {
+    background: linear-gradient(135deg, var(--ink-deep) 0%, var(--brand-deep) 20%, var(--ink) 40%, #1a3a25 60%, var(--ink-deep) 80%, var(--brand) 100%);
+    background-size: 400% 400%; animation: punchline-bg 12s ease infinite;
+}
+.punchline-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: clamp(400px, 60vw, 800px); height: clamp(400px, 60vw, 800px); background: radial-gradient(circle, #8cc94e15 0%, transparent 60%); pointer-events: none; animation: gradient-flow 8s ease infinite; }
+.punchline-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.punchline-particles span { position: absolute; bottom: 0; background: var(--sprout); border-radius: 50%; animation: particle-rise linear infinite; }
+@keyframes particle-rise { 0% { transform: translateY(20px); opacity: 0; } 50% { opacity: 0.6; } 100% { transform: translateY(-100vh); opacity: 0; } }
+
+.airy { justify-content: space-between !important; padding-block: calc(max(0px, 100vh - 760px) * 0.24); }
+/* The slide's footer clearance already adds bottom space; take that back out of the airy bottom padding */
+.airy { padding-bottom: max(0px, calc(max(0px, 100vh - 760px) * 0.24 - (var(--slide-pad-bottom) - var(--slide-padding)))); }
+.echo-es { font-family: var(--font-sans); font-style: italic; color: var(--muted-2); font-size: clamp(0.8rem, 1.3vw, 1.05rem); line-height: 1.4; }
+.src { font-family: var(--font-mono); font-size: clamp(0.5rem, 0.72vw, 0.62rem); letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 3vw, 3rem); align-items: center; width: 100%; }
+@media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+/* ===========================================
+   MOTION SCENES — shared stage
+   (time-driven: each scene is seek(t), driven by one clock; see script)
+   =========================================== */
+.mg-stage {
+    position: relative; width: 100%; overflow: hidden; border-radius: 18px;
+    background: var(--ink-deep); border: 1px solid var(--border-d);
+}
+.mg-grid { position: absolute; inset: 0; background-image: radial-gradient(#ffffff16 1.2px, transparent 1.3px); background-size: 22px 22px; pointer-events: none; }
+.mg-world { position: absolute; left: 0; top: 0; width: 100%; height: 100%; transform-origin: 0 0; will-change: transform; }
+.mg-abs { position: absolute; white-space: nowrap; }
+
+/* ---------- Scene: zoom into Marketing (slide 6) ---------- */
+.zm-stage { height: clamp(250px, 50vh, 520px); }
+.zm-ceo { left: 50%; top: 13%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 0.5em; padding: 0.35em 1em; border: 2px solid var(--sprout); border-radius: 0.7em; background: linear-gradient(135deg, #8cc94e22, var(--ink-soft)); }
+.zm-ceo b { font-family: var(--font-display); font-weight: 800; font-size: 1.35em; color: var(--paper); }
+.zm-ceo span { font-family: var(--font-mono); font-size: 0.6em; letter-spacing: 2px; color: var(--sprout); }
+.zm-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.zm-lines path { fill: none; stroke: #ffffff30; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.zm-dept {
+    position: absolute; top: 60%; width: 21%; height: 46%; transform: translate(-50%, -50%);
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-top: 0.22em solid var(--dc);
+    border-radius: 0.7em; padding: 0.7em 0.6em; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.3em; white-space: normal;
+}
+.zm-dept .t { font-family: var(--font-mono); font-size: 0.52em; letter-spacing: 1.4px; text-transform: uppercase; color: var(--dc); }
+.zm-dept .n { font-family: var(--font-display); font-weight: 700; font-size: 0.95em; color: var(--paper); line-height: 1.1; }
+.zm-dept .j { font-family: var(--font-sans); font-size: 0.62em; color: var(--muted-2); line-height: 1.3; }
+.zm-dept .x { font-family: var(--font-sans); font-size: 0.5em; color: var(--paper); line-height: 1.35; margin-top: auto; border-top: 1px solid #e0a63a55; padding-top: 0.5em; width: 100%; }
+.zm-dept .x b { color: var(--amber-soft); }
+.zm-today { font-family: var(--font-mono); font-size: 0.38em; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink); background: var(--amber); border-radius: 999px; padding: 0.25em 0.8em; position: absolute; top: -0.9em; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+
+/* ---------- Scene: crowd + raised hand (slide 7) ---------- */
+.hd-stage { height: clamp(220px, 40vh, 420px); }
+.hd-person { position: absolute; width: 3.2%; transform-origin: 50% 100%; }
+.hd-person svg { width: 100%; height: auto; display: block; overflow: visible; }
+.hd-person .body { fill: #95a0ae; }
+.hd-person .arm { stroke: #95a0ae; stroke-width: 7; stroke-linecap: round; transform-box: view-box; }
+.hd-bubble { position: absolute; transform-origin: 0% 100%; background: var(--sprout); color: var(--ink); font-family: var(--font-display); font-weight: 800; border-radius: 0.8em 0.8em 0.8em 0.15em; padding: 0.35em 0.8em; white-space: nowrap; box-shadow: 0 8px 22px #0006; }
+.hd-msg { position: absolute; top: 6%; background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-weight: 700; border-radius: 0.7em; padding: 0.4em 0.9em; white-space: nowrap; box-shadow: 0 8px 22px #0006; }
+.hd-msg small { font-family: var(--font-mono); font-weight: 500; font-size: 0.7em; letter-spacing: 1px; color: var(--brand); text-transform: uppercase; display: block; }
+
+/* Fishing analogy card */
+.bait-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); width: 100%; }
+.bait { background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 14px; padding: clamp(0.6rem, 1.2vw, 1rem) clamp(0.8rem, 1.4vw, 1.2rem); display: flex; gap: clamp(0.6rem, 1vw, 0.9rem); align-items: center; }
+.bait .ic { font-size: clamp(1.5rem, 2.6vw, 2.2rem); line-height: 1; }
+.bait .w { font-family: var(--font-sans); font-size: clamp(0.85rem, 1.3vw, 1.1rem); color: var(--paper); line-height: 1.35; }
+.bait .w b { font-family: var(--font-display); }
+.bait.good { border-color: #8cc94e66; background: linear-gradient(160deg, #8cc94e14, var(--ink-soft)); }
+
+/* ---------- Three words (slide 8) ---------- */
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.6rem, 1.6vw, 1.4rem); width: 100%; }
+@media (max-width: 900px) { .trio { grid-template-columns: 1fr; } }
+.trio-card { position: relative; background: var(--ink-soft); border: 1px solid var(--border-d); border-top: 4px solid var(--dc); border-radius: 18px; padding: clamp(0.9rem, 1.8vw, 1.5rem); display: flex; flex-direction: column; gap: clamp(0.4rem, 1vh, 0.75rem); min-height: clamp(180px, 34vh, 340px); }
+.trio-ic { width: clamp(46px, 5vw, 70px); height: clamp(46px, 5vw, 70px); }
+.trio-ic svg { width: 100%; height: 100%; }
+.trio-k { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.9vw, 0.75rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--dc); }
+.trio-n { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.6vw, 2.2rem); color: var(--paper); line-height: 1.05; letter-spacing: -0.02em; }
+.trio-d { font-family: var(--font-sans); font-size: clamp(0.9rem, 1.35vw, 1.15rem); color: var(--muted-2); line-height: 1.4; }
+.trio-d b { color: var(--paper); }
+@keyframes wave-out { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(1.6); opacity: 0; } }
+.mega-wave { transform-origin: 30px 40px; transform-box: view-box; }
+.visible .mega-wave { animation: wave-out 1.6s ease-out infinite; }
+.visible .mega-wave.w2 { animation-delay: 0.5s; }
+.visible .mega-wave.w3 { animation-delay: 1s; }
+@keyframes hand-up { 0%, 30% { transform: rotate(0deg); } 50%, 100% { transform: rotate(-150deg); } }
+.hand-arm { transform-origin: 34px 46px; transform-box: view-box; }
+.visible .hand-arm { animation: hand-up 2.4s var(--ease-spring) infinite alternate; }
+@keyframes pen-sign { 0% { stroke-dashoffset: 60; } 60%, 100% { stroke-dashoffset: 0; } }
+.sign-line { stroke-dasharray: 60; stroke-dashoffset: 60; }
+.visible .sign-line { animation: pen-sign 2.4s ease-in-out infinite; }
+
+/* ---------- Scene: exposure meter (slide 9) ---------- */
+.ex-stage { height: clamp(220px, 40vh, 420px); }
+.ex-tile { position: absolute; top: 6%; height: 48%; aspect-ratio: 9 / 16; border-radius: 0.6em; background: linear-gradient(170deg, #2a3a4a, var(--ink-soft)); border: 1px solid var(--border-d); overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.35em; }
+.ex-face { width: 46%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 38%, var(--amber-soft) 0 26%, transparent 27%), radial-gradient(circle at 50% 110%, var(--brand-light) 0 52%, transparent 53%), var(--brand); border: 0.12em solid var(--sprout); }
+.ex-tile i { font-style: normal; font-family: var(--font-mono); font-size: 0.55em; letter-spacing: 1px; color: var(--muted-2); }
+.ex-num { font-family: var(--font-display); font-weight: 800; color: var(--paper); line-height: 1; }
+.ex-meter { position: absolute; left: 6%; right: 6%; bottom: 34%; height: 0.55em; background: #ffffff12; border-radius: 999px; }
+.ex-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: linear-gradient(90deg, var(--brand-light), var(--sprout)); }
+.ex-mark { position: absolute; white-space: nowrap; bottom: 2%; transform: translateX(-50%); text-align: center; font-family: var(--font-mono); font-size: 0.62em; line-height: 1.25; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); }
+.ex-mark b { display: block; font-family: var(--font-display); font-size: 1.6em; letter-spacing: 0; }
+.ex-mark.on { color: var(--paper); }
+.ex-mark.on b { color: var(--sprout); }
+.ex-tick { position: absolute; bottom: calc(34% - 0.4em); width: 2px; height: 1.35em; background: #ffffff40; }
+
+/* ---------- Scene: attention bars (slide 10) ---------- */
+.at-wrap { display: flex; flex-direction: column; gap: clamp(0.6rem, 2vh, 1.4rem); width: 100%; }
+.at-row { display: grid; grid-template-columns: clamp(110px, 14vw, 200px) 1fr clamp(90px, 10vw, 150px); align-items: center; gap: clamp(0.6rem, 1.4vw, 1.2rem); }
+.at-lbl { font-family: var(--font-mono); font-size: clamp(0.7rem, 1.05vw, 0.9rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2); }
+.at-track { height: clamp(26px, 5vh, 54px); background: #ffffff0b; border-radius: 12px; overflow: hidden; }
+.at-bar { height: 100%; width: 0; border-radius: 12px; background: linear-gradient(90deg, var(--brand), var(--brand-light)); }
+.at-row.now .at-bar { background: linear-gradient(90deg, var(--amber), var(--clay)); }
+.at-val { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 3vw, 2.6rem); color: var(--paper); letter-spacing: -0.02em; text-align: right; font-variant-numeric: tabular-nums; }
+.at-row.now .at-val { color: var(--amber-soft); }
+
+/* ---------- Scene: the scroll (slide 11) ---------- */
+.sc-layout { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.2rem, 4vw, 4rem); align-items: center; width: 100%; }
+@media (max-width: 900px) { .sc-layout { grid-template-columns: 1fr; justify-items: center; } }
+.phone { position: relative; height: clamp(300px, 62vh, 640px); aspect-ratio: 9 / 18.5; border-radius: 2.2em; background: #0b0f14; border: 0.45em solid #2b3642; box-shadow: 0 30px 60px #00000070, inset 0 0 0 1px #ffffff10; overflow: hidden; font-size: clamp(9px, 1.55vh, 16px); }
+.phone--916 { aspect-ratio: 9 / 16; border-width: 0.3em; }
+.phone::before { content: ""; position: absolute; top: 0.6em; left: 50%; transform: translateX(-50%); width: 30%; height: 1.4em; border-radius: 999px; background: #000; z-index: 5; }
+.sc-feed { position: absolute; left: 0; top: 0; width: 100%; will-change: transform; }
+.sc-post { position: relative; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.4em 1.1em 2.2em; overflow: hidden; }
+.sc-post .tag { font-family: var(--font-mono); font-size: 0.7em; letter-spacing: 1px; text-transform: uppercase; opacity: 0.8; }
+.sc-post .h { font-family: var(--font-display); font-weight: 800; font-size: 1.6em; line-height: 1.12; margin-top: 0.3em; white-space: normal; }
+.sc-post .who { display: flex; align-items: center; gap: 0.5em; margin-top: 0.8em; font-family: var(--font-sans); font-size: 0.8em; font-weight: 600; }
+.sc-post .who i { width: 1.8em; height: 1.8em; border-radius: 50%; background: #ffffff40; display: block; }
+.sc-post .art { position: absolute; inset: 0; z-index: -1; }
+.sc-thumb { position: absolute; left: 62%; width: 2.6em; height: 2.6em; border-radius: 50%; background: #ffffff55; border: 2px solid #ffffffaa; z-index: 6; }
+.sc-hud { position: absolute; top: 2.6em; right: 0.8em; z-index: 6; width: 4.6em; height: 4.6em; }
+.sc-hud svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.sc-hud .trk { fill: #0009; stroke: #ffffff22; stroke-width: 7; }
+.sc-hud .arc { fill: none; stroke: var(--amber); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 100; }
+.sc-hud b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 600; font-size: 0.95em; color: #fff; font-variant-numeric: tabular-nums; }
+.sc-yes { position: absolute; left: 50%; top: 40%; z-index: 7; background: var(--sprout); color: var(--ink); font-family: var(--font-display); font-weight: 800; font-size: 1.15em; padding: 0.45em 1em; border-radius: 999px; white-space: nowrap; box-shadow: 0 10px 30px #0008; }
+.stat-stack { display: flex; flex-direction: column; gap: clamp(0.6rem, 1.8vh, 1.3rem); }
+.stat { display: grid; grid-template-columns: clamp(110px, 13vw, 190px) 1fr; gap: clamp(0.6rem, 1.4vw, 1.2rem); align-items: center; }
+.stat-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4.4vw, 3.8rem); line-height: 1; letter-spacing: -0.03em; color: var(--sprout); }
+.stat-num.amber { color: var(--amber-soft); }
+.stat-num.blue { color: var(--brand-light); }
+.stat-txt { font-family: var(--font-sans); font-size: clamp(0.9rem, 1.4vw, 1.2rem); color: var(--paper); line-height: 1.35; }
+.stat-txt small { display: block; margin-top: 3px; }
+
+/* ---------- Three silent questions (slide 12) ---------- */
+.q3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.6rem, 1.6vw, 1.4rem); width: 100%; position: relative; }
+@media (max-width: 900px) { .q3 { grid-template-columns: 1fr; } }
+.q3-card { background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 18px; padding: clamp(0.9rem, 1.8vw, 1.5rem); display: flex; flex-direction: column; gap: clamp(0.35rem, 0.9vh, 0.7rem); position: relative; overflow: hidden; }
+.q3-time { font-family: var(--font-mono); font-size: clamp(0.62rem, 0.9vw, 0.76rem); letter-spacing: 1.4px; color: var(--amber-soft); }
+.q3-big { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 2.1rem); color: var(--paper); line-height: 1.1; letter-spacing: -0.02em; }
+.q3-d { font-family: var(--font-sans); font-size: clamp(0.88rem, 1.3vw, 1.1rem); color: var(--muted-2); line-height: 1.4; }
+.q3-check { position: absolute; top: clamp(0.8rem, 1.6vw, 1.3rem); right: clamp(0.8rem, 1.6vw, 1.3rem); width: clamp(26px, 2.6vw, 36px); height: clamp(26px, 2.6vw, 36px); border-radius: 50%; background: var(--sprout); color: var(--ink); display: flex; align-items: center; justify-content: center; font-weight: 800; transform: scale(0); }
+@keyframes pop-in { 0% { transform: scale(0); } 70% { transform: scale(1.2); } 100% { transform: scale(1); } }
+.visible .q3-card:nth-child(1) .q3-check { animation: pop-in 0.45s var(--ease-spring) 0.9s forwards; }
+.visible .q3-card:nth-child(2) .q3-check { animation: pop-in 0.45s var(--ease-spring) 1.5s forwards; }
+.visible .q3-card:nth-child(3) .q3-check { animation: pop-in 0.45s var(--ease-spring) 2.1s forwards; }
+.q3-timeline { position: relative; height: 6px; background: #ffffff10; border-radius: 999px; width: 100%; overflow: hidden; }
+.q3-timeline b { position: absolute; inset: 0; background: linear-gradient(90deg, var(--sprout), var(--amber)); transform: scaleX(0); transform-origin: left; }
+@keyframes time-run { to { transform: scaleX(1); } }
+.visible .q3-timeline b { animation: time-run 2.2s linear 0.3s forwards; }
+.q3-scale { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.68rem); letter-spacing: 1px; color: var(--muted); margin-top: 4px; }
+
+/* ---------- Avatar (slide 13) ---------- */
+.av-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(1rem, 2.6vw, 2.4rem); align-items: stretch; width: 100%; }
+@media (max-width: 900px) { .av-grid { grid-template-columns: 1fr; } }
+.av-card { position: relative; border-radius: 20px; overflow: hidden; background: radial-gradient(120% 80% at 80% 0%, #034c7690, transparent 60%), linear-gradient(180deg, #101823, #1a2633); border: 1.5px solid #6ba8d655; padding: clamp(1rem, 2vw, 1.6rem); display: flex; flex-direction: column; gap: clamp(0.4rem, 1vh, 0.8rem); }
+.av-moon { position: absolute; top: clamp(0.8rem, 1.6vw, 1.3rem); right: clamp(0.8rem, 1.6vw, 1.3rem); width: clamp(34px, 3.6vw, 52px); aspect-ratio: 1; border-radius: 50%; box-shadow: inset -0.55em -0.2em 0 0 var(--amber-soft); transform: rotate(-20deg); }
+.av-clock { font-family: var(--font-mono); font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 2.2rem); color: var(--amber-soft); letter-spacing: 1px; }
+.av-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.8vw, 2.4rem); color: var(--paper); line-height: 1.05; }
+.av-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+.av-line { font-family: var(--font-sans); font-size: clamp(0.88rem, 1.3vw, 1.1rem); color: var(--muted-2); line-height: 1.45; }
+.av-glow { position: absolute; left: 50%; bottom: -30%; width: 80%; height: 60%; transform: translateX(-50%); background: radial-gradient(closest-side, #6ba8d640, transparent); pointer-events: none; }
+.av-qs { display: flex; flex-direction: column; gap: clamp(0.45rem, 1.1vh, 0.85rem); justify-content: center; }
+.av-q { background: var(--ink-soft); border: 1px solid var(--border-d); border-left: 4px solid var(--qc, var(--brand-light)); border-radius: 0 14px 14px 0; padding: clamp(0.6rem, 1.2vw, 1rem) clamp(0.8rem, 1.4vw, 1.2rem); }
+.av-q .k { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.85vw, 0.72rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--qc, var(--brand-light)); }
+.av-q .qq { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.95rem, 1.6vw, 1.3rem); color: var(--paper); line-height: 1.2; margin-top: 2px; }
+.av-q .aa { font-family: var(--font-sans); font-style: italic; font-size: clamp(0.85rem, 1.25vw, 1.05rem); color: var(--muted-2); line-height: 1.4; margin-top: 4px; }
+.av-q.gold { --qc: var(--amber); background: linear-gradient(160deg, #e0a63a18, var(--ink-soft)); }
+
+/* ---------- Scene: the journey (slide 14) ---------- */
+.jr-stage { height: clamp(250px, 48vh, 500px); perspective: 1400px; }
+.jr-world { transform-origin: 0 0; }
+.jr-path { position: absolute; left: 0; top: 0; overflow: visible; }
+.jr-path path { fill: none; stroke: #ffffff26; stroke-width: 3; stroke-dasharray: 2 10; stroke-linecap: round; }
+.jr-path path.done { stroke: var(--sprout); stroke-dasharray: none; opacity: 0.55; }
+.jr-st { position: absolute; transform: translate(-50%, 0); width: 30em; background: var(--ink-soft); border: 1px solid var(--border-d); border-top: 0.3em solid var(--dc); border-radius: 1.2em; padding: 1.3em 1.5em; white-space: normal; transform-origin: 50% 0; }
+.jr-st.lit { border-color: var(--dc); box-shadow: 0 0 2.4em color-mix(in srgb, var(--dc) 40%, transparent); }
+.jr-k { font-family: var(--font-mono); font-size: 0.95em; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dc); }
+.jr-n { font-family: var(--font-display); font-weight: 800; font-size: 2.2em; color: var(--paper); line-height: 1.05; margin-top: 0.15em; }
+.jr-d { font-family: var(--font-sans); font-size: 1.15em; color: var(--muted-2); line-height: 1.35; margin-top: 0.3em; }
+.jr-chips { display: flex; flex-direction: column; gap: 0.5em; margin-top: 0.9em; }
+.jr-chip { font-family: var(--font-sans); font-size: 1.2em; font-weight: 600; color: var(--paper); background: var(--ink-deep); border: 1px solid var(--border-d); border-radius: 0.7em; padding: 0.45em 0.8em; transform-origin: 0 50%; }
+.jr-chip::before { content: "?"; display: inline-block; width: 1.3em; height: 1.3em; line-height: 1.3em; text-align: center; border-radius: 50%; background: var(--dc); color: var(--ink); font-family: var(--font-display); font-weight: 800; font-size: 0.8em; margin-right: 0.5em; vertical-align: 0.1em; }
+.jr-hero { position: absolute; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffffff, var(--sprout-soft) 45%, var(--sprout)); box-shadow: 0 0 1.4em #8cc94e90; z-index: 5; }
+.jr-hero-lbl { position: absolute; left: 50%; top: -1.9em; transform: translateX(-50%); font-family: var(--font-mono); font-size: 0.75em; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sprout); white-space: nowrap; }
+.jr-banner { position: absolute; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-weight: 800; font-size: 2.6em; color: var(--paper); white-space: nowrap; text-align: center; }
+.jr-banner small { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 0.42em; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sprout); margin-top: 0.3em; }
+
+/* ---------- Scene: 11pm search vs what we post (slide 15) ---------- */
+.gs-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(0.8rem, 2vw, 1.8rem); width: 100%; align-items: stretch; }
+@media (max-width: 900px) { .gs-grid { grid-template-columns: 1fr; } }
+.gs-panel { background: var(--ink-deep); border: 1px solid var(--border-d); border-radius: 18px; padding: clamp(0.8rem, 1.6vw, 1.3rem); display: flex; flex-direction: column; gap: clamp(0.45rem, 1vh, 0.8rem); }
+.gs-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: var(--font-mono); font-size: clamp(0.6rem, 0.88vw, 0.74rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2); }
+.gs-head b { color: var(--amber-soft); font-weight: 600; }
+.gs-bar { display: flex; align-items: center; gap: 10px; background: #fff; color: #1a1f24; border-radius: 999px; padding: clamp(0.5rem, 1vh, 0.75rem) clamp(0.9rem, 1.4vw, 1.2rem); font-family: var(--font-sans); font-size: clamp(0.9rem, 1.4vw, 1.2rem); min-height: 2.6em; }
+.gs-bar svg { width: 1.1em; height: 1.1em; flex-shrink: 0; }
+.gs-caret { display: inline-block; width: 2px; height: 1.1em; background: var(--brand); vertical-align: -0.15em; margin-left: 1px; }
+.gs-hist { display: flex; flex-direction: column; gap: clamp(0.3rem, 0.7vh, 0.5rem); }
+.gs-item { display: flex; align-items: center; gap: 10px; font-family: var(--font-sans); font-size: clamp(0.85rem, 1.25vw, 1.05rem); color: var(--paper); padding: clamp(0.3rem, 0.6vh, 0.45rem) 0.4rem; border-bottom: 1px solid var(--border-d); transform-origin: 0 0; }
+.gs-item::before { content: ""; width: 0.75em; height: 0.75em; border-radius: 50%; border: 2px solid var(--muted); flex-shrink: 0; }
+.gs-post { display: flex; align-items: center; gap: clamp(0.5rem, 1vw, 0.8rem); background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px; padding: clamp(0.5rem, 1vw, 0.75rem); }
+.gs-post .ph { width: clamp(38px, 4vw, 56px); aspect-ratio: 4 / 5; border-radius: 6px; background: var(--pc); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: clamp(1rem, 1.6vw, 1.4rem); }
+.gs-post .tx { font-family: var(--font-sans); font-size: clamp(0.85rem, 1.25vw, 1.05rem); color: var(--paper); line-height: 1.3; }
+.gs-post .tx small { display: block; font-family: var(--font-mono); font-size: 0.72em; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); }
+.gs-note { font-family: var(--font-sans); font-size: clamp(0.82rem, 1.2vw, 1rem); color: var(--muted-2); line-height: 1.4; margin-top: auto; }
+
+/* ---------- IG post mockups (slide 16) ---------- */
+.ig-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 3vw, 3rem); width: 100%; max-width: 64rem; margin: 0 auto; }
+@media (max-width: 860px) { .ig-row { grid-template-columns: 1fr; } }
+.ig-col { display: flex; flex-direction: column; gap: clamp(0.4rem, 1vh, 0.7rem); align-items: center; }
+.ig-tag { font-family: var(--font-mono); font-size: clamp(0.62rem, 0.9vw, 0.76rem); letter-spacing: 1.6px; text-transform: uppercase; }
+.ig { width: 100%; max-width: clamp(240px, 26vw, 360px); background: #fff; color: #111; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 44px #0007; font-family: var(--font-sans); }
+.ig-top { display: flex; align-items: center; gap: 8px; padding: 8px 10px; font-size: clamp(0.7rem, 0.95vw, 0.82rem); font-weight: 700; }
+.ig-top i { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--sprout), var(--brand)); display: block; }
+.ig-top span { font-weight: 400; color: #777; font-size: 0.9em; }
+.ig-media { aspect-ratio: 4 / 5; max-height: clamp(150px, 30vh, 330px); width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 9% 9%; gap: 0.5em; position: relative; overflow: hidden; }
+.ig-media.news { background: linear-gradient(160deg, #e9edf1, #cfd8e0); color: #1B252F; }
+.ig-media.talk { background: linear-gradient(160deg, #1B252F, #034c76); color: #fff; }
+.ig-media .eyebrow { font-family: var(--font-mono); font-size: clamp(0.55rem, 0.8vw, 0.7rem); letter-spacing: 1.4px; text-transform: uppercase; opacity: 0.7; }
+.ig-media .big { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.05rem, 1.9vw, 1.7rem); line-height: 1.12; }
+.ig-media .big em { font-style: normal; color: var(--sprout); }
+.ig-media .graph { position: absolute; right: 8%; bottom: 10%; width: 46%; }
+.ig-cap { padding: 8px 10px 12px; font-size: clamp(0.72rem, 1vw, 0.86rem); line-height: 1.4; color: #222; }
+.ig-cap b { font-weight: 700; }
+.ig-verdict { font-family: var(--font-sans); font-size: clamp(0.85rem, 1.25vw, 1.05rem); color: var(--muted-2); text-align: center; max-width: 30ch; line-height: 1.4; }
+.ig-verdict b { color: var(--paper); }
+.firstline { position: relative; }
+@keyframes hl { from { background-size: 0% 100%; } to { background-size: 100% 100%; } }
+.firstline mark { color: inherit; background: linear-gradient(#8cc94e55, #8cc94e55) no-repeat; background-size: 0% 100%; border-radius: 3px; padding: 0 2px; }
+.visible .firstline mark { animation: hl 0.9s var(--ease-out-expo) 1.1s forwards; }
+
+/* ---------- Translator (slide 17) ---------- */
+.tr { display: flex; flex-direction: column; gap: clamp(0.45rem, 1.2vh, 0.85rem); width: 100%; }
+.tr-head, .tr-row { display: grid; grid-template-columns: 0.8fr 1.1fr auto 1.6fr; gap: clamp(0.5rem, 1.2vw, 1rem); align-items: center; }
+@media (max-width: 900px) { .tr-head { display: none; } .tr-row { grid-template-columns: 1fr; } .tr-arrow { display: none; } }
+.tr-head span { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.85vw, 0.72rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); }
+.tr-topic { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.95rem, 1.5vw, 1.25rem); color: var(--paper); line-height: 1.2; }
+.tr-topic small { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 0.6em; letter-spacing: 1.2px; text-transform: uppercase; color: var(--brand-light); margin-top: 3px; }
+.tr-news { font-family: var(--font-sans); font-size: clamp(0.85rem, 1.25vw, 1.05rem); color: var(--muted-2); background: var(--ink-deep); border: 1px dashed #ffffff26; border-radius: 12px; padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.6rem, 1.1vw, 0.9rem); line-height: 1.35; }
+.tr-arrow { width: clamp(30px, 3.4vw, 50px); height: 2px; background: var(--sprout); position: relative; }
+.tr-arrow::after { content: ""; position: absolute; right: -2px; top: 50%; transform: translateY(-50%); border-left: 9px solid var(--sprout); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+.tr-talk { font-family: var(--font-sans); font-weight: 600; font-size: clamp(0.88rem, 1.3vw, 1.1rem); color: var(--paper); background: linear-gradient(160deg, #8cc94e1c, var(--ink-soft)); border: 1.5px solid #8cc94e66; border-radius: 12px; padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.6rem, 1.1vw, 0.9rem); line-height: 1.38; }
+.tr-talk b { color: var(--sprout); }
+.tr-row { opacity: 0; transform: translateX(-20px); transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo); }
+.visible .tr-row { opacity: 1; transform: none; }
+.visible .tr-row:nth-child(2) { transition-delay: 0.2s; }
+.visible .tr-row:nth-child(3) { transition-delay: 0.7s; }
+.visible .tr-row:nth-child(4) { transition-delay: 1.2s; }
+
+/* ---------- Scene: right size (slide 18) ---------- */
+.rs-layout { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.2rem, 4vw, 4rem); align-items: center; width: 100%; }
+@media (max-width: 900px) { .rs-layout { grid-template-columns: 1fr; justify-items: center; } }
+.rs-screen { position: absolute; inset: 0; background: #000; }
+.rs-video { position: absolute; left: 0; width: 100%; overflow: hidden; background: linear-gradient(160deg, #034c76, #1B252F 55%, #2c5e15); display: flex; align-items: center; justify-content: center; }
+.rs-video .face { width: 3.4em; height: 3.4em; border-radius: 50%; background: radial-gradient(circle at 50% 38%, var(--amber-soft) 0 26%, transparent 27%), radial-gradient(circle at 50% 110%, var(--brand-light) 0 52%, transparent 53%), #0a6399; border: 0.15em solid var(--sprout); flex-shrink: 0; }
+.rs-video .cap { position: absolute; left: 8%; right: 8%; bottom: 10%; text-align: center; font-family: var(--font-display); font-weight: 800; font-size: 1.05em; color: #fff; text-shadow: 0 2px 8px #000a; white-space: normal; line-height: 1.15; }
+.rs-label { position: absolute; left: 50%; top: 3.4em; transform: translateX(-50%); z-index: 6; font-family: var(--font-mono); font-size: 0.82em; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000a; border: 1px solid #ffffff30; border-radius: 999px; padding: 0.3em 0.9em; white-space: nowrap; }
+.rs-pct { position: absolute; left: 50%; bottom: 1.6em; transform: translateX(-50%); z-index: 6; font-family: var(--font-display); font-weight: 800; font-size: 1.5em; color: var(--sprout); background: #000c; border-radius: 0.5em; padding: 0.1em 0.6em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.rs-pct small { font-family: var(--font-mono); font-weight: 500; font-size: 0.45em; letter-spacing: 1px; color: #fff; text-transform: uppercase; margin-left: 0.4em; }
+.rs-list { display: flex; flex-direction: column; gap: clamp(0.5rem, 1.3vh, 0.9rem); }
+.rs-item { display: grid; grid-template-columns: clamp(64px, 6.5vw, 96px) 1fr auto; gap: clamp(0.7rem, 1.4vw, 1.2rem); align-items: center; background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 14px; padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.7rem, 1.3vw, 1.1rem); transition: border-color 0.3s, background 0.3s; }
+.rs-item.on { border-color: var(--sprout); background: linear-gradient(160deg, #8cc94e18, var(--ink-soft)); }
+.rs-shape { display: flex; align-items: center; justify-content: center; height: clamp(48px, 6.4vw, 86px); }
+.rs-shape i { display: block; border: 2px solid var(--brand-light); border-radius: 4px; background: #6ba8d622; }
+.rs-item.on .rs-shape i { border-color: var(--sprout); background: #8cc94e30; }
+.rs-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.05rem, 1.8vw, 1.5rem); color: var(--paper); line-height: 1.1; }
+.rs-where { font-family: var(--font-sans); font-size: clamp(0.82rem, 1.2vw, 1rem); color: var(--muted-2); line-height: 1.3; }
+.rs-fill { font-family: var(--font-mono); font-weight: 600; font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--muted-2); text-align: right; }
+.rs-fill b { display: block; font-family: var(--font-display); font-size: 1.5em; color: var(--paper); }
+.rs-item.on .rs-fill b { color: var(--sprout); }
+
+/* ---------- First two seconds (slide 19) ---------- */
+.f2-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.3vw, 1.1rem); width: 100%; }
+@media (max-width: 1000px) { .f2-grid { grid-template-columns: repeat(2, 1fr); } }
+.f2 { background: var(--ink-soft); border: 1px solid var(--border-d); border-top: 4px solid var(--sprout); border-radius: 16px; padding: clamp(0.8rem, 1.5vw, 1.25rem); display: flex; flex-direction: column; gap: clamp(0.35rem, 0.9vh, 0.65rem); }
+.f2-n { font-family: var(--font-mono); font-weight: 700; font-size: clamp(0.65rem, 0.95vw, 0.8rem); letter-spacing: 1.4px; color: var(--sprout); }
+.f2-t { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.05rem, 1.75vw, 1.45rem); color: var(--paper); line-height: 1.12; }
+.f2-d { font-family: var(--font-sans); font-size: clamp(0.84rem, 1.2vw, 1.02rem); color: var(--muted-2); line-height: 1.4; }
+.f2-ex { margin-top: auto; font-family: var(--font-sans); font-style: italic; font-size: clamp(0.8rem, 1.1vw, 0.95rem); color: var(--paper); background: var(--ink-deep); border-radius: 10px; padding: 0.5em 0.7em; line-height: 1.35; }
+.clock2 { display: flex; align-items: center; gap: clamp(0.6rem, 1.2vw, 1rem); }
+.clock2-ring { width: clamp(54px, 5.6vw, 80px); aspect-ratio: 1; position: relative; }
+.clock2-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.clock2-ring .trk { fill: none; stroke: #ffffff14; stroke-width: 8; }
+.clock2-ring .arc { fill: none; stroke: var(--amber); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; }
+@keyframes ring-2s { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+.visible .clock2-ring .arc { animation: ring-2s 2s linear infinite; }
+.clock2-ring b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: clamp(0.9rem, 1.5vw, 1.25rem); color: var(--amber-soft); }
+
+/* ---------- Exercise (slide 20) ---------- */
+.ex-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); width: 100%; }
+@media (max-width: 1000px) { .ex-steps { grid-template-columns: repeat(2, 1fr); } }
+.xs { background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 16px; padding: clamp(0.8rem, 1.5vw, 1.2rem); display: flex; flex-direction: column; gap: clamp(0.35rem, 0.8vh, 0.6rem); position: relative; }
+.xs-num { width: clamp(30px, 3vw, 42px); height: clamp(30px, 3vw, 42px); border-radius: 50%; background: var(--sprout); color: var(--ink); font-family: var(--font-display); font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: clamp(0.9rem, 1.4vw, 1.2rem); }
+.xs-t { font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.6vw, 1.35rem); color: var(--paper); line-height: 1.15; }
+.xs-d { font-family: var(--font-sans); font-size: clamp(0.84rem, 1.2vw, 1.02rem); color: var(--muted-2); line-height: 1.4; }
+.xs-fill { margin-top: auto; font-family: var(--font-mono); font-size: clamp(0.7rem, 0.95vw, 0.82rem); color: var(--paper); background: var(--ink-deep); border: 1px dashed #8cc94e55; border-radius: 8px; padding: 0.5em 0.7em; line-height: 1.45; }
+.timer-pill { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-weight: 600; font-size: clamp(0.75rem, 1.1vw, 0.95rem); letter-spacing: 1.2px; color: var(--ink); background: var(--amber); border-radius: 999px; padding: 4px 14px; }
+.timer-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--ink); display: block; animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- Commitments (slide 22) ---------- */
+.commit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.6rem, 1.4vw, 1.2rem); width: 100%; }
+@media (max-width: 860px) { .commit-grid { grid-template-columns: 1fr; } }
+.commit-card { background: var(--ink-soft); border: 1.5px solid var(--border-d); border-top: 4px solid var(--cc); border-radius: 18px; padding: clamp(0.9rem, 1.8vw, 1.5rem); display: flex; flex-direction: column; gap: clamp(0.4rem, 0.9vh, 0.7rem); }
+.commit-num { font-family: var(--font-mono); font-size: clamp(0.62rem, 0.9vw, 0.76rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--cc); }
+.commit-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.1vw, 1.75rem); color: var(--paper); line-height: 1.1; letter-spacing: -0.015em; }
+.commit-desc { font-family: var(--font-sans); font-size: clamp(0.88rem, 1.25vw, 1.05rem); color: var(--muted-2); line-height: 1.42; }
+.check-list { display: flex; flex-direction: column; gap: 6px; }
+.check-list div { display: flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: clamp(0.85rem, 1.2vw, 1rem); color: var(--paper); }
+.check-list div::before { content: "\2713"; width: 1.3em; height: 1.3em; border-radius: 4px; background: #8cc94e30; color: var(--sprout); font-weight: 800; font-size: 0.85em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.date-strip { display: flex; align-items: center; gap: clamp(0.7rem, 1.5vw, 1.2rem); background: var(--ink-soft); border: 1px solid var(--border-d); border-left: 4px solid var(--sprout); border-radius: 0 14px 14px 0; padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.8rem, 1.5vw, 1.2rem); }
+.date-chip { display: flex; flex-direction: column; align-items: center; background: var(--paper); color: var(--ink); border-radius: 10px; overflow: hidden; min-width: clamp(48px, 5vw, 64px); flex-shrink: 0; }
+.date-chip .m { background: var(--clay); color: #fff; width: 100%; text-align: center; font-family: var(--font-mono); font-size: clamp(0.5rem, 0.7vw, 0.62rem); letter-spacing: 1.2px; padding: 2px 0; }
+.date-chip .d { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.1rem, 2vw, 1.6rem); line-height: 1.1; padding: 2px 8px 4px; }
+.date-text { font-family: var(--font-sans); font-size: clamp(0.85rem, 1.25vw, 1.05rem); color: var(--paper); line-height: 1.4; }
+.date-text strong { color: var(--sprout); }
+
+/* Short screens (laptops at 720p): trim the densest slides so nothing clips */
+@media (max-height: 780px) {
+    .gs-note { display: none; }
+    .gs-post { padding: 0.35rem 0.6rem; }
+    .gs-post .ph { width: 32px; }
+    .gs-item { padding: 0.2rem 0.4rem; }
+    .gs-panel { gap: 0.4rem; padding: 0.7rem; }
+    .rs-shape { height: 40px; }
+    .rs-item { padding: 0.4rem 0.7rem; }
+    .rs-list { gap: 0.4rem; }
+    #slide-18 .slide-body { display: none; }
+    #slide-23 h1 { font-size: clamp(1.3rem, 3vw, 2.2rem) !important; }
+    #slide-23 .slide-content { gap: 0.9rem !important; }
+}
+
+/* ===========================================
+   PRINT / PDF EXPORT — one slide per page
+   =========================================== */
+@media print {
+    @page { size: 1920px 1080px; margin: 0; }
+    html { scroll-snap-type: none; }
+    .slide { break-after: page; page-break-after: always; height: 1080px; }
+    .progress-bar, .nav-dots { display: none !important; }
+    .reveal, .reveal-scale, .stagger > *, .tr-row { opacity: 1 !important; transform: none !important; filter: none !important; }
+    .stroke-animate svg.ul path { stroke-dashoffset: 0 !important; animation: none !important; }
+    * { animation: none !important; transition: none !important; }
+    .q3-check { transform: scale(1) !important; }
+    .q3-timeline b { transform: scaleX(1) !important; }
+    .firstline mark { background-size: 100% 100% !important; }
+    .clock2-ring .arc { stroke-dashoffset: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ========== SLIDE 01 — COVER ========== -->
+<section class="slide gradient-bg" id="slide-1" data-notes="Welcome back. **Business Management, Session 2.**
+
+Two weeks ago you saw that your business has four departments, and you run all four.
+
+Today we open one of those doors. **Marketing.** Not the tools. The idea under the tools.
+
+Here&#x27;s the plan:
+1. What marketing really is, in plain words.
+2. How a brain on a phone decides in under two seconds.
+3. Your client avatar, and where they are on their road.
+4. The right size for the right place.
+5. A live exercise. You leave with posts written for your person.
+
+Let&#x27;s go.
+
+---
+
+Bienvenidos otra vez. **Business Management, Sesión 2.**
+
+Hace dos semanas vieron que su negocio tiene cuatro departamentos, y que ustedes manejan los cuatro.
+
+Hoy abrimos una de esas puertas. **Marketing.** No las herramientas. La idea que está debajo de las herramientas.
+
+Este es el plan:
+1. Qué es el marketing de verdad, en palabras sencillas.
+2. Cómo un cerebro en un celular decide en menos de dos segundos.
+3. Tu cliente avatar, y en qué parte de su camino está.
+4. El tamaño correcto para el lugar correcto.
+5. Un ejercicio en vivo. Salen de aquí con posts escritos para su persona.
+
+Dale, vamos." style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal-scale" style="position:relative;display:flex;align-items:center;gap:clamp(1rem,2.5vw,2rem);">
+            <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate" style="height:clamp(2.5rem,6vw,4.5rem);width:auto;color:var(--paper);">
+                <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+                <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay:0.5s;"/></g>
+            </svg>
+            <span style="color:var(--muted);font-size:clamp(1.2rem,2.5vw,2rem);font-weight:200;opacity:0.3;">&times;</span>
+            <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" style="height:clamp(2.2rem,5vw,3.8rem);width:auto;margin-top:-10px;">
+        </div>
+        <div>
+            <div class="section-label reveal" style="justify-content:center;">Business Management &middot; Session 2</div>
+            <h1 class="reveal" style="font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,5.5vw,4.5rem);letter-spacing:-0.03em;line-height:1.05;">Talk to <span class="stroke stroke--sprout stroke-animate">One Person<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+            <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(1rem,2vw,1.4rem);color:var(--muted-2);margin-top:clamp(0.6rem,1.2vh,1rem);">The Marketing department, from the ground up.</p>
+        </div>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.8rem,1.2vw,1rem);color:var(--muted-2);">Pedro Bando Rivera, Broker/Owner</p>
+        <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <span class="badge badge-sprout">Presentation + Exercise</span>
+            <span class="badge badge-brand">Business Management</span>
+            <span class="badge badge-amber">Session 2</span>
+        </div>
+    </div>
+    <div class="slide-footer" style="color:var(--muted-2);">reThought Real Estate &middot; reLearn</div>
+    <div class="slide-number" style="color:var(--muted-2);">01 / 23</div>
+</section>
+
+<!-- ========== SLIDE 02 — YEAR STATEMENT ========== -->
+<section class="slide" id="slide-2" data-notes="Quick reminder before we start.
+
+**2026 is the year of systems and new skill developments.**
+
+Today&#x27;s new skill is an old one. It&#x27;s the skill of understanding people.
+
+Every tool we use, from Meta to ManyChat to Higgsfield, works better when you understand the person on the other side of the screen.
+
+---
+
+Recordatorio rápido antes de empezar.
+
+**El 2026 es el año de los sistemas y del desarrollo de destrezas nuevas.**
+
+La destreza nueva de hoy es una bien vieja. Es la destreza de entender a la gente.
+
+Cada herramienta que usamos, desde Meta hasta ManyChat y Higgsfield, funciona mejor cuando entiendes a la persona que está al otro lado de la pantalla." style="justify-content: center; align-items: center;">
+    <div style="text-align:center;max-width:min(85vw,900px);margin:0 auto;">
+        <div class="section-label reveal" style="justify-content:center;">The Year Of</div>
+        <h2 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(2.2rem,6.5vw,5rem);letter-spacing:-0.04em;line-height:1.12;">
+            2026 Is THE Year of<br>
+            <span class="stroke stroke--sprout stroke-animate">SYSTEMS<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> and <span class="stroke stroke--brand stroke-animate">NEW<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 8 C 60 14, 120 2, 198 8"/></svg></span><br>
+            Skill Developments.
+        </h2>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">02 / 23</div>
+</section>
+
+<!-- ========== SLIDE 03 — MISSION & VISION — ENGLISH ========== -->
+<section class="slide" id="slide-3" data-notes="Our mission and our vision.
+
+**Mission.** To redefine traditional real estate expectations delivering a personalized, tech-driven, and client-centric approach to buying and selling real estate.
+
+**Vision.** To succeed in becoming the local industry leader focused on humanizing the real estate industry, leveraging innovation, investment and growth, while remaining a community resource.
+
+Look at the word **client-centric.** It means the client is the center. Not us. Not our listings. Not our news. The client.
+
+That&#x27;s what good marketing is too, and that&#x27;s today.
+
+---
+
+Nuestra misión y nuestra visión, aquí en inglés. En la próxima las leemos en español.
+
+Fíjense en la palabra **client-centric,** centrado en el cliente. Quiere decir que el cliente es el centro. No nosotros. No nuestros listings. No nuestras noticias. El cliente.
+
+Eso mismo es el buen marketing, y de eso se trata hoy." style="justify-content: center;">
+    <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+        <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand-light); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Mission</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">To redefine traditional real estate expectations delivering a <span style="color: var(--sprout); font-weight: 700;">personalized</span>, <span style="color: var(--sprout); font-weight: 700;">tech-driven</span>, and <span style="color: var(--sprout); font-weight: 700;">client-centric</span> approach to buying and selling real estate.</p>
+        </div>
+        <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Vision</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--paper); font-weight: 500;">To succeed in becoming the local industry <span style="color: var(--brand-light); font-weight: 700;">leader</span> focused on <span style="color: var(--brand-light); font-weight: 700;">humanizing</span> the real estate industry, leveraging innovation, investment and growth, while remaining a <span style="color: var(--brand-light); font-weight: 700;">community resource</span>.</p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
+    <div class="slide-number">03 / 23</div>
+</section>
+
+<!-- ========== SLIDE 04 — MISIÓN Y VISIÓN — SPANISH ========== -->
+<section class="slide light" id="slide-4" data-notes="Here it is in Spanish. Same mission, same vision.
+
+Our clients live in both languages, so we market in both.
+
+&gt; Give the room a few seconds to read it.
+
+---
+
+Ahora en español.
+
+**Misión.** Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque personalizado, impulsado por la tecnología y centrado en el cliente para la compra y venta de propiedades.
+
+**Visión.** Triunfar en convertirnos en el líder local de la industria enfocado en humanizar el sector inmobiliario, aprovechando la innovación, la inversión y el crecimiento, mientras seguimos siendo un recurso para la comunidad.
+
+Nuestros clientes viven en los dos idiomas, así que nuestro marketing también.
+
+&gt; Dale al salón unos segundos para leerla." style="justify-content: center;">
+    <div class="slide-content" style="gap: clamp(1rem, 3vh, 2.5rem); align-items: center; text-align: center;">
+        <div class="section-label reveal" style="justify-content: center;">Production Centric Boutique Firm</div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--brand); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Misi&oacute;n</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">Redefinir las expectativas tradicionales del sector inmobiliario, brindando un enfoque <span style="color: var(--brand); font-weight: 700;">personalizado</span>, impulsado por la <span style="color: var(--brand); font-weight: 700;">tecnolog&iacute;a</span> y centrado en el <span style="color: var(--brand); font-weight: 700;">cliente</span> para la compra y venta de propiedades.</p>
+        </div>
+        <div style="width: clamp(40px, 6vw, 80px); height: 3px; background: var(--sprout); border-radius: 2px;" class="reveal"></div>
+        <div class="reveal" style="max-width: min(85vw, 900px);">
+            <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -0.02em; color: var(--sprout-deep); line-height: 1.1; margin-bottom: clamp(0.5rem, 1.5vh, 1rem);">Visi&oacute;n</h2>
+            <p style="font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); font-weight: 500;">Triunfar en convertirnos en el <span style="color: var(--sprout-deep); font-weight: 700;">l&iacute;der local</span> de la industria enfocado en <span style="color: var(--sprout-deep); font-weight: 700;">humanizar</span> el sector inmobiliario, aprovechando la innovaci&oacute;n, la inversi&oacute;n y el crecimiento, mientras seguimos siendo un <span style="color: var(--sprout-deep); font-weight: 700;">recurso para la comunidad</span>.</p>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-logo-for-light-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Human First &middot; Tech Driven &middot; Community Focused</span></div>
+    <div class="slide-number">04 / 23</div>
+</section>
+
+<!-- ========== SLIDE 05 — SOCIAL MEDIA PUNCHLINE (STORY TIME) ========== -->
+<section class="slide punchline-bg" id="slide-5" data-notes="Story time. Picture one of you posting this on your stories.
+
+**Nobody remembers you after one post. Three times to the same person beats once to everybody.**
+
+Here&#x27;s where that comes from.
+- Advertising research says people need to see something **at least three times** before it starts to stick. Three times just to remember you.
+- So if every post goes to a different crowd, nobody ever gets to three.
+- Pick one person. Show up for them again and again. That&#x27;s how you get remembered.
+
+That&#x27;s today in one line. Let&#x27;s break it down.
+
+---
+
+Story time. Imagínense a uno de ustedes subiendo esto a sus stories.
+
+**Nadie se acuerda de ti después de un post. Tres veces a la misma persona le gana a una vez a todo el mundo.**
+
+De aquí sale eso.
+- La investigación de publicidad dice que la gente tiene que ver algo **por lo menos tres veces** antes de que se le quede. Tres veces nada más pa&#x27; acordarse de ti.
+- Así que si cada post le llega a un grupo diferente, nadie llega nunca a las tres.
+- Escoge una persona. Aparece para ella una y otra vez. Así es que se acuerdan de ti.
+
+Eso es lo de hoy en una línea. Vamos a desglosarlo." style="justify-content: center; align-items: center;">
+    <div class="punchline-glow"></div>
+    <div class="punchline-particles"><span style="left:10%;animation-duration:8s;animation-delay:0s;width:3px;height:3px;"></span><span style="left:25%;animation-duration:12s;animation-delay:1s;width:5px;height:5px;"></span><span style="left:40%;animation-duration:10s;animation-delay:2.5s;width:3px;height:3px;"></span><span style="left:55%;animation-duration:9s;animation-delay:0.5s;width:4px;height:4px;background:var(--brand-light);"></span><span style="left:70%;animation-duration:11s;animation-delay:3s;width:3px;height:3px;"></span><span style="left:85%;animation-duration:7s;animation-delay:1.5s;width:5px;height:5px;"></span><span style="left:15%;animation-duration:13s;animation-delay:4s;width:2px;height:2px;background:var(--brand-light);"></span><span style="left:60%;animation-duration:8.5s;animation-delay:2s;width:4px;height:4px;"></span><span style="left:90%;animation-duration:10s;animation-delay:0.8s;width:3px;height:3px;"></span><span style="left:35%;animation-duration:14s;animation-delay:5s;width:2px;height:2px;"></span></div>
+    <img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/social-media-story-time-indicator.gif" alt="Story time" style="position:absolute;bottom:clamp(30px,5vh,50px);right:var(--slide-padding);opacity:0.8;height:clamp(50px,7vh,80px);width:auto;z-index:2;">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(0.8rem,2vh,1.5rem);max-width:min(90vw,880px);position:relative;z-index:1;margin:0 auto;">
+        <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;"><span class="badge badge-sprout">Story Time</span></div>
+        <h2 class="reveal" style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,4.4vw,3.6rem);letter-spacing:-0.03em;line-height:1.15;transition-delay:0.1s;">Nobody remembers you<br>after <span class="stroke stroke--sprout stroke-animate">one post.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2>
+        <p class="reveal" style="font-family:var(--font-display);font-weight:600;font-size:clamp(1.05rem,2.2vw,1.7rem);color:var(--sprout);letter-spacing:-0.01em;transition-delay:0.25s;">Three times to the same person beats once to everybody.</p>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.9rem,1.6vw,1.2rem);color:var(--muted-2);max-width:60ch;line-height:1.4;transition-delay:0.4s;font-style:italic;">Nadie se acuerda de ti despu&eacute;s de un post. Tres veces a la misma persona le gana a una vez a todo el mundo.</p>
+        <p class="reveal src" style="transition-delay:0.5s;color:var(--muted-2);">Research &middot; people need at least 3 exposures before an ad starts to stick (Krugman; Google)</p>
+        <div class="reveal" style="transition-delay:0.55s;"><p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.9vw,0.78rem);letter-spacing:2px;text-transform:uppercase;color:var(--muted-2);">reThought Real Estate &middot; reLearn &middot; Business Management</p></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Highlight</span></div>
+    <div class="slide-number" style="z-index:2;">05 / 23</div>
+</section>
+
+<!-- ========== SLIDE 06 — CALLBACK: ZOOM INTO MARKETING (motion scene) ========== -->
+<section class="slide" id="slide-6" data-notes="Remember this? Your org chart from two weeks ago. You&#x27;re the CEO, and you run four departments.
+
+Today we zoom into one box. **Marketing.** One-to-many. Getting in front of people who don&#x27;t know you yet.
+
+&gt; Let the camera finish zooming before you talk about the box.
+
+In Marketing Machine you built the tools: ads, ManyChat, lead magnets. Those are great tools.
+
+But a tool needs a reason. A hammer is great, but you still need to know what you&#x27;re building.
+
+**Today is the why under the tools.** If the why is right, every tool works better.
+
+---
+
+¿Se acuerdan de esto? Su organigrama de hace dos semanas. Tú eres el CEO, y manejas cuatro departamentos.
+
+Hoy hacemos zoom en una caja. **Marketing.** Uno a muchos. Ponerte frente a gente que todavía no te conoce.
+
+&gt; Deja que la cámara termine el zoom antes de hablar de la caja.
+
+En Marketing Machine construyeron las herramientas: anuncios, ManyChat, lead magnets. Son buenas herramientas.
+
+Pero una herramienta necesita una razón. Un martillo es bueno, pero igual tienes que saber qué estás construyendo.
+
+**Hoy es el porqué debajo de las herramientas.** Si el porqué está bien, cada herramienta funciona mejor." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Two Weeks Ago &middot; You&rsquo;re the CEO</div><h2 class="slide-title">Four Departments. <span style="color:var(--amber);">Today We Open One.</span></h2><p class="slide-body">You already built the tools. Today is the why under the tools.</p></div>
+        <div class="mg-stage zm-stage reveal" data-mg="zoom" style="transition-delay:0.1s;">
+            <div class="mg-grid"></div>
+            <div class="mg-world">
+                <svg class="zm-lines" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M50 19 V28 M14 28 H86 M14 28 V37 M38 28 V37 M62 28 V37 M86 28 V37"/></svg>
+                <div class="mg-abs zm-ceo"><span>CEO</span><b>You</b></div>
+                <div class="zm-dept" style="left:14%;--dc:var(--sprout);"><div class="t">1-to-1</div><div class="n">Business Development</div><div class="j">Relationships, one person at a time</div></div>
+                <div class="zm-dept" data-target style="left:38%;--dc:var(--amber);"><span class="zm-today">Today</span><div class="t">1-to-many</div><div class="n">Marketing</div><div class="j">Attention, many people at a time</div><div class="x">Helping the <b>right person</b> raise their hand and say, <b>&ldquo;That&rsquo;s me.&rdquo;</b></div></div>
+                <div class="zm-dept" style="left:62%;--dc:var(--brand-light);"><div class="t">Convert</div><div class="n">Sales</div><div class="j">Conversations into signed agreements</div></div>
+                <div class="zm-dept" style="left:86%;--dc:var(--clay);"><div class="t">Run &amp; protect</div><div class="n">Admin</div><div class="j">Deals to closing, money and records</div></div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">06 / 23</div>
+</section>
+
+<!-- ========== SLIDE 07 — WHAT MARKETING IS (motion scene: crowd + hand) ========== -->
+<section class="slide" id="slide-7" data-notes="So what is marketing? If I had to explain it to a ten-year-old, I&#x27;d say this:
+
+**Marketing is helping the right person raise their hand and say, that&#x27;s me.**
+
+Watch the screen. A message goes across a crowd. Most people keep walking. That&#x27;s okay. We weren&#x27;t talking to them.
+
+&gt; Point at the person who raises their hand.
+
+One person stops. One person says, that&#x27;s me. That&#x27;s the whole job.
+
+Think about fishing. You love pizza. But you don&#x27;t put pizza on the hook. You use the bait the fish likes.
+
+Marketing works the same way. **We don&#x27;t post what we like. We post what our person needs, wants, and worries about.**
+
+---
+
+Entonces, ¿qué es el marketing? Si se lo tuviera que explicar a un nene de diez años, le diría esto:
+
+**Marketing es ayudar a la persona correcta a levantar la mano y decir: esa soy yo.**
+
+Miren la pantalla. Un mensaje pasa por encima de un grupo de gente. La mayoría sigue caminando. Y está bien. No le estábamos hablando a ellos.
+
+&gt; Señala a la persona que levanta la mano.
+
+Una persona se detiene. Una persona dice: ese soy yo. Ese es todo el trabajo.
+
+Piensen en pescar. A ti te encanta la pizza. Pero no le pones pizza al anzuelo. Usas la carnada que le gusta al pez.
+
+El marketing funciona igual. **No posteamos lo que nos gusta a nosotros. Posteamos lo que nuestra persona necesita, quiere y lo que le preocupa.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">What Marketing Is</div><h2 class="slide-title">Helping the right person say, <span style="color:var(--sprout);">&ldquo;That&rsquo;s me.&rdquo;</span></h2><p class="slide-body">Most people keep walking. That&rsquo;s okay. We weren&rsquo;t talking to them.</p></div>
+        <div class="mg-stage hd-stage reveal" data-mg="hand" style="transition-delay:0.1s;"><div class="mg-grid"></div></div>
+        <div class="bait-row stagger">
+            <div class="bait"><span class="ic">&#127829;</span><div class="w"><b>Bait you like.</b> Pizza is great. The fish doesn&rsquo;t care.</div></div>
+            <div class="bait good"><span class="ic">&#129713;</span><div class="w"><b>Bait the fish likes.</b> Post what <span style="color:var(--sprout);font-weight:700;">your person</span> needs, wants and worries about.</div></div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">07 / 23</div>
+</section>
+
+<!-- ========== SLIDE 08 — THREE WORDS PEOPLE MIX UP ========== -->
+<section class="slide" id="slide-8" data-notes="Three words people mix up all the time. Let&#x27;s make them simple.
+
+1. **Marketing** gets the right person to raise their hand.
+2. **Sales** helps that person say yes. That&#x27;s the conversation, the consult, the agreement.
+3. **Ads** are a megaphone. You pay so more people hear your message.
+
+Here&#x27;s the key. **A megaphone makes a message louder. It doesn&#x27;t make it better.**
+
+If the message isn&#x27;t for anybody, an ad just helps more people ignore it, faster.
+
+So the order is always the same. Message first. Megaphone second.
+
+---
+
+Tres palabras que la gente confunde todo el tiempo. Vamos a hacerlas sencillas.
+
+1. **Marketing** hace que la persona correcta levante la mano.
+2. **Ventas** ayuda a esa persona a decir que sí. Es la conversación, la consulta, el acuerdo.
+3. **Los anuncios** son un megáfono. Pagas para que más gente escuche tu mensaje.
+
+Esta es la clave. **Un megáfono hace el mensaje más fuerte. No lo hace mejor.**
+
+Si el mensaje no es para nadie, el anuncio nada más ayuda a que más gente lo ignore, y más rápido.
+
+Así que el orden siempre es el mismo. Primero el mensaje. Después el megáfono." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">Three Words, Made Simple</div><h2 class="slide-title">Marketing. Sales. Ads. <span style="color:var(--sprout);">Not the Same Thing.</span></h2></div>
+        <div class="trio stagger">
+            <div class="trio-card" style="--dc:var(--amber);">
+                <div class="trio-ic"><svg viewBox="0 0 70 70"><circle cx="34" cy="20" r="9" fill="#e0a63a"/><path d="M20 66 V48 a14 14 0 0 1 28 0 V66" fill="#e0a63a"/><line class="hand-arm" x1="34" y1="46" x2="56" y2="54" stroke="#e0a63a" stroke-width="7" stroke-linecap="round"/></svg></div>
+                <div class="trio-k">Marketing</div>
+                <div class="trio-n">Raise a hand</div>
+                <div class="trio-d">Gets the <b>right person</b> to say, &ldquo;That&rsquo;s me.&rdquo;</div>
+            </div>
+            <div class="trio-card" style="--dc:var(--brand-light);">
+                <div class="trio-ic"><svg viewBox="0 0 70 70"><rect x="10" y="8" width="44" height="54" rx="5" fill="none" stroke="#6ba8d6" stroke-width="4"/><line x1="18" y1="22" x2="46" y2="22" stroke="#6ba8d655" stroke-width="4" stroke-linecap="round"/><line x1="18" y1="32" x2="40" y2="32" stroke="#6ba8d655" stroke-width="4" stroke-linecap="round"/><path class="sign-line" d="M18 50 q6 -10 10 0 t10 0 t10 -4" fill="none" stroke="#6ba8d6" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+                <div class="trio-k">Sales</div>
+                <div class="trio-n">Say yes</div>
+                <div class="trio-d">Helps that person <b>decide</b>. The talk, the consult, the agreement.</div>
+            </div>
+            <div class="trio-card" style="--dc:var(--sprout);">
+                <div class="trio-ic"><svg viewBox="0 0 70 70"><path d="M8 32 h10 l20 -14 v44 l-20 -14 h-10 z" fill="#8cc94e"/><path class="mega-wave" d="M46 26 q8 14 0 28" fill="none" stroke="#8cc94e" stroke-width="3.5" stroke-linecap="round"/><path class="mega-wave w2" d="M46 26 q8 14 0 28" fill="none" stroke="#8cc94e" stroke-width="3.5" stroke-linecap="round"/><path class="mega-wave w3" d="M46 26 q8 14 0 28" fill="none" stroke="#8cc94e" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+                <div class="trio-k">Ads</div>
+                <div class="trio-n">A megaphone</div>
+                <div class="trio-d">You pay so <b>more people</b> hear the message.</div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.9s;"><div class="callout-line">A megaphone makes a message <strong style="color:var(--sprout);">louder</strong>. It doesn&rsquo;t make it <strong style="color:var(--amber-soft);">better</strong>. Message first, megaphone second.<br><span class="echo-es">Un meg&aacute;fono hace el mensaje m&aacute;s fuerte. No lo hace mejor.</span></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">08 / 23</div>
+</section>
+
+<!-- ========== SLIDE 09 — SEEN 3 TO 7 TIMES (motion scene) ========== -->
+<section class="slide" id="slide-9" data-notes="Question for the room. How many times does someone need to see you before they do something?
+
+&gt; Let two or three people guess.
+
+There&#x27;s an old rule in marketing called the Rule of Seven. Here&#x27;s what the research actually says.
+
+- **Research says about three times** before an ad even starts to stick. That&#x27;s just to remember you.
+- **Marketers say closer to seven** before people trust you enough to act.
+
+Nobody knows the exact number. It depends on the person and the message.
+
+But here&#x27;s what we do know for sure. **One post is never enough.** Showing up again and again, for the same person, is the job.
+
+That&#x27;s why being consistent beats one viral video.
+
+---
+
+Pregunta para el salón. ¿Cuántas veces alguien tiene que verte antes de hacer algo?
+
+&gt; Deja que dos o tres personas adivinen.
+
+Hay una regla vieja en marketing que se llama la Regla del Siete. Esto es lo que dice la investigación de verdad.
+
+- **La investigación dice como tres veces** antes de que un anuncio se te quede. Eso es nada más pa&#x27; que se acuerden de ti.
+- **Los mercadólogos dicen que más cerca de siete** antes de que la gente confíe lo suficiente para actuar.
+
+Nadie sabe el número exacto. Depende de la persona y del mensaje.
+
+Pero esto sí lo sabemos seguro. **Un post nunca es suficiente.** Aparecer una y otra vez, para la misma persona, ese es el trabajo.
+
+Por eso ser consistente le gana a un video viral." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">How Many Times?</div><h2 class="slide-title">One Post Is <span style="color:var(--amber);">Never Enough.</span></h2><p class="slide-body">People need to see you again and again before they remember you, and longer before they trust you.</p></div>
+        <div class="mg-stage ex-stage reveal" data-mg="exposure" style="transition-delay:0.1s;"><div class="mg-grid"></div></div>
+        <div class="reveal" style="transition-delay:0.3s;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <div class="callout-line" style="border-left-color:var(--amber);"><strong style="color:var(--amber-soft);">Showing up is the job.</strong> Consistent beats viral.<br><span class="echo-es">Aparecer una y otra vez es el trabajo.</span></div>
+            <div class="src">3 = Krugman &amp; Google ad-frequency research &middot; 7 = marketers&rsquo; rule of thumb</div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">09 / 23</div>
+</section>
+
+<!-- ========== SLIDE 10 — ATTENTION IS SHRINKING (motion scene) ========== -->
+<section class="slide" id="slide-10" data-notes="Now let&#x27;s talk about attention.
+
+Dr. Gloria Mark at the University of California, Irvine has measured for about twenty years how long people stay on one screen before they switch to something else.
+
+1. **In 2004, about two and a half minutes.**
+2. **Some years later, about seventy-five seconds.**
+3. **Today, about forty-seven seconds.**
+
+&gt; Pause on 47.
+
+That&#x27;s not anyone&#x27;s fault. Not theirs, not ours. It&#x27;s the world we market in.
+
+So here&#x27;s the lesson. **We don&#x27;t get more time. We get better at using the little time we get.**
+
+---
+
+Ahora hablemos de la atención.
+
+La doctora Gloria Mark, de la Universidad de California en Irvine, lleva como veinte años midiendo cuánto tiempo la gente se queda en una pantalla antes de cambiar a otra cosa.
+
+1. **En el 2004, como dos minutos y medio.**
+2. **Unos años después, como setenta y cinco segundos.**
+3. **Hoy, como cuarenta y siete segundos.**
+
+&gt; Haz una pausa en el 47.
+
+Eso no es culpa de nadie. Ni de ellos, ni de nosotros. Es el mundo en el que hacemos marketing.
+
+Así que esta es la lección. **No vamos a tener más tiempo. Vamos a aprender a usar mejor el poquito tiempo que nos dan.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.6rem,1.8vh,1.3rem);">
+        <div class="reveal"><div class="section-label">How a Brain on a Screen Works</div><h2 class="slide-title">Attention Keeps <span style="color:var(--amber);">Getting Shorter.</span></h2><p class="slide-body">Average time people stay on one screen before they switch.</p></div>
+        <div class="at-wrap reveal" data-mg="attention" style="transition-delay:0.1s;">
+            <div class="at-row"><span class="at-lbl">2004</span><div class="at-track"><div class="at-bar"></div></div><span class="at-val">0:00</span></div>
+            <div class="at-row"><span class="at-lbl">Years later</span><div class="at-track"><div class="at-bar"></div></div><span class="at-val">0:00</span></div>
+            <div class="at-row now"><span class="at-lbl">Today</span><div class="at-track"><div class="at-bar"></div></div><span class="at-val">0:00</span></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.3s;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <div class="callout-line">We don&rsquo;t get more time. <strong style="color:var(--sprout);">We get better at using the time we get.</strong><br><span class="echo-es">No vamos a tener m&aacute;s tiempo. Vamos a usar mejor el que nos dan.</span></div>
+            <div class="src">Source &middot; Dr. Gloria Mark, UC Irvine, <em>Attention Span</em></div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">10 / 23</div>
+</section>
+
+<!-- ========== SLIDE 11 — 1.7 SECONDS (motion scene: the scroll) ========== -->
+<section class="slide" id="slide-11" data-notes="On a phone it&#x27;s even faster.
+
+Facebook looked at its own data. **People spend about 1.7 seconds on each post on a phone.** And that was back in 2016. It&#x27;s probably faster now.
+
+&gt; Point at the timer on the phone.
+
+Watch the phone. Post. Post. Post. Each one gets less than two seconds.
+
+Then one post stops the thumb. Why? Because the first line talks to one person. That person reads it and thinks, **that&#x27;s me.**
+
+Two more things:
+- People scroll about **41 percent faster** on a phone than on a computer.
+- The good news. Research done for Facebook found people can **remember** feed content after only a quarter of a second. They see more than you think. So every post counts, even the ones they scroll past.
+
+---
+
+En el celular es todavía más rápido.
+
+Facebook miró sus propios datos. **La gente pasa como 1.7 segundos en cada post en el celular.** Y eso fue en el 2016. Ahora debe ser más rápido.
+
+&gt; Señala el reloj en el celular.
+
+Miren el celular. Post. Post. Post. Cada uno recibe menos de dos segundos.
+
+Y entonces un post detiene el dedo. ¿Por qué? Porque la primera línea le habla a una persona. Esa persona la lee y piensa: **ese soy yo.**
+
+Dos cosas más:
+- La gente hace scroll como un **41 por ciento más rápido** en el celular que en la computadora.
+- La buena noticia. Una investigación hecha para Facebook encontró que la gente puede **acordarse** de algo del feed después de solo un cuarto de segundo. Ven más de lo que tú crees. Así que cada post cuenta, hasta los que pasan de largo." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="sc-layout">
+            <div class="phone reveal-scale" data-mg="scroll"></div>
+            <div style="display:flex;flex-direction:column;gap:clamp(0.8rem,2.4vh,1.6rem);">
+                <div class="reveal"><div class="section-label">The Two-Second World</div><h2 class="slide-title">You Get Less Than <span style="color:var(--amber);">Two Seconds.</span></h2><p class="slide-body">The thumb only stops when the post is about the person holding the phone.</p></div>
+                <div class="stat-stack stagger">
+                    <div class="stat"><span class="stat-num amber">1.7s</span><span class="stat-txt">Time people spend on a post on a phone<small class="src">Facebook data, 2016. Likely faster today</small></span></div>
+                    <div class="stat"><span class="stat-num blue">41%</span><span class="stat-txt">Faster scrolling on a phone than on a computer<small class="src">Facebook, 2016</small></span></div>
+                    <div class="stat"><span class="stat-num">0.25s</span><span class="stat-txt">Enough for people to remember what they saw. Every post counts.<small class="src">Fors Marsh Group research for Facebook</small></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">11 / 23</div>
+</section>
+
+<!-- ========== SLIDE 12 — THE THREE SILENT QUESTIONS ========== -->
+<section class="slide" id="slide-12" data-notes="So what happens in those two seconds? The brain asks three quick questions. Nobody says them out loud. They just happen.
+
+1. **Is this about me?** If the answer is no, the thumb keeps going.
+2. **How does it make me feel?** Seen, hopeful, curious, a little worried. Feelings come before facts.
+3. **Do I trust this person?** That one builds slowly. It&#x27;s why showing up again and again matters.
+
+Look at the order. **Me first. Feelings second. Facts later.**
+
+People buy homes with their heart, and then use facts to feel good about the choice. That&#x27;s why a post full of true facts can still get scrolled past. The facts are fine. It just didn&#x27;t pass question one.
+
+---
+
+Entonces, ¿qué pasa en esos dos segundos? El cerebro se hace tres preguntas rápidas. Nadie las dice en voz alta. Simplemente pasan.
+
+1. **¿Esto es sobre mí?** Si la respuesta es no, el dedo sigue.
+2. **¿Cómo me hace sentir?** Visto, con esperanza, curioso, un poquito preocupado. Los sentimientos llegan antes que los datos.
+3. **¿Confío en esta persona?** Esa se construye poco a poco. Por eso importa aparecer una y otra vez.
+
+Fíjense en el orden. **Yo primero. Sentimientos segundo. Datos después.**
+
+La gente compra casas con el corazón, y después usa los datos para sentirse bien con la decisión. Por eso un post lleno de datos ciertos todavía puede pasar de largo. Los datos están bien. Es que no pasó la pregunta número uno." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">What Happens in Two Seconds</div><h2 class="slide-title">Three Silent Questions. <span style="color:var(--sprout);">In This Order.</span></h2><p class="slide-body">Nobody says them out loud. Every brain asks them anyway.</p></div>
+        <div class="reveal" style="transition-delay:0.1s;"><div class="q3-timeline"><b></b></div><div class="q3-scale"><span>0.0s</span><span>Thumb on the screen</span><span>~2.0s</span></div></div>
+        <div class="q3 stagger">
+            <div class="q3-card"><span class="q3-check">&#10003;</span><span class="q3-time">FIRST &middot; ~0.5s</span><div class="q3-big">Is this about me?</div><div class="q3-d">If the answer is no, the thumb keeps going. Nothing else gets read.</div></div>
+            <div class="q3-card"><span class="q3-check">&#10003;</span><span class="q3-time">SECOND &middot; ~1.0s</span><div class="q3-big">How does it make me feel?</div><div class="q3-d">Seen. Hopeful. Curious. A little worried. Feelings come before facts.</div></div>
+            <div class="q3-card"><span class="q3-check">&#10003;</span><span class="q3-time">OVER TIME</span><div class="q3-big">Do I trust this person?</div><div class="q3-d">Built slowly, post after post. That&rsquo;s why showing up matters.</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.6s;"><div class="callout-line"><strong style="color:var(--sprout);">Me first. Feelings second. Facts later.</strong> People buy homes with the heart, then use facts to feel good about it.<br><span class="echo-es">Yo primero. Sentimientos segundo. Datos despu&eacute;s.</span></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">12 / 23</div>
+</section>
+
+<!-- ========== SLIDE 13 — YOUR AVATAR: ONE PERSON ========== -->
+<section class="slide" id="slide-13" data-notes="So who is the me in question one? **That&#x27;s your client avatar.** One person. Not everybody.
+
+You built one in Marketing Machine. Let&#x27;s do a quick refresh with Marisol and Jay. First-time buyers near Orlando. Late twenties. Bilingual. Renting and tired of it.
+
+Remember the three questions from Session 1:
+1. **What keeps them up at 11 PM?** For Marisol and Jay, rent going up again, and Zillow open on the phone in bed.
+2. **What have they already tried?** They looked at a couple of houses online and got scared off by the prices.
+3. **What are they afraid to say out loud?** That they won&#x27;t qualify. That they waited too long.
+
+Number three is the gold. **When your post says the thing they&#x27;re afraid to say, they stop scrolling.** Because now it&#x27;s about them.
+
+---
+
+Entonces, ¿quién es el yo de la pregunta uno? **Ese es tu cliente avatar.** Una persona. No todo el mundo.
+
+Ya construyeron uno en Marketing Machine. Vamos a refrescarlo rapidito con Marisol y Jay. Compradores primerizos cerca de Orlando. Como de veintipico. Bilingües. Alquilando y cansados de alquilar.
+
+Acuérdense de las tres preguntas de la Sesión 1:
+1. **¿Qué no los deja dormir a las 11 de la noche?** A Marisol y a Jay, que la renta sube otra vez, y Zillow abierto en el celular en la cama.
+2. **¿Qué ya intentaron?** Miraron un par de casas en línea y los precios los asustaron.
+3. **¿Qué les da miedo decir en voz alta?** Que no van a cualificar. Que esperaron demasiado.
+
+La número tres es oro. **Cuando tu post dice lo que a ellos les da miedo decir, dejan de hacer scroll.** Porque ahora es sobre ellos." style="justify-content:center;">
+    <div class="slide-content" style="gap:clamp(1rem,3.5vh,2.4rem);justify-content:center;">
+        <div class="reveal"><div class="section-label">Your Client Avatar</div><h2 class="slide-title">&ldquo;Me&rdquo; Is <span style="color:var(--brand-light);">One Person.</span> Not Everybody.</h2></div>
+        <div class="av-grid">
+            <div class="av-card reveal-scale">
+                <div class="av-moon"></div><div class="av-glow"></div>
+                <div class="av-clock">11:04 PM</div>
+                <div class="av-name">Marisol &amp; Jay</div>
+                <div class="av-meta"><span class="badge badge-brand">First-time buyers</span><span class="badge badge-sprout">Near Orlando</span><span class="badge badge-amber">Bilingual</span></div>
+                <div class="av-line">Late 20s. Renting and tired of it. Zillow open on the phone in bed.</div>
+                <div class="src" style="margin-top:auto;">The example avatar from Marketing Machine &middot; Session 7</div>
+            </div>
+            <div class="av-qs stagger">
+                <div class="av-q"><div class="k">Question 1</div><div class="qq">What keeps them up at 11 PM?</div><div class="aa">&ldquo;The rent went up again. Are we ever getting out of here?&rdquo;</div></div>
+                <div class="av-q"><div class="k">Question 2</div><div class="qq">What have they already tried?</div><div class="aa">&ldquo;We looked online. The prices scared us off.&rdquo;</div></div>
+                <div class="av-q gold"><div class="k">Question 3 &middot; The gold</div><div class="qq">What are they afraid to say out loud?</div><div class="aa">&ldquo;We won&rsquo;t qualify. We waited too long.&rdquo;</div></div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">13 / 23</div>
+</section>
+
+<!-- ========== SLIDE 14 — WHERE THEY STAND (motion scene: the journey) ========== -->
+<section class="slide" id="slide-14" data-notes="Here&#x27;s the part almost nobody teaches. **Your avatar isn&#x27;t standing still. They&#x27;re on a road.**
+
+Watch the green ball. That&#x27;s your client. The road has three stops, and each stop has different questions.
+
+1. **Far away.** They don&#x27;t know your area yet. They want to know what it&#x27;s like to live there, how much the move costs, and where it&#x27;s safe for the kids.
+2. **Getting close.** Now it&#x27;s about money and the process. Can I get approved? How much do I need saved? What are the hidden costs?
+3. **Ready.** Now they want you. Can you show me this house Saturday? Is this a fair price? How do I make an offer?
+
+&gt; Wait for the camera to pull back and show the whole road.
+
+Now look at the whole road. A buyer&#x27;s search takes about **ten weeks**. That&#x27;s the median from the National Association of Realtors. And **43 percent** of buyers found their agent through a referral.
+
+So they watch you the whole way before they ever call. **The best post answers the question of the stop they&#x27;re at right now.**
+
+---
+
+Esta es la parte que casi nadie enseña. **Tu avatar no se queda quieto. Va por un camino.**
+
+Miren la bolita verde. Ese es tu cliente. El camino tiene tres paradas, y cada parada tiene preguntas diferentes.
+
+1. **Lejos.** Todavía no conocen tu área. Quieren saber cómo es vivir ahí, cuánto cuesta la mudanza, y dónde es seguro para los nenes.
+2. **Acercándose.** Ahora es de dinero y del proceso. ¿Me van a aprobar? ¿Cuánto tengo que tener ahorrado? ¿Cuáles son los costos escondidos?
+3. **Listos.** Ahora te quieren a ti. ¿Me enseñas esta casa el sábado? ¿Es un precio justo? ¿Cómo hago una oferta?
+
+&gt; Espera a que la cámara se aleje y enseñe todo el camino.
+
+Ahora miren el camino completo. La búsqueda de un comprador dura como **diez semanas**. Esa es la mediana de la Asociación Nacional de Realtors. Y el **43 por ciento** de los compradores encontró a su agente por un referido.
+
+O sea, te están mirando todo el camino antes de llamarte. **El mejor post contesta la pregunta de la parada donde están ahora mismo.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Know Where They Stand</div><h2 class="slide-title">Your Avatar Is <span style="color:var(--sprout);">On a Road.</span></h2><p class="slide-body">Each stop asks different questions. Answer the stop they&rsquo;re at right now.</p></div>
+        <div class="mg-stage jr-stage reveal" data-mg="journey" style="transition-delay:0.1s;"><div class="mg-grid"></div></div>
+        <div class="reveal" style="transition-delay:0.3s;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <div class="callout-line"><strong style="color:var(--sprout);">~10 weeks</strong> median home search &middot; <strong style="color:var(--sprout);">43%</strong> found their agent by referral. They watch you the whole way.</div>
+            <div class="src">Source &middot; NAR 2025 Profile of Home Buyers and Sellers</div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">14 / 23</div>
+</section>
+
+<!-- ========== SLIDE 15 — WHAT THEY GOOGLE VS WHAT WE POST (motion scene: search) ========== -->
+<section class="slide" id="slide-15" data-notes="Let&#x27;s make it real with a new example. Meet **Dana and Luis.**
+
+They live in Chicago. Luis got a new job in Milwaukee. Two kids. They&#x27;ve never lived in Wisconsin. They&#x27;re at the first stop. **Far away.**
+
+On the left is what they type into Google at 11 PM.
+
+&gt; Let a couple of searches type out.
+
+Moving costs. Taxes. Schools. Can we get approved before we move.
+
+On the right are posts we all love to make. A new restaurant opening downtown. A beautiful listing. This month&#x27;s market numbers.
+
+Here&#x27;s the thing. **Both sides are good.** The right side isn&#x27;t wrong. Dana and Luis just aren&#x27;t asking about it yet. When they get closer, those posts will matter a lot.
+
+Today, at the stop they&#x27;re at, they need the left side.
+
+**Post the answer to the question they&#x27;re asking right now.**
+
+---
+
+Vamos a hacerlo real con un ejemplo nuevo. Les presento a **Dana y a Luis.**
+
+Viven en Chicago. A Luis le salió un trabajo nuevo en Milwaukee. Dos nenes. Nunca han vivido en Wisconsin. Están en la primera parada. **Lejos.**
+
+A la izquierda está lo que escriben en Google a las 11 de la noche.
+
+&gt; Deja que se escriban un par de búsquedas.
+
+Costos de mudanza. Impuestos. Escuelas. Si los pueden aprobar antes de mudarse.
+
+A la derecha están posts que a todos nos encanta hacer. Un restaurante nuevo que abre en el downtown. Un listing bien bonito. Los números del mercado de este mes.
+
+Y esto es lo importante. **Los dos lados son buenos.** El lado derecho no está mal. Es que Dana y Luis todavía no están preguntando por eso. Cuando se acerquen, esos posts van a importar un montón.
+
+Hoy, en la parada donde están, necesitan el lado izquierdo.
+
+**Postea la contestación a la pregunta que están haciendo ahora mismo.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Meet Dana &amp; Luis &middot; Chicago &rarr; Milwaukee &middot; Far Away</div><h2 class="slide-title">What They Google at 11 PM <span style="color:var(--muted-2);font-weight:500;">vs.</span> <span style="color:var(--amber);">What We Love to Post</span></h2></div>
+        <div class="gs-grid">
+            <div class="gs-panel reveal" data-mg="search" style="transition-delay:0.1s;">
+                <div class="gs-head"><span>Their phone &middot; in bed</span><b>11:12 PM</b></div>
+                <div class="gs-bar"><svg viewBox="0 0 24 24" fill="none" stroke="#5f6b76" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20 l-4.6 -4.6"/></svg><span class="gs-typed"></span><span class="gs-caret"></span></div>
+                <div class="gs-hist"></div>
+            </div>
+            <div class="gs-panel reveal" style="transition-delay:0.25s;">
+                <div class="gs-head"><span>Posts we love to make</span><span class="badge badge-amber">All good posts</span></div>
+                <div class="gs-post" style="--pc:#3a2a1e;"><div class="ph">&#127869;</div><div class="tx"><small>Local</small>New restaurant opening downtown</div></div>
+                <div class="gs-post" style="--pc:#1e3346;"><div class="ph">&#127969;</div><div class="tx"><small>Listing</small>Stunning 4-bed just hit the market</div></div>
+                <div class="gs-post" style="--pc:#1f3a26;"><div class="ph">&#128202;</div><div class="tx"><small>Market</small>This month&rsquo;s market numbers</div></div>
+                <div class="gs-note">Dana &amp; Luis aren&rsquo;t asking about these <b style="color:var(--paper);">yet</b>. When they get closer, these will matter a lot.</div>
+            </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line"><strong style="color:var(--sprout);">Post the answer to the question they&rsquo;re asking right now.</strong><br><span class="echo-es">Postea la contestaci&oacute;n a la pregunta que est&aacute;n haciendo ahora mismo.</span></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">15 / 23</div>
+</section>
+
+<!-- ========== SLIDE 16 — SAME TOPIC, TWO WAYS ========== -->
+<section class="slide" id="slide-16" data-notes="Same topic. Two ways. Let&#x27;s go back to Marisol and Jay.
+
+The news this week: mortgage rates moved.
+
+**Post one talks about the news.** Rates moved this week, DM me for details. It&#x27;s true. It&#x27;s helpful. But in 1.7 seconds, Marisol&#x27;s brain asks, is this about me? And the answer is, maybe, kind of, not really.
+
+**Post two talks to Marisol and Jay.** Look at the first line.
+
+&gt; Point at the highlighted line.
+
+Renting near Orlando and scared you won&#x27;t qualify? Now her brain says, **wait, that&#x27;s me.** Same news. Now it&#x27;s about her payment, her fear, her family.
+
+One post talks about a topic. The other talks to a person.
+
+---
+
+Mismo tema. Dos maneras. Volvamos a Marisol y a Jay.
+
+La noticia de esta semana: las tasas de hipoteca se movieron.
+
+**El post uno habla de la noticia.** Las tasas se movieron esta semana, mándame un DM para detalles. Es cierto. Ayuda. Pero en 1.7 segundos, el cerebro de Marisol pregunta: ¿esto es sobre mí? Y la contestación es: quizás, más o menos, no realmente.
+
+**El post dos le habla a Marisol y a Jay.** Miren la primera línea.
+
+&gt; Señala la línea marcada.
+
+¿Alquilando cerca de Orlando y con miedo de no cualificar? Ahora su cerebro dice: **espérate, esa soy yo.** La misma noticia. Ahora es sobre su pago, su miedo, su familia.
+
+Un post habla de un tema. El otro le habla a una persona." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">Same Topic, Two Ways &middot; &ldquo;Rates moved this week&rdquo;</div><h2 class="slide-title">One Talks About a Topic. <span style="color:var(--sprout);">One Talks to a Person.</span></h2></div>
+        <div class="ig-row">
+            <div class="ig-col reveal" style="transition-delay:0.15s;">
+                <span class="ig-tag" style="color:var(--muted-2);">Version 1 &middot; About the news</span>
+                <div class="ig">
+                    <div class="ig-top"><i></i>youragent.realtor <span>&middot; Sponsored</span></div>
+                    <div class="ig-media news"><span class="eyebrow">Market update</span><span class="big">Mortgage rates moved this week.</span><svg class="graph" viewBox="0 0 100 40"><polyline points="0,8 20,12 40,10 60,22 80,26 100,32" fill="none" stroke="#034c76" stroke-width="3"/></svg></div>
+                    <div class="ig-cap"><b>youragent.realtor</b> Rates moved this week! DM me for details. #realestate #mortgage</div>
+                </div>
+                <p class="ig-verdict">True and helpful. But is it about <b>Marisol</b>? Maybe. Kind of.</p>
+            </div>
+            <div class="ig-col reveal" style="transition-delay:0.35s;">
+                <span class="ig-tag" style="color:var(--sprout);">Version 2 &middot; To Marisol &amp; Jay</span>
+                <div class="ig">
+                    <div class="ig-top"><i></i>youragent.realtor <span>&middot; Sponsored</span></div>
+                    <div class="ig-media talk"><span class="eyebrow">For renters near Orlando</span><span class="big firstline"><mark>Renting near Orlando and scared you won&rsquo;t qualify?</mark></span><span style="font-family:var(--font-sans);font-size:clamp(0.75rem,1.05vw,0.95rem);opacity:0.85;">Rates moved. Here&rsquo;s what it means for <em style="font-style:normal;color:var(--sprout);font-weight:700;">your</em> monthly payment.</span></div>
+                    <div class="ig-cap"><b>youragent.realtor</b> 30 seconds. No pressure. Comment <b>PAGO</b> and I&rsquo;ll send you the math for your budget.</div>
+                </div>
+                <p class="ig-verdict">Her brain says, <b>&ldquo;Wait. That&rsquo;s me.&rdquo;</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">16 / 23</div>
+</section>
+
+<!-- ========== SLIDE 17 — THE TRANSLATOR ========== -->
+<section class="slide" id="slide-17" data-notes="Here&#x27;s the trick. **Any topic can be translated** from news into a question your person is asking.
+
+1. **Rates moved.** For Marisol and Jay, that becomes: scared you won&#x27;t qualify? Here&#x27;s what it means for your payment.
+2. **Open house Saturday.** For Dana and Luis, still in Chicago, that becomes: moving from Chicago? Come see what your rent could buy in Milwaukee.
+3. **And yes, I do this too.** My avatar is an agent, 23 to 35, two to four years licensed. Our Tuesday training becomes: two to four years in and still guessing where your next deal comes from? You&#x27;re not broken. You&#x27;re under-trained.
+
+&gt; Ask the room: what&#x27;s a topic you posted this month? Translate one together.
+
+The topic stays the same. **The person goes first.**
+
+---
+
+Este es el truco. **Cualquier tema se puede traducir** de noticia a una pregunta que tu persona se está haciendo.
+
+1. **Las tasas se movieron.** Para Marisol y Jay se convierte en: ¿con miedo de no cualificar? Esto es lo que significa para tu pago.
+2. **Open house el sábado.** Para Dana y Luis, que todavía están en Chicago, se convierte en: ¿te mudas de Chicago? Ven a ver lo que tu renta podría comprar en Milwaukee.
+3. **Y sí, yo también hago esto.** Mi avatar es un agente de 23 a 35 años, con dos a cuatro años de licencia. Nuestro training de los martes se convierte en: ¿dos a cuatro años en esto y todavía adivinando de dónde sale tu próximo deal? No estás roto. Te falta entrenamiento.
+
+&gt; Pregúntale al salón: ¿qué tema postearon este mes? Tradúzcanlo juntos.
+
+El tema sigue siendo el mismo. **La persona va primero.**" style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">The Translator</div><h2 class="slide-title">Same Topic. <span style="color:var(--sprout);">The Person Goes First.</span></h2><p class="slide-body">Turn any news into the question your person is already asking.</p></div>
+        <div class="tr">
+            <div class="tr-head"><span>Topic</span><span>Talks about the news</span><span></span><span>Talks to the person</span></div>
+            <div class="tr-row"><div class="tr-topic">Rates moved<small>Marisol &amp; Jay &middot; Getting close</small></div><div class="tr-news">&ldquo;Rates moved this week! DM me for details.&rdquo;</div><div class="tr-arrow"></div><div class="tr-talk">&ldquo;<b>Scared you won&rsquo;t qualify?</b> Rates moved. Here&rsquo;s what it means for your payment.&rdquo;</div></div>
+            <div class="tr-row"><div class="tr-topic">Open house Saturday<small>Dana &amp; Luis &middot; Far away</small></div><div class="tr-news">&ldquo;Open house this Saturday, 1 to 3 PM!&rdquo;</div><div class="tr-arrow"></div><div class="tr-talk">&ldquo;<b>Moving from Chicago?</b> Come see what your rent could buy in Milwaukee this Saturday.&rdquo;</div></div>
+            <div class="tr-row"><div class="tr-topic">Our Tuesday training<small>My avatar &middot; Agents, 2&ndash;4 yrs</small></div><div class="tr-news">&ldquo;Training every Tuesday at reThought!&rdquo;</div><div class="tr-arrow"></div><div class="tr-talk">&ldquo;<b>2 to 4 years in and still guessing</b> where your next deal comes from? You&rsquo;re not broken. You&rsquo;re under-trained.&rdquo;</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:1.5s;"><div class="callout-line" style="border-left-color:var(--amber);">Your turn: <strong style="color:var(--amber-soft);">pick one thing you posted this month.</strong> Who was it for? What question does it answer?</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">17 / 23</div>
+</section>
+
+<!-- ========== SLIDE 18 — RIGHT SIZE, RIGHT PLACE (motion scene: aspect ratios) ========== -->
+<section class="slide" id="slide-18" data-notes="Now the size. This one is simple, and it matters a lot.
+
+A phone stands up tall. It&#x27;s nine by sixteen. Watch what happens when we put different shapes on that screen.
+
+&gt; Let the phone cycle through all three shapes once.
+
+1. **Sixteen by nine.** The wide YouTube shape. It fills about **a third** of the phone. The rest is black.
+2. **Four by five.** The feed shape. It fills about **seventy percent.**
+3. **Nine by sixteen.** Tall. It fills **the whole screen.** Reels, Stories, TikTok.
+
+Remember, you get about 1.7 seconds. A bigger picture on the screen gets more of those seconds.
+
+Meta&#x27;s own guidance says the same thing: **9 by 16 for Reels and Stories. 4 by 5 for the feed.**
+
+Easy rule. **Wide is for YouTube and TV. Tall is for phones.** When you record, hold the phone up straight.
+
+---
+
+Ahora el tamaño. Este es sencillo, y es bien importante.
+
+El celular está parado, alto. Es nueve por dieciséis. Miren lo que pasa cuando ponemos formas diferentes en esa pantalla.
+
+&gt; Deja que el celular pase por las tres formas una vez.
+
+1. **Dieciséis por nueve.** La forma ancha de YouTube. Llena como **un tercio** del celular. El resto es negro.
+2. **Cuatro por cinco.** La forma del feed. Llena como **un setenta por ciento.**
+3. **Nueve por dieciséis.** Alto. Llena **la pantalla completa.** Reels, Stories, TikTok.
+
+Acuérdense, tienes como 1.7 segundos. Una imagen más grande en la pantalla se gana más de esos segundos.
+
+La guía de Meta dice lo mismo: **9 por 16 para Reels y Stories. 4 por 5 para el feed.**
+
+Regla fácil. **Lo ancho es para YouTube y la televisión. Lo alto es para el celular.** Cuando grabes, aguanta el celular derechito, parado." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="rs-layout">
+            <div class="phone phone--916 reveal-scale" data-mg="ratio"></div>
+            <div style="display:flex;flex-direction:column;gap:clamp(0.7rem,2vh,1.4rem);">
+                <div class="reveal"><div class="section-label">Right Size, Right Place</div><h2 class="slide-title">Phones Stand Up. <span style="color:var(--sprout);">So Should Your Video.</span></h2><p class="slide-body">How much of the phone screen each shape fills.</p></div>
+                <div class="rs-list stagger" id="rsList">
+                    <div class="rs-item" data-r="0"><div class="rs-shape"><i style="width:clamp(56px,5.6vw,84px);height:clamp(31px,3.15vw,47px);"></i></div><div><div class="rs-name">16:9 &middot; Wide</div><div class="rs-where">YouTube, TV, a laptop screen</div></div><div class="rs-fill"><b>~31%</b>of a phone</div></div>
+                    <div class="rs-item" data-r="1"><div class="rs-shape"><i style="width:clamp(38px,3.8vw,56px);height:clamp(48px,4.75vw,70px);"></i></div><div><div class="rs-name">4:5 &middot; Feed</div><div class="rs-where">Instagram and Facebook feed posts</div></div><div class="rs-fill"><b>~70%</b>of a phone</div></div>
+                    <div class="rs-item" data-r="2"><div class="rs-shape"><i style="width:clamp(28px,2.8vw,42px);height:clamp(50px,5vw,75px);"></i></div><div><div class="rs-name">9:16 &middot; Tall</div><div class="rs-where">Reels, Stories, TikTok, Shorts</div></div><div class="rs-fill"><b>100%</b>of a phone</div></div>
+                </div>
+                <div class="reveal" style="transition-delay:0.5s;"><div class="src">Meta placement guidance &middot; 9:16 for Reels &amp; Stories, 4:5 for Feed</div></div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">18 / 23</div>
+</section>
+
+<!-- ========== SLIDE 19 — YOUR FIRST TWO SECONDS ========== -->
+<section class="slide" id="slide-19" data-notes="Let&#x27;s put it all together. Here&#x27;s what goes in your first two seconds.
+
+1. **Name who it&#x27;s for.** The first line calls your person. Renting near Orlando? Moving from Chicago? That&#x27;s question one, answered.
+2. **Put words on the screen.** Lots of people scroll with the sound off. If the words are on screen, they still get the message.
+3. **Show a face or movement right away.** Our eyes stop for faces. Start with you talking, not with a logo.
+4. **Stand it up.** Nine by sixteen for Reels and Stories. Four by five for the feed.
+
+And one more: **one idea per post.** One person, one question, one answer.
+
+---
+
+Vamos a juntarlo todo. Esto es lo que va en tus primeros dos segundos.
+
+1. **Di para quién es.** La primera línea llama a tu persona. ¿Alquilando cerca de Orlando? ¿Te mudas de Chicago? Ahí contestaste la pregunta uno.
+2. **Pon palabras en la pantalla.** Mucha gente hace scroll sin sonido. Si las palabras están en la pantalla, igual les llega el mensaje.
+3. **Enseña una cara o movimiento enseguida.** Los ojos se detienen en las caras. Empieza contigo hablando, no con un logo.
+4. **Ponlo de pie.** Nueve por dieciséis para Reels y Stories. Cuatro por cinco para el feed.
+
+Y una más: **una idea por post.** Una persona, una pregunta, una contestación." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <div><div class="section-label">Put It Together</div><h2 class="slide-title">Your First <span style="color:var(--amber);">Two Seconds.</span></h2><p class="slide-body">Four things that pass question one: &ldquo;Is this about me?&rdquo;</p></div>
+            <div class="clock2"><div class="clock2-ring"><svg viewBox="0 0 36 36"><circle class="trk" cx="18" cy="18" r="15.9" pathLength="100"/><circle class="arc" cx="18" cy="18" r="15.9" pathLength="100"/></svg><b>2s</b></div></div>
+        </div>
+        <div class="f2-grid stagger">
+            <div class="f2"><span class="f2-n">01</span><div class="f2-t">Name who it&rsquo;s for</div><div class="f2-d">The first line calls your one person.</div><div class="f2-ex">&ldquo;Renting near Orlando?&rdquo;</div></div>
+            <div class="f2"><span class="f2-n">02</span><div class="f2-t">Words on screen</div><div class="f2-d">Lots of people scroll with the sound off.</div><div class="f2-ex">Big captions. Short lines.</div></div>
+            <div class="f2"><span class="f2-n">03</span><div class="f2-t">A face, right away</div><div class="f2-d">Eyes stop for faces. Start with you, not a logo.</div><div class="f2-ex">You, talking, second one.</div></div>
+            <div class="f2"><span class="f2-n">04</span><div class="f2-t">Stand it up</div><div class="f2-d">9:16 for Reels and Stories. 4:5 for the feed.</div><div class="f2-ex">Phone up straight.</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.8s;"><div class="callout-line"><strong style="color:var(--sprout);">One idea per post.</strong> One person, one question, one answer.<br><span class="echo-es">Una persona, una pregunta, una contestaci&oacute;n.</span></div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">19 / 23</div>
+</section>
+
+<!-- ========== SLIDE 20 — LIVE EXERCISE ========== -->
+<section class="slide" id="slide-20" data-notes="Exercise time. **Twelve minutes.** Grab paper or open your notes.
+
+1. **Your person, in one sentence.** Who they are, where they are, and what they&#x27;re afraid of.
+2. **Their stop.** Far away, getting close, or ready.
+3. **Their three questions.** What would they type into Google at 11 PM this month?
+4. **One post.** Pick one question. Write the first line so it calls your person. Then the answer, in three short lines.
+
+&gt; Set a 12-minute timer. Walk the room. At minute 10, ask for two volunteers to read their first line out loud.
+
+Nobody gets judged. Everybody gets helped.
+
+---
+
+Hora del ejercicio. **Doce minutos.** Busquen papel o abran sus notas.
+
+1. **Tu persona, en una oración.** Quién es, dónde está, y a qué le tiene miedo.
+2. **Su parada.** Lejos, acercándose o listos.
+3. **Sus tres preguntas.** ¿Qué escribirían en Google a las 11 de la noche este mes?
+4. **Un post.** Escoge una pregunta. Escribe la primera línea para que llame a tu persona. Después la contestación, en tres líneas cortitas.
+
+&gt; Pon un timer de 12 minutos. Camina el salón. En el minuto 10, pide dos voluntarios que lean su primera línea en voz alta.
+
+Aquí nadie juzga a nadie. Aquí todo el mundo se ayuda." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <div><div class="section-label">Live Exercise</div><h2 class="slide-title">Write One Post <span style="color:var(--sprout);">for Your One Person.</span></h2></div>
+            <span class="timer-pill"><i></i>12 minutes</span>
+        </div>
+        <div class="ex-steps stagger">
+            <div class="xs"><span class="xs-num">1</span><div class="xs-t">Your person</div><div class="xs-d">One sentence: who, where, and what they&rsquo;re afraid of.</div><div class="xs-fill">My person is ______ in ______, afraid that ______.</div></div>
+            <div class="xs"><span class="xs-num">2</span><div class="xs-t">Their stop</div><div class="xs-d">Where are they on the road right now?</div><div class="xs-fill">&#9744; Far away<br>&#9744; Getting close<br>&#9744; Ready</div></div>
+            <div class="xs"><span class="xs-num">3</span><div class="xs-t">Their 3 questions</div><div class="xs-d">What do they type into Google at 11 PM this month?</div><div class="xs-fill">1. ______<br>2. ______<br>3. ______</div></div>
+            <div class="xs"><span class="xs-num">4</span><div class="xs-t">One post</div><div class="xs-d">Pick one question. First line calls your person. Answer in 3 short lines.</div><div class="xs-fill">&ldquo;______?&rdquo;<br>Here&rsquo;s what to know&hellip;</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:0.8s;"><div class="callout-line">At minute 10, two volunteers read their <strong style="color:var(--sprout);">first line</strong> out loud. Nobody gets judged. Everybody gets helped.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Exercise</span></div>
+    <div class="slide-number">20 / 23</div>
+</section>
+
+<!-- ========== SLIDE 21 — AI SHORTCUT ========== -->
+<section class="slide" id="slide-21" data-notes="Here&#x27;s your shortcut for this week. Copy this prompt into Claude or ChatGPT, inside the project where your avatar lives.
+
+Fill the brackets with what you wrote in the exercise:
+- Your person
+- Their stop
+- Their three questions
+
+The AI gives you a week of posts. Each one answers one question, with a first line that calls your person, words for the screen, and the right size.
+
+**It only works if your avatar is locked.** If your person is fuzzy, the posts will be fuzzy too. Fix the person first.
+
+---
+
+Aquí está tu atajo para esta semana. Copia este prompt en Claude o en ChatGPT, dentro del proyecto donde vive tu avatar.
+
+Llena los corchetes con lo que escribiste en el ejercicio:
+- Tu persona
+- Su parada
+- Sus tres preguntas
+
+La inteligencia artificial te da una semana de posts. Cada uno contesta una pregunta, con una primera línea que llama a tu persona, palabras para la pantalla y el tamaño correcto.
+
+**Solo funciona si tu avatar está claro.** Si tu persona está borrosa, los posts también van a salir borrosos. Arregla la persona primero." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.5rem,1.4vh,1rem);">
+        <div class="reveal"><div class="section-label">AI Shortcut</div><h2 class="slide-title">Use AI to <span style="color:var(--sprout);">Plan a Week of Posts for Your Person</span></h2><p class="slide-body">Copy this prompt. Paste it into Claude or ChatGPT with your avatar doc. Fill the brackets from the exercise.</p></div>
+        <div class="reveal ai-card" style="transition-delay:0.2s;">
+            <div class="ai-card-head"><span class="ai-card-lbl">Copy &middot; Paste into your AI project</span><span class="badge badge-sprout">Claude / ChatGPT / Gemini</span></div>
+            <div class="ai-card-body">You are my real estate content coach. Use my avatar document in this project.<br><br>My person: [one sentence: who, where, what they&rsquo;re afraid of]. Their stop right now: [far away / getting close / ready]. The 3 questions they&rsquo;re asking this month: [1] [2] [3].<br><br>Plan 3 posts for this week. One question per post. For each post give me: (1) a first line that calls my person in under 10 words, (2) 3 short lines that answer the question in plain 5th-grade language, (3) the words to put on screen, (4) the size: 9:16 for a Reel or Story, 4:5 for the feed, (5) one soft call to action. Talk to the person, not about the topic. Fair Housing safe language. Never invent numbers. Write it in English and Spanish.</div>
+        </div>
+        <div class="reveal" style="transition-delay:0.4s;"><div class="callout-line" style="border-left-color:var(--amber);"><strong style="color:var(--amber-soft);">This only works if your avatar is locked.</strong> Fuzzy person in, fuzzy posts out.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">21 / 23</div>
+</section>
+
+<!-- ========== SLIDE 22 — COMMITMENTS ========== -->
+<section class="slide" id="slide-22" data-notes="Before you leave, two commitments. Say them out loud.
+
+**Commitment one. Lock your person.** Finish the one-sentence avatar, their stop, and their three questions. Put it in your AI project so every tool knows who you&#x27;re talking to.
+
+**Commitment two. Three posts this week.** Each one:
+- Answers one question from your person&#x27;s stop.
+- Has a first line that calls your person.
+- Is the right size. Tall for Reels and Stories, four by five for the feed.
+
+&gt; Go around the room. Each agent says their person in one sentence.
+
+Next Tuesday, October 20, bring one of those posts. We&#x27;ll look at them together and make them even better.
+
+---
+
+Antes de irse, dos compromisos. Díganlos en voz alta.
+
+**Compromiso uno. Fija tu persona.** Termina el avatar en una oración, su parada y sus tres preguntas. Ponlo en tu proyecto de AI pa&#x27; que cada herramienta sepa a quién le estás hablando.
+
+**Compromiso dos. Tres posts esta semana.** Cada uno:
+- Contesta una pregunta de la parada de tu persona.
+- Tiene una primera línea que llama a tu persona.
+- Tiene el tamaño correcto. Alto para Reels y Stories, cuatro por cinco para el feed.
+
+&gt; Da la vuelta al salón. Cada agente dice su persona en una oración.
+
+El próximo martes, 20 de octubre, traigan uno de esos posts. Los miramos juntos y los ponemos todavía mejor." style="justify-content:center;">
+    <div class="slide-content airy" style="gap:clamp(0.6rem,1.6vh,1.2rem);">
+        <div class="reveal"><div class="section-label">Before You Leave &middot; Say It Out Loud</div><h2 class="slide-title">Two Commitments. <span style="color:var(--sprout);">One Person.</span></h2></div>
+        <div class="commit-grid stagger">
+            <div class="commit-card" style="--cc:var(--brand-light);">
+                <span class="commit-num">Commitment 1</span>
+                <div class="commit-name">Lock your person</div>
+                <div class="commit-desc">Finish it and put it in your AI project, so every tool knows who you&rsquo;re talking to.</div>
+                <div class="check-list"><div>One-sentence avatar</div><div>Their stop on the road</div><div>Their 3 questions this month</div></div>
+            </div>
+            <div class="commit-card" style="--cc:var(--sprout);">
+                <span class="commit-num">Commitment 2</span>
+                <div class="commit-name">Three posts this week</div>
+                <div class="commit-desc">Each one answers one question your person is asking right now.</div>
+                <div class="check-list"><div>First line calls your person</div><div>Words on screen</div><div>Right size: 9:16 or 4:5</div></div>
+            </div>
+        </div>
+        <div class="date-strip reveal" style="transition-delay:0.7s;"><div class="date-chip"><span class="m">OCT</span><span class="d">20</span></div><div class="date-text">Next Tuesday, bring <strong>one of your three posts</strong>. We&rsquo;ll look at them together and make them even better.</div></div>
+    </div>
+    <div class="slide-footer-logo"><img src="https://dashbrew.s3.us-east-2.amazonaws.com/assets/img/reLearn-Logo-for-dark-background.png" alt="reLearn" class="relearn-logo"><span class="footer-text">Business Management &middot; Session 2</span></div>
+    <div class="slide-number">22 / 23</div>
+</section>
+
+<!-- ========== SLIDE 23 — CLOSING QUOTE ========== -->
+<section class="slide gradient-bg" id="slide-23" data-notes="I&#x27;ll close with Maya Angelou.
+
+**People will forget what you said, people will forget what you did, but people will never forget how you made them feel.**
+
+That&#x27;s marketing in one sentence. Your person won&#x27;t remember your market stats. They&#x27;ll remember the post that made them feel seen. The one that said, I know what keeps you up at night, and here&#x27;s the answer.
+
+So this week, talk to one person. Make them feel seen.
+
+Thank you. **Let&#x27;s go to work.**
+
+---
+
+Cierro con Maya Angelou.
+
+**La gente va a olvidar lo que dijiste, la gente va a olvidar lo que hiciste, pero la gente nunca va a olvidar cómo la hiciste sentir.**
+
+Eso es el marketing en una oración. Tu persona no se va a acordar de tus números del mercado. Se va a acordar del post que la hizo sentir vista. El que dijo: yo sé lo que no te deja dormir, y aquí está la contestación.
+
+Así que esta semana, háblale a una persona. Hazla sentir vista.
+
+Gracias. **Vamos a trabajar.**" style="justify-content: center; align-items: center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="reveal"><span style="font-family:var(--font-display);font-size:clamp(3rem,8vw,6rem);color:var(--sprout);line-height:0.6;">&ldquo;</span></div>
+        <h1 class="reveal" style="font-family:var(--font-display);font-weight:300;font-style:italic;font-size:clamp(1.5rem,3.6vw,3rem);letter-spacing:-0.02em;line-height:1.28;max-width:28ch;transition-delay:0.15s;">People will forget what you said, people will forget what you did, but people will never forget <span class="stroke stroke--sprout stroke-animate">how you made them feel.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+        <p class="reveal" style="font-family:var(--font-mono);font-size:clamp(0.7rem,1.1vw,0.9rem);letter-spacing:2.4px;text-transform:uppercase;color:var(--sprout);transition-delay:0.3s;">Maya Angelou</p>
+        <p class="reveal echo-es" style="transition-delay:0.4s;max-width:60ch;">La gente olvidar&aacute; lo que dijiste y lo que hiciste, pero nunca olvidar&aacute; c&oacute;mo la hiciste sentir.</p>
+        <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(0.8rem,1.3vw,1.05rem);color:var(--muted-2);max-width:52ch;line-height:1.5;transition-delay:0.5s;">One person. Three posts. See you Tuesday, October 20.</p>
+    </div>
+    <div class="slide-footer">reThought Real Estate &reg;</div>
+    <div class="slide-number">23 / 23</div>
+</section>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+const slides = document.querySelectorAll('.slide');
+const navDotsContainer = document.getElementById('navDots');
+const progressBar = document.getElementById('progressBar');
+const totalSlides = slides.length;
+
+navDotsContainer.innerHTML = '';
+slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('nav-dot');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' }));
+    navDotsContainer.appendChild(dot);
+});
+const dots = navDotsContainer.querySelectorAll('.nav-dot');
+
+/* currentIndex tracks the slide on screen — .visible stays on past slides
+   so their animations don't replay, which is why keyboard nav can't rely on it */
+let currentIndex = 0;
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            const idx = [...slides].indexOf(entry.target);
+            currentIndex = idx;
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            progressBar.style.width = ((idx + 1) / totalSlides * 100) + '%';
+            if (window.MG) MG.play(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+slides.forEach(s => observer.observe(s));
+
+document.addEventListener('keydown', e => {
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') && currentIndex < totalSlides - 1) {
+        e.preventDefault(); slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && currentIndex > 0) {
+        e.preventDefault(); slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+try {
+    const bc = new BroadcastChannel('presentation-sync');
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = [...slides].indexOf(entry.target);
+                bc.postMessage({ type: 'slide-change', slide: idx, series: 'business-management', session: '2' });
+            }
+        });
+    }, { threshold: 0.5 });
+    slides.forEach(s => observer2.observe(s));
+    bc.onmessage = e => {
+        if (e.data.type === 'slide-change' && e.data.series === 'business-management' && e.data.session === '2') {
+            slides[e.data.slide]?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+} catch(e) {}
+</script>
+<script>
+/* ===========================================
+   MOTION SCENES
+   Built on the motion-graphics skill's method (Barty-Bart/motion-graphics):
+   every scene is a pure seek(t) — no CSS transitions, no carried state — driven
+   by one clock that starts when its slide comes on screen. Springs, eased
+   keyframes and a follow camera come from the skill's helper set below.
+   Print and reduced-motion jump each scene to its poster frame.
+   =========================================== */
+function spring(t, w = 14, z = 0.82) {
+    if (t <= 0) return 0;
+    if (z >= 1) return 1 - Math.exp(-w * t) * (1 + w * t);
+    const wd = w * Math.sqrt(1 - z * z);
+    return 1 - Math.exp(-z * w * t) * (Math.cos(wd * t) + (z * w / wd) * Math.sin(wd * t));
+}
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = x => (x = clamp(x), x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const easeOut = x => 1 - Math.pow(1 - clamp(x), 3);
+const lerp = (a, b, k) => a + (b - a) * k;
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const kf = keys => t => { if (t <= keys[0][0]) return keys[0][1]; for (let i = 1; i < keys.length; i++) { const [a, va] = keys[i - 1], [b, vb, e = ease] = keys[i]; if (t <= b) return lerp(va, vb, e((t - a) / (b - a))); } return keys[keys.length - 1][1]; };
+const rng = s => () => (s = (s + 0x6D2B79F5) | 0, s = Math.imul(s ^ (s >>> 15), 1 | s), s ^= s + Math.imul(s ^ (s >>> 7), 61 | s), ((s ^ (s >>> 14)) >>> 0) / 4294967296);
+const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
+
+const SCENES = {
+    /* Slide 6 — camera pushes in on the Marketing box; the rest of the org chart dims */
+    zoom: {
+        dur: 4.2, loop: false,
+        build(root) {
+            const world = root.querySelector('.mg-world'), grid = root.querySelector('.mg-grid');
+            const depts = [...root.querySelectorAll('.zm-dept')], target = root.querySelector('[data-target]');
+            const ceo = root.querySelector('.zm-ceo'), lines = root.querySelector('.zm-lines');
+            const extra = target.querySelector('.x'), today = target.querySelector('.zm-today');
+            return t => {
+                const W = root.clientWidth, H = root.clientHeight;
+                world.style.fontSize = (H * 0.062) + 'px';
+                const k = spring(t - 1.3, 5.2, 1);                  // camera push
+                const s = lerp(1, 1.85, k);
+                const cx = lerp(0.5 * W, 0.38 * W, k), cy = lerp(0.5 * H, 0.57 * H, k);
+                const tx = W / 2 - cx * s, ty = H / 2 - cy * s;
+                world.style.transform = `translate(${tx}px,${ty}px) scale(${s})`;
+                grid.style.backgroundSize = `${22 * s}px ${22 * s}px`;
+                grid.style.backgroundPosition = `${tx}px ${ty}px`;
+                depts.forEach((d, i) => {
+                    const pop = spring(t - 0.15 - i * 0.12, 13, 0.7);
+                    const dim = d === target ? 1 : lerp(1, 0.28, k);
+                    d.style.opacity = clamp(pop) * dim;
+                    d.style.transform = `translate(-50%,-50%) scale(${lerp(0.85, 1, pop)})`;
+                    if (d === target) d.style.boxShadow = `0 0 ${40 * k}px #e0a63a${Math.round(k * 80).toString(16).padStart(2, '0')}`;
+                });
+                ceo.style.opacity = lerp(1, 0.3, k) * clamp(spring(t, 12, 1));
+                lines.style.opacity = lerp(1, 0.25, k) * seg(t, 0.1, 0.6);
+                const xk = spring(t - 2.4, 10, 0.9);
+                extra.style.opacity = clamp(xk); extra.style.transform = `translateY(${(1 - xk) * 0.6}em)`;
+                const tk = spring(t - 2.0, 16, 0.55);
+                today.style.opacity = clamp(tk * 3); today.style.transform = `translateX(-50%) scale(${tk})`;
+            };
+        }
+    },
+
+    /* Slide 7 — a message sweeps the crowd; one person stops and raises a hand */
+    hand: {
+        dur: 5, loop: false,
+        build(root) {
+            const COLS = 14, ROWS = 4, PICK = 1 * COLS + 8; // row 2, col 9
+            const r = rng(7), people = [];
+            const svgP = '<svg viewBox="0 0 40 60"><circle class="body" cx="20" cy="11" r="8"/><path class="body" d="M7 58 V36 a13 13 0 0 1 26 0 V58 z"/><line class="arm" x1="31" y1="38" x2="36" y2="56"/></svg>';
+            for (let row = 0; row < ROWS; row++) for (let col = 0; col < COLS; col++) {
+                const p = el('div', 'hd-person', svgP);
+                const jx = (r() - 0.5) * 2.2, jy = (r() - 0.5) * 3;
+                const x = 6 + col * (88 / (COLS - 1)) + jx, y = 22 + row * 17 + jy;
+                p.style.left = `calc(${x}% - 1.6%)`; p.style.top = y + '%';
+                p.style.zIndex = row + 1;
+                root.appendChild(p);
+                people.push({ p, x, y, body: p.querySelectorAll('.body'), arm: p.querySelector('.arm'), d: r() });
+            }
+            const me = people[PICK];
+            const msg = el('div', 'hd-msg', '<small>A post goes by</small>Renting near Orlando?');
+            const bubble = el('div', 'hd-bubble', 'That&rsquo;s me!');
+            root.append(msg, bubble);
+            return t => {
+                const W = root.clientWidth, H = root.clientHeight;
+                msg.style.fontSize = bubble.style.fontSize = (H * 0.065) + 'px';
+                const mx = lerp(-25, 110, ease(seg(t, 0.9, 2.6)));
+                msg.style.left = mx + '%';
+                msg.style.opacity = seg(t, 0.9, 1.1) * (1 - seg(t, 2.45, 2.6));
+                const chosen = spring(t - 2.0, 10, 0.6);
+                people.forEach(o => {
+                    const pop = spring(t - 0.1 - o.d * 0.6, 14, 0.65);
+                    const near = Math.max(0, 1 - Math.abs(o.x - mx - 10) / 9) * seg(t, 0.9, 1.1) * (1 - seg(t, 2.45, 2.6));
+                    const isMe = o === me;
+                    const dim = isMe ? 1 : lerp(1, 0.32, seg(t, 2.1, 2.7));
+                    o.p.style.opacity = clamp(pop) * dim;
+                    const lift = isMe ? chosen * 9 : near * 1.2;
+                    o.p.style.transform = `translateY(${-lift}%) scale(${lerp(0.6, 1, clamp(pop)) * (isMe ? 1 + chosen * 0.35 : 1)})`;
+                    const col = isMe && t > 2.0 ? '#8cc94e' : near > 0.2 ? '#c4ccd6' : '#95a0ae';
+                    o.body.forEach(b => b.style.fill = col);
+                    o.arm.style.stroke = col;
+                    if (isMe) {
+                        const a = spring(t - 2.2, 9, 0.5) * 158;
+                        o.arm.setAttribute('transform', `rotate(${-a} 31 38)`);
+                        o.p.style.zIndex = 20;
+                        o.p.style.filter = t > 2.0 ? `drop-shadow(0 0 ${10 * chosen}px #8cc94e)` : 'none';
+                    }
+                });
+                const b = spring(t - 2.6, 13, 0.55);
+                bubble.style.left = `calc(${me.x}% + 1.4%)`;
+                bubble.style.top = `calc(${me.y}% - ${H * 0.2}px)`;
+                bubble.style.opacity = clamp(b * 3);
+                bubble.style.transform = `scale(${b})`;
+            };
+        }
+    },
+
+    /* Slide 9 — exposures 1..7 land; the memory meter fills; 3 and 7 light up */
+    exposure: {
+        dur: 6, loop: false,
+        build(root) {
+            const tiles = [], N = 7;
+            for (let i = 0; i < N; i++) {
+                const tl = el('div', 'ex-tile', `<div class="ex-face"></div><i>SEEN #${i + 1}</i>`);
+                tl.style.left = `${6 + i * (88 / (N - 1))}%`; tl.style.marginLeft = `calc(-0.5 * 0.48 * 9 / 16 * var(--h))`;
+                root.appendChild(tl); tiles.push(tl);
+            }
+            const meter = el('div', 'ex-meter', '<div class="ex-fill"></div>'); const fill = meter.firstChild;
+            const mk = (n, a, b) => { const m = el('div', 'ex-mark', `<b>${n}</b>${a}<br>${b}`); m.style.left = `${6 + (n - 1) * (88 / 6)}%`; return m; };
+            const m3 = mk(3, 'They start to', 'remember you'), m7 = mk(7, 'They start to', 'trust you');
+            const t3 = el('div', 'ex-tick'), t7 = el('div', 'ex-tick'); m7.style.textAlign = 'right';
+            t3.style.left = m3.style.left; t7.style.left = m7.style.left;
+            root.append(meter, t3, t7, m3, m7);
+            const at = i => 0.35 + i * 0.6;
+            return t => {
+                const H = root.clientHeight;
+                root.style.fontSize = (H * 0.07) + 'px'; root.style.setProperty('--h', H + 'px');
+                let seen = 0;
+                tiles.forEach((tl, i) => {
+                    const k = spring(t - at(i), 14, 0.6);
+                    if (t >= at(i)) seen = i + 1;
+                    tl.style.opacity = clamp(k * 2);
+                    tl.style.transform = `translateY(${(1 - k) * 30}%) scale(${lerp(0.7, 1, k)})`;
+                    tl.style.borderColor = t >= at(i) && i + 1 === seen ? '#8cc94e' : '';
+                });
+                const prog = clamp((t - at(0)) / (at(N - 1) - at(0)));
+                fill.style.width = `${100 * ease(prog)}%`;
+                m3.classList.toggle('on', seen >= 3); m7.classList.toggle('on', seen >= 7);
+                const p3 = spring(t - at(2), 16, 0.5), p7 = spring(t - at(6), 16, 0.5);
+                m3.style.transform = `translateX(-50%) scale(${seen >= 3 ? lerp(0.9, 1, p3) : 0.9})`;
+                m7.style.transform = `translateX(-82%) scale(${seen >= 7 ? lerp(0.9, 1, p7) : 0.9})`;
+            };
+        }
+    },
+
+    /* Slide 10 — three bars grow with count-ups; today's bar lands last */
+    attention: {
+        dur: 4, loop: false,
+        build(root) {
+            const rows = [...root.querySelectorAll('.at-row')];
+            const secs = [150, 75, 47];
+            const fmt = s => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}`;
+            return t => rows.forEach((r, i) => {
+                const k = easeOut(seg(t, 0.2 + i * 0.9, 1.3 + i * 0.9));
+                r.querySelector('.at-bar').style.width = (secs[i] / 150 * 100 * k) + '%';
+                r.querySelector('.at-val').textContent = fmt(secs[i] * k);
+            });
+        }
+    },
+
+    /* Slide 11 — Reels-style feed: each post gets 1.7s, then a flick; the 4th one stops the thumb */
+    scroll: {
+        dur: 10.4, loop: true, poster: 8.6,
+        build(root) {
+            const posts = [
+                { tag: 'Happy Tuesday', h: 'Coffee first. Then houses. &#9749;', bg: 'linear-gradient(170deg,#5a4636,#2a211a)' },
+                { tag: 'Just listed', h: 'Beautiful 3-bed, 2-bath. Open Saturday!', bg: 'linear-gradient(170deg,#2c4a63,#16222e)' },
+                { tag: 'Market report', h: 'Inventory is up this quarter. Full numbers inside.', bg: 'linear-gradient(170deg,#3a4652,#1b232b)' },
+                { tag: 'For renters near Orlando', h: 'Renting near Orlando and scared you won&rsquo;t qualify?', bg: 'linear-gradient(170deg,#034c76,#1B252F 70%)', hot: true }
+            ];
+            const feed = el('div', 'sc-feed');
+            posts.forEach(p => {
+                const n = el('div', 'sc-post', `<div class="art" style="background:${p.bg}"></div><span class="tag" ${p.hot ? 'style="color:#b4dc84;opacity:1"' : ''}>${p.tag}</span><div class="h">${p.h}</div><div class="who"><i></i>agent.realtor</div>`);
+                n.style.color = '#fff'; feed.appendChild(n);
+            });
+            const hud = el('div', 'sc-hud', '<svg viewBox="0 0 36 36"><circle class="trk" cx="18" cy="18" r="15.9" pathLength="100"/><circle class="arc" cx="18" cy="18" r="15.9" pathLength="100"/></svg><b>0.0s</b>');
+            const thumb = el('div', 'sc-thumb'), yes = el('div', 'sc-yes', '&#10003; That&rsquo;s me. Stop.');
+            root.append(feed, hud, thumb, yes);
+            const arc = hud.querySelector('.arc'), lbl = hud.querySelector('b');
+            const DWELL = 1.7, FLICK = 0.38, STEP = DWELL + FLICK;
+            return t => {
+                const H = root.clientHeight;
+                [...feed.children].forEach(c => c.style.height = H + 'px');
+                let page = 0, dwellT = 0, flickK = 0, inFlick = false;
+                if (t < 3 * STEP) {
+                    page = Math.floor(t / STEP); const u = t - page * STEP;
+                    if (u < DWELL) dwellT = u; else { inFlick = true; flickK = (u - DWELL) / FLICK; }
+                } else { page = 3; dwellT = t - 3 * STEP; }
+                const rewind = seg(t, 9.8, 10.4);
+                let y = page + (inFlick ? spring(flickK * FLICK, 22, 0.86) : 0);
+                y = lerp(y, 0, ease(rewind));
+                feed.style.transform = `translateY(${-y * H}px)`;
+                const onHot = page === 3 && !inFlick;
+                const shown = onHot ? Math.min(dwellT, 9.9) : dwellT;
+                const frac = onHot ? clamp(dwellT / DWELL) : clamp(dwellT / DWELL);
+                arc.style.strokeDashoffset = 100 - frac * 100;
+                arc.style.stroke = onHot && dwellT > DWELL ? '#8cc94e' : '#e0a63a';
+                lbl.textContent = (inFlick ? 0 : shown).toFixed(1) + 's';
+                thumb.style.opacity = inFlick ? Math.sin(Math.PI * flickK) : 0;
+                thumb.style.top = lerp(78, 30, flickK) + '%';
+                const yk = spring(dwellT - DWELL - 0.1, 14, 0.55) * (onHot ? 1 : 0) * (1 - rewind);
+                yes.style.opacity = clamp(yk * 3);
+                yes.style.transform = `translate(-50%,-50%) scale(${yk})`;
+            };
+        }
+    },
+
+    /* Slide 14 — one-take journey: the client (ball) hops station to station,
+       each station reacts, then the camera pulls out to reveal the whole road */
+    journey: {
+        dur: 13, loop: true, poster: 10.2,
+        build(root) {
+            const world = el('div', 'mg-world jr-world'), grid = root.querySelector('.mg-grid');
+            const ST = [
+                { k: 'Stop 1 &middot; Far away', n: 'Doesn&rsquo;t know your area yet', d: 'Still deciding where and how.', q: ['What&rsquo;s it like to live there?', 'How much does the move cost?', 'Where is it safe for my kids?'], c: 'var(--brand-light)', fx: 0.16, fy: 0.12 },
+                { k: 'Stop 2 &middot; Getting close', n: 'Money and the process', d: 'Comparing. A little worried.', q: ['Can I get approved?', 'How much do I need saved?', 'What are the hidden costs?'], c: 'var(--amber)', fx: 0.5, fy: 0.3 },
+                { k: 'Stop 3 &middot; Ready', n: 'Needs you now', d: 'Ready to see homes and act.', q: ['Can you show me this one Saturday?', 'Is this a fair price?', 'How do I make an offer?'], c: 'var(--sprout)', fx: 0.84, fy: 0.12 }
+            ];
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('class', 'jr-path');
+            const pBase = document.createElementNS(svg.namespaceURI, 'path'), pDone = document.createElementNS(svg.namespaceURI, 'path');
+            pDone.setAttribute('class', 'done'); svg.append(pBase, pDone); world.appendChild(svg);
+            const cards = ST.map(s => {
+                const c = el('div', 'jr-st', `<div class="jr-k">${s.k}</div><div class="jr-n">${s.n}</div><div class="jr-d">${s.d}</div><div class="jr-chips">${s.q.map(q => `<div class="jr-chip">${q}</div>`).join('')}</div>`);
+                c.style.setProperty('--dc', s.c); world.appendChild(c); return c;
+            });
+            const hero = el('div', 'jr-hero', '<span class="jr-hero-lbl">Your client</span>');
+            const banner = el('div', 'jr-banner', '~10 weeks on the road<small>They watch you the whole way</small>');
+            world.append(hero, banner);
+            root.appendChild(world);
+            // timeline
+            const LAND = [0.5, 3.4, 6.3], HOP = 0.9, LAUNCH = 8.4, OUT = [8.6, 9.6], IN = [11.9, 12.9];
+            return t => {
+                const W = root.clientWidth, H = root.clientHeight;
+                const fs = H * 0.032, cardH = cards[1].offsetHeight || fs * 16;
+                const WW = W * 2.3, WH = Math.max(H * 1.25, 0.3 * H * 1.25 + fs * 1.4 + cardH + fs * 8.5);
+                world.style.width = WW + 'px'; world.style.height = WH + 'px'; world.style.fontSize = fs + 'px';
+                svg.setAttribute('width', WW); svg.setAttribute('height', WH);
+                const P = ST.map(s => ({ x: s.fx * WW, y: s.fy * H * 1.25 + fs * 1.4 }));       // card top-centre (ball rests here)
+                cards.forEach((c, i) => { c.style.left = P[i].x + 'px'; c.style.top = P[i].y + 'px'; });
+                const r = fs * 1.15;
+                const d = `M${P[0].x} ${P[0].y - r} Q${(P[0].x + P[1].x) / 2} ${P[1].y - WH * 0.22} ${P[1].x} ${P[1].y - r} Q${(P[1].x + P[2].x) / 2} ${P[1].y - WH * 0.22} ${P[2].x} ${P[2].y - r}`;
+                pBase.setAttribute('d', d); pDone.setAttribute('d', d);
+                const len = pDone.getTotalLength();
+                // hero position
+                let hx, hy, sq = 1;
+                const above = { x: P[0].x, y: P[0].y - WH * 0.5 };
+                const hop = (a, b, u, hgt) => ({ x: lerp(a.x, b.x, u), y: lerp(a.y, b.y, u) - hgt * 4 * u * (1 - u) });
+                const rest = i => ({ x: P[i].x, y: P[i].y - r });
+                if (t < LAND[0]) { const u = seg(t, 0, LAND[0]); hx = above.x; hy = lerp(above.y, rest(0).y, u * u); }
+                else if (t < LAND[1] - HOP) { ({ x: hx, y: hy } = rest(0)); }
+                else if (t < LAND[1]) { ({ x: hx, y: hy } = hop(rest(0), rest(1), seg(t, LAND[1] - HOP, LAND[1]), WH * 0.22)); }
+                else if (t < LAND[2] - HOP) { ({ x: hx, y: hy } = rest(1)); }
+                else if (t < LAND[2]) { ({ x: hx, y: hy } = hop(rest(1), rest(2), seg(t, LAND[2] - HOP, LAND[2]), WH * 0.22)); }
+                else if (t < LAUNCH) { ({ x: hx, y: hy } = rest(2)); }
+                else { // slow-motion launch arc back over the whole road to above stop 1
+                    const u = seg(t, LAUNCH, IN[1]); const w = u < 0.5 ? 0.5 * Math.pow(2 * u, 0.55) : 1 - 0.5 * Math.pow(2 - 2 * u, 1.8);
+                    ({ x: hx, y: hy } = hop(rest(2), above, w, WH * 0.35));
+                }
+                LAND.forEach(L => { const a = t - L; if (a >= 0 && a < 0.25) sq = 1 + 0.25 * Math.sin(Math.PI * a / 0.25); });
+                hero.style.width = hero.style.height = (2 * r) + 'px';
+                hero.style.left = (hx - r) + 'px'; hero.style.top = (hy - r) + 'px';
+                hero.style.transform = `scale(${1 / Math.sqrt(sq)}, ${sq > 1 ? 1 / sq : 1}) scale(${lerp(1, 1.9, seg(t, LAUNCH, OUT[1]) * (1 - seg(t, IN[0], IN[1])))})`;
+                // path progress (done segment)
+                const prog = t < LAND[0] ? 0 : t < LAND[1] - HOP ? 0 : t < LAND[1] ? 0.5 * seg(t, LAND[1] - HOP, LAND[1]) : t < LAND[2] - HOP ? 0.5 : t < LAND[2] ? 0.5 + 0.5 * seg(t, LAND[2] - HOP, LAND[2]) : 1;
+                const fade = 1 - seg(t, IN[0], IN[1]);
+                pDone.style.strokeDasharray = `${len * prog} ${len}`; pDone.style.opacity = 0.55 * fade;
+                // stations react
+                cards.forEach((c, i) => {
+                    const a = t - LAND[i];
+                    const lit = a >= 0 && t < IN[0];
+                    c.classList.toggle('lit', lit && t < LAUNCH + 0.4 && (i === 2 || t < LAND[i + 1] - HOP + 0.3) || (t >= OUT[0] && t < IN[0]));
+                    const push = a >= 0 && a < 0.35 ? Math.sin(Math.PI * a / 0.35) * 0.04 : 0;
+                    c.style.transform = `translate(-50%,0) scale(${1 - push}, ${1 + push * 0.5})`;
+                    [...c.querySelectorAll('.jr-chip')].forEach((ch, j) => {
+                        const k = spring(a - 0.35 - j * 0.32, 14, 0.62) * fade;
+                        ch.style.opacity = clamp(k * 2);
+                        ch.style.transform = `translateX(${(1 - k) * -1.5}em) scale(${lerp(0.85, 1, clamp(k))})`;
+                    });
+                });
+                // camera: follow each stop, pull out to reveal, dive back to stop 1
+                const fit = Math.min(W / (WW * 1.04), H / (WH * 0.98));
+                const cxK = kf([[0, P[0].x], [LAND[1] - HOP, P[0].x], [LAND[1], P[1].x], [LAND[2] - HOP, P[1].x], [LAND[2], P[2].x], [OUT[0], P[2].x], [OUT[1], WW / 2], [IN[0], WW / 2], [IN[1], P[0].x]]);
+                const cyK = kf([[0, P[0].y + H * 0.28], [LAND[1] - HOP, P[0].y + H * 0.28], [LAND[1], P[1].y + H * 0.24], [LAND[2] - HOP, P[1].y + H * 0.24], [LAND[2], P[2].y + H * 0.28], [OUT[0], P[2].y + H * 0.28], [OUT[1], WH * 0.47], [IN[0], WH * 0.47], [IN[1], P[0].y + H * 0.28]]);
+                const sK = kf([[0, 1], [OUT[0], 1], [OUT[1], fit], [IN[0], fit], [IN[1], 1]]);
+                const tilt = 10 * seg(t, OUT[0], OUT[1]) * (1 - seg(t, IN[0], IN[1]));
+                const s = sK(t), cx = cxK(t), cy = cyK(t);
+                const tx = W / 2 - cx * s, ty = H / 2 - cy * s;
+                world.style.transform = `translate(${tx}px,${ty}px) scale(${s})`;
+                world.style.transform += ` rotateX(${tilt}deg)`;
+                grid.style.backgroundSize = `${22 * s}px ${22 * s}px`; grid.style.backgroundPosition = `${tx}px ${ty}px`;
+                const bk = spring(t - OUT[1] + 0.1, 10, 0.8) * fade;
+                banner.style.top = (P[1].y + cardH + fs * 2.4) + 'px';
+                banner.style.opacity = clamp(bk); banner.style.transform = `translateX(-50%) scale(${lerp(0.8, 1, clamp(bk))})`;
+                banner.style.left = (WW / 2) + 'px';
+            };
+        }
+    },
+
+    /* Slide 15 — Dana & Luis type their 11pm searches; each lands in the history list */
+    search: {
+        dur: 12, loop: true, poster: 11.5,
+        build(root) {
+            const Q = ['cost to move from chicago to milwaukee', 'wisconsin vs illinois property taxes', 'best schools near milwaukee for kids', 'can we get pre approved before we move'];
+            const typed = root.querySelector('.gs-typed'), caret = root.querySelector('.gs-caret'), hist = root.querySelector('.gs-hist');
+            const items = Q.map(q => { const i = el('div', 'gs-item', q); hist.appendChild(i); return i; });
+            const SLOT = 2.7, TYPE = 1.7;
+            return t => {
+                const i = Math.min(Q.length - 1, Math.floor(t / SLOT)), u = t - i * SLOT;
+                const done = t >= Q.length * SLOT - 0.2;
+                const n = done ? 0 : Math.floor(Q[i].length * clamp(u / TYPE));
+                typed.textContent = Q[i].slice(0, n);
+                caret.style.opacity = (Math.floor(t * 2.5) % 2 === 0 || (u < TYPE && !done)) ? 1 : 0;
+                items.forEach((it, j) => {
+                    const k = spring(t - (j * SLOT + TYPE + 0.35), 14, 0.7);
+                    it.style.opacity = clamp(k * 2);
+                    it.style.transform = `translateY(${(1 - clamp(k)) * -0.8}em) scale(${lerp(0.9, 1, clamp(k))})`;
+                    it.style.display = '';
+                });
+            };
+        }
+    },
+
+    /* Slide 18 — the same video morphs 16:9 -> 4:5 -> 9:16 inside a phone; fill % counts */
+    ratio: {
+        dur: 10.5, loop: true, poster: 8.5,
+        build(root) {
+            const screen = el('div', 'rs-screen'), video = el('div', 'rs-video', '<div class="face"></div><div class="cap">Renting near Orlando?</div>');
+            const label = el('div', 'rs-label'), pct = el('div', 'rs-pct');
+            screen.appendChild(video); root.append(screen, label, pct);
+            const list = [...document.querySelectorAll('#rsList .rs-item')];
+            const R = [9 / 16, 5 / 4, 16 / 9];                                  // height / width
+            const NAMES = ['16:9 &middot; Wide', '4:5 &middot; Feed', '9:16 &middot; Tall'];
+            const at = [0, 3.2, 6.4];
+            const hr = kf([[0, R[0]], [at[1] - 0.6, R[0]], [at[1], R[1]], [at[2] - 0.6, R[1]], [at[2], R[2]], [9.8, R[2]], [10.5, R[0]]]);
+            return t => {
+                const W = root.clientWidth, H = root.clientHeight;
+                const h = Math.min(H, W * hr(t));
+                video.style.height = h + 'px'; video.style.top = ((H - h) / 2) + 'px';
+                const idx = t < at[1] - 0.3 ? 0 : t < at[2] - 0.3 ? 1 : 2;
+                const real = t >= 9.8 ? 0 : idx;
+                label.innerHTML = NAMES[real];
+                pct.innerHTML = `${Math.round(h / H * 100)}%<small>of the screen</small>`;
+                list.forEach((li, i) => li.classList.toggle('on', i === real));
+            };
+        }
+    }
+};
+
+window.MG = (function () {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const all = [];
+    document.querySelectorAll('[data-mg]').forEach(node => {
+        const def = SCENES[node.dataset.mg]; if (!def) return;
+        const seek = def.build(node);
+        const s = { node, def, seek, slide: node.closest('.slide'), start: null };
+        all.push(s); seek(0);
+    });
+    const poster = s => s.seek(s.def.poster ?? s.def.dur);
+    let active = [];
+    function play(slide) {
+        active = all.filter(s => s.slide === slide);
+        const now = performance.now();
+        active.forEach(s => { s.start = now; if (reduce) poster(s); });
+    }
+    (function loop(now) {
+        if (!reduce) active.forEach(s => {
+            let t = (now - s.start) / 1000;
+            t = s.def.loop ? t % s.def.dur : Math.min(t, s.def.dur);
+            s.seek(t);
+        });
+        requestAnimationFrame(loop);
+    })(performance.now());
+    window.addEventListener('beforeprint', () => all.forEach(poster));
+    window.addEventListener('resize', () => all.forEach(s => { if (!active.includes(s)) poster(s); }));
+    return { play };
+})();
+</script>
+
+</body>
+</html>
