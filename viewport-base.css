@@ -15,6 +15,17 @@ html {
     scroll-behavior: smooth;
 }
 
+/* html and body both set overflow-x, so body is the element that scrolls; the snap has to live there too */
+body {
+    scroll-snap-type: y mandatory;
+}
+
+@media print {
+    body {
+        scroll-snap-type: none;
+    }
+}
+
 /* 2. Each slide = exact viewport height */
 .slide {
     width: 100vw;

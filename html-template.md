@@ -133,7 +133,8 @@ Reference architecture for generating slide presentations. Every presentation fo
         }
 
         setupKeyboardNav() {
-          // Arrow keys, Space, Page Up/Down
+          // Arrow keys, Space, Page Up/Down (clickers send PageDown/PageUp;
+          // each must move exactly one slide, not scroll by a browser page)
         }
 
         setupTouchNav() {

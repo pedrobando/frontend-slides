@@ -21,6 +21,9 @@
    =========================================== */
 html, body { height: 100%; overflow-x: hidden; }
 html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+/* html and body both set overflow-x, so body is the element that scrolls; the snap has to live there too */
+body { scroll-snap-type: y mandatory; }
+@media print { body { scroll-snap-type: none; } }
 .slide {
     width: 100vw; height: 100vh; height: 100dvh;
     overflow: hidden; scroll-snap-align: start;
@@ -1702,11 +1705,12 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 slides.forEach(s => observer.observe(s));
 
+/* PageDown / PageUp are what most presentation clickers send */
 document.addEventListener('keydown', e => {
-    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') && currentIndex < totalSlides - 1) {
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') && currentIndex < totalSlides - 1) {
         e.preventDefault(); slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
     }
-    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && currentIndex > 0) {
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') && currentIndex > 0) {
         e.preventDefault(); slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
     }
 });

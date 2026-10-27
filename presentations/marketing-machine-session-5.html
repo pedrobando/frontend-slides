@@ -22,6 +22,9 @@
    =========================================== */
 html, body { height: 100%; overflow-x: hidden; }
 html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+/* html and body both set overflow-x, so body is the element that scrolls; the snap has to live there too */
+body { scroll-snap-type: y mandatory; }
+@media print { body { scroll-snap-type: none; } }
 .slide {
     width: 100vw; height: 100vh; height: 100dvh;
     overflow: hidden; scroll-snap-align: start;
@@ -2925,11 +2928,15 @@ slides.forEach((_, i) => {
 });
 const dots = navDotsContainer.querySelectorAll('.nav-dot');
 
+/* currentIndex tracks the slide on screen — .visible stays on past slides
+   so their animations don't replay, which is why keyboard nav can't rely on it */
+let currentIndex = 0;
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
             const idx = [...slides].indexOf(entry.target);
+            currentIndex = idx;
             dots.forEach((d, i) => d.classList.toggle('active', i === idx));
             progressBar.style.width = ((idx + 1) / totalSlides * 100) + '%';
         }
@@ -2937,13 +2944,13 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 slides.forEach(s => observer.observe(s));
 
+/* PageDown / PageUp are what most presentation clickers send */
 document.addEventListener('keydown', e => {
-    const current = [...slides].findIndex(s => s.classList.contains('visible'));
-    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') && current < totalSlides - 1) {
-        e.preventDefault(); slides[current + 1].scrollIntoView({ behavior: 'smooth' });
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') && currentIndex < totalSlides - 1) {
+        e.preventDefault(); slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
     }
-    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && current > 0) {
-        e.preventDefault(); slides[current - 1].scrollIntoView({ behavior: 'smooth' });
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') && currentIndex > 0) {
+        e.preventDefault(); slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
     }
 });
 
