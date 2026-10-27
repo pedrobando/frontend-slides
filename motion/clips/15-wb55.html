@@ -1,0 +1,55 @@
+<title>15 WB-55 opt-out</title>
+<style>
+.cq{position:absolute;left:-386px;width:772px;height:38px}
+.cq i{position:absolute;left:0;top:9px;font-style:normal;font-family:'Geist Mono',monospace;font-size:14px;font-weight:600;color:#6E7A88}
+.cq span{position:absolute;left:34px;top:8px;font-size:16px;white-space:nowrap}
+.ib{position:absolute;left:686px;top:4px;width:86px;height:30px;border-radius:6px;border:1.5px dashed #B9B4AC;box-sizing:border-box}
+.stamp{position:absolute;left:0;top:0;width:86px;height:30px;line-height:30px;text-align:center;font-size:18px;font-weight:700;color:#034C76;letter-spacing:1px}
+</style>
+<div data-slot="shape">
+  <div class="L" id="Lform">
+    <div class="a disp" style="left:-386px;top:20px;font-size:19px;font-weight:700;letter-spacing:-.01em;white-space:nowrap">WB-55 Public Marketing Opt-Out</div>
+    <div class="a k" style="left:186px;top:25px;width:200px;text-align:right">1 page &middot; plain English</div>
+    <div class="a" style="left:-386px;top:54px;width:772px;height:1.5px;background:#1B252F"></div>
+    <div class="a k" style="left:-386px;top:68px">The seller initials four consequences</div>
+    <div id="cqs"></div>
+    <div class="a k" style="left:-386px;top:262px">Reason</div>
+    <div class="a" style="left:-300px;top:252px;width:420px;height:38px;border-radius:8px;border:1.5px solid #D5D1CA;box-sizing:border-box"><span class="a" style="left:12px;top:8px;font-size:15px;white-space:nowrap"><span id="typed"></span><span id="caret" style="display:inline-block;width:2px;height:18px;background:#1B252F;vertical-align:-3px;margin-left:1px"></span></span></div>
+    <div class="row" style="left:146px;top:256px;gap:10px;font-size:15px;font-weight:600"><span style="position:relative;width:48px;height:28px;border-radius:14px;background:#8CC94E"><i class="a" style="left:23px;top:3px;width:22px;height:22px;border-radius:11px;background:#fff"></i></span>Kept confidential</div>
+    <div class="a" id="sign" style="left:266px;top:300px;width:120px;height:34px;border-radius:17px;background:#1B252F;color:#FBFBFB;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600">Sign</div>
+  </div>
+  <div class="L" id="Ldone">
+    <div class="a" style="left:-248px;top:-74px;width:56px;height:56px;border-radius:28px;background:#8CC94E;display:flex;align-items:center;justify-content:center" id="icOk"></div>
+    <div class="a disp" style="left:-176px;top:-74px;font-size:27px;font-weight:600;letter-spacing:-.015em;white-space:nowrap">WB-55 signed</div>
+    <div class="a" style="left:-176px;top:-36px;font-size:16px;color:#6E7A88;white-space:nowrap">4 consequences initialed &middot; reason kept confidential</div>
+    <div class="a" style="left:-248px;top:12px;width:496px;height:58px;border-radius:14px;background:#FAEFD9;box-sizing:border-box;padding:0 18px;display:flex;align-items:center;font-size:16px;white-space:nowrap">Seller changes their mind?&nbsp;<b>WB-42 amendment.</b></div>
+  </div>
+</div><!--/shape-->
+<script>
+const $=id=>document.getElementById(id);
+$('icOk').innerHTML=M.icon('check',30,'#1B252F',3.2);
+const CQ=['Agents and buyers may not know the home is for sale.','It won’t appear on public home-search websites.','Agents and buyers may not know the price and terms.','Less exposure can mean fewer offers, a lower price, or a harder sale.'];
+const RY=i=>90+i*40;
+$('cqs').innerHTML=CQ.map((c,i)=>`<div class="cq" id="q${i}" style="top:${RY(i)}px"><i>(${'abcd'[i]})</i><span>${c}</span><div class="ib"><div class="stamp" id="s${i}">JR</div></div></div>`).join('');
+// illustrative: the initials and the typed reason are examples, not a real seller
+const STAMP=[1.5,2.2,2.9,3.6], REASON='Privacy while relocating', TY0=4.5, TY1=5.6, SIGN=6.3;
+const sp=STAMP.map(x=>M.track(0,[[x,1,[17,0.62]]]));
+const signP=M.track(0,[[SIGN-0.07,1,[45,1]],[SIGN+0.035,0,[22,.72]]]);
+const IY=i=>-172+RY(i)+19;
+M.scene({
+  W:860,H:380,bg:null,T:8.8,center:[430,190],intro:0.15,
+  SH:{form:{w:820,h:344,r:16,bg:'#FBFAF6',cam:1.0}, done:{w:560,h:196,r:24,bg:'#FBFBFB',cam:1.15}},
+  start:'form', SEQ:[[SIGN+0.1,'done']], camSpring:[11,1],
+  layers:[
+    {el:'Lform',tin:0.15,tout:SIGN+0.1,anchor:'t',o:{din:0.05},update:(t)=>{
+      for(let i=0;i<4;i++){const q=$('q'+i),v=M.vis(t,0.45+0.12*i,null,{din:0,lin:0.22}); q.style.opacity=v.o; q.style.filter=v.blur>0.05?`blur(${v.blur}px)`:'none';
+        const a=sp[i](t), s=$('s'+i); s.style.opacity=t<STAMP[i]?0:1; s.style.transform=`rotate(-5deg) scale(${(1.6-0.6*M.clamp(a)+0.0*a).toFixed(4)})`; s.style.opacity=t<STAMP[i]?0:M.clamp((t-STAMP[i])/0.06);}
+      const n=Math.round(M.clamp((t-TY0)/(TY1-TY0))*REASON.length); M.setText($('typed'),REASON.slice(0,n));
+      $('caret').style.opacity=(t>TY0-0.3&&t<SIGN)?((t>TY0&&t<TY1)||Math.floor(t*2.4)%2==0?1:0):0;
+      $('sign').style.transform=`scale(${1-0.06*signP(t)})`;
+    }},
+    {el:'Ldone',tin:SIGN+0.1,tout:null,o:{din:0.12,lin:0.28}},
+  ],
+  cursor:{size:26,clicks:[...STAMP,4.25,SIGN],keys:[[0,220,30],[1.0,220,30],[1.35,343,IY(0)],[1.7,343,IY(0)],[2.05,343,IY(1)],[2.4,343,IY(1)],[2.75,343,IY(2)],[3.1,343,IY(2)],[3.45,343,IY(3)],[3.8,343,IY(3)],[4.15,-40,99],[4.5,-40,99],[5.8,250,128],[6.0,326,145],[6.5,326,145],[7.3,236,112]]},
+});
+</script>

@@ -4,3 +4,9 @@
 # Design previews & verification artifacts (session scratch)
 .claude-design/
 .playwright-mcp/
+
+# motion-broll working files (clip sources in motion/clips and motion/tools stay tracked)
+motion/node_modules/
+motion/dist/
+motion/out/
+motion/work/

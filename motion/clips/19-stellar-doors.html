@@ -1,0 +1,80 @@
+<title>19 Stellar four doors</title>
+<style>
+.tab{position:absolute;top:0;width:227px;height:56px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;white-space:nowrap}
+.rw{position:absolute;left:-200px;width:910px;height:52px}
+.rw .lb{position:absolute;left:24px;top:14px;font-size:20px;font-weight:500;white-space:nowrap}
+.rw .st{position:absolute;right:96px;top:15px;width:200px;text-align:right;font-size:17px;font-weight:600;white-space:nowrap}
+.rw .tg{position:absolute;right:24px;top:11px;width:54px;height:30px;border-radius:15px}
+.rw .kn{position:absolute;top:3px;width:24px;height:24px;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.rw .dv{position:absolute;left:24px;right:24px;top:-2px;height:1.5px;background:#ECEAE5}
+.sk{position:absolute;height:12px;border-radius:6px;background:#E6E3DD}
+</style>
+<div data-slot="shape">
+  <div class="L" id="Lpill">
+    <div class="a" id="tile0" style="left:-204px;top:-32px;width:64px;height:64px;border-radius:16px;background:#1B252F;display:flex;align-items:center;justify-content:center"></div>
+    <div class="a disp" style="left:-124px;top:-17px;font-size:24px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;line-height:34px">Your listing</div>
+    <div class="a" id="btn" style="left:62px;top:-22px;width:144px;height:44px;border-radius:22px;background:#8CC94E;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600">Pick a door</div>
+  </div>
+  <div class="L" id="Lcard">
+    <div class="a" id="tile" style="left:-710px;top:40px;width:100px;height:100px;border-radius:24px;display:flex;align-items:center;justify-content:center"></div>
+    <div class="a disp" style="left:-586px;top:46px;font-size:24px;font-weight:600;letter-spacing:-.01em;white-space:nowrap">Your listing</div>
+    <div class="a k" style="left:-586px;top:86px">Stellar MLS</div>
+    <div class="sk" style="left:-586px;top:112px;width:160px"></div>
+    <div class="a k" style="left:-710px;top:172px">Who can see it</div>
+    <div id="who"></div>
+    <div class="a" style="left:-250px;top:36px;width:1.5px;height:218px;background:#ECEAE5"></div>
+    <div class="a" id="tabs" style="left:-200px;top:36px;width:910px;height:56px;border-radius:28px;background:#ECEAE5">
+      <div class="a" id="ind" style="top:4px;height:48px;border-radius:24px"></div>
+      <div class="tab" id="tb0" style="left:0">Office Exclusive</div><div class="tab" style="left:227.5px">Delayed &middot; 5 days</div><div class="tab" style="left:455px">Coming Soon &middot; 14 days</div><div class="tab" style="left:682.5px">Active</div>
+    </div>
+    <div class="rw" id="r0" style="top:118px"><div class="lb">All Stellar agents</div><div class="st"></div><div class="tg"><div class="kn"></div></div></div>
+    <div class="rw" id="r1" style="top:172px"><div class="dv"></div><div class="lb">Public websites</div><div class="st"></div><div class="tg"><div class="kn"></div></div></div>
+    <div class="rw" id="r2" style="top:226px"><div class="dv"></div><div class="lb">Your sign and posts</div><div class="st"></div><div class="tg"><div class="kn"></div></div></div>
+  </div>
+</div><!--/shape-->
+<script>
+const $=id=>document.getElementById(id);
+const HOUSE=c=>`<svg width="44" height="40" viewBox="0 0 40 36"><path d="M4 18 L20 4 L36 18" fill="none" stroke="${c}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="16" width="22" height="17" rx="2" fill="${c}"/></svg>`;
+$('tile0').innerHTML=HOUSE('#FBFBFB'); $('tile').innerHTML=HOUSE('#FBFBFB');
+const OPEN=1.15, TAB=[3.5,5.6,7.7];
+// who can see it, one line per door (Stellar rules Art. 05.11 and the MLS Options form)
+const WHO=[['#C05445','Our office only','No sign, no social media'],['#E0A63A','Every Stellar agent','Active in Stellar. Portals wait.'],['#6BA8D6','Every Stellar agent','Off public sites. Active on day 15.'],['#8CC94E','Everyone, right away','Every agent, every portal']];
+$('who').innerHTML=WHO.map((w,i)=>`<div class="a" id="w${i}" style="left:-710px;top:196px;white-space:nowrap"><div class="row disp" style="position:relative;gap:10px;font-size:24px;font-weight:600;letter-spacing:-.01em"><i style="width:12px;height:12px;border-radius:50%;background:${w[0]}"></i>${w[1]}</div><div style="margin-top:6px;font-size:16px;color:#6E7A88">${w[2]}</div></div>`).join('');
+const WT=[[OPEN,TAB[0]],[TAB[0],TAB[1]],[TAB[1],TAB[2]],[TAB[2],null]];
+// liquid indicator: leading edge FAST, trailing edge SLOW
+const SEG=227.5, iL=M.track(4,TAB.map((x,i)=>[x,(i+1)*SEG+4,M.SLOW])), iR=M.track(SEG-4,TAB.map((x,i)=>[x,(i+2)*SEG-4,M.FAST]));
+const iC=M.ctrack('#C05445',[[TAB[0],'#E0A63A'],[TAB[1],'#6BA8D6'],[TAB[2],'#8CC94E']]);
+const tileC=M.ctrack('#1B252F',[[TAB[2]+0.25,'#8CC94E']]);
+// row states per door: [on?, status]
+const ROWS=[
+  [[0,'Office only'],[1,'Shown'],[1,'Shown'],[1,'Shown']],
+  [[0,'Hidden'],[0,'After 5 days'],[0,'Up to 14 days'],[1,'Shown']],
+  [[0,'Not allowed'],[1,'Allowed'],[1,'Say “Coming Soon”'],[1,'Allowed']],
+];
+const door=t=>t<TAB[0]?0:t<TAB[1]?1:t<TAB[2]?2:3;
+const SW=ROWS.map((r,i)=>{const ch=[];for(let d=1;d<4;d++)if(r[d][0]!==r[d-1][0])ch.push([TAB[d-1]+0.25+0.12*i,r[d][0]]);return ch;});
+const kn=SW.map(ch=>M.track(0,ch.map(c=>[c[0],c[1],[20,0.82]])));
+const tgC=SW.map(ch=>M.ctrack('#D5D1CA',ch.map(c=>[c[0],c[1]?'#8CC94E':'#D5D1CA'])));
+const RIN=[OPEN+0.6,OPEN+0.8,OPEN+1.0];
+const btnP=M.track(0,[[OPEN-0.07,1,[45,1]],[OPEN+0.035,0,[22,.72]]]);
+M.scene({
+  W:1600,H:330,bg:null,T:10.2,center:[800,165],intro:0.15,
+  SH:{pill:{w:440,h:100,r:50,bg:'#FBFBFB',cam:1.1}, card:{w:1500,h:290,r:28,bg:'#FBFBFB',cam:1.0}},
+  start:'pill', SEQ:[[OPEN,'card']], camSpring:[11,1],
+  layers:[
+    {el:'Lpill',tin:0.15,tout:OPEN,o:{din:0.05},update:(t)=>{$('btn').style.transform=`scale(${1-0.06*btnP(t)})`;}},
+    {el:'Lcard',tin:OPEN,tout:null,anchor:'t',update:(t)=>{
+      $('tile').style.background=tileC(t);
+      for(let i=0;i<4;i++){M.apply($('w'+i),M.vis(t,WT[i][0],WT[i][1],{din:0.1,lin:0.24}));}
+      const L=iL(t),R=iR(t); Object.assign($('ind').style,{left:L+'px',width:(R-L)+'px',background:iC(t)});
+      const cv=M.clamp((Math.min(R,SEG)-Math.max(L,0))/(SEG-8)); $('tb0').style.color=`rgb(${Math.round(27+228*cv)},${Math.round(37+218*cv)},${Math.round(47+208*cv)})`;
+      for(let i=0;i<3;i++){
+        const r=$('r'+i), v=M.vis(t,RIN[i],null,{din:0,lin:0.22}); r.style.opacity=v.o; r.style.filter=v.blur>0.05?`blur(${v.blur}px)`:'none'; r.style.transform=`translateY(${(1-v.a)*10}px)`;
+        r.querySelector('.kn').style.left=(3+24*kn[i](t))+'px'; r.querySelector('.tg').style.background=tgC[i](t);
+        const [on,s]=ROWS[i][door(t-0.25-0.12*i)], st=r.querySelector('.st'); M.setText(st,s); st.style.color=on?'#2C5E15':'#95A0AE';
+      }
+    }},
+  ],
+  cursor:{size:26,clicks:[OPEN,...TAB],keys:[[0,150,60],[0.7,150,60],[1.0,136,4],[1.4,136,4],[2.2,0,40],[2.9,0,40],[3.3,141,-80],[3.75,141,-80],[4.8,250,30],[5.1,250,30],[5.4,369,-80],[5.85,369,-80],[6.9,480,30],[7.2,480,30],[7.5,596,-80],[7.95,596,-80],[8.9,520,-5]]},
+});
+</script>

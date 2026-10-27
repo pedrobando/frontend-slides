@@ -1,0 +1,59 @@
+<title>09 Who the private door serves</title>
+<style>
+.side{position:absolute;top:84px;height:92px;border-radius:14px;box-sizing:border-box;overflow:hidden}
+.side .k{position:absolute;left:16px;top:16px}
+.side .v{position:absolute;left:16px;top:42px;font-size:22px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.ag{position:absolute;left:-226px;width:452px;height:44px}
+.ag .av{position:absolute;left:0;top:4px;width:36px;height:36px;border-radius:18px}
+.ag .nm{position:absolute;left:48px;top:11px;font-size:17px;font-weight:500;white-space:nowrap}
+.st{position:absolute;right:0;top:4px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:15px;font-weight:600;white-space:nowrap}
+</style>
+<div data-slot="shape">
+  <div class="L" id="Lpill"><div class="row" style="transform:translate(-50%,-50%);gap:12px;font-size:22px;font-weight:600;letter-spacing:-.01em"><span id="icLock0"></span><span class="disp">Private listing</span></div></div>
+  <div class="L" id="Lcard">
+    <div class="row" style="left:-226px;top:24px;gap:9px"><span id="icLock"></span><span class="k" style="color:#C05445">Private exclusive · Compass</span></div>
+    <div class="side" id="sL" style="background:#F1EFEA"><div class="k">Listing side</div><div class="v disp">Compass</div></div>
+    <div class="side" id="sR"><div class="k">Buyer side</div><div class="v disp" id="bv"></div></div>
+    <div class="side" id="sM" style="background:#1B252F;color:#FBFBFB"><div class="k" style="color:#E0A63A">One company</div><div class="row disp" style="left:16px;top:40px;gap:8px;font-size:21px;font-weight:600;letter-spacing:-.01em"><span id="icCoin1"></span><span id="icCoin2"></span>Both commissions</div></div>
+    <div class="ag" id="a0" style="top:200px"><div class="av" style="background:#D5D1CA"></div><div class="nm">Outside buyer agent</div>
+      <div class="st" id="req" style="width:164px;background:#1B252F;color:#FBFBFB">Request showing</div>
+      <div class="st" id="snt" style="width:164px;background:#ECEAE5;color:#6E7A88"><span id="spin" style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2.4px solid #B9B4AC;border-top-color:#1B252F;box-sizing:border-box"></span>Sent</div>
+      <div class="st" id="nor" style="width:164px;background:#F6E1DE;color:#C05445"><span id="icX"></span>No response</div></div>
+    <div class="ag" id="a1" style="top:256px"><div class="av" style="background:#6BA8D6"></div><div class="nm">Compass buyer agent</div>
+      <div class="st" id="acc" style="width:164px;background:#E6F3D7;color:#2C5E15"><span id="icChk"></span>Gets in</div></div>
+  </div>
+</div><!--/shape-->
+<script>
+const $=id=>document.getElementById(id);
+$('icLock0').innerHTML=M.icon('lock',22,'#C05445'); $('icLock').innerHTML=M.icon('lock',15,'#C05445',2.4);
+$('icX').innerHTML=M.icon('x',15,'#C05445',2.6); $('icChk').innerHTML=M.icon('check',15,'#2C5E15',2.6);
+$('icCoin1').innerHTML=M.icon('coin',22,'#E0A63A'); $('icCoin2').innerHTML=M.icon('coin',22,'#E0A63A');
+const OPEN=1.0, REQ=3.0, NORESP=4.2, BUYER=5.2, IN=5.9, BOTH=6.4, MERGE=7.6;
+const reqP=M.track(0,[[REQ-0.07,1,[45,1]],[REQ+0.035,0,[22,.72]]]);
+// side boxes: two halves, then one box across both
+const lW=M.track(220,[[MERGE,452]]), rL=M.track(6,[[MERGE,6]]);
+const fill=M.track(0,[[BOTH,1,[16,0.9]]]);
+M.scene({
+  W:540,H:380,bg:null,T:9.4,center:[270,190],intro:0.15,
+  SH:{pill:{w:280,h:72,r:36,bg:'#FBFBFB',cam:1.25}, card:{w:500,h:320,r:24,bg:'#FBFBFB',cam:1.0}},
+  start:'pill', SEQ:[[OPEN,'card']], camSpring:[11,1],
+  layers:[
+    {el:'Lpill',tin:0.15,tout:OPEN,o:{din:0.05}},
+    {el:'Lcard',tin:OPEN,tout:null,anchor:'t',update:(t)=>{
+      const vL=M.vis(t,OPEN+0.2,MERGE,{din:0,lin:0.22,lout:0.2}), vR=M.vis(t,OPEN+0.4,MERGE,{din:0,lin:0.22,lout:0.2}), vM=M.vis(t,MERGE,null,{din:0.05,lin:0.26});
+      const w=lW(t); Object.assign($('sL').style,{left:'-226px',width:'220px',opacity:vL.o,filter:vL.blur>0.05?`blur(${vL.blur}px)`:'none',display:vL.o<0.002?'none':''});
+      const f=M.clamp(fill(t)); Object.assign($('sR').style,{left:'6px',width:'220px',opacity:vR.o,filter:vR.blur>0.05?`blur(${vR.blur}px)`:'none',display:vR.o<0.002?'none':'',
+        background:`rgba(241,239,234,${f})`,border:`2px ${f>0.5?'solid':'dashed'} rgba(201,197,190,${1-f})`});
+      M.setText($('bv'),t<BOTH?'Open':'Compass'); $('bv').style.color=t<BOTH?'#95A0AE':'#1B252F';
+      Object.assign($('sM').style,{left:'-226px',width:w+'px',opacity:vM.o,filter:vM.blur>0.05?`blur(${vM.blur}px)`:'none',display:vM.o<0.002?'none':''});
+      for(const [id,tin] of [['a0',OPEN+1.0],['a1',BUYER]]){const a=$(id),v=M.vis(t,tin,null,{din:0,lin:0.24}); a.style.opacity=v.o; a.style.filter=v.blur>0.05?`blur(${v.blur}px)`:'none'; a.style.transform=`translateY(${(1-v.a)*10}px)`;}
+      M.apply($('req'),M.vis(t,null,REQ+0.05,{lout:0.12}),` scale(${1-0.05*reqP(t)})`);
+      M.apply($('snt'),M.vis(t,REQ+0.05,NORESP,{din:0.08,lin:0.18}));
+      M.apply($('nor'),M.vis(t,NORESP,null,{din:0.06,lin:0.22}));
+      M.apply($('acc'),M.vis(t,IN,null,{din:0,lin:0.22}));
+      $('spin').style.transform=`rotate(${(t*420)%360}deg)`;
+    }},
+  ],
+  cursor:{size:26,clicks:[REQ],keys:[[0,200,120],[1.9,200,120],[2.6,148,62],[3.25,148,62],[3.9,196,-122],[9.4,196,-122]]},
+});
+</script>

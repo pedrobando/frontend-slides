@@ -1,0 +1,52 @@
+<title>23 Stellar fines</title>
+<style>
+.fr{position:absolute;left:-326px;width:676px;height:30px}
+.fr .lb{position:absolute;left:0;top:5px;font-size:15px;font-weight:600;white-space:nowrap}
+.fr .tr{position:absolute;left:92px;top:8px;width:380px;height:14px;border-radius:7px;background:#ECEAE5}
+.fr .br{position:absolute;left:92px;top:8px;height:14px;border-radius:7px;background:#C05445}
+.fr .vl{position:absolute;top:2px;font-size:17px;font-weight:700;color:#C05445;white-space:nowrap}
+</style>
+<div data-slot="shape">
+  <div class="L" id="Lpost">
+    <div class="a" style="left:-286px;top:-46px;width:40px;height:40px;border-radius:20px;background:#6BA8D6"></div>
+    <div class="a" style="left:-234px;top:-46px;font-size:15px;font-weight:600;white-space:nowrap">Your page</div>
+    <div class="a" style="left:-234px;top:-26px;font-size:13px;color:#6E7A88;white-space:nowrap">Draft post &middot; listing is Office Exclusive</div>
+    <div class="a" style="left:-286px;top:8px;font-size:16px;white-space:nowrap">Sneak peek this weekend. Not on the MLS yet.</div>
+    <div class="a" style="left:-286px;top:34px;width:180px;height:10px;border-radius:5px;background:#ECEAE5"></div>
+    <div class="a" id="thumb" style="left:128px;top:-42px;width:78px;height:84px;border-radius:12px;background:#ECEAE5;display:flex;align-items:center;justify-content:center"></div>
+    <div class="a" id="post" style="left:218px;top:-18px;width:80px;height:36px;border-radius:18px;background:#034C76;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600">Post</div>
+  </div>
+  <div class="L" id="Lviol"><div class="row" style="transform:translate(-50%,-50%);gap:10px;color:#fff;font-size:17px;font-weight:600"><span id="icAl"></span>Stellar violation &middot; a post during an Office Exclusive</div></div>
+  <div class="L" id="Lfines">
+    <div id="rows"></div>
+    <div class="a" id="tag" style="left:150px;top:19px;height:32px;border-radius:16px;padding:0 14px;background:#F6E1DE;color:#C05445;display:flex;align-items:center;font-size:15px;font-weight:600;white-space:nowrap">Charged to the agent</div>
+  </div>
+</div><!--/shape-->
+<script>
+const $=id=>document.getElementById(id);
+$('icAl').innerHTML=M.icon('alert',20,'#fff',2.4);
+$('thumb').innerHTML=`<svg width="34" height="30" viewBox="0 0 40 36"><path d="M4 18 L20 4 L36 18" fill="none" stroke="#B9B4AC" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="16" width="22" height="17" rx="2" fill="#B9B4AC"/></svg>`;
+// real Stellar MLS fine steps from the slide; the post text is illustrative
+const F=[['First',500,'$500'],['Second',2500,'$2,500'],['Up to',15000,'$15K']];
+$('rows').innerHTML=F.map((f,i)=>`<div class="fr" id="r${i}" style="top:${20+i*40}px"><div class="lb">${f[0]}</div><div class="tr"></div><div class="br" id="b${i}"></div><div class="vl" id="v${i}"></div></div>`).join('');
+const POST=1.6, VIOL=1.75, FINES=3.5, RT=[3.8,4.6,5.4], TAG=6.4;
+const gr=RT.map(x=>M.track(0,[[x,1,[12,0.92]]]));
+const postP=M.track(0,[[POST-0.07,1,[45,1]],[POST+0.035,0,[22,.72]]]);
+const fmt=(v,i)=>i==2?'$'+Math.round(v/1000)+'K':'$'+Math.round(v).toLocaleString('en-US');
+M.scene({
+  W:740,H:170,bg:null,T:8.2,center:[370,85],intro:0.15,
+  SH:{post:{w:620,h:128,r:20,bg:'#FBFBFB',cam:1.0}, viol:{w:600,h:62,r:31,bg:'#C05445',cam:1.08}, fines:{w:700,h:150,r:20,bg:'#FBFBFB',cam:1.0}},
+  start:'post', SEQ:[[VIOL,'viol'],[FINES,'fines']], camSpring:[11,1],
+  layers:[
+    {el:'Lpost',tin:0.15,tout:VIOL,o:{din:0.05},update:(t)=>{$('post').style.transform=`scale(${1-0.06*postP(t)})`;}},
+    {el:'Lviol',tin:VIOL,tout:FINES},
+    {el:'Lfines',tin:FINES,tout:null,anchor:'t',update:(t)=>{
+      for(let i=0;i<3;i++){const r=$('r'+i),v=M.vis(t,RT[i]-0.15,null,{din:0,lin:0.2}); r.style.opacity=v.o; r.style.filter=v.blur>0.05?`blur(${v.blur}px)`:'none';
+        const g=Math.max(0,gr[i](t)), w=Math.max(14*M.clamp(g*4),380*F[i][1]/15000*g); $('b'+i).style.width=w+'px';
+        const vl=$('v'+i); vl.style.left=(92+w+12)+'px'; M.setText(vl,fmt(F[i][1]*M.clamp(g),i));}
+      M.apply($('tag'),M.vis(t,TAG,null,{din:0,lin:0.24}));
+    }},
+  ],
+  cursor:{size:26,clicks:[POST],keys:[[0,40,52],[0.9,40,52],[1.4,258,4],[1.8,258,4],[2.6,300,46],[8.2,300,46]]},
+});
+</script>

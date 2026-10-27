@@ -1,0 +1,64 @@
+<title>10 The price fight</title>
+<style>
+.dr{position:absolute;left:-456px;width:912px;height:56px}
+.dr .nm{position:absolute;left:0;top:6px;font-size:18px;font-weight:600;white-space:nowrap}
+.dr .sb{position:absolute;left:0;top:30px;font-size:13.5px;color:#6E7A88;white-space:nowrap}
+.dr .bar{position:absolute;top:14px;height:28px}
+.dr .vl{position:absolute;top:14px;line-height:28px;font-size:19px;font-weight:700;white-space:nowrap}
+.dr .tag{position:absolute;left:702px;top:14px;height:28px;border-radius:14px;padding:0 12px;display:flex;align-items:center;font-size:13.5px;font-weight:600;white-space:nowrap}
+.tip{position:absolute;padding:10px 14px;border-radius:12px;background:#1B252F;color:#FBFBFB;font-size:14px;line-height:19px;white-space:nowrap;transform-origin:50% 100%}
+.tip b{display:block;font-size:13px;font-family:'Geist Mono',monospace;letter-spacing:1.2px;text-transform:uppercase;color:#B4DC84;font-weight:600}
+</style>
+<div data-slot="shape">
+  <div class="L" id="Lchart">
+    <div class="a k" style="left:-456px;top:22px">Sale price vs. homes sold on the MLS</div>
+    <div class="a" style="left:-270px;top:52px;width:200px;font-size:13.5px;color:#6E7A88;text-align:right;white-space:nowrap">&larr; Sold for less</div>
+    <div class="a" style="left:-50px;top:52px;font-size:13.5px;color:#6E7A88;white-space:nowrap">Sold for more &rarr;</div>
+    <div class="a" style="left:-61px;top:76px;width:2px;height:250px;background:#D5D1CA"></div>
+    <div id="rows"></div>
+    <div class="row" id="tgl" style="left:-456px;top:332px;gap:12px;font-size:16px;font-weight:600"><span class="a" style="position:relative;width:48px;height:28px;border-radius:14px" id="tgT"><i class="a" id="tgK" style="top:3px;width:22px;height:22px;border-radius:11px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)"></i></span>What did each study count?</div>
+    <div class="a disp" id="note" style="left:56px;top:334px;width:400px;text-align:right;font-size:17px;font-weight:600;letter-spacing:-.01em;white-space:nowrap">Different homes. Both can be true.</div>
+  </div>
+</div><!--/shape-->
+<div data-slot="over">
+  <div class="tip" id="tip0"><b>Zillow &middot; 2023-24</b>Off-MLS sales sold 1.5% less,<br>a median of about $4,975</div>
+  <div class="tip" id="tip1"><b>Compass &middot; Jul 2026</b>Pre-marketed homes<br>sold 4.6% more</div>
+</div><!--/over-->
+<script>
+const $=id=>document.getElementById(id);
+// real figures from the slide: Zillow 2023-24, Zillow May 2026, Univ. of Georgia DFW, Compass Jul 2026
+const R=[['Zillow','Off-MLS sales, 2023-24',-1.5,'n'],['Zillow','Study, May 2026',-1.3,'n'],['Univ. of Georgia','Dallas-Fort Worth listings',1.7,''],['Compass','Pre-marketed homes, Jul 2026',4.6,'p']];
+const Z=-60, PX=46, RY=i=>80+i*62;   // zero line, px per percentage point
+$('rows').innerHTML=R.map((r,i)=>`<div class="dr" id="r${i}" style="top:${RY(i)}px"><div class="nm">${r[0]}</div><div class="sb">${r[1]}</div><div class="bar" id="b${i}"></div><div class="vl" id="v${i}"></div>${r[3]?`<div class="tag" id="g${i}" style="background:${r[3]=='n'?'#F6E1DE':'#E6F3D7'};color:${r[3]=='n'?'#C05445':'#2C5E15'}">${r[3]=='n'?'Never reached the MLS':'Pre-marketed, then MLS'}</div>`:''}</div>`).join('');
+const GROW=[0.55,0.8,1.05,1.3], TIP0=[2.75,4.3], TIP1=[4.85,6.4], TOG=7.1, TAGS=[7.35,7.5,null,7.65];
+const gr=GROW.map(x=>M.track(0,[[x,1,[13,0.9]]]));
+const tg=M.track(0,[[TOG,1,[20,0.82]]]), tgC=M.ctrack('#D5D1CA',[[TOG,'#8CC94E']]);
+const fade=M.track(0,[[TOG+0.15,1,[14,1]]]);
+const NEG='#C05445', POS='#8CC94E';
+M.scene({
+  W:1000,H:420,bg:null,T:10,center:[500,210],intro:0.15,
+  SH:{chart:{w:960,h:384,r:24,bg:'#FBFBFB',cam:1.0}},
+  start:'chart', SEQ:[],
+  layers:[
+    {el:'Lchart',tin:0.15,tout:null,anchor:'t',o:{din:0.05},update:(t)=>{
+      const fd=M.clamp(fade(t));
+      for(let i=0;i<4;i++){
+        const v=R[i][2], g=Math.max(0,gr[i](t)), w=Math.abs(v)*PX*g;
+        Object.assign($('b'+i).style,{left:(v<0?Z+456-w:Z+456)+'px',width:w+'px',background:v<0?NEG:POS,borderRadius:v<0?'6px 0 0 6px':'0 6px 6px 0'});
+        const vl=$('v'+i); M.setText(vl,(v<0?'−':'+')+(Math.abs(v)*M.clamp(g)).toFixed(1)+'%');
+        vl.style.left=(v<0?Z+456-w-62:Z+456+w+10)+'px'; vl.style.width='52px'; vl.style.textAlign=v<0?'right':'left'; vl.style.opacity=M.clamp((t-GROW[i])/0.2); vl.style.color=v<0?'#C05445':'#2C5E15';
+        $('r'+i).style.opacity=(1-0.5*fd*(R[i][3]?0:1)).toFixed(3);
+        if(TAGS[i]!=null){const tv=M.vis(t,TAGS[i],null,{din:0,lin:0.22}); M.apply($('g'+i),tv,` translateX(${((1-tv.a)*-12).toFixed(2)}px)`);}
+      }
+      const k=tg(t); $('tgK').style.left=(3+20*k)+'px'; $('tgT').style.background=tgC(t);
+      M.apply($('note'),M.vis(t,TOG+0.7,null,{din:0,lin:0.3}));
+    }},
+  ],
+  cursor:{size:26,clicks:[TOG],keys:[[0,330,150],[2.2,330,150],[2.7,-95,-84],[4.4,-95,-84],[4.8,46,102],[6.4,46,102],[6.9,-432,154],[7.3,-432,154],[8.3,-150,150]]},
+  extra:(t,g)=>{
+    // tooltips ride above the hovered bar, in world space
+    const tips=[[TIP0,-95,0],[TIP1,46,3]];
+    tips.forEach(([[a,b],x,row],i)=>{const v=M.vis(t,a,b,{din:0,lin:0.18,lout:0.14}),el=$('tip'+i); if(!M.apply(el,v)) return; el.style.left=(x-el.offsetWidth/2)+'px'; el.style.top=(g.cy-g.h/2+RY(row)+6-el.offsetHeight)+'px';});
+  },
+});
+</script>

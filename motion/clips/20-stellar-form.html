@@ -1,0 +1,63 @@
+<title>20 Stellar options form</title>
+<style>
+.op{position:absolute;height:30px;display:flex;align-items:center;gap:10px;font-size:15px;white-space:nowrap}
+.op .bx{position:relative;width:22px;height:22px;border-radius:5px;border:1.5px solid #B9B4AC;box-sizing:border-box;flex-shrink:0}
+.op .ck{position:absolute;left:-1.5px;top:-1.5px;width:22px;height:22px;border-radius:5px;background:#034C76;display:flex;align-items:center;justify-content:center}
+.cq{position:absolute;left:-386px;width:772px;height:38px}
+.cq i{position:absolute;left:0;top:9px;font-style:normal;font-family:'Geist Mono',monospace;font-size:14px;font-weight:600;color:#6E7A88}
+.cq span{position:absolute;left:34px;top:8px;font-size:16px;white-space:nowrap}
+.ib{position:absolute;left:686px;top:4px;width:86px;height:30px;border-radius:6px;border:1.5px dashed #B9B4AC;box-sizing:border-box}
+.stamp{position:absolute;left:0;top:0;width:86px;height:30px;line-height:30px;text-align:center;font-size:18px;font-weight:700;color:#034C76;letter-spacing:1px}
+</style>
+<div data-slot="shape">
+  <div class="L" id="Lform">
+    <div class="a disp" style="left:-386px;top:20px;font-size:19px;font-weight:700;letter-spacing:-.01em;white-space:nowrap">MLS Options for Property Owners</div>
+    <div class="a k" style="left:136px;top:25px;width:250px;text-align:right">Stellar MLS &middot; Rev 5/2026</div>
+    <div class="a" style="left:-386px;top:54px;width:772px;height:1.5px;background:#1B252F"></div>
+    <div class="a k" style="left:-386px;top:68px">The seller picks one option</div>
+    <div id="ops"></div>
+    <div class="a k" style="left:-386px;top:166px">The seller initials</div>
+    <div id="cqs"></div>
+    <div class="a k" style="left:-386px;top:311px">The broker keeps it on file</div>
+    <div class="a" id="sign" style="left:266px;top:300px;width:120px;height:34px;border-radius:17px;background:#1B252F;color:#FBFBFB;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600">Sign</div>
+  </div>
+  <div class="L" id="Ldone">
+    <div class="a" style="left:-272px;top:-74px;width:56px;height:56px;border-radius:28px;background:#8CC94E;display:flex;align-items:center;justify-content:center" id="icOk"></div>
+    <div class="a disp" style="left:-200px;top:-74px;font-size:27px;font-weight:600;letter-spacing:-.015em;white-space:nowrap">Signed: our office only</div>
+    <div class="a" style="left:-200px;top:-36px;font-size:16px;color:#6E7A88;white-space:nowrap">The seller gave up exposure to 80,000+ Stellar agents</div>
+    <div class="a" style="left:-272px;top:12px;width:544px;height:58px;border-radius:14px;background:#FAEFD9;box-sizing:border-box;padding:0 18px;display:flex;align-items:center;font-size:16px;white-space:nowrap">Stellar asks for it?&nbsp;<b>We have 2 business days.</b></div>
+  </div>
+</div><!--/shape-->
+<script>
+const $=id=>document.getElementById(id);
+$('icOk').innerHTML=M.icon('check',30,'#1B252F',3.2);
+// the four options on Stellar's form; the seller's initials are illustrative
+const OP=[['Coming Soon · up to 14 days',-386,88],['Delayed Distribution · 5 days',20,88],['Office Exclusive',-386,124],['Office Exclusive + Temporary Exclusion',20,124]], PICK=2;
+$('ops').innerHTML=OP.map((o,i)=>`<div class="op" id="o${i}" style="left:${o[1]}px;top:${o[2]}px"><div class="bx">${i==PICK?'<div class="ck" id="ck"></div>':''}</div>${o[0]}</div>`).join('');
+$('ck').innerHTML=M.icon('check',16,'#FBFBFB',3.4);
+const CQ=['Fair housing: not kept off the MLS to avoid any protected class.','Full responsibility for longer market time or a lower price.','Office Exclusive only: knowingly gives up full MLS distribution.'];
+const RY=i=>186+i*38;
+$('cqs').innerHTML=CQ.map((c,i)=>`<div class="cq" id="q${i}" style="top:${RY(i)}px"><i>(${'abc'[i]})</i><span>${c}</span><div class="ib"><div class="stamp" id="s${i}">MR</div></div></div>`).join('');
+const CHECK=1.5, STAMP=[2.4,3.1,3.8], SIGN=4.8;
+const ckP=M.track(0,[[CHECK,1,[18,0.7]]]);
+const sp=STAMP.map(x=>M.track(0,[[x,1,[17,0.62]]]));
+const signP=M.track(0,[[SIGN-0.07,1,[45,1]],[SIGN+0.035,0,[22,.72]]]);
+const IY=i=>-172+RY(i)+19;
+M.scene({
+  W:860,H:380,bg:null,T:8.0,center:[430,190],intro:0.15,
+  SH:{form:{w:820,h:344,r:16,bg:'#FBFAF6',cam:1.0}, done:{w:610,h:196,r:24,bg:'#FBFBFB',cam:1.15}},
+  start:'form', SEQ:[[SIGN+0.1,'done']], camSpring:[11,1],
+  layers:[
+    {el:'Lform',tin:0.15,tout:SIGN+0.1,anchor:'t',o:{din:0.05},update:(t)=>{
+      for(let i=0;i<4;i++){const o=$('o'+i),v=M.vis(t,0.4+0.08*i,null,{din:0,lin:0.2}); o.style.opacity=v.o*(t>CHECK+0.2&&i!=PICK?0.55:1); o.style.filter=v.blur>0.05?`blur(${v.blur}px)`:'none';}
+      const c=ckP(t); $('ck').style.opacity=t<CHECK?0:1; $('ck').style.transform=`scale(${M.clamp(c,0,1.2).toFixed(4)})`;
+      $('o'+PICK).style.fontWeight=t>CHECK?600:400;
+      for(let i=0;i<3;i++){const q=$('q'+i),v=M.vis(t,0.75+0.12*i,null,{din:0,lin:0.22}); q.style.opacity=v.o; q.style.filter=v.blur>0.05?`blur(${v.blur}px)`:'none';
+        const a=sp[i](t), s=$('s'+i); s.style.transform=`rotate(-5deg) scale(${(1.6-0.6*M.clamp(a)).toFixed(4)})`; s.style.opacity=t<STAMP[i]?0:M.clamp((t-STAMP[i])/0.06);}
+      $('sign').style.transform=`scale(${1-0.06*signP(t)})`;
+    }},
+    {el:'Ldone',tin:SIGN+0.1,tout:null,o:{din:0.12,lin:0.28}},
+  ],
+  cursor:{size:26,clicks:[CHECK,...STAMP,SIGN],keys:[[0,-120,20],[0.9,-120,20],[1.3,-375,-33],[1.7,-375,-33],[2.05,343,IY(0)],[2.6,343,IY(0)],[2.9,343,IY(1)],[3.3,343,IY(1)],[3.6,343,IY(2)],[4.0,343,IY(2)],[4.5,326,145],[5.0,326,145],[5.8,230,50]]},
+});
+</script>
