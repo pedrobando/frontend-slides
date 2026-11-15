@@ -1,14 +1,19 @@
 """Build reThought deck clips.
-usage: python3 clipbuild.py <frontend-slides root> <out js path>
+usage: python3 clipbuild.py <frontend-slides root> <out js path> [prefix]
+No prefix: clips whose name starts with a digit (Industry Briefing). Prefix R: the 2027 Agent Retreat clips,
+which use local fonts and brand-retreat.css instead of Google Fonts.
 Reads motion/clips/*.html fragments. Writes:
   motion/dist/<name>.html  standalone preview (loops; ?render for stills)
   <out js path>            <script> block for the deck: engine once + every clip + the slide player
 """
 import json, re, sys, pathlib
-ROOT = pathlib.Path(sys.argv[1]); OUT = pathlib.Path(sys.argv[2])
+ROOT = pathlib.Path(sys.argv[1]); OUT = pathlib.Path(sys.argv[2]); PREFIX = sys.argv[3] if len(sys.argv) > 3 else None
 E = ROOT/'.claude/skills/motion-broll/engine'
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">'
 BRAND = (open(pathlib.Path(__file__).parent/'brand.css').read())
+if PREFIX == 'R':
+    FONTS = ''
+    BRAND += open(pathlib.Path(__file__).parent/'brand-retreat.css').read()
 CURSOR = '<svg id="cursor" viewBox="0 0 40 56"><path d="M3 3 L3 41 L12.5 32 L19 47 L25.5 44.2 L19.2 29.8 L32 29.8 Z" fill="#0B0B0B" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/></svg>'
 base = ''.join(l for l in open(E/'base.css').read().splitlines(True) if '@font-face' not in l)
 engine = open(E/'motion.js').read()
@@ -42,6 +47,8 @@ ENGINE_TOKEN = '%%ENGINE%%'
 dist = ROOT/'motion/dist'; dist.mkdir(parents=True, exist_ok=True)
 clips = {}
 for src in sorted((ROOT/'motion/clips').glob('*.html')):
+    if not (src.name.startswith(PREFIX) if PREFIX else src.name[0].isdigit()):
+        continue
     p = parts(src)
     (dist/src.name).write_text(page(p, False).replace(ENGINE_TOKEN, engine), encoding='utf-8')
     clips[src.stem.split('-')[0]] = page(p, True)

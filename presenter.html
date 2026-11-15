@@ -277,6 +277,23 @@ body {
     margin-top: 0.3em;
     margin-bottom: 0.3em;
 }
+/* [Pedro: ...] placeholders from the outline: things only Pedro can fill in */
+.notes-panel__content .notes-pedro {
+    display: block;
+    margin: 0.5em 0;
+    padding: 0.55em 0.8em;
+    border-radius: 6px;
+    background: rgba(224, 166, 58, 0.14);
+    border: 1px solid rgba(224, 166, 58, 0.5);
+    color: var(--amber);
+}
+.notes-panel__content .notes-pedro b {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-right: 0.5em;
+}
 .notes-empty {
     color: var(--muted);
     font-style: italic;
@@ -549,6 +566,22 @@ body {
         channel.postMessage({ type: 'navigate', slide: slideIndex });
     }
 
+    // Decks that announce keys:true (retreat-2027) handle their own keys: in-slide
+    // steps, timers, video, blank screen. The presenter forwards each key and the
+    // deck acks it. No ack within 600ms means an older deck or a closed window, so
+    // the presenter goes back to moving slides itself.
+    let deckKeys = false, keySeq = 0;
+    const keyWait = {};
+    function forwardKey(key, shift, fallback) {
+        const id = ++keySeq;
+        channel.postMessage({ type: 'key', key: key, shift: !!shift, id: id });
+        keyWait[id] = setTimeout(function () {
+            delete keyWait[id];
+            deckKeys = false;
+            if (fallback) fallback();
+        }, 600);
+    }
+
     /** Listen for messages from audience window */
     channel.onmessage = function (e) {
         const msg = e.data;
@@ -562,6 +595,7 @@ body {
             }
         } else if (msg.type === 'sync-response' && typeof msg.slide === 'number') {
             // Audience responded with its current slide
+            if (msg.keys) deckKeys = true;
             if (msg.slide >= 0 && msg.slide < totalSlides) {
                 currentSlide = msg.slide;
                 updatePresenterView();
@@ -569,6 +603,13 @@ body {
         } else if (msg.type === 'sync-request') {
             // Another window is asking for current position — respond
             channel.postMessage({ type: 'sync-response', slide: currentSlide });
+        } else if (msg.type === 'key-ack') {
+            if (keyWait[msg.id]) { clearTimeout(keyWait[msg.id]); delete keyWait[msg.id]; }
+            deckKeys = true;
+        } else if (msg.type === 'deck-hello' && msg.keys) {
+            // The audience window (re)loaded: it takes keys, and it should show our slide
+            deckKeys = true;
+            if (totalSlides && msg.slide !== currentSlide) broadcastNavigate(currentSlide);
         }
     };
 
@@ -769,7 +810,10 @@ body {
     }
 
     function buildSrcdoc(slideHTML) {
+        /* <base> = the deck's folder, so relative fonts, images and posters resolve in previews */
+        var deckBase = new URL(presentationFile, location.href).href.replace(/[^/]*$/, '');
         return '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+            '<base href="' + deckBase.replace(/"/g, '%22') + '">' +
             window.__slideStylePreamble +
             '<style>' +
             'html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }' +
@@ -871,7 +915,8 @@ body {
     }
 
     function inlineFormat(text) {
-        return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\[Pedro:\s*([^\]]+)\]/g, '<span class="notes-pedro"><b>Pedro</b> $1</span>');
     }
 
     // -----------------------------------------------
@@ -911,8 +956,14 @@ body {
         scrollAudienceWindow(currentSlide);
     }
 
-    function nextSlide() { goToSlide(currentSlide + 1); }
-    function prevSlide() { goToSlide(currentSlide - 1); }
+    function nextSlide() {
+        if (deckKeys) forwardKey('ArrowRight', false, function () { goToSlide(currentSlide + 1); });
+        else goToSlide(currentSlide + 1);
+    }
+    function prevSlide() {
+        if (deckKeys) forwardKey('ArrowLeft', false, function () { goToSlide(currentSlide - 1); });
+        else goToSlide(currentSlide - 1);
+    }
     function firstSlide() { goToSlide(0); }
     function lastSlide() { goToSlide(totalSlides - 1); }
 
@@ -932,10 +983,26 @@ body {
     // -----------------------------------------------
     // 9. Keyboard Shortcuts
     // -----------------------------------------------
+    const DECK_KEYS = ['ArrowRight', 'ArrowDown', ' ', 'PageDown', 'ArrowLeft', 'ArrowUp', 'PageUp',
+        'Home', 'End', 't', 'T', 'b', 'B', '.', 'k', 'K', 'm', 'M', 'r', 'R'];
+    const LOCAL_KEYS = {
+        ArrowRight: function () { goToSlide(currentSlide + 1); }, ArrowDown: function () { goToSlide(currentSlide + 1); },
+        ' ': function () { goToSlide(currentSlide + 1); }, PageDown: function () { goToSlide(currentSlide + 1); },
+        ArrowLeft: function () { goToSlide(currentSlide - 1); }, ArrowUp: function () { goToSlide(currentSlide - 1); },
+        PageUp: function () { goToSlide(currentSlide - 1); },
+        Home: firstSlide, End: lastSlide
+    };
     document.addEventListener('keydown', function (e) {
         // Ignore if user is editing notes or focused on an input
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
         if (e.target.id === 'notesContent' || e.target.closest('#notesContent')) return;
+
+        // Deck handles its own keys: forward them (letters have no local fallback)
+        if (deckKeys && !e.ctrlKey && !e.metaKey && !e.altKey && DECK_KEYS.indexOf(e.key) !== -1) {
+            e.preventDefault();
+            forwardKey(e.key, e.shiftKey, LOCAL_KEYS[e.key] || null);
+            return;
+        }
 
         switch (e.key) {
             case 'ArrowRight':

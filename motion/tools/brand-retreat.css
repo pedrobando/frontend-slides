@@ -1,0 +1,9 @@
+/* 2027 Agent Retreat clips. Local fonts only (no network in the room); Poppins replaces Geist Mono.
+   Each src lists the deck path first (iframe srcdoc resolves against presentations/), then the motion/dist preview path. */
+@font-face{font-family:'Poppins';font-weight:500;font-display:block;src:url('fonts/poppins-latin-500.woff2') format('woff2'),url('../../presentations/fonts/poppins-latin-500.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-weight:600;font-display:block;src:url('fonts/poppins-latin-600.woff2') format('woff2'),url('../../presentations/fonts/poppins-latin-600.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-weight:700;font-display:block;src:url('fonts/poppins-latin-700.woff2') format('woff2'),url('../../presentations/fonts/poppins-latin-700.woff2') format('woff2')}
+@font-face{font-family:'Instrument Sans';font-weight:400;font-display:block;src:url('fonts/instrument-sans-regular.woff2') format('woff2'),url('../../presentations/fonts/instrument-sans-regular.woff2') format('woff2')}
+@font-face{font-family:'Instrument Sans';font-weight:700;font-display:block;src:url('fonts/instrument-sans-bold.woff2') format('woff2'),url('../../presentations/fonts/instrument-sans-bold.woff2') format('woff2')}
+.mono,.k{font-family:'Poppins',system-ui,sans-serif}
+.k{font-size:24px;font-weight:600;letter-spacing:2.4px;color:#6E7A88}
