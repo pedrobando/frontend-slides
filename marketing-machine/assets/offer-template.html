@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="[[LANG: es | en]]">
+<head>
+<meta charset="utf-8" />
+<title>[[OFFER TITLE]] · [[AGENT NAME]]</title>
+<!--
+  MARKETING MACHINE — OFFER / LEAD MAGNET TEMPLATE
+  Self-contained & print-ready. No external files needed.
+  HOW TO USE: replace every [[PLACEHOLDER]]. Keep or duplicate the numbered
+  "mistake" cards and checklist items as needed. Bilingual? Put ES then EN, or
+  pick one per the avatar. Export: open in a browser → Print → Save as PDF (A4).
+  The 7 parts map 1:1 to references/05-offer-lead-magnet.md.
+-->
+<style>
+  :root{
+    --navy:#0f1c2e; --green:#16c47f; --ink:#0a0e13; --paper:#ffffff;
+    --muted:#5b6675; --line:#e6e9ee; --soft:#f4f6f8;
+    --display:"Georgia","Times New Roman",serif;
+    --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#cfd4da;font-family:var(--body);color:var(--ink);line-height:1.5}
+  .page{
+    width:210mm;min-height:297mm;margin:18px auto;background:var(--paper);
+    padding:24mm 22mm;position:relative;box-shadow:0 6px 30px rgba(0,0,0,.18);
+    display:flex;flex-direction:column;
+  }
+  h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;line-height:1.04;color:var(--navy)}
+  .eyebrow{font:700 12px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+  .muted{color:var(--muted)}
+  .lead{font-size:19px;line-height:1.55}
+  .small{font-size:14px}
+  .tag{display:inline-block;font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;
+       color:var(--green);background:rgba(22,196,127,.12);padding:4px 10px;border-radius:999px}
+  .rule{height:3px;width:64px;background:var(--green);border-radius:2px;margin:14px 0}
+  .agentcard{display:flex;gap:16px;align-items:center;padding:16px;background:var(--soft);
+             border-radius:14px;border:1px solid var(--line)}
+  .avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;background:var(--navy);flex:0 0 auto}
+  .spacer{flex:1 1 auto}
+
+  /* ---------- 1. COVER ---------- */
+  .cover{background:var(--navy);color:#fff}
+  .cover h1,.cover h2{color:#fff}
+  .cover .eyebrow{color:var(--green)}
+  .cover h1{font-size:46px;margin:18px 0 14px}
+  .cover .sub{font-size:20px;color:rgba(255,255,255,.82);max-width:80%}
+  .cover .agentcard{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
+
+  /* ---------- 3. MISTAKES LIST ---------- */
+  .mistake{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .num{font-family:var(--display);font-size:40px;font-weight:700;color:var(--green);line-height:1;flex:0 0 54px}
+  .mistake h3{font-size:21px;margin-bottom:6px}
+
+  /* ---------- 4. CHECKLIST ---------- */
+  .check{padding:14px 0;border-bottom:1px solid var(--line)}
+  .check h3{font-size:20px;display:flex;align-items:baseline;gap:10px}
+  .letter{color:var(--green);font-size:26px}
+  .check li{list-style:none;padding:6px 0 6px 30px;position:relative}
+  .check li::before{content:"";position:absolute;left:0;top:9px;width:16px;height:16px;
+                    border:2px solid var(--green);border-radius:4px}
+
+  /* ---------- 5. CLOSING QUOTE ---------- */
+  .quote{background:var(--green);color:var(--navy)}
+  .quote blockquote{font-family:var(--display);font-size:34px;line-height:1.2;font-weight:700;max-width:90%}
+
+  /* ---------- 6. CTA ---------- */
+  .cta .btn{display:inline-block;background:var(--green);color:var(--navy);font-weight:800;
+            padding:14px 26px;border-radius:10px;text-decoration:none;font-size:17px}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:18px;font-size:15px}
+
+  @media print{
+    body{background:#fff}
+    .page{margin:0;box-shadow:none;width:auto;min-height:100vh;page-break-after:always}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PART 1 · COVER ============ -->
+<section class="page cover">
+  <span class="eyebrow">[[EYEBROW · e.g. GUÍA GRATUITA / FREE GUIDE]]</span>
+  <h1>[[HOOK AS HEADLINE — the exact promise of the ad]]</h1>
+  <div class="rule"></div>
+  <p class="sub">[[ONE-LINE SUBHEAD naming the payoff — what they'll be able to do after reading]]</p>
+  <div class="spacer"></div>
+  <div class="agentcard">
+    <div class="avatar"></div>
+    <div>
+      <strong>[[AGENT NAME]]</strong><br>
+      <span class="small" style="opacity:.8">[[TITLE / BROKERAGE · e.g. reThought Real Estate]]</span><br>
+      <span class="small" style="opacity:.8">[[CREDENTIAL · e.g. Bilingüe · [N] años · [Market]]]</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART 2 · LETTER ============ -->
+<section class="page">
+  <span class="eyebrow">[[EYEBROW · e.g. ANTES DE EMPEZAR]]</span>
+  <h2 style="font-size:30px;margin:12px 0 8px">[[LETTER HEADLINE · e.g. "Yo también empecé aquí"]]</h2>
+  <div class="rule"></div>
+  <p class="lead" style="margin-bottom:14px">[[PARAGRAPH 1 — relatable personal narrative that builds trust: "I started where you are…"]]</p>
+  <p class="lead muted" style="margin-bottom:14px">[[PARAGRAPH 2 — what you learned / why you made this guide]]</p>
+  <p class="lead" style="margin-bottom:24px">[[PARAGRAPH 3 — what this guide will do for them, and the one promise it keeps]]</p>
+  <div class="spacer"></div>
+  <div class="agentcard">
+    <div class="avatar"></div>
+    <div class="small">
+      <strong>[[AGENT NAME]]</strong> — [[years]] · [[bilingual note]]<br>
+      <span class="muted">[[SPECIALIZATIONS · e.g. relocación a Florida, primera casa, inversión]]</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART 3 · MAIN CONTENT (numbered list) ============ -->
+<section class="page">
+  <span class="eyebrow">[[EYEBROW · e.g. LO QUE NADIE TE DICE]]</span>
+  <h2 style="font-size:30px;margin:12px 0 6px">[[SECTION TITLE · e.g. "Los 7 errores más costosos"]]</h2>
+  <div class="rule"></div>
+
+  <!-- Duplicate this .mistake block for each item (aim for 3–7) -->
+  <div class="mistake">
+    <div class="num">1</div>
+    <div>
+      <h3>[[MISTAKE / POINT HEADLINE]]</h3>
+      <p class="muted">[[1–2 sentences: what the mistake is and why it costs them]]</p>
+      <span class="tag" style="margin-top:8px">[[CATEGORY TAG · e.g. Zestimate]]</span>
+    </div>
+  </div>
+  <div class="mistake">
+    <div class="num">2</div>
+    <div>
+      <h3>[[MISTAKE / POINT HEADLINE]]</h3>
+      <p class="muted">[[1–2 sentences]]</p>
+      <span class="tag" style="margin-top:8px">[[CATEGORY TAG]]</span>
+    </div>
+  </div>
+  <div class="mistake">
+    <div class="num">3</div>
+    <div>
+      <h3>[[MISTAKE / POINT HEADLINE]]</h3>
+      <p class="muted">[[1–2 sentences]]</p>
+      <span class="tag" style="margin-top:8px">[[CATEGORY TAG]]</span>
+    </div>
+  </div>
+  <!-- …add 4–7 as needed -->
+</section>
+
+<!-- ============ PART 4 · CHECKLIST (memorable acronym) ============ -->
+<section class="page">
+  <span class="eyebrow">[[EYEBROW · e.g. TU CHECKLIST]]</span>
+  <h2 style="font-size:30px;margin:12px 0 6px">[[ACRONYM NAME · e.g. "El método CASA"]]</h2>
+  <div class="rule"></div>
+
+  <!-- One .check block per letter of the acronym -->
+  <div class="check">
+    <h3><span class="letter">[[C]]</span> [[WORD · e.g. Claridad]]</h3>
+    <ul>
+      <li>[[checklist item]]</li>
+      <li>[[checklist item]]</li>
+    </ul>
+  </div>
+  <div class="check">
+    <h3><span class="letter">[[A]]</span> [[WORD · e.g. Análisis]]</h3>
+    <ul>
+      <li>[[checklist item]]</li>
+      <li>[[checklist item]]</li>
+    </ul>
+  </div>
+  <div class="check">
+    <h3><span class="letter">[[S]]</span> [[WORD · e.g. Sistema]]</h3>
+    <ul><li>[[checklist item]]</li><li>[[checklist item]]</li></ul>
+  </div>
+  <div class="check">
+    <h3><span class="letter">[[A]]</span> [[WORD · e.g. Acción]]</h3>
+    <ul><li>[[checklist item]]</li><li>[[checklist item]]</li></ul>
+  </div>
+</section>
+
+<!-- ============ PART 5 · CLOSING QUOTE (reframe the relationship) ============ -->
+<section class="page quote" style="justify-content:center">
+  <blockquote>"[[ONE POWERFUL REFRAME LINE · e.g. 'No vengo a venderte una casa. Vengo a ayudarte a no comprar la equivocada.']]"</blockquote>
+  <p style="margin-top:20px;font-weight:700">— [[AGENT NAME]]</p>
+</section>
+
+<!-- ============ PART 6 · CTA ============ -->
+<section class="page cta">
+  <span class="eyebrow">[[EYEBROW · e.g. EL SIGUIENTE PASO]]</span>
+  <h2 style="font-size:30px;margin:12px 0 8px">[[CTA HEADLINE · e.g. "Hagamos la llamada corta"]]</h2>
+  <div class="rule"></div>
+  <p class="lead" style="margin-bottom:22px;max-width:88%">[[ONE specific, low-pressure next step — what happens on the call and why it's worth 20 minutes]]</p>
+  <a class="btn" href="[[BOOKING LINK · Calendly]]">[[BUTTON TEXT · e.g. Agenda 20 minutos]]</a>
+  <div class="agentcard" style="margin-top:26px">
+    <div class="avatar"></div>
+    <div class="contact">
+      <span>📞 [[PHONE]]</span>
+      <span>✉️ [[EMAIL]]</span>
+      <span>🌐 [[WEBSITE]]</span>
+      <span>📷 [[@INSTAGRAM]]</span>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <!-- ============ PART 7 · BRAND CLOSE ============ -->
+  <div style="text-align:center;color:var(--muted)" class="small">
+    [[BROKERAGE / LOGO TEXT · e.g. reThought Real Estate]]
+  </div>
+</section>
+
+</body>
+</html>
