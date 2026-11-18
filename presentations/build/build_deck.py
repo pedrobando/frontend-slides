@@ -150,6 +150,32 @@ MONDAY = {
 }
 KEEP_FRIDAY = {'D2-25', 'D1-39', 'D1-41'}
 
+# Both days are full days: no homework between them. Anything the outline
+# assigned for "tonight" happens in the room or in the first week back.
+IN_ROOM = {
+    'D1-53': [('onScreen', 'Tomorrow, 7 AM. Press play.', 'Every morning, 7 AM. Press play.'),
+              ('notes', "\"Set the alarm now: 'Play my 2027.' Tomorrow morning, before you check email, you hear yourself say it.\"",
+               "\"Set a daily 7 AM alarm now: 'Play my 2027.' It starts the Monday after the retreat. Tomorrow we play it together, first thing.\"")],
+    'D1-58': [('notes', 'tell them to finish the layers tonight if they need more.', 'anyone who needs more finishes the layers their first week back.')],
+    'D1-71': [('notes', "If not, that's tonight.\"", "If not, check it on page 8. That's your first week back.\"")],
+    'D1-112': [('onScreen', 'Tonight: listen, practice, bring a question.', 'Before you go: say it, write one question.'),
+               ('notes', "\"Three things tonight. One: tomorrow at 7 AM your alarm plays your December 31 recording. Two: say your first-call opener three times on the drive. Three: bring one real question a client asked you this month. We turn it into a video tomorrow morning.\" Partners: \"Tell each other which one you'll do first.\"",
+                "\"Two things before you leave this room. One: say your first-call opener to your partner three times, out loud. Two: write on Social media page 6 one real question a client asked you this month. We turn it into a video tomorrow morning.\" Partners listen and push for a real question, not a made-up one.")],
+    'D2-01': [('notes', '"Buenos días. Hands up if your alarm played your December 31 recording this morning. Keep it up if you listened to the whole thing." Celebrate whoever did.',
+               '"Buenos días. Phones out, one earbud in. Play your December 31 recording, the whole thing, right now." Wait for the room to finish.'),
+              ('activity', 'Hand count.', 'Individual, play the recording, 2 min.')],
+    'D2-02': [('notes', 'one thing you actually did since yesterday: the repeating lead gen block, the review texts, the partner text, the recording.',
+               'one thing you actually did yesterday in this room: the repeating lead gen block on your calendar, the review texts you sent, the partner text, your recording.'),
+              ('notes', 'tell them the client question you brought for this morning.', 'read them the client question you wrote on Social media page 6.')],
+    'D2-09': [('notes', 'Tonight they run their last three through it.', 'Their first week back, they run their last three through it.')],
+    'D2-14': [('onScreen', 'Tonight: your last three posts, four questions.', 'First week back: last three posts, four questions.')],
+    'D2-30': [('notes', 'Same time as your weekly score from yesterday.', 'Same time as the Monday planning report you blocked yesterday.')],
+    'D2-36': [('notes', 'Tonight, log in to every tool and confirm you can get in.', 'Before the break, log in to every tool on your phone and confirm you can get in.')],
+    'D2-75': [('onScreen', 'Tonight: record it. Play it back.', 'Record it now. Play it back.'),
+              ('notes', '"Record your 90 seconds tonight and listen once.', '"Record your 90 seconds right now on your phone, quietly, and listen once.')],
+    'D2-115': [('notes', 'February and March, tonight.', 'February and March go in your first Monday planning report.')],
+}
+
 for s in SLIDES:
     for f in ('onScreen', 'visual', 'notes', 'activity', 'workbook'):
         s[f] = clean(s[f])
@@ -159,7 +185,9 @@ for s in SLIDES:
     if s['id'] in MONDAY:
         for f in ('onScreen', 'visual', 'notes', 'activity', 'workbook'):
             s[f] = re.sub(r'\bFriday', 'Monday', s[f])
-BY = {s['id']: s for s in SLIDES}
+    for f, old, new in IN_ROOM.get(s['id'], []):
+        s[f] = sub(s[f], old, new)
+BY ={s['id']: s for s in SLIDES}
 
 
 # ---------------------------------------------------------------- shared parts
@@ -810,7 +838,8 @@ DAYS = {
 def build(day):
     cfg = DAYS[day]
     parts = [COVER1 + '\n' if day == 'D1' else cover2()]
-    for s in [x for x in SLIDES if x['day'] == day]:
+    # Break and lunch slides are left out: Pedro calls breaks live.
+    for s in [x for x in SLIDES if x['day'] == day and x['type'] not in ('Break', 'Lunch')]:
         parts.append(render(s))
         for k, mc in enumerate(MC.get(s['id'], []), 1):
             parts.append(r_mc(s, mc, k))
