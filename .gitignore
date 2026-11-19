@@ -10,3 +10,6 @@ motion/node_modules/
 motion/dist/
 motion/out/
 motion/work/
+
+# Private agent production data (Brokermint exports and reports). Never commit or deploy.
+private/

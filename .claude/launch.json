@@ -4,7 +4,7 @@
     {
       "name": "slides",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8899"],
+      "runtimeArgs": ["-m", "http.server", "8899", "--directory", "/Volumes/BANDO-SSD/Git/frontend-slides"],
       "port": 8899
     }
   ]

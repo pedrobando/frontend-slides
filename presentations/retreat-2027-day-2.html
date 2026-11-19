@@ -10,7 +10,7 @@
 <meta name="presentation-series" content="2027 Agent Retreat">
 <meta name="presentation-session" content="2">
 <meta name="presentation-date" content="2026-11-20">
-<meta name="presentation-slides" content="126">
+<meta name="presentation-slides" content="122">
 
 <script>(function(){var d=document.documentElement;d.classList.add('js');var q=/[?&]motion=1/.test(location.search);if(q||!(navigator.webdriver||matchMedia('(prefers-reduced-motion: reduce)').matches))d.classList.add('motion');})();</script>
 <script>(function(){var d=document.documentElement,c='mke';try{c=localStorage.getItem('retreat-city')||c}catch(e){}
@@ -349,6 +349,12 @@ h1{text-wrap:balance} h2{text-wrap:balance}
 .slide.slide--image{background:radial-gradient(ellipse 70% 60% at 80% 0%,rgba(3,76,118,.5),transparent 70%),radial-gradient(ellipse 60% 50% at 0% 100%,rgba(140,201,78,.12),transparent 70%),var(--ink-deep)}
 .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .bgshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,26,34,.1) 30%,rgba(18,26,34,.88) 100%)}
+.bgshade.full{background:linear-gradient(180deg,rgba(18,26,34,.62) 0%,rgba(18,26,34,.78) 100%)}
+.slide.has-photo.ph-full{background:var(--ink-deep)}
+.has-photo .fw li{background:rgba(18,26,34,.58);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px);color:#fff}
+.has-photo .fw li:last-child{background:rgba(140,201,78,.24);border-color:rgba(140,201,78,.5)}
+.has-photo .fw li small{color:rgba(255,255,255,.75)}
+.dark .wbp-n{color:var(--sprout)}
 .slide.slide--question{background:radial-gradient(ellipse 60% 55% at 50% 110%,rgba(3,76,118,.55),transparent 70%),var(--ink-deep)}
 .slide.slide--story{background:radial-gradient(ellipse 50% 60% at 100% 50%,rgba(224,166,58,.14),transparent 70%),var(--ink-deep)}
 .slide.slide--bignum{background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(140,201,78,.10),transparent 70%),var(--ink-deep)}
@@ -376,6 +382,8 @@ html.show-vis .vis{display:block}
 .fw li b{font-family:var(--font-display);font-weight:700;font-size:calc(var(--u)*48);line-height:1.1}
 .fw li small{font-size:calc(var(--u)*30);color:var(--muted);line-height:1.3}
 .fw.n5 li b,.fw.n6 li b{font-size:calc(var(--u)*34)}
+.fw.n6 li b{font-size:calc(var(--u)*30);overflow-wrap:anywhere}
+.fw.n6 li{padding-left:calc(var(--u)*20);padding-right:calc(var(--u)*20)}
 .fw li:last-child{background:var(--sprout-light)}
 .fw li:last-child .n{background:var(--sprout-deep)}
 .fw.arrows{gap:calc(var(--u)*44)}
@@ -478,6 +486,104 @@ html[data-city="fl"] .city-fl{display:inline}
   .vis,.city-toast{display:none!important}
   .mc .opt.ans{background:var(--sprout-light)!important;border-color:var(--sprout)!important}
 }
+/* ---------- Section openers: split panel ---------- */
+.ph-split .frame{padding-right:calc(var(--u)*900)}
+.ph-split .meta{right:calc(var(--u)*900)}
+.ph-split .foot{right:calc(var(--u)*900)}
+.ph-split .foot span:first-child{display:none}
+.ph-split .foot{white-space:nowrap}
+.ph-split h1{font-size:calc(var(--u)*96)}
+.ph-split h1.s1{font-size:calc(var(--u)*112)} .ph-split h1.s2{font-size:calc(var(--u)*98)}
+.ph-split h1.s3{font-size:calc(var(--u)*84)} .ph-split h1.s4{font-size:calc(var(--u)*70)}
+.ph-split .bignum{font-size:calc(var(--u)*220)}
+.op-panel{position:absolute;z-index:0;top:calc((var(--u)*1080 - 100vh)/2);bottom:calc((var(--u)*1080 - 100vh)/2);right:calc((var(--u)*1920 - 100vw)/2);width:calc(var(--u)*780 + (100vw - var(--u)*1920)/2);overflow:hidden;background:var(--ink-deep)}
+.op-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.op-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,26,34,0) 45%,rgba(18,26,34,.82) 100%)}
+.op-panel.nophoto{background:radial-gradient(ellipse 90% 70% at 70% 10%,rgba(3,76,118,.9),transparent 70%),radial-gradient(ellipse 80% 60% at 10% 100%,rgba(140,201,78,.35),transparent 70%),var(--ink-deep)}
+.op-panel.nophoto .op-shade{background:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px)}
+.op-glow{position:absolute;width:calc(var(--u)*520);height:calc(var(--u)*520);right:calc(var(--u)*-120);top:calc(var(--u)*120);border-radius:50%;background:radial-gradient(circle,rgba(140,201,78,.45),transparent 65%);filter:blur(calc(var(--u)*10))}
+.op-num{position:absolute;left:calc(var(--u)*64);bottom:calc(var(--u)*64);display:flex;flex-direction:column;color:var(--paper);font-family:var(--font-display);line-height:1}
+.op-num span{font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:calc(var(--u)*22);color:var(--sprout)}
+.op-num b{font-weight:700;font-size:calc(var(--u)*200);letter-spacing:-.04em;margin:calc(var(--u)*6) 0 0 calc(var(--u)*-8)}
+.op-num i{font-style:normal;font-weight:600;font-size:calc(var(--u)*24);color:rgba(251,251,251,.7);letter-spacing:.08em;text-transform:uppercase}
+.op-chip{align-self:flex-start;font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:calc(var(--u)*22);color:var(--ink-deep);background:var(--sprout);padding:calc(var(--u)*10) calc(var(--u)*18);border-radius:999px}
+.op-chip i{font-style:normal;opacity:.6}
+
+/* ---------- Intro animations (play each time a slide arrives) ---------- */
+@keyframes kb{from{transform:scale(1.14) translate(1.5%,1%)}to{transform:none}}
+@keyframes riseClip{from{opacity:0;transform:translateY(.35em);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:none;clip-path:inset(0 0 -20% 0)}}
+@keyframes wipeL{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes zoomOut{from{transform:scale(1.25)}to{transform:none}}
+@keyframes numUp{from{opacity:0;transform:translateY(40%)}to{opacity:1;transform:none}}
+@keyframes slideR{from{opacity:0;transform:translateX(calc(var(--u)*-60))}to{opacity:1;transform:none}}
+@keyframes focusIn{from{opacity:0;filter:blur(14px);transform:scale(.94)}to{opacity:1;filter:none;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.55)}60%{opacity:1;transform:scale(1.06)}100%{transform:none}}
+@keyframes flipUp{from{opacity:0;transform:perspective(900px) rotateX(-55deg) translateY(30px)}to{opacity:1;transform:none}}
+@keyframes fromL{from{opacity:0;transform:translateX(calc(var(--u)*-140))}to{opacity:1;transform:none}}
+@keyframes fromR{from{opacity:0;transform:translateX(calc(var(--u)*140))}to{opacity:1;transform:none}}
+@keyframes spinIn{from{opacity:0;transform:scale(.2) rotate(-180deg)}to{opacity:1;transform:none}}
+@keyframes drop{0%{opacity:0;transform:translateY(calc(var(--u)*-120))}65%{opacity:1;transform:translateY(calc(var(--u)*12))}100%{transform:none}}
+@keyframes ring{from{box-shadow:0 0 0 0 rgba(140,201,78,.7)}to{box-shadow:0 0 0 calc(var(--u)*36) rgba(140,201,78,0)}}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes tilt{from{opacity:0;transform:perspective(1200px) rotateY(-28deg) rotate(-4deg) translateX(calc(var(--u)*-80))}to{opacity:1;transform:none}}
+@keyframes track{from{opacity:0;letter-spacing:.5em}to{opacity:1}}
+@keyframes up{from{opacity:0;transform:translateY(calc(var(--u)*50))}to{opacity:1;transform:none}}
+.E{animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+html.motion .slide.visible .eyebrow{animation:track .9s cubic-bezier(.2,.7,.2,1) both}
+html.motion .slide--image.visible .bgimg{animation:kb 9s cubic-bezier(.15,.6,.25,1) both}
+html.motion .slide--image.visible h1{animation:riseClip 1s cubic-bezier(.2,.7,.2,1) .25s both}
+html.motion .slide.visible .op-chip{animation:pop .6s cubic-bezier(.2,.7,.2,1) .1s both}
+html.motion .opener.visible .op-panel{animation:wipeL 1s cubic-bezier(.77,0,.18,1) both}
+html.motion .opener.visible .op-img{animation:zoomOut 2.4s cubic-bezier(.15,.6,.25,1) both}
+html.motion .opener.visible .op-glow{animation:pop 1.6s cubic-bezier(.2,.7,.2,1) .3s both}
+html.motion .opener.visible .op-num>*{animation:numUp .8s cubic-bezier(.2,.7,.2,1) both}
+html.motion .opener.visible .op-num span{animation-delay:.55s}
+html.motion .opener.visible .op-num b{animation-delay:.65s}
+html.motion .opener.visible .op-num i{animation-delay:.8s}
+html.motion .opener.visible .frame>h1,html.motion .opener.visible .frame>h2,html.motion .opener.visible .frame>.bignum{animation:slideR .9s cubic-bezier(.2,.7,.2,1) .35s both}
+html.motion .slide--question.visible:not(.opener) h1{animation:focusIn 1.1s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--story.visible h1{animation:focusIn 1.4s cubic-bezier(.2,.7,.2,1) .2s both}
+html.motion .slide--bignum.visible:not(.opener) .bignum{animation:pop .9s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--fw.visible .fw>li{animation:flipUp .7s cubic-bezier(.2,.7,.2,1) both}
+html.motion .slide--fw.visible .fw>li:nth-child(1){animation-delay:.15s}
+html.motion .slide--fw.visible .fw>li:nth-child(2){animation-delay:.27s}
+html.motion .slide--fw.visible .fw>li:nth-child(3){animation-delay:.39s}
+html.motion .slide--fw.visible .fw>li:nth-child(4){animation-delay:.51s}
+html.motion .slide--fw.visible .fw>li:nth-child(5){animation-delay:.63s}
+html.motion .slide--fw.visible .fw>li:nth-child(n+6){animation-delay:.75s}
+html.motion .slide--contrast.visible .vs-a{animation:fromL .8s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--contrast.visible .vs-b{animation:fromR .8s cubic-bezier(.2,.7,.2,1) .45s both}
+html.motion .slide--contrast.visible .vs-x{animation:spinIn .7s cubic-bezier(.2,.7,.2,1) .3s both}
+html.motion .slide--act.visible .act-h{animation:up .8s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--act.visible .act-side{animation:drop .8s cubic-bezier(.2,.7,.2,1) .4s both}
+html.motion .slide--act.visible .timer.lg{animation:ring 1.2s ease-out 1.1s 2}
+html.motion .slide--bridge.visible .lines.commit i{transform-origin:left;animation:draw .9s cubic-bezier(.65,0,.35,1) both}
+html.motion .slide--bridge.visible .lines.commit i:nth-child(1){animation-delay:.6s}
+html.motion .slide--bridge.visible .lines.commit i:nth-child(2){animation-delay:.85s}
+html.motion .slide--bridge.visible h1{animation:up .9s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--wbp.visible .wbp{animation:tilt 1s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--worked.visible .body>*{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
+html.motion .slide--worked.visible .body>*:nth-child(1){animation-delay:.3s}
+html.motion .slide--worked.visible .body>*:nth-child(2){animation-delay:.5s}
+html.motion .slide--worked.visible .body>*:nth-child(n+3){animation-delay:.7s}
+html.motion .slide--mc.visible .mc-q{animation:focusIn .9s cubic-bezier(.2,.7,.2,1) .1s both}
+html.motion .slide.visible .meta>*{animation:pop .6s cubic-bezier(.2,.7,.2,1) .5s both}
+html.motion .slide.visible .foot{animation:up .8s ease .6s both}
+
+/* ---------- Opener gradient panels: alive while on screen ---------- */
+.op-panel.nophoto::before,.op-panel.nophoto::after{content:"";position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.op-panel.nophoto::before{width:calc(var(--u)*640);height:calc(var(--u)*640);left:calc(var(--u)*-160);bottom:calc(var(--u)*-120);background:radial-gradient(circle,rgba(3,76,118,.85),transparent 65%);filter:blur(calc(var(--u)*20))}
+.op-panel.nophoto::after{width:calc(var(--u)*420);height:calc(var(--u)*420);left:calc(var(--u)*180);top:calc(var(--u)*300);background:radial-gradient(circle,rgba(229,170,60,.35),transparent 65%);filter:blur(calc(var(--u)*24))}
+@keyframes blobA{0%{transform:translate(0,0) scale(1)}33%{transform:translate(calc(var(--u)*260),calc(var(--u)*-320)) scale(1.25)}66%{transform:translate(calc(var(--u)*120),calc(var(--u)*-80)) scale(.85)}100%{transform:translate(0,0) scale(1)}}
+@keyframes blobB{0%{transform:translate(0,0) scale(1)}50%{transform:translate(calc(var(--u)*-140),calc(var(--u)*260)) scale(1.4)}100%{transform:translate(0,0) scale(1)}}
+@keyframes orbit{0%{transform:translate(0,0) scale(1)}25%{transform:translate(calc(var(--u)*-260),calc(var(--u)*140)) scale(1.2)}50%{transform:translate(calc(var(--u)*-120),calc(var(--u)*420)) scale(.9)}75%{transform:translate(calc(var(--u)*60),calc(var(--u)*220)) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
+@keyframes stripes{from{background-position:0 0}to{background-position:calc(var(--u)*124) 0}}
+@keyframes hue{0%,100%{filter:hue-rotate(0deg) saturate(1)}50%{filter:hue-rotate(-25deg) saturate(1.3)}}
+html.motion .opener.visible .op-panel.nophoto{animation:wipeL 1s cubic-bezier(.77,0,.18,1) both,hue 6s ease-in-out 1s infinite}
+html.motion .opener.visible .op-panel.nophoto::before{animation:blobA 7s ease-in-out infinite}
+html.motion .opener.visible .op-panel.nophoto::after{animation:blobB 5s ease-in-out infinite}
+html.motion .opener.visible .op-glow{animation:pop 1.6s cubic-bezier(.2,.7,.2,1) .3s both,orbit 8s ease-in-out 1.9s infinite}
+html.motion .opener.visible .op-panel.nophoto .op-shade{background-size:calc(var(--u)*124) 100%;animation:stripes 2.5s linear infinite}
 </style>
 </head>
 <body>
@@ -505,7 +611,7 @@ Día 2. Yesterday we opened the mind and set the target. Today we build the mach
 > Visual: The live group photo you took at the end of Day 1, full-bleed.
 
 &quot;Buenos días. Phones out, one earbud in. Play your December 31 recording, the whole thing, right now.&quot; Wait for the room to finish. &quot;Yesterday was about knowing. Today is about doing.&quot;">
-<div class="frame bottom"><p class="eyebrow reveal">Reconnect</p><h1 class="reveal d1 s2">Día 2.<br><span class="hl">Manos a la obra.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Reconnect · D2-01</span></div></div>
+<div class="frame bottom"><p class="op-chip reveal">Section 01 <i>/ 17</i></p><p class="eyebrow reveal">Reconnect</p><h1 class="reveal d1 s2">Día 2.<br><span class="hl">Manos a la obra.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Reconnect · D2-01</span></div></div>
 <div class="vis"><b>Visual</b> The live group photo you took at the end of Day 1, full-bleed.</div>
 </section>
 
@@ -532,24 +638,24 @@ Día 2. Yesterday we opened the mind and set the target. Today we build the mach
 </section>
 
 <!-- D2-04 -->
-<section class="slide slide--question dark" data-slide-id="d2-04" data-notes="> D2-04 · Big question · 3 min
+<section class="slide slide--question dark opener ph-split" data-slide-id="d2-04" data-notes="> D2-04 · Big question · 3 min
 > Activity: Pairs, 1 min.
 > Workbook: Social media p.1
 > Visual: A phone with an &quot;Account disabled&quot; screen.
 
 &quot;It happens. Hacked, flagged, closed. If that happened tonight, how many of your followers could you actually call tomorrow? Tell your partner a rough number.&quot; Take two. &quot;That's the difference between an audience and a database.&quot;">
-<div class="frame center"><p class="eyebrow reveal">Earn the attention, the format menu</p><h1 class="reveal d1 s3">Instagram deletes you tonight.<br>Who can you still call?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Earn the attention, the format menu · D2-04</span></div></div>
+<div class="frame center"><div class="op-panel nophoto" aria-hidden="true"><span class="op-glow"></span><div class="op-shade"></div><div class="op-num"><span>Section</span><b>02</b><i>of 17</i></div></div><p class="eyebrow reveal">Earn the attention, the format menu</p><h1 class="reveal d1 s3">Instagram deletes you tonight.<br>Who can you still call?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Earn the attention, the format menu · D2-04</span></div></div>
 <div class="vis"><b>Visual</b> A phone with an "Account disabled" screen.</div>
 </section>
 
 <!-- D2-05 -->
 <section class="slide slide--contrast bone" data-slide-id="d2-05" data-notes="> D2-05 · Contrast · 2 min
 > Workbook: Social media p.1
-> Visual: Left: apartment keys on a rental tag. Right: house keys with a Dashbrew-green keychain.
+> Visual: Left: apartment keys on a rental tag. Right: house keys with a green keychain.
 
-&quot;Followers are rented. The app decides who sees you and can change the rules tomorrow. A name and number in Dashbrew is yours, for years. So every post has one job: start a conversation that ends up in Dashbrew.&quot;">
+&quot;Followers are rented. The app decides who sees you and can change the rules tomorrow. A name and number in Lofty is yours, for years. So every post has one job: start a conversation that ends up in Lofty.&quot;">
 <div class="frame center"><p class="eyebrow reveal">Earn the attention, the format menu</p><div class="vs stagger"><div class="vs-a"><p class="k">Not this</p><h2>Their app</h2></div><span class="vs-x">vs</span><div class="vs-b"><p class="k">This</p><h2>Your list</h2></div></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Earn the attention, the format menu · D2-05</span></div></div>
-<div class="vis"><b>Visual</b> Left: apartment keys on a rental tag. Right: house keys with a Dashbrew-green keychain.</div>
+<div class="vis"><b>Visual</b> Left: apartment keys on a rental tag. Right: house keys with a green keychain.</div>
 </section>
 
 <!-- D2-06 -->
@@ -558,7 +664,7 @@ Día 2. Yesterday we opened the mind and set the target. Today we build the mach
 > Visual: Four icons connected by green arrows: a play button, a speech bubble, two speech bubbles, a contact card.
 
 &quot;That's the whole game. We'll come back to the last two steps before the break.&quot;">
-<div class="frame center"><p class="eyebrow reveal">Earn the attention, the format menu</p><ol class="fw arrows n4 stagger"><li><span class="n">1</span><b>Post</b></li><li><span class="n">2</span><b>Comment</b></li><li><span class="n">3</span><b>Conversation</b></li><li><span class="n">4</span><b>Dashbrew</b></li></ol><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Earn the attention, the format menu · D2-06</span></div></div>
+<div class="frame center"><p class="eyebrow reveal">Earn the attention, the format menu</p><ol class="fw arrows n4 stagger"><li><span class="n">1</span><b>Post</b></li><li><span class="n">2</span><b>Comment</b></li><li><span class="n">3</span><b>Conversation</b></li><li><span class="n">4</span><b>Lofty</b></li></ol><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Earn the attention, the format menu · D2-06</span></div></div>
 <div class="vis"><b>Visual</b> Four icons connected by green arrows: a play button, a speech bubble, two speech bubbles, a contact card.</div>
 </section>
 
@@ -599,7 +705,7 @@ Día 2. Yesterday we opened the mind and set the target. Today we build the mach
 > Workbook: Social media p.3
 > Visual: Three blocks stacking like Legos, the third one green.
 
-&quot;A topic says what it's about. A format says how they watch it. Tension gives them a reason to stay to the end: a mistake, a surprise, a risk, a change. If a post flopped, don't change the topic. Change the format.&quot; Everything you post uses real numbers: your sales, your Dashbrew pages.">
+&quot;A topic says what it's about. A format says how they watch it. Tension gives them a reason to stay to the end: a mistake, a surprise, a risk, a change. If a post flopped, don't change the topic. Change the format.&quot; Everything you post uses real numbers: your sales, your Lofty pages.">
 <div class="frame center"><p class="eyebrow reveal">Earn the attention, the format menu</p><ol class="fw n3 stagger"><li><span class="n">1</span><b>Topic</b></li><li><span class="n">2</span><b>Format</b></li><li><span class="n">3</span><b>Tension</b></li></ol><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Earn the attention, the format menu · D2-10</span></div></div>
 <div class="vis"><b>Visual</b> Three blocks stacking like Legos, the third one green.</div>
 </section>
@@ -631,7 +737,7 @@ Día 2. Yesterday we opened the mind and set the target. Today we build the mach
 > Workbook: Social media p.4
 > Visual: A restaurant menu with three items circled in green marker.
 
-&quot;Twelve formats, each one does one job: reach, proof, saves, loyalty. Don't invent new ones. Circle three you'll rotate in January.&quot; Memes rule: one or two a week, the joke is on you or the job, never a client, a home or a group of people. [Pedro: show one meme you posted that worked, if you have one.]">
+&quot;Twelve formats, each one does one job: reach, proof, saves, loyalty. Don't invent new ones. Circle three you'll rotate in January.&quot; Memes rule: one or two a week, the joke is on you or the job, never a client, a home or a group of people.">
 <div class="frame center"><div class="meta"><span class="tag">Open the book</span></div><p class="eyebrow reveal">Social media</p><div class="wbp reveal d1"><p class="wbp-n">p.&#8239;4</p><h2>Circle three for January.</h2></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Earn the attention, the format menu · D2-13</span></div></div>
 <div class="vis"><b>Visual</b> A restaurant menu with three items circled in green marker.</div>
 </section>
@@ -648,29 +754,17 @@ Día 2. Yesterday we opened the mind and set the target. Today we build the mach
 </section>
 
 <!-- D2-15 -->
-<section class="slide slide--bignum dark" data-slide-id="d2-15" data-notes="> D2-15 · Big number · 1 min
+<section class="slide slide--bignum dark opener ph-split" data-slide-id="d2-15" data-notes="> D2-15 · Big number · 1 min
 > Workbook: Social media p.5
 > Visual: A thumb mid-scroll over a phone, motion blur.
 
 &quot;That's how long you get before the thumb moves. The first three seconds decide if anyone hears the rest.&quot;">
-<div class="frame center"><p class="eyebrow reveal">Hooks and video</p><p class="bignum reveal d1"><b>3</b> <small>seconds.</small></p><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Hooks and video · D2-15</span></div></div>
+<div class="frame center"><div class="op-panel" aria-hidden="true"><img class="op-img" src="media/retreat-2027/d2-15.jpg" alt=""><div class="op-shade"></div><div class="op-num"><span>Section</span><b>03</b><i>of 17</i></div></div><p class="eyebrow reveal">Hooks and video</p><p class="bignum reveal d1"><b>3</b> <small>seconds.</small></p><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Hooks and video · D2-15</span></div></div>
 <div class="vis"><b>Visual</b> A thumb mid-scroll over a phone, motion blur.</div>
 </section>
 
-<!-- D2-16 -->
-<section class="slide slide--story dark" data-slide-id="d2-16" data-notes="> D2-16 · Story prompt (video) · 4 min
-> Story slot: tell it live, or drop media/retreat-2027/d2-16.mp4 and rebuild.
-> Activity: Thumbs up poll, two call-outs.
-> Workbook: Social media p.5
-> Visual: [Pedro: play the first 3 to 5 seconds of a real reel, one of yours or an agent's with permission, then pause.]
-
-Pause after three seconds. &quot;Thumbs up if you'd keep watching. Why? What did the first line do?&quot; Then play the rest. &quot;Notice: one line that opens a question, three short local points, one word to comment.&quot;">
-<div class="frame center"><p class="eyebrow reveal">Story</p><h1 class="reveal d1 s2">Watch.<br><span class="hl">Would you keep going?<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Hooks and video · D2-16</span></div></div>
-<div class="vis"><b>Visual</b> <span class="pedro">Pedro: play the first 3 to 5 seconds of a real reel, one of yours or an agent's with permission, then pause.</span></div>
-</section>
-
 <!-- D2-17 -->
-<section class="slide slide--fw" data-slide-id="d2-17" data-notes="> D2-17 · Simple framework · 2 min
+<section class="slide slide--fw" data-slide-id="d2-17" data-notes="> D2-17 · Simple framework · 6 min
 > Workbook: Social media p.5
 > Visual: A timeline bar: 0:03 &quot;Grab,&quot; 0:45 &quot;Give,&quot; 0:60 &quot;Ask.&quot; Green tick at each.
 
@@ -728,18 +822,18 @@ Pause after three seconds. &quot;Thumbs up if you'd keep watching. Why? What did
 > Workbook: Social media p.6 (check it)
 > Visual: A phone on a tripod, red record dot.
 
-&quot;Pick the spot now: hallway, outside, by the window, with the light on your face, not behind you. Your partner films you during lunch. One take is fine. It's episode zero.&quot; [Pedro: set up one simple filming corner with a ring light if possible.] Bridge: &quot;Now: how to make this every week without panic.&quot;">
-<div class="frame center"><div class="meta"><span class="tag">Commit</span><span class="timer" data-sec="180">3 MIN</span></div><p class="eyebrow reveal">Hooks and video</p><h1 class="reveal d1 s3">Film it before lunch ends.<br><span class="hl">Partner holds the phone.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="lines commit reveal d2"><i></i><i></i></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Hooks and video · D2-22</span></div></div>
+&quot;Pick the spot now: hallway, outside, by the window, with the light on your face, not behind you. Your partner films you before the day ends. One take is fine. It's episode zero.&quot; Before the retreat, set up one simple filming corner with a ring light if possible. Bridge: &quot;Now: how to make this every week without panic.&quot;">
+<div class="frame center"><div class="meta"><span class="tag">Commit</span><span class="timer" data-sec="180">3 MIN</span></div><p class="eyebrow reveal">Hooks and video</p><h1 class="reveal d1 s2">Film it today.<br><span class="hl">Partner holds the phone.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="lines commit reveal d2"><i></i><i></i></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Hooks and video · D2-22</span></div></div>
 <div class="vis"><b>Visual</b> A phone on a tripod, red record dot.</div>
 </section>
 
 <!-- D2-23 -->
-<section class="slide slide--question dark" data-slide-id="d2-23" data-notes="> D2-23 · Big question (poll) · 2 min
+<section class="slide slide--question dark opener ph-split" data-slide-id="d2-23" data-notes="> D2-23 · Big question (poll) · 2 min
 > Workbook: Social media p.7
 > Visual: Three options: &quot;Daily panic · Once a week · When I remember.&quot;
 
 Hands for each. Laugh. &quot;If the answer is panic, it's because thinking and doing are happening at the same time.&quot;">
-<div class="frame center"><div class="meta"><span class="tag">Hands up</span></div><p class="eyebrow reveal">Your week, follower to client</p><h1 class="reveal d1 s2">When do you make content?</h1><ul class="poll stagger"><li>Daily panic</li><li>Once a week</li><li>When I remember</li></ul><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Your week, follower to client · D2-23</span></div></div>
+<div class="frame center"><div class="op-panel nophoto" aria-hidden="true"><span class="op-glow"></span><div class="op-shade"></div><div class="op-num"><span>Section</span><b>04</b><i>of 17</i></div></div><div class="meta"><span class="tag">Hands up</span></div><p class="eyebrow reveal">Your week, follower to client</p><h1 class="reveal d1 s2">When do you make content?</h1><ul class="poll stagger"><li>Daily panic</li><li>Once a week</li><li>When I remember</li></ul><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Your week, follower to client · D2-23</span></div></div>
 <div class="vis"><b>Visual</b> Three options: "Daily panic · Once a week · When I remember."</div>
 </section>
 
@@ -748,7 +842,7 @@ Hands for each. Laugh. &quot;If the answer is panic, it's because thinking and d
 > Workbook: Social media p.7
 > Visual: Five stations as a factory line with day labels above: Mon, Mon, Tue, Wed, Wed.
 
-&quot;One idea a week, six posts. Monday you think, Tuesday you film everything in one session, Wednesday you edit and schedule. reKo, the second brain in Dashbrew, already knows your sentence, your client, your area and your voice. It does the first 80%. You add the 20% that only you can: your story, your opinion, the local detail. Check every fact.&quot; [Pedro: show a 30-second screen of reKo drafting your week, if you can.] Minimum standard is on page 7.">
+&quot;One idea a week, six posts. Monday you think, Tuesday you film everything in one session, Wednesday you edit and schedule. reKo, your AI second brain, already knows your sentence, your client, your area and your voice. It does the first 80%. You add the 20% that only you can: your story, your opinion, the local detail. Check every fact.&quot; If you can, show a 30-second screen of reKo drafting a made-up agent's week. Minimum standard is on page 7.">
 <div class="frame center"><p class="eyebrow reveal">Your week, follower to client</p><ol class="fw n5 stagger"><li><span class="n">1</span><b>Mine</b></li><li><span class="n">2</span><b>Script</b></li><li><span class="n">3</span><b>Film</b></li><li><span class="n">4</span><b>Edit</b></li><li><span class="n">5</span><b>Schedule</b></li></ol><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Your week, follower to client · D2-24</span></div></div>
 <div class="vis"><b>Visual</b> Five stations as a factory line with day labels above: Mon, Mon, Tue, Wed, Wed.</div>
 </section>
@@ -758,7 +852,7 @@ Hands for each. Laugh. &quot;If the answer is panic, it's because thinking and d
 > Workbook: Social media p.8
 > Visual: Three reel covers in the same template, made-up show &quot;Rent vs. Own Friday,&quot; episodes 1, 2, 3 with different home photos.
 
-&quot;Same name, same day, same opening line. People start to expect it. A made-up example: 'Rent vs. Own Friday. This week: what $1,800 a month gets you.'&quot; In Milwaukee, swap in a neighborhood show idea. [Pedro: if you have your own show, show it instead.]">
+&quot;Same name, same day, same opening line. People start to expect it. A made-up example: 'Rent vs. Own Friday. This week: what $1,800 a month gets you.'&quot; In Milwaukee, swap in a neighborhood show idea.">
 <div class="frame"><div class="meta"><span class="tag sample-tag">Sample · made-up</span></div><div class="head"><p class="eyebrow reveal">Your week, follower to client · Worked example</p><h2 class="reveal d1">A show people can follow.</h2></div><div class="body"><div class="reels stagger"><div class="reel"><p class="k">Rent vs. Own Friday · Ep 1</p><p class="rt">What $1,800 a month gets you</p></div><div class="reel"><p class="k">Rent vs. Own Friday · Ep 2</p><p class="rt">The down payment, for real</p></div><div class="reel"><p class="k">Rent vs. Own Friday · Ep 3</p><p class="rt">Your first year, both ways</p></div></div></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Your week, follower to client · D2-25</span></div></div>
 <div class="vis"><b>Visual</b> Three reel covers in the same template, made-up show "Rent vs. Own Friday," episodes 1, 2, 3 with different home photos.</div>
 </section>
@@ -817,13 +911,12 @@ Hands for each. Laugh. &quot;If the answer is panic, it's because thinking and d
 </section>
 
 <!-- D2-32 -->
-<section class="slide slide--image dark" data-slide-id="d2-32" data-notes="> D2-32 · Image + headline · 2 min
-> Photo slot: add media/retreat-2027/d2-32.jpg and rebuild.
+<section class="slide slide--image dark has-photo" data-slide-id="d2-32" data-notes="> D2-32 · Image + headline · 2 min
 > Workbook: Section cover 04, El motor p.1
 > Visual: A dark living room lit only by a phone screen, a person on a couch.
 
 &quot;Somewhere in your area right now, someone is doing rent math on their phone. El motor is how that stranger ends up on the phone with you tomorrow at 9 AM. Referrals are luck you wait for. This is luck you build.&quot;">
-<div class="frame bottom"><p class="eyebrow reveal">El motor: the machine and the kit</p><h1 class="reveal d1 s2">11 PM.<br><span class="hl">A stranger is scrolling.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>El motor: the machine and the kit · D2-32</span></div></div>
+<img class="bgimg" src="media/retreat-2027/d2-32.jpg" alt=""><div class="bgshade"></div><div class="frame bottom"><p class="op-chip reveal">Section 05 <i>/ 17</i></p><p class="eyebrow reveal">El motor: the machine and the kit</p><h1 class="reveal d1 s2">11 PM.<br><span class="hl">A stranger is scrolling.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>El motor: the machine and the kit · D2-32</span></div></div>
 <div class="vis"><b>Visual</b> A dark living room lit only by a phone screen, a person on a couch.</div>
 </section>
 
@@ -832,23 +925,13 @@ Hands for each. Laugh. &quot;If the answer is panic, it's because thinking and d
 > Workbook: El motor p.1
 > Visual: Three boxes. Small icons: an eye, a magnet, a handshake.
 
-&quot;Attention: the avatar shapes the content and the ads find the people. Capture: ManyChat collects the contact and sends the guide. Conversion: Dashbrew alerts you, you call, Seguimiento takes over, the scoreboard tells you what to fix. Always in that order.&quot; Point to page 1 for the eight parts.">
+&quot;Attention: the avatar shapes the content and the ads find the people. Capture: ManyChat collects the contact and sends the guide. Conversion: Lofty alerts you, you call, Seguimiento takes over, the scoreboard tells you what to fix. Always in that order.&quot; Point to page 1 for the eight parts.">
 <div class="frame center"><p class="eyebrow reveal">El motor: the machine and the kit</p><ol class="fw arrows n3 stagger"><li><span class="n">1</span><b>Attention</b></li><li><span class="n">2</span><b>Capture</b></li><li><span class="n">3</span><b>Conversion</b></li></ol><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>El motor: the machine and the kit · D2-33</span></div></div>
 <div class="vis"><b>Visual</b> Three boxes. Small icons: an eye, a magnet, a handshake.</div>
 </section>
 
-<!-- D2-34 -->
-<section class="slide slide--story dark" data-slide-id="d2-34" data-notes="> D2-34 · Story prompt · 4 min
-> Story slot: tell it live, or drop media/retreat-2027/d2-34.mp4 and rebuild.
-> Visual: [Pedro: a screenshot of your own Meta ads results from your &quot;Realtor Pedro Bando Rivera&quot; page, or one real number, big.]
-
-[Pedro: tell your real ads story. What you tried first, what didn't work, what changed, what one appointment costs you now. Use only your real numbers.]">
-<div class="frame center"><p class="eyebrow reveal">Story</p><h1 class="reveal d1 s2"><span class="pedro">Pedro: your cost per appointment</span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>El motor: the machine and the kit · D2-34</span></div></div>
-<div class="vis"><b>Visual</b> <span class="pedro">Pedro: a screenshot of your own Meta ads results from your "Realtor Pedro Bando Rivera" page, or one real number, big.</span></div>
-</section>
-
 <!-- D2-35 -->
-<section class="slide slide--act bone" data-slide-id="d2-35" data-notes="> D2-35 · Activity · 7 min
+<section class="slide slide--act bone" data-slide-id="d2-35" data-notes="> D2-35 · Activity · 11 min
 > Activity: Individual, 6 min.
 > Workbook: El motor p.2
 > Visual: A checklist with some green checks and some blank date lines. Timer 6:00.
@@ -864,19 +947,19 @@ Hands for each. Laugh. &quot;If the answer is panic, it's because thinking and d
 > Workbook: El motor p.2 (check it)
 > Visual: A puzzle with one piece out.
 
-&quot;Partner reads your kit and asks one question: what's missing? Before the break, log in to every tool on your phone and confirm you can get in.&quot; [Pedro: name who in the office helps agents set up Meta Ads Manager and ManyChat.]">
+&quot;Partner reads your kit and asks one question: what's missing? Before the break, log in to every tool on your phone and confirm you can get in.&quot; Name who in the office helps agents set up Meta Ads Manager and ManyChat.">
 <div class="frame center"><div class="meta"><span class="tag">Commit</span><span class="timer" data-sec="180">3 MIN</span></div><p class="eyebrow reveal">El motor: the machine and the kit</p><h1 class="reveal d1 s1">What's missing?</h1><div class="lines commit reveal d2"><i></i><i></i></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>El motor: the machine and the kit · D2-36</span></div></div>
 <div class="vis"><b>Visual</b> A puzzle with one piece out.</div>
 </section>
 
 <!-- D2-37 -->
-<section class="slide slide--question dark" data-slide-id="d2-37" data-notes="> D2-37 · Big question · 3 min
+<section class="slide slide--question dark opener ph-split" data-slide-id="d2-37" data-notes="> D2-37 · Big question · 3 min
 > Activity: Pairs, 1 min, three call-outs.
 > Workbook: El motor p.3 to 4
 > Visual: A ceiling, dark, seen from a bed.
 
 &quot;Not 'they want a house.' What's the thought at 11 PM? Tell your partner in your client's words, not yours.&quot; Take three answers. Listen for &quot;my rent went up again,&quot; &quot;I don't know if my credit is good enough.&quot;">
-<div class="frame center"><p class="eyebrow reveal">Your client and the ads</p><h1 class="reveal d1 s2">What keeps your buyer up at 11 PM?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Your client and the ads · D2-37</span></div></div>
+<div class="frame center"><div class="op-panel" aria-hidden="true"><img class="op-img" src="media/retreat-2027/d2-37.jpg" alt=""><div class="op-shade"></div><div class="op-num"><span>Section</span><b>06</b><i>of 17</i></div></div><p class="eyebrow reveal">Your client and the ads</p><h1 class="reveal d1 s2">What keeps your buyer up at 11 PM?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Your client and the ads · D2-37</span></div></div>
 <div class="vis"><b>Visual</b> A ceiling, dark, seen from a bed.</div>
 </section>
 
@@ -935,7 +1018,7 @@ It names their problem in their words, then offers one small next step.">
 > Workbook: El motor p.5
 > Visual: Two funnels: left one leaking from holes, right one sealed with a phone at the bottom.
 
-Tell the story from page 5 in your own words: an agent boosted posts and ran a free home value form, got leads and not one client. Six months later, same budget, three campaigns, one avatar, one promise, a call in five minutes, and clients. [Pedro: if you have your own version of this story, tell yours instead.]">
+Tell the story from page 5 in your own words: an agent boosted posts and ran a free home value form, got leads and not one client. Six months later, same budget, three campaigns, one avatar, one promise, a call in five minutes, and clients.">
 <div class="frame center"><p class="eyebrow reveal">Story</p><h1 class="reveal d1 s2">Same budget.<br><span class="hl">Different machine.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Your client and the ads · D2-41</span></div></div>
 <div class="vis"><b>Visual</b> Two funnels: left one leaking from holes, right one sealed with a phone at the bottom.</div>
 </section>
@@ -973,13 +1056,12 @@ Tell the story from page 5 in your own words: an agent boosted posts and ran a f
 </section>
 
 <!-- D2-45 -->
-<section class="slide slide--image dark" data-slide-id="d2-45" data-notes="> D2-45 · Image + headline · 2 min
-> Photo slot: add media/retreat-2027/d2-45.jpg and rebuild.
+<section class="slide slide--image dark has-photo" data-slide-id="d2-45" data-notes="> D2-45 · Image + headline · 2 min
 > Workbook: El motor p.7
 > Visual: A phone on a nightstand lighting up with a DM notification, clock reading 2:07.
 
-&quot;ManyChat watches for the word, sends the guide and hands the lead to Dashbrew. You set it up once. But it's not a touch. Your first 7 days start when YOU call.&quot;">
-<div class="frame bottom"><p class="eyebrow reveal">Capture and the scoreboard</p><h1 class="reveal d1 s2">It answers at 2 AM.<br><span class="hl">You call at 8.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Capture and the scoreboard · D2-45</span></div></div>
+&quot;ManyChat watches for the word, sends the guide and hands the lead to Lofty. You set it up once. But it's not a touch. Your first 7 days start when YOU call.&quot;">
+<img class="bgimg" src="media/retreat-2027/d2-45.jpg" alt=""><div class="bgshade"></div><div class="frame bottom"><p class="op-chip reveal">Section 07 <i>/ 17</i></p><p class="eyebrow reveal">Capture and the scoreboard</p><h1 class="reveal d1 s2">It answers at 2 AM.<br><span class="hl">You call at 8.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Capture and the scoreboard · D2-45</span></div></div>
 <div class="vis"><b>Visual</b> A phone on a nightstand lighting up with a DM notification, clock reading 2:07.</div>
 </section>
 
@@ -989,7 +1071,7 @@ Tell the story from page 5 in your own words: an agent boosted posts and ran a f
 > Visual: Five icons in a row ending in a person with a phone, green.
 
 &quot;The word matches the caption exactly. First DM always has a button. Short. Test it from another account before the ad goes live.&quot; Details on page 7.">
-<div class="frame center"><p class="eyebrow reveal">Capture and the scoreboard</p><ol class="fw arrows n5 stagger"><li><span class="n">1</span><b>Word</b></li><li><span class="n">2</span><b>Button</b></li><li><span class="n">3</span><b>Guide</b></li><li><span class="n">4</span><b>Dashbrew</b></li><li><span class="n">5</span><b>You</b></li></ol><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Capture and the scoreboard · D2-46</span></div></div>
+<div class="frame center"><p class="eyebrow reveal">Capture and the scoreboard</p><ol class="fw arrows n5 stagger"><li><span class="n">1</span><b>Word</b></li><li><span class="n">2</span><b>Button</b></li><li><span class="n">3</span><b>Guide</b></li><li><span class="n">4</span><b>Lofty</b></li><li><span class="n">5</span><b>You</b></li></ol><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Capture and the scoreboard · D2-46</span></div></div>
 <div class="vis"><b>Visual</b> Five icons in a row ending in a person with a phone, green.</div>
 </section>
 
@@ -1040,7 +1122,7 @@ Ad B: $45 per appointment. Ad A: $180. Count chairs, not clicks.">
 > Workbook: El motor p.9
 > Visual: The four words in the four corners of the screen, matching signs in the four corners of the room.
 
-Before the session, post signs in the four corners. Read made-up scenarios; everyone walks to the corner with the fix: &quot;Lots of views, almost no comments.&quot; (Hook.) &quot;Plenty of comments, few leads land in Dashbrew.&quot; (Word and first DM.) &quot;Leads land, but half were called the next day.&quot; (Speed.) &quot;Appointments set, but half don't show.&quot; (Confirm text and call the day before.) Do four or five scenarios. Ask one person per corner to explain why.">
+Before the session, post signs in the four corners. Read made-up scenarios; everyone walks to the corner with the fix: &quot;Lots of views, almost no comments.&quot; (Hook.) &quot;Plenty of comments, few leads land in Lofty.&quot; (Word and first DM.) &quot;Leads land, but half were called the next day.&quot; (Speed.) &quot;Appointments set, but half don't show.&quot; (Confirm text and call the day before.) Do four or five scenarios. Ask one person per corner to explain why.">
 <div class="frame"><p class="eyebrow reveal">Workbook · El motor · Page 9</p><div class="act"><div class="act-main"><h2 class="reveal d1">Four corners</h2><ul class="poll left stagger"><li>Hook</li><li>Word</li><li>Speed</li><li>Confirm</li></ul></div><aside class="act-side reveal d2"><span class="timer lg" data-sec="300">5 MIN</span><span class="tag amber">movement</span></aside></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Capture and the scoreboard · D2-50</span></div></div>
 <div class="vis"><b>Visual</b> The four words in the four corners of the screen, matching signs in the four corners of the room.</div>
 </section>
@@ -1051,19 +1133,19 @@ Before the session, post signs in the four corners. Read made-up scenarios; ever
 > Workbook: El motor p.2 and p.9 (check it)
 > Visual: A calendar with one date circled, a green &quot;GO.&quot;
 
-&quot;Write the date your machine goes live. Your partner reads your cost per appointment held every Monday for the first month.&quot; Lunch instructions: &quot;Film your hook if you haven't. Partner holds the phone.&quot;">
+&quot;Write the date your machine goes live. Your partner reads your cost per appointment held every Monday for the first month.&quot; Then: &quot;Film your hook before the day ends if you haven't. Partner holds the phone.&quot;">
 <div class="frame center"><div class="meta"><span class="tag">Commit</span><span class="timer" data-sec="180">3 MIN</span></div><p class="eyebrow reveal">Capture and the scoreboard</p><h1 class="reveal d1 s3">Live by <span class="blank-line"></span>.<br>Partner reads the number Mondays.</h1><div class="lines commit reveal d2"><i></i><i></i></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Capture and the scoreboard · D2-51</span></div></div>
 <div class="vis"><b>Visual</b> A calendar with one date circled, a green "GO."</div>
 </section>
 
 <!-- D2-53 -->
-<section class="slide slide--question dark" data-slide-id="d2-53" data-notes="> D2-53 · Big question · 3 min
+<section class="slide slide--question dark opener ph-split" data-slide-id="d2-53" data-notes="> D2-53 · Big question · 3 min
 > Activity: Call-outs.
 > Workbook: Buyers p.1, Section cover 05
 > Visual: A phone full of saved listing hearts, dozens of them.
 
-(If you're showing lunch hook videos, play three, 2 min total, then this.) &quot;Shout it out.&quot; Take answers. &quot;Most of you said homes. They have Zillow. They have more homes than they can see. What they don't have is a plan.&quot;">
-<div class="frame center"><p class="eyebrow reveal">The buyer path and the first call</p><h1 class="reveal d1 s3">What does a buyer actually need from you?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The buyer path and the first call · D2-53</span></div></div>
+(If you're showing hook videos, play three, 2 min total, then this.) &quot;Shout it out.&quot; Take answers. &quot;Most of you said homes. They have Zillow. They have more homes than they can see. What they don't have is a plan.&quot;">
+<div class="frame center"><div class="op-panel nophoto" aria-hidden="true"><span class="op-glow"></span><div class="op-shade"></div><div class="op-num"><span>Section</span><b>08</b><i>of 17</i></div></div><p class="eyebrow reveal">The buyer path and the first call</p><h1 class="reveal d1 s3">What does a buyer actually need from you?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The buyer path and the first call · D2-53</span></div></div>
 <div class="vis"><b>Visual</b> A phone full of saved listing hearts, dozens of them.</div>
 </section>
 
@@ -1082,23 +1164,13 @@ Before the session, post signs in the four corners. Read made-up scenarios; ever
 > Workbook: Buyers p.1
 > Visual: Eight small numbered dots on a path, a lock icon between dot 4 and dot 5.
 
-&quot;Each step has a finish line. You don't start the next one until it's done. And here is the house rule for every reThought agent: no showings before the Zero to 45 meeting and a signed agreement.&quot; Pause. &quot;I know. Some of you are already thinking 'but my buyers...' Remember your sealed card.&quot; [Pedro: tell them why you made this a house rule.]">
+&quot;Each step has a finish line. You don't start the next one until it's done. And here is the house rule for every reThought agent: no showings before the Zero to 45 meeting and a signed agreement.&quot; Pause. &quot;I know. Some of you are already thinking 'but my buyers...' Remember your sealed card.&quot; Give the reason for the rule in one sentence before anyone pushes back.">
 <div class="frame center"><p class="eyebrow reveal">The buyer path and the first call</p><h2 class="reveal d1 big2">8 steps.<br><span class="hl">1 house rule.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The buyer path and the first call · D2-55</span></div></div>
 <div class="vis"><b>Visual</b> Eight small numbered dots on a path, a lock icon between dot 4 and dot 5.</div>
 </section>
 
-<!-- D2-56 -->
-<section class="slide slide--story dark" data-slide-id="d2-56" data-notes="> D2-56 · Story prompt · 3 min
-> Story slot: tell it live, or drop media/retreat-2027/d2-56.mp4 and rebuild.
-> Visual: [Pedro: a photo that cues a buyer story, for example a car odometer or a stack of MLS printouts.]
-
-[Pedro: tell a real story of a buyer you or an agent toured endlessly without a plan, and how it ended. Or one where the plan made it fast.]">
-<div class="frame center"><p class="eyebrow reveal">Story</p><h1 class="reveal d1 s2"><span class="pedro">Pedro: 'the 30-house buyer'</span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The buyer path and the first call · D2-56</span></div></div>
-<div class="vis"><b>Visual</b> <span class="pedro">Pedro: a photo that cues a buyer story, for example a car odometer or a stack of MLS printouts.</span></div>
-</section>
-
 <!-- D2-57 -->
-<section class="slide slide--fw" data-slide-id="d2-57" data-notes="> D2-57 · Simple framework · 3 min
+<section class="slide slide--fw" data-slide-id="d2-57" data-notes="> D2-57 · Simple framework · 6 min
 > Workbook: Buyers p.1 to 3
 > Visual: Six stepping stones crossing a stream.
 
@@ -1110,11 +1182,11 @@ Before the session, post signs in the four corners. Read made-up scenarios; ever
 <!-- D2-58 -->
 <section class="slide slide--story dark" data-slide-id="d2-58" data-notes="> D2-58 · Story prompt (live demo) · 5 min
 > Story slot: tell it live, or drop media/retreat-2027/d2-58.mp4 and rebuild.
-> Activity: Pedro and volunteer, 3 min; debrief 2 min.
+> Activity: Two volunteers picked by the room, 3 min; debrief 2 min.
 > Workbook: Buyers p.2 to 3
 > Visual: A phone with a green call screen, &quot;Maria · ad lead.&quot;
 
-Volunteer plays Maria: rents, lease ends in five months, saw homes at an open house last weekend, needs financing help. Pedro runs all six steps start to finish in about three minutes. Room's job: &quot;Count how many times I end with a question.&quot; Debrief: the number, and what they noticed about the recommendation.">
+The room picks two volunteers. One plays Maria: rents, lease ends in five months, saw homes at an open house last weekend, needs financing help. The other runs all six steps from page 2 start to finish in about three minutes. Room's job: count how many times the agent ends with a question. Debrief: the number, and what they noticed about the recommendation.">
 <div class="frame center"><div class="meta"><span class="tag">Live</span><span class="timer" data-sec="180">3 MIN</span></div><p class="eyebrow reveal">Live demo</p><h1 class="reveal d1 s1">Live: the first call.</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The buyer path and the first call · D2-58</span></div></div>
 <div class="vis"><b>Visual</b> A phone with a green call screen, "Maria · ad lead."</div>
 </section>
@@ -1152,13 +1224,13 @@ Volunteer plays Maria: rents, lease ends in five months, saw homes at an open ho
 </section>
 
 <!-- D2-62 -->
-<section class="slide slide--question dark" data-slide-id="d2-62" data-notes="> D2-62 · Big question · 3 min
+<section class="slide slide--question dark opener ph-split" data-slide-id="d2-62" data-notes="> D2-62 · Big question · 3 min
 > Activity: Call-outs.
 > Workbook: Buyers p.4
 > Visual: The words in a speech bubble, big, on a phone.
 
 &quot;Your buyer just said it. What do you usually say?&quot; Take two honest answers (&quot;Sure, what's your email?&quot;). &quot;And then what happens?&quot; (Nothing.)">
-<div class="frame center"><p class="eyebrow reveal">Stalls, booking, a practicar</p><h1 class="reveal d1 s1">'Just send me info.'</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Stalls, booking, a practicar · D2-62</span></div></div>
+<div class="frame center"><div class="op-panel nophoto" aria-hidden="true"><span class="op-glow"></span><div class="op-shade"></div><div class="op-num"><span>Section</span><b>09</b><i>of 17</i></div></div><p class="eyebrow reveal">Stalls, booking, a practicar</p><h1 class="reveal d1 s1">'Just send me info.'</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Stalls, booking, a practicar · D2-62</span></div></div>
 <div class="vis"><b>Visual</b> The words in a speech bubble, big, on a phone.</div>
 </section>
 
@@ -1199,7 +1271,7 @@ Volunteer plays Maria: rents, lease ends in five months, saw homes at an open ho
 > Workbook: Buyers p.5, Appendix (buyer cards)
 > Visual: Three chairs, two back to back, the third facing both. Timer 9:00, reset each round.
 
-Merge pairs into threes. Use the buyer cards from the appendix. Each round: 1 minute for the buyer to read the card silently, 6 minutes for the call (Lessons 1 and 2, in order, phone timer on), 2 minutes to score: total, hidden facts found, one thing that worked, one fix by line number. No coaching mid-call. Rotate seats each round, new card. Pedro walks and listens; call out &quot;two minutes left&quot; each round. Goal: 14 of 20 and every hidden fact found. [Pedro: confirm the buyer cards are printed and in the appendix; if not, have three ready by table.]">
+Merge pairs into threes. Use the buyer cards from the appendix. Each round: 1 minute for the buyer to read the card silently, 6 minutes for the call (Lessons 1 and 2, in order, phone timer on), 2 minutes to score: total, hidden facts found, one thing that worked, one fix by line number. No coaching mid-call. Rotate seats each round, new card. Walk and listen; call out &quot;two minutes left&quot; each round. Goal: 14 of 20 and every hidden fact found. Before the retreat, confirm the buyer cards are printed and in the appendix; if not, have three ready by table.">
 <div class="frame"><p class="eyebrow reveal">Workbook · Buyers · Page 5</p><div class="act"><div class="act-main"><ol class="steps stagger"><li><span class="n">1</span><span>A practicar.</span></li><li><span class="n">2</span><span>Agent · Buyer · Scorer.</span></li></ol></div><aside class="act-side reveal d2"><span class="timer lg" data-sec="540">9 MIN</span><span class="tag amber">role play in threes</span></aside></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Stalls, booking, a practicar · D2-66</span></div></div>
 <div class="vis"><b>Visual</b> Three chairs, two back to back, the third facing both. Timer 9:00, reset each round.</div>
 </section>
@@ -1216,13 +1288,13 @@ Merge pairs into threes. Use the buyer cards from the appendix. Each round: 1 mi
 </section>
 
 <!-- D2-68 -->
-<section class="slide slide--question dark" data-slide-id="d2-68" data-notes="> D2-68 · Big question · 4 min
+<section class="slide slide--question dark opener ph-split" data-slide-id="d2-68" data-notes="> D2-68 · Big question · 4 min
 > Activity: Pairs 1 min, room call-outs.
 > Workbook: Buyers p.6
 > Visual: A buyer at a kitchen table, head in hands, papers spread out.
 
 &quot;Tell your partner the fears you hear most. One minute.&quot; Then collect five on a flip chart. &quot;Overpaying. Missing homes. The paperwork. Affording it. Something going wrong. The last agent disappearing. Every one of those is on page 6, with what you show them.&quot;">
-<div class="frame center"><p class="eyebrow reveal">The Zero to 45 meeting and the agreement</p><h1 class="reveal d1 s2">What is your buyer most afraid of?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The Zero to 45 meeting and the agreement · D2-68</span></div></div>
+<div class="frame center"><div class="op-panel" aria-hidden="true"><img class="op-img" src="media/retreat-2027/d2-68.jpg" alt=""><div class="op-shade"></div><div class="op-num"><span>Section</span><b>10</b><i>of 17</i></div></div><p class="eyebrow reveal">The Zero to 45 meeting and the agreement</p><h1 class="reveal d1 s2">What is your buyer most afraid of?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The Zero to 45 meeting and the agreement · D2-68</span></div></div>
 <div class="vis"><b>Visual</b> A buyer at a kitchen table, head in hands, papers spread out.</div>
 </section>
 
@@ -1242,7 +1314,7 @@ Merge pairs into threes. Use the buyer cards from the appendix. Each round: 1 mi
 > Workbook: Buyers p.6
 > Visual: Two columns: a worried face, a green check.
 
-Pedro reads a fear: &quot;We're afraid we'll overpay.&quot; Pairs have 10 seconds to agree on which ONE benefit answers it, and say it in one sentence to each other. Do five fears. &quot;Don't list twelve benefits. Answer the fear they told you.&quot;">
+Read a fear: &quot;We're afraid we'll overpay.&quot; Pairs have 10 seconds to agree on which ONE benefit answers it, and say it in one sentence to each other. Do five fears. &quot;Don't list twelve benefits. Answer the fear they told you.&quot;">
 <div class="frame"><p class="eyebrow reveal">Workbook · Buyers · Page 6</p><div class="act"><div class="act-main"><ol class="steps stagger"><li><span class="n">1</span><span>I say the fear.</span></li><li><span class="n">2</span><span>You show the proof.</span></li></ol></div><aside class="act-side reveal d2"><span class="timer lg" data-sec="180">3 MIN</span><span class="tag">Do it</span></aside></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The Zero to 45 meeting and the agreement · D2-70</span></div></div>
 <div class="vis"><b>Visual</b> Two columns: a worried face, a green check.</div>
 </section>
@@ -1262,7 +1334,7 @@ Pedro reads a fear: &quot;We're afraid we'll overpay.&quot; Pairs have 10 second
 > Workbook: Buyers p.7
 > Visual: In Milwaukee: an outline of Wisconsin. In Florida: an outline of Florida. One state per city, not both.
 
-Milwaukee: walk the Wisconsin column, including the change starting January 1, 2027. Florida: walk the Florida column, transaction broker as default, disclosure timing. Both: the fee is a clear number, negotiable, never &quot;whatever the seller pays.&quot; Upload the signed copy to Dashbrew the same day. [Pedro: confirm the current form names and versions with your compliance team before each retreat.]">
+Milwaukee: walk the Wisconsin column, including the change starting January 1, 2027. Florida: walk the Florida column, transaction broker as default, disclosure timing. Both: the fee is a clear number, negotiable, never &quot;whatever the seller pays.&quot; Upload the signed copy to Lofty the same day. Before the retreat, confirm the current form names and versions with your compliance team before each retreat.">
 <div class="frame center"><div class="meta"><span class="tag">Open the book</span></div><p class="eyebrow reveal">Buyers</p><div class="wbp reveal d1"><p class="wbp-n">p.&#8239;7</p><h2>Your state.<br><span class="hl">Your form.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The Zero to 45 meeting and the agreement · D2-72</span></div></div>
 <div class="vis"><b>Visual</b> In Milwaukee: an outline of Wisconsin. In Florida: an outline of Florida. One state per city, not both.</div>
 </section>
@@ -1270,12 +1342,12 @@ Milwaukee: walk the Wisconsin column, including the change starting January 1, 2
 <!-- D2-73 -->
 <section class="slide slide--story dark" data-slide-id="d2-73" data-notes="> D2-73 · Story prompt (live demo) · 3 min
 > Story slot: tell it live, or drop media/retreat-2027/d2-73.mp4 and rebuild.
-> Activity: Room times Pedro.
+> Activity: Room picks a volunteer and times them. Room coaches.
 > Workbook: Buyers p.7 to 8
 > Visual: Stopwatch counting up, large.
 
-Hold up a real buyer agreement form for your state. Ask someone to time you. Do the four parts, pointing at each section as you say it. Then a volunteer fires one question from page 8; answer in one breath and go back to the form.">
-<div class="frame center"><div class="meta"><span class="tag">Live</span><span class="timer" data-sec="90">90 SEC</span></div><p class="eyebrow reveal">Live demo</p><h1 class="reveal d1 s2">Live: 90 seconds.<br><span class="hl">Time me.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The Zero to 45 meeting and the agreement · D2-73</span></div></div>
+The room picks a volunteer. Hand them a real buyer agreement form for your state; someone else times them. They walk the four parts from page 7, pointing at each section as they say it. Then another volunteer fires one question from page 8; they answer in one breath and go back to the form. Debrief: what was clear, what to cut.">
+<div class="frame center"><div class="meta"><span class="tag">Live</span><span class="timer" data-sec="90">90 SEC</span></div><p class="eyebrow reveal">Live demo</p><h1 class="reveal d1 s2">Live: 90 seconds.<br><span class="hl">Time them.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The Zero to 45 meeting and the agreement · D2-73</span></div></div>
 <div class="vis"><b>Visual</b> Stopwatch counting up, large.</div>
 </section>
 
@@ -1302,24 +1374,23 @@ Hold up a real buyer agreement form for your state. Ask someone to time you. Do 
 </section>
 
 <!-- D2-77 -->
-<section class="slide slide--question dark" data-slide-id="d2-77" data-notes="> D2-77 · Big question (poll) · 2 min
+<section class="slide slide--question dark opener ph-split" data-slide-id="d2-77" data-notes="> D2-77 · Big question (poll) · 2 min
 > Activity: Hand-raise poll.
 > Workbook: Buyers p.9
 > Visual: Car odometer spinning.
 
 &quot;Hands: 10? 20? 30 or more?&quot; Laugh with whoever had the record. &quot;More homes make a harder choice, not a better one.&quot;">
-<div class="frame center"><div class="meta"><span class="tag">Hands up</span></div><p class="eyebrow reveal">Showings, offer to keys</p><h1 class="reveal d1 s2">Your longest buyer saw how many homes?</h1><ul class="poll stagger"><li>10</li><li>20</li><li>30 or more</li></ul><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Showings, offer to keys · D2-77</span></div></div>
+<div class="frame center"><div class="op-panel nophoto" aria-hidden="true"><span class="op-glow"></span><div class="op-shade"></div><div class="op-num"><span>Section</span><b>11</b><i>of 17</i></div></div><div class="meta"><span class="tag">Hands up</span></div><p class="eyebrow reveal">Showings, offer to keys</p><h1 class="reveal d1 s2">Your longest buyer saw how many homes?</h1><ul class="poll stagger"><li>10</li><li>20</li><li>30 or more</li></ul><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Showings, offer to keys · D2-77</span></div></div>
 <div class="vis"><b>Visual</b> Car odometer spinning.</div>
 </section>
 
 <!-- D2-78 -->
-<section class="slide slide--image dark" data-slide-id="d2-78" data-notes="> D2-78 · Image + headline · 3 min
-> Photo slot: add media/retreat-2027/d2-78.jpg and rebuild.
+<section class="slide slide--image dark has-photo" data-slide-id="d2-78" data-notes="> D2-78 · Image + headline · 3 min
 > Workbook: Buyers p.9
 > Visual: A hand holding up a single key, other keys blurred on a table behind it.
 
 &quot;Brief them at the first door. After every house, same five questions, including 'what didn't you like,' even when they love it. Then: better or worse than the one we're keeping? Only one keeper.&quot; Ready signals on page 9: answer them right away.">
-<div class="frame bottom"><p class="eyebrow reveal">Showings, offer to keys</p><h1 class="reveal d1 s2">Keep the best.<br><span class="hl">Cut the rest.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Showings, offer to keys · D2-78</span></div></div>
+<img class="bgimg" src="media/retreat-2027/d2-78.jpg" alt=""><div class="bgshade"></div><div class="frame bottom"><p class="eyebrow reveal">Showings, offer to keys</p><h1 class="reveal d1 s2">Keep the best.<br><span class="hl">Cut the rest.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Showings, offer to keys · D2-78</span></div></div>
 <div class="vis"><b>Visual</b> A hand holding up a single key, other keys blurred on a table behind it.</div>
 </section>
 
@@ -1396,13 +1467,13 @@ Ease. Solve their real problem and you can win without the most money.">
 </section>
 
 <!-- D2-84 -->
-<section class="slide slide--question dark" data-slide-id="d2-84" data-notes="> D2-84 · Big question · 3 min
+<section class="slide slide--question dark opener ph-split" data-slide-id="d2-84" data-notes="> D2-84 · Big question · 3 min
 > Activity: Pairs, 1 min.
 > Workbook: Listings p.1, Section cover 06
 > Visual: A phone showing a contact list, one name glowing.
 
 &quot;Before you chase strangers: your next listing is probably already in your database. Who told you they own? Who bought from you three years ago?&quot; Pairs: one name each, 1 minute.">
-<div class="frame center"><p class="eyebrow reveal">Where sellers are, expireds</p><h1 class="reveal d1 s2">Where is your next listing hiding?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Where sellers are, expireds · D2-84</span></div></div>
+<div class="frame center"><div class="op-panel nophoto" aria-hidden="true"><span class="op-glow"></span><div class="op-shade"></div><div class="op-num"><span>Section</span><b>12</b><i>of 17</i></div></div><p class="eyebrow reveal">Where sellers are, expireds</p><h1 class="reveal d1 s2">Where is your next listing hiding?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Where sellers are, expireds · D2-84</span></div></div>
 <div class="vis"><b>Visual</b> A phone showing a contact list, one name glowing.</div>
 </section>
 
@@ -1411,7 +1482,7 @@ Ease. Solve their real problem and you can win without the most money.">
 > Workbook: Listings p.1
 > Visual: Six small icons in a 2x3 grid: house with a tag, calendar, handshake, map pin, expired clock, &quot;for sale&quot; sign.
 
-&quot;Build six smart lists once in Dashbrew. Ten calls a day, oldest last contact first.&quot; Then the compliance line, clearly: scrub against Do Not Call every 31 days, call 8 to 8 owner's time, full name and reThought first, &quot;stop&quot; means removed today. In Florida, no more than three calls in 24 hours on the same subject, and texts count as calls. [Pedro: confirm any Wisconsin-specific calling rules for the Milwaukee version.]">
+&quot;Build six smart lists once in Lofty. Ten calls a day, oldest last contact first.&quot; Then the compliance line, clearly: scrub against Do Not Call every 31 days, call 8 to 8 owner's time, full name and reThought first, &quot;stop&quot; means removed today. In Florida, no more than three calls in 24 hours on the same subject, and texts count as calls. Before the retreat, confirm any Wisconsin-specific calling rules for the Milwaukee version.">
 <div class="frame center"><p class="eyebrow reveal">Where sellers are, expireds</p><h2 class="reveal d1 big2">Six lists.<br><span class="hl">Ten calls a day.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Where sellers are, expireds · D2-85</span></div></div>
 <div class="vis"><b>Visual</b> Six small icons in a 2x3 grid: house with a tag, calendar, handshake, map pin, expired clock, "for sale" sign.</div>
 </section>
@@ -1428,13 +1499,12 @@ Ease. Solve their real problem and you can win without the most money.">
 </section>
 
 <!-- D2-87 -->
-<section class="slide slide--image dark" data-slide-id="d2-87" data-notes="> D2-87 · Image + headline · 3 min
-> Photo slot: add media/retreat-2027/d2-87.jpg and rebuild.
+<section class="slide slide--image dark has-photo" data-slide-id="d2-87" data-notes="> D2-87 · Image + headline · 3 min
 > Workbook: Listings p.2
 > Visual: A front yard with an empty sign post, the sign removed.
 
 &quot;An expired is a seller who already decided to move. The listing ended, the plan didn't. Know the difference: expired, call it. Canceled, check the MLS first. Withdrawn, don't solicit. FSBO, a different call, earn trust.&quot; All four on page 2.">
-<div class="frame bottom"><p class="eyebrow reveal">Where sellers are, expireds</p><h1 class="reveal d1 s2">They still want to move.</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Where sellers are, expireds · D2-87</span></div></div>
+<img class="bgimg" src="media/retreat-2027/d2-87.jpg" alt=""><div class="bgshade"></div><div class="frame bottom"><p class="eyebrow reveal">Where sellers are, expireds</p><h1 class="reveal d1 s2">They still want to move.</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Where sellers are, expireds · D2-87</span></div></div>
 <div class="vis"><b>Visual</b> A front yard with an empty sign post, the sign removed.</div>
 </section>
 
@@ -1448,18 +1518,8 @@ Ease. Solve their real problem and you can win without the most money.">
 <div class="vis"><b>Visual</b> The word "EXPIRED" stamped in red, crossed out.</div>
 </section>
 
-<!-- D2-89 -->
-<section class="slide slide--story dark" data-slide-id="d2-89" data-notes="> D2-89 · Story prompt · 3 min
-> Story slot: tell it live, or drop media/retreat-2027/d2-89.mp4 and rebuild.
-> Visual: [Pedro: a photo of an expired you relisted and sold, with the seller's OK, or the street.]
-
-[Pedro: tell the story. Why it didn't sell the first time, what you asked on the first call, what you changed, the result.]">
-<div class="frame center"><p class="eyebrow reveal">Story</p><h1 class="reveal d1 s2"><span class="pedro">Pedro: the street name</span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Where sellers are, expireds · D2-89</span></div></div>
-<div class="vis"><b>Visual</b> <span class="pedro">Pedro: a photo of an expired you relisted and sold, with the seller's OK, or the street.</span></div>
-</section>
-
 <!-- D2-90 -->
-<section class="slide slide--fw" data-slide-id="d2-90" data-notes="> D2-90 · Simple framework · 3 min
+<section class="slide slide--fw" data-slide-id="d2-90" data-notes="> D2-90 · Simple framework · 6 min
 > Workbook: Listings p.2 to 3
 > Visual: Three clock faces, the 8:00 one green.
 
@@ -1491,12 +1551,12 @@ Ease. Solve their real problem and you can win without the most money.">
 </section>
 
 <!-- D2-93 -->
-<section class="slide slide--question dark" data-slide-id="d2-93" data-notes="> D2-93 · Big question · 2 min
+<section class="slide slide--question dark opener ph-split" data-slide-id="d2-93" data-notes="> D2-93 · Big question · 2 min
 > Workbook: Listings p.6
 > Visual: A price tag hanging off a doorknob, face down.
 
 Take answers. &quot;Last. Every answer earns the next question. One question, then listen. If you lead with price, you're a number. If you lead with their plan, you're the person who understood it.&quot;">
-<div class="frame center"><p class="eyebrow reveal">The call, the prep, the table</p><h1 class="reveal d1 s2">When do you talk price?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The call, the prep, the table · D2-93</span></div></div>
+<div class="frame center"><div class="op-panel" aria-hidden="true"><img class="op-img" src="media/retreat-2027/d2-93.jpg" alt=""><div class="op-shade"></div><div class="op-num"><span>Section</span><b>13</b><i>of 17</i></div></div><p class="eyebrow reveal">The call, the prep, the table</p><h1 class="reveal d1 s2">When do you talk price?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The call, the prep, the table · D2-93</span></div></div>
 <div class="vis"><b>Visual</b> A price tag hanging off a doorknob, face down.</div>
 </section>
 
@@ -1505,7 +1565,7 @@ Take answers. &quot;Last. Every answer earns the next question. One question, th
 > Workbook: Listings p.6
 > Visual: A five-rung ladder, a small figure stepping down one rung, green.
 
-&quot;They say no to the appointment? Don't hang up. Step down one rung: a 20-minute walk-through, then a prep guide, then a market update, then their date. Never jump two. Write the rung in Dashbrew before you dial the next number.&quot;">
+&quot;They say no to the appointment? Don't hang up. Step down one rung: a 20-minute walk-through, then a prep guide, then a market update, then their date. Never jump two. Write the rung in Lofty before you dial the next number.&quot;">
 <div class="frame center"><p class="eyebrow reveal">The call, the prep, the table</p><h2 class="reveal d1 big2">No?<br>Step down.<br><span class="hl">Never step off.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The call, the prep, the table · D2-94</span></div></div>
 <div class="vis"><b>Visual</b> A five-rung ladder, a small figure stepping down one rung, green.</div>
 </section>
@@ -1537,7 +1597,7 @@ Take answers. &quot;Last. Every answer earns the next question. One question, th
 > Workbook: Listings p.8
 > Visual: A yellow legal pad with three handwritten items, each crossed off with a green pen.
 
-&quot;At the table, ask their three things and write them on a pad. Then show only the pieces of the plan that answer those three, and cross each one off. It's a consultation, not a presentation. Thirty minutes, eight stops, same order.&quot; The stops and the &quot;not yet&quot; lines are on page 8. [Pedro: show your real #reElevated Marketing Plan cover here, or hold it up.]">
+&quot;At the table, ask their three things and write them on a pad. Then show only the pieces of the plan that answer those three, and cross each one off. It's a consultation, not a presentation. Thirty minutes, eight stops, same order.&quot; The stops and the &quot;not yet&quot; lines are on page 8. Hold up the #reElevated Marketing Plan cover.">
 <div class="frame bottom"><p class="eyebrow reveal">The call, the prep, the table</p><h1 class="reveal d1 s2">Their three things.<br><span class="hl">Crossed off.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The call, the prep, the table · D2-97</span></div></div>
 <div class="vis"><b>Visual</b> A yellow legal pad with three handwritten items, each crossed off with a green pen.</div>
 </section>
@@ -1585,13 +1645,13 @@ Take answers. &quot;Last. Every answer earns the next question. One question, th
 </section>
 
 <!-- D2-102 -->
-<section class="slide slide--act bone" data-slide-id="d2-102" data-notes="> D2-102 · Activity setup · 2 min
+<section class="slide slide--act bone opener ph-split" data-slide-id="d2-102" data-notes="> D2-102 · Activity setup · 2 min
 > Activity: Form threes.
 > Workbook: Listings p.13
 > Visual: Three chairs in a triangle.
 
 &quot;New threes, people you haven't practiced with today. The seller reads the card on page 13 silently. The coach reads it out loud only after the round. Coach gives one fix only.&quot;">
-<div class="frame"><p class="eyebrow reveal">Workbook · Listings · Page 13</p><div class="act"><div class="act-main"><ol class="steps stagger"><li><span class="n">1</span><span>Threes.</span></li><li><span class="n">2</span><span>Agent · Seller · Coach.</span></li></ol></div><aside class="act-side reveal d2"><span class="timer lg" data-sec="120">2 MIN</span><span class="tag">Do it</span></aside></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The expired call, live, in threes · D2-102</span></div></div>
+<div class="frame"><div class="op-panel nophoto" aria-hidden="true"><span class="op-glow"></span><div class="op-shade"></div><div class="op-num"><span>Section</span><b>14</b><i>of 17</i></div></div><p class="eyebrow reveal">Workbook · Listings · Page 13</p><div class="act"><div class="act-main"><ol class="steps stagger"><li><span class="n">1</span><span>Threes.</span></li><li><span class="n">2</span><span>Agent · Seller · Coach.</span></li></ol></div><aside class="act-side reveal d2"><span class="timer lg" data-sec="120">2 MIN</span><span class="tag">Do it</span></aside></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The expired call, live, in threes · D2-102</span></div></div>
 <div class="vis"><b>Visual</b> Three chairs in a triangle.</div>
 </section>
 
@@ -1601,7 +1661,7 @@ Take answers. &quot;Last. Every answer earns the next question. One question, th
 > Workbook: Listings p.13 to 14 (Round 1)
 > Visual: Timer 8:00, phone icon.
 
-Pedro calls time at 4 minutes and 1 minute. After the call: 2 minutes to score Round 1 on page 14, goal 14 of 20. Coach gives one fix. Rotate seats.">
+Call time at 4 minutes and 1 minute. After the call: 2 minutes to score Round 1 on page 14, goal 14 of 20. Coach gives one fix. Rotate seats.">
 <div class="frame"><p class="eyebrow reveal">Workbook · Listings · Page 13</p><div class="act"><div class="act-main"><ol class="steps stagger"><li><span class="n">1</span><span>Round 1 · The call.</span></li><li><span class="n">2</span><span>8 minutes, then score.</span></li></ol></div><aside class="act-side reveal d2"><span class="timer lg" data-sec="480">8 MIN</span><span class="tag">Do it</span></aside></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>The expired call, live, in threes · D2-103</span></div></div>
 <div class="vis"><b>Visual</b> Timer 8:00, phone icon.</div>
 </section>
@@ -1640,12 +1700,12 @@ Pedro calls time at 4 minutes and 1 minute. After the call: 2 minutes to score R
 </section>
 
 <!-- D2-107 -->
-<section class="slide slide--bignum dark" data-slide-id="d2-107" data-notes="> D2-107 · Big number · 3 min
+<section class="slide slide--bignum dark opener ph-split" data-slide-id="d2-107" data-notes="> D2-107 · Big number · 3 min
 > Workbook: Listings p.11 to 12 (state columns)
 > Visual: The number huge, a small Wisconsin outline (Milwaukee) or a question mark over a Florida outline (Florida).
 
-Milwaukee: &quot;In Wisconsin, it's on the MLS within 48 hours of signing, from midnight of the contract date. Weekends count.&quot; Florida: &quot;Here, each MLS sets its own deadline and coming-soon rules. Ask me before you promise a seller a date.&quot; Both: marketed in public means it goes in the MLS within about a business day. [Pedro: confirm your Florida MLS rule for the slide.]">
-<div class="frame center"><p class="eyebrow reveal">Signed to live</p><p class="bignum reveal d1"><b>48</b> <small>hours.</small></p><p class="lead reveal d2"><span class="city-mke">Wisconsin · weekends count</span><span class="city-fl">Florida · ask me, MLS rules vary</span></p><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Signed to live · D2-107</span></div></div>
+Milwaukee: &quot;In Wisconsin, it's on the MLS within 48 hours of signing, from midnight of the contract date. Weekends count.&quot; Florida: &quot;Here, each MLS sets its own deadline and coming-soon rules. Ask me before you promise a seller a date.&quot; Both: marketed in public means it goes in the MLS within about a business day. Before the retreat, confirm your Florida MLS rule for the slide.">
+<div class="frame center"><div class="op-panel nophoto" aria-hidden="true"><span class="op-glow"></span><div class="op-shade"></div><div class="op-num"><span>Section</span><b>15</b><i>of 17</i></div></div><p class="eyebrow reveal">Signed to live</p><p class="bignum reveal d1"><b>48</b> <small>hours.</small></p><p class="lead reveal d2"><span class="city-mke">Wisconsin · weekends count</span><span class="city-fl">Florida · ask me, MLS rules vary</span></p><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Signed to live · D2-107</span></div></div>
 <div class="vis"><b>Visual</b> The number huge, a small Wisconsin outline (Milwaukee) or a question mark over a Florida outline (Florida).</div>
 </section>
 
@@ -1654,7 +1714,7 @@ Milwaukee: &quot;In Wisconsin, it's on the MLS within 48 hours of signing, from 
 > Workbook: Listings p.11 to 12
 > Visual: Four steps on a timeline: Day 0, 48 hours, Day 2 to 5, Launch day.
 
-&quot;Photo day isn't listing day. Pro photos take a few days, and you use them to get every room ready. Walk it at signing with your phone; those photos become the seller's prep list. Built in Dashbrew as tasks so nothing slips.&quot;">
+&quot;Photo day isn't listing day. Pro photos take a few days, and you use them to get every room ready. Walk it at signing with your phone; those photos become the seller's prep list. Built in Lofty as tasks so nothing slips.&quot;">
 <div class="frame center"><p class="eyebrow reveal">Signed to live</p><ol class="fw n4 stagger"><li><span class="n">1</span><b>Signed</b></li><li><span class="n">2</span><b>Live</b></li><li><span class="n">3</span><b>Photos</b></li><li><span class="n">4</span><b>Launch</b></li></ol><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Signed to live · D2-108</span></div></div>
 <div class="vis"><b>Visual</b> Four steps on a timeline: Day 0, 48 hours, Day 2 to 5, Launch day.</div>
 </section>
@@ -1690,13 +1750,12 @@ No news is still a call. Get the feedback, then bring numbers to the seller.">
 </section>
 
 <!-- D2-111 -->
-<section class="slide slide--image dark" data-slide-id="d2-111" data-notes="> D2-111 · Image + headline · 2 min
-> Photo slot: add media/retreat-2027/d2-111.jpg and rebuild.
+<section class="slide slide--image dark has-photo" data-slide-id="d2-111" data-notes="> D2-111 · Image + headline · 2 min
 > Workbook: Recap p.1
 > Visual: A real pie cut into four, overhead shot, warm light.
 
 &quot;Two days, one page. A real estate business runs on four slices. Miss one and it stalls. Every lesson you learned this week fed one of them.&quot;">
-<div class="frame bottom"><p class="eyebrow reveal">Recap: the business pie</p><h1 class="reveal d1 s2">Four slices.<br><span class="hl">One business.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Recap: the business pie · D2-111</span></div></div>
+<img class="bgimg" src="media/retreat-2027/d2-111.jpg" alt=""><div class="bgshade"></div><div class="frame bottom"><p class="op-chip reveal">Section 16 <i>/ 17</i></p><p class="eyebrow reveal">Recap: the business pie</p><h1 class="reveal d1 s2">Four slices.<br><span class="hl">One business.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Recap: the business pie · D2-111</span></div></div>
 <div class="vis"><b>Visual</b> A real pie cut into four, overhead shot, warm light.</div>
 </section>
 
@@ -1738,7 +1797,7 @@ No news is still a call. Get the feedback, then bring numbers to the seller.">
 > Workbook: Recap p.3
 > Visual: A January calendar page with four colored rows.
 
-&quot;The year gets won in the first 90 days. Fill January first: your lead gen block, your storefront and ads, your Dashbrew sort, your Monday planning report. Then your own row at the bottom. February and March go in your first Monday planning report.&quot; Partners swap and read each other's January.">
+&quot;The year gets won in the first 90 days. Fill January first: your lead gen block, your storefront and ads, your Lofty sort, your Monday planning report. Then your own row at the bottom. February and March go in your first Monday planning report.&quot; Partners swap and read each other's January.">
 <div class="frame center"><div class="meta"><span class="tag">Open the book</span></div><p class="eyebrow reveal">Recap</p><div class="wbp reveal d1"><p class="wbp-n">p.&#8239;3</p><h2>January column.<br><span class="hl">Fill it now.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h2></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Recap: the business pie · D2-115</span></div></div>
 <div class="vis"><b>Visual</b> A January calendar page with four colored rows.</div>
 </section>
@@ -1755,14 +1814,13 @@ Read problems from page 4, out of order, in your own words: &quot;My leads go co
 </section>
 
 <!-- D2-117 -->
-<section class="slide slide--image dark" data-slide-id="d2-117" data-notes="> D2-117 · Image + headline (movement) · 4 min
-> Photo slot: add media/retreat-2027/d2-117.jpg and rebuild.
+<section class="slide slide--image dark has-photo" data-slide-id="d2-117" data-notes="> D2-117 · Image + headline (movement) · 4 min
 > Activity: Whole room walks to collect cards, 3 min.
 > Workbook: Open the Mind p.6
 > Visual: The box from Day 1 morning, lid open, cards inside.
 
 &quot;Yesterday at 9 AM you wrote the sentence that keeps you from trying new things. Come get it.&quot; Everyone walks up to collect their own card. (Have a helper spread them on a table so it moves quickly.)">
-<div class="frame bottom"><div class="meta"><span class="tag amber">Move</span></div><p class="eyebrow reveal">Sealed card, commitment, close</p><h1 class="reveal d1 s1">Remember the card?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Sealed card, commitment, close · D2-117</span></div></div>
+<img class="bgimg" src="media/retreat-2027/d2-117.jpg" alt=""><div class="bgshade"></div><div class="frame bottom"><p class="op-chip reveal">Section 17 <i>/ 17</i></p><div class="meta"><span class="tag amber">Move</span></div><p class="eyebrow reveal">Sealed card, commitment, close</p><h1 class="reveal d1 s1">Remember the card?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Sealed card, commitment, close · D2-117</span></div></div>
 <div class="vis"><b>Visual</b> The box from Day 1 morning, lid open, cards inside.</div>
 </section>
 
@@ -1772,7 +1830,7 @@ Read problems from page 4, out of order, in your own words: &quot;My leads go co
 > Workbook: Open the Mind p.6
 > Visual: The card, unfolded, on a table, blurry handwriting.
 
-&quot;Open it. Read it to yourself. After two days, is that sentence still true? Under it, write the open-mind question you'll ask instead. Something like: 'How will I make this work here?'&quot; Silent 2 minutes. Then: &quot;If you're willing, read the old sentence and the new question to your partner.&quot; Ask two brave volunteers to read to the room. [Pedro: read your own Day 1 sealed sentence first, to go first.]">
+&quot;Open it. Read it to yourself. After two days, is that sentence still true? Under it, write the open-mind question you'll ask instead. Something like: 'How will I make this work here?'&quot; Silent 2 minutes. Then: &quot;If you're willing, read the old sentence and the new question to your partner.&quot; Ask two brave volunteers to read to the room.">
 <div class="frame center"><p class="eyebrow reveal">Sealed card, commitment, close</p><h1 class="reveal d1 s1">Is it still true?</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Sealed card, commitment, close · D2-118</span></div></div>
 <div class="vis"><b>Visual</b> The card, unfolded, on a table, blurry handwriting.</div>
 </section>
@@ -1783,7 +1841,7 @@ Read problems from page 4, out of order, in your own words: &quot;My leads go co
 > Workbook: Appendix (commitment card); Open the Mind p.14; Recap p.2
 > Visual: A pen on a signature line, green ink.
 
-&quot;Turn to the commitment card in the appendix. Write your one line for 2027 from page 14 of Open the Mind, your one fix per slice from the recap, and sign it. Your partner signs as witness.&quot; [Pedro: confirm the commitment card page number in the appendix; it was not in the condensed files.]">
+&quot;Turn to the commitment card in the appendix. Write your one line for 2027 from page 14 of Open the Mind, your one fix per slice from the recap, and sign it. Your partner signs as witness.&quot; Before the retreat, confirm the commitment card page number in the appendix; it was not in the condensed files.">
 <div class="frame center"><div class="meta"><span class="tag">Commit</span><span class="timer" data-sec="240">4 MIN</span></div><p class="eyebrow reveal">Sealed card, commitment, close</p><h1 class="reveal d1 s1">Sign your year.</h1><div class="lines commit reveal d2"><i></i><i></i></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Sealed card, commitment, close · D2-119</span></div></div>
 <div class="vis"><b>Visual</b> A pen on a signature line, green ink.</div>
 </section>
@@ -1794,7 +1852,7 @@ Read problems from page 4, out of order, in your own words: &quot;My leads go co
 > Workbook: Recap p.3 (March 31), Open the Mind p.16 (Monday report)
 > Visual: Two calendar pages, both circled in green.
 
-&quot;Two dates in your phone now. Monday, January 11: your first Monday planning report, shared with your partner. March 31: we rescore the pie together. The slice that grew the least picks your next 90 days.&quot; [Pedro: confirm the follow-up plan: who runs the Monday planning reports, any monthly check-in, and the March 31 session format (in office or Zoom).]">
+&quot;Two dates in your phone now. Monday, January 11: your first Monday planning report, shared with your partner. March 31: we rescore the pie together. The slice that grew the least picks your next 90 days.&quot; Before the retreat, confirm the follow-up plan: who runs the Monday planning reports, any monthly check-in, and the March 31 session format (in office or Zoom).">
 <div class="frame center"><div class="meta"><span class="tag">Commit</span><span class="timer" data-sec="120">2 MIN</span></div><p class="eyebrow reveal">Sealed card, commitment, close</p><h1 class="reveal d1 s2">Monday, Jan 11.<br><span class="hl">March 31.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1><div class="lines commit reveal d2"><i></i><i></i></div><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Sealed card, commitment, close · D2-120</span></div></div>
 <div class="vis"><b>Visual</b> Two calendar pages, both circled in green.</div>
 </section>
@@ -1805,7 +1863,7 @@ Read problems from page 4, out of order, in your own words: &quot;My leads go co
 > Workbook: Recap p.5 (a note from your broker)
 > Visual: The Day 1 group photo, full-bleed, slowly zooming in.
 
-Don't put your note on the screen; say it. Speak from the heart, about why you built reThought, what you see in this room, and what &quot;together&quot; means to you. [Pedro: your closing words, 2 minutes.] End by asking the whole room to say the motto from Recap p.5 together, in Spanish. Then in English.">
+Don't put your note on the screen; say it. Two minutes on what you saw in this room these two days and what &quot;juntos&quot; means for their year. Keep it about them. End by asking the whole room to say the motto from Recap p.5 together, in Spanish. Then in English.">
 <div class="frame center"><p class="eyebrow reveal">Story</p><h1 class="reveal d1 s1">Juntos.</h1><div class="foot"><span>2027 Agent Retreat · Paso a paso.</span><span>Sealed card, commitment, close · D2-121</span></div></div>
 <div class="vis"><b>Visual</b> The Day 1 group photo, full-bleed, slowly zooming in.</div>
 </section>

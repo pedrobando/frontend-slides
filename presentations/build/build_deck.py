@@ -658,7 +658,48 @@ def r_mc(s, mc, k):
 
 
 # ---------------------------------------------------------------- dispatch
+def _openers():
+    seen, out = {}, {}
+    for s in SLIDES:
+        if s['type'] in ('Break', 'Lunch'):
+            continue
+        k = (s['day'], s['block'])
+        if k not in seen:
+            seen[k] = len([x for x in seen if x[0] == s['day']]) + 1
+            out[s['id']] = seen[k]
+    tot = {d: len([k for k in seen if k[0] == d]) for d in ('D1', 'D2')}
+    return {i: (n, tot[i[:2]]) for i, n in out.items()}
+
+
+OPENERS = _openers()
+
+
+def add_photo(s, out):
+    """Photos live only on section openers (split panel) and Image + headline slides (full bleed)."""
+    if 'slide--video' in out or 'slide--film' in out:
+        return out
+    m = re.search(r'<section class="slide ([^"]*)"', out)
+    cls = m.group(1)
+    op = OPENERS.get(s['id'])
+    if op is None:
+        return out
+    n, tot = op
+    if s['type'] == 'Image + headline':
+        chip = f'<p class="op-chip reveal">Section {n:02d} <i>/ {tot:02d}</i></p>'
+        return re.sub(r'(<div class="frame[^"]*">)', lambda mm: mm.group(1) + chip, out, count=1)
+    photo = media(s['id'], 'jpg')
+    img = f'<img class="op-img" src="{photo}" alt="">' if photo else '<span class="op-glow"></span>'
+    panel = (f'<div class="op-panel{"" if photo else " nophoto"}" aria-hidden="true">{img}<div class="op-shade"></div>'
+             f'<div class="op-num"><span>Section</span><b>{n:02d}</b><i>of {tot:02d}</i></div></div>')
+    out = out.replace(m.group(0), f'<section class="slide {cls} opener ph-split"', 1)
+    return re.sub(r'(<div class="frame[^"]*">)', lambda mm: mm.group(1) + panel, out, count=1)
+
+
 def render(s):
+    return add_photo(s, render_one(s))
+
+
+def render_one(s):
     sid, ty = s['id'], s['type']
     if sid == 'D1-07':
         return r_film(s)
@@ -696,6 +737,12 @@ h1{text-wrap:balance} h2{text-wrap:balance}
 .slide.slide--image{background:radial-gradient(ellipse 70% 60% at 80% 0%,rgba(3,76,118,.5),transparent 70%),radial-gradient(ellipse 60% 50% at 0% 100%,rgba(140,201,78,.12),transparent 70%),var(--ink-deep)}
 .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .bgshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,26,34,.1) 30%,rgba(18,26,34,.88) 100%)}
+.bgshade.full{background:linear-gradient(180deg,rgba(18,26,34,.62) 0%,rgba(18,26,34,.78) 100%)}
+.slide.has-photo.ph-full{background:var(--ink-deep)}
+.has-photo .fw li{background:rgba(18,26,34,.58);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px);color:#fff}
+.has-photo .fw li:last-child{background:rgba(140,201,78,.24);border-color:rgba(140,201,78,.5)}
+.has-photo .fw li small{color:rgba(255,255,255,.75)}
+.dark .wbp-n{color:var(--sprout)}
 .slide.slide--question{background:radial-gradient(ellipse 60% 55% at 50% 110%,rgba(3,76,118,.55),transparent 70%),var(--ink-deep)}
 .slide.slide--story{background:radial-gradient(ellipse 50% 60% at 100% 50%,rgba(224,166,58,.14),transparent 70%),var(--ink-deep)}
 .slide.slide--bignum{background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(140,201,78,.10),transparent 70%),var(--ink-deep)}
@@ -723,6 +770,8 @@ html.show-vis .vis{display:block}
 .fw li b{font-family:var(--font-display);font-weight:700;font-size:calc(var(--u)*48);line-height:1.1}
 .fw li small{font-size:calc(var(--u)*30);color:var(--muted);line-height:1.3}
 .fw.n5 li b,.fw.n6 li b{font-size:calc(var(--u)*34)}
+.fw.n6 li b{font-size:calc(var(--u)*30);overflow-wrap:anywhere}
+.fw.n6 li{padding-left:calc(var(--u)*20);padding-right:calc(var(--u)*20)}
 .fw li:last-child{background:var(--sprout-light)}
 .fw li:last-child .n{background:var(--sprout-deep)}
 .fw.arrows{gap:calc(var(--u)*44)}
@@ -825,6 +874,104 @@ html[data-city="fl"] .city-fl{display:inline}
   .vis,.city-toast{display:none!important}
   .mc .opt.ans{background:var(--sprout-light)!important;border-color:var(--sprout)!important}
 }
+/* ---------- Section openers: split panel ---------- */
+.ph-split .frame{padding-right:calc(var(--u)*900)}
+.ph-split .meta{right:calc(var(--u)*900)}
+.ph-split .foot{right:calc(var(--u)*900)}
+.ph-split .foot span:first-child{display:none}
+.ph-split .foot{white-space:nowrap}
+.ph-split h1{font-size:calc(var(--u)*96)}
+.ph-split h1.s1{font-size:calc(var(--u)*112)} .ph-split h1.s2{font-size:calc(var(--u)*98)}
+.ph-split h1.s3{font-size:calc(var(--u)*84)} .ph-split h1.s4{font-size:calc(var(--u)*70)}
+.ph-split .bignum{font-size:calc(var(--u)*220)}
+.op-panel{position:absolute;z-index:0;top:calc((var(--u)*1080 - 100vh)/2);bottom:calc((var(--u)*1080 - 100vh)/2);right:calc((var(--u)*1920 - 100vw)/2);width:calc(var(--u)*780 + (100vw - var(--u)*1920)/2);overflow:hidden;background:var(--ink-deep)}
+.op-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.op-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,26,34,0) 45%,rgba(18,26,34,.82) 100%)}
+.op-panel.nophoto{background:radial-gradient(ellipse 90% 70% at 70% 10%,rgba(3,76,118,.9),transparent 70%),radial-gradient(ellipse 80% 60% at 10% 100%,rgba(140,201,78,.35),transparent 70%),var(--ink-deep)}
+.op-panel.nophoto .op-shade{background:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px)}
+.op-glow{position:absolute;width:calc(var(--u)*520);height:calc(var(--u)*520);right:calc(var(--u)*-120);top:calc(var(--u)*120);border-radius:50%;background:radial-gradient(circle,rgba(140,201,78,.45),transparent 65%);filter:blur(calc(var(--u)*10))}
+.op-num{position:absolute;left:calc(var(--u)*64);bottom:calc(var(--u)*64);display:flex;flex-direction:column;color:var(--paper);font-family:var(--font-display);line-height:1}
+.op-num span{font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:calc(var(--u)*22);color:var(--sprout)}
+.op-num b{font-weight:700;font-size:calc(var(--u)*200);letter-spacing:-.04em;margin:calc(var(--u)*6) 0 0 calc(var(--u)*-8)}
+.op-num i{font-style:normal;font-weight:600;font-size:calc(var(--u)*24);color:rgba(251,251,251,.7);letter-spacing:.08em;text-transform:uppercase}
+.op-chip{align-self:flex-start;font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:calc(var(--u)*22);color:var(--ink-deep);background:var(--sprout);padding:calc(var(--u)*10) calc(var(--u)*18);border-radius:999px}
+.op-chip i{font-style:normal;opacity:.6}
+
+/* ---------- Intro animations (play each time a slide arrives) ---------- */
+@keyframes kb{from{transform:scale(1.14) translate(1.5%,1%)}to{transform:none}}
+@keyframes riseClip{from{opacity:0;transform:translateY(.35em);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:none;clip-path:inset(0 0 -20% 0)}}
+@keyframes wipeL{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes zoomOut{from{transform:scale(1.25)}to{transform:none}}
+@keyframes numUp{from{opacity:0;transform:translateY(40%)}to{opacity:1;transform:none}}
+@keyframes slideR{from{opacity:0;transform:translateX(calc(var(--u)*-60))}to{opacity:1;transform:none}}
+@keyframes focusIn{from{opacity:0;filter:blur(14px);transform:scale(.94)}to{opacity:1;filter:none;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.55)}60%{opacity:1;transform:scale(1.06)}100%{transform:none}}
+@keyframes flipUp{from{opacity:0;transform:perspective(900px) rotateX(-55deg) translateY(30px)}to{opacity:1;transform:none}}
+@keyframes fromL{from{opacity:0;transform:translateX(calc(var(--u)*-140))}to{opacity:1;transform:none}}
+@keyframes fromR{from{opacity:0;transform:translateX(calc(var(--u)*140))}to{opacity:1;transform:none}}
+@keyframes spinIn{from{opacity:0;transform:scale(.2) rotate(-180deg)}to{opacity:1;transform:none}}
+@keyframes drop{0%{opacity:0;transform:translateY(calc(var(--u)*-120))}65%{opacity:1;transform:translateY(calc(var(--u)*12))}100%{transform:none}}
+@keyframes ring{from{box-shadow:0 0 0 0 rgba(140,201,78,.7)}to{box-shadow:0 0 0 calc(var(--u)*36) rgba(140,201,78,0)}}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes tilt{from{opacity:0;transform:perspective(1200px) rotateY(-28deg) rotate(-4deg) translateX(calc(var(--u)*-80))}to{opacity:1;transform:none}}
+@keyframes track{from{opacity:0;letter-spacing:.5em}to{opacity:1}}
+@keyframes up{from{opacity:0;transform:translateY(calc(var(--u)*50))}to{opacity:1;transform:none}}
+.E{animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+html.motion .slide.visible .eyebrow{animation:track .9s cubic-bezier(.2,.7,.2,1) both}
+html.motion .slide--image.visible .bgimg{animation:kb 9s cubic-bezier(.15,.6,.25,1) both}
+html.motion .slide--image.visible h1{animation:riseClip 1s cubic-bezier(.2,.7,.2,1) .25s both}
+html.motion .slide.visible .op-chip{animation:pop .6s cubic-bezier(.2,.7,.2,1) .1s both}
+html.motion .opener.visible .op-panel{animation:wipeL 1s cubic-bezier(.77,0,.18,1) both}
+html.motion .opener.visible .op-img{animation:zoomOut 2.4s cubic-bezier(.15,.6,.25,1) both}
+html.motion .opener.visible .op-glow{animation:pop 1.6s cubic-bezier(.2,.7,.2,1) .3s both}
+html.motion .opener.visible .op-num>*{animation:numUp .8s cubic-bezier(.2,.7,.2,1) both}
+html.motion .opener.visible .op-num span{animation-delay:.55s}
+html.motion .opener.visible .op-num b{animation-delay:.65s}
+html.motion .opener.visible .op-num i{animation-delay:.8s}
+html.motion .opener.visible .frame>h1,html.motion .opener.visible .frame>h2,html.motion .opener.visible .frame>.bignum{animation:slideR .9s cubic-bezier(.2,.7,.2,1) .35s both}
+html.motion .slide--question.visible:not(.opener) h1{animation:focusIn 1.1s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--story.visible h1{animation:focusIn 1.4s cubic-bezier(.2,.7,.2,1) .2s both}
+html.motion .slide--bignum.visible:not(.opener) .bignum{animation:pop .9s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--fw.visible .fw>li{animation:flipUp .7s cubic-bezier(.2,.7,.2,1) both}
+html.motion .slide--fw.visible .fw>li:nth-child(1){animation-delay:.15s}
+html.motion .slide--fw.visible .fw>li:nth-child(2){animation-delay:.27s}
+html.motion .slide--fw.visible .fw>li:nth-child(3){animation-delay:.39s}
+html.motion .slide--fw.visible .fw>li:nth-child(4){animation-delay:.51s}
+html.motion .slide--fw.visible .fw>li:nth-child(5){animation-delay:.63s}
+html.motion .slide--fw.visible .fw>li:nth-child(n+6){animation-delay:.75s}
+html.motion .slide--contrast.visible .vs-a{animation:fromL .8s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--contrast.visible .vs-b{animation:fromR .8s cubic-bezier(.2,.7,.2,1) .45s both}
+html.motion .slide--contrast.visible .vs-x{animation:spinIn .7s cubic-bezier(.2,.7,.2,1) .3s both}
+html.motion .slide--act.visible .act-h{animation:up .8s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--act.visible .act-side{animation:drop .8s cubic-bezier(.2,.7,.2,1) .4s both}
+html.motion .slide--act.visible .timer.lg{animation:ring 1.2s ease-out 1.1s 2}
+html.motion .slide--bridge.visible .lines.commit i{transform-origin:left;animation:draw .9s cubic-bezier(.65,0,.35,1) both}
+html.motion .slide--bridge.visible .lines.commit i:nth-child(1){animation-delay:.6s}
+html.motion .slide--bridge.visible .lines.commit i:nth-child(2){animation-delay:.85s}
+html.motion .slide--bridge.visible h1{animation:up .9s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--wbp.visible .wbp{animation:tilt 1s cubic-bezier(.2,.7,.2,1) .15s both}
+html.motion .slide--worked.visible .body>*{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
+html.motion .slide--worked.visible .body>*:nth-child(1){animation-delay:.3s}
+html.motion .slide--worked.visible .body>*:nth-child(2){animation-delay:.5s}
+html.motion .slide--worked.visible .body>*:nth-child(n+3){animation-delay:.7s}
+html.motion .slide--mc.visible .mc-q{animation:focusIn .9s cubic-bezier(.2,.7,.2,1) .1s both}
+html.motion .slide.visible .meta>*{animation:pop .6s cubic-bezier(.2,.7,.2,1) .5s both}
+html.motion .slide.visible .foot{animation:up .8s ease .6s both}
+
+/* ---------- Opener gradient panels: alive while on screen ---------- */
+.op-panel.nophoto::before,.op-panel.nophoto::after{content:"";position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.op-panel.nophoto::before{width:calc(var(--u)*640);height:calc(var(--u)*640);left:calc(var(--u)*-160);bottom:calc(var(--u)*-120);background:radial-gradient(circle,rgba(3,76,118,.85),transparent 65%);filter:blur(calc(var(--u)*20))}
+.op-panel.nophoto::after{width:calc(var(--u)*420);height:calc(var(--u)*420);left:calc(var(--u)*180);top:calc(var(--u)*300);background:radial-gradient(circle,rgba(229,170,60,.35),transparent 65%);filter:blur(calc(var(--u)*24))}
+@keyframes blobA{0%{transform:translate(0,0) scale(1)}33%{transform:translate(calc(var(--u)*260),calc(var(--u)*-320)) scale(1.25)}66%{transform:translate(calc(var(--u)*120),calc(var(--u)*-80)) scale(.85)}100%{transform:translate(0,0) scale(1)}}
+@keyframes blobB{0%{transform:translate(0,0) scale(1)}50%{transform:translate(calc(var(--u)*-140),calc(var(--u)*260)) scale(1.4)}100%{transform:translate(0,0) scale(1)}}
+@keyframes orbit{0%{transform:translate(0,0) scale(1)}25%{transform:translate(calc(var(--u)*-260),calc(var(--u)*140)) scale(1.2)}50%{transform:translate(calc(var(--u)*-120),calc(var(--u)*420)) scale(.9)}75%{transform:translate(calc(var(--u)*60),calc(var(--u)*220)) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
+@keyframes stripes{from{background-position:0 0}to{background-position:calc(var(--u)*124) 0}}
+@keyframes hue{0%,100%{filter:hue-rotate(0deg) saturate(1)}50%{filter:hue-rotate(-25deg) saturate(1.3)}}
+html.motion .opener.visible .op-panel.nophoto{animation:wipeL 1s cubic-bezier(.77,0,.18,1) both,hue 6s ease-in-out 1s infinite}
+html.motion .opener.visible .op-panel.nophoto::before{animation:blobA 7s ease-in-out infinite}
+html.motion .opener.visible .op-panel.nophoto::after{animation:blobB 5s ease-in-out infinite}
+html.motion .opener.visible .op-glow{animation:pop 1.6s cubic-bezier(.2,.7,.2,1) .3s both,orbit 8s ease-in-out 1.9s infinite}
+html.motion .opener.visible .op-panel.nophoto .op-shade{background-size:calc(var(--u)*124) 100%;animation:stripes 2.5s linear infinite}
 """
 
 
@@ -838,7 +985,7 @@ DAYS = {
 def build(day):
     cfg = DAYS[day]
     parts = [COVER1 + '\n' if day == 'D1' else cover2()]
-    # Break and lunch slides are left out: Pedro calls breaks live.
+    # Break and lunch slides are left out: breaks are called live.
     for s in [x for x in SLIDES if x['day'] == day and x['type'] not in ('Break', 'Lunch')]:
         parts.append(render(s))
         for k, mc in enumerate(MC.get(s['id'], []), 1):
