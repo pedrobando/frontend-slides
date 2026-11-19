@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why reThought | Kiser + reThought Disposition Plan</title>
+
+<!-- Presentation Hub Metadata -->
+<meta name="presentation-title" content="Why reThought: Disposition Plan for the Fund">
+<meta name="presentation-series" content="Client Pitch">
+<meta name="presentation-session" content="1">
+<meta name="presentation-date" content="2026-11-19">
+<meta name="presentation-slides" content="15">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   VIEWPORT BASE
+   =========================================== */
+html, body { height: 100%; overflow-x: hidden; }
+/* Root size grows with the screen, so every rem-based cap scales up for conference-room displays */
+html { font-size: clamp(14px, calc(0.9vw + 4px), 22px); }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+body { scroll-snap-type: y mandatory; }
+@media print { body { scroll-snap-type: none; } }
+.slide {
+    width: 100vw; height: 100vh; height: 100dvh;
+    overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    max-height: 100%; overflow: hidden; padding: var(--slide-padding);
+}
+:root {
+    --title-size: clamp(2rem, 5.5vw, 4.5rem);
+    --h2-size: clamp(1.5rem, 3.6vw, 2.9rem);
+    --body-size: clamp(1rem, 1.6vw, 1.35rem);
+    --small-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    --slide-padding: clamp(1.5rem, 5vw, 5rem);
+    --content-gap: clamp(0.8rem, 2.6vh, 2.4rem);
+}
+@media (max-height: 700px) {
+    :root { --slide-padding: clamp(1rem, 3vw, 2.5rem); --title-size: clamp(1.5rem, 4.5vw, 3rem); --h2-size: clamp(1.2rem, 3.2vw, 2.1rem); }
+}
+@media (max-height: 600px) {
+    :root { --slide-padding: clamp(0.75rem, 2.5vw, 1.5rem); --body-size: clamp(0.8rem, 1.4vw, 1.1rem); }
+    .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root { --slide-padding: clamp(0.5rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.5rem, 8vw, 3rem); } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   RETHOUGHT TOKENS
+   =========================================== */
+:root {
+    --ink: #1B252F;
+    --ink-soft: #222E3A;
+    --ink-deep: #151D26;
+    --paper: #fbfbfb;
+    --bone: #f5f1ea;
+    --brand: #034c76;
+    --brand-deep: #0a6399;
+    --brand-light: #6ba8d6;
+    --sprout: #8cc94e;
+    --sprout-soft: #b4dc84;
+    --sprout-deep: #2c5e15;
+    --clay: #c05445;
+    --clay-soft: #eab1ac;
+    --amber: #e0a63a;
+    --amber-soft: #f5d08a;
+    --muted: #6e7a88;
+    --muted-2: #95a0ae;
+    --border-d: #ffffff18;
+    --border-l: #1B252F18;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--sprout); color: var(--ink); }
+
+/* ===========================================
+   GLOBAL COMPONENTS
+   =========================================== */
+.slide { background: var(--ink); padding: var(--slide-padding); }
+.slide.light { background: var(--paper); color: var(--ink); }
+.slide.light .section-label { color: var(--brand); }
+.slide.light .section-label::before { background: var(--brand); }
+.slide.light .slide-body { color: var(--muted); }
+.slide.light .slide-number, .slide.light .slide-footer { color: var(--muted); }
+
+.section-label {
+    font-family: var(--font-mono); font-size: clamp(0.72rem, 1.05vw, 0.92rem);
+    letter-spacing: 2.4px; text-transform: uppercase; color: var(--sprout);
+    display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px);
+    margin-bottom: clamp(0.4rem, 1.2vh, 1.1rem);
+}
+.section-label::before { content: ""; width: clamp(14px, 2.5vw, 24px); height: 2px; background: var(--sprout); }
+
+.slide-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--h2-size); letter-spacing: -0.025em; line-height: 1.1;
+    margin-bottom: clamp(0.3rem, 1vh, 0.9rem); max-width: 26ch;
+}
+.slide-body {
+    font-family: var(--font-sans); font-size: var(--body-size);
+    line-height: 1.5; color: var(--muted-2); max-width: 62ch;
+}
+.slide-head { margin-bottom: clamp(0.8rem, 2.6vh, 2.2rem); }
+
+.stroke { position: relative; display: inline-block; padding: 0 3px; }
+.stroke svg.ul {
+    position: absolute; left: -4px; right: -4px; bottom: clamp(-6px, -0.8vh, -10px);
+    width: calc(100% + 8px); height: clamp(10px, 1.5vw, 16px); pointer-events: none;
+}
+.stroke svg.ul path { fill: none; stroke-width: 3; stroke-linecap: round; }
+.stroke--sprout svg.ul path { stroke: var(--sprout); }
+.stroke--clay svg.ul path { stroke: var(--clay); }
+.stroke--brand svg.ul path { stroke: var(--brand-deep); }
+.stroke--amber svg.ul path { stroke: var(--amber); }
+
+.badge {
+    font-family: var(--font-mono); font-size: clamp(0.6rem, 0.9vw, 0.76rem);
+    letter-spacing: 1.2px; padding: clamp(4px, 0.6vh, 7px) clamp(8px, 1.2vw, 14px);
+    border-radius: 999px; text-transform: uppercase; display: inline-block;
+}
+.badge-sprout { background: #8cc94e22; color: var(--sprout); border: 1px solid #8cc94e44; }
+.badge-brand { background: #034c7630; color: var(--brand-light); border: 1px solid #034c7650; }
+.badge-amber { background: #e0a63a30; color: var(--amber-soft); border: 1px solid #e0a63a50; }
+.slide.light .badge-sprout { color: var(--sprout-deep); background: #8cc94e33; }
+.slide.light .badge-brand { color: var(--brand); background: #034c7618; }
+
+.callout-line {
+    display: inline-block; background: var(--ink-soft); border-left: 3px solid var(--sprout);
+    padding: clamp(0.5rem, 1vw, 0.85rem) clamp(0.8rem, 1.3vw, 1.2rem); border-radius: 0 8px 8px 0;
+    font-family: var(--font-sans); font-size: var(--body-size); color: var(--paper); line-height: 1.4;
+}
+.slide.light .callout-line { background: var(--bone); color: var(--ink); border-left-color: var(--brand); }
+
+.slide-footer {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); left: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.72vw, 0.64rem);
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+}
+.slide-number {
+    position: absolute; bottom: clamp(10px, 1.8vh, 20px); right: var(--slide-padding);
+    font-family: var(--font-mono); font-size: clamp(0.55rem, 0.72vw, 0.64rem);
+    color: var(--muted); letter-spacing: 1px;
+}
+.source-note { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.82vw, 0.72rem); letter-spacing: 0.6px; color: var(--muted-2); margin-top: clamp(0.5rem, 1.4vh, 1rem); }
+.slide.light .source-note { color: var(--muted); }
+
+.card {
+    background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px;
+    padding: clamp(0.8rem, 1.5vw, 1.4rem);
+}
+.slide.light .card { background: #ffffff; border-color: var(--border-l); box-shadow: 0 1px 0 #1B252F0a; }
+.card h4 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.2; margin-bottom: clamp(0.25rem, 0.7vh, 0.5rem); }
+.card p { font-size: var(--small-size); line-height: 1.45; color: var(--muted-2); }
+.slide.light .card p { color: var(--muted); }
+
+.progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--sprout); z-index: 9999; transition: width 0.3s ease; }
+.nav-dots { position: fixed; right: clamp(12px, 2vw, 24px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 6px; z-index: 9998; }
+.nav-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.3; cursor: pointer; transition: all 0.3s ease; border: none; padding: 0; }
+.nav-dot.active { background: var(--sprout); opacity: 1; transform: scale(1.4); }
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo); }
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(1) { transition-delay: 0.05s; }
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.25s; }
+.reveal:nth-child(4) { transition-delay: 0.35s; }
+.reveal:nth-child(5) { transition-delay: 0.45s; }
+
+.stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.visible .stagger > * { opacity: 1; transform: translateY(0); }
+.visible .stagger > *:nth-child(1) { transition-delay: 0.15s; }
+.visible .stagger > *:nth-child(2) { transition-delay: 0.27s; }
+.visible .stagger > *:nth-child(3) { transition-delay: 0.39s; }
+.visible .stagger > *:nth-child(4) { transition-delay: 0.51s; }
+.visible .stagger > *:nth-child(5) { transition-delay: 0.63s; }
+.visible .stagger > *:nth-child(6) { transition-delay: 0.75s; }
+.visible .stagger > *:nth-child(7) { transition-delay: 0.87s; }
+.visible .stagger > *:nth-child(8) { transition-delay: 0.99s; }
+
+.reveal-scale { opacity: 0; transform: scale(0.88); transition: opacity 0.6s, transform 0.6s var(--ease-spring); }
+.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+.float { animation: float-gentle 4s ease-in-out infinite; }
+@keyframes float-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes stroke-draw { from { stroke-dashoffset: 200; } to { stroke-dashoffset: 0; } }
+.stroke-animate svg.ul path { stroke-dasharray: 200; stroke-dashoffset: 200; }
+.visible .stroke-animate svg.ul path { animation: stroke-draw 1.2s var(--ease-out-expo) 0.4s forwards; }
+.gradient-bg { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 30%, var(--ink) 70%, var(--ink-soft) 100%); background-size: 300% 300%; animation: gradient-flow 10s ease infinite; }
+@keyframes pulse-soft { 0%, 100% { box-shadow: 0 0 0 0 #8cc94e40; } 50% { box-shadow: 0 0 0 10px #8cc94e00; } }
+.pulse { animation: pulse-soft 2.4s ease-in-out infinite; }
+
+/* ===========================================
+   SLIDE 01: COVER
+   =========================================== */
+.cover-logos { display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 2.5vw, 2.2rem); flex-wrap: wrap; }
+.kiser-mark { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; }
+.kiser-mark b { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4.2vw, 3.3rem); letter-spacing: -0.03em; }
+.kiser-mark span { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.95vw, 0.8rem); letter-spacing: 3px; text-transform: uppercase; color: var(--muted-2); margin-top: 6px; }
+.kiser-pill { background: #ffffff; border-radius: 999px; padding: clamp(0.6rem, 1.3vh, 1rem) clamp(1.1rem, 2.2vw, 1.9rem); display: inline-flex; align-items: center; box-shadow: 0 10px 30px #00000030; }
+.kiser-pill .kiser-logo { height: clamp(1.9rem, 4.2vw, 3.3rem); width: auto; display: block; }
+.kiser-pill.sm { padding: clamp(0.35rem, 0.8vh, 0.55rem) clamp(0.7rem, 1.3vw, 1.1rem); box-shadow: none; }
+.kiser-pill.sm .kiser-logo { height: clamp(1rem, 1.8vw, 1.5rem); }
+.cover-x { color: var(--muted-2); font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 200; opacity: 0.5; }
+.presenters { display: flex; gap: clamp(1rem, 3vw, 3rem); justify-content: center; flex-wrap: wrap; }
+.presenter b { display: block; font-family: var(--font-display); font-weight: 600; font-size: clamp(0.95rem, 1.4vw, 1.2rem); }
+.presenter span { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.85vw, 0.74rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted-2); }
+
+/* ===========================================
+   SLIDE 03: VALUE CHAIN (more buyers -> more money)
+   =========================================== */
+.chain { display: flex; align-items: stretch; justify-content: center; gap: 0; width: 100%; max-width: 86rem; margin: 0 auto; }
+.chain-node {
+    flex: 1; min-width: 0; text-align: center; background: var(--ink-soft); border: 1px solid var(--border-d);
+    border-radius: 14px; padding: clamp(1rem, 2.2vw, 2rem) clamp(0.6rem, 1.2vw, 1.2rem);
+    opacity: 0; transform: translateY(16px); transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo), border-color 0.6s;
+}
+.chain-node .n { font-family: var(--font-mono); font-size: clamp(0.62rem, 0.85vw, 0.74rem); letter-spacing: 2px; color: var(--muted-2); }
+.chain-node .t { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.15rem, 2.1vw, 1.85rem); line-height: 1.15; margin-top: clamp(0.3rem, 0.9vh, 0.7rem); }
+.chain-node .d { font-size: var(--small-size); color: var(--muted-2); line-height: 1.4; margin-top: clamp(0.3rem, 0.8vh, 0.6rem); }
+.chain-node.final { border-color: var(--sprout); background: linear-gradient(160deg, #8cc94e22, var(--ink-soft)); }
+.chain-node.final .t { color: var(--sprout); }
+.chain-arrow { width: clamp(28px, 4vw, 64px); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.chain-arrow svg { width: 100%; height: 24px; overflow: visible; }
+.chain-arrow path { fill: none; stroke: var(--sprout); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 60; stroke-dashoffset: 60; }
+.visible .chain-node { opacity: 1; transform: none; }
+.visible .chain-node:nth-of-type(1) { transition-delay: 0.1s; }
+.visible .chain-node:nth-of-type(2) { transition-delay: 0.55s; }
+.visible .chain-node:nth-of-type(3) { transition-delay: 1.0s; }
+.visible .chain-node:nth-of-type(4) { transition-delay: 1.45s; }
+.visible .chain-arrow path { animation: line-draw 0.5s var(--ease-out-expo) forwards; }
+.visible .chain-arrow.a1 path { animation-delay: 0.35s; }
+.visible .chain-arrow.a2 path { animation-delay: 0.8s; }
+.visible .chain-arrow.a3 path { animation-delay: 1.25s; }
+@keyframes line-draw { to { stroke-dashoffset: 0; } }
+
+/* ===========================================
+   SLIDE 04: TWO FIRMS, TWO JOBS
+   =========================================== */
+.roles { display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(0.8rem, 2vw, 2rem); align-items: stretch; max-width: 88rem; width: 100%; }
+.role-card { background: #ffffff; border: 1px solid var(--border-l); border-radius: 14px; padding: clamp(1rem, 2vw, 1.8rem); }
+.role-card .who { font-family: var(--font-mono); font-size: clamp(0.62rem, 0.88vw, 0.76rem); letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.role-card h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.25rem, 2.2vw, 1.9rem); margin: clamp(0.2rem, 0.6vh, 0.5rem) 0 clamp(0.5rem, 1.4vh, 1rem); }
+.role-card.kiser { border-top: 4px solid var(--brand); }
+.role-card.rt { border-top: 4px solid var(--sprout); }
+.role-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.3rem, 0.9vh, 0.65rem); }
+.role-list li { font-size: var(--small-size); line-height: 1.35; color: var(--ink); padding-left: 1.3em; position: relative; }
+.role-list li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--brand); }
+.role-card.rt .role-list li::before { background: var(--sprout); }
+.role-mid { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; }
+.role-pill { background: var(--ink); color: var(--paper); border-radius: 999px; padding: clamp(0.6rem, 1.2vh, 0.9rem) clamp(0.9rem, 1.5vw, 1.4rem); font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.7vw, 1.45rem); white-space: nowrap; }
+.role-pill em { font-style: normal; color: var(--sprout); }
+.role-mid small { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.8vw, 0.7rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); max-width: 16ch; line-height: 1.4; }
+
+/* ===========================================
+   SLIDE 05: INVESTOR PROFILES (buyer match)
+   =========================================== */
+.match-wrap { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); gap: clamp(1rem, 3vw, 3rem); align-items: center; width: 100%; }
+.big-stat { font-family: var(--font-display); font-weight: 800; font-size: clamp(4rem, 11vw, 9rem); line-height: 0.9; letter-spacing: -0.05em; color: var(--sprout); }
+.big-stat small { font-size: 0.32em; font-weight: 600; letter-spacing: -0.01em; color: var(--paper); margin-left: 0.15em; }
+.big-cap { font-size: var(--body-size); color: var(--muted-2); line-height: 1.45; margin-top: clamp(0.4rem, 1.2vh, 1rem); max-width: 30ch; }
+.profile-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.5rem, 1.1vw, 1rem); }
+.profile { background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px; padding: clamp(0.7rem, 1.3vw, 1.2rem); position: relative; overflow: hidden; }
+.profile .ic { width: clamp(30px, 3vw, 42px); height: clamp(30px, 3vw, 42px); border-radius: 10px; display: grid; place-items: center; background: #8cc94e1f; margin-bottom: clamp(0.35rem, 0.9vh, 0.7rem); }
+.profile .ic svg { width: 60%; height: 60%; stroke: var(--sprout); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.profile.owner .ic { background: #6ba8d61f; }
+.profile.owner .ic svg { stroke: var(--brand-light); }
+.profile b { display: block; font-family: var(--font-display); font-weight: 600; font-size: clamp(0.95rem, 1.35vw, 1.18rem); line-height: 1.2; }
+.profile span { display: block; font-size: clamp(0.8rem, 1.05vw, 0.95rem); color: var(--muted-2); line-height: 1.35; margin-top: 4px; }
+
+/* ===========================================
+   SLIDE 06: PRACTITIONER STATS
+   =========================================== */
+.stat-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.6rem, 1.4vw, 1.4rem); width: 100%; }
+.stat { border-top: 2px solid var(--border-d); padding-top: clamp(0.6rem, 1.4vh, 1.1rem); }
+.stat .v { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 5vw, 4.2rem); letter-spacing: -0.04em; line-height: 1; }
+.stat .v em { font-style: normal; color: var(--sprout); }
+.stat .l { font-family: var(--font-mono); font-size: clamp(0.62rem, 0.88vw, 0.76rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted-2); margin-top: clamp(0.35rem, 0.9vh, 0.7rem); line-height: 1.5; }
+.walk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.6rem, 1.2vw, 1.2rem); margin-top: clamp(1rem, 3.2vh, 2.6rem); }
+.walk-grid .card { border-left: 3px solid var(--sprout); }
+
+/* ===========================================
+   SLIDE 07: BUYER POOL RINGS
+   =========================================== */
+.pool-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(1rem, 3vw, 3rem); align-items: center; width: 100%; }
+.pool-svg { width: 100%; max-height: min(58vh, 620px); display: block; margin: 0 auto; }
+.pool-svg .ring { fill: none; stroke-width: 2; opacity: 0; transform-origin: 250px 250px; transform: scale(0.8); transition: opacity 0.7s var(--ease-out-expo), transform 0.9s var(--ease-spring); }
+.visible .pool-svg .ring { opacity: 1; transform: scale(1); }
+.visible .pool-svg .r1 { transition-delay: 0.1s; } .visible .pool-svg .r2 { transition-delay: 0.3s; } .visible .pool-svg .r3 { transition-delay: 0.5s; } .visible .pool-svg .r4 { transition-delay: 0.7s; } .visible .pool-svg .r5 { transition-delay: 0.95s; }
+.pool-svg text { font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; fill: var(--paper); }
+.pool-svg .lbl { opacity: 0; transition: opacity 0.6s 1.1s; }
+.visible .pool-svg .lbl { opacity: 1; }
+.pool-svg .r5 { stroke-dasharray: 8 7; animation: spin 40s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.pool-cap { margin-top: clamp(0.4rem, 1.2vh, 0.9rem); }
+.creds { display: flex; flex-direction: column; gap: clamp(0.5rem, 1.2vh, 0.9rem); margin-top: clamp(0.8rem, 2vh, 1.6rem); }
+.cred { display: flex; gap: clamp(0.6rem, 1vw, 0.9rem); align-items: flex-start; }
+.cred .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--sprout); margin-top: 0.45em; flex-shrink: 0; }
+.cred p { font-size: var(--small-size); line-height: 1.4; color: var(--paper); }
+.cred p span { color: var(--muted-2); }
+
+/* ===========================================
+   SLIDES 08-09: DATA BARS
+   =========================================== */
+.data-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(1rem, 3vw, 3rem); align-items: center; width: 100%; }
+.bars { display: flex; flex-direction: column; gap: clamp(0.8rem, 2.2vh, 1.6rem); }
+.bar-row .bl { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: clamp(0.3rem, 0.8vh, 0.55rem); }
+.bar-row .bl > span { font-family: var(--font-mono); font-size: clamp(0.66rem, 0.92vw, 0.8rem); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted-2); }
+.bar-row .bl b { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.6vw, 2.3rem); letter-spacing: -0.03em; }
+.bar-track { height: clamp(18px, 3vh, 30px); background: #ffffff0d; border-radius: 8px; overflow: hidden; }
+.slide.light .bar-track { background: #1B252F0f; }
+.bar-fill { height: 100%; width: 0; border-radius: 8px; background: var(--muted); transition: width 1.4s var(--ease-out-expo); }
+.bar-fill.hi { background: linear-gradient(90deg, var(--sprout-deep), var(--sprout)); }
+.bar-fill.br { background: linear-gradient(90deg, var(--brand), var(--brand-light)); }
+.visible .bar-fill { width: var(--w); transition-delay: 0.4s; }
+.visible .bar-row:nth-child(2) .bar-fill { transition-delay: 0.7s; }
+.visible .bar-row:nth-child(3) .bar-fill { transition-delay: 1s; }
+.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.5rem, 1.1vw, 1rem); }
+.kpi { background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px; padding: clamp(0.7rem, 1.4vw, 1.2rem); }
+.slide.light .kpi { background: #ffffff; border-color: var(--border-l); }
+.kpi .v { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3.2vw, 2.7rem); letter-spacing: -0.03em; line-height: 1; color: var(--sprout); }
+.slide.light .kpi .v { color: var(--brand); }
+.kpi .d { font-size: clamp(0.8rem, 1.05vw, 0.96rem); color: var(--muted-2); line-height: 1.35; margin-top: clamp(0.3rem, 0.8vh, 0.55rem); }
+.slide.light .kpi .d { color: var(--muted); }
+.kpi.wide { grid-column: span 2; }
+
+/* ===========================================
+   SLIDE 10: FINANCING LANES
+   =========================================== */
+.lanes { display: flex; flex-direction: column; gap: clamp(0.8rem, 2.4vh, 1.8rem); width: 100%; max-width: 90rem; }
+.lane { display: grid; grid-template-columns: minmax(0, 1fr) clamp(28px, 4vw, 60px) minmax(0, 1.25fr) clamp(28px, 4vw, 60px) minmax(0, 1fr); align-items: center; }
+.lane-tag { font-family: var(--font-mono); font-size: clamp(0.62rem, 0.88vw, 0.76rem); letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: clamp(0.3rem, 0.8vh, 0.6rem); }
+.lane-box { background: #ffffff; border: 1px solid var(--border-l); border-radius: 12px; padding: clamp(0.7rem, 1.4vw, 1.2rem); opacity: 0; transform: translateX(-14px); transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo); }
+.lane-box b { display: block; font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.6vw, 1.4rem); line-height: 1.2; }
+.lane-box span { display: block; font-size: clamp(0.8rem, 1.05vw, 0.96rem); color: var(--muted); line-height: 1.35; margin-top: 4px; }
+.lane-box.tool { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.lane-box.tool span { color: var(--muted-2); }
+.lane-box.out { border: 2px solid var(--sprout); }
+.lane-box.out b { color: var(--sprout-deep); }
+.lane-arrow svg { width: 100%; height: 22px; overflow: visible; }
+.lane-arrow path { fill: none; stroke: var(--brand); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 60; stroke-dashoffset: 60; }
+.visible .lane-box { opacity: 1; transform: none; }
+.visible .lane .lane-box:nth-child(1) { transition-delay: 0.15s; }
+.visible .lane .lane-box:nth-child(3) { transition-delay: 0.55s; }
+.visible .lane .lane-box:nth-child(5) { transition-delay: 0.95s; }
+.visible .lane-arrow path { animation: line-draw 0.45s var(--ease-out-expo) forwards; }
+.visible .lane-arrow.a1 path { animation-delay: 0.4s; }
+.visible .lane-arrow.a2 path { animation-delay: 0.8s; }
+.visible .lane.l2 .lane-box, .visible .lane.l2 .lane-arrow path { animation-delay: 1.3s; }
+.visible .lane.l2 .lane-box:nth-child(1) { transition-delay: 1.2s; }
+.visible .lane.l2 .lane-box:nth-child(3) { transition-delay: 1.6s; }
+.visible .lane.l2 .lane-box:nth-child(5) { transition-delay: 2s; }
+.visible .lane.l2 .lane-arrow.a1 path { animation-delay: 1.45s; }
+.visible .lane.l2 .lane-arrow.a2 path { animation-delay: 1.85s; }
+
+/* ===========================================
+   SLIDE 11: LISTING COMPARISON
+   =========================================== */
+.compare { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr); gap: clamp(1rem, 2.4vw, 2.4rem); width: 100%; align-items: stretch; }
+.lst { border-radius: 14px; padding: clamp(0.9rem, 1.8vw, 1.6rem); border: 1px solid var(--border-d); }
+.lst.typical { background: #ffffff08; }
+.lst.ours { background: var(--ink-soft); border: 2px solid var(--sprout); position: relative; }
+.lst h3 { font-family: var(--font-mono); font-size: clamp(0.66rem, 0.92vw, 0.8rem); letter-spacing: 2px; text-transform: uppercase; color: var(--muted-2); margin-bottom: clamp(0.6rem, 1.6vh, 1.1rem); }
+.lst.ours h3 { color: var(--sprout); }
+.chk { list-style: none; display: flex; flex-direction: column; gap: clamp(0.4rem, 1.1vh, 0.8rem); }
+.chk li { display: flex; gap: 0.7em; align-items: flex-start; font-size: var(--small-size); line-height: 1.35; }
+.chk li i { flex-shrink: 0; width: 1.25em; height: 1.25em; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 0.8em; font-weight: 700; margin-top: 0.05em; }
+.typical .chk li { color: var(--muted-2); }
+.typical .chk li i { background: #ffffff14; color: var(--muted-2); }
+.ours .chk li i { background: var(--sprout); color: var(--ink); }
+.ours .chk li.plus { color: var(--paper); }
+.ours .chk li.plus b { color: var(--sprout); font-weight: 600; }
+.ours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.4rem, 1.1vh, 0.8rem) clamp(0.8rem, 1.6vw, 1.4rem); }
+.ours-tag.badge { background: var(--sprout); color: var(--ink); border-color: var(--sprout); }
+.ours-tag { position: absolute; top: clamp(-12px, -1.4vh, -10px); right: clamp(12px, 1.6vw, 20px); }
+
+/* ===========================================
+   SLIDE 12: WEEKLY RHYTHM
+   =========================================== */
+.week { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.6rem, 1.4vw, 1.4rem); width: 100%; position: relative; }
+.day { background: #ffffff; border: 1px solid var(--border-l); border-radius: 14px; overflow: hidden; }
+.day .dh { background: var(--ink); color: var(--paper); padding: clamp(0.5rem, 1.1vh, 0.8rem) clamp(0.8rem, 1.4vw, 1.2rem); display: flex; justify-content: space-between; align-items: center; }
+.day .dh b { font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 1.6vw, 1.4rem); }
+.day .dh span { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.8vw, 0.7rem); letter-spacing: 1.6px; color: var(--muted-2); text-transform: uppercase; }
+.day.wed .dh { background: var(--sprout); color: var(--ink); }
+.day.wed .dh span { color: var(--sprout-deep); }
+.day .db { padding: clamp(0.8rem, 1.5vw, 1.3rem); }
+.day .db h4 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1rem, 1.5vw, 1.3rem); margin-bottom: 6px; }
+.day .db p { font-size: var(--small-size); color: var(--muted); line-height: 1.4; }
+.team-strip { display: flex; align-items: center; gap: clamp(0.8rem, 2vw, 2rem); margin-top: clamp(1rem, 3vh, 2.4rem); flex-wrap: wrap; }
+.avatars { display: flex; }
+.avatars i { width: clamp(26px, 2.6vw, 38px); height: clamp(26px, 2.6vw, 38px); border-radius: 50%; border: 2px solid var(--paper); background: var(--brand); margin-left: -8px; display: block; opacity: 0; transform: scale(0.6); transition: opacity 0.4s, transform 0.5s var(--ease-spring); }
+.avatars i:first-child { margin-left: 0; }
+.avatars i.adm { background: var(--sprout); }
+.visible .avatars i { opacity: 1; transform: scale(1); }
+.team-strip p { font-size: var(--body-size); color: var(--ink); font-weight: 500; }
+.team-strip p span { color: var(--muted); font-weight: 400; }
+
+/* ===========================================
+   SLIDE 13: PROCESS STEPS
+   =========================================== */
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(0.6rem, 1.3vw, 1.3rem); width: 100%; position: relative; }
+.steps::before { content: ""; position: absolute; top: clamp(18px, 2.3vw, 26px); left: 6%; right: 6%; height: 2px; background: var(--border-d); }
+.steps .track { position: absolute; top: clamp(18px, 2.3vw, 26px); left: 6%; height: 2px; width: 0; background: var(--sprout); transition: width 1.8s var(--ease-out-expo) 0.2s; }
+.visible .steps .track { width: 88%; }
+.step { position: relative; }
+.step .num { width: clamp(36px, 4.6vw, 52px); height: clamp(36px, 4.6vw, 52px); border-radius: 50%; background: var(--ink); border: 2px solid var(--sprout); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: clamp(0.95rem, 1.5vw, 1.25rem); color: var(--sprout); margin: 0 auto clamp(0.6rem, 1.6vh, 1.1rem); position: relative; z-index: 1; }
+.step .card { text-align: left; height: calc(100% - clamp(48px, 6vw, 70px)); }
+.step .card .when { font-family: var(--font-mono); font-size: clamp(0.58rem, 0.8vw, 0.7rem); letter-spacing: 1.6px; text-transform: uppercase; color: var(--sprout); margin-bottom: 6px; }
+
+/* ===========================================
+   SLIDE 14: WEEKLY REPORT MOCKUP
+   =========================================== */
+.dash { background: var(--ink-deep); border: 1px solid var(--border-d); border-radius: 14px; overflow: hidden; width: 100%; max-width: 92rem; margin: 0 auto; box-shadow: 0 30px 60px #00000040; }
+.dash-chrome { display: flex; align-items: center; gap: 8px; padding: clamp(7px, 1vh, 11px) clamp(12px, 1.5vw, 18px); background: #ffffff08; border-bottom: 1px solid var(--border-d); }
+.dash-chrome i { width: 10px; height: 10px; border-radius: 50%; display: block; }
+.dash-chrome i:nth-child(1) { background: var(--clay); } .dash-chrome i:nth-child(2) { background: var(--amber); } .dash-chrome i:nth-child(3) { background: var(--sprout); }
+.dash-chrome span { font-family: var(--font-mono); font-size: clamp(0.6rem, 0.82vw, 0.72rem); letter-spacing: 1.2px; color: var(--muted-2); margin-left: 8px; text-transform: uppercase; }
+.dash-chrome .badge { margin-left: auto; }
+.dash-body { padding: clamp(0.8rem, 1.6vw, 1.4rem); display: flex; flex-direction: column; gap: clamp(0.6rem, 1.6vh, 1.1rem); }
+.pipe { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(0.4rem, 0.9vw, 0.8rem); }
+.pipe div { background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 10px; padding: clamp(0.5rem, 1vw, 0.85rem); }
+.pipe b { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 2.4vw, 2.1rem); line-height: 1; }
+.pipe span { font-family: var(--font-mono); font-size: clamp(0.56rem, 0.78vw, 0.68rem); letter-spacing: 1.3px; text-transform: uppercase; color: var(--muted-2); display: block; margin-top: 5px; }
+.pipe .g b { color: var(--sprout); }
+.log { width: 100%; border-collapse: collapse; font-size: clamp(0.74rem, 1vw, 0.9rem); }
+.log th { font-family: var(--font-mono); font-weight: 500; font-size: clamp(0.56rem, 0.76vw, 0.66rem); letter-spacing: 1.3px; text-transform: uppercase; color: var(--muted-2); text-align: left; padding: 0 clamp(6px, 0.8vw, 10px) clamp(5px, 0.8vh, 8px); border-bottom: 1px solid var(--border-d); }
+.log td { padding: clamp(5px, 0.9vh, 9px) clamp(6px, 0.8vw, 10px); border-bottom: 1px solid #ffffff0b; color: var(--paper); }
+.log td.m { font-family: var(--font-mono); color: var(--muted-2); }
+.st { font-family: var(--font-mono); font-size: clamp(0.56rem, 0.76vw, 0.66rem); letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; }
+.st.new { background: #6ba8d625; color: var(--brand-light); } .st.ctr { background: #e0a63a25; color: var(--amber-soft); } .st.acc { background: #8cc94e25; color: var(--sprout); }
+.log tbody tr { opacity: 0; transform: translateX(-10px); transition: opacity 0.4s, transform 0.4s var(--ease-out-expo); }
+.visible .log tbody tr { opacity: 1; transform: none; }
+.visible .log tbody tr:nth-child(1) { transition-delay: 0.5s; } .visible .log tbody tr:nth-child(2) { transition-delay: 0.65s; } .visible .log tbody tr:nth-child(3) { transition-delay: 0.8s; } .visible .log tbody tr:nth-child(4) { transition-delay: 0.95s; }
+
+/* ===========================================
+   SLIDE 15: COMPENSATION BAR
+   =========================================== */
+.comp { width: 100%; max-width: 88rem; }
+.comp-bar { display: flex; height: clamp(64px, 10vh, 100px); border-radius: 14px; overflow: hidden; border: 1px solid var(--border-l); }
+.seg { display: flex; flex-direction: column; justify-content: center; padding: 0 clamp(0.6rem, 1.4vw, 1.2rem); width: 0; overflow: hidden; white-space: nowrap; transition: width 1.2s var(--ease-out-expo); }
+.seg b { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 2.4vw, 2rem); line-height: 1; }
+.seg span { font-family: var(--font-mono); font-size: clamp(0.56rem, 0.8vw, 0.7rem); letter-spacing: 1.4px; text-transform: uppercase; margin-top: 4px; }
+.seg.rt { background: var(--sprout); color: var(--ink); }
+.seg.ks { background: var(--brand); color: var(--paper); }
+.seg.by { background: var(--bone); color: var(--ink); }
+.visible .seg.rt { width: 33%; transition-delay: 0.3s; }
+.visible .seg.ks { width: 27%; transition-delay: 0.55s; }
+.visible .seg.by { width: 40%; transition-delay: 0.8s; }
+.comp-legend { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.6rem, 1.4vw, 1.4rem); margin-top: clamp(1rem, 2.8vh, 2.2rem); }
+.comp-legend .card h4 { font-size: clamp(0.95rem, 1.4vw, 1.2rem); }
+.comp-total { display: flex; align-items: baseline; gap: clamp(0.6rem, 1.4vw, 1.2rem); margin-top: clamp(1rem, 2.8vh, 2.2rem); flex-wrap: wrap; }
+.comp-total b { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 4.8vw, 4rem); letter-spacing: -0.04em; color: var(--brand); line-height: 1; }
+.comp-total p { font-size: var(--body-size); color: var(--muted); max-width: 52ch; line-height: 1.4; }
+
+/* ===========================================
+   SLIDE 16: ASKS CHECKLIST
+   =========================================== */
+.asks { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.6rem, 1.4vw, 1.3rem); width: 100%; max-width: 86rem; }
+.ask { display: flex; gap: clamp(0.7rem, 1.2vw, 1.1rem); align-items: flex-start; background: var(--ink-soft); border: 1px solid var(--border-d); border-radius: 12px; padding: clamp(0.9rem, 1.6vw, 1.4rem); }
+.ask .box { flex-shrink: 0; width: clamp(26px, 2.6vw, 36px); height: clamp(26px, 2.6vw, 36px); border-radius: 8px; border: 2px solid var(--sprout); position: relative; }
+.ask .box svg { position: absolute; inset: 15%; width: 70%; height: 70%; }
+.ask .box path { fill: none; stroke: var(--sprout); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 30; stroke-dashoffset: 30; }
+.visible .ask .box path { animation: line-draw 0.5s var(--ease-out-expo) forwards; }
+.visible .ask:nth-child(1) .box path { animation-delay: 0.5s; } .visible .ask:nth-child(2) .box path { animation-delay: 0.8s; } .visible .ask:nth-child(3) .box path { animation-delay: 1.1s; } .visible .ask:nth-child(4) .box path { animation-delay: 1.4s; }
+.ask b { display: block; font-family: var(--font-display); font-weight: 600; font-size: clamp(1rem, 1.55vw, 1.35rem); line-height: 1.25; }
+.ask span { display: block; font-size: var(--small-size); color: var(--muted-2); line-height: 1.4; margin-top: 4px; }
+
+/* ===========================================
+   SLIDE 17: CLOSE
+   =========================================== */
+.close-line { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 6vw, 5rem); letter-spacing: -0.04em; line-height: 1.08; }
+.close-line > span { display: block; white-space: nowrap; }
+.close-line .dim { color: var(--muted-2); }
+.contacts { display: flex; gap: clamp(1rem, 3vw, 3rem); justify-content: center; flex-wrap: wrap; margin-top: clamp(0.6rem, 2vh, 1.4rem); }
+
+/* ===========================================
+   RESPONSIVE STACKING
+   =========================================== */
+@media (max-width: 900px) {
+    .roles, .match-wrap, .pool-wrap, .data-grid, .compare { grid-template-columns: 1fr; }
+    .role-mid { flex-direction: row; }
+    .stat-strip, .steps, .pipe { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .steps::before, .steps .track { display: none; }
+    .walk-grid, .week, .comp-legend, .asks { grid-template-columns: 1fr; }
+    .chain { flex-direction: column; }
+    .chain-arrow { transform: rotate(90deg); height: 28px; width: 100%; }
+    .pool-svg { max-height: 34vh; }
+}
+@media (max-height: 760px) {
+    .walk-grid { margin-top: clamp(0.6rem, 2vh, 1.2rem); }
+    .pool-svg { max-height: 52vh; }
+    .log tbody tr:nth-child(4) { display: none; }
+}
+
+/* ===========================================
+   PRINT / PDF EXPORT: one slide per page
+   =========================================== */
+@media print {
+    @page { size: 1920px 1080px; margin: 0; }
+    html, body { height: auto !important; overflow: visible !important; }
+    html { scroll-snap-type: none; }
+    .slide { width: 1920px; break-after: page; page-break-after: always; height: 1080px; }
+    .progress-bar, .nav-dots { display: none !important; }
+    .reveal, .reveal-scale, .stagger > *, .chain-node, .lane-box, .log tbody tr, .avatars i, .pool-svg .ring, .pool-svg .lbl { opacity: 1 !important; transform: none !important; }
+    .stroke-animate svg.ul path, .chain-arrow path, .lane-arrow path, .ask .box path { stroke-dashoffset: 0 !important; }
+    .bar-fill { width: var(--w) !important; }
+    .seg.rt { width: 33% !important; } .seg.ks { width: 27% !important; } .seg.by { width: 40% !important; }
+    .steps .track { width: 88% !important; }
+    * { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ========== SLIDE 01: COVER ========== -->
+<section class="slide gradient-bg" id="slide-1" data-notes="> Luis opens, then hands to Pedro.
+
+Thank you for making the time today.
+
+We are here for one reason: to show you how Kiser and reThought will sell this portfolio and **put the most money back into the Fund.**
+
+Luis will walk you through the partnership. I will walk you through why reThought, and how we execute on the ground.
+
+> About 20 minutes, then questions.
+
+---
+
+> Luis abre y le pasa la palabra a Pedro.
+
+Gracias por su tiempo hoy.
+
+Estamos aquí por una razón: mostrarles cómo Kiser y reThought van a vender este portafolio y **devolverle el máximo de dinero al Fondo.**
+
+Luis les presenta la alianza. Yo les explico por qué reThought y cómo ejecutamos en la calle.
+
+> Unos 20 minutos, luego preguntas." style="justify-content:center;align-items:center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="cover-logos reveal-scale">
+            <svg viewBox="0 0 322.84 75.11" xmlns="http://www.w3.org/2000/svg" aria-label="reThought Real Estate" style="height:clamp(2.5rem,6vw,4.5rem);width:auto;color:var(--paper);">
+                <g fill="currentColor"><path d="M75.18,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M95.71,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M151.55,52.3c-10.55,0-18.53-7.08-18.53-18.46s8.17-18.46,18.66-18.46,18.66,7.08,18.66,18.46-8.23,18.46-18.78,18.46ZM151.55,42.78c3.92,0,7.59-2.89,7.59-8.94s-3.6-8.94-7.46-8.94-7.46,2.83-7.46,8.94,3.34,8.94,7.33,8.94Z"/><path d="M207.77,51.79h-11v-4.89c-2.19,3.09-6.05,5.28-10.87,5.28-8.3,0-13.9-5.73-13.9-15.31V15.89h10.94v19.49c0,4.89,2.77,7.59,6.88,7.59s6.95-2.7,6.95-7.59V15.89h11v35.9Z"/><path d="M225.59,15.38c5.28,0,9.13,2.38,11.06,5.6v-5.08h11v35.83c0,9.58-5.53,17.75-17.95,17.75l-.51-9.52c4.18,0,7.46-2.19,7.46-8.23v-5.08c-1.99,3.15-5.79,5.66-11.06,5.66-8.81,0-15.83-7.21-15.83-18.53s7.01-18.4,15.83-18.4ZM228.81,24.96c-4.12,0-7.85,3.09-7.85,8.81s3.73,8.94,7.85,8.94,7.85-3.15,7.85-8.88-3.67-8.88-7.85-8.88Z"/><path d="M251.65,6.63h11v14.09c2.19-3.09,6.11-5.21,11.06-5.21,8.17,0,13.64,5.66,13.64,15.31v20.97h-10.94v-19.49c0-4.89-2.7-7.59-6.88-7.59s-6.88,2.7-6.88,7.59v19.49h-11V6.63Z"/><path d="M289.88,25.02V6.63h11v9.26h7.21v9.13h-7.21v14.41c0,2.12.9,3.02,3.35,3.02h3.92v9.33h-5.6c-7.46,0-12.67-3.15-12.67-12.48v-14.28Z"/><path d="M36.77,50.37c8.94,0,15.31-5.4,17.05-12.42h-11.71c-.9,1.93-2.64,3.47-5.73,3.47-2.66,0-4.96-1.24-6.1-3.86h-10.95c2.1,8.02,8.76,12.8,17.43,12.8Z"/><path d="M36.64,22.26c3.67,0,6.75,2.25,6.75,6.18l-6.82.04v6.11l17.88-.04c.13-1.09.19-2.19.19-3.22,0-10.94-7.4-17.88-17.88-17.88-.09,0-.17,0-.26.01v8.81s.08-.01.13-.01Z"/><path d="M19.98,15.55v-5.98h-11v23.41h11v-4.18c.13-11.19,11.26-11,11.26-11v-8.62c-4.82,0-8.75,2.57-11.26,6.37Z"/><path d="M315.56,5.54c.6.34,1.08.81,1.41,1.41.34.6.5,1.29.5,2.07s-.17,1.44-.5,2.04c-.34.6-.81,1.07-1.41,1.41-.61.34-1.29.51-2.05.51s-1.44-.17-2.05-.51c-.6-.34-1.08-.81-1.42-1.41-.34-.6-.51-1.28-.51-2.04s.17-1.46.51-2.07c.34-.6.82-1.08,1.42-1.41.6-.34,1.29-.5,2.05-.5s1.44.17,2.05.5Z"/></g>
+                <g fill="#8cc94e"><circle cx="64.17" cy="23.4" r="5.08" class="float"/><circle cx="64.17" cy="39.49" r="5.08" class="float" style="animation-delay:0.5s;"/></g>
+            </svg>
+            <span class="cover-x">&times;</span>
+            <div class="kiser-pill"><svg class="kiser-logo" viewBox="0 0 254.7 50.05" xmlns="http://www.w3.org/2000/svg" aria-label="Kiser Group"><g fill="#ca3301"><path d="M25.03,25.07l-7.2,7.2,17.73,17.78h11.35c1.14,0,1.73-1.37.91-2.19l-22.79-22.79Z"/><polygon points="6.47 43.63 13.08 50.05 29.54 50.05 14.5 35.6 6.47 43.63"/><polygon points="28.04 0 13.63 0 .05 13.58 .05 27.99 28.04 0"/><path d="M46.95,0h-11.35L0,35.65v14.41L47.87,2.23c.82-.82.23-2.23-.91-2.23Z"/><path d="M147.6,17.03c2.2-2.2,4.9-3.3,8-3.3,1.1,0,2.2.2,3.2.5s1.9.7,2.5,1.1c.7.4,1.3.9,1.8,1.3s.9.8,1.1,1.1l.4.5-1.6,1.4c-.1-.1-.2-.2-.3-.4-.1-.2-.4-.5-.9-.9-.4-.4-.9-.8-1.5-1.1-.5-.3-1.2-.6-2.1-.9s-1.8-.4-2.7-.4c-2.5,0-4.6.9-6.3,2.6-1.7,1.7-2.6,3.9-2.6,6.5s.9,4.7,2.6,6.5c1.7,1.7,3.8,2.6,6.3,2.6.9,0,1.7-.1,2.5-.3.8-.2,1.4-.5,2-.7.5-.3,1-.6,1.3-.9.4-.3.7-.5.8-.7l.3-.3v-4.2h-5v-2.3h7.4v7c-.1.1-.2.3-.4.5l-1.1,1.1c-.6.5-1.2,1-1.9,1.4-.7.4-1.5.8-2.6,1.1-1.1.3-2.1.5-3.2.5-3.1,0-5.8-1.1-8-3.3-2.2-2.2-3.3-4.9-3.3-8,0-3.1,1.1-5.8,3.3-8Z"/><path d="M178.8,14.03c1.9,0,3.5.6,4.8,1.9s1.9,2.8,1.9,4.7c0,.9-.2,1.8-.5,2.6-.3.8-.7,1.4-1.1,1.8s-.9.8-1.3,1.1c-.4.3-.8.5-1.1.6l-.5.2,5.2,9.1h-2.7l-4.9-8.8h-6.3v8.8h-2.4V14.13h8.9v-.1ZM172.4,16.23v8.8h6.4c1.3,0,2.4-.4,3.2-1.2s1.2-1.9,1.2-3.2-.4-2.4-1.2-3.2-1.9-1.2-3.2-1.2h-6.4Z"/><path d="M208.1,33.03c-2.2,2.2-4.9,3.3-8,3.3s-5.8-1.1-8-3.3c-2.2-2.2-3.3-4.9-3.3-8s1.1-5.8,3.3-8c2.2-2.2,4.9-3.3,8-3.3s5.8,1.1,8,3.3c2.2,2.2,3.3,4.9,3.3,8,0,3.1-1.1,5.8-3.3,8ZM193.8,31.53c1.7,1.7,3.8,2.6,6.3,2.6s4.6-.9,6.3-2.6c1.7-1.7,2.6-3.9,2.6-6.5s-.9-4.7-2.6-6.5c-1.7-1.7-3.8-2.6-6.3-2.6s-4.6.9-6.3,2.6c-1.7,1.7-2.6,3.9-2.6,6.5s.9,4.7,2.6,6.5Z"/><path d="M229.3,32.13c1.3-1.3,1.9-2.9,1.9-4.8v-13.3h2.4v13.3c0,2.4-.9,4.5-2.6,6.3-1.8,1.8-3.9,2.6-6.3,2.6s-4.5-.9-6.3-2.6c-1.8-1.8-2.6-3.9-2.6-6.3v-13.3h2.3v13.3c0,1.9.6,3.5,1.9,4.8s2.8,2,4.6,2c1.9,0,3.4-.7,4.7-2Z"/><path d="M247.7,14.03c2,0,3.7.7,5,2s2,3,2,4.9c0,2-.7,3.6-2,4.9s-3,2-5,2h-5.9v8.1h-2.4V14.03h8.3ZM241.7,16.23v9.4h5.9c1.4,0,2.6-.4,3.4-1.3.9-.9,1.3-2,1.3-3.4s-.4-2.6-1.3-3.4c-.9-.9-2-1.3-3.4-1.3h-5.9Z"/></g><g fill="#66030a"><polygon points="25.03 25.07 17.82 32.28 22.38 36.83 31.41 31.5 25.03 25.07"/><polygon points="8.16 45.27 18.28 39.25 14.5 35.6 6.47 43.63 8.16 45.27"/><path d="M55.2,23.63l8.6-9.6h5.5l-8.1,9.1,8.8,12.8h-5.5l-6.4-9.4-2.8,3.1v6.3h-4.7V14.03h4.7v9.6h-.1Z"/><path d="M72.4,14.03h4.7v21.9h-4.7V14.03Z"/><path d="M91,27.83c-.7-.4-1.6-.8-2.7-1.1-1.1-.3-2.1-.7-3.2-1.1s-2-1.1-2.7-2-1.1-2.1-1.1-3.6c0-1.8.7-3.3,2.1-4.5,1.4-1.3,3.3-1.9,5.5-1.9.9,0,1.8.1,2.6.3.8.2,1.5.5,2.1.7.5.3,1,.6,1.4.9s.7.5.9.8l.3.3-2.8,3-.5-.5c-.2-.2-.7-.5-1.4-.8-.7-.3-1.4-.5-2.2-.5-.9,0-1.6.2-2.2.7-.5.5-.8,1-.8,1.7s.4,1.3,1.1,1.8c.7.4,1.6.8,2.7,1.1,1.1.3,2.1.7,3.2,1.1s2,1.1,2.7,2,1.1,2.1,1.1,3.6c0,2-.7,3.7-2.2,5s-3.5,1.9-6.1,1.9c-1,0-2-.1-3-.4-1-.2-1.7-.5-2.4-.9-.6-.3-1.2-.7-1.6-1.1-.5-.4-.8-.7-1-.9l-.4-.4,2.8-2.8c.1.2.3.4.6.6.3.3.8.6,1.7,1,.9.4,1.8.7,2.8.7,1.1,0,2-.3,2.7-.8s1-1.2,1-2c.1-.9-.2-1.5-1-1.9Z"/><path d="M117.5,31.83v4.2h-16.5V14.13h16.1v4.2h-11.4v4.4h8.9v4.2h-8.9v4.9h11.8Z"/><path d="M121.7,14.03h9.7c2.2,0,4,.7,5.4,2.1s2.1,3.1,2.1,5.1c0,.9-.1,1.7-.4,2.5s-.6,1.4-1,1.8c-.4.5-.8.9-1.1,1.2s-.7.6-1,.7l-.4.2,4.7,8.3h-5l-4.2-7.7h-4.1v7.7h-4.7V14.03ZM133.4,19.13c-.6-.6-1.3-.8-2.1-.8h-4.8v5.8h4.8c.9,0,1.6-.3,2.1-.8.6-.5.8-1.2.8-2,0-.9-.3-1.6-.8-2.2Z"/></g></svg></div>
+        </div>
+        <div>
+            <div class="section-label reveal" style="justify-content:center;">Prepared for Debtors&rsquo; Counsel</div>
+            <h1 class="reveal" style="font-family:var(--font-display);font-weight:700;font-size:var(--title-size);letter-spacing:-0.03em;line-height:1.05;max-width:20ch;margin:0 auto;">More buyers. More offers. More for the <span class="stroke stroke--sprout stroke-animate">Fund.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></h1>
+            <p class="reveal" style="font-size:clamp(1rem,1.8vw,1.35rem);color:var(--muted-2);margin-top:clamp(0.6rem,1.4vh,1.1rem);">A disposition plan for the Debtors&rsquo; Milwaukee residential portfolio</p>
+        </div>
+        <div class="presenters reveal">
+            <div class="presenter"><b>Luis Robles</b><span>Kiser Group</span></div>
+            <div class="presenter"><b>Pedro Bando Rivera</b><span>Owner &amp; Designated Broker, reThought</span></div>
+        </div>
+    </div>
+    <div class="slide-footer" style="color:var(--muted-2);">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number" style="color:var(--muted-2);">01 / 15</div>
+</section>
+
+
+<!-- ========== SLIDE 02: THE GOAL (value chain) ========== -->
+<section class="slide" id="slide-2" data-notes="> Luis.
+
+Everything we show you today ties back to this chain.
+
+1. More qualified buyers.
+2. More offers.
+3. Better prices.
+4. **More money for the Fund.**
+
+Every pillar Pedro walks through adds buyers at the front of this chain. That is how the Fund wins.
+
+---
+
+> Luis.
+
+Todo lo que les mostramos hoy se conecta con esta cadena.
+
+1. Más compradores calificados.
+2. Más ofertas.
+3. Mejores precios.
+4. **Más dinero para el Fondo.**
+
+Cada pilar que presenta Pedro añade compradores al principio de esta cadena. Así gana el Fondo." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">The goal</div>
+            <h2 class="slide-title reveal">Every decision we make serves one chain.</h2>
+        </div>
+        <div class="chain">
+            <div class="chain-node"><div class="n">01</div><div class="t">More qualified buyers</div><div class="d">Every buyer type, reached in two languages</div></div>
+            <div class="chain-arrow a1"><svg viewBox="0 0 60 24"><path d="M4 12 H52 M44 5 L53 12 L44 19"/></svg></div>
+            <div class="chain-node"><div class="n">02</div><div class="t">More offers</div><div class="d">Competition on every property</div></div>
+            <div class="chain-arrow a2"><svg viewBox="0 0 60 24"><path d="M4 12 H52 M44 5 L53 12 L44 19"/></svg></div>
+            <div class="chain-node"><div class="n">03</div><div class="t">Better prices</div><div class="d">Fewer price cuts, fewer fallouts</div></div>
+            <div class="chain-arrow a3"><svg viewBox="0 0 60 24"><path d="M4 12 H52 M44 5 L53 12 L44 19"/></svg></div>
+            <div class="chain-node final pulse"><div class="n">04</div><div class="t">More for the Fund</div><div class="d">Higher net proceeds to the Fund</div></div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">02 / 15</div>
+</section>
+
+<!-- ========== SLIDE 03: TWO FIRMS, TWO JOBS ========== -->
+<section class="slide light" id="slide-3" data-notes="> Luis.
+
+Two firms, two jobs, one result.
+
+Kiser leads negotiations, package sales to investors, and is your point of contact.
+
+reThought opens the full market through Metro MLS and runs execution on the ground: walkthroughs, photos, floor plans, drone, showings, and access.
+
+---
+
+> Luis.
+
+Dos firmas, dos trabajos, un resultado.
+
+Kiser dirige las negociaciones y las ventas en paquete a inversionistas, y es su punto de contacto.
+
+reThought abre todo el mercado a través de Metro MLS y ejecuta en el terreno: recorridos, fotos, planos, dron, visitas y acceso." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">The partnership</div>
+            <h2 class="slide-title reveal">Two firms, two jobs, one result.</h2>
+        </div>
+        <div class="roles">
+            <div class="role-card kiser reveal">
+                <div class="who">Kiser Group</div>
+                <h3>Lead &amp; negotiate</h3>
+                <ul class="role-list">
+                    <li>Leads every negotiation for the Debtors</li>
+                    <li>Investor network and package sales</li>
+                    <li>Pricing strategy and market updates</li>
+                    <li>Primary contact for the Debtors and counsel</li>
+                </ul>
+            </div>
+            <div class="role-mid reveal-scale">
+                <div class="role-pill">One <em>team</em></div>
+                <small>Two jobs, one result</small>
+            </div>
+            <div class="role-card rt reveal">
+                <div class="who">reThought Real Estate, LLC</div>
+                <h3>Open the market &amp; execute</h3>
+                <ul class="role-list">
+                    <li>Metro MLS listing and syndication</li>
+                    <li>Walkthroughs, photos, floor plans, drone</li>
+                    <li>Showings, lockboxes and access</li>
+                    <li>Buyer agent inquiries and disclosures</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">03 / 15</div>
+</section>
+
+<!-- ========== SLIDE 04: PILLAR 1 NEIGHBORHOODS ========== -->
+<section class="slide" id="slide-4" data-notes="> Pedro.
+
+**These are not new neighborhoods for us. This is where we have worked for ten years.**
+
+We price block by block. Knowing which streets hold value, and which need a sharper price, means fewer price cuts and less time on market.
+
+And we know the buyers. Each profile here buys for a different reason and underwrites a different way:
+- First-time landlords
+- Buy-and-hold investors
+- Flippers
+- Portfolio buyers
+- Owner-occupants and first-time buyers
+
+Every property gets matched to the buyer it fits best.
+
+---
+
+> Pedro.
+
+**Estos no son vecindarios nuevos para nosotros. Aquí hemos trabajado por diez años.**
+
+Ponemos precio cuadra por cuadra. Saber qué calles mantienen su valor, y cuáles necesitan un precio más agresivo, significa menos rebajas y menos tiempo en el mercado.
+
+Y conocemos a los compradores. Cada perfil compra por una razón distinta y analiza los números de otra forma:
+- Arrendadores primerizos
+- Inversionistas de compra y retención
+- Flippers
+- Compradores de portafolio
+- Familias que van a vivir en la casa y compradores primerizos
+
+Cada propiedad se empareja con el comprador que mejor le corresponde." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">Pillar 1 &middot; Local knowledge</div>
+            <h2 class="slide-title reveal">We know these blocks, and who buys on them.</h2>
+        </div>
+        <div class="match-wrap">
+            <div class="reveal">
+                <div class="big-stat"><span class="count" data-to="10">10</span><small>years</small></div>
+                <p class="big-cap">working Milwaukee&rsquo;s inner city. We price block by block, so fewer cuts and less time on market.</p>
+            </div>
+            <div class="profile-grid stagger">
+                <div class="profile"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9H3z"/><path d="M10 20v-5h4v5"/></svg></div><b>First-time landlords</b><span>Ready-to-rent, simple numbers</span></div>
+                <div class="profile"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V6M16 20v-8M22 20H2"/></svg></div><b>Buy-and-hold</b><span>Rent rolls, long-term cash flow</span></div>
+                <div class="profile"><div class="ic"><svg viewBox="0 0 24 24"><path d="m14 6 4 4-9 9H5v-4z"/><path d="m12 8 4 4"/></svg></div><b>Flippers</b><span>Rehab scope and resale value</span></div>
+                <div class="profile"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><b>Portfolio buyers</b><span>Bundles by ZIP code</span></div>
+                <div class="profile owner"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 20c.3-2.4 1.6-4.3 4-4.3 1.6 0 2.5.6 3.5 1.8"/></svg></div><b>Owner-occupants</b><span>Families buying to live in</span></div>
+                <div class="profile owner"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M15 8l2 2"/></svg></div><b>First-time buyers</b><span>Guided from pre-approval to keys</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">04 / 15</div>
+</section>
+
+<!-- ========== SLIDE 05: PILLAR 2 PRACTITIONERS ========== -->
+<section class="slide" id="slide-5" data-notes="> Pedro.
+
+**We sell from the investor's side of the table, because we are investors.**
+
+I am a former Wisconsin dwelling contractor licensee. I have participated in over 30 flips as an agent, advisor, or investor. And every member of the reThought team owns real estate.
+
+What that means for the Fund:
+1. Every walkthrough is a contractor's walkthrough. We catch condition issues early.
+2. Accurate pricing, and solid Material Adverse Fact disclosures.
+3. Rehab insight on each listing, so buyers offer with confidence and fewer deals fall apart after inspection.
+
+---
+
+> Pedro.
+
+**Vendemos desde el lado del inversionista, porque somos inversionistas.**
+
+Fui contratista de viviendas con licencia en Wisconsin. He participado en más de 30 flips como agente, asesor o inversionista. Y cada miembro del equipo de reThought es dueño de propiedades.
+
+Lo que eso significa para el Fondo:
+1. Cada recorrido es un recorrido de contratista. Detectamos problemas de condición temprano.
+2. Precios precisos y divulgaciones sólidas de Hechos Adversos Materiales.
+3. Visión de remodelación en cada listado, para que los compradores ofrezcan con confianza y menos negocios se caigan después de la inspección." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">Pillar 2 &middot; Practitioners</div>
+            <h2 class="slide-title reveal">Practitioners, not just salespeople.</h2>
+        </div>
+        <div class="stat-strip stagger">
+            <div class="stat"><div class="v"><span class="count" data-to="30">30</span><em>+</em></div><div class="l">Flips as agent,<br>advisor or investor</div></div>
+            <div class="stat"><div class="v"><span class="count" data-to="100">100</span><em>%</em></div><div class="l">Of the reThought team<br>owns real estate</div></div>
+            <div class="stat"><div class="v"><span class="count" data-to="10">10</span><em>yrs</em></div><div class="l">Milwaukee inner-city<br>brokerage</div></div>
+        </div>
+        <div class="walk-grid stagger">
+            <div class="card"><h4>Contractor-level walkthroughs</h4><p>Former Wisconsin dwelling contractor licensee. Condition issues caught before listing, not after inspection.</p></div>
+            <div class="card"><h4>Accurate pricing &amp; disclosures</h4><p>Repair reality priced in. Material Adverse Facts documented per property.</p></div>
+            <div class="card"><h4>Rehab insight on every listing</h4><p>Buyers offer with confidence. Fewer renegotiations and fallouts.</p></div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">05 / 15</div>
+</section>
+
+<!-- ========== SLIDE 06: PILLAR 3 BUYER POOL ========== -->
+<section class="slide" id="slide-6" data-notes="> Pedro.
+
+**We do not narrow the market. We widen it.**
+
+We market to every buyer: owner-occupants, first-time buyers, local investors, and regional investors.
+
+Then we add reach most brokerages do not have. I am fully bilingual in Spanish and English. NAHREP named me one of the Top 250 Latino Agents in the country in 2017 and 2018. And I sit on the National Board of NAHREP, the largest Latino real estate trade organization in the country, which gives us access to regional investors to support Kiser's package sales.
+
+---
+
+> Pedro.
+
+**No achicamos el mercado. Lo ampliamos.**
+
+Mercadeamos a todos los compradores: familias que van a vivir en la casa, compradores primerizos, inversionistas locales e inversionistas regionales.
+
+Y añadimos un alcance que la mayoría de las corredurías no tiene. Soy completamente bilingüe en español e inglés. NAHREP me nombró uno de los Top 250 Agentes Latinos del país en 2017 y 2018. Y formo parte de la Junta Nacional de NAHREP, la organización latina de bienes raíces más grande del país, lo que nos da acceso a inversionistas regionales para apoyar las ventas en paquete de Kiser." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="pool-wrap">
+            <div>
+                <div class="section-label reveal">Pillar 3 &middot; Reach</div>
+                <h2 class="slide-title reveal">We don&rsquo;t narrow the market. We <span class="stroke stroke--sprout stroke-animate">widen<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span> it.</h2>
+                <div class="creds stagger">
+                    <div class="cred"><i class="dot"></i><p>Fully bilingual, Spanish and English <span>from first showing to closing</span></p></div>
+                    <div class="cred"><i class="dot"></i><p>NAHREP Top 250 Latino Agents <span>nationally, 2017 and 2018</span></p></div>
+                    <div class="cred"><i class="dot"></i><p>NAHREP National Board member <span>with access to regional investors for package sales</span></p></div>
+                </div>
+            </div>
+            <div class="reveal-scale" style="text-align:center;">
+            <svg class="pool-svg" viewBox="0 0 500 500" aria-label="Buyer pool rings">
+                <circle class="ring r5" cx="250" cy="250" r="244" stroke="#8cc94e"/>
+                <circle class="ring r4" cx="250" cy="250" r="226" stroke="#6ba8d6" fill="#6ba8d60d"/>
+                <circle class="ring r3" cx="250" cy="250" r="172" stroke="#6ba8d6" fill="#6ba8d612"/>
+                <circle class="ring r2" cx="250" cy="250" r="118" stroke="#6ba8d6" fill="#6ba8d61a"/>
+                <circle class="ring r1" cx="250" cy="250" r="62" stroke="#8cc94e" fill="#8cc94e30"/>
+                <g class="lbl">
+                    <text x="250" y="246" text-anchor="middle">Owner</text>
+                    <text x="250" y="263" text-anchor="middle">occupants</text>
+                    <text x="250" y="165" text-anchor="middle">First-time buyers</text>
+                    <text x="250" y="110" text-anchor="middle">Local investors</text>
+                    <text x="250" y="56" text-anchor="middle">Regional investors</text>
+                </g>
+            </svg>
+            <div class="badge badge-sprout pool-cap">+ Bilingual &amp; NAHREP reach</div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">06 / 15</div>
+</section>
+
+<!-- ========== SLIDE 07: DATA, NATIONAL ========== -->
+<section class="slide" id="slide-7" data-notes="> Pedro.
+
+Here is why that extra reach matters. This is from NAHREP's 2025 State of Hispanic Homeownership Report.
+
+**Hispanic households accounted for all of the nation's homeownership growth in 2025.** Their gains were 139.6% of net growth, offsetting declines in other groups.
+
+Hispanic owner-households rose by a record 441,000. The entire country grew by just 316,000.
+
+Hispanics formed over one million new households, 92.6% of all U.S. household growth. New households become tomorrow's buyers.
+
+And U.S. Latino GDP is 4.1 trillion dollars. As its own country, it would be the fifth largest economy in the world.
+
+**The fastest-growing group of buyers in America is one we are built to serve.**
+
+---
+
+> Pedro.
+
+Por esto importa ese alcance adicional. Esto viene del Informe del Estado de la Propiedad de Vivienda Hispana 2025 de NAHREP.
+
+**Los hogares hispanos representaron todo el crecimiento de propietarios de vivienda del país en 2025.** Sus ganancias fueron el 139.6% del crecimiento neto, compensando las caídas en otros grupos.
+
+Los hogares hispanos propietarios aumentaron en un récord de 441,000. Todo el país creció apenas 316,000.
+
+Los hispanos formaron más de un millón de hogares nuevos, el 92.6% de todo el crecimiento de hogares en EE. UU. Los hogares nuevos son los compradores de mañana.
+
+Y el PIB latino en EE. UU. es de 4.1 billones de dólares. Como país propio, sería la quinta economía más grande del mundo.
+
+**El grupo de compradores que más crece en Estados Unidos es uno que estamos hechos para servir.**" style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">The growth segment</div>
+            <h2 class="slide-title reveal">One buyer segment is driving U.S. homeownership growth.</h2>
+        </div>
+        <div class="data-grid">
+            <div class="bars reveal">
+                <div class="bar-row"><div class="bl"><span>Hispanic owner-households added, 2025</span><b><span class="count" data-to="441">441</span>K</b></div><div class="bar-track"><div class="bar-fill hi" style="--w:100%;"></div></div></div>
+                <div class="bar-row"><div class="bl"><span>All U.S. owner-households added, 2025</span><b><span class="count" data-to="316">316</span>K</b></div><div class="bar-track"><div class="bar-fill" style="--w:71.7%;"></div></div></div>
+                <p class="slide-body" style="font-size:var(--small-size);">Hispanic gains were larger than the whole market&rsquo;s net growth, offsetting declines in other groups.</p>
+            </div>
+            <div class="kpis stagger">
+                <div class="kpi"><div class="v"><span class="count" data-to="139.6" data-dec="1">139.6</span>%</div><div class="d">of net U.S. homeownership growth in 2025</div></div>
+                <div class="kpi"><div class="v"><span class="count" data-to="92.6" data-dec="1">92.6</span>%</div><div class="d">of all U.S. household growth: over 1 million new households</div></div>
+                <div class="kpi wide"><div class="v">$<span class="count" data-to="4.1" data-dec="1">4.1</span>T</div><div class="d">U.S. Latino GDP. As its own country, the 5th largest economy in the world.</div></div>
+            </div>
+        </div>
+        <div class="source-note reveal">Source: NAHREP, 2025 State of Hispanic Homeownership Report</div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">07 / 15</div>
+</section>
+
+<!-- ========== SLIDE 08: DATA, WISCONSIN GAP ========== -->
+<section class="slide light" id="slide-8" data-notes="> Pedro.
+
+Now bring it home to Wisconsin.
+
+The Hispanic homeownership rate here is 45.6%. Nationally it is 48.5%. **That gap is demand that has not been served yet.**
+
+And these buyers are working and earning. 8.4% of Wisconsin is Hispanic, labor force participation is 72.6%, and the median household income is $65,925.
+
+These properties average around one hundred thousand dollars. That is well within reach of that income.
+
+> Say out loud, not on the slide: a common rule of thumb is about three times income.
+
+The missing piece is access: bilingual service, renovation financing, and buyers prepared to close.
+
+**The buyers are here. Every one we bring to the table is one more competing offer for the Fund.**
+
+---
+
+> Pedro.
+
+Ahora llevémoslo a Wisconsin.
+
+La tasa de propietarios hispanos aquí es 45.6%. A nivel nacional es 48.5%. **Esa brecha es demanda que todavía no se ha atendido.**
+
+Y estos compradores trabajan y generan ingresos. El 8.4% de Wisconsin es hispano, la participación laboral es 72.6% y el ingreso mediano por hogar es $65,925.
+
+Estas propiedades promedian alrededor de cien mil dólares. Eso está bien al alcance de ese ingreso.
+
+> Decirlo en voz alta, no en la diapositiva: una regla general es alrededor de tres veces el ingreso.
+
+Lo que falta es acceso: servicio bilingüe, financiamiento de remodelación y compradores listos para cerrar.
+
+**Los compradores están aquí. Cada uno que traemos a la mesa es una oferta más compitiendo por el Fondo.**" style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">Wisconsin</div>
+            <h2 class="slide-title reveal">The gap is room to grow, and these homes are priced to close it.</h2>
+        </div>
+        <div class="data-grid">
+            <div class="bars reveal">
+                <div class="bar-row"><div class="bl"><span>Hispanic homeownership, U.S.</span><b>48.5%</b></div><div class="bar-track"><div class="bar-fill br" style="--w:48.5%;"></div></div></div>
+                <div class="bar-row"><div class="bl"><span>Hispanic homeownership, Wisconsin</span><b>45.6%</b></div><div class="bar-track"><div class="bar-fill hi" style="--w:45.6%;"></div></div></div>
+                <div class="callout-line" style="font-size:var(--small-size);">The missing piece is access: bilingual service, renovation financing, and buyers prepared to close.</div>
+            </div>
+            <div class="kpis stagger">
+                <div class="kpi"><div class="v"><span class="count" data-to="8.4" data-dec="1">8.4</span>%</div><div class="d">of Wisconsin&rsquo;s population is Hispanic</div></div>
+                <div class="kpi"><div class="v"><span class="count" data-to="72.6" data-dec="1">72.6</span>%</div><div class="d">labor force participation</div></div>
+                <div class="kpi wide"><div class="v">$<span class="count" data-to="65925" data-sep="1">65,925</span></div><div class="d">median Hispanic household income in Wisconsin, against portfolio prices averaging about $100K</div></div>
+            </div>
+        </div>
+        <div class="source-note reveal">Source: NAHREP, 2025 State of Hispanic Homeownership Report. Portfolio average is approximate.</div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">08 / 15</div>
+</section>
+
+<!-- ========== SLIDE 09: PILLAR 4 FINANCING ========== -->
+<section class="slide light" id="slide-9" data-notes="> Pedro.
+
+**Whether the buyer is a family or an investor, we know how to get them financed and to the closing table.**
+
+For families, we work with FHA 203(k) and conventional renovation loans. An owner-occupant can buy a home that needs work and finance the repairs in one loan. That turns cash-only properties into homes a family can buy, which means more competition and higher prices.
+
+For investors, we refer our clients to Match1 Lending for hard money financing. They can move fast on properties that will not qualify for a conventional loan.
+
+> Only mention prior F Street work if it has been disclosed in the declaration.
+
+---
+
+> Pedro.
+
+**Sea una familia o un inversionista, sabemos cómo conseguirles financiamiento y llevarlos al cierre.**
+
+Para familias, trabajamos con préstamos FHA 203(k) y de remodelación convencional. Una familia puede comprar una casa que necesita trabajo y financiar las reparaciones en un solo préstamo. Eso convierte propiedades de solo efectivo en casas que una familia puede comprar, lo que significa más competencia y mejores precios.
+
+Para inversionistas, referimos a nuestros clientes a Match1 Lending para financiamiento de dinero duro. Pueden moverse rápido en propiedades que no califican para un préstamo convencional.
+
+> Solo mencionar el trabajo previo con F Street si ya se divulgó en la declaración." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">Pillar 4 &middot; Financing</div>
+            <h2 class="slide-title reveal">Financing that widens the buyer pool.</h2>
+        </div>
+        <div class="lanes">
+            <div>
+                <div class="lane-tag">Families</div>
+                <div class="lane">
+                    <div class="lane-box"><b>Home that needs work</b><span>Normally a cash-only sale</span></div>
+                    <div class="lane-arrow a1"><svg viewBox="0 0 60 22"><path d="M4 11 H52 M44 4 L53 11 L44 18"/></svg></div>
+                    <div class="lane-box tool"><b>FHA 203(k) &amp; conventional renovation</b><span>Purchase and repairs in one loan</span></div>
+                    <div class="lane-arrow a2"><svg viewBox="0 0 60 22"><path d="M4 11 H52 M44 4 L53 11 L44 18"/></svg></div>
+                    <div class="lane-box out"><b>More competition</b><span>Owner-occupants can now bid</span></div>
+                </div>
+            </div>
+            <div>
+                <div class="lane-tag">Investors</div>
+                <div class="lane l2">
+                    <div class="lane-box"><b>Won&rsquo;t qualify conventionally</b><span>Condition or speed issue</span></div>
+                    <div class="lane-arrow a1"><svg viewBox="0 0 60 22"><path d="M4 11 H52 M44 4 L53 11 L44 18"/></svg></div>
+                    <div class="lane-box tool"><b>Hard money via Match1 Lending</b><span>We refer investor clients</span></div>
+                    <div class="lane-arrow a2"><svg viewBox="0 0 60 22"><path d="M4 11 H52 M44 4 L53 11 L44 18"/></svg></div>
+                    <div class="lane-box out"><b>Faster closings</b><span>Fewer financing fallouts</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">09 / 15</div>
+</section>
+
+<!-- ========== SLIDE 10: PILLAR 5 PRESENTATION ========== -->
+<section class="slide" id="slide-10" data-notes="> Pedro.
+
+Most agents stop at two things: the MLS and a description.
+
+**Every one of these properties gets floor plans and drone photos.** Most agents do not invest that level of presentation at these price points. We do, on every property.
+
+Floor plans let investors underwrite remotely, so more offers arrive sooner. Drone shots show the lot, the block, and nearby amenities. Professional photos are scheduled the week before launch.
+
+> No examples until listing contracts are executed. The first listing wave becomes the showcase.
+
+---
+
+> Pedro.
+
+La mayoría de los agentes se quedan en dos cosas: el MLS y una descripción.
+
+**Cada una de estas propiedades lleva planos y fotos con dron.** La mayoría de los agentes no invierten ese nivel de presentación en estos precios. Nosotros sí, en cada propiedad.
+
+Los planos permiten que los inversionistas analicen a distancia, así llegan más ofertas más rápido. Las tomas con dron muestran el solar, la cuadra y lo que hay cerca. Las fotos profesionales se programan la semana antes del lanzamiento.
+
+> No hay ejemplos hasta que se firmen los contratos de listado. La primera ola de listados será la vitrina." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">Pillar 5 &middot; Presentation</div>
+            <h2 class="slide-title reveal">Above market standard, on every property.</h2>
+        </div>
+        <div class="compare">
+            <div class="lst typical reveal">
+                <h3>Typical listing at this price</h3>
+                <ul class="chk">
+                    <li><i>&check;</i>MLS entry</li>
+                    <li><i>&check;</i>Written description</li>
+                </ul>
+            </div>
+            <div class="lst ours reveal">
+                <span class="badge badge-sprout ours-tag">Every property</span>
+                <h3>reThought listing</h3>
+                <ul class="chk ours-grid stagger">
+                    <li><i>&check;</i>MLS listing &amp; description</li>
+                    <li class="plus"><i>&check;</i><span><b>Professional photography</b>, week before launch</span></li>
+                    <li class="plus"><i>&check;</i><span><b>Floor plans</b> so investors underwrite remotely</span></li>
+                    <li class="plus"><i>&check;</i><span><b>Drone photos</b> of the lot and the block</span></li>
+                    <li class="plus"><i>&check;</i><span><b>Investor data packet</b>: rehab scope, rents, disclosures</span></li>
+                    <li class="plus"><i>&check;</i><span><b>Bilingual</b> listing descriptions</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">10 / 15</div>
+</section>
+
+<!-- ========== SLIDE 11: PILLAR 6 TEAM ========== -->
+<section class="slide light" id="slide-11" data-notes="> Pedro.
+
+**You are not hiring one agent. You are hiring a team with a system.**
+
+That is ten licensees and a dedicated admin, on a weekly rhythm:
+1. Monday, every agent reports their numbers.
+2. Tuesday, I meet with the full team.
+3. Wednesday, new listings launch, and the weekly report goes to the Fund.
+
+That rhythm is how property number 200 gets the same quality as property number 1.
+
+---
+
+> Pedro.
+
+**No están contratando a un agente. Están contratando a un equipo con un sistema.**
+
+Son diez licenciados y una asistente administrativa dedicada, con un ritmo semanal:
+1. Lunes, cada agente reporta sus números.
+2. Martes, me reúno con todo el equipo.
+3. Miércoles, salen los nuevos listados y el informe semanal va al Fondo.
+
+Ese ritmo es lo que hace que la propiedad número 200 reciba la misma calidad que la número 1." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">Pillar 6 &middot; Team &amp; accountability</div>
+            <h2 class="slide-title reveal">A team with a system, on a weekly rhythm.</h2>
+        </div>
+        <div class="week stagger">
+            <div class="day"><div class="dh"><b>Monday</b><span>Report</span></div><div class="db"><h4>Every agent reports</h4><p>Showings, inquiries, offers and status on every assigned property.</p></div></div>
+            <div class="day"><div class="dh"><b>Tuesday</b><span>Align</span></div><div class="db"><h4>Full team meeting</h4><p>Pedro reviews the numbers, fixes bottlenecks, assigns next week&rsquo;s walkthroughs.</p></div></div>
+            <div class="day wed"><div class="dh"><b>Wednesday</b><span>Launch</span></div><div class="db"><h4>Listings go live</h4><p>New listing wave launches. Weekly report goes to the Fund.</p></div></div>
+        </div>
+        <div class="team-strip reveal">
+            <div class="avatars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="adm"></i></div>
+            <p>10 licensees + a dedicated admin <span>&middot; city-wide showing coverage, same-day lead response</span></p>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">11 / 15</div>
+</section>
+
+<!-- ========== SLIDE 12: PROCESS ========== -->
+<section class="slide" id="slide-12" data-notes="> Luis, with Pedro on the waves.
+
+Here is how the portfolio moves.
+
+1. Triage and pricing in the first 30 days. One master sheet per property: title, taxes, code orders, occupancy, leases. A walkthrough and a price both firms agree on.
+2. Sort into three tracks. Move-in-ready homes to the MLS for owner-occupants. Occupied homes to investors. Distressed homes to investors as-is.
+3. Launch in weekly waves, every Wednesday, 20 to 30 at a time, with photos the week before. The strongest homes go first to set comparable sales.
+4. Offers are logged the day they arrive and presented by Kiser to the Debtors. **Every accepted offer is subject to court approval,** with documentation ready for the sale motion.
+
+---
+
+> Luis, con Pedro en las olas de listados.
+
+Así se mueve el portafolio.
+
+1. Evaluación y precios en los primeros 30 días. Una hoja maestra por propiedad: título, impuestos, órdenes de código, ocupación y arrendamientos. Un recorrido y un precio en el que ambas firmas estén de acuerdo.
+2. Clasificar en tres rutas. Casas listas para mudarse van al MLS para familias. Casas ocupadas van a inversionistas. Casas deterioradas van a inversionistas tal como están.
+3. Lanzar en olas semanales, cada miércoles, de 20 a 30 a la vez, con fotos la semana antes. Las mejores casas salen primero para establecer comparables.
+4. Las ofertas se registran el día que llegan y Kiser las presenta a los Deudores. **Toda oferta aceptada está sujeta a la aprobación del tribunal,** con la documentación lista para la moción de venta." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">The process</div>
+            <h2 class="slide-title reveal">From triage to closing, in four steps.</h2>
+        </div>
+        <div class="steps">
+            <div class="track"></div>
+            <div class="step reveal"><div class="num">1</div><div class="card"><div class="when">First 30 days</div><h4>Triage &amp; pricing</h4><p>Title, taxes, code orders, occupancy. Joint walkthrough and price.</p></div></div>
+            <div class="step reveal"><div class="num">2</div><div class="card"><div class="when">Sort</div><h4>Three tracks</h4><p>Move-in-ready to MLS. Occupied to investors. Distressed as-is.</p></div></div>
+            <div class="step reveal"><div class="num">3</div><div class="card"><div class="when">Every Wednesday</div><h4>Weekly waves</h4><p>20 to 30 listings at a time. Strongest homes first to set comps.</p></div></div>
+            <div class="step reveal"><div class="num">4</div><div class="card"><div class="when">Same day</div><h4>Offers &amp; closing</h4><p>Logged on arrival, presented by Kiser, subject to court approval.</p></div></div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">12 / 15</div>
+</section>
+
+<!-- ========== SLIDE 13: WEEKLY REPORT MOCKUP ========== -->
+<section class="slide" id="slide-13" data-notes="> Luis.
+
+Every Wednesday this report goes to the Fund, and the Fund can choose to share it with you, its attorneys. The numbers here are a sample.
+
+You get pipeline counts, days on market, price changes with the reason for each, and a full offer log with terms.
+
+**That is the record that shows the court every property was fully exposed to the market.**
+
+---
+
+> Luis.
+
+Cada miércoles este informe va al Fondo, y el Fondo puede decidir compartirlo con ustedes, sus abogados. Los números aquí son de muestra.
+
+Reciben el conteo del inventario, días en el mercado, cambios de precio con la razón de cada uno y un registro completo de ofertas con sus términos.
+
+**Ese es el récord que demuestra al tribunal que cada propiedad tuvo plena exposición al mercado.**" style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head" style="margin-bottom:clamp(0.6rem,2vh,1.4rem);">
+            <div class="section-label reveal">Reporting</div>
+            <h2 class="slide-title reveal">Every Wednesday, the Fund sees the scoreboard.</h2>
+            <p class="slide-body reveal">The Fund can share it with its attorneys at any time.</p>
+        </div>
+        <div class="dash reveal-scale">
+            <div class="dash-chrome"><i></i><i></i><i></i><span>Weekly report to the Fund &middot; Week 3</span><span class="badge badge-amber">Sample data</span></div>
+            <div class="dash-body">
+                <div class="pipe">
+                    <div><b>142</b><span>Pre-list</span></div>
+                    <div><b>48</b><span>Active</span></div>
+                    <div><b>11</b><span>Under contract</span></div>
+                    <div class="g"><b>4</b><span>Closed</span></div>
+                    <div><b>19</b><span>Avg days on market</span></div>
+                </div>
+                <table class="log">
+                    <thead><tr><th>Property</th><th>List</th><th>Offer</th><th>Terms</th><th>Received</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>Property A &middot; duplex</td><td class="m">$119,900</td><td class="m">$117,500</td><td>Conventional, 30-day close</td><td class="m">Mon</td><td><span class="st acc">Accepted</span></td></tr>
+                        <tr><td>Property B &middot; single-family</td><td class="m">$94,900</td><td class="m">$91,000</td><td>FHA 203(k)</td><td class="m">Tue</td><td><span class="st ctr">Countered</span></td></tr>
+                        <tr><td>Property C &middot; duplex</td><td class="m">$109,900</td><td class="m">$104,000</td><td>Cash, as-is</td><td class="m">Tue</td><td><span class="st new">Presented</span></td></tr>
+                        <tr><td>Property D &middot; single-family</td><td class="m">$84,900</td><td class="m">$86,000</td><td>Hard money, 14-day close</td><td class="m">Wed</td><td><span class="st new">Presented</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">13 / 15</div>
+</section>
+
+
+<!-- ========== SLIDE 14: ASKS ========== -->
+<section class="slide" id="slide-14" data-notes="> Pedro, then Luis.
+
+Four things we need from you to launch:
+1. Confirm reThought's employment is effective as of the filing date.
+2. A streamlined sale procedure for individual properties, so 200 sales do not each need their own hearing.
+3. The name of the person who signs the listing contracts for the Debtors.
+4. The first launch Wednesday.
+
+> Pause here and take questions.
+
+---
+
+> Pedro, luego Luis.
+
+Cuatro cosas que necesitamos de ustedes para lanzar:
+1. Confirmar que el empleo de reThought es efectivo desde la fecha de radicación.
+2. Un procedimiento de venta simplificado para propiedades individuales, para que 200 ventas no necesiten cada una su propia vista.
+3. El nombre de la persona que firma los contratos de listado por los Deudores.
+4. El primer miércoles de lanzamiento.
+
+> Pausa aquí y tomar preguntas." style="justify-content:center;">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="slide-head">
+            <div class="section-label reveal">Next steps</div>
+            <h2 class="slide-title reveal">Four things we need to launch.</h2>
+        </div>
+        <div class="asks stagger">
+            <div class="ask"><div class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17 19 7"/></svg></div><div><b>Effective date</b><span>reThought&rsquo;s employment effective as of the filing date</span></div></div>
+            <div class="ask"><div class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17 19 7"/></svg></div><div><b>Sale procedure</b><span>A streamlined path for individual property sales</span></div></div>
+            <div class="ask"><div class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17 19 7"/></svg></div><div><b>Signer</b><span>Who signs the listing contracts for the Debtors</span></div></div>
+            <div class="ask"><div class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17 19 7"/></svg></div><div><b>First launch Wednesday</b><span>The date the first listing wave goes live</span></div></div>
+        </div>
+    </div>
+    <div class="slide-footer">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number">14 / 15</div>
+</section>
+
+<!-- ========== SLIDE 15: CLOSE ========== -->
+<section class="slide gradient-bg" id="slide-15" data-notes="> Pedro closes.
+
+More qualified buyers means more offers. More offers means better prices. **Better prices means more money for the Fund.**
+
+Two firms, two jobs, one result.
+
+Thank you.
+
+---
+
+> Pedro cierra.
+
+Más compradores calificados significa más ofertas. Más ofertas significa mejores precios. **Mejores precios significa más dinero para el Fondo.**
+
+Dos firmas, dos trabajos, un resultado.
+
+Gracias." style="justify-content:center;align-items:center;">
+    <div class="slide-content" style="align-items:center;text-align:center;gap:var(--content-gap);justify-content:center;">
+        <div class="section-label reveal" style="justify-content:center;">Two firms &middot; two jobs &middot; one result</div>
+        <h2 class="close-line reveal">
+            <span class="dim">More buyers.</span>
+            <span class="dim">More offers.</span>
+            <span>More for the <span class="stroke stroke--sprout stroke-animate">Fund.<svg class="ul" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 9 C 50 2, 100 14, 198 6"/></svg></span></span>
+        </h2>
+        <div class="contacts reveal">
+            <div class="presenter"><b>Luis Robles</b><span>Kiser Group</span></div>
+            <div class="presenter"><b>Pedro Bando Rivera</b><span>reThought Real Estate, LLC</span></div>
+            <div class="presenter"><b>offers@rethought-realestate.com</b><span>Offers inbox</span></div>
+        </div>
+    </div>
+    <div class="slide-footer" style="color:var(--muted-2);">reThought Real Estate &times; Kiser Group</div>
+    <div class="slide-number" style="color:var(--muted-2);">15 / 15</div>
+</section>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+/* === NAVIGATION: dots, progress bar, keyboard, presenter sync === */
+const slides = document.querySelectorAll('.slide');
+const navDotsContainer = document.getElementById('navDots');
+const progressBar = document.getElementById('progressBar');
+const totalSlides = slides.length;
+
+navDotsContainer.innerHTML = '';
+slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('nav-dot');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' }));
+    navDotsContainer.appendChild(dot);
+});
+const dots = navDotsContainer.querySelectorAll('.nav-dot');
+
+let currentIndex = 0;
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            runCounters(entry.target);
+            const idx = [...slides].indexOf(entry.target);
+            currentIndex = idx;
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            progressBar.style.width = ((idx + 1) / totalSlides * 100) + '%';
+        }
+    });
+}, { threshold: 0.5 });
+slides.forEach(s => observer.observe(s));
+
+document.addEventListener('keydown', e => {
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') && currentIndex < totalSlides - 1) {
+        e.preventDefault(); slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') && currentIndex > 0) {
+        e.preventDefault(); slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+/* === ANIMATED COUNTERS ===
+   The final value is written in the HTML, so print and no-JS views stay correct.
+   Each counter counts up once, the first time its slide is visible. */
+function fmt(v, el) {
+    const dec = parseInt(el.dataset.dec || '0', 10);
+    let s = v.toFixed(dec);
+    if (el.dataset.sep) s = Number(s).toLocaleString('en-US');
+    return s;
+}
+function runCounters(slide) {
+    slide.querySelectorAll('.count').forEach(el => {
+        if (el.dataset.done) return;
+        el.dataset.done = '1';
+        const to = parseFloat(el.dataset.to);
+        const start = performance.now(), dur = 1400;
+        const tick = now => {
+            const p = Math.min(1, (now - start) / dur);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = fmt(to * eased, el);
+            if (p < 1) requestAnimationFrame(tick); else el.textContent = fmt(to, el);
+        };
+        requestAnimationFrame(tick);
+    });
+}
+window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('.count').forEach(el => { el.dataset.done = '1'; el.textContent = fmt(parseFloat(el.dataset.to), el); });
+});
+
+/* Slide sync.
+   - 'presentation-sync': newer protocol {type:'slide-change', slide, series, session}
+   - 'rethought-slides': protocol used by presenter.html {type:'navigate'|'sync-request'|'sync-response'}
+   lastSynced + remoteTarget keep a navigate we just received from being echoed back. */
+let lastSynced = -1;
+let remoteTarget = null;
+let remoteTimer = null;
+function goRemote(idx) {
+    if (typeof idx !== 'number' || idx < 0 || idx >= totalSlides) return;
+    lastSynced = idx;
+    if (idx === currentIndex) return;
+    remoteTarget = idx;
+    clearTimeout(remoteTimer);
+    remoteTimer = setTimeout(() => { remoteTarget = null; }, 1500);
+    slides[idx].scrollIntoView({ behavior: 'smooth' });
+}
+try {
+    const bc = new BroadcastChannel('presentation-sync');
+    const rc = new BroadcastChannel('rethought-slides');
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const idx = [...slides].indexOf(entry.target);
+            if (remoteTarget !== null) {
+                if (idx !== remoteTarget) return;   /* passing through during a remote jump */
+                remoteTarget = null;
+            }
+            if (idx === lastSynced) return;
+            lastSynced = idx;
+            bc.postMessage({ type: 'slide-change', slide: idx, series: 'client-pitch', session: '1' });
+            rc.postMessage({ type: 'navigate', slide: idx });
+        });
+    }, { threshold: 0.5 });
+    slides.forEach(s => observer2.observe(s));
+    bc.onmessage = e => {
+        if (e.data && e.data.type === 'slide-change' && e.data.series === 'client-pitch' && e.data.session === '1') goRemote(e.data.slide);
+    };
+    rc.onmessage = e => {
+        const m = e.data;
+        if (!m || typeof m !== 'object') return;
+        if (m.type === 'navigate') goRemote(m.slide);
+        else if (m.type === 'sync-request') rc.postMessage({ type: 'sync-response', slide: currentIndex });
+    };
+} catch (e) {}
+</script>
+
+</body>
+</html>
